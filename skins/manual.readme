@@ -1,0 +1,27 @@
+
+      HOW-TO BUILD SKINS OR MODIFY THE CURRENT SKIN
+
+               Last update : 2005-10-05
+
+        -----------------------------------------
+
+ + What is a skin made of ?
+
+    A skin is composed of a main directory whose name is the name of the skin. That directory contains 2 files (title.skin and tabs.skin) that respectively define the titlebar skin and the tabsbar skin...
+
+ + How to create a .skin file ?
+
+    A .skin file is an usual INI file (made of groups and elements)... To create a new one, please refer to the default skin provided in the archive.
+
+ + How to change the current skin ?
+
+    Until I provide an easier way to do so, you have to edit ~/.kde/share/config/yakuakerc and add (or modify) the value of the element 'skin' in the group 'Options' so that it contains the name of the skin you wish to use.
+
+    example :
+        [Options]
+        focus=true
+        height=50
+        ...
+        skin=my_skin
+
+

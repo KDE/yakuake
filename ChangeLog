@@ -1,0 +1,9 @@
+Changes since 2.7.3
+- None yet
+
+Changes since 2.7.2
+- Inline renaming of tabs by double-clicking on the tab label
+- Processes can now interact with titlebar text
+- DCOP call slotToggleState to open/close Yakuake
+- DCOP call slotGetSelectedSession
+- DCOP call slotSetTitleText

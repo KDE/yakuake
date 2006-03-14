@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=YaKuake
+Exec=yakuake
+Icon=yakuake
+Type=Application
+Comment=A KDE konsole which looks like those found in Quake.
