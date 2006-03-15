@@ -113,6 +113,7 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
 
     // Connects slots to signals --------------------------
 
+    connect(kapp, SIGNAL(aboutToQuit()), this, SLOT(slotAboutToQuit()));
     connect(tabs_bar, SIGNAL(addItem()), this, SLOT(slotAddSession()));
     connect(tabs_bar, SIGNAL(removeItem()), this, SLOT(slotRemoveSession()));
     connect(tabs_bar, SIGNAL(itemSelected(int)), this, SLOT(slotSelectSession(int)));
@@ -124,14 +125,22 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
     showPopup(i18n("Application successfully started!\nPress %1 to use it...").arg(global_key->shortcut("AccessKey").toString()));
 }
 
-MainWindow::~MainWindow()
+void MainWindow::slotAboutToQuit()
 {
     delete tabs_bar;
+    tabs_bar = 0L;
     delete title_bar;
+    title_bar = 0L;
     delete global_key;
+    global_key = 0L;
     delete back_widget;
+    back_widget = 0L;
     delete widgets_stack;
+    widgets_stack = 0L;
+}
 
+MainWindow::~MainWindow()
+{
     delete action_new;
     delete action_del;
     delete action_next;

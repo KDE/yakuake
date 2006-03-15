@@ -263,6 +263,7 @@ public slots:
 
     //-- PUBLIC SLOTS ---------------------------------------------------//
 
+    void slotAboutToQuit();
     void    slotAddSession();
     void    slotRemoveSession();
     void    slotSelectSession(int id);
