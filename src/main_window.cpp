@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
 {
     isShuttingDown = false;
     KConfig config(CONFIG_FILE);
-    
+
     initWindowProps();
 
     back_widget = new QWidget(this);
@@ -145,7 +145,7 @@ MainWindow::~MainWindow()
 {
     if (!isShuttingDown)
         slotAboutToQuit();
-    
+
     delete action_new;
     delete action_del;
     delete action_next;
@@ -401,6 +401,7 @@ int    MainWindow::createSession()
 
     index = widgets_stack->addWidget(widget);
     setenv("DCOP_YAKUAKE_SESSION", QString::number(index).ascii(), 1);
+    putenv((char*)"COLORTERM="); // Trigger mc's color detection.
 
     if ((session = new ShellSession(widget)) == NULL)
         widgets_stack->removeWidget(widget);
@@ -743,7 +744,7 @@ void    MainWindow::slotSessionDestroyed()
 {
     if (isShuttingDown)
         return;
-    
+
     QWidget* widget = widgets_stack->widget(selected_id);
 
     if (widget == 0L)
