@@ -181,6 +181,8 @@ private:
     QMap<int, ShellSession*> sessions_stack;
 
 
+    bool isShuttingDown;
+    
     //-- PRIVATE METHODS ------------------------------------------------//
 
     void    createMenu();

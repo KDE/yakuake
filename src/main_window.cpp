@@ -27,8 +27,9 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
         KMainWindow(parent, name, Qt::WStyle_Customize | Qt::WStyle_NoBorder),
         step(0)
 {
+    isShuttingDown = false;
     KConfig config(CONFIG_FILE);
-
+    
     initWindowProps();
 
     back_widget = new QWidget(this);
@@ -127,6 +128,7 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
 
 void MainWindow::slotAboutToQuit()
 {
+    isShuttingDown = true;
     delete tabs_bar;
     tabs_bar = 0L;
     delete title_bar;
@@ -141,6 +143,9 @@ void MainWindow::slotAboutToQuit()
 
 MainWindow::~MainWindow()
 {
+    if (!isShuttingDown)
+        slotAboutToQuit();
+    
     delete action_new;
     delete action_del;
     delete action_next;
@@ -736,10 +741,13 @@ void    MainWindow::slotSetLocationH(int locationH)
 
 void    MainWindow::slotSessionDestroyed()
 {
-    QWidget *   widget = widgets_stack->widget(selected_id);
+    if (isShuttingDown)
+        return;
+    
+    QWidget* widget = widgets_stack->widget(selected_id);
 
-    if (widget == NULL)
-        return ;
+    if (widget == 0L)
+        return;
 
     widgets_stack->removeWidget(widget);
     sessions_stack.remove(selected_id);
