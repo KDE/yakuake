@@ -29,7 +29,7 @@
 //== SOFTWARE INFORMATIONS ====================================================
 
 static const char version[] = "2.7.3";
-static const char description[] = I18N_NOOP("Yet Another KDE konsole which resembles those found in Quake.");
+static const char description[] = I18N_NOOP("A Quake-style terminal emulator based on KDE Konsole technology. ");
 static KCmdLineOptions options[] =
     {
         KCmdLineLastOption
@@ -41,9 +41,10 @@ static KCmdLineOptions options[] =
 
 int main(int argc, char ** argv)
 {
-    KAboutData about("yakuake", I18N_NOOP("YaKuake"), version, description,
-                     KAboutData::License_GPL, "(C) 2005 Francois Chazal", 0, 0, "neptune3k@free.fr");
-    about.addAuthor("Francois Chazal",  0, "neptune3k@free.fr");
+    KAboutData about("yakuake", I18N_NOOP("Yakuake"), version, description,
+                     KAboutData::License_GPL, "(C) 2005-2006 The Yakuake Team", 0, 0, 0);
+    about.addAuthor("Eike Hein",        I18N_NOOP("Maintainer"), "sho@eikehein.com");
+    about.addAuthor("Francois Chazal",  I18N_NOOP("Project Founder, Architect (Inactive)"), "neptune3k@free.fr");
     about.addAuthor("Martin Galpin",    0, "martin@nemohackers.org");
     about.addAuthor("Thomas Tischler",  0, "Tischler123@t-online.de");
     about.addAuthor("Stefan Bogner",    0, "bochi@kmobiletools.org");
@@ -57,7 +58,7 @@ int main(int argc, char ** argv)
 
     if (!KUniqueApplication::start())
     {
-        kdDebug() << "Yakuake is already running !!!" << endl;
+        kdDebug() << "Yakuake is already running!" << endl;
         return(0);
     }
 

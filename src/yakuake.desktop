@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=YaKuake
+Name=Yakuake
 Exec=yakuake
 Icon=yakuake
 Type=Application
-Comment=A KDE konsole which looks like those found in Quake.
+Comment=A Quake-style terminal emulator based on KDE Konsole technology.
