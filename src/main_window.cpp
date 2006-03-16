@@ -189,12 +189,12 @@ void    MainWindow::updateWindowMask()
 
 
 /******************************************************************************
-** Show a passive popup with the given caption
+** Show a passive popup with the given text
 ************************************************/
 
-void    MainWindow::showPopup(const QString & caption, int time)
+void    MainWindow::showPopup(const QString& text, int time)
 {
-    popup.setView("Yakuake Notification", caption, KApplication::kApplication()->miniIcon());
+    popup.setView(i18n("Yakuake Notification"), text, KApplication::kApplication()->miniIcon());
     popup.setTimeout(time);
     popup.show();
 }

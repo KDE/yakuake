@@ -256,8 +256,8 @@ public:
 
 
     /*
-    ** Shows a passive popup with the given caption */
-    void    showPopup(const QString & caption, int time = 5000);
+    ** Shows a passive popup with the given text */
+    void    showPopup(const QString & text, int time = 5000);
 
 
 
