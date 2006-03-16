@@ -22,9 +22,5 @@ shelldesktop_DATA = yakuake.desktop
 # this is where the shell's XML-GUI resource file goes
 shellrcdir = $(kde_datadir)/yakuake
 
-messages: rc.cpp
-	$(EXTRACTRC) `find . -name \*.ui -o -name \*.rc` > rc.cpp
-	$(XGETTEXT) *.cpp -o $(podir)/yakuake.pot
-
 noinst_HEADERS = title_bar.h image_button.h tabs_bar.h tabbed_widget.h \
 	dcop_interface.h shell_session.h
