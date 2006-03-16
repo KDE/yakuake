@@ -146,8 +146,9 @@ void    TabbedWidget::selectPreviousItem()
 ** Renames an item given its id
 *********************************/
 
-void    TabbedWidget::renameItem(int id, const QString & name)
+void    TabbedWidget::renameItem(int id, const QString & namep)
 {
+    QString name = namep.stripWhiteSpace();
     captions[id] = !name.isEmpty() ? name : defaultTabCaption(id);
     refreshBuffer();
 }
@@ -400,7 +401,7 @@ void    TabbedWidget::slotRenameSelected()
 {
     inline_edit->hide();
     
-    QString text = inline_edit->text();
+    QString text = inline_edit->text().stripWhiteSpace();
     captions[selected_id] = !text.isEmpty() ? text : defaultTabCaption(selected_id);
     
     refreshBuffer();
