@@ -1,5 +1,14 @@
 Changes since 2.7.3
-- None yet
+- A bug in the Makefiles that led to the configure script being run
+  twice has been fixed.
+- The source code is now localizable.
+- A bug that could result in a crash on quit has been fixed.
+- The COLORTERM environment variable is now being set in new sessions,
+  triggering the color detection of Midnight Commander.
+- The default session labels are now consistent with Konsole.
+- Whitespace at the beginning or end of session labels will now be
+  trimmed.
+- Setting all-whitespace session labels is no longer possible.
 
 Changes since 2.7.2
 - Inline renaming of tabs by double-clicking on the tab label
