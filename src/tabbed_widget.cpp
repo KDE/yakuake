@@ -63,7 +63,7 @@ void    TabbedWidget::addItem(int id)
 {
     items.append(id);
     areas.append(0);
-    captions.append("");
+    captions.append(defaultTabCaption(id));
 
     refreshBuffer();
 }
@@ -148,7 +148,7 @@ void    TabbedWidget::selectPreviousItem()
 
 void    TabbedWidget::renameItem(int id, const QString & name)
 {
-    captions[id] = name;
+    captions[id] = !name.isEmpty() ? name : defaultTabCaption(id);
     refreshBuffer();
 }
 
@@ -277,7 +277,7 @@ void    TabbedWidget::mouseReleaseEvent(QMouseEvent *e)
             for (id = 0, width = 0; id < selected_id; id++)
                 width += areas[id];
 
-            inline_edit->setText((captions[id] != "") ? captions[id] : "console "+ QString::number(selected_id + 1));
+            inline_edit->setText(captions[id]);
             inline_edit->setGeometry(width, 0, areas[selected_id], height());
             inline_edit->setAlignment(Qt::AlignHCenter);
             inline_edit->setFrame(false);
@@ -295,6 +295,10 @@ void    TabbedWidget::mouseReleaseEvent(QMouseEvent *e)
     }
 }
 
+QString TabbedWidget::defaultTabCaption(int id)
+{
+    return i18n("Shell", "Shell No. %n", id+1);
+}
 
 
 //== PRIVATE METHODS ==========================================================
@@ -356,18 +360,15 @@ const int   TabbedWidget::drawButton(int id, QPainter & painter)
     // draws the main contents ----------------------------
 
     int             width;
-    QString         caption;
     QFontMetrics    metrics(painter.font());
 
-    caption = (captions[id] != "") ? captions[id] : "console "+ QString::number(id + 1);
-
-    width = metrics.width(caption) + 10;
+    width = metrics.width(captions[id]) + 10;
 
     tmp_pixmap = (id == selected_id) ? selected_image : unselected_image;
     painter.drawTiledPixmap(x, 0, width, height(), tmp_pixmap);
 
     painter.drawText(x, 0, width + 1, height() + 1,
-                     Qt::AlignHCenter | Qt::AlignVCenter, caption);
+                     Qt::AlignHCenter | Qt::AlignVCenter,  captions[id]);
 
     areas[id] += width;
     x += width;
@@ -398,7 +399,10 @@ const int   TabbedWidget::drawButton(int id, QPainter & painter)
 void    TabbedWidget::slotRenameSelected()
 {
     inline_edit->hide();
-    captions[selected_id] = inline_edit->text();
+    
+    QString text = inline_edit->text();
+    captions[selected_id] = !text.isEmpty() ? text : defaultTabCaption(selected_id);
+    
     refreshBuffer();
 }
 

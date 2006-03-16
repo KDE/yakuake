@@ -119,7 +119,13 @@ protected:
 
     virtual void    mouseReleaseEvent(QMouseEvent *);
 
-
+    /**
+     * generates a default tab caption like "Shell No. 2" for a tab.
+     * 
+     * @param id the id of the tab, used to enumerate the console tabs.
+     * Note that id's are 0..n, but captions are enumerated 1..n+1. 
+     */
+    virtual QString defaultTabCaption(int id);
 
 public:
 
