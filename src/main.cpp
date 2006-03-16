@@ -45,9 +45,10 @@ int main(int argc, char ** argv)
                      KAboutData::License_GPL, "(C) 2005-2006 The Yakuake Team", 0, 0, 0);
     about.addAuthor("Eike Hein",        I18N_NOOP("Maintainer"), "sho@eikehein.com");
     about.addAuthor("Francois Chazal",  I18N_NOOP("Project Founder, Architect (Inactive)"), "neptune3k@free.fr");
-    about.addAuthor("Martin Galpin",    0, "martin@nemohackers.org");
-    about.addAuthor("Thomas Tischler",  0, "Tischler123@t-online.de");
-    about.addAuthor("Stefan Bogner",    0, "bochi@kmobiletools.org");
+    about.addCredit("Frank Osterfeld",  0, "frank.osterfeld@kdemail.net");
+    about.addCredit("Martin Galpin",    0, "martin@nemohackers.org");
+    about.addCredit("Thomas Tischler",  0, "Tischler123@t-online.de");
+    about.addCredit("Stefan Bogner",    0, "bochi@kmobiletools.org");
     about.addCredit("Georg Wittenburg", 0, "georg.wittenburg@gmx.net");
     about.addCredit("Dominik Seichter", 0, "domseichter@web.de");
     about.addCredit("Bert Speckels",    0, "bert@speckels.de");
