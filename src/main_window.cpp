@@ -93,20 +93,20 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
 
     // Initializes controls keys ------------------------
 
-    action_new = new KAction(i18n("Add tab"), SHIFT + Key_Up,
+    action_new = new KAction(i18n("Add Tab"), SHIFT + Key_Up,
                              this, SLOT(slotAddSession()),
                              actionCollection(), "Add a tab");
-    action_del = new KAction(i18n("Remove tab"), SHIFT + Key_Down,
+    action_del = new KAction(i18n("Remove Tab"), SHIFT + Key_Down,
                              this, SLOT(slotRemoveSession()),
                              actionCollection(), "Remove selected tab");
 
-    action_next = new KAction(i18n("Next tab"), SHIFT + Key_Right,
+    action_next = new KAction(i18n("Next Tab"), SHIFT + Key_Right,
                               tabs_bar, SLOT(slotSelectNextItem()),
                               actionCollection(), "Next tab");
-    action_prev = new KAction(i18n("Previous tab"), SHIFT + Key_Left,
+    action_prev = new KAction(i18n("Previous Tab"), SHIFT + Key_Left,
                               tabs_bar, SLOT(slotSelectPreviousItem()),
                               actionCollection(), "Previous tab");
-    action_paste = new KAction(i18n("Paste clipboard"), SHIFT + Key_Insert,
+    action_paste = new KAction(i18n("Paste Clipboard"), SHIFT + Key_Insert,
                                this, SLOT(slotPasteClipboard()),
                                actionCollection(), "Paste clipboard");
 
@@ -440,11 +440,11 @@ void    MainWindow::createMenu()
         screen_menu->insertItem(i18n("Screen: %1").arg(QString::number(i)), i);
 
     screen_menu->insertSeparator();
-    screen_menu->insertItem(i18n("Use mouse location"), 0);
+    screen_menu->insertItem(i18n("Use Mouse Location"), 0);
 
     if (QApplication::desktop()->numScreens() > 1)
     {
-        menu->insertItem(i18n("Screen display"), screen_menu);
+        menu->insertItem(i18n("Screen Display"), screen_menu);
         connect(screen_menu, SIGNAL(activated(int)), this, SLOT(slotSetScreen(int)));
     }
 
@@ -455,7 +455,7 @@ void    MainWindow::createMenu()
     for (int i = 10; i <= 100; i += 10)
         sizeW_menu->insertItem(QString::number(i) + "%", i);
 
-    menu->insertItem(i18n("Terminal width"), sizeW_menu);
+    menu->insertItem(i18n("Terminal Width"), sizeW_menu);
     connect(sizeW_menu, SIGNAL(activated(int)), this, SLOT(slotSetSizeW(int)));
 
     // Creates the sizeH menu -----------------------------
@@ -464,7 +464,7 @@ void    MainWindow::createMenu()
     for (int i = 10; i <= 100; i += 10)
         sizeH_menu->insertItem(QString::number(i) + "%", i);
 
-    menu->insertItem(i18n("Terminal height"), sizeH_menu);
+    menu->insertItem(i18n("Terminal Height"), sizeH_menu);
     connect(sizeH_menu, SIGNAL(activated(int)), this, SLOT(slotSetSizeH(int)));
 
     // Creates the locationH menu -------------------------
@@ -473,7 +473,7 @@ void    MainWindow::createMenu()
     for (int i = 0; i <= 100; i += 10)
         locationH_menu->insertItem(QString::number(i) + "%", i);
 
-    menu->insertItem(i18n("Horizontal location"), locationH_menu);
+    menu->insertItem(i18n("Horizontal Location"), locationH_menu);
     connect(locationH_menu, SIGNAL(activated(int)), this, SLOT(slotSetLocationH(int)));
 
     // Creates the speed menu -----------------------------
@@ -483,23 +483,23 @@ void    MainWindow::createMenu()
     for (int i = 50; i <= 500; i += 50)
         speed_menu->insertItem("~" + QString::number(i) + "ms", i/10);
 
-    menu->insertItem(i18n("Animation duration"), speed_menu);
+    menu->insertItem(i18n("Animation Duration"), speed_menu);
     connect(speed_menu, SIGNAL(activated(int)), this, SLOT(slotSetSpeed(int)));
 
     // Adds the options modifier --------------------------
 
     menu->insertTitle(i18n("Options"));
 
-    menu->insertItem(i18n("Show the tab bar"), this, SLOT(slotSetTabsPolicy()), 0, 1);
-    menu->insertItem(i18n("Retract when focus is lost"), this, SLOT(slotSetFocusPolicy()), 0, 2);
-    menu->insertItem(i18n("Force background refresh"), this, SLOT(slotSetBackgroundPolicy()), 0, 3);
+    menu->insertItem(i18n("Show the Tab Bar"), this, SLOT(slotSetTabsPolicy()), 0, 1);
+    menu->insertItem(i18n("Retract when Focus is Lost"), this, SLOT(slotSetFocusPolicy()), 0, 2);
+    menu->insertItem(i18n("Force Background Refresh"), this, SLOT(slotSetBackgroundPolicy()), 0, 3);
 
     // Adds the shortcuts modifiers -----------------------
 
     menu->insertTitle(i18n("Shortcuts"));
 
-    menu->insertItem(i18n("Change access key..."), this, SLOT(slotSetAccessKey()));
-    menu->insertItem(i18n("Change control keys..."), this, SLOT(slotSetControlKeys()));
+    menu->insertItem(i18n("Change Access Key..."), this, SLOT(slotSetAccessKey()));
+    menu->insertItem(i18n("Change Control Keys..."), this, SLOT(slotSetControlKeys()));
 }
 
 
