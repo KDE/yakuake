@@ -5,3 +5,4 @@ Exec=yakuake
 Icon=yakuake
 Type=Application
 Comment=A Quake-style terminal emulator based on KDE Konsole technology.
+Comment[pt]=Um emulador de terminal do estilo do Quake, baseado na tecnologia do Konsole do KDE.
