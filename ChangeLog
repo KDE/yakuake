@@ -1,9 +1,10 @@
 Changes since 2.7.3
 - A bug in the Makefiles that led to the configure script being run
   twice has been fixed.
-- The source code is now localizable and a number of translations
-  have been included.
+- The source code is now localizable. First translations are included.
 - A bug that could result in a crash on quit has been fixed.
+- A bug that could prevent the first line in a new session from being
+  used up to the full width of the terminal has been fixed.
 - The COLORTERM environment variable is now being set in new sessions,
   triggering the color detection of Midnight Commander.
 - The default session labels are now consistent with Konsole.
