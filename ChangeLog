@@ -1,7 +1,8 @@
 Changes since 2.7.3
 - A bug in the Makefiles that led to the configure script being run
   twice has been fixed.
-- The source code is now localizable.
+- The source code is now localizable and a number of translations
+  have been included.
 - A bug that could result in a crash on quit has been fixed.
 - The COLORTERM environment variable is now being set in new sessions,
   triggering the color detection of Midnight Commander.

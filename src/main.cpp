@@ -28,7 +28,7 @@
 
 //== SOFTWARE INFORMATIONS ====================================================
 
-static const char version[] = "2.7.3";
+static const char version[] = "2.7.4";
 static const char description[] = I18N_NOOP("A Quake-style terminal emulator based on KDE Konsole technology. ");
 static KCmdLineOptions options[] =
     {
