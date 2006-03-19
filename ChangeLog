@@ -1,3 +1,15 @@
+Changes since 2.7.4
+- Further translations have been added.
+- Yakuake no longer spawns login shells in new sessions.
+- A bug that led to the tab bar not updating after a slotSelectSession
+  DCOP call was issued has been fixed.
+- A bug could lead to the slotRenameSession DCOP call failing to set a
+  session label after an older session had been closed has been fixed.
+- After an attempt to set an all-whitespace session label, the label
+  will now fall back to its prior setting rather than a default label.
+- Yakuake will now display a warning before quitting the application
+  with multiple tabs open.
+
 Changes since 2.7.3
 - A bug in the Makefiles that led to the configure script being run
   twice has been fixed.
