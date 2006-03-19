@@ -100,14 +100,14 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
     action_new = new KAction(i18n("Add Tab"), "Ctrl+Shift+N",
                              this, SLOT(slotAddSession()),
                              actionCollection(), "add_tab");
-    action_del = new KAction(i18n("Remove Tab"), SHIFT + Key_Down,
+    action_del = new KAction(i18n("Remove Tab"), 0,
                              this, SLOT(slotRemoveSession()),
                              actionCollection(), "remove_tab");
 
-    action_next = new KAction(i18n("Next Tab"), "Alt+Right",
+    action_next = new KAction(i18n("Next Tab"), "Shift+Right",
                               tabs_bar, SLOT(slotSelectNextItem()),
                               actionCollection(), "next_tab");
-    action_prev = new KAction(i18n("Previous Tab"), "Alt+Left",
+    action_prev = new KAction(i18n("Previous Tab"), "Shift+Left",
                               tabs_bar, SLOT(slotSelectPreviousItem()),
                               actionCollection(), "previous_tab");
     action_paste = new KAction(i18n("Paste Clipboard"), SHIFT + Key_Insert,
