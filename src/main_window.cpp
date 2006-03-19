@@ -225,6 +225,13 @@ void    MainWindow::slotAddSession()
 void    MainWindow::slotSelectSession(int id)
 {
     selected_id = id;
+
+    QWidget* widget = widgets_stack->widget(id);
+
+    if (widget == NULL)
+        return;
+
+    tabs_bar->selectItem(id);
     widgets_stack->raiseWidget(id);
     widgets_stack->widget(id)->setFocus();
     title_bar->setTitleText(sessions_stack[id]->session_title);
@@ -240,7 +247,7 @@ void    MainWindow::slotRemoveSession()
     QWidget *   widget = widgets_stack->widget(selected_id);
 
     if (widget == NULL)
-        return ;
+        return;
 
     widgets_stack->removeWidget(widget);
     sessions_stack.remove(selected_id);
