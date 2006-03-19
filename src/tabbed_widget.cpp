@@ -19,7 +19,6 @@
 #include "tabbed_widget.moc"
 
 
-
 //== CONSTRUCTORS AND DESTRUCTORS =============================================
 
 
@@ -148,8 +147,11 @@ void    TabbedWidget::selectPreviousItem()
 
 void    TabbedWidget::renameItem(int id, const QString & namep)
 {
+    int index = items.findIndex(id);
+
     QString name = namep.stripWhiteSpace();
-    captions[id] = !name.isEmpty() ? name : captions[id];
+    captions[index] = !name.isEmpty() ? name : captions[index];
+
     refreshBuffer();
 }
 
