@@ -347,7 +347,7 @@ bool    MainWindow::queryClose()
         switch (result)
         {
             case KMessageBox::Yes:
-                        this->focus_policy = !focus_policy;
+                this->focus_policy = !focus_policy;
                 return true;
                 break;
             case KMessageBox::No:
