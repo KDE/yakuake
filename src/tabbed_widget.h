@@ -121,9 +121,9 @@ protected:
 
     /**
      * generates a default tab caption like "Shell No. 2" for a tab.
-     * 
+     *
      * @param id the id of the tab, used to enumerate the console tabs.
-     * Note that id's are 0..n, but captions are enumerated 1..n+1. 
+     * Note that id's are 0..n, but captions are enumerated 1..n+1.
      */
     virtual QString defaultTabCaption(int id);
 
@@ -145,6 +145,7 @@ public:
     void    selectPreviousItem();
 
     void    renameItem(int id, const QString & name);
+    void    interactiveRename();
 
     void    setFontColor(const QColor & color);
     void    setBackgroundPixmap(const QString & path);

@@ -261,6 +261,10 @@ public:
     void    showPopup(const QString & text, int time = 5000);
 
 
+    /*
+    ** Gets the tabs policy */
+    bool    getTabsPolicy() { return tabs_policy; }
+
 
 public slots:
 
@@ -276,6 +280,7 @@ public slots:
     void    slotPasteClipboard();
 
     void    slotRenameSession(int id, const QString & name);
+    void    slotInteractiveRename();
     void    slotSetSessionTitleText(int id, const QString & name);
     void    slotRunCommandInSession(int id, const QString & value);
 };

@@ -87,6 +87,16 @@ void    TabsBar::renameItem(int id, const QString & name)
 }
 
 
+/******************************************************************************
+** Open inline edit for the current item
+******************************************/
+
+void    TabsBar::interactiveRename()
+{
+    tabs_widget->interactiveRename();
+}
+
+
 //== PRIVATE SLOTS ============================================================
 
 

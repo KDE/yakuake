@@ -1,8 +1,9 @@
 Changes since 2.7.4
 - Further translations have been added.
 - Yakuake no longer spawns login shells in new sessions.
-- Keyboard shortcuts and shortcut names are now consistent with
-  Konsole defaults.
+- A keyboard shortcut to rename the selected session has been added.
+- The default keyboard shortcuts and their names are now consistent
+  with Konsole.
 - A bug that led to the tab bar not updating after a slotSelectSession
   DCOP call was issued has been fixed.
 - A bug that could lead to the slotRenameSession DCOP call failing to

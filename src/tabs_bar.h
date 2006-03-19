@@ -127,6 +127,7 @@ public:
     int     removeItem(int id);
 
     void    renameItem(int id, const QString & name);
+    void    interactiveRename();
 
 
 

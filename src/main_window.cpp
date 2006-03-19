@@ -113,6 +113,9 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
     action_paste = new KAction(i18n("Paste"), SHIFT + Key_Insert,
                                this, SLOT(slotPasteClipboard()),
                                actionCollection(), "paste_clipboard");
+    action_paste = new KAction(i18n("Rename Session..."), "Alt+Ctrl+S",
+                               this, SLOT(slotInteractiveRename()),
+                               actionCollection(), "edit_name");
 
     actionCollection()->readShortcutSettings("Shortcuts", &config);
 
@@ -283,6 +286,22 @@ void    MainWindow::slotPasteClipboard()
 void    MainWindow::slotRenameSession(int id, const QString & name)
 {
     tabs_bar->renameItem(id, name);
+}
+
+
+/******************************************************************************
+** Open inline edit for the current item and show tab bar if necessary
+************************************************************************/
+
+void    MainWindow::slotInteractiveRename()
+{
+    if (!tabs_policy && tabs_bar->isHidden())
+    {
+        slotSetTabsPolicy();
+        tabs_bar->show();
+    }
+
+    tabs_bar->interactiveRename();
 }
 
 

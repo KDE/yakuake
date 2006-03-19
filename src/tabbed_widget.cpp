@@ -17,7 +17,7 @@
 ** Local libraries */
 #include "tabbed_widget.h"
 #include "tabbed_widget.moc"
-
+#include <kdebug.h>
 
 //== CONSTRUCTORS AND DESTRUCTORS =============================================
 
@@ -153,6 +153,32 @@ void    TabbedWidget::renameItem(int id, const QString & namep)
     captions[index] = !name.isEmpty() ? name : captions[index];
 
     refreshBuffer();
+}
+
+
+/******************************************************************************
+** Open inline edit for the current item
+******************************************/
+
+void    TabbedWidget::interactiveRename()
+{
+    kdDebug() << "Hit" << endl;
+
+    uint    id;
+    int     width;
+
+    int index = items.findIndex(selected_id);
+
+    for (id = 0, width = 0; id < selected_id; id++)
+        width += areas[id];
+
+    inline_edit->setText(captions[index]);
+    inline_edit->setGeometry(width, 0, areas[index], height());
+    inline_edit->setAlignment(Qt::AlignHCenter);
+    inline_edit->setFrame(false);
+    inline_edit->selectAll();
+    inline_edit->setFocus();
+    inline_edit->show();
 }
 
 
