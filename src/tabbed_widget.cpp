@@ -149,7 +149,7 @@ void    TabbedWidget::selectPreviousItem()
 void    TabbedWidget::renameItem(int id, const QString & namep)
 {
     QString name = namep.stripWhiteSpace();
-    captions[id] = !name.isEmpty() ? name : defaultTabCaption(id);
+    captions[id] = !name.isEmpty() ? name : captions[id];
     refreshBuffer();
 }
 
@@ -400,10 +400,10 @@ const int   TabbedWidget::drawButton(int id, QPainter & painter)
 void    TabbedWidget::slotRenameSelected()
 {
     inline_edit->hide();
-    
+
     QString text = inline_edit->text().stripWhiteSpace();
-    captions[selected_id] = !text.isEmpty() ? text : defaultTabCaption(selected_id);
-    
+    captions[selected_id] = !text.isEmpty() ? text : captions[selected_id];
+
     refreshBuffer();
 }
 
