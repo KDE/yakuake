@@ -97,22 +97,22 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
 
     // Initializes controls keys ------------------------
 
-    action_new = new KAction(i18n("Add Tab"), SHIFT + Key_Up,
+    action_new = new KAction(i18n("Add Tab"), "Ctrl+Shift+N",
                              this, SLOT(slotAddSession()),
-                             actionCollection(), "Add a tab");
+                             actionCollection(), "add_tab");
     action_del = new KAction(i18n("Remove Tab"), SHIFT + Key_Down,
                              this, SLOT(slotRemoveSession()),
-                             actionCollection(), "Remove selected tab");
+                             actionCollection(), "remove_tab");
 
-    action_next = new KAction(i18n("Next Tab"), SHIFT + Key_Right,
+    action_next = new KAction(i18n("Next Tab"), "Alt+Right",
                               tabs_bar, SLOT(slotSelectNextItem()),
-                              actionCollection(), "Next tab");
-    action_prev = new KAction(i18n("Previous Tab"), SHIFT + Key_Left,
+                              actionCollection(), "next_tab");
+    action_prev = new KAction(i18n("Previous Tab"), "Alt+Left",
                               tabs_bar, SLOT(slotSelectPreviousItem()),
-                              actionCollection(), "Previous tab");
+                              actionCollection(), "previous_tab");
     action_paste = new KAction(i18n("Paste Clipboard"), SHIFT + Key_Insert,
                                this, SLOT(slotPasteClipboard()),
-                               actionCollection(), "Paste clipboard");
+                               actionCollection(), "paste_clipboard");
 
     actionCollection()->readShortcutSettings("Shortcuts", &config);
 
