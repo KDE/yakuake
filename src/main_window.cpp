@@ -14,6 +14,10 @@
 //== INCLUDE REQUIREMENTS =====================================================
 
 /*
+** KDE libraries */
+#include <kmessagebox.h>
+
+/*
 ** Local libraries */
 #include "main_window.h"
 #include "main_window.moc"
@@ -319,6 +323,49 @@ void    MainWindow::windowActivationChange(bool old_active)
 {
     if (!focus_policy && old_active && step)
         slotToggleState();
+}
+
+
+/******************************************************************************
+** Ask before closing with multiple open sessions
+***************************************************/
+
+bool    MainWindow::queryClose()
+{
+    if (sessions_stack.size() > 1)
+    {
+        this->focus_policy = !focus_policy;
+
+        int result = KMessageBox::warningYesNoCancel(
+            this,
+            i18n("You have multiple open sessions. These will be killed if you continue.\n\nDo you really want to quit?"),
+            i18n("Really Quit?"),
+            KStdGuiItem::quit(),
+            KGuiItem(i18n("C&lose Session")),
+            "QuitMultiple");
+
+        switch (result)
+        {
+            case KMessageBox::Yes:
+                        this->focus_policy = !focus_policy;
+                return true;
+                break;
+            case KMessageBox::No:
+                this->focus_policy = !focus_policy;
+                slotRemoveSession();
+                return false;
+                break;
+
+            default:
+                this->focus_policy = !focus_policy;
+                return false;
+                break;
+        }
+    }
+    else
+    {
+        return true;
+    }
 }
 
 

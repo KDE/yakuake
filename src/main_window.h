@@ -182,7 +182,7 @@ private:
 
 
     bool isShuttingDown;
-    
+
     //-- PRIVATE METHODS ------------------------------------------------//
 
     void    createMenu();
@@ -232,6 +232,7 @@ protected:
     /*
     ** Retract the window when activation changes */
     virtual void    windowActivationChange(bool old_active);
+    bool queryClose();
 
 
 
@@ -265,7 +266,7 @@ public slots:
 
     //-- PUBLIC SLOTS ---------------------------------------------------//
 
-    void slotAboutToQuit();
+    void    slotAboutToQuit();
     void    slotAddSession();
     void    slotRemoveSession();
     void    slotSelectSession(int id);

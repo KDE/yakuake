@@ -30,7 +30,7 @@ TitleBar::TitleBar(QWidget * parent, const char * name, const QString & skin) : 
     // Connects slots to signals --------------------------
 
     connect(focus_button, SIGNAL(toggled(bool)), parent, SLOT(slotSetFocusPolicy(bool)));
-    connect(quit_button, SIGNAL(clicked()), qApp, SLOT(quit()));
+    connect(quit_button, SIGNAL(clicked()), parent, SLOT(close()));
 }
 
 TitleBar::~TitleBar()
