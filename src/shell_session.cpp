@@ -47,12 +47,15 @@ ShellSession::ShellSession(QWidget * parent, const char * name) : QObject(parent
 
         session_terminal = (TerminalInterface *) (session_part->qt_cast("TerminalInterface"));
 
+/* We don't actually want a login shell_session
+
         args.append("-l");
         shell = getenv("SHELL");
         if (shell == NULL || *shell == '\0')
             shell = "/bin/sh";
 
         session_terminal->startProgram(shell, args);
+*/
 
         // Connects signals to slots ----------------------
 
