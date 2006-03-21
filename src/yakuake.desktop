@@ -1,11 +1,16 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Yakuake
+Name[tr]=Yakuake 
 Exec=yakuake
 Icon=yakuake
 Type=Application
 Comment=A Quake-style terminal emulator based on KDE Konsole technology.
+Comment[da]=En Quake-lignende terminalemulator baseret på teknologi fra KDE's program Konsole.
 Comment[de]=Ein der Quake-Konsole nachempfundener Terminalemulator basierend auf KDE Konsole.
 Comment[el]=Μία εφαρμογή τερματικού σε στυλ Quake, βασισμένη στην τεχνολογία του KDE Konsole
+Comment[it]=Un emulatore di terminale sullo stile di Quake basato sulla tecnologia di KDE Konsole.
 Comment[pt]=Um emulador de terminal do estilo do Quake, baseado na tecnologia do Konsole do KDE.
+Comment[pt_BR]=Um emulador de terminal no estilo do Quake, baseado na tecnologia do Konsole do KDE. 
 Comment[sv]=En Quake-liknande terminalemulator baserad på teknologi från KDE:s Terminal.
+Comment[tr]=KDE Konsole teknolojisi üzerine kurulu Quake stili bir terminal emülatörü
