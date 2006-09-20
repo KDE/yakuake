@@ -43,7 +43,7 @@ int main(int argc, char ** argv)
 {
     KAboutData about("yakuake", I18N_NOOP("Yakuake"), version, description,
                      KAboutData::License_GPL, "(C) 2005-2006 The Yakuake Team", 0, 0, 0);
-    about.addAuthor("Eike Hein",        I18N_NOOP("Maintainer"), "sho@eikehein.com");
+    about.addAuthor("Eike Hein",        I18N_NOOP("Maintainer"), "hein@kde.org");
     about.addAuthor("Francois Chazal",  I18N_NOOP("Project Founder, Architect (Inactive)"), "neptune3k@free.fr");
     about.addCredit("Frank Osterfeld",  0, "frank.osterfeld@kdemail.net");
     about.addCredit("Martin Galpin",    0, "martin@nemohackers.org");
