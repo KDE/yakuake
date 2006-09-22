@@ -3,7 +3,7 @@
  *   Copyright (C) 2005 by Chazal Francois             <neptune3k@free.fr>   *
  *   website : http://workspace.free.fr                                      *
  *                                                                           *
- *                     =========  GPL Licence  =========                     *
+ *                     =========  GPL License  =========                     *
  *    This program is free software; you can redistribute it and/or modify   *
  *   it under the terms of the  GNU General Public License as published by   *
  *   the  Free  Software  Foundation ; either version 2 of the License, or   *
@@ -38,7 +38,7 @@ ShellSession::ShellSession(QWidget * parent, const char * name) : QObject(parent
     if (session_part != NULL)
     {
         QStrList            args;
-        const char *        shell;
+//        const char *        shell;
 
         session_widget = session_part->widget();
         session_widget->setFocusPolicy(QWidget::WheelFocus);

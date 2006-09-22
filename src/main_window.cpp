@@ -3,7 +3,7 @@
  *   Copyright (C) 2005 by Chazal Francois             <neptune3k@free.fr>   *
  *   website : http://workspace.free.fr                                      *
  *                                                                           *
- *                     =========  GPL Licence  =========                     *
+ *                     =========  GPL License  =========                     *
  *    This program is free software; you can redistribute it and/or modify   *
  *   it under the terms of the  GNU General Public License as published by   *
  *   the  Free  Software  Foundation ; either version 2 of the License, or   *
@@ -326,7 +326,7 @@ void    MainWindow::slotRunCommandInSession(int id, const QString & value)
 
     terminal = sessions_stack[id]->session_terminal;
     if (terminal != NULL)
-        terminal->sendInput(value + "\n");
+        terminal->sendInput(value + '\n');
 }
 
 
@@ -526,7 +526,7 @@ void    MainWindow::createMenu()
 
     sizeW_menu = new KPopupMenu(menu);
     for (int i = 10; i <= 100; i += 10)
-        sizeW_menu->insertItem(QString::number(i) + "%", i);
+        sizeW_menu->insertItem(QString::number(i) + '%', i);
 
     menu->insertItem(i18n("Terminal Width"), sizeW_menu);
     connect(sizeW_menu, SIGNAL(activated(int)), this, SLOT(slotSetSizeW(int)));
@@ -535,7 +535,7 @@ void    MainWindow::createMenu()
 
     sizeH_menu = new KPopupMenu(menu);
     for (int i = 10; i <= 100; i += 10)
-        sizeH_menu->insertItem(QString::number(i) + "%", i);
+        sizeH_menu->insertItem(QString::number(i) + '%', i);
 
     menu->insertItem(i18n("Terminal Height"), sizeH_menu);
     connect(sizeH_menu, SIGNAL(activated(int)), this, SLOT(slotSetSizeH(int)));
@@ -544,7 +544,7 @@ void    MainWindow::createMenu()
 
     locationH_menu = new KPopupMenu(menu);
     for (int i = 0; i <= 100; i += 10)
-        locationH_menu->insertItem(QString::number(i) + "%", i);
+        locationH_menu->insertItem(QString::number(i) + '%', i);
 
     menu->insertItem(i18n("Horizontal Location"), locationH_menu);
     connect(locationH_menu, SIGNAL(activated(int)), this, SLOT(slotSetLocationH(int)));
@@ -554,7 +554,7 @@ void    MainWindow::createMenu()
     speed_menu = new KPopupMenu(menu);
     speed_menu->insertItem(i18n("None"), 1);
     for (int i = 50; i <= 500; i += 50)
-        speed_menu->insertItem("~" + QString::number(i) + "ms", i/10);
+        speed_menu->insertItem('~' + QString::number(i) + "ms", i/10);
 
     menu->insertItem(i18n("Animation Duration"), speed_menu);
     connect(speed_menu, SIGNAL(activated(int)), this, SLOT(slotSetSpeed(int)));
@@ -864,7 +864,7 @@ void    MainWindow::slotToggleState()
     else
         connect(&timer, SIGNAL(timeout()), this, SLOT(slotDecreaseHeight()));
 
-    timer.start(10, FALSE);
+    timer.start(10, false);
     state = !state;
 }
 
