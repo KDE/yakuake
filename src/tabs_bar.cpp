@@ -175,7 +175,7 @@ void    TabsBar::loadSkin(const QString & skin)
     root_pixmap = new KRootPixmap(this, "Transparent background");
     root_pixmap->start();
 
-    // Loads the text informations ------------------------
+    // Loads the text information -------------------------
 
     config.setGroup("Tabs");
 
