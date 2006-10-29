@@ -60,24 +60,18 @@ ShellSession::ShellSession(QWidget * parent, const char * name) : QObject(parent
 
         // Connects signals to slots ----------------------
 
-        connect(session_part, SIGNAL(destroyed()), this, SLOT(slotDestroySession()));
+        connect(session_part, SIGNAL(destroyed()), this, SLOT(deleteLater()));
         connect(session_part, SIGNAL(setWindowCaption(const QString &)), this, SLOT(slotUpdateSessionTitle(const QString &)));
     }
 }
 
 ShellSession::~ShellSession()
-{}
-
+{
+    emit destroyed(session_id);
+}
 
 
 //== PUBLIC SLOTS =============================================================
-
-void    ShellSession::slotDestroySession()
-{
-    emit destroyed(session_id);
-
-    delete this;
-}
 
 void    ShellSession::slotUpdateSessionTitle(const QString & title)
 {

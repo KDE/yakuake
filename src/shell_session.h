@@ -78,7 +78,6 @@ public slots:
 
     //-- PUBLIC SLOTS ---------------------------------------------------//
 
-    void    slotDestroySession();
     void    slotUpdateSessionTitle(const QString &);
 
 
