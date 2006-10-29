@@ -206,7 +206,7 @@ private slots:
 
     void    slotIncreaseHeight();
     void    slotDecreaseHeight();
-    void    slotSessionDestroyed();
+    void    slotSessionDestroyed(int id = -1);
 
     void    slotSetAccessKey();
     void    slotSetControlKeys();

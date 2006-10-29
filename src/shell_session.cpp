@@ -30,6 +30,7 @@ ShellSession::ShellSession(QWidget * parent, const char * name) : QObject(parent
     session_title = "";
     session_widget = NULL;
     session_terminal = NULL;
+    session_id = -1;
 
 
     if ((factory = KLibLoader::self()->factory("libkonsolepart")) != NULL)
@@ -73,6 +74,8 @@ ShellSession::~ShellSession()
 
 void    ShellSession::slotDestroySession()
 {
+    emit destroyed(session_id);
+
     delete this;
 }
 

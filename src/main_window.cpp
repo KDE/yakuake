@@ -487,7 +487,9 @@ int    MainWindow::createSession()
 
         sessions_stack.insert(index, session);
 
-        connect(session, SIGNAL(destroyed()), this, SLOT(slotSessionDestroyed()));
+        session->setId(index);
+
+        connect(session, SIGNAL(destroyed(int)), this, SLOT(slotSessionDestroyed(int)));
         connect(session, SIGNAL(titleUpdated()), this, SLOT(slotUpdateTitle()));
 
         return  index;
@@ -813,20 +815,22 @@ void    MainWindow::slotSetLocationH(int locationH)
 ** Recreates the konsole kpart
 ********************************/
 
-void    MainWindow::slotSessionDestroyed()
+void    MainWindow::slotSessionDestroyed(int id)
 {
     if (isShuttingDown)
         return;
 
-    QWidget* widget = widgets_stack->widget(selected_id);
+    int session_id = (id != -1) ? id : selected_id;
+
+    QWidget* widget = widgets_stack->widget(session_id);
 
     if (widget == 0L)
         return;
 
     widgets_stack->removeWidget(widget);
-    sessions_stack.remove(selected_id);
+    sessions_stack.remove(session_id);
 
-    if (tabs_bar->removeItem(selected_id) == -1)
+    if (tabs_bar->removeItem(session_id) == -1)
         slotAddSession();
 }
 

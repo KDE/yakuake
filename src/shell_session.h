@@ -42,6 +42,9 @@ class ShellSession : public QObject
 {
     Q_OBJECT
 
+private:
+    int session_id;
+
 public:
 
     //-- PRIVATE ATTRIBUTES ---------------------------------------------//
@@ -67,6 +70,8 @@ public:
 
     //-- PUBLIC METHODS -------------------------------------------------//
 
+    void setId(int id) { session_id = id; }
+    int id() { return session_id; }
 
 
 public slots:
@@ -83,6 +88,7 @@ signals:
     //-- SIGNALS DEFINITION ---------------------------------------------//
 
     void    titleUpdated();
+    void    destroyed(int id);
 };
 
 #endif /* SHELL_SESSION_H */

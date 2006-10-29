@@ -1,3 +1,7 @@
+Changes since 2.7.5
+- Fix crash when kpart in a tab other than the currently selected tab
+  is destroyed.
+
 Changes since 2.7.4
 - Further translations have been added.
 - Yakuake no longer spawns login shells in new sessions.
