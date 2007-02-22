@@ -113,9 +113,21 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
     action_paste = new KAction(i18n("Paste"), SHIFT + Key_Insert,
                                this, SLOT(slotPasteClipboard()),
                                actionCollection(), "paste_clipboard");
-    action_paste = new KAction(i18n("Rename Session..."), "Alt+Ctrl+S",
+    action_rename = new KAction(i18n("Rename Session..."), "Alt+Ctrl+S",
                                this, SLOT(slotInteractiveRename()),
                                actionCollection(), "edit_name");
+    action_increasew = new KAction(i18n("Increase Width"), "Alt+Shift+Right",
+                               this, SLOT(slotIncreaseSizeW()),
+                    actionCollection(), "increasew");
+    action_decreasew = new KAction(i18n("Decrease Width"), "Alt+Shift+Left",
+                               this, SLOT(slotDecreaseSizeW()),
+                    actionCollection(), "decreasew");
+    action_increaseh = new KAction(i18n("Increase Height"), "Alt+Shift+Down",
+                               this, SLOT(slotIncreaseSizeH()),
+                    actionCollection(), "increaseh");
+    action_decreaseh = new KAction(i18n("Decrease Height"), "Alt+Shift+Up",
+                               this, SLOT(slotDecreaseSizeH()),
+                    actionCollection(), "decreaseh");
 
     actionCollection()->readShortcutSettings("Shortcuts", &config);
 
@@ -157,6 +169,10 @@ MainWindow::~MainWindow()
     delete action_del;
     delete action_next;
     delete action_prev;
+    delete action_paste;
+    delete action_rename;
+    delete action_increaseh;
+    delete action_decreaseh;
 
     delete menu;
     delete sizeH_menu;
@@ -737,6 +753,56 @@ void    MainWindow::slotSetSizeH(int sizeH)
     // Updates the size of the window ---------------------
 
     slotUpdateSize();
+}
+
+/******************************************************************************
+** Increase the window's width
+****************************/
+
+void    MainWindow::slotIncreaseSizeW()
+{
+    int sizeW = this->sizeW;
+
+    if (sizeW < 100)
+        slotSetSizeW(sizeW + 10);
+}
+
+
+/******************************************************************************
+** Decrease the window's width
+****************************/
+
+void    MainWindow::slotDecreaseSizeW()
+{
+    int sizeW = this->sizeW;
+
+    if (sizeW > 10)
+        slotSetSizeW(sizeW - 10);
+}
+
+/******************************************************************************
+** Increase the window's height
+****************************/
+
+void	MainWindow::slotIncreaseSizeH()
+{
+    int sizeH = this->sizeH;
+
+    if (sizeH < 100)
+        slotSetSizeH(sizeH + 10);
+}
+
+
+/******************************************************************************
+** Decrease the window's height
+****************************/
+
+void	MainWindow::slotDecreaseSizeH()
+{
+    int sizeH = this->sizeH;
+
+    if (sizeH > 10)
+        slotSetSizeH(sizeH - 10);
 }
 
 

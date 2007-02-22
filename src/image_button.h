@@ -99,7 +99,7 @@ public:
 
     //-- CONSTRUCTORS AND DESTRUCTORS -----------------------------------//
 
-    ImageButton(QWidget * parent = 0, const char * name = 0);
+    explicit ImageButton(QWidget * parent = 0, const char * name = 0);
     ~ImageButton();
 
 

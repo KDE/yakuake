@@ -60,7 +60,7 @@ public:
 
     //-- CONSTRUCTORS AND DESTRUCTORS -----------------------------------//
 
-    ShellSession(QWidget * parent = 0, const char * name = 0);
+    explicit ShellSession(QWidget * parent = 0, const char * name = 0);
     virtual ~ShellSession();
 
 

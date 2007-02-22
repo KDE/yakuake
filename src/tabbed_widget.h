@@ -131,7 +131,7 @@ public:
 
     //-- CONSTRUCTORS AND DESTRUCTORS -----------------------------------//
 
-    TabbedWidget(QWidget * parent = 0, const char * name = 0);
+    explicit TabbedWidget(QWidget * parent = 0, const char * name = 0);
     ~TabbedWidget();
 
 

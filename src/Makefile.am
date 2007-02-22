@@ -15,9 +15,7 @@ yakuake_LDADD = $(LIB_KDEUI)
 # set the include path for X, qt and KDE
 INCLUDES = -I$(top_srcdir)/. -I$(top_srcdir)/src $(all_includes)
 
-# this is where the desktop file will go
-shelldesktopdir = $(kde_appsdir)/Utilities
-shelldesktop_DATA = yakuake.desktop
+xdg_apps_DATA = yakuake.desktop
 
 # this is where the shell's XML-GUI resource file goes
 shellrcdir = $(kde_datadir)/yakuake

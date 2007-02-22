@@ -116,7 +116,7 @@ public:
 
     //-- CONSTRUCTORS AND DESTRUCTORS -----------------------------------//
 
-    TabsBar(QWidget * parent = 0, const char * name = 0, const QString & skin = "default");
+    explicit TabsBar(QWidget * parent = 0, const char * name = 0, const QString & skin = "default");
     ~TabsBar();
 
 

@@ -142,6 +142,11 @@ private:
     KAction *       action_next;
     KAction *       action_prev;
     KAction *       action_paste;
+    KAction *       action_rename;
+    KAction *       action_increasew;
+    KAction *       action_decreasew;
+    KAction *       action_increaseh;
+    KAction *       action_decreaseh;
 
 
     /*
@@ -213,6 +218,10 @@ private slots:
 
     void    slotSetSizeW(int);
     void    slotSetSizeH(int);
+    void    slotIncreaseSizeW();
+    void    slotDecreaseSizeW();
+    void    slotIncreaseSizeH();
+    void    slotDecreaseSizeH();
     void    slotSetSpeed(int);
     void    slotSetScreen(int);
     void    slotSetLocationH(int);
@@ -240,7 +249,7 @@ public:
 
     //-- CONSTRUCTORS AND DESTRUCTORS -----------------------------------//
 
-    MainWindow(QWidget * parent = 0, const char * name = 0);
+    explicit MainWindow(QWidget * parent = 0, const char * name = 0);
     ~MainWindow();
 
 

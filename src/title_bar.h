@@ -111,7 +111,7 @@ public:
 
     //-- CONSTRUCTORS AND DESTRUCTORS -----------------------------------//
 
-    TitleBar(QWidget * parent = 0, const char * name = 0, const QString & skin = "default");
+    explicit TitleBar(QWidget * parent = 0, const char * name = 0, const QString & skin = "default");
     ~TitleBar();
 
 
