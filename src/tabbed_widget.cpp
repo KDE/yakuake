@@ -149,7 +149,7 @@ void    TabbedWidget::renameItem(int id, const QString & namep)
 {
     int index = items.findIndex(id);
 
-    if (index = -1) return;
+    if (index == -1) return;
 
     QString name = namep.stripWhiteSpace();
     captions[index] = !name.isEmpty() ? name : captions[index];
