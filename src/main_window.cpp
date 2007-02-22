@@ -247,12 +247,12 @@ void    MainWindow::slotAddSession()
 
 void    MainWindow::slotSelectSession(int id)
 {
-    selected_id = id;
-
     QWidget* widget = widgets_stack->widget(id);
 
     if (widget == NULL)
         return;
+
+    selected_id = id;
 
     tabs_bar->selectItem(id);
     widgets_stack->raiseWidget(id);

@@ -1,6 +1,13 @@
 Changes since 2.7.5
-- Fix crash when kpart in a tab other than the currently selected tab
-  is destroyed.
+- Only update the id of the selected session on a successful selection
+  switch, so DCOP's selectedSession() doesn't start returning wrong ids.
+- Bounds-check DCOP's slotRenameSession, fixing short hang when trying
+  to rename a non-existing session.
+- Install the .desktop file in the more modern XDG directory structure
+  from now on.
+- Added keyboard shortcuts to adjust width and height of window.
+- Fixed crash when kpart in a tab other than the currently selected
+  tab is destroyed.
 
 Changes since 2.7.4
 - Further translations have been added.
