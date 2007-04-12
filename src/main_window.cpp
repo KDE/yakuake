@@ -13,15 +13,15 @@
 
 //== INCLUDE REQUIREMENTS =====================================================
 
-/*
-** KDE libraries */
-#include <kmessagebox.h>
 
 /*
 ** Local libraries */
 #include "main_window.h"
 #include "main_window.moc"
 
+/*
+** KDE libraries */
+#include <kmessagebox.h>
 
 
 //== CONSTRUCTORS AND DESTRUCTORS =============================================
