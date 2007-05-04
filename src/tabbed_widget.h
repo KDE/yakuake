@@ -1,23 +1,20 @@
-/*****************************************************************************
- *                                                                           *
- *   Copyright (C) 2005 by Chazal Francois             <neptune3k@free.fr>   *
- *   website : http://workspace.free.fr                                      *
- *                                                                           *
- *                     =========  GPL License  =========                     *
- *    This program is free software; you can redistribute it and/or modify   *
- *   it under the terms of the  GNU General Public License as published by   *
- *   the  Free  Software  Foundation ; either version 2 of the License, or   *
- *   (at your option) any later version.                                     *
- *                                                                           *
- *****************************************************************************/
-
-#ifndef TABBED_WIDGET_H
-# define TABBED_WIDGET_H
-
-//== INCLUDE REQUIREMENTS ===================================================//
+/*
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+*/
 
 /*
-** Qt libraries */
+  Copyright (C) 2005 Francois Chazal <neptune3k@free.fr>
+  Copyright (C) 2006-2007 Eike Hein <hein@kde.org>
+*/
+
+
+#ifndef TABBED_WIDGET_H
+#define TABBED_WIDGET_H
+
+
 #include <qfont.h>
 #include <qcolor.h>
 #include <qpoint.h>
@@ -28,142 +25,129 @@
 #include <qvaluelist.h>
 #include <qfontmetrics.h>
 
-/*
-** KDE libraries */
 #include <klocale.h>
 #include <krootpixmap.h>
 #include <kinputdialog.h>
 
 
-//== DEFINE CLASS & DATATYPES ===============================================//
-
-/*
-** Class 'TabbedWidget' defines a tabbed widget
-*************************************************/
+class KPopupMenu;
 
 class TabbedWidget : public QWidget
 {
     Q_OBJECT
 
-private:
+    public:
+        explicit TabbedWidget(QWidget* parent = 0, const char* name = 0);
+        ~TabbedWidget();
 
-    //-- PRIVATE ATTRIBUTES ---------------------------------------------//
+        int pressedPosition();
+        void resetPressedPosition() { pressed_position = -1; }
 
-    /*
-    ** Tabs properties */
-    QColor      font_color;
-    int         selected_id;
-    QFont       selected_font;
-    QFont       unselected_font;
+        void addItem(int session_id);
+        int removeItem(int session_id);
 
+        int tabPositionForSessionId(int session_id);
+        int sessionIdForTabPosition(int position);
 
-    /*
-    ** Inline renaming */
-    QLineEdit * inline_edit;
+        void selectItem(int session_id);
+        void selectPosition(int position);
 
+        void selectNextItem();
+        void selectPreviousItem();
 
-    /*
-    ** Widget's pixmaps */
-    QPixmap     background_image;
+        void moveItemLeft();
+        void moveItemLeft(int position);
 
-    QPixmap     separator_image;
-    QPixmap     unselected_image;
+        void moveItemRight();
+        void moveItemRight(int position);
 
-    QPixmap     selected_image;
-    QPixmap     selected_left_image;
-    QPixmap     selected_right_image;
+        void renameItem(int session_id, const QString& name);
 
+        void interactiveRename();
+        void interactiveRename(int position);
 
-    /*
-    ** Widget's appearance */
-    QPixmap     buffer_image;
-    QPixmap     desktop_image;
+        void setFontColor(const QColor& color);
+        void setBackgroundPixmap(const QString& path);
+        void setSeparatorPixmap(const QString& path);
 
+        void setUnselectedPixmap(const QString& path);
 
-    /*
-    ** Tabs value lists */
-    QValueList<int>     items;
-    QValueList<int>     areas;
-    QValueList<QString> captions;
+        void setSelectedPixmap(const QString& path);
+        void setSelectedLeftPixmap(const QString& path);
+        void setSelectedRightPixmap(const QString& path);
 
-    /*
-    ** Widget's rootPixmap */
-    KRootPixmap *   root_pixmap;
+        void refreshBuffer();
 
 
-    //-- PRIVATE METHODS ------------------------------------------------//
-
-    void        refreshBuffer();
-    const int   drawButton(int id, QPainter & painter);
+    public slots:
+        void slotUpdateBackground();
 
 
-
-private slots:
-
-    //-- PRIVATE SLOTS --------------------------------------------------//
-
-    void    slotRenameSelected();
-    void    slotUpdateBuffer(const QPixmap & pixmap);
-
-    void    slotLostFocus() { inline_edit->hide(); };
+    signals:
+        void addItem();
+        void itemSelected(int session_id);
 
 
+    protected:
+        virtual void keyPressEvent(QKeyEvent*);
 
-protected:
+        virtual void wheelEvent(QWheelEvent*);
+        virtual void mousePressEvent(QMouseEvent*);
+        virtual void mouseReleaseEvent(QMouseEvent*);
+        virtual void mouseDoubleClickEvent(QMouseEvent*);
 
-    //-- PROTECTED METHODS ----------------------------------------------//
+        virtual void leaveEvent(QEvent*);
 
-    virtual void    paintEvent(QPaintEvent *);
-
-    virtual void    wheelEvent(QWheelEvent *);
-
-    virtual void    mouseReleaseEvent(QMouseEvent *);
-
-    /**
-     * generates a default tab caption like "Shell No. 2" for a tab.
-     *
-     * @param id the id of the tab, used to enumerate the console tabs.
-     * Note that id's are 0..n, but captions are enumerated 1..n+1.
-     */
-    virtual QString defaultTabCaption(int id);
-
-public:
-
-    //-- CONSTRUCTORS AND DESTRUCTORS -----------------------------------//
-
-    explicit TabbedWidget(QWidget * parent = 0, const char * name = 0);
-    ~TabbedWidget();
+        virtual void paintEvent(QPaintEvent*);
 
 
-    //-- PUBLIC METHODS -------------------------------------------------//
+    private:
+        void createContextMenu();
+        const int drawButton(int position, QPainter& painter);
+        QString defaultTabCaption(int session_id);
 
-    void    addItem(int id);
-    void    selectItem(int id);
-    int     removeItem(int id);
+        int current_position;
+        bool pressed;
+        int pressed_position;
+        int edited_position;
 
-    void    selectNextItem();
-    void    selectPreviousItem();
+        /* Tabs properties */
+        QColor font_color;
+        QFont selected_font;
+        QFont unselected_font;
 
-    void    renameItem(int id, const QString & name);
-    void    interactiveRename();
+        /* Inline renaming */
+        QLineEdit* inline_edit;
 
-    void    setFontColor(const QColor & color);
-    void    setBackgroundPixmap(const QString & path);
-    void    setSeparatorPixmap(const QString & path);
+        /* Widget's pixmaps */
+        QPixmap background_image;
 
-    void    setUnselectedPixmap(const QString & path);
+        QPixmap separator_image;
+        QPixmap unselected_image;
 
-    void    setSelectedPixmap(const QString & path);
-    void    setSelectedLeftPixmap(const QString & path);
-    void    setSelectedRightPixmap(const QString & path);
+        QPixmap selected_image;
+        QPixmap selected_left_image;
+        QPixmap selected_right_image;
+
+        /* Widget's appearance */
+        QPixmap buffer_image;
+        QPixmap desktop_image;
+
+        /* Tabs value lists */
+        QValueList<int> items;
+        QValueList<int> areas;
+        QValueList<QString> captions;
+
+        /* Widget's rootPixmap */
+        KRootPixmap* root_pixmap;
+
+        KPopupMenu* context_menu;
 
 
-
-signals:
-
-    //-- SIGNALS DEFINITION ---------------------------------------------//
-
-    void    itemSelected(int id);
+    private slots:
+        void slotRenameSelected();
+        void slotUpdateBuffer(const QPixmap& pixmap);
+        void slotResetEditedPosition();
 };
 
 #endif /* TABBED_WIDGET_H */

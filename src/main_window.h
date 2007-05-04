@@ -1,37 +1,34 @@
-/*****************************************************************************
- *                                                                           *
- *   Copyright (C) 2005 by Chazal Francois             <neptune3k@free.fr>   *
- *   website : http://workspace.free.fr                                      *
- *                                                                           *
- *                     =========  GPL License  =========                     *
- *    This program is free software; you can redistribute it and/or modify   *
- *   it under the terms of the  GNU General Public License as published by   *
- *   the  Free  Software  Foundation ; either version 2 of the License, or   *
- *   (at your option) any later version.                                     *
- *                                                                           *
- *****************************************************************************/
-
-#ifndef MAIN_WINDOW_H
-# define MAIN_WINDOW_H
-
-//== INCLUDE REQUIREMENTS ===================================================//
+/*
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+*/
 
 /*
-** Qt libraries */
+  Copyright (C) 2005 Francois Chazal <neptune3k@free.fr>
+  Copyright (C) 2006-2007 Eike Hein <hein@kde.org>
+*/
+
+
+#ifndef MAIN_WINDOW_H
+#define MAIN_WINDOW_H
+
+
+#include "tab_bar.h"
+#include "title_bar.h"
+#include "dcop_interface.h"
+#include "session.h"
+
 #include <qmap.h>
 #include <qcolor.h>
 #include <qtimer.h>
-#include <qcursor.h>
 #include <qlayout.h>
 #include <qwidget.h>
-#include <qclipboard.h>
 #include <qapplication.h>
 #include <qwidgetstack.h>
 
-/*
-** KDE libraries */
 #include <kwin.h>
-#include <kdebug.h>
 #include <kaction.h>
 #include <kconfig.h>
 #include <klocale.h>
@@ -44,254 +41,212 @@
 #include <kglobalaccel.h>
 #include <kpassivepopup.h>
 
-/*
-** Local libraries */
-#include "tabs_bar.h"
-#include "title_bar.h"
-#include "shell_session.h"
-#include "dcop_interface.h"
+
+#define CONFIG_FILE "yakuakerc"
 
 
-//== DEFINE PREPROCESSOR VARIABLES ==========================================//
-
-#define CONFIG_FILE     "yakuakerc"
-
-
-//== DEFINE CLASS & DATATYPES ===============================================//
-
-/*
-** Class 'MainWindow' defines the main window of the application
-*****************************************************************/
+class KAboutApplication;
+class KAboutKDE;
 
 class MainWindow : public KMainWindow, virtual public DCOPInterface
 {
     Q_OBJECT
 
-private:
+    public:
+        explicit MainWindow(QWidget* parent = 0, const char* name = 0);
+        ~MainWindow();
 
-    //-- PRIVATE ATTRIBUTES ---------------------------------------------//
+        int selectedSession();
+        int selectedTerminal();
 
-    /*
-    ** Animation steps */
-    int             step;
-    int             steps;
+        int tabPositionForSessionId(int session_id);
+        int sessionIdForTabPosition(int position);
 
+        void updateWindowMask();
 
-    /*
-    ** Width/Height sizes */
-    int             sizeH;
-    int             sizeW;
+        void showPopup(const QString & text, int time = 5000);
 
-    /*
-    ** horizontal location */
-    int             locationH;
 
+    public slots:
+        void slotAboutToQuit();
 
-    /*
-    ** Tabs & Focus policies */
-    int             tabs_policy;
-    int             focus_policy;
-    int             background_policy;
+        void slotToggleState();
 
+        void slotAddSession();
+        void slotAddSessionTwoHorizontal();
+        void slotAddSessionTwoVertical();
+        void slotAddSessionTwoQuad();
+        void slotAddSession(Session::SessionType type);
 
-    /*
-    ** Maximum height value */
-    int             max_height;
-    int             mask_height;
+        void slotRemoveSession();
+        void slotRemoveSession(int session_id);
 
+        void slotRemoveTerminal();
+        void slotRemoveTerminal(int session_id);
+        void slotRemoveTerminal(int session_id, int terminal_id);
 
-    /*
-    ** Xinerama screen */
-    int             screen;
+        void slotSelectSession(int session_id);
+        void slotSelectTabPosition(int position);
 
+        void slotRenameSession(int session_id, const QString& name);
+        void slotInteractiveRename();
 
-    /*
-    ** Mouse position usage */
-    bool            screen_policy;
+        const QString sessionTitle();
+        const QString sessionTitle(int session_id);
+        const QString sessionTitle(int session_id, int terminal_id);
 
+        void slotSetSessionTitleText(const QString& title);
+        void slotSetSessionTitleText(int session_id, const QString& title);
+        void slotSetSessionTitleText(int session_id, int terminal_id, const QString& title);
 
-    /*
-    ** Application skin */
-    QString         skin;
+        void slotPasteClipboard();
+        void slotPasteClipboard(int session_id);
+        void slotPasteClipboard(int session_id, int terminal_id);
 
+        void slotPasteSelection();
+        void slotPasteSelection(int session_id);
+        void slotPasteSelection(int session_id, int terminal_id);
 
-    /*
-    ** Application border */
-    int             margin;
+        void slotRunCommandInSession(const QString& command);
+        void slotRunCommandInSession(int session_id, const QString& command);
+        void slotRunCommandInSession(int session_id, int terminal_id, const QString& command);
 
+        void slotSplitHorizontally();
+        void slotSplitHorizontally(int session_id);
+        void slotSplitHorizontally(int session_id, int terminal_id);
 
-    /*
-    ** Interface modification timer */
-    QTimer          timer;
+        void slotSplitVertically();
+        void slotSplitVertically(int session_id);
+        void slotSplitVertically(int session_id, int terminal_id);
 
+        void slotFocusNextSplit();
+        void slotFocusPreviousSplit();
 
-    /*
-    ** Passive popup window */
-    KPassivePopup   popup;
 
+    signals:
+        void updateBackground();
 
-    /*
-    ** Desktop information */
-    KWinModule      desk_info;
 
+    protected:
+        virtual void windowActivationChange(bool old_active);
+        bool queryClose();
 
-    /*
-    ** Keyboard actions */
-    KAction *       action_new;
-    KAction *       action_del;
-    KAction *       action_next;
-    KAction *       action_prev;
-    KAction *       action_paste;
-    KAction *       action_rename;
-    KAction *       action_increasew;
-    KAction *       action_decreasew;
-    KAction *       action_increaseh;
-    KAction *       action_decreaseh;
 
+    private:
+        void createMenu();
+        void createSessionMenu();
+        void createTabsBar();
+        void createTitleBar();
 
-    /*
-    ** Configuration menus */
-    KPopupMenu *    menu;
-    KPopupMenu *    sizeH_menu;
-    KPopupMenu *    sizeW_menu;
-    KPopupMenu *    speed_menu;
-    KPopupMenu *    screen_menu;
-    KPopupMenu *    locationH_menu;
+        void initWindowProps();
 
+        int getMouseScreen();
+        QRect getDesktopGeometry();
 
-    /*
-    ** Global Key shortcut */
-    KGlobalAccel *  global_key;
+        bool full_screen;
 
+        /* Animation step. */
+        int step;
 
-    /*
-    ** Background widget */
-    QWidget *       back_widget;
+        /* Focus policy. */
+        bool focus_policy;
 
+        /* Maximum height value. */
+        int max_height;
+        int mask_height;
 
-    /*
-    ** Tabs bar of the application */
-    TabsBar *       tabs_bar;
+        /* Application border. */
+        int margin;
 
+        /* Interface modification timer. */
+        QTimer timer;
 
-    /*
-    ** Title bar of the application */
-    TitleBar *      title_bar;
+        /* Passive popup window. */
+        KPassivePopup popup;
 
+        /* Desktop information. */
+        KWinModule desk_info;
 
-    /*
-    ** Inner konsole of the application */
-    int                     selected_id;
-    QWidgetStack *          widgets_stack;
-    QMap<int, ShellSession*> sessions_stack;
+        /* Main menu. */
+        KPopupMenu* menu;
+        KPopupMenu* session_menu;
+        KPopupMenu* screen_menu;
+        KPopupMenu* width_menu;
+        KPopupMenu* height_menu;
 
+        /* Global Key shortcut. */
+        KGlobalAccel* global_key;
 
-    bool isShuttingDown;
+        /* Background widget. */
+        QWidget* back_widget;
 
-    //-- PRIVATE METHODS ------------------------------------------------//
+        TabBar* tab_bar;
+        TitleBar* title_bar;
 
-    void    createMenu();
-    int     createSession();
-    void    createTabsBar();
-    void    createTitleBar();
+        /* Inner konsole. */
+        int selected_id;
+        QWidgetStack* widgets_stack;
+        QMap<int, Session*> sessions_stack;
 
-    void    initWindowProps();
+        bool is_shutting_down;
+        bool background_changed;
 
-    int     getMouseScreen();
-    QRect   getDesktopGeometry();
+        enum PopupIDs { Focus };
 
+        KAction* remove_tab_action;
+        KAction* split_horiz_action;
+        KAction* split_vert_action;
+        KAction* remove_term_action;
+        KToggleFullScreenAction* full_screen_action;
 
+        KDialogBase* first_run_dialog;
 
-private slots:
+        KAboutApplication* about_app;
+        KAboutKDE* about_kde;
 
-    //-- PRIVATE SLOTS --------------------------------------------------//
 
-    void    slotUpdateSize();
-    void    slotUpdateTitle();
+    private slots:
+        void slotHandleRemoveSession(KAction::ActivationReason, Qt::ButtonState);
+        void slotHandleHorizontalSplit(KAction::ActivationReason, Qt::ButtonState);
+        void slotHandleVerticalSplit(KAction::ActivationReason, Qt::ButtonState);
+        void slotHandleRemoveTerminal(KAction::ActivationReason, Qt::ButtonState);
 
-    void    slotIncreaseHeight();
-    void    slotDecreaseHeight();
-    void    slotSessionDestroyed(int id = -1);
+        void slotInitSkin();
+        void slotUpdateSize();
+        void slotUpdateSize(int new_width, int new_height, int new_location);
+        void slotUpdateTitle(const QString& title);
 
-    void    slotSetAccessKey();
-    void    slotSetControlKeys();
+        void slotIncreaseHeight();
+        void slotDecreaseHeight();
+        void slotSessionDestroyed(int id = -1);
 
-    void    slotSetSizeW(int);
-    void    slotSetSizeH(int);
-    void    slotIncreaseSizeW();
-    void    slotDecreaseSizeW();
-    void    slotIncreaseSizeH();
-    void    slotDecreaseSizeH();
-    void    slotSetSpeed(int);
-    void    slotSetScreen(int);
-    void    slotSetLocationH(int);
-    void    slotSetTabsPolicy();
-    void    slotSetTabsPolicy(bool);
-    void    slotSetFocusPolicy();
-    void    slotSetFocusPolicy(bool);
-    void    slotSetBackgroundPolicy();
-    void    slotSetBackgroundPolicy(bool);
+        void slotSetAccessKey();
+        void slotSetControlKeys();
 
+        void slotIncreaseSizeW();
+        void slotDecreaseSizeW();
+        void slotIncreaseSizeH();
+        void slotDecreaseSizeH();
+        void slotSetFocusPolicy();
+        void slotSetFocusPolicy(bool);
+        void slotSetWidth(int);
+        void slotSetHeight(int);
+        void slotSetScreen(int);
+        void slotSetFullScreen(bool state);
+        void slotUpdateFullScreen();
 
+        void slotUpdateBackgroundState();
+        void slotUpdateSettings();
+        void slotOpenSettingsDialog();
 
-protected:
+        void slotOpenFirstRunDialog();
+        void slotFirstRunDialogOK();
+        void slotFirstRunDialogCancel();
 
-    //-- PROTECTED METHODS ----------------------------------------------//
+        void slotOpenAboutApp();
+        void slotOpenAboutKDE();
 
-    /*
-    ** Retract the window when activation changes */
-    virtual void    windowActivationChange(bool old_active);
-    bool queryClose();
-
-
-
-public:
-
-    //-- CONSTRUCTORS AND DESTRUCTORS -----------------------------------//
-
-    explicit MainWindow(QWidget * parent = 0, const char * name = 0);
-    ~MainWindow();
-
-
-    //-- PUBLIC METHODS -------------------------------------------------//
-
-    /*
-    ** Gets the selected id */
-    int    selectedSession();
-
-
-    /*
-    ** Updates the window mask */
-    void    updateWindowMask();
-
-
-    /*
-    ** Shows a passive popup with the given text */
-    void    showPopup(const QString & text, int time = 5000);
-
-
-    /*
-    ** Gets the tabs policy */
-    bool    getTabsPolicy() { return tabs_policy; }
-
-
-public slots:
-
-    //-- PUBLIC SLOTS ---------------------------------------------------//
-
-    void    slotAboutToQuit();
-    void    slotAddSession();
-    void    slotRemoveSession();
-    void    slotSelectSession(int id);
-
-    void    slotToggleState();
-
-    void    slotPasteClipboard();
-
-    void    slotRenameSession(int id, const QString & name);
-    void    slotInteractiveRename();
-    void    slotSetSessionTitleText(int id, const QString & name);
-    void    slotRunCommandInSession(int id, const QString & value);
+        void slotDialogFinished();
 };
 
 #endif /* MAIN_WINDOW_H */

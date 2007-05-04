@@ -1,23 +1,20 @@
-/*****************************************************************************
- *                                                                           *
- *   Copyright (C) 2005 by Chazal Francois             <neptune3k@free.fr>   *
- *   website : http://workspace.free.fr                                      *
- *                                                                           *
- *                     =========  GPL License  =========                     *
- *    This program is free software; you can redistribute it and/or modify   *
- *   it under the terms of the  GNU General Public License as published by   *
- *   the  Free  Software  Foundation ; either version 2 of the License, or   *
- *   (at your option) any later version.                                     *
- *                                                                           *
- *****************************************************************************/
-
-#ifndef IMAGE_BUTTON_H
-# define IMAGE_BUTTON_H
-
-//== INCLUDE REQUIREMENTS ===================================================//
+/*
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+*/
 
 /*
-** Qt libraries */
+  Copyright (C) 2005 Francois Chazal <neptune3k@free.fr>
+  Copyright (C) 2006-2007 Eike Hein <hein@kde.org>
+*/
+
+
+#ifndef IMAGE_BUTTON_H
+#define IMAGE_BUTTON_H
+
+
 #include <qurl.h>
 #include <qcolor.h>
 #include <qpoint.h>
@@ -27,112 +24,80 @@
 #include <qpainter.h>
 #include <qpopupmenu.h>
 
-/*
-** KDE libraries */
 #include <krootpixmap.h>
 
-
-//== DEFINE CLASS & DATATYPES ===============================================//
-
-/*
-** Class 'ImageButton' defines a title bar object
-**************************************************/
 
 class ImageButton : public QWidget
 {
     Q_OBJECT
 
-private:
+    public:
+        explicit ImageButton(QWidget* parent = 0, const char * name = 0);
+        ~ImageButton();
 
-    //-- PRIVATE ATTRIBUTES ---------------------------------------------//
+        /* Creates a translucent button */
+        void setTranslucent(bool value);
 
-    /*
-    ** Widget's state */
-    int     state;
-    bool    toggle;
-    bool    pressed;
+        /* Creates a toggle button */
+        void setToggleButton(bool toggled);
+        void setToggled(bool enable);
 
+        /* Sets the configuration menu */
+        void setPopupMenu(QPopupMenu* menu);
+        void setDelayedPopup(bool delay) { delay_popup = delay; }
 
-    /*
-    ** Widget's mask */
-    QRegion     mask;
-
-
-    /*
-    ** Widget's tip */
-    QString     tooltip;
-
-
-    /*
-    ** Widget's pixmaps */
-    QPixmap     up_pixmap;
-    QPixmap     over_pixmap;
-    QPixmap     down_pixmap;
+        /* Sets the widget's pixmaps */
+        void setUpPixmap(const QString& path);
+        void setOverPixmap(const QString& path);
+        void setDownPixmap(const QString& path);
 
 
-    /*
-    ** Widget's popup menu */
-    QPopupMenu *    popup_menu;
+    public slots:
+        void slotUpdateBackground();
 
 
-    /*
-    ** Widget's rootPixmap */
-    KRootPixmap *   root_pixmap;
+    signals:
+        void clicked();
+        void toggled(bool toggled);
 
 
+    protected:
+        virtual void enterEvent(QEvent*);
+        virtual void leaveEvent(QEvent*);
 
-protected:
+        virtual void paintEvent(QPaintEvent*);
 
-    //-- PROTECTED METHODS ----------------------------------------------//
-
-    virtual void    enterEvent(QEvent *);
-    virtual void    leaveEvent(QEvent *);
-
-    virtual void    paintEvent(QPaintEvent *);
-
-    virtual void    mousePressEvent(QMouseEvent *);
-    virtual void    mouseReleaseEvent(QMouseEvent *);
+        virtual void mousePressEvent(QMouseEvent*);
+        virtual void mouseReleaseEvent(QMouseEvent*);
 
 
+    private:
+        int state;
+        bool toggle;
+        bool pressed;
+        bool delay_popup;
 
-public:
+        QTimer* popup_timer;
 
-    //-- CONSTRUCTORS AND DESTRUCTORS -----------------------------------//
+        /* Widget's mask */
+        QRegion mask;
 
-    explicit ImageButton(QWidget * parent = 0, const char * name = 0);
-    ~ImageButton();
+        /* Widget's tip */
+        QString tooltip;
 
+        /* Widget's pixmaps */
+        QPixmap up_pixmap;
+        QPixmap over_pixmap;
+        QPixmap down_pixmap;
 
-    //-- PUBLIC METHODS -------------------------------------------------//
+        /* Widget's popup menu */
+        QPopupMenu* popup_menu;
 
-    /*
-    ** Creates a translucent button */
-    void    setTranslucent(bool value);
+        /* Widget's rootPixmap */
+        KRootPixmap* root_pixmap;
 
-
-    /*
-    ** Creates a toggle button */
-    void    setToggleButton(bool toggled);
-
-
-    /*
-    ** Sets the configuration menu */
-    void    setPopupMenu(QPopupMenu * menu);
-
-
-    /*
-    ** Sets the widget's pixmaps */
-    void    setUpPixmap(const QString & path);
-    void    setOverPixmap(const QString & path);
-    void    setDownPixmap(const QString & path);
-
-
-signals:
-
-    //-- SIGNALS DEFINITION ---------------------------------------------//
-
-    void    clicked();
-    void    toggled(bool toggled);
+    private slots:
+        void showPopupMenu();
 };
 
 #endif /* IMAGE_BUTTON_H */

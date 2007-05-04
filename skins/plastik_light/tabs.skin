@@ -1,15 +1,15 @@
 [Description]
-Skin=Default Tabs
-Author=Francois Chazal
-Email=neptune3k@free.fr
+Skin=Plastik (Light)
+Author=suslik
+Email=dd@accentsolution.com
 
 [Tabs]
-x=20
+x=38
 y=0
 red=255
 green=255
 blue=255
-separator_image=/tabs/unselected_back.png
+separator_image=/tabs/separator.png
 selected_background=/tabs/selected_back.png
 selected_left_corner=/tabs/selected_left.png
 selected_right_corner=/tabs/selected_right.png
@@ -21,15 +21,15 @@ left_corner=/tabs/left_corner.png
 right_corner=/tabs/right_corner.png
 
 [PlusButton]
-x=2
-y=2
+x=4
+y=5
 up_image=/tabs/plus_up.png
 over_image=/tabs/plus_over.png
 down_image=/tabs/plus_down.png
 
 [MinusButton]
-x=18
-y=2
+x=49
+y=0
 up_image=/tabs/minus_up.png
 over_image=/tabs/minus_over.png
 down_image=/tabs/minus_down.png

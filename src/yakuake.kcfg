@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile name="yakuakerc" />
+
+  <group name="Options">
+    <entry key="firstrun" type="Bool">
+      <default>true</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry> 
+    <entry key="skin" type="String">
+      <default>default</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="steps" type="Int">
+      <default>20</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="width" type="Int">
+      <default>90</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="height" type="Int">
+      <default>50</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="screen" type="Int">
+      <default>1</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="location" type="Int">
+      <default>50</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="tabs" type="Bool">
+      <default>true</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="focus" type="Bool">
+      <default>true</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="popup" type="Bool">
+      <default>true</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="confirmquit" type="Bool">
+      <default>true</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
+  </group>
+</kcfg>

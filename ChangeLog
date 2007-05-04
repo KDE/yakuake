@@ -1,13 +1,72 @@
 Changes since 2.7.5
-- Only update the id of the selected session on a successful selection
-  switch, so DCOP's selectedSession() doesn't start returning wrong ids.
-- Bounds-check DCOP's slotRenameSession, fixing short hang when trying
-  to rename a non-existing session.
-- Install the .desktop file in the more modern XDG directory structure
-  from now on.
-- Added keyboard shortcuts to adjust width and height of window.
-- Fixed crash when kpart in a tab other than the currently selected
-  tab is destroyed.
+* Added a proper config dialog. Scale and position settings are previewed in
+  real-time as the controls are moved.
+* Added a Skins page to the config dialog, allowing to list, chose, install and
+  remove (given the necessary write permissions) skins. The skin format has been
+  slightly augmented to allow skins to ship a preview icon for the list. Skins can
+  be switched at runtime without a restart.
+* The Plastik skin by Daniel 'suslik' D. has been added to the base package.
+* Added support for splitting a session into multiple terminals. Horizontal and
+  vertical splits can be added and removed at will, as well as resized and
+  collapsed. To add a split, use the keyboard shortcuts or the session tab context
+  menu. To open a session preconfigred with a certain split setup click and hold
+  the New Session button, then chose from the list.
+* The main menu has been redesigned to conform more to established KDE
+  practices. Several items have been added corresponding to new Yakuake features.
+* Added a fullscreen mode.
+* Improved support for Xinerama multi-head setups.
+* Added a first-run dialog to allow changing the open/close shortcut before it
+  is needed. Note: First-time users of this Yakuake version will be greeted by
+  this dialog as well.
+* Added an About dialog.
+* The startup notification popup can now be disabled in the config dialog.
+* Activating the open/close shortcut will now bring the Yakuake window to the
+  foreground and focus it if it was already open but unfocussed.
+* Opening dialogs from Yakuake will no longer cause the window to retract.
+* Tabs can now be moved. Added corresponding keyboard shortcuts.
+* Tabs now have context menus containing several relevant actions, such as
+  moving and closing them.
+* Double-clicking the tab-bar will now open a new session, consistent with
+  Konsole and other KDE applications.
+* Renaming a tab using the in-line edit feature now requires a double-click on
+  the tab, consistent with established KDE behavior.
+* The in-line tab renaming control can now be cancelled with ESC.
+* Fixed the interaction model of the tab bar and the buttons to allow cancelling
+  activations by releasing the mouse button outside of them.
+* Added various new keyboard shortcuts corresponding to new Yakuake features and
+  improved consistency with Konsole in existing short- cuts (e.g. added the
+  alternate new session shortcut from Konsole).
+* Added keyboard shortcuts to switch to session 1 through 12.
+* Added keyboard shortcuts to adjust the width and height of the window.
+* Added an action to paste the X11 selection buffer.
+* Added an action to quit Yakuake.
+* Made the quit warning with multiple open sessions behave consistently with
+  Konsole.
+* Greatly expanded DCOP interface. Added various new calls corresponding to new
+  Yakuake features. Made it easier to get information about the application's
+  state out of it, e.g. the title text of a session or sub-terminal. Fixed bugs
+  that caused related calls to reply with incorrect information.
+* Added What's This help and tooltips to interface elements.
+* Optimized the title bar to avoid unnecessary repaints.
+* Fixed crashes when using the slotRunCommandInSession DCOP call due to lack of
+  bounds-checking. Fixed a similar problem with slotRenameSession.
+* Bugs that caused the background updating of translucent parts of the Yakuake
+  window to stop have been fixed.
+* Adding a translucent session while the window is closed should no longer
+  result in a corrupted terminal background when opening the Yakuake window.
+* Yakuake will now fall back to the default skin on startup if the skin stored
+  in the settings cannot be found, rather than crash.
+* Fixed a crash when loading non-translucent button images from skins.
+* Bugs that caused the quick access options in the menu to come out of sync with
+  the actual settings have been fixed.
+* Fixed " - " postfix showing after the session title text when using skins
+  without their own postfix.
+* Fixed a crash when a terminal in a tab other than the currently selected tab
+  exits.
+* Ported preferences handling to KDE's KConfigXT framework.
+* Updated the installation colation of the .desktop menu file to conform to
+  modern XDG standards.
+
 
 Changes since 2.7.4
 - Further translations have been added.
@@ -25,6 +84,7 @@ Changes since 2.7.4
 - Yakuake will now display a warning before quitting the application
   with multiple tabs open.
 
+
 Changes since 2.7.3
 - A bug in the Makefiles that led to the configure script being run
   twice has been fixed.
@@ -38,6 +98,7 @@ Changes since 2.7.3
 - Whitespace at the beginning or end of session labels will now be
   trimmed.
 - Setting all-whitespace session labels is no longer possible.
+
 
 Changes since 2.7.2
 - Inline renaming of tabs by double-clicking on the tab label

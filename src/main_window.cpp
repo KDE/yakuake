@@ -1,37 +1,47 @@
-/*****************************************************************************
- *                                                                           *
- *   Copyright (C) 2005 by Chazal Francois             <neptune3k@free.fr>   *
- *   website : http://workspace.free.fr                                      *
- *                                                                           *
- *                     =========  GPL License  =========                     *
- *    This program is free software; you can redistribute it and/or modify   *
- *   it under the terms of the  GNU General Public License as published by   *
- *   the  Free  Software  Foundation ; either version 2 of the License, or   *
- *   (at your option) any later version.                                     *
- *                                                                           *
- *****************************************************************************/
-
-//== INCLUDE REQUIREMENTS =====================================================
-
+/*
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+*/
 
 /*
-** Local libraries */
+  Copyright (C) 2005 Francois Chazal <neptune3k@free.fr>
+  Copyright (C) 2006-2007 Eike Hein <hein@kde.org>
+*/
+
+
 #include "main_window.h"
 #include "main_window.moc"
+#include "settings.h"
+#include "general_settings.h"
+#include "skin_settings.h"
+#include "first_run_dialog.h"
+#include "session.h"
 
-/*
-** KDE libraries */
+#include <qsignalmapper.h>
+#include <qwhatsthis.h>
+
+#include <kaboutapplication.h>
+#include <kaboutkde.h>
 #include <kmessagebox.h>
+#include <kconfigdialog.h>
+#include <kiconloader.h>
+#include <kwin.h>
 
-
-//== CONSTRUCTORS AND DESTRUCTORS =============================================
 
 MainWindow::MainWindow(QWidget * parent, const char * name) :
         DCOPObject("DCOPInterface"),
         KMainWindow(parent, name, Qt::WStyle_Customize | Qt::WStyle_NoBorder),
         step(0)
 {
-    isShuttingDown = false;
+    first_run_dialog = 0;
+    about_app = 0;
+    about_kde = 0;
+    full_screen = false;
+    is_shutting_down = false;
+    background_changed = false;;
+
     KConfig config(CONFIG_FILE);
 
     initWindowProps();
@@ -39,117 +49,190 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
     back_widget = new QWidget(this);
     widgets_stack = new QWidgetStack(this);
 
-    // Register with DCOP ---------------------------------
-
+    // Register with DCOP.
     if (!kapp->dcopClient()->isRegistered())
     {
         kapp->dcopClient()->registerAs("dcopinterface");
         kapp->dcopClient()->setDefaultObject(objId());
     }
 
-    // Initializes the skin (1) ---------------------------
+    // Revert to default skin if selected skin can't be located.
+    if (!locate("appdata", Settings::skin() + "/title.skin"))
+        Settings::setSkin("default");
 
-    config.setGroup("Options");
-    skin = config.readEntry("skin", "default");
-
-    // Initializes the skin (2) ---------------------------
-
-    KConfig config2(locate("appdata", skin + "/title.skin"));
-
-    config2.setGroup("Border");
-
-    margin = config2.readNumEntry("width", 0);
-
-    back_widget->setBackgroundColor(QColor(config2.readNumEntry("red", 0),
-                                           config2.readNumEntry("green", 0),
-                                           config2.readNumEntry("blue", 0)));
-
-    // Creates the widgets --------------------------------
-
-    createMenu();
-    createTabsBar();
-    createTitleBar();
-
-    // Initializes the properties -------------------------
-
-    slotSetSpeed(config.readNumEntry("steps", 20));
-    slotSetSizeW(config.readNumEntry("width", 100));
-    slotSetSizeH(config.readNumEntry("height", 50));
-    slotSetScreen(config.readNumEntry("screen", 1));
-    slotSetLocationH(config.readNumEntry("location", 50));
-    slotSetTabsPolicy(config.readBoolEntry("tabs", true));
-    slotSetFocusPolicy(config.readBoolEntry("focus", true));
-    slotSetBackgroundPolicy(config.readBoolEntry("background", false));
-
-    // Add first session --------------------------------
-
-    slotAddSession();
-
-    // Initializes access key ---------------------------
-
+    // Initialize access key.
     global_key = new KGlobalAccel(this);
-    global_key->insert("AccessKey", i18n("Access key"),
-                       i18n("Toggles the open/close state of Yakuake"),
+    global_key->insert("AccessKey", i18n("Open/Close Yakuake"),
+                       i18n("Slides in and out the Yakuake window"),
                        Key_F12, 0, this, SLOT(slotToggleState()));
 
     global_key->readSettings(&config);
     global_key->updateConnections();
 
-    // Initializes controls keys ------------------------
+    // Initialize shortcuts.
+    KAction* action;
 
-    action_new = new KAction(i18n("New Session"), "Ctrl+Shift+N",
+    KShortcut shortcut(Qt::CTRL+Qt::ALT+Qt::Key_N);
+    shortcut.append(KShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_N));
+    action = new KAction(i18n("New Session"), SmallIcon("tab_new"), shortcut,
                              this, SLOT(slotAddSession()),
                              actionCollection(), "add_tab");
-    action_del = new KAction(i18n("Close Session"), 0,
-                             this, SLOT(slotRemoveSession()),
-                             actionCollection(), "remove_tab");
 
-    action_next = new KAction(i18n("Go to Next Session"), "Shift+Right",
-                              tabs_bar, SLOT(slotSelectNextItem()),
-                              actionCollection(), "next_tab");
-    action_prev = new KAction(i18n("Go to Previous Session"), "Shift+Left",
-                              tabs_bar, SLOT(slotSelectPreviousItem()),
-                              actionCollection(), "previous_tab");
-    action_paste = new KAction(i18n("Paste"), SHIFT + Key_Insert,
+    action = new KAction(i18n("Go to Next Terminal"), SmallIcon("next"),
+                             Key_F8, this, SLOT(slotFocusNextSplit()),
+                             actionCollection(), "focus_next_terminal");
+
+    action = new KAction(i18n("Go to Previous Terminal"), SmallIcon("previous"),
+                             SHIFT+Key_F8, this, SLOT(slotFocusPreviousSplit()),
+                             actionCollection(), "focus_previous_terminal");
+
+    action = new KAction(i18n("Paste"), SmallIcon("editpaste"), SHIFT+Key_Insert,
                                this, SLOT(slotPasteClipboard()),
                                actionCollection(), "paste_clipboard");
-    action_rename = new KAction(i18n("Rename Session..."), "Alt+Ctrl+S",
-                               this, SLOT(slotInteractiveRename()),
+
+    action = new KAction(i18n("Paste Selection"), SmallIcon("editpaste"),
+                               CTRL+SHIFT+Key_Insert, this, SLOT(slotPasteSelection()),
+                               actionCollection(), "paste_selection");
+
+    action = new KAction(i18n("Rename Session..."), SmallIcon("edit"),
+                               "Alt+Ctrl+S", this, SLOT(slotInteractiveRename()),
                                actionCollection(), "edit_name");
-    action_increasew = new KAction(i18n("Increase Width"), "Alt+Shift+Right",
-                               this, SLOT(slotIncreaseSizeW()),
-                    actionCollection(), "increasew");
-    action_decreasew = new KAction(i18n("Decrease Width"), "Alt+Shift+Left",
-                               this, SLOT(slotDecreaseSizeW()),
-                    actionCollection(), "decreasew");
-    action_increaseh = new KAction(i18n("Increase Height"), "Alt+Shift+Down",
-                               this, SLOT(slotIncreaseSizeH()),
-                    actionCollection(), "increaseh");
-    action_decreaseh = new KAction(i18n("Decrease Height"), "Alt+Shift+Up",
-                               this, SLOT(slotDecreaseSizeH()),
-                    actionCollection(), "decreaseh");
+
+    action = new KAction(i18n("Increase Width"), SmallIcon("viewmag+"),
+                               "Alt+Shift+Right", this, SLOT(slotIncreaseSizeW()),
+                               actionCollection(), "increasew");
+    action = new KAction(i18n("Decrease Width"), SmallIcon("viewmag-"),
+                               "Alt+Shift+Left", this, SLOT(slotDecreaseSizeW()),
+                               actionCollection(), "decreasew");
+    action = new KAction(i18n("Increase Height"), SmallIcon("viewmag+"),
+                               "Alt+Shift+Down", this, SLOT(slotIncreaseSizeH()),
+                               actionCollection(), "increaseh");
+    action = new KAction(i18n("Decrease Height"), SmallIcon("viewmag-"),
+                               "Alt+Shift+Up", this, SLOT(slotDecreaseSizeH()),
+                               actionCollection(), "decreaseh");
+
+    action = new KAction(i18n("Configure Global Shortcuts..."),
+                               SmallIcon("configure_shortcuts"), 0,
+                               this, SLOT(slotSetAccessKey()),
+                               actionCollection(), "global_shortcuts");
+
+    action = new KAction(i18n("Quit"), SmallIcon("exit"), 0, this,
+                               SLOT(close()), actionCollection(), "quit");
+
+    KStdAction::keyBindings(this, SLOT(slotSetControlKeys()), actionCollection());
+    KStdAction::preferences(this, SLOT(slotOpenSettingsDialog()), actionCollection());
+    KStdAction::aboutApp(this, SLOT(slotOpenAboutApp()), actionCollection());
+    KStdAction::aboutKDE(this, SLOT(slotOpenAboutKDE()), actionCollection());
+    KStdAction::whatsThis(this, SLOT(whatsThis()), actionCollection());
+
+    full_screen_action = KStdAction::fullScreen(this, SLOT(slotUpdateFullScreen()), actionCollection(), this);
+    connect(full_screen_action, SIGNAL(toggled(bool)), this, SLOT(slotSetFullScreen(bool)));
+
+    createMenu();
+    createSessionMenu();
+    createTitleBar();
+    createTabsBar();
+
+    action = new KAction(i18n("Go to Next Session"), SmallIcon("next"),
+                              "Shift+Right", tab_bar, SLOT(slotSelectNextItem()),
+                              actionCollection(), "next_tab");
+    action = new KAction(i18n("Go to Previous Session"), SmallIcon("previous"),
+                              "Shift+Left", tab_bar, SLOT(slotSelectPreviousItem()),
+                              actionCollection(), "previous_tab");
+
+    action = new KAction(i18n("Move Session Left"), SmallIcon("back"),
+                              "Ctrl+Shift+Left", tab_bar, SLOT(slotMoveItemLeft()),
+                              actionCollection(), "move_tab_left");
+
+    action = new KAction(i18n("Move Session Right"), SmallIcon("forward"),
+                              "Ctrl+Shift+Right", tab_bar, SLOT(slotMoveItemRight()),
+                              actionCollection(), "move_tab_right");
+
+    remove_tab_action = new KAction(i18n("Close Session"), SmallIcon("fileclose"), 0,
+                                    this, 0, actionCollection(), "remove_tab");
+    connect(remove_tab_action, SIGNAL(activated(KAction::ActivationReason, Qt::ButtonState)),
+        this, SLOT(slotHandleRemoveSession(KAction::ActivationReason, Qt::ButtonState)));
+
+    split_horiz_action = new KAction(i18n("Split Terminal Horizontally"), SmallIcon("view_left_right"),
+                                     CTRL+SHIFT+Key_L, this, 0, actionCollection(), "split_horizontally");
+    connect(split_horiz_action, SIGNAL(activated(KAction::ActivationReason, Qt::ButtonState)),
+        this, SLOT(slotHandleHorizontalSplit(KAction::ActivationReason, Qt::ButtonState)));
+
+    split_vert_action = new KAction(i18n("Split Terminal Vertically"), SmallIcon("view_top_bottom"),
+                                    CTRL+SHIFT+Key_T, this, 0, actionCollection(), "split_vertically");
+    connect(split_vert_action, SIGNAL(activated(KAction::ActivationReason, Qt::ButtonState)),
+        this, SLOT(slotHandleVerticalSplit(KAction::ActivationReason, Qt::ButtonState)));
+
+    remove_term_action = new KAction(i18n("Close Terminal"), SmallIcon("view_remove"),
+                                     CTRL+SHIFT+Key_R, this, 0, actionCollection(), "remove_terminal");
+    connect(remove_term_action, SIGNAL(activated(KAction::ActivationReason, Qt::ButtonState)),
+        this, SLOT(slotHandleRemoveTerminal(KAction::ActivationReason, Qt::ButtonState)));
+
+    QSignalMapper* tab_selection_mapper = new QSignalMapper(this);
+    connect(tab_selection_mapper, SIGNAL(mapped(int)), this, SLOT(slotSelectTabPosition(int)));
+
+    for (uint i = 1; i <= 12; ++i)
+    {
+        KAction* tab_selection_action = new KAction(i18n("Switch to Session %1").arg(i), 0, 0,
+            tab_selection_mapper, SLOT(map()), actionCollection(), QString("go_to_tab_%1").arg(i).local8Bit());
+        tab_selection_mapper->setMapping(tab_selection_action, i-1);
+    }
 
     actionCollection()->readShortcutSettings("Shortcuts", &config);
 
-    // Connects slots to signals --------------------------
+    // Initialize settings.
+    slotUpdateSettings();
+
+    // Add first session.
+    slotAddSession();
 
     connect(kapp, SIGNAL(aboutToQuit()), this, SLOT(slotAboutToQuit()));
-    connect(tabs_bar, SIGNAL(addItem()), this, SLOT(slotAddSession()));
-    connect(tabs_bar, SIGNAL(removeItem()), this, SLOT(slotRemoveSession()));
-    connect(tabs_bar, SIGNAL(itemSelected(int)), this, SLOT(slotSelectSession(int)));
-
+    connect(kapp, SIGNAL(backgroundChanged(int)), this, SLOT(slotUpdateBackgroundState()));
+    connect(tab_bar, SIGNAL(addItem()), this, SLOT(slotAddSession()));
+    connect(tab_bar, SIGNAL(removeItem()), this, SLOT(slotRemoveSession()));
+    connect(tab_bar, SIGNAL(itemSelected(int)), this, SLOT(slotSelectSession(int)));
     connect(&desk_info, SIGNAL(workAreaChanged()), this, SLOT(slotUpdateSize()));
 
-    // Displays a popup window ----------------------------
+    // Startup notification popup.
+    if (Settings::popup())
+        showPopup(i18n("Application successfully started!\nPress %1 to use it...").arg(global_key->shortcut("AccessKey").toString()));
 
-    showPopup(i18n("Application successfully started!\nPress %1 to use it...").arg(global_key->shortcut("AccessKey").toString()));
+    // First run dialog.
+    if (Settings::firstrun())
+    {
+        QTimer::singleShot(0, this, SLOT(slotToggleState()));
+        QTimer::singleShot(0, this, SLOT(slotOpenFirstRunDialog()));
+    }
+}
+
+MainWindow::~MainWindow()
+{
+
+    if (!is_shutting_down)
+        slotAboutToQuit();
+
+    delete remove_tab_action;
+    delete split_horiz_action;
+    delete split_vert_action;
+    delete remove_term_action;
+    delete full_screen_action;
+    delete screen_menu;
+    delete width_menu;
+    delete height_menu;
+    delete session_menu;
+    delete menu;
+    delete about_app;
+    delete about_kde;
 }
 
 void MainWindow::slotAboutToQuit()
 {
-    isShuttingDown = true;
-    delete tabs_bar;
-    tabs_bar = 0L;
+    is_shutting_down = true;
+
+    Settings::writeConfig();
+
+    delete tab_bar;
+    tab_bar = 0L;
     delete title_bar;
     title_bar = 0L;
     delete global_key;
@@ -160,239 +243,38 @@ void MainWindow::slotAboutToQuit()
     widgets_stack = 0L;
 }
 
-MainWindow::~MainWindow()
+bool MainWindow::queryClose()
 {
-    if (!isShuttingDown)
-        slotAboutToQuit();
+    /* Ask before closing with multiple open sessions. */
 
-    delete action_new;
-    delete action_del;
-    delete action_next;
-    delete action_prev;
-    delete action_paste;
-    delete action_rename;
-    delete action_increaseh;
-    delete action_decreaseh;
-
-    delete menu;
-    delete sizeH_menu;
-    delete sizeW_menu;
-    delete speed_menu;
-    delete locationH_menu;
-}
-
-
-
-//== PUBLIC METHODS ===========================================================
-
-
-/******************************************************************************
-** Returns the selected id
-****************************/
-
-int    MainWindow::selectedSession()
-{
-    return selected_id;
-}
-
-
-/******************************************************************************
-** Updates the window's mask
-******************************/
-
-void    MainWindow::updateWindowMask()
-{
-    QRegion mask = title_bar->getWidgetMask();
-
-    mask.translate(0, mask_height);
-    mask += QRegion(0, 0, width(), mask_height);
-
-    setMask(mask);
-}
-
-
-/******************************************************************************
-** Show a passive popup with the given text
-************************************************/
-
-void    MainWindow::showPopup(const QString& text, int time)
-{
-    popup.setView(i18n("Yakuake Notification"), text, KApplication::kApplication()->miniIcon());
-    popup.setTimeout(time);
-    popup.show();
-}
-
-
-
-//== PUBLIC SLOTS =============================================================
-
-
-/******************************************************************************
-** Adds a session
-*******************/
-
-void    MainWindow::slotAddSession()
-{
-    selected_id = createSession();
-
-    tabs_bar->addItem(selected_id);
-    widgets_stack->raiseWidget(selected_id);
-    title_bar->setTitleText(sessions_stack[selected_id]->session_title);
-}
-
-
-/******************************************************************************
-** Selects a given session
-****************************/
-
-void    MainWindow::slotSelectSession(int id)
-{
-    QWidget* widget = widgets_stack->widget(id);
-
-    if (widget == NULL)
-        return;
-
-    selected_id = id;
-
-    tabs_bar->selectItem(id);
-    widgets_stack->raiseWidget(id);
-    widgets_stack->widget(id)->setFocus();
-    title_bar->setTitleText(sessions_stack[id]->session_title);
-}
-
-
-/******************************************************************************
-** Removes a session
-**********************/
-
-void    MainWindow::slotRemoveSession()
-{
-    QWidget *   widget = widgets_stack->widget(selected_id);
-
-    if (widget == NULL)
-        return;
-
-    widgets_stack->removeWidget(widget);
-    sessions_stack.remove(selected_id);
-    delete widget;
-
-    if (tabs_bar->removeItem(selected_id) == -1)
-        slotAddSession();
-}
-
-
-/******************************************************************************
-** Paste the clipboard contents
-*********************************/
-
-void    MainWindow::slotPasteClipboard()
-{
-    TerminalInterface * terminal;
-
-    terminal = sessions_stack[selected_id]->session_terminal;
-    if (terminal != NULL)
-        terminal->sendInput(QApplication::clipboard()->text(QClipboard::Clipboard));
-}
-
-
-/******************************************************************************
-** Renames an item given its id
-*********************************/
-
-void    MainWindow::slotRenameSession(int id, const QString & name)
-{
-    tabs_bar->renameItem(id, name);
-}
-
-
-/******************************************************************************
-** Open inline edit for the current item and show tab bar if necessary
-************************************************************************/
-
-void    MainWindow::slotInteractiveRename()
-{
-    if (!tabs_policy && tabs_bar->isHidden())
+    if (sessions_stack.size() > 1 && Settings::confirmquit())
     {
-        slotSetTabsPolicy();
-        tabs_bar->show();
-    }
-
-    tabs_bar->interactiveRename();
-}
-
-
-/******************************************************************************
-** Sets the session titlebar text
-***********************************/
-
-void    MainWindow::slotSetSessionTitleText(int id, const QString & text)
-{
-    sessions_stack[id]->session_title = text;
-    title_bar->setTitleText(text);
-}
-
-
-/******************************************************************************
-** Runs a given command in the selected session
-*************************************************/
-
-void    MainWindow::slotRunCommandInSession(int id, const QString & value)
-{
-    TerminalInterface * terminal;
-
-    terminal = sessions_stack[id]->session_terminal;
-    if (terminal != NULL)
-        terminal->sendInput(value + '\n');
-}
-
-
-
-//== PROTECTED METHODS ========================================================
-
-
-/******************************************************************************
-** Retract the window when activation changes
-***********************************************/
-
-void    MainWindow::windowActivationChange(bool old_active)
-{
-    if (!focus_policy && old_active && step)
-        slotToggleState();
-}
-
-
-/******************************************************************************
-** Ask before closing with multiple open sessions
-***************************************************/
-
-bool    MainWindow::queryClose()
-{
-    if (sessions_stack.size() > 1)
-    {
-        this->focus_policy = !focus_policy;
+        if (focus_policy == false) focus_policy = true;
 
         int result = KMessageBox::warningYesNoCancel(
             this,
-            i18n("You have multiple open sessions. These will be killed if you continue.\n\nDo you really want to quit?"),
+            i18n("You have multiple open sessions. These will be killed if you continue.\n\nAre you sure you want to quit?"),
             i18n("Really Quit?"),
             KStdGuiItem::quit(),
-            KGuiItem(i18n("C&lose Session")),
-            "QuitMultiple");
+            KGuiItem(i18n("C&lose Session")));
 
         switch (result)
         {
             case KMessageBox::Yes:
-                this->focus_policy = !focus_policy;
+                focus_policy = Settings::focus();
+                KWin::activateWindow(winId());
                 return true;
                 break;
             case KMessageBox::No:
-                this->focus_policy = !focus_policy;
+                focus_policy = Settings::focus();
+                KWin::activateWindow(winId());
                 slotRemoveSession();
                 return false;
                 break;
 
             default:
-                this->focus_policy = !focus_policy;
+                focus_policy = Settings::focus();
+                KWin::activateWindow(winId());
                 return false;
                 break;
         }
@@ -403,548 +285,580 @@ bool    MainWindow::queryClose()
     }
 }
 
-
-
-//== PRIVATE METHODS ==========================================================
-
-
-/******************************************************************************
-** Initializes the window properties
-**************************************/
-
-void    MainWindow::initWindowProps()
+void MainWindow::updateWindowMask()
 {
+    QRegion mask = title_bar->getWidgetMask();
+
+    mask.translate(0, mask_height);
+    mask += QRegion(0, 0, width(), mask_height);
+
+    setMask(mask);
+}
+
+void MainWindow::showPopup(const QString& text, int time)
+{
+    /* Show a passive popup with the given text. */
+
+    popup.setView(i18n("Yakuake Notification"), text, KApplication::kApplication()->miniIcon());
+    popup.setTimeout(time);
+    popup.show();
+}
+
+void MainWindow::slotAddSession()
+{
+    slotAddSession(Session::Single);
+}
+
+void MainWindow::slotAddSessionTwoHorizontal()
+{
+    slotAddSession(Session::TwoHorizontal);
+}
+
+void MainWindow::slotAddSessionTwoVertical()
+{
+    slotAddSession(Session::TwoVertical);
+}
+
+void MainWindow::slotAddSessionTwoQuad()
+{
+    slotAddSession(Session::Quad);
+}
+
+void MainWindow::slotAddSession(Session::SessionType type)
+{
+    Session* session = new Session(widgets_stack, type);
+    connect(session, SIGNAL(destroyed(int)), this, SLOT(slotSessionDestroyed(int)));
+    connect(session, SIGNAL(titleChanged(const QString&)), this, SLOT(slotUpdateTitle(const QString&)));
+
+    widgets_stack->addWidget(session->widget());
+    sessions_stack.insert(session->id(), session);
+
+    selected_id = session->id();
+
+    tab_bar->addItem(selected_id);
+    widgets_stack->raiseWidget(session->widget());
+    title_bar->setTitleText(session->title());
+}
+
+void MainWindow::slotRemoveSession()
+{
+    sessions_stack[selected_id]->deleteLater();
+}
+
+void MainWindow::slotRemoveSession(int session_id)
+{
+    if (!sessions_stack[session_id]) return;
+
+    sessions_stack[session_id]->deleteLater();
+}
+
+void MainWindow::slotHandleRemoveSession(KAction::ActivationReason reason, Qt::ButtonState /* state */)
+{
+    if (reason == KAction::PopupMenuActivation
+        && tab_bar->pressedPosition() != -1)
+    {
+        slotRemoveSession(tab_bar->sessionIdForTabPosition(tab_bar->pressedPosition()));
+        tab_bar->resetPressedPosition();
+    }
+    else
+        slotRemoveSession();
+}
+
+void MainWindow::slotRemoveTerminal()
+{
+    sessions_stack[selected_id]->removeTerminal();
+}
+
+void MainWindow::slotRemoveTerminal(int session_id)
+{
+    if (!sessions_stack[session_id]) return;
+
+    sessions_stack[session_id]->removeTerminal();
+}
+
+void MainWindow::slotRemoveTerminal(int session_id, int terminal_id)
+{
+    if (!sessions_stack[session_id]) return;
+
+    sessions_stack[session_id]->removeTerminal(terminal_id);
+}
+
+void MainWindow::slotRenameSession(int session_id, const QString& name)
+{
+    tab_bar->renameItem(session_id, name);
+}
+
+void MainWindow::slotInteractiveRename()
+{
+    /* Open inline edit for the current item and show tab bar if necessary. */
+
+    if (!Settings::tabs() && tab_bar->isHidden())
+    {
+        Settings::setTabs(true);
+        tab_bar->show();
+    }
+
+    tab_bar->interactiveRename();
+}
+
+int MainWindow::selectedSession()
+{
+    return selected_id;
+}
+
+int MainWindow::selectedTerminal()
+{
+    return sessions_stack[selected_id]->activeTerminalId();
+}
+
+
+int MainWindow::tabPositionForSessionId(int session_id)
+{
+    return tab_bar->tabPositionForSessionId(session_id);
+}
+
+int MainWindow::sessionIdForTabPosition(int position)
+{
+    return tab_bar->sessionIdForTabPosition(position);
+}
+
+void MainWindow::slotSelectSession(int session_id)
+{
+    if (selected_id == session_id) return;
+    if (!sessions_stack[session_id]) return;
+    if (!sessions_stack[session_id]->widget()) return;
+
+    selected_id = session_id;
+
+    Session* session = sessions_stack[session_id];
+
+    tab_bar->selectItem(session_id);
+    widgets_stack->raiseWidget(session->widget());
+    session->widget()->setFocus();
+    title_bar->setTitleText(session->title());
+}
+
+void MainWindow::slotSelectTabPosition(int position)
+{
+    tab_bar->selectPosition(position);
+}
+
+const QString MainWindow::sessionTitle()
+{
+    return sessions_stack[selected_id]->title();
+}
+
+const QString MainWindow::sessionTitle(int session_id)
+{
+    if (!sessions_stack[session_id]) return 0;
+
+    return sessions_stack[session_id]->title();
+}
+
+const QString MainWindow::sessionTitle(int session_id, int terminal_id)
+{
+    if (!sessions_stack[session_id]) return 0;
+
+    return sessions_stack[session_id]->title(terminal_id);
+}
+
+void MainWindow::slotSetSessionTitleText(const QString& title)
+{
+    sessions_stack[selected_id]->setTitle(title);
+}
+
+void MainWindow::slotSetSessionTitleText(int session_id, const QString& title)
+{
+    if (!sessions_stack[session_id]) return;
+
+    sessions_stack[session_id]->setTitle(title);
+}
+
+void MainWindow::slotSetSessionTitleText(int session_id, int terminal_id, const QString& title)
+{
+    if (!sessions_stack[session_id]) return;
+
+    sessions_stack[session_id]->setTitle(terminal_id, title);
+}
+
+void MainWindow::slotPasteClipboard()
+{
+    sessions_stack[selected_id]->pasteClipboard();
+}
+
+void MainWindow::slotPasteClipboard(int session_id)
+{
+    if (!sessions_stack[session_id]) return;
+
+    sessions_stack[session_id]->pasteClipboard();
+}
+
+void MainWindow::slotPasteClipboard(int session_id, int terminal_id)
+{
+    if (!sessions_stack[session_id]) return;
+
+    sessions_stack[session_id]->pasteClipboard(terminal_id);
+}
+
+void MainWindow::slotPasteSelection()
+{
+    sessions_stack[selected_id]->pasteSelection();
+}
+
+void MainWindow::slotPasteSelection(int session_id)
+{
+    if (!sessions_stack[session_id]) return;
+
+    sessions_stack[session_id]->pasteSelection();
+}
+
+void MainWindow::slotPasteSelection(int session_id, int terminal_id)
+{
+    if (!sessions_stack[session_id]) return;
+
+    sessions_stack[session_id]->pasteSelection(terminal_id);
+}
+
+void MainWindow::slotRunCommandInSession(const QString& command)
+{
+    sessions_stack[selected_id]->runCommand(command);
+}
+
+void MainWindow::slotRunCommandInSession(int session_id, const QString& command)
+{
+    if (!sessions_stack[session_id]) return;
+
+    sessions_stack[session_id]->runCommand(command);
+}
+
+void MainWindow::slotRunCommandInSession(int session_id, int terminal_id, const QString& command)
+{
+    if (!sessions_stack[session_id]) return;
+
+    sessions_stack[session_id]->runCommand(terminal_id, command);
+}
+
+void MainWindow::slotSplitHorizontally()
+{
+    sessions_stack[selected_id]->splitHorizontally();
+}
+
+void MainWindow::slotSplitHorizontally(int session_id)
+{
+    if (!sessions_stack[session_id]) return;
+
+    sessions_stack[session_id]->splitHorizontally();
+}
+
+void MainWindow::slotSplitHorizontally(int session_id, int terminal_id)
+{
+    if (!sessions_stack[session_id]) return;
+
+    sessions_stack[session_id]->splitHorizontally(terminal_id);
+}
+
+void MainWindow::slotSplitVertically()
+{
+    sessions_stack[selected_id]->splitVertically();
+}
+
+void MainWindow::slotSplitVertically(int session_id)
+{
+    if (!sessions_stack[session_id]) return;
+
+    sessions_stack[session_id]->splitVertically();
+}
+
+void MainWindow::slotSplitVertically(int session_id, int terminal_id)
+{
+    if (!sessions_stack[session_id]) return;
+
+    sessions_stack[session_id]->splitVertically(terminal_id);
+}
+
+
+void MainWindow::slotFocusNextSplit()
+{
+    sessions_stack[selected_id]->focusNextSplit();
+}
+
+void MainWindow::slotFocusPreviousSplit()
+{
+    sessions_stack[selected_id]->focusPreviousSplit();
+}
+
+void MainWindow::windowActivationChange(bool old_active)
+{
+    /* Retract the window when focus changes. */
+
+    if (!focus_policy && old_active && step)
+        slotToggleState();
+}
+
+void MainWindow::slotHandleHorizontalSplit(KAction::ActivationReason reason, Qt::ButtonState /* state */)
+{
+    if (reason == KAction::PopupMenuActivation
+        && tab_bar->pressedPosition() != -1)
+    {
+        slotSplitHorizontally(tab_bar->sessionIdForTabPosition(tab_bar->pressedPosition()));
+        tab_bar->resetPressedPosition();
+    }
+    else
+        slotSplitHorizontally();
+}
+
+void MainWindow::slotHandleVerticalSplit(KAction::ActivationReason reason, Qt::ButtonState /* state */)
+{
+    if (reason == KAction::PopupMenuActivation
+        && tab_bar->pressedPosition() != -1)
+    {
+        slotSplitVertically(tab_bar->sessionIdForTabPosition(tab_bar->pressedPosition()));
+        tab_bar->resetPressedPosition();
+    }
+    else
+        slotSplitVertically();
+}
+
+
+void MainWindow::slotHandleRemoveTerminal(KAction::ActivationReason reason, Qt::ButtonState /* state */)
+{
+    if (reason == KAction::PopupMenuActivation
+        && tab_bar->pressedPosition() != -1)
+    {
+        slotRemoveTerminal(tab_bar->sessionIdForTabPosition(tab_bar->pressedPosition()));
+        tab_bar->resetPressedPosition();
+    }
+    else
+        slotRemoveTerminal();
+}
+
+void MainWindow::initWindowProps()
+{
+    /* Initializes the window properties. */
+
     KWin::setState(winId(), NET::KeepAbove | NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
     KWin::setOnAllDesktops(winId(), true);
 }
 
-
-/******************************************************************************
-** Gets the mouse screen where the mouse is located
-*****************************************************/
-
-int    MainWindow::getMouseScreen()
+int MainWindow::getMouseScreen()
 {
+    /* Gets the screen where the mouse pointer is located. */
+
     return QApplication::desktop()->screenNumber(QCursor::pos());
 }
 
-
-/******************************************************************************
-** Computes the desktop geometry
-**********************************/
-
 QRect MainWindow::getDesktopGeometry()
 {
-    QRect           result;
-    KConfigGroup    group(KGlobal::config(), "Windows");
+    /* Computes the desktop geometry. */
 
+    if (full_screen)
+    {
+        if (!Settings::screen())
+            return QApplication::desktop()->screenGeometry(getMouseScreen());
+        else
+            return QApplication::desktop()->screenGeometry(Settings::screen()-1);
+    }
+
+    QRect result;
     result = desk_info.workArea();
+
+    KConfigGroup group(KGlobal::config(), "Windows");
 
     if (QApplication::desktop()->isVirtualDesktop() &&
             group.readBoolEntry("XineramaEnabled", true) &&
             group.readBoolEntry("XineramaPlacementEnabled", true))
-        return result.intersect(QApplication::desktop()->screenGeometry(screen));
+    {
+        if (!Settings::screen())
+            return result.intersect(QApplication::desktop()->screenGeometry(getMouseScreen()));
+        else
+            return result.intersect(QApplication::desktop()->screenGeometry(Settings::screen()-1));
+    }
 
     return result;
 }
 
-
-/******************************************************************************
-** Creates the tabs frame
-***************************/
-
-void    MainWindow::createTabsBar()
+void MainWindow::createTabsBar()
 {
-    tabs_bar = new TabsBar(this, "Session tabs bar", skin);
+    /* Creates the tabs frame. */
 
-    tabs_bar->resize(width(), tabs_bar->height());
+    tab_bar = new TabBar(this, "Session tab bar", Settings::skin());
+    connect(this, SIGNAL(updateBackground()), tab_bar, SIGNAL(updateBackground()));
+
+    tab_bar->setSessionMenu(session_menu);
+
+    tab_bar->resize(width(), tab_bar->height());
 }
 
-
-/******************************************************************************
-** Creates the title frame
-****************************/
-
-void    MainWindow::createTitleBar()
+void MainWindow::createTitleBar()
 {
-    title_bar = new TitleBar(this, "Application title bar", skin);
+    /* Creates the title frame. */
+
+    title_bar = new TitleBar(this, "Application title bar", Settings::skin());
     title_bar->setConfigurationMenu(menu);
 
     title_bar->resize(width(), title_bar->height());
 }
 
-
-/******************************************************************************
-** Creates a sessions objects
-*******************************/
-
-int    MainWindow::createSession()
+void MainWindow::createMenu()
 {
-    int             index;
-    QWidget *       widget;
-    ShellSession *  session;
+    /* Creates the main menu. */
 
-    widget = new QWidget(widgets_stack);
-
-    // Adds the widget to stacks --------------------------
-
-    index = widgets_stack->addWidget(widget);
-    setenv("DCOP_YAKUAKE_SESSION", QString::number(index).ascii(), 1);
-    putenv((char*)"COLORTERM="); // Trigger mc's color detection.
-
-    if ((session = new ShellSession(widget)) == NULL)
-        widgets_stack->removeWidget(widget);
-    else
-    {
-        widget->setFocusProxy(session->session_widget);
-
-        QBoxLayout * l = new QVBoxLayout(widget);
-        l->addWidget(session->session_widget);
-
-        sessions_stack.insert(index, session);
-
-        session->setId(index);
-
-        connect(session, SIGNAL(destroyed(int)), this, SLOT(slotSessionDestroyed(int)));
-        connect(session, SIGNAL(titleUpdated()), this, SLOT(slotUpdateTitle()));
-
-        return  index;
-    }
-    return 0;
-}
-
-
-/******************************************************************************
-** Creates the configuration menu
-***********************************/
-
-void    MainWindow::createMenu()
-{
     menu = new KPopupMenu();
 
-    menu->insertTitle(i18n("Properties"));
+    menu->insertTitle(i18n("Help"));
 
-    // Creates the screen menu ----------------------------
+    actionCollection()->action(KStdAction::stdName(KStdAction::WhatsThis))->plug(menu);
+    actionCollection()->action(KStdAction::stdName(KStdAction::AboutApp))->plug(menu);
+    actionCollection()->action(KStdAction::stdName(KStdAction::AboutKDE))->plug(menu);
+
+    menu->insertTitle(i18n("Quick Options"));
+
+    actionCollection()->action(KStdAction::stdName(KStdAction::FullScreen))->plug(menu);
 
     screen_menu = new KPopupMenu(menu);
-    for (int i = 1; i <= QApplication::desktop()->numScreens(); i++)
-        screen_menu->insertItem(i18n("Screen: %1").arg(QString::number(i)), i);
-
-    screen_menu->insertSeparator();
-    screen_menu->insertItem(i18n("Use Mouse Location"), 0);
 
     if (QApplication::desktop()->numScreens() > 1)
     {
-        menu->insertItem(i18n("Screen Display"), screen_menu);
+        menu->insertItem(i18n("Open on screen"), screen_menu);
         connect(screen_menu, SIGNAL(activated(int)), this, SLOT(slotSetScreen(int)));
     }
 
-    // Creates the sizeW menu -----------------------------
+    width_menu = new KPopupMenu(menu);
+    menu->insertItem(i18n("Width"), width_menu);
+    connect(width_menu, SIGNAL(activated(int)), this, SLOT(slotSetWidth(int)));
 
+    height_menu = new KPopupMenu(menu);
+    menu->insertItem(i18n("Height"), height_menu);
+    connect(height_menu, SIGNAL(activated(int)), this, SLOT(slotSetHeight(int)));
 
-    sizeW_menu = new KPopupMenu(menu);
-    for (int i = 10; i <= 100; i += 10)
-        sizeW_menu->insertItem(QString::number(i) + '%', i);
+    menu->insertItem(i18n("Keep open on focus change"), this, SLOT(slotSetFocusPolicy()), 0, Focus);
 
-    menu->insertItem(i18n("Terminal Width"), sizeW_menu);
-    connect(sizeW_menu, SIGNAL(activated(int)), this, SLOT(slotSetSizeW(int)));
+    menu->insertTitle(i18n("Settings"));
 
-    // Creates the sizeH menu -----------------------------
+    actionCollection()->action("global_shortcuts")->plug(menu);
+    actionCollection()->action(KStdAction::stdName(KStdAction::KeyBindings))->plug(menu);
+    actionCollection()->action(KStdAction::stdName(KStdAction::Preferences))->plug(menu);
+}
 
-    sizeH_menu = new KPopupMenu(menu);
-    for (int i = 10; i <= 100; i += 10)
-        sizeH_menu->insertItem(QString::number(i) + '%', i);
+void MainWindow::createSessionMenu()
+{
+    session_menu = new KPopupMenu();
 
-    menu->insertItem(i18n("Terminal Height"), sizeH_menu);
-    connect(sizeH_menu, SIGNAL(activated(int)), this, SLOT(slotSetSizeH(int)));
+    actionCollection()->action("add_tab")->plug(session_menu);
 
-    // Creates the locationH menu -------------------------
+    session_menu->insertItem(SmallIcon("view_left_right"),
+        i18n("Two Terminals, Horizontal"), this, SLOT(slotAddSessionTwoHorizontal()));
+    session_menu->insertItem(SmallIcon("view_top_bottom"),
+        i18n("Two Terminals, Vertical"), this, SLOT(slotAddSessionTwoVertical()));
+    session_menu->insertItem(i18n("Four Terminals, Quad"),
+        this, SLOT(slotAddSessionTwoQuad()));
+}
 
-    locationH_menu = new KPopupMenu(menu);
-    for (int i = 0; i <= 100; i += 10)
-        locationH_menu->insertItem(QString::number(i) + '%', i);
-
-    menu->insertItem(i18n("Horizontal Location"), locationH_menu);
-    connect(locationH_menu, SIGNAL(activated(int)), this, SLOT(slotSetLocationH(int)));
-
-    // Creates the speed menu -----------------------------
-
-    speed_menu = new KPopupMenu(menu);
-    speed_menu->insertItem(i18n("None"), 1);
-    for (int i = 50; i <= 500; i += 50)
-        speed_menu->insertItem('~' + QString::number(i) + "ms", i/10);
-
-    menu->insertItem(i18n("Animation Duration"), speed_menu);
-    connect(speed_menu, SIGNAL(activated(int)), this, SLOT(slotSetSpeed(int)));
-
-    // Adds the options modifier --------------------------
-
-    menu->insertTitle(i18n("Options"));
-
-    menu->insertItem(i18n("Show the Tab Bar"), this, SLOT(slotSetTabsPolicy()), 0, 1);
-    menu->insertItem(i18n("Retract when Focus is Lost"), this, SLOT(slotSetFocusPolicy()), 0, 2);
-    menu->insertItem(i18n("Force Background Refresh"), this, SLOT(slotSetBackgroundPolicy()), 0, 3);
-
-    // Adds the shortcuts modifiers -----------------------
-
-    menu->insertTitle(i18n("Shortcuts"));
-
-    menu->insertItem(i18n("Change Access Key..."), this, SLOT(slotSetAccessKey()));
-    menu->insertItem(i18n("Change Control Keys..."), this, SLOT(slotSetControlKeys()));
+void MainWindow::slotUpdateTitle(const QString& title)
+{
+    title_bar->setTitleText(title);
 }
 
 
-
-//== PRIVATE SLOTS ============================================================
-
-
-/******************************************************************************
-** Sets the session titlebar text
-***********************************/
-
-void    MainWindow::slotUpdateTitle()
+void MainWindow::slotIncreaseSizeW()
 {
-    title_bar->setTitleText(sessions_stack[selected_id]->session_title);
-}
+    /* Increase the window's width. */
 
-
-/******************************************************************************
-** Sets the access key
-************************/
-
-void    MainWindow::slotSetAccessKey()
-{
-    KConfig config(CONFIG_FILE);
-
-    KKeyDialog::configure(global_key);
-
-    global_key->updateConnections();
-    global_key->writeSettings(&config);
-}
-
-
-/******************************************************************************
-** Sets the control keys
-**************************/
-
-void    MainWindow::slotSetControlKeys()
-{
-    KConfig config(CONFIG_FILE);
-
-    KKeyDialog::configure(actionCollection());
-
-    actionCollection()->writeShortcutSettings("Shortcuts", &config);
-}
-
-
-/******************************************************************************
-** Sets the tabs policy
-*************************/
-
-void    MainWindow::slotSetTabsPolicy()
-{
-    slotSetTabsPolicy(!tabs_policy);
-}
-
-void    MainWindow::slotSetTabsPolicy(bool tabs_policy)
-{
-    menu->setItemChecked(1, tabs_policy);
-    this->tabs_policy = tabs_policy;
-
-    if (tabs_policy)
-        tabs_bar->show();
-    else
-        tabs_bar->hide();
-
-    slotUpdateSize();
-
-    // Updates the configuration --------------------------
-
-    KConfig config(CONFIG_FILE);
-
-    config.setGroup("Options");
-    config.writeEntry("tabs", tabs_policy);
-}
-
-
-/******************************************************************************
-** Sets the focus policy
-**************************/
-
-void    MainWindow::slotSetFocusPolicy()
-{
-    slotSetFocusPolicy(!focus_policy);
-}
-
-void    MainWindow::slotSetFocusPolicy(bool focus_policy)
-{
-    menu->setItemChecked(2, !focus_policy);
-    this->focus_policy = focus_policy;
-
-    // Updates the configuration --------------------------
-
-    KConfig config(CONFIG_FILE);
-
-    config.setGroup("Options");
-    config.writeEntry("focus", focus_policy);
-}
-
-
-/******************************************************************************
-** Sets the background policy
-*******************************/
-
-void    MainWindow::slotSetBackgroundPolicy()
-{
-    slotSetBackgroundPolicy(!background_policy);
-}
-
-void    MainWindow::slotSetBackgroundPolicy(bool background_policy)
-{
-    menu->setItemChecked(3, background_policy);
-    this->background_policy = background_policy;
-
-    // Updates the configuration --------------------------
-
-    KConfig config(CONFIG_FILE);
-
-    config.setGroup("Options");
-    config.writeEntry("background", background_policy);
-}
-
-
-/******************************************************************************
-** Sets the animation speed
-*****************************/
-
-void    MainWindow::slotSetSpeed(int steps)
-{
-    speed_menu->setItemChecked(this->steps, false);
-    speed_menu->setItemChecked(steps, true);
-    this->steps = steps;
-    step = (isVisible()) ? steps : 0;
-
-    // Updates the configuration --------------------------
-
-    KConfig config(CONFIG_FILE);
-
-    config.setGroup("Options");
-    config.writeEntry("steps", steps);
-}
-
-
-/******************************************************************************
-** Sets the window's height
-*****************************/
-
-void    MainWindow::slotSetSizeH(int sizeH)
-{
-    sizeH_menu->setItemChecked(this->sizeH, false);
-    sizeH_menu->setItemChecked(sizeH, true);
-    this->sizeH = sizeH;
-
-    // Updates the configuration --------------------------
-
-    KConfig config(CONFIG_FILE);
-
-    config.setGroup("Options");
-    config.writeEntry("height", sizeH);
-
-    // Updates the size of the window ---------------------
+    if (Settings::width() < 100)
+        Settings::setWidth(Settings::width() + 10);
 
     slotUpdateSize();
 }
 
-/******************************************************************************
-** Increase the window's width
-****************************/
-
-void    MainWindow::slotIncreaseSizeW()
+void MainWindow::slotDecreaseSizeW()
 {
-    int sizeW = this->sizeW;
+    /* Decrease the window's width. */
 
-    if (sizeW < 100)
-        slotSetSizeW(sizeW + 10);
-}
-
-
-/******************************************************************************
-** Decrease the window's width
-****************************/
-
-void    MainWindow::slotDecreaseSizeW()
-{
-    int sizeW = this->sizeW;
-
-    if (sizeW > 10)
-        slotSetSizeW(sizeW - 10);
-}
-
-/******************************************************************************
-** Increase the window's height
-****************************/
-
-void	MainWindow::slotIncreaseSizeH()
-{
-    int sizeH = this->sizeH;
-
-    if (sizeH < 100)
-        slotSetSizeH(sizeH + 10);
-}
-
-
-/******************************************************************************
-** Decrease the window's height
-****************************/
-
-void	MainWindow::slotDecreaseSizeH()
-{
-    int sizeH = this->sizeH;
-
-    if (sizeH > 10)
-        slotSetSizeH(sizeH - 10);
-}
-
-
-/******************************************************************************
-** Sets the window's width
-****************************/
-
-void    MainWindow::slotSetSizeW(int sizeW)
-{
-    sizeW_menu->setItemChecked(this->sizeW, false);
-    sizeW_menu->setItemChecked(sizeW, true);
-    this->sizeW = sizeW;
-
-    // Updates the configuration --------------------------
-
-    KConfig config(CONFIG_FILE);
-
-    config.setGroup("Options");
-    config.writeEntry("width", sizeW);
-
-    // Updates the size of the window ---------------------
+    if (Settings::width() > 10)
+        Settings::setWidth(Settings::width() - 10);
 
     slotUpdateSize();
 }
 
-
-/******************************************************************************
-** Sets the window to a specific screen (xinerama option)
-***********************************************************/
-
-void MainWindow::slotSetScreen(int screen)
+void MainWindow::slotIncreaseSizeH()
 {
-    screen_menu->setItemChecked(this->screen, false);
-    screen_menu->setItemChecked(screen, true);
-    this->screen = screen;
+    /* Increase the window's height. */
 
-    this->screen_policy = (!screen) ? true : false;
-
-    // Updates the configuration --------------------------
-
-    KConfig config(CONFIG_FILE);
-
-    config.setGroup("Options");
-    config.writeEntry("screen", screen);
-
-    // Updates the size of the window ---------------------
+    if (Settings::height() < 100)
+        Settings::setHeight(Settings::height() + 10);
 
     slotUpdateSize();
 }
 
-
-/******************************************************************************
-** Sets the window's location
-*******************************/
-
-void    MainWindow::slotSetLocationH(int locationH)
+void MainWindow::slotDecreaseSizeH()
 {
-    locationH_menu->setItemChecked(this->locationH, false);
-    locationH_menu->setItemChecked(locationH, true);
-    this->locationH = locationH;
+    /* Decrease the window's height. */
 
-    // Updates the configuration --------------------------
-
-    KConfig config(CONFIG_FILE);
-
-    config.setGroup("Options");
-    config.writeEntry("location", locationH);
-
-    // Updates the size of the window ---------------------
+    if (Settings::height() > 10)
+        Settings::setHeight(Settings::height() - 10);
 
     slotUpdateSize();
 }
 
-
-/******************************************************************************
-** Recreates the konsole kpart
-********************************/
-
-void    MainWindow::slotSessionDestroyed(int id)
+void MainWindow::slotSessionDestroyed(int id)
 {
-    if (isShuttingDown)
-        return;
+    if (is_shutting_down) return;
 
     int session_id = (id != -1) ? id : selected_id;
 
-    QWidget* widget = widgets_stack->widget(session_id);
-
-    if (widget == 0L)
-        return;
-
-    widgets_stack->removeWidget(widget);
     sessions_stack.remove(session_id);
 
-    if (tabs_bar->removeItem(session_id) == -1)
+    if (tab_bar->removeItem(session_id) == -1)
         slotAddSession();
 }
 
-
-/******************************************************************************
-** Toggles the window's state
-*******************************/
-
-void    MainWindow::slotToggleState()
+void MainWindow::slotToggleState()
 {
-    static int  state = 1;
+    /* Toggles the window's open/closed state. */
+
+    static int state = 1;
 
     if (timer.isActive())
         return ;
 
-    KWinModule  kwin(this);
+    KWinModule kwin(this);
 
     if (state)
     {
         initWindowProps();
 
-        if (screen_policy)
-        {
-            screen = getMouseScreen();
-            slotUpdateSize();
-        }
+        slotUpdateSize();
 
         show();
-        if (background_policy)
-            move(x(), 0);
 
         KWin::forceActiveWindow(winId());
         connect(&timer, SIGNAL(timeout()), this, SLOT(slotIncreaseHeight()));
+                initWindowProps();
+        timer.start(10, false);
+        state = !state;
     }
     else
-        connect(&timer, SIGNAL(timeout()), this, SLOT(slotDecreaseHeight()));
+    {
+        if (!this->isActiveWindow() && focus_policy)
+        {
+            KWin::forceActiveWindow(winId());
+            return;
+        }
+        else if (full_screen)
+            this->setWindowState( this->windowState() & ~Qt::WindowFullScreen);
 
-    timer.start(10, false);
-    state = !state;
+        connect(&timer, SIGNAL(timeout()), this, SLOT(slotDecreaseHeight()));
+        timer.start(10, false);
+        state = !state;
+    }
 }
 
-
-/******************************************************************************
-** Increases the window's height
-**********************************/
-
-void    MainWindow::slotIncreaseHeight()
+void MainWindow::slotIncreaseHeight()
 {
+    /* Increases the window's height. */
+
+    int steps = (Settings::steps() == 0) ? 1 : Settings::steps();
+
     mask_height = (step++ * max_height) / steps;
 
     if (step >= steps)
@@ -954,19 +868,24 @@ void    MainWindow::slotIncreaseHeight()
         disconnect(&timer, SIGNAL(timeout()), 0, 0);
 
         mask_height = max_height;
+
+        if (background_changed)
+        {
+            emit updateBackground();
+            background_changed = false;
+        }
     }
 
     updateWindowMask();
     title_bar->move(0, mask_height);
 }
 
-
-/******************************************************************************
-** Decreases the window's height
-**********************************/
-
-void    MainWindow::slotDecreaseHeight()
+void MainWindow::slotDecreaseHeight()
 {
+    /* Decreases the window's height. */
+
+    int steps = (Settings::steps() == 0) ? 1 : Settings::steps();
+
     mask_height = (--step * max_height) / steps;
 
     if (step <= 0)
@@ -975,8 +894,6 @@ void    MainWindow::slotDecreaseHeight()
         timer.stop();
         disconnect(&timer, SIGNAL(timeout()), 0, 0);
 
-        if (background_policy)
-            move(x(), -1);
         hide();
     }
 
@@ -984,43 +901,293 @@ void    MainWindow::slotDecreaseHeight()
     title_bar->move(0, mask_height);
 }
 
-
-/******************************************************************************
-** Updates the window size
-****************************/
-
-void    MainWindow::slotUpdateSize()
+void MainWindow::slotInitSkin()
 {
-    int     tmp_height;
-    QRect   desk_area;
+    KConfig config(locate("appdata", Settings::skin() + "/title.skin"));
 
-    // Xinerama aware work area ---------------------------
+    config.setGroup("Border");
 
+    margin = config.readNumEntry("width", 0);
+
+    back_widget->setBackgroundColor(QColor(config.readNumEntry("red", 0),
+                                           config.readNumEntry("green", 0),
+                                           config.readNumEntry("blue", 0)));
+}
+
+void MainWindow::slotUpdateSize()
+{
+    slotUpdateSize(Settings::width(), Settings::height(), Settings::location());
+}
+
+void MainWindow::slotUpdateSize(int new_width, int new_height, int new_location)
+{
+    /* Updates the window size. */
+
+    int tmp_height;
+    QRect desk_area;
+
+    // Xinerama aware work area.
     desk_area = getDesktopGeometry();
-    max_height = (desk_area.height() - 1) * sizeH / 100;
+    max_height = (desk_area.height() - 1) * new_height / 100;
 
-    // Updates the size of the components -----------------
-
-    setGeometry(desk_area.x() + desk_area.width() * locationH * (100 - sizeW) / 10000,
-                desk_area.y(), desk_area.width() * sizeW / 100, max_height);
+    // Update the size of the components.
+    setGeometry(desk_area.x() + desk_area.width() * new_location * (100 - new_width) / 10000,
+                desk_area.y(), desk_area.width() * new_width / 100, max_height);
 
     max_height -= title_bar->height();
     title_bar->setGeometry(0, max_height, width(), title_bar->height());
 
     tmp_height = max_height;
 
-    if (tabs_policy)
+    if (Settings::tabs())
     {
-        tmp_height -= tabs_bar->height();
-        tabs_bar->setGeometry(margin, tmp_height, width() - 2 * margin, tabs_bar->height());
+        tmp_height -= tab_bar->height();
+        tab_bar->setGeometry(margin, tmp_height, width() - 2 * margin, tab_bar->height());
     }
 
     widgets_stack->setGeometry(margin, 0, width() - 2 * margin, tmp_height);
 
     back_widget->setGeometry(0, 0, width(), height());
 
-    // Updates the mask of the window ---------------------
-
+    // Update the window mask.
     mask_height = (isVisible()) ? max_height : 0;
     updateWindowMask();
+}
+
+void MainWindow::slotSetFullScreen(bool state)
+{
+     if (state)
+     {
+        full_screen = true;
+        slotUpdateSize(100, 100, Settings::location());
+     }
+     else
+     {
+        full_screen = false;
+        slotUpdateSize();
+     }
+}
+
+void MainWindow::slotUpdateFullScreen()
+{
+    if (full_screen_action->isChecked())
+        showFullScreen();
+    else
+        this->setWindowState( this->windowState() & ~Qt::WindowFullScreen);
+}
+
+void MainWindow::slotSetFocusPolicy()
+{
+    slotSetFocusPolicy(!focus_policy);
+}
+
+void MainWindow::slotSetFocusPolicy(bool focus)
+{
+    Settings::setFocus(focus);
+    focus_policy = Settings::focus();
+    menu->setItemChecked(Focus, Settings::focus());
+    title_bar->setFocusButtonEnabled(Settings::focus());
+}
+
+void MainWindow::slotSetWidth(int width)
+{
+    Settings::setWidth(width);
+    slotUpdateSettings();
+}
+
+void MainWindow::slotSetHeight(int height)
+{
+    Settings::setHeight(height);
+    slotUpdateSettings();
+}
+
+void MainWindow::slotSetScreen(int screen)
+{
+    Settings::setScreen(screen);
+    slotUpdateSettings();
+}
+
+void MainWindow::slotSetAccessKey()
+{
+    if (focus_policy == false) focus_policy = true;
+
+    KConfig config(CONFIG_FILE);
+
+    KKeyDialog::configure(global_key);
+
+    global_key->updateConnections();
+    global_key->writeSettings(&config);
+
+    slotDialogFinished();
+}
+
+void MainWindow::slotSetControlKeys()
+{
+    if (focus_policy == false) focus_policy = true;
+
+    KConfig config(CONFIG_FILE);
+
+    KKeyDialog::configure(actionCollection());
+
+    actionCollection()->writeShortcutSettings("Shortcuts", &config);
+
+    slotDialogFinished();
+}
+
+void MainWindow::slotUpdateBackgroundState()
+{
+    background_changed = true;
+}
+
+void MainWindow::slotUpdateSettings()
+{
+    slotInitSkin();
+
+    title_bar->reloadSkin(Settings::skin());
+    tab_bar->reloadSkin(Settings::skin());
+
+    step = (isVisible()) ? Settings::steps() : 0;
+
+    focus_policy = Settings::focus();
+
+    if (Settings::tabs())
+        tab_bar->show();
+    else
+        tab_bar->hide();
+
+    slotUpdateSize();
+
+    menu->setItemChecked(Focus, Settings::focus());
+    title_bar->setFocusButtonEnabled(Settings::focus());
+
+    width_menu->clear();
+    height_menu->clear();
+    for (int i = 10; i <= 100; i += 10) width_menu->insertItem(QString::number(i) + '%', i);
+    for (int i = 10; i <= 100; i += 10) height_menu->insertItem(QString::number(i) + '%', i);
+    width_menu->setItemChecked(Settings::width(), true);
+    height_menu->setItemChecked(Settings::height(), true);
+
+    screen_menu->clear();
+    screen_menu->insertItem(i18n("At mouse location"), 0);
+    screen_menu->insertSeparator();
+    for (int i = 1; i <= QApplication::desktop()->numScreens(); i++)
+        screen_menu->insertItem(i18n("Screen %1").arg(QString::number(i)), i);
+    screen_menu->setItemChecked(Settings::screen(), true);
+}
+
+void MainWindow::slotOpenSettingsDialog()
+{
+    if (focus_policy == false)
+        focus_policy = true;
+
+    if (KConfigDialog::showDialog("settings"))
+        return;
+
+    KConfigDialog* settings_dialog = new KConfigDialog(this, "settings", Settings::self());
+
+    GeneralSettings* general_settings = new GeneralSettings(0, "General");
+    settings_dialog->addPage(general_settings, i18n("General"), "package_settings");
+    connect(general_settings, SIGNAL(updateSize(int, int, int)), this, SLOT(slotUpdateSize(int, int, int)));
+
+    SkinSettings* skin_settings = new SkinSettings(0, "Skins");
+    settings_dialog->addPage(skin_settings, i18n("Skins"), "style");
+    connect(skin_settings, SIGNAL(settingsChanged()), settings_dialog, SIGNAL(settingsChanged()));
+    connect(settings_dialog, SIGNAL(closeClicked()), skin_settings, SLOT(slotResetSelection()));
+    connect(settings_dialog, SIGNAL(cancelClicked()), skin_settings, SLOT(slotResetSelection()));
+
+    connect(settings_dialog, SIGNAL(settingsChanged()), this, SLOT(slotUpdateSettings()));
+    connect(settings_dialog, SIGNAL(hidden()), this, SLOT(slotDialogFinished()));
+
+    settings_dialog->show();
+}
+
+void MainWindow::slotOpenFirstRunDialog()
+{
+    if (!first_run_dialog)
+    {
+        first_run_dialog = new KDialogBase(this,
+            "First Run Dialog", true, i18n("First Run"),
+            KDialogBase::Ok|KDialogBase::Cancel, KDialogBase::Ok, true);
+        connect(first_run_dialog, SIGNAL(okClicked()), this, SLOT(slotFirstRunDialogOK()));
+        connect(first_run_dialog, SIGNAL(cancelClicked()), this, SLOT(slotFirstRunDialogCancel()));
+        connect(first_run_dialog, SIGNAL(closeClicked()), this, SLOT(slotFirstRunDialogCancel()));
+        connect(first_run_dialog, SIGNAL(hidden()), this, SLOT(slotDialogFinished()));
+
+        FirstRunDialog* first_run_dialog_page = new FirstRunDialog(first_run_dialog);
+        first_run_dialog_page->setShortcut(global_key->shortcut("AccessKey"));
+
+        first_run_dialog->setMainWidget(first_run_dialog_page);
+}
+
+    if (focus_policy == false)
+        focus_policy = true;
+
+    first_run_dialog->show();
+}
+
+void MainWindow::slotFirstRunDialogOK()
+{
+    if (!first_run_dialog)
+        return;
+
+    FirstRunDialog* first_run_dialog_page =
+        static_cast<FirstRunDialog*>(first_run_dialog->mainWidget());
+
+    if (!first_run_dialog_page)
+        return;
+
+
+    if (first_run_dialog_page->shortcut() != global_key->shortcut("AccessKey"))
+    {
+        KConfig config(CONFIG_FILE);
+        global_key->setShortcut("AccessKey", first_run_dialog_page->shortcut());
+        global_key->updateConnections();
+        global_key->writeSettings(&config);
+    }
+
+    Settings::setFirstrun(false);
+    Settings::writeConfig();
+}
+
+void MainWindow::slotFirstRunDialogCancel()
+{
+    Settings::setFirstrun(false);
+    Settings::writeConfig();
+}
+
+void MainWindow::slotOpenAboutApp()
+{
+    if (!about_app)
+    {
+        about_app = new KAboutApplication(this, "About Yakuake");
+        connect(about_app, SIGNAL(hidden()), this, SLOT(slotDialogFinished()));
+    }
+
+    if (focus_policy == false)
+        focus_policy = true;
+
+    about_app->show();
+}
+
+void MainWindow::slotOpenAboutKDE()
+{
+    if (!about_kde)
+    {
+        about_kde = new KAboutKDE(this, "About KDE");
+        connect(about_kde, SIGNAL(hidden()), this, SLOT(slotDialogFinished()));
+    }
+
+    if (focus_policy == false)
+        focus_policy = true;
+
+    about_kde->show();
+}
+
+void MainWindow::slotDialogFinished()
+{
+    slotUpdateSize();
+
+    focus_policy = Settings::focus();
+
+    KWin::activateWindow(winId());
 }

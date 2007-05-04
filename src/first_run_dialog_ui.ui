@@ -1,0 +1,166 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>FirstRunDialogUI</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>FirstRunDialogUI</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>314</width>
+            <height>177</height>
+        </rect>
+    </property>
+    <property name="sizePolicy">
+        <sizepolicy>
+            <hsizetype>5</hsizetype>
+            <vsizetype>5</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+        </sizepolicy>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>0</number>
+        </property>
+        <widget class="QLabel" row="0" column="0" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>welcome_label</cstring>
+            </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>5</hsizetype>
+                    <vsizetype>5</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <property name="text">
+                <string>&lt;b&gt;Welcome to Yakuake&lt;/b&gt;</string>
+            </property>
+            <property name="alignment">
+                <set>AlignVCenter</set>
+            </property>
+        </widget>
+        <widget class="KSeparator" row="1" column="0" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>kSeparator2</cstring>
+            </property>
+            <property name="frameShape">
+                <enum>HLine</enum>
+            </property>
+            <property name="frameShadow">
+                <enum>Plain</enum>
+            </property>
+        </widget>
+        <widget class="QLabel" row="6" column="0" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>outro_label</cstring>
+            </property>
+            <property name="text">
+                <string>You can change the shortcut later at any time via the menu.</string>
+            </property>
+            <property name="alignment">
+                <set>WordBreak|AlignVCenter</set>
+            </property>
+        </widget>
+        <spacer row="4" column="0">
+            <property name="name">
+                <cstring>spacer1</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>80</width>
+                    <height>21</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="KKeyButton" row="4" column="1">
+            <property name="name">
+                <cstring>key_button</cstring>
+            </property>
+            <property name="text">
+                <string>None</string>
+            </property>
+        </widget>
+        <spacer row="4" column="2">
+            <property name="name">
+                <cstring>spacer2</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>80</width>
+                    <height>21</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QLabel" row="2" column="0" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>intro_label</cstring>
+            </property>
+            <property name="text">
+                <string>Before using the application, you might want to change the keyboard shortcut used to open and close the Yakuake window:</string>
+            </property>
+            <property name="alignment">
+                <set>WordBreak|AlignVCenter</set>
+            </property>
+        </widget>
+        <spacer row="3" column="1">
+            <property name="name">
+                <cstring>spacer5</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Fixed</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>21</width>
+                    <height>16</height>
+                </size>
+            </property>
+        </spacer>
+        <spacer row="5" column="1">
+            <property name="name">
+                <cstring>spacer7</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Fixed</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>21</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+<layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
+<includehints>
+    <includehint>kseparator.h</includehint>
+    <includehint>kkeybutton.h</includehint>
+</includehints>
+</UI>

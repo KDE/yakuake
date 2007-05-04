@@ -1,26 +1,24 @@
-/*****************************************************************************
- *                                                                           *
- *   Copyright (C) 2005 by Chazal Francois             <neptune3k@free.fr>   *
- *   website : http://workspace.free.fr                                      *
- *                                                                           *
- *                     =========  GPL License  =========                     *
- *    This program is free software; you can redistribute it and/or modify   *
- *   it under the terms of the  GNU General Public License as published by   *
- *   the  Free  Software  Foundation ; either version 2 of the License, or   *
- *   (at your option) any later version.                                     *
- *                                                                           *
- *****************************************************************************/
-
-//== INCLUDE REQUIREMENTS =====================================================
+/*
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+*/
 
 /*
-** Local libraries */
+  Copyright (C) 2005 Francois Chazal <neptune3k@free.fr>
+  Copyright (C) 2006-2007 Eike Hein <hein@kde.org>
+*/
+
+
 #include "image_button.h"
 #include "image_button.moc"
 
 
+#include <qwhatsthis.h>
+#include <qtimer.h>
 
-//== CONSTRUCTORS AND DESTRUCTORS =============================================
+#include <kglobalsettings.h>
 
 
 ImageButton::ImageButton(QWidget * parent, const char * name) : QWidget(parent, name)
@@ -28,28 +26,23 @@ ImageButton::ImageButton(QWidget * parent, const char * name) : QWidget(parent, 
     state = 0;
     toggle = false;
     pressed = false;
+    delay_popup = false;
 
     popup_menu = NULL;
+    popup_timer = NULL;
+
     root_pixmap = NULL;
 }
 
 ImageButton::~ImageButton()
 {
-    if (root_pixmap)
-        delete root_pixmap;
+    if (root_pixmap) delete root_pixmap;
 }
 
-
-
-//== PUBLIC METHODS ===========================================================
-
-
-/******************************************************************************
-** Creates a translucent button
-*********************************/
-
-void    ImageButton::setTranslucent(bool value)
+void ImageButton::setTranslucent(bool value)
 {
+    /* Creates a translucent button. */
+
     if (root_pixmap == NULL)
         root_pixmap = new KRootPixmap(this, "Transparent background");
 
@@ -65,111 +58,106 @@ void    ImageButton::setTranslucent(bool value)
     }
 }
 
-
-/******************************************************************************
-** Sets the toggling ability
-******************************/
-
-void    ImageButton::setToggleButton(bool toggled)
+void ImageButton::setToggleButton(bool toggled)
 {
+    /* Sets the toggling ability. */
+
     pressed = false;
     toggle = toggled;
 }
 
-
-/******************************************************************************
-** Sets the configuration menu
-********************************/
-
-void    ImageButton::setPopupMenu(QPopupMenu * menu)
+void ImageButton::setToggled(bool enable)
 {
-    popup_menu = menu;
+    if (toggle)
+    {
+        state = 0;
+
+        if (enable)
+            pressed = true;
+        else
+            pressed = false;
+
+        repaint();
+    }
 }
 
+void ImageButton::setPopupMenu(QPopupMenu* menu)
+{
+    popup_menu = menu;
+    popup_timer = new QTimer(this);
+    connect(popup_timer, SIGNAL(timeout()), this, SLOT(showPopupMenu()));
+}
 
-/******************************************************************************
-** Loads the 'UP' pixmap
-**************************/
+void ImageButton::showPopupMenu()
+{
+    popup_menu->exec(mapToGlobal(QPoint(0, height())));
+}
 
-void    ImageButton::setUpPixmap(const QString & path)
+void ImageButton::setUpPixmap(const QString& path)
 {
     up_pixmap.load(path);
     resize(up_pixmap.size());
-    setMask(*up_pixmap.mask());
+
+    if (up_pixmap.hasAlphaChannel()) setMask(*up_pixmap.mask());
 }
 
-
-/******************************************************************************
-** Loads the 'OVER' pixmap
-****************************/
-
-void    ImageButton::setOverPixmap(const QString & path)
+void ImageButton::setOverPixmap(const QString& path)
 {
     over_pixmap.load(path);
 }
 
-
-/******************************************************************************
-** Loads the 'DOWN' pixmap
-****************************/
-
-void    ImageButton::setDownPixmap(const QString & path)
+void ImageButton::setDownPixmap(const QString& path)
 {
     down_pixmap.load(path);
 }
 
-
-
-//== PROTECTED METHODS ========================================================
-
-
-/******************************************************************************
-** Modifies button's state (mouse over)
-*****************************************/
-
-void    ImageButton::enterEvent(QEvent *)
+void ImageButton::enterEvent(QEvent*)
 {
-    state = (!pressed) ? 1 : 2;
+    state = pressed ? 2 : 1;
 
     repaint();
 }
 
-
-/******************************************************************************
-** Modifies button's state (mouse out)
-****************************************/
-
-void    ImageButton::leaveEvent(QEvent *)
+void ImageButton::leaveEvent(QEvent*)
 {
     state = 0;
 
+    if (popup_timer) popup_timer->stop();
+
     repaint();
 }
 
-
-/******************************************************************************
-** Modifies button's state (mouse down)
-****************************************/
-
-void    ImageButton::mousePressEvent(QMouseEvent *)
+void ImageButton::mousePressEvent(QMouseEvent*)
 {
+    if (QWhatsThis::inWhatsThisMode()) return;
+
     state = 2;
 
+    if (popup_timer) popup_timer->stop();
+
     repaint();
 
-    if (popup_menu != NULL)
-        popup_menu->exec(mapToGlobal(QPoint(0, height())));
+    if (popup_menu)
+    {
+        if (delay_popup)
+            popup_timer->start(800, true);
+        else
+            popup_menu->exec(mapToGlobal(QPoint(0, height())));
+    }
 }
 
-
-/******************************************************************************
-** Modifies button's state (mouse up)
-***************************************/
-
-void    ImageButton::mouseReleaseEvent(QMouseEvent *)
+void ImageButton::mouseReleaseEvent(QMouseEvent*)
 {
-    state = (toggle) ? 0 : 1;
-    pressed = (toggle) ? !pressed : false;
+    if (QWhatsThis::inWhatsThisMode()) return;
+
+    // Don't process event if press and release didn't
+    // occur within the button.
+    if (!state > 0) return;
+
+    state = toggle ? 0 : 1;
+    pressed = toggle ? !pressed : false;
+
+    if (popup_timer) popup_timer->stop();
 
     repaint();
 
@@ -179,32 +167,34 @@ void    ImageButton::mouseReleaseEvent(QMouseEvent *)
         emit clicked();
 }
 
-
-/******************************************************************************
-** Repaints the widget when asked
-***********************************/
-
-void    ImageButton::paintEvent(QPaintEvent *)
+void ImageButton::paintEvent(QPaintEvent*)
 {
-    QPainter    painter(this);
+    QPainter painter(this);
+
+    erase();
 
     switch (state)
     {
-    case 0:
-        if (pressed)
+        case 0:
+            if (pressed)
+                painter.drawPixmap(0, 0, down_pixmap);
+            else
+                painter.drawPixmap(0, 0, up_pixmap);
+            break;
+
+        case 1:
+            painter.drawPixmap(0, 0, over_pixmap);
+            break;
+
+        case 2:
             painter.drawPixmap(0, 0, down_pixmap);
-        else
-            painter.drawPixmap(0, 0, up_pixmap);
-        break;
-
-    case 1:
-        painter.drawPixmap(0, 0, over_pixmap);
-        break;
-
-    case 2:
-        painter.drawPixmap(0, 0, down_pixmap);
-        break;
+            break;
     }
 
     painter.end();
+}
+
+void ImageButton::slotUpdateBackground()
+{
+    if (root_pixmap) root_pixmap->repaint(true);
 }

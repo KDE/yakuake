@@ -1,33 +1,39 @@
-/*****************************************************************************
- *                                                                           *
- *   Copyright (C) 2005 by Chazal Francois             <neptune3k@free.fr>   *
- *   website : http://workspace.free.fr                                      *
- *                                                                           *
- *                     =========  GPL License  =========                     *
- *    This program is free software; you can redistribute it and/or modify   *
- *   it under the terms of the  GNU General Public License as published by   *
- *   the  Free  Software  Foundation ; either version 2 of the License, or   *
- *   (at your option) any later version.                                     *
- *                                                                           *
- *****************************************************************************/
-
-//== INCLUDE REQUIREMENTS =====================================================
+/*
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+*/
 
 /*
-** Local libraries */
+  Copyright (C) 2005 Francois Chazal <neptune3k@free.fr>
+  Copyright (C) 2006-2007 Eike Hein <hein@kde.org>
+*/
+
+
 #include "tabbed_widget.h"
 #include "tabbed_widget.moc"
-#include <kdebug.h>
 
-//== CONSTRUCTORS AND DESTRUCTORS =============================================
+#include <qcursor.h>
+#include <qwhatsthis.h>
+
+#include <kaction.h>
+#include <kpopupmenu.h>
+#include <kmainwindow.h>
+#include <kiconloader.h>
 
 
-TabbedWidget::TabbedWidget(QWidget * parent, const char * name) : QWidget(parent, name)
+TabbedWidget::TabbedWidget(QWidget* parent, const char* name) : QWidget(parent, name)
 {
+    current_position = -1;
+    pressed = false;
+    pressed_position = -1;
+    edited_position = -1;
+
+    context_menu = 0;
+
     inline_edit = new QLineEdit(this);
     inline_edit->hide();
-
-    // Initializes the background pixmap ------------------
 
     root_pixmap = new KRootPixmap(this, "Transparent background");
     root_pixmap->setCustomPainting(true);
@@ -35,7 +41,8 @@ TabbedWidget::TabbedWidget(QWidget * parent, const char * name) : QWidget(parent
 
     connect(root_pixmap, SIGNAL(backgroundUpdated(const QPixmap &)), this, SLOT(slotUpdateBuffer(const QPixmap &)));
     connect(inline_edit, SIGNAL(returnPressed()), this, SLOT(slotRenameSelected()));
-    connect(inline_edit, SIGNAL(lostFocus()), this, SLOT(slotLostFocus()));
+    connect(inline_edit, SIGNAL(lostFocus()), inline_edit, SLOT(hide()));
+    connect(inline_edit, SIGNAL(lostFocus()), this, SLOT(slotResetEditedPosition()));
 
     selected_font = font();
     unselected_font = font();
@@ -46,284 +53,50 @@ TabbedWidget::TabbedWidget(QWidget * parent, const char * name) : QWidget(parent
 
 TabbedWidget::~TabbedWidget()
 {
+    delete context_menu;
     delete root_pixmap;
 }
 
-
-
-//== PUBLIC METHODS ===========================================================
-
-
-/******************************************************************************
-** Adds an item to the tabs
-*****************************/
-
-void    TabbedWidget::addItem(int id)
+int TabbedWidget::pressedPosition()
 {
-    items.append(id);
+    return pressed_position;
+}
+
+void TabbedWidget::createContextMenu()
+{
+    context_menu = new KPopupMenu();
+
+    static_cast<KMainWindow*>(parent()->parent())->actionCollection()->
+        action("split_horizontally")->plug(context_menu);
+    static_cast<KMainWindow*>(parent()->parent())->actionCollection()->
+        action("split_vertically")->plug(context_menu);
+    static_cast<KMainWindow*>(parent()->parent())->actionCollection()->
+        action("remove_terminal")->plug(context_menu);
+
+    context_menu->insertSeparator();
+
+    static_cast<KMainWindow*>(parent()->parent())->actionCollection()->
+        action("move_tab_left")->plug(context_menu);
+    static_cast<KMainWindow*>(parent()->parent())->actionCollection()->
+        action("move_tab_right")->plug(context_menu);
+
+    context_menu->insertSeparator();
+
+    static_cast<KMainWindow*>(parent()->parent())->actionCollection()->
+        action("edit_name")->plug(context_menu);
+
+    static_cast<KMainWindow*>(parent()->parent())->actionCollection()->
+        action("remove_tab")->plug(context_menu);
+
+}
+
+void TabbedWidget::addItem(int session_id)
+{
+    items.append(session_id);
     areas.append(0);
-    captions.append(defaultTabCaption(id));
+    captions.append(defaultTabCaption(session_id));
 
     refreshBuffer();
-}
-
-
-/******************************************************************************
-** Selects an item in the tabs
-********************************/
-
-void    TabbedWidget::selectItem(int id)
-{
-    selected_id = items.findIndex(id);
-    refreshBuffer();
-}
-
-
-/******************************************************************************
-** Removes an item from the tabs
-**********************************/
-
-int     TabbedWidget::removeItem(int id)
-{
-    int index = items.findIndex(id);
-
-    items.remove(items.at(index));
-    areas.remove(areas.at(index));
-    captions.remove(captions.at(index));
-
-    if (index != items.size())
-        selected_id = index;
-    else if (index != 0)
-        selected_id = index - 1;
-    else
-        selected_id = -1;
-
-    refreshBuffer();
-
-    if (selected_id != -1)
-        emit itemSelected(items[selected_id]);
-
-    return selected_id;
-}
-
-
-/******************************************************************************
-** Selects the new item in the list
-*************************************/
-
-void    TabbedWidget::selectNextItem()
-{
-    if (selected_id != items.size() - 1)
-        selected_id++;
-    else
-        selected_id = 0;
-
-    refreshBuffer();
-
-    emit itemSelected(items[selected_id]);
-}
-
-
-/******************************************************************************
-** Selects the previous item in the list
-******************************************/
-
-void    TabbedWidget::selectPreviousItem()
-{
-    if (selected_id != 0)
-        selected_id--;
-    else
-        selected_id = items.size() - 1;
-
-    refreshBuffer();
-
-    emit itemSelected(items[selected_id]);
-}
-
-
-/******************************************************************************
-** Renames an item given its id
-*********************************/
-
-void    TabbedWidget::renameItem(int id, const QString & namep)
-{
-    int index = items.findIndex(id);
-
-    if (index == -1) return;
-
-    QString name = namep.stripWhiteSpace();
-    captions[index] = !name.isEmpty() ? name : captions[index];
-
-    refreshBuffer();
-}
-
-
-/******************************************************************************
-** Open inline edit for the current item
-******************************************/
-
-void    TabbedWidget::interactiveRename()
-{
-    kdDebug() << "Hit" << endl;
-
-    uint    id;
-    int     width;
-
-    int index = items.findIndex(selected_id);
-
-    for (id = 0, width = 0; id < selected_id; id++)
-        width += areas[id];
-
-    inline_edit->setText(captions[index]);
-    inline_edit->setGeometry(width, 0, areas[index], height());
-    inline_edit->setAlignment(Qt::AlignHCenter);
-    inline_edit->setFrame(false);
-    inline_edit->selectAll();
-    inline_edit->setFocus();
-    inline_edit->show();
-}
-
-
-/******************************************************************************
-** Sets the font color
-************************/
-
-void    TabbedWidget::setFontColor(const QColor & color)
-{
-    font_color = color;
-}
-
-
-/******************************************************************************
-** Loads the background pixmap
-********************************/
-
-void    TabbedWidget::setBackgroundPixmap(const QString & path)
-{
-    background_image.load(path);
-    resize(width(), background_image.height());
-
-    repaint();
-}
-
-
-/******************************************************************************
-** Loads the separator pixmap
-*******************************/
-
-void    TabbedWidget::setSeparatorPixmap(const QString & path)
-{
-    separator_image.load(path);
-}
-
-
-/******************************************************************************
-** Loads the unselected background pixmap
-*******************************************/
-
-void    TabbedWidget::setUnselectedPixmap(const QString & path)
-{
-    unselected_image.load(path);
-}
-
-
-/******************************************************************************
-** Loads the selected background pixmap
-*****************************************/
-
-void    TabbedWidget::setSelectedPixmap(const QString & path)
-{
-    selected_image.load(path);
-}
-
-
-/******************************************************************************
-** Loads the selected left corner pixmap
-******************************************/
-
-void    TabbedWidget::setSelectedLeftPixmap(const QString & path)
-{
-    selected_left_image.load(path);
-}
-
-
-/******************************************************************************
-** Loads the selected right corner pixmap
-*******************************************/
-
-void    TabbedWidget::setSelectedRightPixmap(const QString & path)
-{
-    selected_right_image.load(path);
-}
-
-
-
-//== PROTECTED METHODS ========================================================
-
-
-/******************************************************************************
-** Repaints the widget when asked
-***********************************/
-
-void    TabbedWidget::paintEvent(QPaintEvent *)
-{
-    bitBlt(this, 0, 0, &buffer_image);
-}
-
-
-/******************************************************************************
-** Changes focused tab on mouse scroll
-****************************************/
-
-void    TabbedWidget::wheelEvent(QWheelEvent *e)
-{
-    if (e->delta() < 0)
-        selectNextItem();
-    else
-        selectPreviousItem();
-}
-
-
-/******************************************************************************
-** Modifies button's state (mouse up)
-***************************************/
-
-void    TabbedWidget::mouseReleaseEvent(QMouseEvent *e)
-{
-    uint    id;
-    int     width;
-
-    inline_edit->hide();
-
-    if (e->x() < 0)
-        return ;
-
-    for (id = 0, width = 0; (id < areas.size()) && (e->x() >= width); id++)
-        width += areas[id];
-
-    if ((e->x() <= width) && (e->button() == Qt::LeftButton))
-    {
-        if (selected_id == id - 1)
-        {
-            for (id = 0, width = 0; id < selected_id; id++)
-                width += areas[id];
-
-            inline_edit->setText(captions[id]);
-            inline_edit->setGeometry(width, 0, areas[selected_id], height());
-            inline_edit->setAlignment(Qt::AlignHCenter);
-            inline_edit->setFrame(false);
-            inline_edit->selectAll();
-            inline_edit->setFocus();
-            inline_edit->show();
-        }
-        else
-        {
-            selected_id = id - 1;
-
-            refreshBuffer();
-            emit itemSelected(items[selected_id]);
-        }
-    }
 }
 
 QString TabbedWidget::defaultTabCaption(int id)
@@ -331,25 +104,400 @@ QString TabbedWidget::defaultTabCaption(int id)
     return i18n("Shell", "Shell No. %n", id+1);
 }
 
-
-//== PRIVATE METHODS ==========================================================
-
-
-/******************************************************************************
-** Refreshes the back buffer
-******************************/
-
-void   TabbedWidget::refreshBuffer()
+int TabbedWidget::removeItem(int session_id)
 {
-    int         x = 0;
-    QPainter    painter;
+    uint position = items.findIndex(session_id);
+
+    items.remove(items.at(position));
+    areas.remove(areas.at(position));
+    captions.remove(captions.at(position));
+
+    if (position != items.count())
+        current_position = position;
+    else if (position != 0)
+        current_position = position - 1;
+    else
+        current_position = -1;
+
+    refreshBuffer();
+
+    if (current_position != -1)
+        emit itemSelected(items[current_position]);
+
+    return current_position;
+}
+
+void TabbedWidget::renameItem(int session_id, const QString& namep)
+{
+    int position = items.findIndex(session_id);
+
+    if (position == -1) return;
+
+    QString name = namep.stripWhiteSpace();
+    captions[position] = !name.isEmpty() ? name : captions[position];
+
+    refreshBuffer();
+}
+
+void TabbedWidget::interactiveRename()
+{
+    if (pressed_position != -1)
+    {
+        interactiveRename(pressed_position);
+        pressed_position = -1;
+    }
+    else
+    {
+        interactiveRename(current_position);
+    }
+}
+
+void TabbedWidget::interactiveRename(int position)
+{
+    if (position >= 0 && position < int(items.count()) && !items.isEmpty())
+    {
+        edited_position = position;
+
+        int index;
+        int width;
+
+        for (index = 0, width = 0; index < position; index++)
+            width += areas[index];
+
+        inline_edit->setText(captions[position]);
+        inline_edit->setGeometry(width, 0, areas[position], height());
+        inline_edit->setAlignment(Qt::AlignHCenter);
+        inline_edit->setFrame(false);
+        inline_edit->selectAll();
+        inline_edit->setFocus();
+        inline_edit->show();
+    }
+}
+
+void TabbedWidget::slotRenameSelected()
+{
+    if (edited_position >= 0 && edited_position < int(items.count()))
+    {
+        QString text = inline_edit->text().stripWhiteSpace();
+        captions[edited_position] = !text.isEmpty() ? text : captions[edited_position];
+
+        inline_edit->hide();
+
+        edited_position = -1;
+
+        refreshBuffer();
+    }
+}
+
+void TabbedWidget::slotResetEditedPosition()
+{
+    edited_position = -1;
+}
+
+int TabbedWidget::tabPositionForSessionId(int session_id)
+{
+    return items.findIndex(session_id);
+}
+
+int TabbedWidget::sessionIdForTabPosition(int position)
+{
+    if (position < int(items.count()) && !items.isEmpty())
+        return items[position];
+    else
+        return -1;
+}
+
+void TabbedWidget::selectItem(int session_id)
+{
+    int new_position = items.findIndex(session_id);
+
+    if (new_position != -1)
+    {
+        current_position = new_position;
+        refreshBuffer();
+    }
+}
+
+void TabbedWidget::selectPosition(int position)
+{
+    if (position < int(items.count()) && !items.isEmpty())
+    {
+        current_position = position;
+
+        refreshBuffer();
+
+        emit itemSelected(items[current_position]);
+    }
+}
+
+void TabbedWidget::selectNextItem()
+{
+    if (current_position != int(items.count()) - 1)
+        current_position++;
+    else
+        current_position = 0;
+
+    refreshBuffer();
+
+    emit itemSelected(items[current_position]);
+}
+
+void TabbedWidget::selectPreviousItem()
+{
+    if (current_position != 0)
+        current_position--;
+    else
+        current_position = items.count() - 1;
+
+    refreshBuffer();
+
+    emit itemSelected(items[current_position]);
+}
+
+void TabbedWidget::moveItemLeft()
+{
+    if (pressed_position != -1)
+    {
+        moveItemLeft(pressed_position);
+        pressed_position = -1;
+    }
+    else
+        moveItemLeft(current_position);
+}
+
+
+void TabbedWidget::moveItemLeft(int position)
+{
+    if (position > 0)
+    {
+        int session_id = items[position];
+        QString caption = captions[position];
+
+        int neighbor_session_id = items[position-1];
+        QString neighbor_caption = captions[position-1];
+
+        items[position-1] = session_id;
+        captions[position-1] = caption;
+
+        items[position] = neighbor_session_id;
+        captions[position] = neighbor_caption;
+
+        if (position == current_position)
+            current_position--;
+        else if (position == current_position + 1)
+            current_position++;
+
+        refreshBuffer();
+    }
+}
+
+void TabbedWidget::moveItemRight()
+{
+    if (pressed_position != -1)
+    {
+        moveItemRight(pressed_position);
+        pressed_position = -1;
+    }
+    else
+        moveItemRight(current_position);
+}
+
+void TabbedWidget::moveItemRight(int position)
+{
+    if (position < int(items.count()) - 1)
+    {
+        int session_id = items[position];
+        QString caption = captions[position];
+
+        int neighbor_session_id = items[position+1];
+        QString neighbor_caption = captions[position+1];
+
+        items[position+1] = session_id;
+        captions[position+1] = caption;
+
+        items[position] = neighbor_session_id;
+        captions[position] = neighbor_caption;
+
+        if (position == current_position)
+            current_position++;
+        else if (position == current_position - 1)
+            current_position--;
+
+        refreshBuffer();
+    }
+}
+
+void TabbedWidget::setFontColor(const QColor & color)
+{
+    font_color = color;
+}
+
+void TabbedWidget::setBackgroundPixmap(const QString & path)
+{
+    background_image.load(path);
+    resize(width(), background_image.height());
+
+    repaint();
+}
+
+void TabbedWidget::setSeparatorPixmap(const QString & path)
+{
+    separator_image.load(path);
+}
+
+void TabbedWidget::setUnselectedPixmap(const QString & path)
+{
+    unselected_image.load(path);
+}
+
+void TabbedWidget::setSelectedPixmap(const QString & path)
+{
+    selected_image.load(path);
+}
+
+void TabbedWidget::setSelectedLeftPixmap(const QString & path)
+{
+    selected_left_image.load(path);
+}
+
+void TabbedWidget::setSelectedRightPixmap(const QString & path)
+{
+    selected_right_image.load(path);
+}
+
+void TabbedWidget::keyPressEvent(QKeyEvent* e)
+{
+    if (e->key() == Key_Escape && inline_edit->isShown())
+    {
+        inline_edit->hide();
+        edited_position = -1;
+    }
+
+    QWidget::keyPressEvent(e);
+}
+
+void TabbedWidget::wheelEvent(QWheelEvent* e)
+{
+    if (e->delta() < 0)
+        selectNextItem();
+    else
+        selectPreviousItem();
+}
+
+void TabbedWidget::mousePressEvent(QMouseEvent* e)
+{
+    if (QWhatsThis::inWhatsThisMode()) return;
+
+    int position;
+    int width;
+
+    if (e->x() < 0)
+        return ;
+
+    for (position = 0, width = 0; (position < int(areas.count())) && (e->x() >= width); position++)
+        width += areas[position];
+
+    if ((e->x() <= width) && (e->button() == Qt::LeftButton) && !(current_position == position - 1))
+    {
+        pressed = true;
+        pressed_position = position - 1;
+    }
+    else if ((e->x() <= width) && (e->button() == Qt::RightButton))
+    {
+        pressed_position = position - 1;
+
+        if (!context_menu) createContextMenu();
+
+        static_cast<KMainWindow*>(parent()->parent())->actionCollection()->
+            action("move_tab_left")->setEnabled((position - 1 > 0));
+        static_cast<KMainWindow*>(parent()->parent())->actionCollection()->
+            action("move_tab_right")->setEnabled((position - 1 < int(items.count()) - 1));
+
+        context_menu->exec(QCursor::pos());
+
+        static_cast<KMainWindow*>(parent()->parent())->actionCollection()->
+            action("move_tab_left")->setEnabled(true);
+        static_cast<KMainWindow*>(parent()->parent())->actionCollection()->
+            action("move_tab_right")->setEnabled(true);
+    }
+}
+
+void TabbedWidget::mouseReleaseEvent(QMouseEvent* e)
+{
+    if (QWhatsThis::inWhatsThisMode()) return;
+
+    int position;
+    int width;
+
+    if (e->x() < 0)
+        return ;
+
+    for (position = 0, width = 0; (position < int(areas.count())) && (e->x() >= width); position++)
+        width += areas[position];
+
+    if ((e->x() <= width) && (e->button() == Qt::LeftButton) && !(current_position == position - 1))
+    {
+        if (pressed && pressed_position == (position - 1))
+        {
+            current_position = position - 1;
+
+            refreshBuffer();
+
+            emit itemSelected(items[current_position]);
+        }
+    }
+
+    pressed = false;
+}
+
+void TabbedWidget::mouseDoubleClickEvent(QMouseEvent* e)
+{
+    if (QWhatsThis::inWhatsThisMode()) return;
+
+    int position;
+    int width;
+
+    inline_edit->hide();
+
+    if (e->x() < 0)
+        return ;
+
+    for (position = 0, width = 0; (position < int(areas.count())) && (e->x() >= width); position++)
+        width += areas[position];
+
+    if ((e->x() <= width) && (e->button() == Qt::LeftButton) && current_position == position - 1)
+    {
+        interactiveRename(position - 1);
+    }
+    else if ((e->x() > width) && (e->button() == Qt::LeftButton))
+        emit addItem();
+}
+
+void TabbedWidget::leaveEvent(QEvent* e)
+{
+    pressed = false;
+
+    QWidget::leaveEvent(e);
+}
+
+void TabbedWidget::paintEvent(QPaintEvent*)
+{
+    bitBlt(this, 0, 0, &buffer_image);
+}
+
+void TabbedWidget::refreshBuffer()
+{
+    /* Refreshes the back buffer. */
+
+    int x = 0;
+    QPainter painter;
 
     buffer_image.resize(size());
     painter.begin(&buffer_image);
 
     painter.drawTiledPixmap(0, 0, width(), height(), desktop_image);
 
-    for (uint i = 0; i < items.size(); i++)
+    for (uint i = 0; i < items.count(); i++)
         x = drawButton(i, painter);
 
     painter.drawTiledPixmap(x, 0, width() - x, height(), background_image);
@@ -359,88 +507,70 @@ void   TabbedWidget::refreshBuffer()
     repaint();
 }
 
-
-/******************************************************************************
-** Draws the tabs button
-**************************/
-
-const int   TabbedWidget::drawButton(int id, QPainter & painter)
+const int TabbedWidget::drawButton(int position, QPainter& painter)
 {
-    static int  x = 0;
-    QPixmap     tmp_pixmap;
+    /* Draws the tab buttons. */
 
-    areas[id] = 0;
-    x = (!id) ? 0 : x;
+    static int x = 0;
+    QPixmap tmp_pixmap;
 
-    // Initializes the painter ----------------------------
+    areas[position] = 0;
+    x = (!position) ? 0 : x;
 
+    // Initialize the painter.
     painter.setPen(font_color);
-    painter.setFont((id == selected_id) ? selected_font : unselected_font);
+    painter.setFont((position == current_position) ? selected_font : unselected_font);
 
-    // draws the left border ------------------------------
-
-    if (id == selected_id)
+    // Draw the left border.
+    if (position == current_position)
         tmp_pixmap = selected_left_image;
-    else if (id != selected_id + 1)
+    else if (position != current_position + 1)
         tmp_pixmap = separator_image;
 
     painter.drawPixmap(x, 0, tmp_pixmap);
-    areas[id] += tmp_pixmap.width();
+    areas[position] += tmp_pixmap.width();
     x += tmp_pixmap.width();
 
-    // draws the main contents ----------------------------
+    // Draw the main contents.
+    int width;
+    QFontMetrics metrics(painter.font());
 
-    int             width;
-    QFontMetrics    metrics(painter.font());
+    width = metrics.width(captions[position]) + 10;
 
-    width = metrics.width(captions[id]) + 10;
-
-    tmp_pixmap = (id == selected_id) ? selected_image : unselected_image;
+    tmp_pixmap = (position == current_position) ? selected_image : unselected_image;
     painter.drawTiledPixmap(x, 0, width, height(), tmp_pixmap);
 
     painter.drawText(x, 0, width + 1, height() + 1,
-                     Qt::AlignHCenter | Qt::AlignVCenter,  captions[id]);
+                     Qt::AlignHCenter | Qt::AlignVCenter,  captions[position]);
 
-    areas[id] += width;
+    areas[position] += width;
     x += width;
 
-    // draws the right border if needed -------------------
-
-    if (id == selected_id)
+    // Draw the right border if needed.
+    if (position == current_position)
     {
         painter.drawPixmap(x, 0, selected_right_image);
-        areas[id] += selected_right_image.width();
+        areas[position] += selected_right_image.width();
         x += selected_right_image.width();
     }
-    else if (id == (int) items.size() - 1)
+    else if (position == (int) items.count() - 1)
     {
         painter.drawPixmap(x, 0, separator_image);
-        areas[id] += separator_image.width();
+        areas[position] += separator_image.width();
         x += separator_image.width();
     }
 
     return x;
 }
 
-
-
-//== PRIVATE SLOTS ============================================================
-
-
-void    TabbedWidget::slotRenameSelected()
-{
-    inline_edit->hide();
-
-    QString text = inline_edit->text().stripWhiteSpace();
-    captions[selected_id] = !text.isEmpty() ? text : captions[selected_id];
-
-    refreshBuffer();
-}
-
-
-void    TabbedWidget::slotUpdateBuffer(const QPixmap & pixmap)
+void TabbedWidget::slotUpdateBuffer(const QPixmap& pixmap)
 {
     desktop_image = pixmap;
 
     refreshBuffer();
+}
+
+void TabbedWidget::slotUpdateBackground()
+{
+    if (root_pixmap) root_pixmap->repaint(true);
 }
