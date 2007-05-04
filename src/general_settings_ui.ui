@@ -203,9 +203,6 @@
                             <verstretch>0</verstretch>
                         </sizepolicy>
                     </property>
-                    <property name="suffix">
-                        <string>%</string>
-                    </property>
                     <property name="maxValue">
                         <number>100</number>
                     </property>
@@ -231,12 +228,6 @@
                             <verstretch>0</verstretch>
                         </sizepolicy>
                     </property>
-                    <property name="prefix">
-                        <string>~</string>
-                    </property>
-                    <property name="suffix">
-                        <string>ms</string>
-                    </property>
                     <property name="maxValue">
                         <number>500</number>
                     </property>
@@ -261,9 +252,6 @@
                             <horstretch>0</horstretch>
                             <verstretch>0</verstretch>
                         </sizepolicy>
-                    </property>
-                    <property name="suffix">
-                        <string>%</string>
                     </property>
                     <property name="maxValue">
                         <number>100</number>
@@ -430,6 +418,20 @@
         </spacer>
     </vbox>
 </widget>
+<tabstops>
+    <tabstop>kcfg_popup</tabstop>
+    <tabstop>kcfg_confirmquit</tabstop>
+    <tabstop>kcfg_focus</tabstop>
+    <tabstop>kcfg_tabs</tabstop>
+    <tabstop>width_slider</tabstop>
+    <tabstop>kcfg_width</tabstop>
+    <tabstop>height_slider</tabstop>
+    <tabstop>kcfg_height</tabstop>
+    <tabstop>kcfg_steps</tabstop>
+    <tabstop>steps_spinbox</tabstop>
+    <tabstop>kcfg_location</tabstop>
+    <tabstop>kcfg_screen</tabstop>
+</tabstops>
 <layoutdefaults spacing="6" margin="11"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
 <includehints>

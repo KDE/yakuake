@@ -26,6 +26,11 @@
 GeneralSettings::GeneralSettings(QWidget* parent, const char* name)
  : GeneralSettingsUI(parent, name)
 {
+    kcfg_width->setSuffix("%");
+    kcfg_height->setSuffix("%");
+    steps_spinbox->setPrefix("~");
+    steps_spinbox->setSuffix("ms");
+
     for (int i = 2; i <= QApplication::desktop()->numScreens(); i++)
         kcfg_screen->insertItem(i18n("Screen %1").arg(QString::number(i)));
 
