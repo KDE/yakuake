@@ -135,9 +135,24 @@ void SkinSettings::slotPopulate()
             if (skin_icon_url.isValid())
                 skin_icon.load(skin_icon_url.path());
 
-            SkinListItem* skin = new SkinListItem(skins_list, skin_fancy_name, skin_author, skin_icon, skin_name, (*it));
+            bool exists = false;
+            SkinListItem* item = 0;
 
-            if (skin_name == selected) skins_list->setSelected(skin, true);
+            QListViewItemIterator it2(skins_list);
+
+            while (it2.current())
+            {
+                item = static_cast<SkinListItem*>(it2.current());
+                if (item && item->name() == skin_name) exists = true;
+                ++it2;
+            }
+
+            if (!exists)
+            {
+                SkinListItem* skin = new SkinListItem(skins_list, skin_fancy_name, skin_author, skin_icon, skin_name, (*it));
+
+                if (skin_name == selected) skins_list->setSelected(skin, true);
+            }
         }
     }
 
