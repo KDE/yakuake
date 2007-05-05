@@ -206,7 +206,7 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
     connect(&desk_info, SIGNAL(workAreaChanged()), this, SLOT(slotUpdateSize()));
 
     // Startup notification popup.
-    if (Settings::popup())
+    if (Settings::popup() && !Settings::firstrun())
         showPopup(i18n("Application successfully started!\nPress %1 to use it...").arg(global_key->shortcut("AccessKey").toString()));
 
     // First run dialog.
