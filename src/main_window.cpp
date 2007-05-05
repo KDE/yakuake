@@ -946,6 +946,7 @@ void MainWindow::slotInitSkin()
 
 void MainWindow::slotUpdateSize()
 {
+    if (full_screen) full_screen_action->activate();
     slotUpdateSize(Settings::width(), Settings::height(), Settings::location());
 }
 
@@ -1039,6 +1040,8 @@ void MainWindow::slotSetScreen(int screen)
 
 void MainWindow::slotSetAccessKey()
 {
+    if (full_screen) full_screen_action->activate();
+
     if (focus_policy == false) focus_policy = true;
 
     KConfig config(CONFIG_FILE);
@@ -1053,6 +1056,8 @@ void MainWindow::slotSetAccessKey()
 
 void MainWindow::slotSetControlKeys()
 {
+    if (full_screen) full_screen_action->activate();
+
     if (focus_policy == false) focus_policy = true;
 
     KConfig config(CONFIG_FILE);
@@ -1103,6 +1108,8 @@ void MainWindow::slotUpdateSettings()
 
 void MainWindow::slotOpenSettingsDialog()
 {
+    if (full_screen) full_screen_action->activate();
+
     if (focus_policy == false)
         focus_policy = true;
 
@@ -1192,6 +1199,8 @@ void MainWindow::slotOpenAboutApp()
         connect(about_app, SIGNAL(hidden()), this, SLOT(slotDialogFinished()));
     }
 
+    if (full_screen) full_screen_action->activate();
+
     if (focus_policy == false)
         focus_policy = true;
 
@@ -1205,6 +1214,8 @@ void MainWindow::slotOpenAboutKDE()
         about_kde = new KAboutKDE(this, "About KDE");
         connect(about_kde, SIGNAL(hidden()), this, SLOT(slotDialogFinished()));
     }
+
+    if (full_screen) full_screen_action->activate();
 
     if (focus_policy == false)
         focus_policy = true;
