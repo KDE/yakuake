@@ -1,4 +1,4 @@
-Changes since 2.7.5
+Changes in 2.8_beta1
 * Added a proper config dialog. Scale and position settings are previewed in
   real-time as the controls are moved.
 * Added a Skins page to the config dialog, allowing to list, choose, install and
@@ -13,8 +13,9 @@ Changes since 2.7.5
   a certain split layout click and hold the New Session button on the tab bar,
   then choose from the list, or set up keyboard shortcuts for the preconfigured
   session types in the shortcut dialog.
-* The main menu has been redesigned to conform more to established KDE
-  practices. Several items have been added corresponding to new Yakuake features.
+* The main menu has been redesigned to conform more to established KDE practices
+  in layout and naming. Several items have been added corresponding to new Yakuake
+  features.
 * Added a fullscreen mode.
 * Improved support for Xinerama multi-head setups.
 * Added a first-run dialog to allow changing the open/close shortcut before it
@@ -23,7 +24,8 @@ Changes since 2.7.5
 * Added an About dialog.
 * The startup notification popup can now be disabled in the config dialog.
 * Activating the open/close shortcut will now bring the Yakuake window to the
-  foreground and focus it if it was already open but unfocussed.
+  foreground and focus it if it was already open but unfocussed, at popular
+  request.
 * Opening dialogs from Yakuake will no longer cause the window to retract.
 * Tabs can now be moved. Added corresponding keyboard shortcuts.
 * Tabs now have context menus containing several relevant actions, such as
@@ -40,7 +42,7 @@ Changes since 2.7.5
   alternate new session shortcut from Konsole).
 * Added keyboard shortcuts to switch to session 1 through 12.
 * Added keyboard shortcuts to adjust the width and height of the window.
-* Added an action to paste the X11 selection buffer.
+* Added an action and shortcut to paste the X11 selection buffer.
 * Added an action to quit Yakuake.
 * Made the quit warning with multiple open sessions behave consistently with
   Konsole.
@@ -74,41 +76,39 @@ Changes since 2.7.5
   modern XDG standards.
 
 
-Changes since 2.7.4
-- Further translations have been added.
-- Yakuake no longer spawns login shells in new sessions.
-- A keyboard shortcut to rename the selected session has been added.
-- The default keyboard shortcuts and their names are now consistent
-  with Konsole.
-- A bug that led to the tab bar not updating after a slotSelectSession
-  DCOP call was issued has been fixed.
-- A bug that could lead to the slotRenameSession DCOP call failing to
-  set a session label after an older session had been closed has been
-  fixed.
-- Upon attempting to set an all-whitespace session label, the label
-  will now fall back to its prior setting rather than a default label.
-- Yakuake will now display a warning before quitting the application
-  with multiple tabs open.
+Changes in 2.7.5
+* Further translations have been added.
+* Yakuake no longer spawns login shells in new sessions.
+* A keyboard shortcut to rename the selected session has been added.
+* The default keyboard shortcuts and their names are now consistent with
+  Konsole.
+* A bug that led to the tab bar not updating after a slotSelectSession DCOP
+  call was issued has been fixed.
+* A bug that could lead to the slotRenameSession DCOP call failing to set a
+  session label after an older session had been closed has been fixed.
+* Upon attempting to set an all-whitespace session label, the label will now
+  fall back to its prior setting rather than a default label.
+* Yakuake will now display a warning before quitting the application with
+  multiple tabs open.
 
 
-Changes since 2.7.3
-- A bug in the Makefiles that led to the configure script being run
-  twice has been fixed.
-- The source code is now localizable. First translations are included.
-- A bug that could result in a crash on quit has been fixed.
-- A bug that could prevent the first line in a new session from being
-  used up to the full width of the terminal has been fixed.
-- The COLORTERM environment variable is now being set in new sessions,
+Changes in 2.7.4
+* A bug in the Makefiles that led to the configure script being run twice has
+  been fixed.
+* The source code is now localizable. First translations are included.
+* A bug that could result in a crash on quit has been fixed.
+* A bug that could prevent the first line in a new session from being used up to
+  the full width of the terminal has been fixed.
+* The COLORTERM environment variable is now being set in new sessions,
   triggering the color detection of Midnight Commander.
-- The default session labels are now consistent with Konsole.
-- Whitespace at the beginning or end of session labels will now be
-  trimmed.
-- Setting all-whitespace session labels is no longer possible.
+* The default session labels are now consistent with Konsole.
+* Whitespace at the beginning or end of session labels will now be trimmed.
+* Setting all-whitespace session labels is no longer possible.
 
 
-Changes since 2.7.2
-- Inline renaming of tabs by double-clicking on the tab label
-- Processes can now interact with titlebar text
-- DCOP call slotToggleState to open/close Yakuake
-- DCOP call slotGetSelectedSession
-- DCOP call slotSetTitleText
+Changes in 2.7.3
+* Inline renaming of tabs by double-clicking on the tab label
+* Processes can now interact with titlebar text
+* DCOP call slotToggleState to open/close Yakuake
+* DCOP call slotGetSelectedSession
+* DCOP call slotSetTitleText
