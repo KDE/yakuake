@@ -20,6 +20,7 @@
 #include <qclipboard.h>
 #include <qtimer.h>
 
+
 int Session::available_session_id = 0;
 
 Session::Session(QWidget* parent, SessionType type, const char* name) : QObject(parent, name)
@@ -32,12 +33,10 @@ Session::Session(QWidget* parent, SessionType type, const char* name) : QObject(
     focus_watcher = new TerminalFocusWatcher(this);
     connect(focus_watcher, SIGNAL(focusChanged()), this, SLOT(slotFocusChanged()));
 
-    base_widget = new TerminalSplitter(QSplitter::Horizontal, parent, "base");
+    base_widget = new TerminalSplitter(TerminalSplitter::Horizontal, parent, "base");
     connect(base_widget, SIGNAL(destroyed()), this, SLOT(slotLastTerminalClosed()));
 
     setenv("DCOP_YAKUAKE_SESSION", QString::number(session_id).ascii(), 1);
-
-    addTerminal(base_widget);
 
     createInitialSplits(type);
 }
@@ -51,32 +50,6 @@ Session::~Session()
     }
 
     emit destroyed(session_id);
-}
-
-void Session::createInitialSplits(SessionType type)
-{
-    switch (type)
-    {
-        case TwoHorizontal:
-            splitHorizontally();
-            break;
-
-        case TwoVertical:
-            splitVertically();
-            break;
-
-        case Quad:
-            splitHorizontally();
-            //FIXME: Uber-ugly hack.
-            QTimer::singleShot(250, this, SLOT(focusPreviousSplit()));
-            QTimer::singleShot(500, this, SLOT(splitVertically()));
-            QTimer::singleShot(750, this, SLOT(focusPreviousSplit()));
-            QTimer::singleShot(1000, this, SLOT(splitVertically()));
-            break;
-
-        default:
-            break;
-    }
 }
 
 void Session::slotFocusChanged()
@@ -225,6 +198,94 @@ void Session::focusNextSplit()
 void Session::focusPreviousSplit()
 {
     base_widget->focusPrevious();
+}
+
+void Session::createInitialSplits(SessionType type)
+{
+    switch (type)
+    {
+        case Single:
+        {
+            addTerminal(base_widget);
+
+            break;
+        }
+
+        case TwoHorizontal:
+        {
+            int splitter_width = base_widget->width();
+
+            Terminal* terminal = addTerminal(base_widget);
+            addTerminal(base_widget);
+
+            QValueList<int> new_splitter_sizes;
+            new_splitter_sizes << (splitter_width / 2) << (splitter_width / 2);
+            base_widget->setSizes(new_splitter_sizes);
+
+            terminal->widget()->setFocus();
+
+            break;
+        }
+
+        case TwoVertical:
+        {
+            base_widget->setOrientation(TerminalSplitter::Vertical);
+
+            int splitter_height = base_widget->height();
+
+            Terminal* terminal = addTerminal(base_widget);
+            addTerminal(base_widget);
+
+            QValueList<int> new_splitter_sizes;
+            new_splitter_sizes << (splitter_height / 2) << (splitter_height / 2);
+            base_widget->setSizes(new_splitter_sizes);
+
+            terminal->widget()->setFocus();
+
+            break;
+        }
+
+        case Quad:
+        {
+            int splitter_width = base_widget->width();
+            int splitter_height = base_widget->height();
+
+
+            base_widget->setOrientation(TerminalSplitter::Vertical);
+
+            TerminalSplitter* upper_splitter = new TerminalSplitter(TerminalSplitter::Horizontal, base_widget);
+            connect(upper_splitter, SIGNAL(destroyed()), this, SLOT(cleanup()));
+
+            TerminalSplitter* lower_splitter = new TerminalSplitter(TerminalSplitter::Horizontal, base_widget);
+            connect(lower_splitter, SIGNAL(destroyed()), this, SLOT(cleanup()));
+
+            Terminal* terminal = addTerminal(upper_splitter);
+            addTerminal(upper_splitter);
+
+            addTerminal(lower_splitter);
+            addTerminal(lower_splitter);
+
+            QValueList<int> new_splitter_sizes;
+            new_splitter_sizes << (splitter_height / 2) << (splitter_height / 2);
+            base_widget->setSizes(new_splitter_sizes);
+
+            new_splitter_sizes.clear();
+            new_splitter_sizes << (splitter_width / 2) << (splitter_width / 2);
+            upper_splitter->setSizes(new_splitter_sizes);
+            lower_splitter->setSizes(new_splitter_sizes);
+
+            terminal->widget()->setFocus();
+
+            break;
+        }
+
+        default:
+        {
+            addTerminal(base_widget);
+
+            break;
+        }
+    }
 }
 
 void Session::split(QWidget* active_terminal, Orientation o)

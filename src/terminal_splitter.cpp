@@ -20,10 +20,6 @@
 TerminalSplitter::TerminalSplitter(Orientation o, QWidget* parent, const char* name)
  : QSplitter(o, parent, name)
 {
-    //setFrameStyle(QFrame::StyledPanel | QFrame::Plain);
-    //setLineWidth(3);
-    //setMargin(3);
-
     is_shutting_down = false;
 }
 
