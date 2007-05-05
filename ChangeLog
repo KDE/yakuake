@@ -8,9 +8,11 @@ Changes since 2.7.5
 * The Plastik skin by Daniel 'suslik' D. has been added to the base package.
 * Added support for splitting a session into multiple terminals. Horizontal and
   vertical splits can be added and removed at will, as well as resized and
-  collapsed. To add a split, use the keyboard shortcuts or the session tab context
-  menu. To open a session preconfigred with a certain split setup click and hold
-  the New Session button, then choose from the list.
+  collapsed. To add a split at the active terminal's position, use the keyboard
+  shortcuts or the session tab context menu. To open a session preconfigred with
+  a certain split layout click and hold the New Session button on the tab bar,
+  then choose from the list, or set up keyboard shortcuts for the preconfigured
+  session types in the shortcut dialog.
 * The main menu has been redesigned to conform more to established KDE
   practices. Several items have been added corresponding to new Yakuake features.
 * Added a fullscreen mode.
