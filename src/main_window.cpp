@@ -78,6 +78,18 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
                              this, SLOT(slotAddSession()),
                              actionCollection(), "add_tab");
 
+    action = new KAction(i18n("Two Terminals, Horizontal"), SmallIcon("tab_new"),
+                             0, this, SLOT(slotAddSessionTwoHorizontal()),
+                             actionCollection(), "add_tab_twohorizontal");
+
+    action = new KAction(i18n("Two Terminals, Vertical"), SmallIcon("tab_new"),
+                             0, this, SLOT(slotAddSessionTwoVertical()),
+                             actionCollection(), "add_tab_twovertical");
+
+    action = new KAction(i18n("Four Terminals, Quad"), SmallIcon("tab_new"),
+                             0, this, SLOT(slotAddSessionQuad()),
+                             actionCollection(), "add_tab_quad");
+
     action = new KAction(i18n("Go to Next Terminal"), SmallIcon("next"),
                              Key_F8, this, SLOT(slotFocusNextSplit()),
                              actionCollection(), "focus_next_terminal");
@@ -319,7 +331,7 @@ void MainWindow::slotAddSessionTwoVertical()
     slotAddSession(Session::TwoVertical);
 }
 
-void MainWindow::slotAddSessionTwoQuad()
+void MainWindow::slotAddSessionQuad()
 {
     slotAddSession(Session::Quad);
 }
@@ -740,18 +752,28 @@ void MainWindow::createMenu()
     actionCollection()->action(KStdAction::stdName(KStdAction::Preferences))->plug(menu);
 }
 
+void MainWindow::updateWidthMenu()
+{
+    width_menu->clear();
+    for (int i = 10; i <= 100; i += 10) width_menu->insertItem(QString::number(i) + '%', i);
+    width_menu->setItemChecked(Settings::width(), true);
+}
+
+void MainWindow::updateHeightMenu()
+{
+    height_menu->clear();
+    for (int i = 10; i <= 100; i += 10) height_menu->insertItem(QString::number(i) + '%', i);
+    height_menu->setItemChecked(Settings::height(), true);
+}
+
 void MainWindow::createSessionMenu()
 {
     session_menu = new KPopupMenu();
 
     actionCollection()->action("add_tab")->plug(session_menu);
-
-    session_menu->insertItem(SmallIcon("view_left_right"),
-        i18n("Two Terminals, Horizontal"), this, SLOT(slotAddSessionTwoHorizontal()));
-    session_menu->insertItem(SmallIcon("view_top_bottom"),
-        i18n("Two Terminals, Vertical"), this, SLOT(slotAddSessionTwoVertical()));
-    session_menu->insertItem(i18n("Four Terminals, Quad"),
-        this, SLOT(slotAddSessionTwoQuad()));
+    actionCollection()->action("add_tab_twohorizontal")->plug(session_menu);
+    actionCollection()->action("add_tab_twovertical")->plug(session_menu);
+    actionCollection()->action("add_tab_quad")->plug(session_menu);
 }
 
 void MainWindow::slotUpdateTitle(const QString& title)
@@ -765,9 +787,11 @@ void MainWindow::slotIncreaseSizeW()
     /* Increase the window's width. */
 
     if (Settings::width() < 100)
+    {
         Settings::setWidth(Settings::width() + 10);
-
-    slotUpdateSize();
+        updateWidthMenu();
+        slotUpdateSize();
+    }
 }
 
 void MainWindow::slotDecreaseSizeW()
@@ -775,9 +799,11 @@ void MainWindow::slotDecreaseSizeW()
     /* Decrease the window's width. */
 
     if (Settings::width() > 10)
+    {
         Settings::setWidth(Settings::width() - 10);
-
-    slotUpdateSize();
+        updateWidthMenu();
+        slotUpdateSize();
+    }
 }
 
 void MainWindow::slotIncreaseSizeH()
@@ -785,9 +811,11 @@ void MainWindow::slotIncreaseSizeH()
     /* Increase the window's height. */
 
     if (Settings::height() < 100)
+    {
         Settings::setHeight(Settings::height() + 10);
-
-    slotUpdateSize();
+        updateHeightMenu();
+        slotUpdateSize();
+    }
 }
 
 void MainWindow::slotDecreaseSizeH()
@@ -795,9 +823,11 @@ void MainWindow::slotDecreaseSizeH()
     /* Decrease the window's height. */
 
     if (Settings::height() > 10)
+    {
         Settings::setHeight(Settings::height() - 10);
-
-    slotUpdateSize();
+        updateHeightMenu();
+        slotUpdateSize();
+    }
 }
 
 void MainWindow::slotSessionDestroyed(int id)
@@ -1060,12 +1090,8 @@ void MainWindow::slotUpdateSettings()
     menu->setItemChecked(Focus, Settings::focus());
     title_bar->setFocusButtonEnabled(Settings::focus());
 
-    width_menu->clear();
-    height_menu->clear();
-    for (int i = 10; i <= 100; i += 10) width_menu->insertItem(QString::number(i) + '%', i);
-    for (int i = 10; i <= 100; i += 10) height_menu->insertItem(QString::number(i) + '%', i);
-    width_menu->setItemChecked(Settings::width(), true);
-    height_menu->setItemChecked(Settings::height(), true);
+    updateWidthMenu();
+    updateHeightMenu();
 
     screen_menu->clear();
     screen_menu->insertItem(i18n("At mouse location"), 0);

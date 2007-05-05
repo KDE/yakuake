@@ -75,7 +75,7 @@ class MainWindow : public KMainWindow, virtual public DCOPInterface
         void slotAddSession();
         void slotAddSessionTwoHorizontal();
         void slotAddSessionTwoVertical();
-        void slotAddSessionTwoQuad();
+        void slotAddSessionQuad();
         void slotAddSession(Session::SessionType type);
 
         void slotRemoveSession();
@@ -134,6 +134,8 @@ class MainWindow : public KMainWindow, virtual public DCOPInterface
 
     private:
         void createMenu();
+        void updateWidthMenu();
+        void updateHeightMenu();
         void createSessionMenu();
         void createTabsBar();
         void createTitleBar();
