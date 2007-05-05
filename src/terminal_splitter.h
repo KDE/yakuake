@@ -39,6 +39,7 @@ class TerminalSplitter : public QSplitter
 
         void setPrepareShutdown(bool shutdown);
 
+
     private:
         bool is_shutting_down;
 

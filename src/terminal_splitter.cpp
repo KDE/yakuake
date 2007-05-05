@@ -16,7 +16,6 @@
 #include <qobjectlist.h>
 
 
-
 TerminalSplitter::TerminalSplitter(Orientation o, QWidget* parent, const char* name)
  : QSplitter(o, parent, name)
 {
@@ -98,5 +97,25 @@ void TerminalSplitter::recursiveCleanup()
         splitter->recursiveCleanup();
     }
 
-    if (count() == 0) deleteLater();
+    if (count() == 0)
+        deleteLater();
+    else
+    {
+        // Update minimum sizes.
+        if (orientation() == TerminalSplitter::Horizontal)
+        {
+            int minimumWidth = (terminalCount() > 1) ?
+                terminalCount()*150+handleWidth() : terminalCount()*150;
+
+            setMinimumSize(QSize(minimumWidth, minimumHeight()));
+
+        }
+        else if (orientation() == TerminalSplitter::Vertical)
+        {
+            int minimumHeight = (terminalCount() > 1) ?
+                terminalCount()*70+handleWidth() : terminalCount()*70;
+
+            setMinimumSize(QSize(minimumWidth(), minimumHeight));
+        }
+    }
 }
