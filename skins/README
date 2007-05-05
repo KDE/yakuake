@@ -27,7 +27,7 @@
    The "Skins" page in the Yakuake configuration dialog features an "Install
    Skin" facility that can install Yakuake skin directories packaged as a
    tar archive and optionally compressed using gzip or bzip2. Packages can be
-   installed from a local volume or an URL (using KIO).
+   installed from a local volume or a URL (using KIO).
 
    In managing skins, Yakuake uses the name of the base skin directory loca-
    ted within the tar archive as internal identifier for the skin. It should
