@@ -28,3 +28,4 @@ Comment[sv]=En Quake-liknande terminalemulator baserad på teknologi från KDE:s
 Comment[tr]=KDE Konsole teknolojisi üzerine kurulu Quake stili bir terminal emülatörü
 Comment[uk]=Емулятор терміналу в стилі Quake, оснований на технології консолі KDE.
 X-KDE-StartupNotify=false
+X-DCOP-ServiceType=Unique

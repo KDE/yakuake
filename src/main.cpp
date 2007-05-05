@@ -49,7 +49,7 @@ int main(int argc, char ** argv)
         return(0);
     }
 
-    KUniqueApplication  app;
+    KUniqueApplication app;
     MainWindow* win = new MainWindow();
 
     win->hide();
