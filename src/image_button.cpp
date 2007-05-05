@@ -140,7 +140,7 @@ void ImageButton::mousePressEvent(QMouseEvent*)
     if (popup_menu)
     {
         if (delay_popup)
-            popup_timer->start(800, true);
+            popup_timer->start(600, true);
         else
             popup_menu->exec(mapToGlobal(QPoint(0, height())));
     }
