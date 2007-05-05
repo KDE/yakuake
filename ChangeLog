@@ -1,7 +1,7 @@
 Changes since 2.7.5
 * Added a proper config dialog. Scale and position settings are previewed in
   real-time as the controls are moved.
-* Added a Skins page to the config dialog, allowing to list, chose, install and
+* Added a Skins page to the config dialog, allowing to list, choose, install and
   remove (given the necessary write permissions) skins. The skin format has been
   slightly augmented to allow skins to ship a preview icon for the list. Skins can
   be switched at runtime without a restart.
@@ -10,7 +10,7 @@ Changes since 2.7.5
   vertical splits can be added and removed at will, as well as resized and
   collapsed. To add a split, use the keyboard shortcuts or the session tab context
   menu. To open a session preconfigred with a certain split setup click and hold
-  the New Session button, then chose from the list.
+  the New Session button, then choose from the list.
 * The main menu has been redesigned to conform more to established KDE
   practices. Several items have been added corresponding to new Yakuake features.
 * Added a fullscreen mode.
@@ -63,7 +63,11 @@ Changes since 2.7.5
   without their own postfix.
 * Fixed a crash when a terminal in a tab other than the currently selected tab
   exits.
-* Ported preferences handling to KDE's KConfigXT framework.
+* Ported preferences handling to KDE's KConfigXT framework. Aside from cleaner
+  code, this improves over the old preferences handling by avoiding unnecessary
+  disk activity (and thus spurious hard drive spin-ups on laptop computers and
+  other battery-bound devices).
+* Disabled startup notifications (i.e. KDE's bouncing cursor) for Yakuake.
 * Updated the installation colation of the .desktop menu file to conform to
   modern XDG standards.
 

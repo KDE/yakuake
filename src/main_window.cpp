@@ -819,7 +819,7 @@ void MainWindow::slotToggleState()
     static int state = 1;
 
     if (timer.isActive())
-        return ;
+        return;
 
     KWinModule kwin(this);
 
@@ -1117,7 +1117,7 @@ void MainWindow::slotOpenFirstRunDialog()
         first_run_dialog_page->setShortcut(global_key->shortcut("AccessKey"));
 
         first_run_dialog->setMainWidget(first_run_dialog_page);
-}
+    }
 
     if (focus_policy == false)
         focus_policy = true;
