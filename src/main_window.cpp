@@ -1114,9 +1114,12 @@ void MainWindow::slotOpenFirstRunDialog()
         connect(first_run_dialog, SIGNAL(hidden()), this, SLOT(slotDialogFinished()));
 
         FirstRunDialog* first_run_dialog_page = new FirstRunDialog(first_run_dialog);
+        first_run_dialog_page->setMinimumSize(first_run_dialog_page->sizeHint());
         first_run_dialog_page->setShortcut(global_key->shortcut("AccessKey"));
 
         first_run_dialog->setMainWidget(first_run_dialog_page);
+        first_run_dialog->adjustSize();
+        first_run_dialog->disableResize();
     }
 
     if (focus_policy == false)
