@@ -91,11 +91,11 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
                              actionCollection(), "add_tab_quad");
 
     action = new KAction(i18n("Go to Next Terminal"), SmallIcon("next"),
-                             Key_F8, this, SLOT(slotFocusNextSplit()),
+                             "Ctrl+Shift+Up", this, SLOT(slotFocusNextSplit()),
                              actionCollection(), "focus_next_terminal");
 
     action = new KAction(i18n("Go to Previous Terminal"), SmallIcon("previous"),
-                             SHIFT+Key_F8, this, SLOT(slotFocusPreviousSplit()),
+                             "Ctrl+Shift+Down", this, SLOT(slotFocusPreviousSplit()),
                              actionCollection(), "focus_previous_terminal");
 
     action = new KAction(i18n("Paste"), SmallIcon("editpaste"), SHIFT+Key_Insert,
