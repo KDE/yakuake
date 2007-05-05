@@ -36,7 +36,7 @@ Changes since 2.7.5
 * Fixed the interaction model of the tab bar and the buttons to allow cancelling
   activations by releasing the mouse button outside of them.
 * Added various new keyboard shortcuts corresponding to new Yakuake features and
-  improved consistency with Konsole in existing short- cuts (e.g. added the
+  improved consistency with Konsole in existing shortcuts (e.g. added the
   alternate new session shortcut from Konsole).
 * Added keyboard shortcuts to switch to session 1 through 12.
 * Added keyboard shortcuts to adjust the width and height of the window.
