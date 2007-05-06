@@ -127,6 +127,15 @@ int TabbedWidget::removeItem(int session_id)
     return current_position;
 }
 
+const QString TabbedWidget::itemName(int session_id)
+{
+    int position = items.findIndex(session_id);
+
+    if (position == -1) return 0;
+
+    return captions[position];
+}
+
 void TabbedWidget::renameItem(int session_id, const QString& namep)
 {
     int position = items.findIndex(session_id);

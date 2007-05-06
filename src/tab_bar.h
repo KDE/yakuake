@@ -46,6 +46,7 @@ class TabBar : public QWidget
         void addItem(int session_id);
         int removeItem(int session_id);
 
+        const QString itemName(int session_id);
         void renameItem(int session_id, const QString& name);
         void interactiveRename();
 

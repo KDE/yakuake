@@ -63,6 +63,11 @@ int TabBar::removeItem(int session_id)
     return tabs_widget->removeItem(session_id);
 }
 
+const QString TabBar::itemName(int session_id)
+{
+    return tabs_widget->itemName(session_id);
+}
+
 void TabBar::renameItem(int session_id, const QString& name)
 {
     tabs_widget->renameItem(session_id, name);

@@ -61,6 +61,7 @@ class TabbedWidget : public QWidget
         void moveItemRight();
         void moveItemRight(int position);
 
+        const QString itemName(int session_id);
         void renameItem(int session_id, const QString& name);
 
         void interactiveRename();

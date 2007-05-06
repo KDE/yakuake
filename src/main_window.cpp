@@ -455,19 +455,31 @@ void MainWindow::slotSelectTabPosition(int position)
     tab_bar->selectPosition(position);
 }
 
-const QString MainWindow::sessionTitle()
+const QString MainWindow::slotSessionName()
+{
+    return tab_bar->itemName(selected_id);
+}
+
+const QString MainWindow::slotSessionName(int session_id)
+{
+    if (!sessions_stack[session_id]) return 0;
+
+    return tab_bar->itemName(session_id);
+}
+
+const QString MainWindow::slotSessionTitle()
 {
     return sessions_stack[selected_id]->title();
 }
 
-const QString MainWindow::sessionTitle(int session_id)
+const QString MainWindow::slotSessionTitle(int session_id)
 {
     if (!sessions_stack[session_id]) return 0;
 
     return sessions_stack[session_id]->title();
 }
 
-const QString MainWindow::sessionTitle(int session_id, int terminal_id)
+const QString MainWindow::slotSessionTitle(int session_id, int terminal_id)
 {
     if (!sessions_stack[session_id]) return 0;
 

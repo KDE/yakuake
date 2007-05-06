@@ -43,9 +43,12 @@ class DCOPInterface : virtual public DCOPObject
         virtual void slotSelectSession(int session_id) = 0;
         virtual void slotSelectTabPosition(int position) = 0;
 
-        virtual const QString sessionTitle() = 0;
-        virtual const QString sessionTitle(int session_id) = 0;
-        virtual const QString sessionTitle(int session_id, int terminal_id) = 0;
+        virtual const QString slotSessionName() = 0;
+        virtual const QString slotSessionName(int session_id) = 0;
+
+        virtual const QString slotSessionTitle() = 0;
+        virtual const QString slotSessionTitle(int session_id) = 0;
+        virtual const QString slotSessionTitle(int session_id, int terminal_id) = 0;
 
         virtual void slotSetSessionTitleText(const QString& title) = 0;
         virtual void slotSetSessionTitleText(int session_id, const QString& title) = 0;

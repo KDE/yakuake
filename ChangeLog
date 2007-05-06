@@ -1,4 +1,11 @@
-Changes in 2.8_beta1
+Changes since 2.8-beta1:
+* Added slotSessionName() and slotSessionName(int session_id) DCOP Calls
+  for compatibility with konsolescripts.
+* Renamed sessionTitle() and sessionTitle(int session_id) DCOP calls to
+  slotSessionTitle() and slotSessionTitle(int session_id), respectively.
+
+
+Changes in 2.8-beta1:
 * Added a proper config dialog. Scale and position settings are previewed in
   real-time as the controls are moved.
 * Added a Skins page to the config dialog, allowing to list, choose, install and

@@ -91,9 +91,12 @@ class MainWindow : public KMainWindow, virtual public DCOPInterface
         void slotRenameSession(int session_id, const QString& name);
         void slotInteractiveRename();
 
-        const QString sessionTitle();
-        const QString sessionTitle(int session_id);
-        const QString sessionTitle(int session_id, int terminal_id);
+        const QString slotSessionName();
+        const QString slotSessionName(int session_id);
+
+        const QString slotSessionTitle();
+        const QString slotSessionTitle(int session_id);
+        const QString slotSessionTitle(int session_id, int terminal_id);
 
         void slotSetSessionTitleText(const QString& title);
         void slotSetSessionTitleText(int session_id, const QString& title);
