@@ -6,6 +6,7 @@ Changes since 2.8-beta1:
 * Made the new behavior of the Open/Retract action focussing an already
   open Yakuake window optional.
 * Minor string improvements.
+* Added more What's This help in the config dialog.
 
 
 Changes in 2.8-beta1:
