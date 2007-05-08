@@ -72,6 +72,18 @@ int Session::activeTerminalId()
         return -1;
 }
 
+const QString Session::terminalIdList()
+{
+    QValueList<int>::iterator it;
+    QValueList<int> key_list = terminals.keys();
+    QStringList id_list;
+
+    for (it = key_list.begin(); it != key_list.end(); ++it)
+        id_list << QString::number((*it));
+
+    return id_list.join(",");
+}
+
 const QString Session::title()
 {
     return session_title;

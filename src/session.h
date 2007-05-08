@@ -35,9 +35,11 @@ class Session : public QObject
 
         int id() { return session_id; }
 
+        QWidget* widget() { return base_widget; }
+
         int activeTerminalId();
 
-        QWidget* widget() { return base_widget; }
+        const QString terminalIdList();
 
         const QString title();
         const QString title(int terminal_id);

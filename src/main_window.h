@@ -59,6 +59,9 @@ class MainWindow : public KMainWindow, virtual public DCOPInterface
         int selectedSession();
         int selectedTerminal();
 
+        const QString sessionIdList();
+        const QString terminalIdList(int session_id);
+
         int tabPositionForSessionId(int session_id);
         int sessionIdForTabPosition(int position);
 

@@ -1,12 +1,12 @@
 Changes since 2.8-beta1:
 * Added slotSessionName() and slotSessionName(int session_id) DCOP Calls
   for compatibility with konsolescripts.
-* Renamed sessionTitle() and sessionTitle(int session_id) DCOP calls to
-  slotSessionTitle() and slotSessionTitle(int session_id), respectively.
+* Naming consistency improvements in the DCOP interface.
 * Made the new behavior of the Open/Retract action focussing an already
   open Yakuake window optional.
 * Minor string improvements.
 * Added more What's This help in the config dialog.
+* Added sessionIdList() and terminalIdList(int session_id) DCOP calls.
 
 
 Changes in 2.8-beta1:

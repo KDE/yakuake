@@ -423,6 +423,24 @@ int MainWindow::selectedTerminal()
     return sessions_stack[selected_id]->activeTerminalId();
 }
 
+const QString MainWindow::sessionIdList()
+{
+    QValueList<int>::iterator it;
+    QValueList<int> key_list = sessions_stack.keys();
+    QStringList id_list;
+
+    for (it = key_list.begin(); it != key_list.end(); ++it)
+        id_list << QString::number((*it));
+
+    return id_list.join(",");
+}
+
+const QString MainWindow::terminalIdList(int session_id)
+{
+    if (!sessions_stack[session_id]) return 0;
+
+    return sessions_stack[session_id]->terminalIdList();
+}
 
 int MainWindow::tabPositionForSessionId(int session_id)
 {
@@ -846,11 +864,9 @@ void MainWindow::slotSessionDestroyed(int id)
 {
     if (is_shutting_down) return;
 
-    int session_id = (id != -1) ? id : selected_id;
+    sessions_stack.remove(id);
 
-    sessions_stack.remove(session_id);
-
-    if (tab_bar->removeItem(session_id) == -1)
+    if (tab_bar->removeItem(id) == -1)
         slotAddSession();
 }
 
