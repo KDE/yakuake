@@ -457,8 +457,9 @@
 <tabstops>
     <tabstop>kcfg_popup</tabstop>
     <tabstop>kcfg_confirmquit</tabstop>
-    <tabstop>kcfg_focus</tabstop>
     <tabstop>kcfg_tabs</tabstop>
+    <tabstop>kcfg_focus</tabstop>
+    <tabstop>kcfg_focusontoggle</tabstop>
     <tabstop>width_slider</tabstop>
     <tabstop>kcfg_width</tabstop>
     <tabstop>height_slider</tabstop>
