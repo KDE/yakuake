@@ -69,6 +69,12 @@
                     <property name="text">
                         <string>Keep window open on focus change</string>
                     </property>
+                    <property name="toolTip" stdset="0">
+                        <string></string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Enable this option if you want the Yakuake window to stay open when it loses focus.</string>
+                    </property>
                 </widget>
                 <widget class="QCheckBox" row="4" column="1">
                     <property name="name">
@@ -79,6 +85,9 @@
                     </property>
                     <property name="text">
                         <string>Use Open/Retract action to focus window</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Enable this option if you want the Open/Retract shortcut to focus the Yakuake window when it is already open but lacks focus. Disable this option to have the Open/Retract shortcut retract the Yakuake window regardless of whether or not it has focus.</string>
                     </property>
                 </widget>
                 <spacer row="4" column="0">
@@ -217,6 +226,9 @@
                     </property>
                     <property name="tickInterval">
                         <number>5</number>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>This setting controls the approximate duration of the sliding animation when the Yakuake window is opening or retracting.</string>
                     </property>
                 </widget>
                 <widget class="KIntSpinBox" row="1" column="2">
