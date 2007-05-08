@@ -51,6 +51,11 @@
       <label></label>
       <whatsthis></whatsthis>
     </entry>
+    <entry key="focusontoggle" type="Bool">
+      <default>true</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
     <entry key="popup" type="Bool">
       <default>true</default>
       <label></label>

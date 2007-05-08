@@ -3,6 +3,9 @@ Changes since 2.8-beta1:
   for compatibility with konsolescripts.
 * Renamed sessionTitle() and sessionTitle(int session_id) DCOP calls to
   slotSessionTitle() and slotSessionTitle(int session_id), respectively.
+* Made the new behavior of the Open/Retract action focussing an already
+  open Yakuake window optional.
+* Minor string improvements.
 
 
 Changes in 2.8-beta1:

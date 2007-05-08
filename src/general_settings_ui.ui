@@ -34,11 +34,11 @@
             <property name="title">
                 <string>Options</string>
             </property>
-            <vbox>
+            <grid>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="QCheckBox">
+                <widget class="QCheckBox" row="0" column="0" rowspan="1" colspan="2">
                     <property name="name">
                         <cstring>kcfg_popup</cstring>
                     </property>
@@ -46,7 +46,7 @@
                         <string>Show notification popup at application startup</string>
                     </property>
                 </widget>
-                <widget class="QCheckBox">
+                <widget class="QCheckBox" row="1" column="0" rowspan="1" colspan="2">
                     <property name="name">
                         <cstring>kcfg_confirmquit</cstring>
                     </property>
@@ -54,15 +54,7 @@
                         <string>Confirm quit when closing more than one session</string>
                     </property>
                 </widget>
-                <widget class="QCheckBox">
-                    <property name="name">
-                        <cstring>kcfg_focus</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Keep window open on focus change</string>
-                    </property>
-                </widget>
-                <widget class="QCheckBox">
+                <widget class="QCheckBox" row="2" column="0" rowspan="1" colspan="2">
                     <property name="name">
                         <cstring>kcfg_tabs</cstring>
                     </property>
@@ -70,7 +62,43 @@
                         <string>Show the tab bar</string>
                     </property>
                 </widget>
-            </vbox>
+                <widget class="QCheckBox" row="3" column="0" rowspan="1" colspan="2">
+                    <property name="name">
+                        <cstring>kcfg_focus</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Keep window open on focus change</string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox" row="4" column="1">
+                    <property name="name">
+                        <cstring>kcfg_focusontoggle</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="text">
+                        <string>Use Open/Retract action to focus window</string>
+                    </property>
+                </widget>
+                <spacer row="4" column="0">
+                    <property name="name">
+                        <cstring>spacer10</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Fixed</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>16</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+            </grid>
         </widget>
         <widget class="QGroupBox">
             <property name="name">
@@ -412,12 +440,20 @@
             <property name="sizeHint">
                 <size>
                     <width>21</width>
-                    <height>80</height>
+                    <height>60</height>
                 </size>
             </property>
         </spacer>
     </vbox>
 </widget>
+<connections>
+    <connection>
+        <sender>kcfg_focus</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>kcfg_focusontoggle</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+</connections>
 <tabstops>
     <tabstop>kcfg_popup</tabstop>
     <tabstop>kcfg_confirmquit</tabstop>

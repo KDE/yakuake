@@ -62,8 +62,8 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
 
     // Initialize access key.
     global_key = new KGlobalAccel(this);
-    global_key->insert("AccessKey", i18n("Open/Close Yakuake"),
-                       i18n("Slides in and out the Yakuake window"),
+    global_key->insert("AccessKey", i18n("Open/Retract Yakuake"),
+                       i18n("Slides the Yakuake window in and out"),
                        Key_F12, 0, this, SLOT(slotToggleState()));
 
     global_key->readSettings(&config);
@@ -881,7 +881,7 @@ void MainWindow::slotToggleState()
     }
     else
     {
-        if (!this->isActiveWindow() && focus_policy)
+        if (!this->isActiveWindow() && focus_policy && Settings::focusontoggle())
         {
             KWin::forceActiveWindow(winId());
             return;
