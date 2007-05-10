@@ -166,14 +166,14 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
         this, SLOT(slotHandleRemoveSession(KAction::ActivationReason, Qt::ButtonState)));
 
     split_horiz_action = new KAction(i18n("Split Terminal Horizontally"), SmallIcon("view_left_right"),
-                                     CTRL+SHIFT+Key_L, this, 0, actionCollection(), "split_horizontally");
+                                     CTRL+SHIFT+Key_T, this, 0, actionCollection(), "split_horizontally");
     connect(split_horiz_action, SIGNAL(activated(KAction::ActivationReason, Qt::ButtonState)),
-        this, SLOT(slotHandleHorizontalSplit(KAction::ActivationReason, Qt::ButtonState)));
+        this, SLOT(slotHandleVerticalSplit(KAction::ActivationReason, Qt::ButtonState)));
 
     split_vert_action = new KAction(i18n("Split Terminal Vertically"), SmallIcon("view_top_bottom"),
-                                    CTRL+SHIFT+Key_T, this, 0, actionCollection(), "split_vertically");
+                                    CTRL+SHIFT+Key_L, this, 0, actionCollection(), "split_vertically");
     connect(split_vert_action, SIGNAL(activated(KAction::ActivationReason, Qt::ButtonState)),
-        this, SLOT(slotHandleVerticalSplit(KAction::ActivationReason, Qt::ButtonState)));
+        this, SLOT(slotHandleHorizontalSplit(KAction::ActivationReason, Qt::ButtonState)));
 
     remove_term_action = new KAction(i18n("Close Terminal"), SmallIcon("view_remove"),
                                      CTRL+SHIFT+Key_R, this, 0, actionCollection(), "remove_terminal");
