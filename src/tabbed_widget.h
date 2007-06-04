@@ -106,6 +106,7 @@ class TabbedWidget : public QWidget
         void createContextMenu();
         const int drawButton(int position, QPainter& painter);
         QString defaultTabCaption(int session_id);
+        QString lowestAvailableCaption();
 
         int current_position;
         bool pressed;

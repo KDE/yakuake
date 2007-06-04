@@ -94,7 +94,7 @@ void TabbedWidget::addItem(int session_id)
 {
     items.append(session_id);
     areas.append(0);
-    captions.append(defaultTabCaption(session_id));
+    captions.append(lowestAvailableCaption());
 
     refreshBuffer();
 }
@@ -102,6 +102,39 @@ void TabbedWidget::addItem(int session_id)
 QString TabbedWidget::defaultTabCaption(int id)
 {
     return i18n("Shell", "Shell No. %n", id+1);
+}
+
+QString TabbedWidget::lowestAvailableCaption()
+{
+    QString newTitle = defaultTabCaption(0);
+
+    bool nameOk;
+    int count = 0;
+
+    do
+    {
+        nameOk = true;
+
+        QValueList<QString>::iterator it;
+
+        for (it = captions.begin(); it != captions.end(); ++it)
+        {
+            if (newTitle == (*it))
+            {
+                nameOk = false;
+                break;
+            }
+        }
+
+        if (!nameOk)
+        {
+            count++;
+            newTitle = newTitle = defaultTabCaption(count);
+        }
+    }
+    while (!nameOk);
+
+    return newTitle;
 }
 
 int TabbedWidget::removeItem(int session_id)
