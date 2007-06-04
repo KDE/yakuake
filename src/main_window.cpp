@@ -29,8 +29,6 @@
 #include <kiconloader.h>
 #include <kwin.h>
 
-#include <kdebug.h>
-
 
 MainWindow::MainWindow(QWidget * parent, const char * name) :
         DCOPObject("DCOPInterface"),
