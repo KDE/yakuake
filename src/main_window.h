@@ -135,6 +135,7 @@ class MainWindow : public KMainWindow, virtual public DCOPInterface
 
     protected:
         virtual void windowActivationChange(bool old_active);
+        virtual void moveEvent(QMoveEvent* e);
         bool queryClose();
 
 
@@ -142,6 +143,7 @@ class MainWindow : public KMainWindow, virtual public DCOPInterface
         void createMenu();
         void updateWidthMenu();
         void updateHeightMenu();
+        void updateScreenMenu();
         void createSessionMenu();
         void createTabsBar();
         void createTitleBar();

@@ -1,13 +1,18 @@
 Changes since 2.8-beta1:
-* Added slotSessionName() and slotSessionName(int session_id) DCOP Calls
-  for compatibility with konsolescripts.
-* Naming consistency improvements in the DCOP interface.
 * Made the new behavior of the Open/Retract action focussing an already
   open Yakuake window optional.
-* Minor string improvements.
-* Added more What's This help in the config dialog.
-* Added sessionIdList() and terminalIdList(int session_id) DCOP calls.
+* The Xinerama screen setting is now updated when the window is moved to
+  a different screen using facilities outside of Yakuake itself, such as
+  the new shortcuts provided by Lubos Lunak's Xinerama Improvements patch-
+  set for KWin 3.5.x. The window size and position get updated to fit the
+  new bounding box accordingly.
 * Swapped horizontal and vertical split actions for consistency with Kate.
+* Added slotSessionName() and slotSessionName(int session_id) DCOP Calls.
+* Added sessionIdList() and terminalIdList(int session_id) DCOP calls.
+* Naming consistency improvements in the DCOP interface.
+* Added more What's This help in the config dialog.
+* Minor interface wording improvements.
+* Greatly expanded translation coverage.
 
 
 Changes in 2.8-beta1:

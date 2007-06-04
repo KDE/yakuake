@@ -29,6 +29,8 @@
 #include <kiconloader.h>
 #include <kwin.h>
 
+#include <kdebug.h>
+
 
 MainWindow::MainWindow(QWidget * parent, const char * name) :
         DCOPObject("DCOPInterface"),
@@ -796,6 +798,16 @@ void MainWindow::updateHeightMenu()
     height_menu->setItemChecked(Settings::height(), true);
 }
 
+void MainWindow::updateScreenMenu()
+{
+    screen_menu->clear();
+    screen_menu->insertItem(i18n("At mouse location"), 0);
+    screen_menu->insertSeparator();
+    for (int i = 1; i <= QApplication::desktop()->numScreens(); i++)
+        screen_menu->insertItem(i18n("Screen %1").arg(QString::number(i)), i);
+    screen_menu->setItemChecked(Settings::screen(), true);
+}
+
 void MainWindow::createSessionMenu()
 {
     session_menu = new KPopupMenu();
@@ -883,6 +895,8 @@ void MainWindow::slotToggleState()
 
     if (state)
     {
+        // Open.
+
         initWindowProps();
 
         slotUpdateSize();
@@ -897,6 +911,8 @@ void MainWindow::slotToggleState()
     }
     else
     {
+        // Close.
+
         if (!this->isActiveWindow() && focus_policy && Settings::focusontoggle())
         {
             KWin::forceActiveWindow(winId());
@@ -1013,6 +1029,28 @@ void MainWindow::slotUpdateSize(int new_width, int new_height, int new_location)
     updateWindowMask();
 }
 
+void MainWindow::moveEvent(QMoveEvent* e)
+{
+    // If the screen setting isn't to appear on the screen the
+    // mouse cursor is on, detect whether the screen number has
+    // changed on this move event and update the internal set-
+    // ting. Makes it play nice with the move-window-to-screen
+    // kwin shortcuts found in Lubos' Xinerama Improvements patch-
+    // set.
+
+    if (Settings::screen()
+        && QApplication::desktop()->screenNumber(this) != (Settings::screen()-1))
+    {
+        Settings::setScreen(QApplication::desktop()->screenNumber(this)+1);
+
+        updateScreenMenu();
+
+        slotUpdateSize();
+    }
+
+    KMainWindow::moveEvent(e);
+}
+
 void MainWindow::slotSetFullScreen(bool state)
 {
      if (state)
@@ -1125,13 +1163,7 @@ void MainWindow::slotUpdateSettings()
 
     updateWidthMenu();
     updateHeightMenu();
-
-    screen_menu->clear();
-    screen_menu->insertItem(i18n("At mouse location"), 0);
-    screen_menu->insertSeparator();
-    for (int i = 1; i <= QApplication::desktop()->numScreens(); i++)
-        screen_menu->insertItem(i18n("Screen %1").arg(QString::number(i)), i);
-    screen_menu->setItemChecked(Settings::screen(), true);
+    updateScreenMenu();
 }
 
 void MainWindow::slotOpenSettingsDialog()
