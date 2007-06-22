@@ -79,11 +79,11 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
                              actionCollection(), "add_tab");
 
     action = new KAction(i18n("Two Terminals, Horizontal"), SmallIcon("tab_new"),
-                             0, this, SLOT(slotAddSessionTwoHorizontal()),
+                             0, this, SLOT(slotAddSessionTwoVertical()),
                              actionCollection(), "add_tab_twohorizontal");
 
     action = new KAction(i18n("Two Terminals, Vertical"), SmallIcon("tab_new"),
-                             0, this, SLOT(slotAddSessionTwoVertical()),
+                             0, this, SLOT(slotAddSessionTwoHorizontal()),
                              actionCollection(), "add_tab_twovertical");
 
     action = new KAction(i18n("Four Terminals, Quad"), SmallIcon("tab_new"),
