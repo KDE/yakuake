@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
     about_kde = 0;
     full_screen = false;
     is_shutting_down = false;
-    background_changed = false;;
+    background_changed = false;
 
     KConfig config(CONFIG_FILE);
 
