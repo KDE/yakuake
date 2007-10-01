@@ -1,4 +1,5 @@
-Changes since 2.8-beta1:
+Changes in Yakuake 2.8:
+- Changes since 2.8-beta1:
 * Made the new behavior of the Open/Retract action focussing an already
   open Yakuake window optional.
 * The Xinerama screen setting is now updated when the window is moved to
@@ -17,8 +18,7 @@ Changes since 2.8-beta1:
 * Minor interface wording improvements.
 * Greatly expanded translation coverage.
 
-
-Changes in 2.8-beta1:
+- Changes in 2.8-beta1:
 * Added a proper config dialog. Scale and position settings are previewed in
   real-time as the controls are moved.
 * Added a Skins page to the config dialog, allowing to list, choose, install and
