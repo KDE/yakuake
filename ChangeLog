@@ -1,4 +1,8 @@
-Changes in Yakuake 2.8:
+Changes since 2.8:
+* Added option to control whether the Yakuake keeps above other windows.
+
+
+Changes in 2.8:
 - Changes since 2.8-beta1:
 * Made the new behavior of the Open/Retract action focussing an already
   open Yakuake window optional.
@@ -96,7 +100,7 @@ Changes in Yakuake 2.8:
   modern XDG standards.
 
 
-Changes in 2.7.5
+Changes in 2.7.5:
 * Further translations have been added.
 * Yakuake no longer spawns login shells in new sessions.
 * A keyboard shortcut to rename the selected session has been added.
@@ -112,7 +116,7 @@ Changes in 2.7.5
   multiple tabs open.
 
 
-Changes in 2.7.4
+Changes in 2.7.4:
 * A bug in the Makefiles that led to the configure script being run twice has
   been fixed.
 * The source code is now localizable. First translations are included.
@@ -126,7 +130,7 @@ Changes in 2.7.4
 * Setting all-whitespace session labels is no longer possible.
 
 
-Changes in 2.7.3
+Changes in 2.7.3:
 * Inline renaming of tabs by double-clicking on the tab label
 * Processes can now interact with titlebar text
 * DCOP call slotToggleState to open/close Yakuake

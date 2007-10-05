@@ -62,21 +62,7 @@
                         <string>Show the tab bar</string>
                     </property>
                 </widget>
-                <widget class="QCheckBox" row="3" column="0" rowspan="1" colspan="2">
-                    <property name="name">
-                        <cstring>kcfg_focus</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Keep window open on focus change</string>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string></string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Enable this option if you want the Yakuake window to stay open when it loses focus.</string>
-                    </property>
-                </widget>
-                <widget class="QCheckBox" row="4" column="1">
+                <widget class="QCheckBox" row="5" column="1">
                     <property name="name">
                         <cstring>kcfg_focusontoggle</cstring>
                     </property>
@@ -90,7 +76,7 @@
                         <string>Enable this option if you want the Open/Retract shortcut to focus the Yakuake window when it is already open but lacks focus. Disable this option to have the Open/Retract shortcut retract the Yakuake window regardless of whether or not it has focus.</string>
                     </property>
                 </widget>
-                <spacer row="4" column="0">
+                <spacer row="5" column="0">
                     <property name="name">
                         <cstring>spacer10</cstring>
                     </property>
@@ -107,6 +93,51 @@
                         </size>
                     </property>
                 </spacer>
+                <widget class="QCheckBox" row="3" column="0" rowspan="1" colspan="2">
+                    <property name="name">
+                        <cstring>kcfg_focus</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Keep window open on focus change</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string></string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Enable this option if you want the Yakuake window to stay open when it loses focus.</string>
+                    </property>
+                </widget>
+                <spacer row="4" column="0">
+                    <property name="name">
+                        <cstring>spacer10_2</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Fixed</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>16</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QCheckBox" row="4" column="1">
+                    <property name="name">
+                        <cstring>kcfg_keepabove</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="text">
+                        <string>Keep window above other windows</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Enable this option if you want the Yakuake window to keep on top of other windows even when it loses focus.</string>
+                    </property>
+                </widget>
             </grid>
         </widget>
         <widget class="QGroupBox">
@@ -452,17 +483,25 @@
             <property name="sizeHint">
                 <size>
                     <width>21</width>
-                    <height>60</height>
+                    <height>20</height>
                 </size>
             </property>
         </spacer>
     </vbox>
 </widget>
+<customwidgets>
+</customwidgets>
 <connections>
     <connection>
         <sender>kcfg_focus</sender>
         <signal>toggled(bool)</signal>
         <receiver>kcfg_focusontoggle</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>kcfg_focus</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>kcfg_keepabove</receiver>
         <slot>setEnabled(bool)</slot>
     </connection>
 </connections>
@@ -471,6 +510,7 @@
     <tabstop>kcfg_confirmquit</tabstop>
     <tabstop>kcfg_tabs</tabstop>
     <tabstop>kcfg_focus</tabstop>
+    <tabstop>kcfg_keepabove</tabstop>
     <tabstop>kcfg_focusontoggle</tabstop>
     <tabstop>width_slider</tabstop>
     <tabstop>kcfg_width</tabstop>

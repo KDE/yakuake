@@ -20,7 +20,7 @@
 #include <kdebug.h>
 
 
-static const char version[] = "2.8";
+static const char version[] = "2.8+";
 static const char description[] = I18N_NOOP("A Quake-style terminal emulator based on KDE Konsole technology. ");
 static KCmdLineOptions options[] = { KCmdLineLastOption };
 

@@ -56,6 +56,11 @@
       <label></label>
       <whatsthis></whatsthis>
     </entry>
+    <entry key="keepabove" type="Bool">
+      <default>true</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
     <entry key="popup" type="Bool">
       <default>true</default>
       <label></label>

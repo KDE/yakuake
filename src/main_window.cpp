@@ -44,8 +44,6 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
 
     KConfig config(CONFIG_FILE);
 
-    initWindowProps();
-
     back_widget = new QWidget(this);
     widgets_stack = new QWidgetStack(this);
 
@@ -678,7 +676,14 @@ void MainWindow::initWindowProps()
 {
     /* Initializes the window properties. */
 
-    KWin::setState(winId(), NET::KeepAbove | NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
+    if (Settings::focus() && !Settings::keepabove())
+    {
+        KWin::clearState(winId(), NET::KeepAbove);
+        KWin::setState(winId(), NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
+    }
+    else
+        KWin::setState(winId(), NET::KeepAbove | NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
+
     KWin::setOnAllDesktops(winId(), true);
 }
 
@@ -1155,6 +1160,8 @@ void MainWindow::slotUpdateSettings()
         tab_bar->hide();
 
     slotUpdateSize();
+
+    initWindowProps();
 
     menu->setItemChecked(Focus, Settings::focus());
     title_bar->setFocusButtonEnabled(Settings::focus());
