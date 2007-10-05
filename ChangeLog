@@ -1,5 +1,6 @@
 Changes since 2.8:
-* Added option to control whether the Yakuake keeps above other windows.
+* Added an option to control whether the Yakuake window keeps above other
+  windows.
 
 
 Changes in 2.8:
