@@ -17,12 +17,12 @@
 
 #include "image_button.h"
 #include "tabbed_widget.h"
+#include "translucent_widget.h"
 
 #include <qurl.h>
 #include <qcolor.h>
 #include <qpoint.h>
 #include <qpixmap.h>
-#include <qwidget.h>
 #include <qpainter.h>
 
 #include <kconfig.h>
@@ -30,12 +30,13 @@
 #include <kstandarddirs.h>
 
 
-class TabBar : public QWidget
+class TabBar : public TranslucentWidget
 {
     Q_OBJECT
 
     public:
-        explicit TabBar(QWidget* parent = 0, const char* name = 0, const QString& skin = "default");
+        explicit TabBar(QWidget* parent = 0, const char* name = 0,
+                        bool translucency = false, const QString& skin = "default");
         ~TabBar();
 
         void setSessionMenu(KPopupMenu* menu);
@@ -102,13 +103,6 @@ class TabBar : public QWidget
         /* Tabbed widget */
         QPoint tabs_position;
         TabbedWidget* tabs_widget;
-
-        /* Widget's rootPixmap */
-        KRootPixmap* root_pixmap;
-
-
-    private slots:
-        void slotUpdateBackground();
 };
 
 #endif /* TAB_BAR_H */

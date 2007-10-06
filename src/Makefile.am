@@ -9,7 +9,7 @@ yakuake_SOURCES = dcop_interface.skel first_run_dialog.cpp \
 	image_button.cpp main.cpp main_window.cpp session.cpp settings.kcfgc \
 	skin_list_item.cpp skin_settings.cpp skin_settings_ui.ui \
 	tabbed_widget.cpp tab_bar.cpp terminal.cpp terminal_focus_watcher.cpp \
-	terminal_splitter.cpp title_bar.cpp
+	terminal_splitter.cpp title_bar.cpp translucent_widget.cpp
 
 yakuake_LDFLAGS = $(KDE_RPATH) $(all_libraries)
 yakuake_LDADD = $(LIB_KDEUI) $(LIB_KIO)

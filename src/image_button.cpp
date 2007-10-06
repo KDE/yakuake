@@ -13,7 +13,7 @@
 
 #include "image_button.h"
 #include "image_button.moc"
-
+#include "settings.h"
 
 #include <qwhatsthis.h>
 #include <qtimer.h>
@@ -21,7 +21,7 @@
 #include <kglobalsettings.h>
 
 
-ImageButton::ImageButton(QWidget * parent, const char * name) : QWidget(parent, name)
+ImageButton::ImageButton(QWidget* parent, const char* name, bool translucency) : TranslucentWidget(parent, name, translucency)
 {
     state = 0;
     toggle = false;
@@ -30,32 +30,10 @@ ImageButton::ImageButton(QWidget * parent, const char * name) : QWidget(parent, 
 
     popup_menu = NULL;
     popup_timer = NULL;
-
-    root_pixmap = NULL;
 }
 
 ImageButton::~ImageButton()
 {
-    if (root_pixmap) delete root_pixmap;
-}
-
-void ImageButton::setTranslucent(bool value)
-{
-    /* Creates a translucent button. */
-
-    if (root_pixmap == NULL)
-        root_pixmap = new KRootPixmap(this, "Transparent background");
-
-    if (value)
-    {
-        root_pixmap->start();
-        setMask(QRegion(up_pixmap.rect()));
-    }
-    else
-    {
-        root_pixmap->stop();
-        setMask(*up_pixmap.mask());
-    }
 }
 
 void ImageButton::setToggleButton(bool toggled)
@@ -93,12 +71,17 @@ void ImageButton::showPopupMenu()
     popup_menu->exec(mapToGlobal(QPoint(0, height())));
 }
 
-void ImageButton::setUpPixmap(const QString& path)
+void ImageButton::setUpPixmap(const QString& path, bool use_alpha_mask)
 {
     up_pixmap.load(path);
     resize(up_pixmap.size());
 
     if (up_pixmap.hasAlphaChannel()) setMask(*up_pixmap.mask());
+
+    if (use_alpha_mask)
+        setUseTranslucency(true);
+    else
+        setMask(QRegion(up_pixmap.rect()));
 }
 
 void ImageButton::setOverPixmap(const QString& path)
@@ -173,6 +156,9 @@ void ImageButton::paintEvent(QPaintEvent*)
 
     erase();
 
+    if (!useTranslucency())
+        painter.fillRect(0, 0, width(), height(), Settings::skinbgcolor());
+
     switch (state)
     {
         case 0:
@@ -192,9 +178,4 @@ void ImageButton::paintEvent(QPaintEvent*)
     }
 
     painter.end();
-}
-
-void ImageButton::slotUpdateBackground()
-{
-    if (root_pixmap) root_pixmap->repaint(true);
 }

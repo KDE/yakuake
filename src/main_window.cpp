@@ -28,6 +28,7 @@
 #include <kconfigdialog.h>
 #include <kiconloader.h>
 #include <kwin.h>
+#include <dcopref.h>
 
 
 MainWindow::MainWindow(QWidget * parent, const char * name) :
@@ -41,6 +42,7 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
     full_screen = false;
     is_shutting_down = false;
     background_changed = false;
+    use_translucency = false;
 
     KConfig config(CONFIG_FILE);
 
@@ -53,6 +55,12 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
         kapp->dcopClient()->registerAs("dcopinterface");
         kapp->dcopClient()->setDefaultObject(objId());
     }
+
+    // KRootPixmap::isAvailable() is unreliable, so we check
+    // for kdesktop's presence ourselves to decide whether or
+    // not to disable pseudo-translucency.
+    if (Settings::translucency() && kapp->dcopClient()->isApplicationRegistered("kdesktop"))
+        use_translucency = true;
 
     // Revert to default skin if selected skin can't be located.
     if (!locate("appdata", Settings::skin() + "/title.skin"))
@@ -73,61 +81,61 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
     KShortcut shortcut(Qt::CTRL+Qt::ALT+Qt::Key_N);
     shortcut.append(KShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_N));
     action = new KAction(i18n("New Session"), SmallIcon("tab_new"), shortcut,
-                             this, SLOT(slotAddSession()),
-                             actionCollection(), "add_tab");
+                              this, SLOT(slotAddSession()),
+                              actionCollection(), "add_tab");
 
     action = new KAction(i18n("Two Terminals, Horizontal"), SmallIcon("tab_new"),
-                             0, this, SLOT(slotAddSessionTwoVertical()),
-                             actionCollection(), "add_tab_twohorizontal");
+                              0, this, SLOT(slotAddSessionTwoVertical()),
+                              actionCollection(), "add_tab_twohorizontal");
 
     action = new KAction(i18n("Two Terminals, Vertical"), SmallIcon("tab_new"),
-                             0, this, SLOT(slotAddSessionTwoHorizontal()),
-                             actionCollection(), "add_tab_twovertical");
+                              0, this, SLOT(slotAddSessionTwoHorizontal()),
+                              actionCollection(), "add_tab_twovertical");
 
     action = new KAction(i18n("Four Terminals, Quad"), SmallIcon("tab_new"),
-                             0, this, SLOT(slotAddSessionQuad()),
-                             actionCollection(), "add_tab_quad");
+                              0, this, SLOT(slotAddSessionQuad()),
+                              actionCollection(), "add_tab_quad");
 
     action = new KAction(i18n("Go to Next Terminal"), SmallIcon("next"),
-                             "Ctrl+Shift+Up", this, SLOT(slotFocusNextSplit()),
-                             actionCollection(), "focus_next_terminal");
+                              "Ctrl+Shift+Up", this, SLOT(slotFocusNextSplit()),
+                              actionCollection(), "focus_next_terminal");
 
     action = new KAction(i18n("Go to Previous Terminal"), SmallIcon("previous"),
-                             "Ctrl+Shift+Down", this, SLOT(slotFocusPreviousSplit()),
-                             actionCollection(), "focus_previous_terminal");
+                              "Ctrl+Shift+Down", this, SLOT(slotFocusPreviousSplit()),
+                              actionCollection(), "focus_previous_terminal");
 
     action = new KAction(i18n("Paste"), SmallIcon("editpaste"), SHIFT+Key_Insert,
-                               this, SLOT(slotPasteClipboard()),
-                               actionCollection(), "paste_clipboard");
+                              this, SLOT(slotPasteClipboard()),
+                              actionCollection(), "paste_clipboard");
 
     action = new KAction(i18n("Paste Selection"), SmallIcon("editpaste"),
-                               CTRL+SHIFT+Key_Insert, this, SLOT(slotPasteSelection()),
-                               actionCollection(), "paste_selection");
+                              CTRL+SHIFT+Key_Insert, this, SLOT(slotPasteSelection()),
+                              actionCollection(), "paste_selection");
 
     action = new KAction(i18n("Rename Session..."), SmallIcon("edit"),
-                               "Alt+Ctrl+S", this, SLOT(slotInteractiveRename()),
-                               actionCollection(), "edit_name");
+                              "Alt+Ctrl+S", this, SLOT(slotInteractiveRename()),
+                              actionCollection(), "edit_name");
 
     action = new KAction(i18n("Increase Width"), SmallIcon("viewmag+"),
-                               "Alt+Shift+Right", this, SLOT(slotIncreaseSizeW()),
-                               actionCollection(), "increasew");
+                              "Alt+Shift+Right", this, SLOT(slotIncreaseSizeW()),
+                              actionCollection(), "increasew");
     action = new KAction(i18n("Decrease Width"), SmallIcon("viewmag-"),
-                               "Alt+Shift+Left", this, SLOT(slotDecreaseSizeW()),
-                               actionCollection(), "decreasew");
+                              "Alt+Shift+Left", this, SLOT(slotDecreaseSizeW()),
+                              actionCollection(), "decreasew");
     action = new KAction(i18n("Increase Height"), SmallIcon("viewmag+"),
-                               "Alt+Shift+Down", this, SLOT(slotIncreaseSizeH()),
-                               actionCollection(), "increaseh");
+                              "Alt+Shift+Down", this, SLOT(slotIncreaseSizeH()),
+                              actionCollection(), "increaseh");
     action = new KAction(i18n("Decrease Height"), SmallIcon("viewmag-"),
-                               "Alt+Shift+Up", this, SLOT(slotDecreaseSizeH()),
-                               actionCollection(), "decreaseh");
+                              "Alt+Shift+Up", this, SLOT(slotDecreaseSizeH()),
+                              actionCollection(), "decreaseh");
 
     action = new KAction(i18n("Configure Global Shortcuts..."),
-                               SmallIcon("configure_shortcuts"), 0,
-                               this, SLOT(slotSetAccessKey()),
-                               actionCollection(), "global_shortcuts");
+                              SmallIcon("configure_shortcuts"), 0,
+                              this, SLOT(slotSetAccessKey()),
+                              actionCollection(), "global_shortcuts");
 
     action = new KAction(i18n("Quit"), SmallIcon("exit"), 0, this,
-                               SLOT(close()), actionCollection(), "quit");
+                              SLOT(close()), actionCollection(), "quit");
 
     KStdAction::keyBindings(this, SLOT(slotSetControlKeys()), actionCollection());
     KStdAction::preferences(this, SLOT(slotOpenSettingsDialog()), actionCollection());
@@ -197,7 +205,11 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
     slotAddSession();
 
     connect(kapp, SIGNAL(aboutToQuit()), this, SLOT(slotAboutToQuit()));
-    connect(kapp, SIGNAL(backgroundChanged(int)), this, SLOT(slotUpdateBackgroundState()));
+
+    // No need for this if we're not going to use pseudo-translucency.
+    if (use_translucency)
+        connect(kapp, SIGNAL(backgroundChanged(int)), this, SLOT(slotUpdateBackgroundState()));
+
     connect(tab_bar, SIGNAL(addItem()), this, SLOT(slotAddSession()));
     connect(tab_bar, SIGNAL(removeItem()), this, SLOT(slotRemoveSession()));
     connect(tab_bar, SIGNAL(itemSelected(int)), this, SLOT(slotSelectSession(int)));
@@ -217,9 +229,7 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
 
 MainWindow::~MainWindow()
 {
-
-    if (!is_shutting_down)
-        slotAboutToQuit();
+    if (!is_shutting_down) slotAboutToQuit();
 
     delete remove_tab_action;
     delete split_horiz_action;
@@ -728,7 +738,7 @@ void MainWindow::createTabsBar()
 {
     /* Creates the tabs frame. */
 
-    tab_bar = new TabBar(this, "Session tab bar", Settings::skin());
+    tab_bar = new TabBar(this, "Session tab bar", use_translucency, Settings::skin());
     connect(this, SIGNAL(updateBackground()), tab_bar, SIGNAL(updateBackground()));
 
     tab_bar->setSessionMenu(session_menu);
@@ -1183,11 +1193,11 @@ void MainWindow::slotOpenSettingsDialog()
 
     KConfigDialog* settings_dialog = new KConfigDialog(this, "settings", Settings::self());
 
-    GeneralSettings* general_settings = new GeneralSettings(0, "General");
+    GeneralSettings* general_settings = new GeneralSettings(settings_dialog, "General");
     settings_dialog->addPage(general_settings, i18n("General"), "package_settings");
     connect(general_settings, SIGNAL(updateSize(int, int, int)), this, SLOT(slotUpdateSize(int, int, int)));
 
-    SkinSettings* skin_settings = new SkinSettings(0, "Skins");
+    SkinSettings* skin_settings = new SkinSettings(settings_dialog, "Skins", use_translucency);
     settings_dialog->addPage(skin_settings, i18n("Skins"), "style");
     connect(skin_settings, SIGNAL(settingsChanged()), settings_dialog, SIGNAL(settingsChanged()));
     connect(settings_dialog, SIGNAL(closeClicked()), skin_settings, SLOT(slotResetSelection()));

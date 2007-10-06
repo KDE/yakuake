@@ -15,28 +15,26 @@
 #define IMAGE_BUTTON_H
 
 
+#include "translucent_widget.h"
+
 #include <qurl.h>
 #include <qcolor.h>
 #include <qpoint.h>
 #include <qbitmap.h>
 #include <qpixmap.h>
-#include <qwidget.h>
 #include <qpainter.h>
 #include <qpopupmenu.h>
 
 #include <krootpixmap.h>
 
 
-class ImageButton : public QWidget
+class ImageButton : public TranslucentWidget
 {
     Q_OBJECT
 
     public:
-        explicit ImageButton(QWidget* parent = 0, const char * name = 0);
+        explicit ImageButton(QWidget* parent = 0, const char* name = 0, bool translucency = false);
         ~ImageButton();
-
-        /* Creates a translucent button */
-        void setTranslucent(bool value);
 
         /* Creates a toggle button */
         void setToggleButton(bool toggled);
@@ -47,13 +45,9 @@ class ImageButton : public QWidget
         void setDelayedPopup(bool delay) { delay_popup = delay; }
 
         /* Sets the widget's pixmaps */
-        void setUpPixmap(const QString& path);
+        void setUpPixmap(const QString& path, bool use_alpha_mask = false);
         void setOverPixmap(const QString& path);
         void setDownPixmap(const QString& path);
-
-
-    public slots:
-        void slotUpdateBackground();
 
 
     signals:
@@ -93,8 +87,6 @@ class ImageButton : public QWidget
         /* Widget's popup menu */
         QPopupMenu* popup_menu;
 
-        /* Widget's rootPixmap */
-        KRootPixmap* root_pixmap;
 
     private slots:
         void showPopupMenu();

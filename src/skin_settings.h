@@ -24,7 +24,7 @@ class SkinSettings : public SkinSettingsUI
     Q_OBJECT
 
     public:
-        explicit SkinSettings(QWidget* parent, const char* name=NULL);
+        explicit SkinSettings(QWidget* parent, const char* name=NULL, bool translucency = false);
         ~SkinSettings();
 
 

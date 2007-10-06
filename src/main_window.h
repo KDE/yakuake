@@ -200,6 +200,7 @@ class MainWindow : public KMainWindow, virtual public DCOPInterface
 
         bool is_shutting_down;
         bool background_changed;
+        bool use_translucency;
 
         enum PopupIDs { Focus };
 

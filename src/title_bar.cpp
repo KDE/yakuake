@@ -156,7 +156,7 @@ void TitleBar::setPixmaps(const QString& skin)
 
     focus_position.setX(config.readNumEntry("x", 0));
     focus_position.setY(config.readNumEntry("y", 0));
-    focus_button->setUpPixmap(url.dirPath() + config.readEntry("up_image", ""));
+    focus_button->setUpPixmap(url.dirPath() + config.readEntry("up_image", ""), true);
     focus_button->setOverPixmap(url.dirPath() + config.readEntry("over_image", ""));
     focus_button->setDownPixmap(url.dirPath() + config.readEntry("down_image", ""));
 
@@ -165,7 +165,7 @@ void TitleBar::setPixmaps(const QString& skin)
 
     config_position.setX(config.readNumEntry("x", 0));
     config_position.setY(config.readNumEntry("y", 0));
-    config_button->setUpPixmap(url.dirPath() + config.readEntry("up_image", ""));
+    config_button->setUpPixmap(url.dirPath() + config.readEntry("up_image", ""), true);
     config_button->setOverPixmap(url.dirPath() + config.readEntry("over_image", ""));
     config_button->setDownPixmap(url.dirPath() + config.readEntry("down_image", ""));
 
@@ -174,7 +174,7 @@ void TitleBar::setPixmaps(const QString& skin)
 
     quit_position.setX(config.readNumEntry("x", 0));
     quit_position.setY(config.readNumEntry("y", 0));
-    quit_button->setUpPixmap(url.dirPath() + config.readEntry("up_image", ""));
+    quit_button->setUpPixmap(url.dirPath() + config.readEntry("up_image", ""), true);
     quit_button->setOverPixmap(url.dirPath() + config.readEntry("over_image", ""));
     quit_button->setDownPixmap(url.dirPath() + config.readEntry("down_image", ""));
 }

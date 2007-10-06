@@ -18,7 +18,9 @@
 #include <qurl.h>
 #include <qheader.h>
 #include <qpixmap.h>
+#include <qlayout.h>
 #include <qpushbutton.h>
+#include <qlabel.h>
 #include <qfile.h>
 
 #include <kapplication.h>
@@ -33,14 +35,24 @@
 #include <kfiledialog.h>
 #include <ktar.h>
 #include <klineedit.h>
+#include <kcolorbutton.h>
 
 #include <unistd.h> // unlink()
 
 
-SkinSettings::SkinSettings(QWidget* parent, const char* name)
+SkinSettings::SkinSettings(QWidget* parent, const char* name, bool translucency)
  : SkinSettingsUI(parent, name)
 {
     kcfg_skin->hide();
+
+    skinbgcolor_label->setEnabled(!translucency);
+    skinbgcolor_label->setHidden(translucency);
+
+    kcfg_skinbgcolor->setEnabled(!translucency);
+    kcfg_skinbgcolor->setHidden(translucency);
+
+    skinbglayout->setEnabled(!translucency);
+    skinbglayout->invalidate();
 
     skins_list->header()->hide();
     skins_list->setSelectionModeExt(KListView::Single);

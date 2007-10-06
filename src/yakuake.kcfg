@@ -16,6 +16,11 @@
       <label></label>
       <whatsthis></whatsthis>
     </entry>
+    <entry key="skinbgcolor" type="Color">
+      <default>#000000</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
     <entry key="steps" type="Int">
       <default>20</default>
       <label></label>
@@ -42,6 +47,11 @@
       <whatsthis></whatsthis>
     </entry>
     <entry key="tabs" type="Bool">
+      <default>true</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="translucency" type="Bool">
       <default>true</default>
       <label></label>
       <whatsthis></whatsthis>

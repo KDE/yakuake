@@ -13,6 +13,7 @@
 
 #include "tabbed_widget.h"
 #include "tabbed_widget.moc"
+#include "settings.h"
 
 #include <qcursor.h>
 #include <qwhatsthis.h>
@@ -23,7 +24,8 @@
 #include <kiconloader.h>
 
 
-TabbedWidget::TabbedWidget(QWidget* parent, const char* name) : QWidget(parent, name)
+TabbedWidget::TabbedWidget(QWidget* parent, const char* name, bool translucency)
+    : TranslucentWidget(parent, name, translucency)
 {
     current_position = -1;
     pressed = false;
@@ -32,14 +34,15 @@ TabbedWidget::TabbedWidget(QWidget* parent, const char* name) : QWidget(parent, 
 
     context_menu = 0;
 
+    if (root_pixmap)
+    {
+        connect(root_pixmap, SIGNAL(backgroundUpdated(const QPixmap &)), this, SLOT(slotUpdateBuffer(const QPixmap &)));
+        root_pixmap->setCustomPainting(true);
+    }
+
     inline_edit = new QLineEdit(this);
     inline_edit->hide();
 
-    root_pixmap = new KRootPixmap(this, "Transparent background");
-    root_pixmap->setCustomPainting(true);
-    root_pixmap->start();
-
-    connect(root_pixmap, SIGNAL(backgroundUpdated(const QPixmap &)), this, SLOT(slotUpdateBuffer(const QPixmap &)));
     connect(inline_edit, SIGNAL(returnPressed()), this, SLOT(slotRenameSelected()));
     connect(inline_edit, SIGNAL(lostFocus()), inline_edit, SLOT(hide()));
     connect(inline_edit, SIGNAL(lostFocus()), this, SLOT(slotResetEditedPosition()));
@@ -54,7 +57,6 @@ TabbedWidget::TabbedWidget(QWidget* parent, const char* name) : QWidget(parent, 
 TabbedWidget::~TabbedWidget()
 {
     delete context_menu;
-    delete root_pixmap;
 }
 
 int TabbedWidget::pressedPosition()
@@ -537,7 +539,10 @@ void TabbedWidget::refreshBuffer()
     buffer_image.resize(size());
     painter.begin(&buffer_image);
 
-    painter.drawTiledPixmap(0, 0, width(), height(), desktop_image);
+    if (useTranslucency())
+        painter.drawTiledPixmap(0, 0, width(), height(), desktop_image);
+    else
+        buffer_image.fill(Settings::skinbgcolor());
 
     for (uint i = 0; i < items.count(); i++)
         x = drawButton(i, painter);
@@ -610,9 +615,4 @@ void TabbedWidget::slotUpdateBuffer(const QPixmap& pixmap)
     desktop_image = pixmap;
 
     refreshBuffer();
-}
-
-void TabbedWidget::slotUpdateBackground()
-{
-    if (root_pixmap) root_pixmap->repaint(true);
 }

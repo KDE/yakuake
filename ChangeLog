@@ -1,6 +1,10 @@
 Changes since 2.8:
 * Added an option to control whether the Yakuake window keeps above other
   windows.
+* Improved experience for non-KDE users by disabling KRootPixmap-based
+  pseudo-translucency for them. Gets rid of rendering errors with skins
+  that make use of the alpha channel. Replaced by configurable skin back-
+  ground color.
 
 
 Changes in 2.8:

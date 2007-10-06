@@ -15,11 +15,12 @@
 #define TABBED_WIDGET_H
 
 
+#include "translucent_widget.h"
+
 #include <qfont.h>
 #include <qcolor.h>
 #include <qpoint.h>
 #include <qpixmap.h>
-#include <qwidget.h>
 #include <qpainter.h>
 #include <qlineedit.h>
 #include <qvaluelist.h>
@@ -32,12 +33,12 @@
 
 class KPopupMenu;
 
-class TabbedWidget : public QWidget
+class TabbedWidget : public TranslucentWidget
 {
     Q_OBJECT
 
     public:
-        explicit TabbedWidget(QWidget* parent = 0, const char* name = 0);
+        explicit TabbedWidget(QWidget* parent = 0, const char* name = 0, bool translucency = false);
         ~TabbedWidget();
 
         int pressedPosition();
@@ -78,10 +79,6 @@ class TabbedWidget : public QWidget
         void setSelectedRightPixmap(const QString& path);
 
         void refreshBuffer();
-
-
-    public slots:
-        void slotUpdateBackground();
 
 
     signals:
@@ -139,9 +136,6 @@ class TabbedWidget : public QWidget
         QValueList<int> items;
         QValueList<int> areas;
         QValueList<QString> captions;
-
-        /* Widget's rootPixmap */
-        KRootPixmap* root_pixmap;
 
         KPopupMenu* context_menu;
 

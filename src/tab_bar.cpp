@@ -22,7 +22,8 @@
 #include <kpopupmenu.h>
 
 
-TabBar::TabBar(QWidget * parent, const char * name, const QString & skin) : QWidget(parent, name)
+TabBar::TabBar(QWidget* parent, const char* name, bool translucency, const QString & skin)
+    : TranslucentWidget(parent, name, translucency)
 {
     loadSkin(skin);
 
@@ -35,7 +36,6 @@ TabBar::TabBar(QWidget * parent, const char * name, const QString & skin) : QWid
 
 TabBar::~TabBar()
 {
-    delete root_pixmap;
     delete tabs_widget;
     delete plus_button;
     delete minus_button;
@@ -124,6 +124,9 @@ void TabBar::paintEvent(QPaintEvent*)
 
     erase();
 
+    if (!useTranslucency())
+        painter.fillRect(0, 0, width(), height(), Settings::skinbgcolor());
+
     painter.drawPixmap(0, 0, left_corner);
     painter.drawPixmap(width() - right_corner.width(), 0, right_corner);
 
@@ -140,25 +143,22 @@ void TabBar::resizeEvent(QResizeEvent*)
 
     tabs_widget->move(tabs_position.x(), tabs_position.y());
     tabs_widget->resize(width() - 2 * tabs_position.x(), tabs_widget->height());
-
+    tabs_widget->refreshBuffer();
 }
 
 void TabBar::loadSkin(const QString& skin)
 {
-    root_pixmap = new KRootPixmap(this, "Transparent background");
-    root_pixmap->start();
-
-    tabs_widget = new TabbedWidget(this, "Tabbed widget");
+    tabs_widget = new TabbedWidget(this, "Tabbed widget", useTranslucency());
     QWhatsThis::add(tabs_widget, i18n("The tab bar allows you to switch between sessions."));
     connect(this, SIGNAL(updateBackground()), tabs_widget, SLOT(slotUpdateBackground()));
 
-    plus_button = new ImageButton(this, "Plus button");
+    plus_button = new ImageButton(this, "Plus button", useTranslucency());
     plus_button->setDelayedPopup(true);
     QToolTip::add(plus_button, i18n("New Session"));
     QWhatsThis::add(plus_button, i18n("Adds a new session. Press and hold to select session type from menu."));
     connect(this, SIGNAL(updateBackground()), plus_button, SLOT(slotUpdateBackground()));
 
-    minus_button = new ImageButton(this, "Minus button");
+    minus_button = new ImageButton(this, "Minus button", useTranslucency());
     QToolTip::add(minus_button, i18n("Close Session"));
     QWhatsThis::add(minus_button, i18n("Closes the active session."));
     connect(this, SIGNAL(updateBackground()), minus_button, SLOT(slotUpdateBackground()));
@@ -180,9 +180,9 @@ void TabBar::reloadSkin(const QString& skin)
     tabs_widget->move(tabs_position.x(), tabs_position.y());
     tabs_widget->resize(width() - 2 * tabs_position.x(), tabs_widget->height());
 
-    tabs_widget->refreshBuffer();
     minus_button->repaint();
     plus_button->repaint();
+    tabs_widget->refreshBuffer();
     repaint();
 }
 
@@ -225,8 +225,6 @@ void TabBar::setPixmaps(const QString& skin)
     plus_button->setOverPixmap(url.dirPath() + config.readEntry("over_image", ""));
     plus_button->setDownPixmap(url.dirPath() + config.readEntry("down_image", ""));
 
-    plus_button->setTranslucent(true);
-
     // Load the minus button.
     config.setGroup("MinusButton");
 
@@ -236,16 +234,9 @@ void TabBar::setPixmaps(const QString& skin)
     minus_button->setUpPixmap(url.dirPath() + config.readEntry("up_image", ""));
     minus_button->setOverPixmap(url.dirPath() + config.readEntry("over_image", ""));
     minus_button->setDownPixmap(url.dirPath() + config.readEntry("down_image", ""));
-
-    minus_button->setTranslucent(true);
 }
 
 void TabBar::setSessionMenu(KPopupMenu* menu)
 {
     plus_button->setPopupMenu(menu);
-}
-
-void TabBar::slotUpdateBackground()
-{
-    if (root_pixmap) root_pixmap->repaint(true);
 }
