@@ -1016,7 +1016,7 @@ void MainWindow::slotUpdateSize(int new_width, int new_height, int new_location)
 
     // Xinerama aware work area.
     desk_area = getDesktopGeometry();
-    max_height = (desk_area.height()) * new_height / 100;
+    max_height = desk_area.height() * new_height / 100;
 
     // Update the size of the components.
     setGeometry(desk_area.x() + desk_area.width() * new_location * (100 - new_width) / 10000,
