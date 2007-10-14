@@ -5,6 +5,7 @@ Changes since 2.8:
   pseudo-translucency for them. Gets rid of rendering errors with skins
   that make use of the alpha channel. Replaced by configurable skin back-
   ground color.
+* Fix leftover gap below the window at 100% height or in fullscreen mode.
 
 
 Changes in 2.8:
