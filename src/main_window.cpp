@@ -30,7 +30,6 @@
 #include <kwin.h>
 #include <dcopref.h>
 
-
 MainWindow::MainWindow(QWidget * parent, const char * name) :
         DCOPObject("DCOPInterface"),
         KMainWindow(parent, name, Qt::WStyle_Customize | Qt::WStyle_NoBorder),
@@ -74,6 +73,8 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
 
     global_key->readSettings(&config);
     global_key->updateConnections();
+
+
 
     // Initialize shortcuts.
     KAction* action;
@@ -215,6 +216,8 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
     connect(tab_bar, SIGNAL(itemSelected(int)), this, SLOT(slotSelectSession(int)));
     connect(&desk_info, SIGNAL(workAreaChanged()), this, SLOT(slotUpdateSize()));
 
+    connect(&poller, SIGNAL(timeout()), this, SLOT(slotPollMouse()));
+
     // Startup notification popup.
     if (Settings::popup() && !Settings::firstrun())
         showPopup(i18n("Application successfully started!\nPress %1 to use it...").arg(global_key->shortcut("AccessKey").toString()));
@@ -225,6 +228,8 @@ MainWindow::MainWindow(QWidget * parent, const char * name) :
         QTimer::singleShot(0, this, SLOT(slotToggleState()));
         QTimer::singleShot(0, this, SLOT(slotOpenFirstRunDialog()));
     }
+    else if (Settings::poll())
+        toggleMousePoll(true);
 }
 
 MainWindow::~MainWindow()
@@ -961,6 +966,8 @@ void MainWindow::slotIncreaseHeight()
             emit updateBackground();
             background_changed = false;
         }
+
+        if (Settings::poll()) toggleMousePoll(false);
     }
 
     updateWindowMask();
@@ -982,6 +989,9 @@ void MainWindow::slotDecreaseHeight()
         disconnect(&timer, SIGNAL(timeout()), 0, 0);
 
         hide();
+
+        if (Settings::poll()) toggleMousePoll(true);
+
     }
 
     updateWindowMask();
@@ -1305,4 +1315,25 @@ void MainWindow::slotDialogFinished()
     focus_policy = Settings::focus();
 
     KWin::activateWindow(winId());
+}
+
+void MainWindow::slotPollMouse()
+{
+    QPoint pos = QCursor::pos();
+
+    if (pos.y() == 0)
+    {
+        if (Settings::screen() == 0) 
+            slotToggleState(); // no need to check x since yakuake should open where the mouse pointer is
+        else if (pos.x() >= getDesktopGeometry().x() && pos.x() <= (getDesktopGeometry().x() + getDesktopGeometry().width()))
+            slotToggleState();
+    }
+}
+
+void MainWindow::toggleMousePoll(bool poll)
+{
+    if (poll)
+        poller.start(Settings::pollinterval());
+    else
+        poller.stop();
 }

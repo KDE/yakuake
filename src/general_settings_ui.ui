@@ -9,7 +9,7 @@
             <x>0</x>
             <y>0</y>
             <width>481</width>
-            <height>472</height>
+            <height>473</height>
         </rect>
     </property>
     <vbox>
@@ -38,7 +38,7 @@
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="QCheckBox" row="0" column="0" rowspan="1" colspan="2">
+                <widget class="QCheckBox" row="0" column="0" rowspan="1" colspan="3">
                     <property name="name">
                         <cstring>kcfg_popup</cstring>
                     </property>
@@ -46,7 +46,7 @@
                         <string>Show notification popup at application startup</string>
                     </property>
                 </widget>
-                <widget class="QCheckBox" row="1" column="0" rowspan="1" colspan="2">
+                <widget class="QCheckBox" row="1" column="0" rowspan="1" colspan="3">
                     <property name="name">
                         <cstring>kcfg_confirmquit</cstring>
                     </property>
@@ -54,7 +54,7 @@
                         <string>Confirm quit when closing more than one session</string>
                     </property>
                 </widget>
-                <widget class="QCheckBox" row="2" column="0" rowspan="1" colspan="2">
+                <widget class="QCheckBox" row="2" column="0" rowspan="1" colspan="3">
                     <property name="name">
                         <cstring>kcfg_tabs</cstring>
                     </property>
@@ -62,21 +62,7 @@
                         <string>Show the tab bar</string>
                     </property>
                 </widget>
-                <widget class="QCheckBox" row="5" column="1">
-                    <property name="name">
-                        <cstring>kcfg_focusontoggle</cstring>
-                    </property>
-                    <property name="enabled">
-                        <bool>false</bool>
-                    </property>
-                    <property name="text">
-                        <string>Use Open/Retract action to focus window</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Enable this option if you want the Open/Retract shortcut to focus the Yakuake window when it is already open but lacks focus. Disable this option to have the Open/Retract shortcut retract the Yakuake window regardless of whether or not it has focus.</string>
-                    </property>
-                </widget>
-                <spacer row="5" column="0">
+                <spacer row="6" column="0">
                     <property name="name">
                         <cstring>spacer10</cstring>
                     </property>
@@ -93,21 +79,7 @@
                         </size>
                     </property>
                 </spacer>
-                <widget class="QCheckBox" row="3" column="0" rowspan="1" colspan="2">
-                    <property name="name">
-                        <cstring>kcfg_focus</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Keep window open on focus change</string>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string></string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Enable this option if you want the Yakuake window to stay open when it loses focus.</string>
-                    </property>
-                </widget>
-                <spacer row="4" column="0">
+                <spacer row="5" column="0">
                     <property name="name">
                         <cstring>spacer10_2</cstring>
                     </property>
@@ -124,7 +96,7 @@
                         </size>
                     </property>
                 </spacer>
-                <widget class="QCheckBox" row="4" column="1">
+                <widget class="QCheckBox" row="5" column="1" rowspan="1" colspan="2">
                     <property name="name">
                         <cstring>kcfg_keepabove</cstring>
                     </property>
@@ -136,6 +108,48 @@
                     </property>
                     <property name="whatsThis" stdset="0">
                         <string>Enable this option if you want the Yakuake window to keep on top of other windows even when it loses focus.</string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox" row="4" column="0" rowspan="1" colspan="2">
+                    <property name="name">
+                        <cstring>kcfg_focus</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Keep window open on focus change</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string></string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Enable this option if you want the Yakuake window to stay open when it loses focus.</string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox" row="6" column="1" rowspan="1" colspan="2">
+                    <property name="name">
+                        <cstring>kcfg_focusontoggle</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="text">
+                        <string>Use Open/Retract action to focus window</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Enable this option if you want the Open/Retract shortcut to focus the Yakuake window when it is already open but lacks focus. Disable this option to have the Open/Retract shortcut retract the Yakuake window regardless of whether or not it has focus.</string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox" row="3" column="0" rowspan="1" colspan="2">
+                    <property name="name">
+                        <cstring>kcfg_poll</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>true</bool>
+                    </property>
+                    <property name="text">
+                        <string>Automatically open when pointer touches screen edge</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Enable this option if you want the Yakuake window to open when the mouse pointer touches the top edge of the screen.</string>
                     </property>
                 </widget>
             </grid>
@@ -509,6 +523,7 @@
     <tabstop>kcfg_popup</tabstop>
     <tabstop>kcfg_confirmquit</tabstop>
     <tabstop>kcfg_tabs</tabstop>
+    <tabstop>kcfg_poll</tabstop>
     <tabstop>kcfg_focus</tabstop>
     <tabstop>kcfg_keepabove</tabstop>
     <tabstop>kcfg_focusontoggle</tabstop>

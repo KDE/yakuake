@@ -128,6 +128,8 @@ class MainWindow : public KMainWindow, virtual public DCOPInterface
         void slotFocusNextSplit();
         void slotFocusPreviousSplit();
 
+        void slotPollMouse();
+
 
     signals:
         void updateBackground();
@@ -147,6 +149,7 @@ class MainWindow : public KMainWindow, virtual public DCOPInterface
         void createSessionMenu();
         void createTabsBar();
         void createTitleBar();
+        void toggleMousePoll(bool poll);
 
         void initWindowProps();
 
@@ -170,6 +173,7 @@ class MainWindow : public KMainWindow, virtual public DCOPInterface
 
         /* Interface modification timer. */
         QTimer timer;
+        QTimer poller;
 
         /* Passive popup window. */
         KPassivePopup popup;

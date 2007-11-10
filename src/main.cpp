@@ -27,17 +27,19 @@ static KCmdLineOptions options[] = { KCmdLineLastOption };
 int main(int argc, char ** argv)
 {
     KAboutData about("yakuake", I18N_NOOP("Yakuake"), version, description,
-                     KAboutData::License_GPL, "(C) 2005-2007 The Yakuake Team", 0, 0, 0);
-    about.addAuthor("Eike Hein",        I18N_NOOP("Maintainer"), "hein@kde.org");
-    about.addAuthor("Francois Chazal",  I18N_NOOP("Project Founder (Inactive)"), "neptune3k@free.fr");
-    about.addCredit("Frank Osterfeld",  0, "frank.osterfeld@kdemail.net");
-    about.addCredit("Martin Galpin",    0, "martin@nemohackers.org");
-    about.addCredit("Thomas Tischler",  0, "Tischler123@t-online.de");
-    about.addCredit("Stefan Bogner",    0, "bochi@kmobiletools.org");
-    about.addCredit("Georg Wittenburg", 0, "georg.wittenburg@gmx.net");
-    about.addCredit("Dominik Seichter", 0, "domseichter@web.de");
-    about.addCredit("Bert Speckels",    0, "bert@speckels.de");
-    about.addCredit("Daniel 'suslik' D.",    0, "dd@accentsolution.com");
+        KAboutData::License_GPL, "(C) 2005-2007 The Yakuake Team", 0, 0, 0);
+
+    about.addAuthor("Eike Hein",          I18N_NOOP("Maintainer"), "hein@kde.org");
+    about.addAuthor("Francois Chazal",    I18N_NOOP("Project Founder (Inactive)"), "neptune3k@free.fr");
+    about.addCredit("Frank Osterfeld",    0, "frank.osterfeld@kdemail.net");
+    about.addCredit("Martin Galpin",      0, "martin@nemohackers.org");
+    about.addCredit("Thomas Tischler",    0, "Tischler123@t-online.de");
+    about.addCredit("Stefan Bogner",      0, "bochi@kmobiletools.org");
+    about.addCredit("Georg Wittenburg",   0, "georg.wittenburg@gmx.net");
+    about.addCredit("Dominik Seichter",   0, "domseichter@web.de");
+    about.addCredit("Bert Speckels",      0, "bert@speckels.de");
+    about.addCredit("Daniel 'suslik' D.", I18N_NOOP("Plastik skin"), "dd@accentsolution.com");
+    about.addCredit("Mark Bryan Yu",      I18N_NOOP("Auto-open on pointer touching screen edge"), "vafada@gmail.com");
 
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineArgs::addCmdLineOptions(options);

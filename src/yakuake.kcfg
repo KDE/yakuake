@@ -81,5 +81,15 @@
       <label></label>
       <whatsthis></whatsthis>
     </entry>
-  </group>
+    <entry key="poll" type="Bool">
+      <default>false</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="pollinterval" type="Int">
+      <default>500</default>
+      <label></label>
+      <whatsthis></whatsthis>
+    </entry>
+</group>
 </kcfg>
