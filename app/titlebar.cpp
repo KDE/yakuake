@@ -56,8 +56,8 @@ TitleBar::TitleBar(MainWindow* mainWindow) : QWidget(mainWindow)
 
     m_quitButton = new KPushButton(this);
     m_quitButton->setFocusPolicy(Qt::NoFocus);
-    m_menuButton->setToolTip(i18nc("@info:tooltip Quits the application", "Quit"));
-    m_menuButton->setToolTip(i18nc("@info:whatsthis", "Quits the application."));
+    m_quitButton->setToolTip(i18nc("@info:tooltip Quits the application", "Quit"));
+    m_quitButton->setToolTip(i18nc("@info:whatsthis", "Quits the application."));
     connect(m_quitButton, SIGNAL(clicked()), mainWindow, SLOT(close()));
 }
 
