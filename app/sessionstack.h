@@ -41,6 +41,8 @@ class SessionStack : public QStackedWidget
         explicit SessionStack(QWidget* parent = 0);
         ~SessionStack();
 
+        void emitTitles();
+
 
     public slots:
         Q_SCRIPTABLE void addSession(Session::SessionType type = Session::Single);

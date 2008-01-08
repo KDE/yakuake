@@ -421,6 +421,8 @@ void MainWindow::applySettings()
     {
         connect(m_sessionStack, SIGNAL(titleChanged(int, const QString&)), 
             m_tabBar, SLOT(setTabTitle(int, const QString&)));
+
+        m_sessionStack->emitTitles();
     }
     else
     {

@@ -201,3 +201,21 @@ void SessionStack::editProfile(int sessionId)
 
     m_sessions[sessionId]->editProfile();
 }
+
+
+void SessionStack::emitTitles()
+{
+    QString title;
+
+    QHashIterator<int, Session*> it(m_sessions);
+
+    while (it.hasNext()) 
+    {
+        it.next();
+
+        title = it.value()->title();
+
+        if (!title.isEmpty()) 
+            emit titleChanged(it.value()->id(), title);
+    }
+}

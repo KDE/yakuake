@@ -50,10 +50,10 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
         m_partWidget = m_part->widget();
 
         m_terminalWidget = m_part->widget()->focusWidget();
-	m_terminalWidget->setFocusPolicy(Qt::WheelFocus);
+        m_terminalWidget->setFocusPolicy(Qt::WheelFocus);
         m_terminalWidget->installEventFilter(this);
 
-	m_terminalInterface = qobject_cast<TerminalInterface*>(m_part);
+        m_terminalInterface = qobject_cast<TerminalInterface*>(m_part);
         m_terminalInterface->showShellInDir(KUser().homeDir());
     }
 }
