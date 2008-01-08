@@ -1,9 +1,13 @@
 Yakuake is a Quake-style terminal emulator based on KDE Konsole technology.
 
+
 It's a KDE Extragear application released under GPL v2, GPL v3 or any later
 version accepted by the membership of KDE e.V.
 
 The current maintainer of Yakuake is Eike Hein <hein@kde.org>.
+
+
+Yakuake requires both kdelibs and kdebase (or at least Konsole) to function.
 
 
 The Yakuake website is located at: http://yakuake.kde.org/
