@@ -1,0 +1,40 @@
+** What is a Yakuake skin?
+
+   A Yakuake skin, at present, is a collection of PNG image files and related
+   settings that allows modifying the visual appearance of the Yakuake window
+   frame, the window title bar and the tab bar along with the button controls
+   on them and the default title bar caption.
+
+
+** How is a Yakuake skin composed?
+
+   A Yakuake skin consists of a main directory, the name of which is used by
+   the application to identify that skin, and the files within. Two required
+   files are title.skin and tabs.skin located immediately in that directory.
+   Both are INI-style text files which contain the paths of the pixmaps that
+   are to be applied to the title bar and tab bar interface elements, res-
+   pectively, as well as the coordinates of the buttons and additional infor-
+   mation about the skin, such as its display name, its author and the email
+   address of the author.
+
+   You should derive new skins from the default skin. Please remember to
+   change the name of the base skin directory (which serves as identifier),
+   the skin display name, and include author information.
+
+
+** How should I package a Yakuake skin?
+
+   The "Skins" page in the Yakuake configuration dialog features an "Install
+   Skin" facility that can install Yakuake skin directories packaged as a
+   tar archive and optionally compressed using gzip or bzip2. Packages can be
+   installed from a local volume or a URL (using KIO).
+
+   In managing skins, Yakuake uses the name of the base skin directory loca-
+   ted within the tar archive as internal identifier for the skin. It should
+   be unique to your skin, i.e. ideally a simplified version of the proper
+   name of your skin.
+
+   The skin list on the "Skins" config dialog page reads the Name and Author
+   properties from the *.skin files to populate list items with information.
+   Additionally, it will try to load a 32x32px image file given via the Icon
+   property to show as artwork next to the skin name.

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Yakuake
+Exec=yakuake
+Icon=yakuake
+Type=Application
+Terminal=false
+Categories=Qt;KDE;System;TerminalEmulator;
+Comment=A Quake-style terminal emulator based on KDE Konsole technology.
+X-DBUS-StartupType=Unique

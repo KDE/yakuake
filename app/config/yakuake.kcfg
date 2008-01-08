@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile name="yakuakerc" />
+  <group name="Window">
+    <entry name="Screen" type="Int">
+      <label context="@label">Screen to use</label>
+      <whatsthis context="@info:whatsthis">The screen that the application window will appear on. 0 is understood as the screen the mouse pointer is on.</whatsthis>
+      <default>1</default>
+    </entry>
+    <entry name="Width" type="Int">
+      <label context="@label">Window width</label>
+      <whatsthis context="@info:whatsthis">Width of the application window in percent of the screen.</whatsthis>
+      <default>90</default>
+      <min>10</min>
+      <max>100</max>
+    </entry>
+    <entry name="Height" type="Int">
+      <label context="@label">Window height</label>
+      <whatsthis context="@info:whatsthis">Height of the application window in percent of the screen.</whatsthis>
+      <default>50</default>
+      <min>10</min>
+      <max>100</max>
+    </entry>
+    <entry name="Position" type="Int">
+      <label context="@label">Window position</label>
+      <whatsthis context="@info:whatsthis">Center point of the application window in percent from the left screen edge.</whatsthis>
+      <default>50</default>
+      <min>0</min>
+      <max>100</max>
+    </entry>
+    <entry name="KeepOpen" type="Bool">
+      <label context="@label">Keep window open</label>
+      <whatsthis context="@info:whatsthis">Whether to keep the application window open when it loses focus.</whatsthis>
+      <default>true</default>
+    </entry>
+    <entry name="ToggleToFocus" type="Bool">
+      <label context="@label">Use open/retract shortcut to focus window</label>
+      <whatsthis context="@info:whatsthis">Whether the open/retract keyboard shortcut can be used to focus the application window when it is already open.</whatsthis>
+      <default>false</default>
+    </entry>
+    <entry name="KeepAbove" type="Bool">
+      <label context="@label">Keep window on top</label>
+      <whatsthis context="@info:whatsthis">Whether to keep the application window above other windows on the screen.</whatsthis>
+      <default>true</default>
+    </entry>
+    <entry name="ShowTabBar" type="Bool">
+       <label context="@label">Show tab bar</label>
+      <whatsthis context="@info:whatsthis">Whether to show the tab bar in the application window.</whatsthis>
+      <default>true</default>
+    </entry>
+    <entry name="DynamicTabTitles" type="Bool">
+      <label context="@label">Dynamic tab titles</label>
+      <whatsthis context="@info:whatsthis">Whether to update tab titles along with the title bar.</whatsthis>
+      <default>false</default>
+    </entry>
+  </group>
+  <group name="Appearance">
+    <entry name="Skin" type="String">
+      <label context="@label">Skin</label>
+      <whatsthis context="@info:whatsthis">The skin to be used by the application window.</whatsthis>
+      <default>default</default>
+    </entry>
+    <entry name="Translucency" type="Bool">
+      <label context="@label">Use translucent background</label>
+      <whatsthis context="@info:whatsthis">Whether to make use of XComposite ARGB translucency.</whatsthis>
+      <default>false</default>
+    </entry>
+    <entry name="BackgroundColor" type="Color">
+      <label context="@label">Window background color</label>
+      <whatsthis context="@info:whatsthis">Background color used if XComposite ARGB translucency is disabled.</whatsthis>
+      <default>#000000</default>
+    </entry>
+  </group>
+  <group name="Animation">
+    <entry name="Frames" type="Int">
+      <label context="@label">Animation frames</label>
+      <whatsthis context="@info:whatsthis">The number of frames of the open/retract animation.</whatsthis>
+      <default>20</default>
+      <min>0</min>
+      <max>50</max>
+    </entry>
+  </group>
+  <group name="AutoOpen">
+    <entry name="PollMouse" type="Bool">
+      <label context="@label">Auto-open window</label>
+      <whatsthis context="@info:whatsthis">Whether to automatically open the application window when the mouse pointer is found at the screen edge.</whatsthis>
+      <default>false</default>
+    </entry>
+    <entry name="PollInterval" type="Int">
+      <label context="@label">Mouse pointer poll interval</label>
+      <whatsthis context="@info:whatsthis">The interval in which the mouse pointer position will be recorded do detect whether or not it is at the same screen edge as the window.</whatsthis>
+      <default>500</default>
+    </entry>
+  </group>
+  <group name="Dialogs">
+    <entry name="FirstRun" type="Bool">
+      <label context="@label">Application first run</label>
+      <whatsthis context="@info:whatsthis">Whether this is the first time the application is run.</whatsthis>
+      <default>true</default>
+    </entry>
+    <entry name="ShowPopup" type="Bool">
+      <label context="@label">Show startup notification</label>
+      <whatsthis context="@info:whatsthis">Whether to show a notification popup at application startup.</whatsthis>
+      <default>true</default>
+    </entry>
+    <entry name="ConfirmQuit" type="Bool">
+      <label context="@label">Confirm quit with multiple sessions</label>
+      <whatsthis context="@info:whatsthis">Whether to query the user before quitting the application when multiple sessions are open.</whatsthis>
+      <default>true</default>
+    </entry>
+  </group>
+</kcfg>
