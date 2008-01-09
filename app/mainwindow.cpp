@@ -459,7 +459,7 @@ void MainWindow::applySkin()
     if (!gotSkin)
     {
         KMessageBox::error(parentWidget(), 
-            i18nc("@info", "Yakuake was unable to load a skin. It was likely installed incorrectly.<nl/><nl/>"
+            i18nc("@info", "<application>Yakuake</application> was unable to load a skin. It was likely installed incorrectly.<nl/><nl/>"
                            "The application will now quit."),
             i18nc("@title:window", "Cannot Load Skin"));
 

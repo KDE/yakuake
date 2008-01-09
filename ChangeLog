@@ -22,6 +22,8 @@ Changes since 2.8.x (KDE 4):
 * A bug where the "Rename Session..." action would operate on the wrong
   session has been fixed.
 * Lots of internal cleanup.
+* Yakuake no longer crashes when Konsole is not installed, but instead can-
+  cels startup with a preceding error dialog.
 
 
 Changes since 2.8 (KDE 3):

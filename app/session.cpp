@@ -68,7 +68,8 @@ void Session::setupSession(SessionType type)
             newSplitterSizes << (splitterWidth / 2) << (splitterWidth / 2);
             m_baseSplitter->setSizes(newSplitterSizes);
 
-            terminal->terminalWidget()->setFocus();
+            QWidget* terminalWidget = terminal->terminalWidget();
+            if (terminalWidget) terminalWidget->setFocus();
 
             break;
         }
@@ -86,7 +87,8 @@ void Session::setupSession(SessionType type)
             newSplitterSizes << (splitterHeight / 2) << (splitterHeight / 2);
             m_baseSplitter->setSizes(newSplitterSizes);
 
-            terminal->terminalWidget()->setFocus();
+            QWidget* terminalWidget = terminal->terminalWidget();
+            if (terminalWidget) terminalWidget->setFocus();
 
             break;
         }
@@ -119,7 +121,8 @@ void Session::setupSession(SessionType type)
             upperSplitter->setSizes(newSplitterSizes);
             lowerSplitter->setSizes(newSplitterSizes);
 
-            terminal->terminalWidget()->setFocus();
+            QWidget* terminalWidget = terminal->terminalWidget();
+            if (terminalWidget) terminalWidget->setFocus();
 
             break;
         }
@@ -142,7 +145,8 @@ Terminal* Session::addTerminal(QWidget* parent)
 
     m_terminals.insert(terminal->id(), terminal);
 
-    terminal->terminalWidget()->setFocus();
+    QWidget* terminalWidget = terminal->terminalWidget();
+    if (terminalWidget) terminalWidget->setFocus();
 
     return terminal;
 }
@@ -174,11 +178,16 @@ void Session::focusPreviousTerminal()
         if (it.key() == m_activeTerminalId)
         {
             if (it.hasPrevious())
-                it.peekPrevious().value()->terminalWidget()->setFocus();
+            {
+                QWidget* terminalWidget = it.peekPrevious().value()->terminalWidget();
+                if (terminalWidget) terminalWidget->setFocus();
+            }
             else
             {
                 it.toBack();
-                it.peekPrevious().value()->terminalWidget()->setFocus();
+
+                QWidget* terminalWidget = it.peekPrevious().value()->terminalWidget();
+                if (terminalWidget) terminalWidget->setFocus();
             }
 
             break;
@@ -200,11 +209,16 @@ void Session::focusNextTerminal()
         if (it.key() == m_activeTerminalId)
         {
             if (it.hasNext())
-                it.peekNext().value()->terminalWidget()->setFocus();
+            {
+                QWidget* terminalWidget = it.peekNext().value()->terminalWidget();
+                if (terminalWidget) terminalWidget->setFocus();
+            }
             else
             {
                 it.toFront();
-                it.peekNext().value()->terminalWidget()->setFocus();
+
+                QWidget* terminalWidget = it.peekNext().value()->terminalWidget();
+                if (terminalWidget) terminalWidget->setFocus();
             }
 
             break;
@@ -249,7 +263,8 @@ void Session::split(Terminal* terminal, Qt::Orientation orientation)
         newSplitterSizes << (splitterWidth / 2) << (splitterWidth / 2);
         splitter->setSizes(newSplitterSizes);
 
-        terminal->partWidget()->show();
+        QWidget* partWidget = terminal->partWidget();
+        if (partWidget) partWidget->show();
 
         m_activeTerminalId = terminal->id();
     }
@@ -263,7 +278,9 @@ void Session::split(Terminal* terminal, Qt::Orientation orientation)
         if (splitter->indexOf(terminal->partWidget()) == 0) 
             splitter->insertWidget(0, newSplitter);
 
-        terminal->partWidget()->setParent(newSplitter);
+        QWidget* partWidget = terminal->partWidget();
+        if (partWidget) partWidget->setParent(newSplitter);
+
         terminal->setSplitter(newSplitter);
 
         terminal = addTerminal(newSplitter);
@@ -274,7 +291,9 @@ void Session::split(Terminal* terminal, Qt::Orientation orientation)
         newSplitter->setSizes(newSplitterSizes);
 
         newSplitter->show();
-        terminal->partWidget()->show();
+
+        partWidget = terminal->partWidget();
+        if (partWidget) partWidget->show();
 
         m_activeTerminalId = terminal->id();
     }

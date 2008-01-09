@@ -24,6 +24,8 @@
 #include <KApplication>
 #include <kde_terminal_interface.h>
 #include <KLibLoader>
+#include <KLocalizedString>
+#include <KMessageBox>
 #include <KUser>
 
 #include <QWidget>
@@ -37,6 +39,9 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
     m_availableTerminalId++;
 
     m_part = NULL;
+    m_terminalInterface = NULL;
+    m_partWidget = NULL;
+    m_terminalWidget = NULL;
     m_parentSplitter = parent;
 
     KPluginFactory* factory = KPluginLoader("libkonsolepart").factory();
@@ -50,11 +55,24 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
         m_partWidget = m_part->widget();
 
         m_terminalWidget = m_part->widget()->focusWidget();
-        m_terminalWidget->setFocusPolicy(Qt::WheelFocus);
-        m_terminalWidget->installEventFilter(this);
+
+        if (m_terminalWidget)
+        {
+            m_terminalWidget->setFocusPolicy(Qt::WheelFocus);
+            m_terminalWidget->installEventFilter(this);
+        }
 
         m_terminalInterface = qobject_cast<TerminalInterface*>(m_part);
-        m_terminalInterface->showShellInDir(KUser().homeDir());
+        if (m_terminalInterface) m_terminalInterface->showShellInDir(KUser().homeDir());
+    }
+    else
+    {
+        KMessageBox::error(KApplication::activeWindow(), 
+            i18nc("@info", "<application>Yakuake</application> was unable to load the <application>Konsole</application> component. "
+                           "A <application>Konsole</application> installation is required to run Yakuake.<nl/><nl/>"
+                           "The application will now quit."));
+
+        QMetaObject::invokeMethod(kapp, "quit", Qt::QueuedConnection);
     }
 }
 
