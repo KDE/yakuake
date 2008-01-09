@@ -91,7 +91,7 @@
     </entry>
     <entry name="PollInterval" type="Int">
       <label context="@label">Mouse pointer poll interval</label>
-      <whatsthis context="@info:whatsthis">The interval in which the mouse pointer position will be recorded do detect whether or not it is at the same screen edge as the window.</whatsthis>
+      <whatsthis context="@info:whatsthis">The interval in which the mouse pointer position will be recorded to detect whether or not it is at the same screen edge as the window.</whatsthis>
       <default>500</default>
     </entry>
   </group>
