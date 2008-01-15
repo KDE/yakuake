@@ -661,9 +661,9 @@ void MainWindow::openWindow()
     if (m_animationFrame == 0)
     {
         updateUseTranslucency();
-    
+
         applyWindowProperties();
-    
+
         show();
 
         if (Settings::pollMouse()) toggleMousePoll(false);
@@ -678,10 +678,8 @@ void MainWindow::openWindow()
         updateMask();
 
         if (!Settings::firstRun()) KWindowSystem::forceActiveWindow(winId());
-
-        return;
     }
-    else 
+    else
     {
         int maskHeight = m_animationStepSize * m_animationFrame;
 
@@ -692,9 +690,9 @@ void MainWindow::openWindow()
         setMask(newMask);
 
         m_titleBar->move(0, maskHeight);
-    }
 
-    m_animationFrame++;
+        m_animationFrame++;
+    }
 }
 
 void MainWindow::retractWindow()
@@ -707,17 +705,15 @@ void MainWindow::retractWindow()
         hide();
 
         if (Settings::pollMouse()) toggleMousePoll(true);
-
-        return;
     }
     else
     {
         setMask(QRegion(mask()).translated(0, -m_animationStepSize));
 
         m_titleBar->move(0, m_titleBar->y() - m_animationStepSize);
-    }
 
-    --m_animationFrame;
+        --m_animationFrame;
+    }
 }
 
 void MainWindow::activate()
