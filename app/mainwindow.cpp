@@ -565,7 +565,7 @@ void MainWindow::increaseWindowWidth()
 
 void MainWindow:: decreaseWindowWidth()
 {
-    if (Settings::width() > 10) setWindowWidth(Settings::width() - 10);
+    if (Settings::width() >= 20) setWindowWidth(Settings::width() - 10);
 }
 
 void MainWindow::increaseWindowHeight()
@@ -575,7 +575,7 @@ void MainWindow::increaseWindowHeight()
 
 void MainWindow::decreaseWindowHeight()
 {
-    if (Settings::height() > 10) setWindowHeight(Settings::height() - 10);
+    if (Settings::height() >= 20) setWindowHeight(Settings::height() - 10);
 }
 
 void MainWindow::updateMask()
