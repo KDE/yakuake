@@ -7,7 +7,7 @@ version accepted by the membership of KDE e.V.
 The current maintainer of Yakuake is Eike Hein <hein@kde.org>.
 
 
-Yakuake requires both kdelibs and kdebase (or at least Konsole) to function.
+Yakuake requires kdelibs and Konsole from KDE 4.0 or higher.
 
 
 The Yakuake website is located at: http://yakuake.kde.org/

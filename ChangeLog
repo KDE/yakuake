@@ -1,32 +1,32 @@
-Changes since 2.8.x (KDE 4):
+Changes in 2.9-beta1 (KDE 4):
 * Rewritten from scratch for KDE 4.
 * Changed license from "GPL v2 or later" to "GPL v2 or v3 or any later ver-
   sion accepted by the membership of KDE e.V.".
 * Replaced pseudo-translucency with XComposite translucency (aka "real trans-
   lucency") support (see KDE4FAQ for caveats).
-* The context menus of tabs and the main menu now sport additional actions 
+* The context menus of tabs and the main menu now sport additional actions
   to manipulate Konsole profile settings.
 * The tab bar itself has gained a context menu as well.
-* An option to dynamically update tab labels with information about the 
+* An option to dynamically update tab labels with information about the
   content of the active terminal has been added.
 * The skin engine is now more robust when it comes to processing invalid or
   corrupted skins.
 * Skins are now stored in the skins/ sub-directory of the app's data dir.
 * The window geometry is now updated dynamically when the work area of the
   screen changes.
-* The window title bar now appropriately uses the window title font from the 
+* The window title bar now appropriately uses the window title font from the
   KDE font settings rather than the general UI font.
 * Changes to the KDE font settings are now applied at runtime.
 * Support for right-to-left layouts in the configuration dialog has been
   improved.
 * A bug where the "Rename Session..." action would operate on the wrong
   session has been fixed.
-* Lots of internal cleanup.
 * Yakuake no longer crashes when Konsole is not installed, but instead can-
   cels startup with a preceding error dialog.
+* Lots of internal cleanup.
 
 
-Changes since 2.8 (KDE 3):
+Changes in 2.8.1 (KDE 3):
 * Added an option to control whether the Yakuake window keeps above other
   windows.
 * Improved experience for non-KDE users by disabling KRootPixmap-based
@@ -37,8 +37,6 @@ Changes since 2.8 (KDE 3):
 * Added option to automatically open the Yakuake window when the pointer
   touches the screen edge it lives on.
 
-
-============================== Last Public Release ============================
 
 Changes in 2.8:
 - Changes since 2.8-beta1:
