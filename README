@@ -5,6 +5,9 @@ It's a KDE Extragear application released under GPL v2.
 The current maintainer of Yakuake is Eike Hein <hein@kde.org>.
 
 
+Yakuake requires kdelibs and Konsole from KDE 3.4.0 or higher.
+
+
 The Yakuake website is located at: http://yakuake.kde.org/
 
 Report bugs and wishes at: http://bugs.kde.org/

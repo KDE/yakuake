@@ -7,7 +7,7 @@
 
 /*
   Copyright (C) 2005 Francois Chazal <neptune3k@free.fr>
-  Copyright (C) 2006-2007 Eike Hein <hein@kde.org>
+  Copyright (C) 2006-2008 Eike Hein <hein@kde.org>
 */
 
 
@@ -20,14 +20,14 @@
 #include <kdebug.h>
 
 
-static const char version[] = "2.8+";
+static const char version[] = "2.8.1";
 static const char description[] = I18N_NOOP("A Quake-style terminal emulator based on KDE Konsole technology. ");
 static KCmdLineOptions options[] = { KCmdLineLastOption };
 
 int main(int argc, char ** argv)
 {
     KAboutData about("yakuake", I18N_NOOP("Yakuake"), version, description,
-        KAboutData::License_GPL, "(C) 2005-2007 The Yakuake Team", 0, 0, 0);
+        KAboutData::License_GPL, "(C) 2005-2008 The Yakuake Team", 0, 0, 0);
 
     about.addAuthor("Eike Hein",          I18N_NOOP("Maintainer"), "hein@kde.org");
     about.addAuthor("Francois Chazal",    I18N_NOOP("Project Founder (Inactive)"), "neptune3k@free.fr");

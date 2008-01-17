@@ -1,4 +1,4 @@
-Changes since 2.8:
+Changes in 2.8.1:
 * Added an option to control whether the Yakuake window keeps above other
   windows.
 * Improved experience for non-KDE users by disabling KRootPixmap-based
