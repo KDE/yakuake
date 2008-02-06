@@ -29,7 +29,7 @@ kde4_add_ui_files(yakuake_SRCS
 
 kde4_add_executable(yakuake ${yakuake_SRCS})
 
-target_link_libraries(yakuake ${KDE4_KDEUI_LIBS} ${KDE4_KPARTS_LIBS})
+target_link_libraries(yakuake  ${KDE4_KPARTS_LIBS})
 
 install(TARGETS yakuake DESTINATION ${BIN_INSTALL_DIR})
 
