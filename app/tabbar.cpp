@@ -457,7 +457,9 @@ void TabBar::selectNextTab()
     int index = m_tabs.indexOf(m_selectedSessionId);
     int newSelectedSessionId = m_selectedSessionId;
 
-    if (index == m_tabs.count() - 1)
+    if (index == -1)
+        return;
+    else if (index == m_tabs.count() - 1)
         newSelectedSessionId = m_tabs.at(0);
     else
         newSelectedSessionId = m_tabs.at(index + 1);
@@ -470,10 +472,12 @@ void TabBar::selectPreviousTab()
     int index = m_tabs.indexOf(m_selectedSessionId);
     int newSelectedSessionId = m_selectedSessionId;
 
-    if (index == 0)
+    if (index == -1)
+        return;
+    else if (index == 0)
         newSelectedSessionId = m_tabs.at(m_tabs.count() - 1);
     else
-        newSelectedSessionId = index - 1;
+        newSelectedSessionId = m_tabs.at(index - 1);
 
     emit tabSelected(newSelectedSessionId);
 }

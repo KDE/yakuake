@@ -1,7 +1,11 @@
 Changes since 2.9-beta1:
 * Changed default shortcut of the "Quit" action to Ctrl+Shift+Q for consis-
-  tency with Konsole and to avoid clashing with the KPart's "Resume output" 
+  tency with Konsole and to avoid clashing with the KPart's "Resume output"
   action.
+* Fixed a bug that caused the "Previous Session" action not to work when
+  trying to move from a newer to an older session after closing sessions
+  created and located inbetween.
+
 
 Changes in 2.9-beta1 (KDE 4):
 * Rewritten from scratch for KDE 4.
