@@ -130,6 +130,7 @@ void MainWindow::setupActions()
     m_actionCollection = new KActionCollection(this);
 
     KAction* action = KStandardAction::quit(kapp, SLOT(quit()),actionCollection());
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Q));
 
     action = KStandardAction::aboutApp(m_helpMenu, SLOT(aboutApplication()), actionCollection());
     action = KStandardAction::aboutKDE(m_helpMenu, SLOT(aboutKDE()), actionCollection());

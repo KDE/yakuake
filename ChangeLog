@@ -1,3 +1,8 @@
+Changes since 2.9-beta1:
+* Changed default shortcut of the "Quit" action to Ctrl+Shift+Q for consis-
+  tency with Konsole and to avoid clashing with the KPart's "Resume output" 
+  action.
+
 Changes in 2.9-beta1 (KDE 4):
 * Rewritten from scratch for KDE 4.
 * Changed license from "GPL v2 or later" to "GPL v2 or v3 or any later ver-
