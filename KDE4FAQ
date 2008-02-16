@@ -43,3 +43,13 @@ A: While the KDE 4 incarnation of Yakuake tries hard to preserve compati-
    skin elements and their background. Unfortunately this is outside the
    area of influence of the Yakuake code at this time. Translucent areas
    in skins may have to be adjusted accordingly.
+
+  ------------------------------------------------------------------------
+
+Q: The terminal display corrupts in odd ways when I scroll. Anything I can
+   do?
+
+A: This is usually caused by using compositing with an older version of the 
+   nVidia proprietary graphics driver, which has a known rendering bug with 
+   Qt4 scrollviews on an ARGB visual. nVidia fixed the problem in version 
+   169.07 of the driver.
