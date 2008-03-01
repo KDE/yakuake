@@ -84,7 +84,7 @@ class Session : public QObject
         void setupSession(SessionType type);
 
         Terminal* addTerminal(QWidget* parent);
-        void split(Terminal* terminal, Qt::Orientation orientation);;
+        void split(Terminal* terminal, Qt::Orientation orientation);
 
         static int m_availableSessionId;
         int m_sessionId;
