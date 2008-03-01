@@ -1,4 +1,4 @@
 Planned for future releases:
-- Session management UI.
-- More flexible theming.
-- COMPOSITE support.
+- Session management (requires Konsole changes).
+- More flexible skin engine.
+- More control over translucent rendering (tinting, ...).
