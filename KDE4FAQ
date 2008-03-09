@@ -24,12 +24,9 @@ A: While the specific reasons have yet to be uncovered, this appears to be
 Q: There's a flicker in the animation when closing the window. What about
    that?
 
-A: This is caused by the Fade Out window effect in the KDE window manager,
-   kwin. Apparently it's using a too old snapshot of the window to fade
-   out after Yakuake hides itself, which creates the appearance of the 
-   window popping back briefly before disappearing. The issue is under in-
-   vestigation. In the meantime, you might want to disable the Fade Out
-   effect in System Settings.
+A: This is caused by a bug in the Fade Out window effect in the KDE window
+   manager, kwin, related to how it handles window masks. A fix will be in-
+   cluded in KDE 4.0.3 and higher.
 
   ------------------------------------------------------------------------
 
