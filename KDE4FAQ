@@ -26,7 +26,8 @@ Q: There's a flicker in the animation when closing the window. What about
 
 A: This is caused by a bug in the Fade Out window effect in the KDE window
    manager, kwin, related to how it handles window masks. A fix will be in-
-   cluded in KDE 4.0.3 and higher.
+   cluded in KDE 4.0.3 and higher. Alternatively, the effect can be dis-
+   abled in System Settings.
 
   ------------------------------------------------------------------------
 
