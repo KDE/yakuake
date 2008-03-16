@@ -144,121 +144,138 @@ void MainWindow::setupActions()
 
     action = KStandardAction::whatsThis(this, SLOT(whatsThis()), actionCollection());
 
-    action = new KAction(KIcon("yakuake"), i18nc("@action", "Open/Retract Yakuake"), this);
+    action = actionCollection()->addAction("toggle-window-state");
+    action->setText(i18nc("@action", "Open/Retract Yakuake"));
+    action->setIcon(KIcon("yakuake"));
     action->setGlobalShortcut(KShortcut(Qt::Key_F12));
-    actionCollection()->addAction("toggle-window-state", action);
     connect(action, SIGNAL(triggered()), this, SLOT(toggleWindowState()));
 
-    action = new KAction(i18nc("@action", "Keep window open when it loses focus"), this);
+    action = actionCollection()->addAction("keep-open");
+    action->setText(i18nc("@action", "Keep window open when it loses focus"));
     action->setCheckable(true);
-    actionCollection()->addAction("keep-open", action);
     connect(action, SIGNAL(toggled(bool)), this, SLOT(setKeepOpen(bool)));
 
-    action = new KAction(KIcon("configure"), i18nc("@action", "Manage Profiles..."), this);
-    actionCollection()->addAction("manage-profiles", action);
+    action = actionCollection()->addAction("manage-profiles");
+    action->setText(i18nc("@action", "Manage Profiles..."));
+    action->setIcon(KIcon("configure"));
     connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(manageProfiles()));
 
-    action = new KAction(KIcon("document-properties"), i18nc("@action", "Edit Current Profile..."), this);
-    actionCollection()->addAction("edit-profile", action);
+    action = actionCollection()->addAction("edit-profile");
+    action->setText(i18nc("@action", "Edit Current Profile..."));
+    action->setIcon(KIcon("document-properties"));
     connect(action, SIGNAL(triggered()), this, SLOT(handleSpecialAction()));
 
-    action = new KAction(i18nc("@action", "Increase Window Width"), this);
+    action = actionCollection()->addAction("increase-window-width");
+    action->setText(i18nc("@action", "Increase Window Width"));
     action->setShortcut(QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_Right));
-    actionCollection()->addAction("increase-window-width", action);
     connect(action, SIGNAL(triggered()), this, SLOT(increaseWindowWidth()));
 
-    action = new KAction(i18nc("@action", "Decrease Window Width"), this);
+    action = actionCollection()->addAction("decrease-window-width");
+    action->setText(i18nc("@action", "Decrease Window Width"));
     action->setShortcut(QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_Left));
-    actionCollection()->addAction("decrease-window-width", action);
     connect(action, SIGNAL(triggered()), this, SLOT(decreaseWindowWidth()));
 
-    action = new KAction(i18nc("@action", "Increase Window Height"), this);
+    action = actionCollection()->addAction("increase-window-height");
+    action->setText(i18nc("@action", "Increase Window Height"));
     action->setShortcut(QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_Down));
-    actionCollection()->addAction("increase-window-height", action);
     connect(action, SIGNAL(triggered()), this, SLOT(increaseWindowHeight()));
 
-    action = new KAction(i18nc("@action", "Decrease Window Height"), this);
+    action = actionCollection()->addAction("decrease-window-height");
+    action->setText(i18nc("@action", "Decrease Window Height"));
     action->setShortcut(QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_Up));
-    actionCollection()->addAction("decrease-window-height", action);
     connect(action, SIGNAL(triggered()), this, SLOT(decreaseWindowHeight()));
 
-    action = new KAction(KIcon("tab-new"), i18nc("@action", "New Session"), this);
+    action = actionCollection()->addAction("new-session");
+    action->setText(i18nc("@action", "New Session"));
+    action->setIcon(KIcon("tab-new"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_N));
-    actionCollection()->addAction("new-session", action);
     connect(action, SIGNAL(triggered()), m_sessionStack, SLOT(addSession()));
 
-    action = new KAction(KIcon("tab-new"), i18nc("@action", "Two Terminals, Horizontally"), this);
-    actionCollection()->addAction("new-session-two-horizontal", action);
+    action = actionCollection()->addAction("new-session-two-horizontal");
+    action->setText(i18nc("@action", "Two Terminals, Horizontally"));
+    action->setIcon(KIcon("tab-new"));
     connect(action, SIGNAL(triggered()), m_sessionStack, SLOT(addSessionTwoHorizontal()));
 
-    action = new KAction(KIcon("tab-new"), i18nc("@action", "Two Terminals, Vertically"), this);
-    actionCollection()->addAction("new-session-two-vertical", action);
+    action = actionCollection()->addAction("new-session-two-vertical");
+    action->setText(i18nc("@action", "Two Terminals, Vertically"));
+    action->setIcon(KIcon("tab-new"));
     connect(action, SIGNAL(triggered()), m_sessionStack, SLOT(addSessionTwoVertical()));
 
-    action = new KAction(KIcon("tab-new"), i18nc("@action", "Four Terminals, Grid"), this);
-    actionCollection()->addAction("new-session-quad", action);
+    action = actionCollection()->addAction("new-session-quad");
+    action->setText(i18nc("@action", "Four Terminals, Grid"));
+    action->setIcon(KIcon("tab-new"));
     connect(action, SIGNAL(triggered()), m_sessionStack, SLOT(addSessionQuad()));
 
-    action = new KAction(KIcon("tab-close"), i18nc("@action", "Close Session"), this);
+    action = actionCollection()->addAction("close-session");
+    action->setText(i18nc("@action", "Close Session"));
+    action->setIcon(KIcon("tab-close"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_S));
-    actionCollection()->addAction("close-session", action);
     connect(action, SIGNAL(triggered()), this, SLOT(handleSpecialAction()));
 
-    action = new KAction(KIcon("go-previous"), i18nc("@action", "Previous Session"), this);
+    action = actionCollection()->addAction("previous-session");
+    action->setText(i18nc("@action", "Previous Session"));
+    action->setIcon(KIcon("go-previous"));
     action->setShortcut(QKeySequence(Qt::SHIFT + Qt::Key_Left));
-    actionCollection()->addAction("previous-session", action);
     connect(action, SIGNAL(triggered()), m_tabBar, SLOT(selectPreviousTab()));
 
-    action = new KAction(KIcon("go-next"), i18nc("@action", "Next Session"), this);
+    action = actionCollection()->addAction("next-session");
+    action->setText(i18nc("@action", "Next Session"));
+    action->setIcon(KIcon("go-next"));
     action->setShortcut(QKeySequence(Qt::SHIFT + Qt::Key_Right));
-    actionCollection()->addAction("next-session", action);
     connect(action, SIGNAL(triggered()), m_tabBar, SLOT(selectNextTab()));
 
-    action = new KAction(KIcon("arrow-left"), i18nc("@action", "Move Session Left"), this);
+    action = actionCollection()->addAction("move-session-left");
+    action->setText(i18nc("@action", "Move Session Left"));
+    action->setIcon(KIcon("arrow-left"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Left));
-    actionCollection()->addAction("move-session-left", action);
     connect(action, SIGNAL(triggered()), this, SLOT(handleSpecialAction()));
 
-    action = new KAction(KIcon("arrow-right"), i18nc("@action", "Move Session Right"), this);
+    action = actionCollection()->addAction("move-session-right");
+    action->setText(i18nc("@action", "Move Session Right"));
+    action->setIcon(KIcon("arrow-right"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Right));
-    actionCollection()->addAction("move-session-right", action);
     connect(action, SIGNAL(triggered()), this, SLOT(handleSpecialAction()));
 
-    action = new KAction(KIcon("edit-rename"), i18nc("@action", "Rename Session..."), this);
-    actionCollection()->addAction("rename-session", action);
+    action = actionCollection()->addAction("rename-session");
+    action->setText(i18nc("@action", "Rename Session..."));
+    action->setIcon(KIcon("edit-rename"));
     connect(action, SIGNAL(triggered()), this, SLOT(handleSpecialAction()));
 
-    action = new KAction(KIcon("go-previous"), i18nc("@action", "Previous Terminal"), this);
+    action = actionCollection()->addAction("previous-terminal");
+    action->setText(i18nc("@action", "Previous Terminal"));
+    action->setIcon(KIcon("go-previous"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Up));
-    actionCollection()->addAction("previous-terminal", action);
     connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(previousTerminal()));
 
-    action = new KAction(KIcon("go-next"), i18nc("@action", "Next Terminal"), this);
+    action = actionCollection()->addAction("next-terminal");
+    action->setText(i18nc("@action", "Next Terminal"));
+    action->setIcon(KIcon("go-next"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Down));
-    actionCollection()->addAction("next-terminal", action);
     connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(nextTerminal()));
 
-    action = new KAction(KIcon("view-close"), i18nc("@action", "Close Active Terminal"), this);
+    action = actionCollection()->addAction("close-active-terminal");
+    action->setText(i18nc("@action", "Close Active Terminal"));
+    action->setIcon(KIcon("view-close"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_R));
-    actionCollection()->addAction("close-active-terminal", action);
     connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(closeTerminal()));
 
-    action = new KAction(KIcon("view-split-left-right"), i18nc("@action", "Split Left/Right"), this);
+    action = actionCollection()->addAction("split-left-right");
+    action->setText(i18nc("@action", "Split Left/Right"));
+    action->setIcon(KIcon("view-split-left-right"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_L));
-    actionCollection()->addAction("split-left-right", action);
     connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(splitLeftRight()));
 
-    action = new KAction(KIcon("view-split-top-bottom"), i18nc("@action", "Split Top/Bottom"), this);
+    action = actionCollection()->addAction("split-top-bottom");
+    action->setText(i18nc("@action", "Split Top/Bottom"));
+    action->setIcon(KIcon("view-split-top-bottom"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_T));
-    actionCollection()->addAction("split-top-bottom", action);
     connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(splitTopBottom()));
 
     for (uint i = 1; i <= 10; ++i)
     {
-        action = new KAction(this);
+        action = actionCollection()->addAction(QString("switch-to-session-%1").arg(i));
         action->setText(i18nc("@action", "Switch to Session <numid>%1</numid>", i));
         action->setData(i);
-        actionCollection()->addAction(QString("switch-to-session-%1").arg(i), action);
         connect(action, SIGNAL(triggered()), this, SLOT(handleSpecialAction()));
     }
 
