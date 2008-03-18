@@ -1,6 +1,11 @@
 Changes since 2.9:
-- Fixed Open/Retract action not working with versions of KDE 4 trunk (4.1) 
+* Fixed Open/Retract action not working with versions of KDE 4 trunk (4.1)
   after March 10th, 2008.
+* Starting Yakuake a second time now toggles the window state, making it 
+  possible to open and retract Yakuake from a panel button or simply run-
+  ning the executable.
+* Disabled standard startup notifications ("Launch Feedback") for Yakuake.
+
 
 Changes in 2.9 (KDE 4):
 - Changes since 2.9-beta1:

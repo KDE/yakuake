@@ -19,12 +19,11 @@
 */
 
 
-#include "mainwindow.h"
+#include "application.h"
 
 #include <KAboutData>
 #include <KCmdLineArgs>
 #include <KLocalizedString>
-#include <KUniqueApplication>
 #include <KWindowSystem>
 
 #include <QString>
@@ -39,7 +38,7 @@
 void getDisplayInformation(Display*& display, Visual*& visual, Colormap& colormap);
 #endif
 
- 
+
 int main (int argc, char *argv[])
 {
     KAboutData aboutData("yakuake",
@@ -53,7 +52,7 @@ int main (int argc, char *argv[])
         "http://yakuake.kde.org/");
 
     aboutData.setProductName("yakuake");
- 
+
     aboutData.addAuthor(ki18nc("@info:credit", "Eike Hein"), 
         ki18nc("@info:credit", "Maintainer, Lead Developer"), "hein@kde.org");
     aboutData.addAuthor(ki18nc("@info:credit", "Francois Chazal"), 
@@ -78,26 +77,20 @@ int main (int argc, char *argv[])
 
             getDisplayInformation(display, visual, colormap);
 
-            KUniqueApplication app(display, (Qt::HANDLE)visual, (Qt::HANDLE)colormap);
-
-            MainWindow* mainWindow = new MainWindow();
-            mainWindow->hide();
+            Application app(display, (Qt::HANDLE)visual, (Qt::HANDLE)colormap);
 
             return app.exec();
     }
     else
-#endif 
+#endif
     {
-        KUniqueApplication app;
-
-        MainWindow* mainWindow = new MainWindow();
-        mainWindow->hide();
+        Application app;
 
         return app.exec();
-    }  
+    }
 }
 
-// Code from the Qt 4 graphics dojo examples at http://labs.trolltech.com 
+// Code from the Qt 4 graphics dojo examples at http://labs.trolltech.com
 #ifdef Q_WS_X11
 void getDisplayInformation(Display*& display, Visual*& visual, Colormap& colormap)
 {
@@ -122,7 +115,7 @@ void getDisplayInformation(Display*& display, Visual*& visual, Colormap& colorma
         XVisualInfo *xvi = XGetVisualInfo(display, VisualScreenMask |
                                           VisualDepthMask |
                                           VisualClassMask, &templ, &nvi);
-    
+
         for (int i = 0; i < nvi; ++i) 
         {
             XRenderPictFormat* format = XRenderFindVisualFormat(display, xvi[i].visual);

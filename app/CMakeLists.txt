@@ -2,8 +2,9 @@ add_subdirectory( icons )
 
 include_directories( ${KDE4_INCLUDES} )
  
-set(yakuake_SRCS 
+set(yakuake_SRCS
     main.cpp
+    application.cpp
     mainwindow.cpp
     skin.cpp
     titlebar.cpp
