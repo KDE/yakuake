@@ -64,7 +64,7 @@ int main (int argc, char *argv[])
 
     if (!KUniqueApplication::start()) 
     {
-        fprintf(stderr, "Yakuake is already running!\n");
+        fprintf(stderr, "Yakuake is already running! Opening window ...\n");
         exit(0);
     }
 

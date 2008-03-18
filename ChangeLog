@@ -1,10 +1,16 @@
 Changes since 2.9:
-* Fixed Open/Retract action not working with versions of KDE 4 trunk (4.1)
-  after March 10th, 2008.
-* Starting Yakuake a second time now toggles the window state, making it 
+* Starting Yakuake a second time now toggles the window state, making it
   possible to open and retract Yakuake from a panel button or simply run-
   ning the executable.
 * Disabled standard startup notifications ("Launch Feedback") for Yakuake.
+* Fixed Open/Retract action not working with versions of KDE 4 trunk (4.1)
+  after March 10th, 2008.
+* Fixed a bug that could cause actions also available from the tab context
+  menu to operate on the wrong session when triggered by keyboard shortcut
+  and the context menu had been used previously.
+* Fixed the "Close Active Terminal", "Split Left/Right" and "Split Top/Bot-
+  tom" actions not operating on the correct session when activated from the
+  context menu of a tab other than the active tab.
 * Some additions to the KDE4FAQ file.
 
 

@@ -90,7 +90,7 @@ class Session : public QObject
         int m_sessionId;
 
         Splitter* m_baseSplitter;
-        
+
         int m_activeTerminalId;
         QMap<int, Terminal*> m_terminals;
 

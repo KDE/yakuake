@@ -168,7 +168,7 @@ void Session::focusPreviousTerminal()
     if (!m_terminals.contains(m_activeTerminalId)) return; 
 
     QMapIterator<int, Terminal*> it(m_terminals);
-    
+
     it.toBack();
 
     while (it.hasPrevious()) 
@@ -201,7 +201,7 @@ void Session::focusNextTerminal()
     if (!m_terminals.contains(m_activeTerminalId)) return;
 
     QMapIterator<int, Terminal*> it(m_terminals);
-    
+
     while (it.hasNext()) 
     {
         it.next();

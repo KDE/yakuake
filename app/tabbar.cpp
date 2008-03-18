@@ -42,6 +42,8 @@ TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
                        "<title>Tab Bar</title>"
                        "<para>The tab bar allows you to switch between sessions. You can double-click a tab to edit its label.</para>"));
 
+    m_selectedSessionId = -1;
+
     m_mousePressed = false;
     m_mousePressedIndex = -1;
 
@@ -110,8 +112,6 @@ void TabBar::readyTabContextMenu()
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("rename-session"));
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("close-session"));
     }
-
-    updateTabContextMenuActions(m_mousePressedIndex);
 }
 
 void TabBar::readySessionMenu()
@@ -124,11 +124,9 @@ void TabBar::readySessionMenu()
         m_sessionMenu->addAction(m_mainWindow->actionCollection()->action("new-session-two-vertical"));
         m_sessionMenu->addAction(m_mainWindow->actionCollection()->action("new-session-quad"));
     }
-
-    updateTabContextMenuActions(m_mousePressedIndex);
 }
 
-void TabBar::updateTabContextMenuActions(int index)
+void TabBar::updateMoveActions(int index)
 {
     m_mainWindow->actionCollection()->action("move-session-left")->setEnabled(false);
     m_mainWindow->actionCollection()->action("move-session-right")->setEnabled(false);
@@ -150,28 +148,18 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
         m_sessionMenu->exec(QCursor::pos());
     else
     {
-        m_mousePressedIndex = index;
+        updateMoveActions(index);
 
-        m_tabContextMenu->exec(QCursor::pos());
+        m_mainWindow->setContextDependendActionsQuiet(true);
+
+        QAction* action = m_tabContextMenu->exec(QCursor::pos());
+
+        if (action) m_mainWindow->handleContextDependendAction(action, sessionAtTab(index));
+
+        m_mainWindow->setContextDependendActionsQuiet(false);
     }
 
     QWidget::contextMenuEvent(event);
-}
-
-int TabBar::retrieveContextMenuSessionId()
-{
-    if (m_mousePressedIndex < 0 || m_mousePressedIndex > m_tabs.size())
-    {
-        m_mousePressedIndex = -1;
-
-        return m_mousePressedIndex;
-    }
-
-    int tmpSessionId = m_tabs.at(m_mousePressedIndex);
-
-    m_mousePressedIndex = -1;
-
-    return tmpSessionId;
 }
 
 void TabBar::resizeEvent(QResizeEvent* event)
@@ -291,7 +279,7 @@ int TabBar::tabAt(int x)
 {
     for (int index = 0; index < m_tabWidths.size(); ++index)
     {
-        if (x >  m_skin->tabBarPosition().x() && x < m_tabWidths.at(index)) 
+        if (x >  m_skin->tabBarPosition().x() && x < m_tabWidths.at(index))
             return index;
     }
 
@@ -343,7 +331,7 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
 
     if (event->button() == Qt::LeftButton && index != m_tabs.indexOf(m_selectedSessionId))
     {
-        if (m_mousePressed && m_mousePressedIndex == index) 
+        if (m_mousePressed && m_mousePressedIndex == index)
             emit tabSelected(m_tabs.at(index));
     }
 
@@ -391,10 +379,10 @@ void TabBar::addTab(int sessionId)
 void TabBar::removeTab(int sessionId)
 {
     if (sessionId == -1) sessionId = m_selectedSessionId;
+    if (sessionId == -1) return;
+    if (!m_tabs.contains(sessionId)) return;
 
     int index = m_tabs.indexOf(sessionId);
-
-    if (index == -1) return;
 
     if (m_lineEdit->isVisible() && index == m_editingSessionId)
         m_lineEdit->hide();
@@ -447,7 +435,7 @@ void TabBar::selectTab(int sessionId)
 
     m_selectedSessionId = sessionId;
 
-    updateTabContextMenuActions(m_tabs.indexOf(m_selectedSessionId));
+    updateMoveActions(m_tabs.indexOf(sessionId));
 
     repaint();
 }
@@ -533,7 +521,7 @@ int TabBar::sessionAtTab(int index)
     for (int i = 0; i < m_tabs.size(); ++i)
     {
         if (i == index) return m_tabs.at(i);
-    }   
+    }
 
     return -1;
 }

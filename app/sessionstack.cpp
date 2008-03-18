@@ -73,10 +73,8 @@ void SessionStack::raiseSession(int sessionId)
         disconnect(m_sessions[m_activeSessionId], SLOT(closeTerminal()));
         disconnect(m_sessions[m_activeSessionId], SLOT(focusPreviousTerminal()));
         disconnect(m_sessions[m_activeSessionId], SLOT(focusNextTerminal()));
-        disconnect(m_sessions[m_activeSessionId], SLOT(splitLeftRight()));
-        disconnect(m_sessions[m_activeSessionId], SLOT(splitTopBottom()));
         disconnect(m_sessions[m_activeSessionId], SLOT(manageProfiles()));
-        disconnect(m_sessions[m_activeSessionId], SIGNAL(titleChanged(const QString&)), 
+        disconnect(m_sessions[m_activeSessionId], SIGNAL(titleChanged(const QString&)),
             this, SIGNAL(activeTitleChanged(const QString&)));
     }
 
@@ -90,10 +88,8 @@ void SessionStack::raiseSession(int sessionId)
     connect(this, SIGNAL(closeTerminal()), m_sessions[sessionId], SLOT(closeTerminal()));
     connect(this, SIGNAL(previousTerminal()), m_sessions[sessionId], SLOT(focusPreviousTerminal()));
     connect(this, SIGNAL(nextTerminal()), m_sessions[sessionId], SLOT(focusNextTerminal()));
-    connect(this, SIGNAL(splitLeftRight()), m_sessions[sessionId], SLOT(splitLeftRight()));
-    connect(this, SIGNAL(splitTopBottom()), m_sessions[sessionId], SLOT(splitTopBottom()));
     connect(this, SIGNAL(manageProfiles()), m_sessions[sessionId], SLOT(manageProfiles()));
-    connect(m_sessions[sessionId], SIGNAL(titleChanged(const QString&)), 
+    connect(m_sessions[sessionId], SIGNAL(titleChanged(const QString&)),
         this, SIGNAL(activeTitleChanged(const QString&)));
 
     emit sessionRaised(sessionId);
@@ -115,14 +111,14 @@ void SessionStack::removeTerminal(int terminalId)
     {
         if (m_activeSessionId == -1) return;
         if (!m_sessions.contains(m_activeSessionId)) return;
-    
+
         m_sessions[m_activeSessionId]->closeTerminal();
     }
     else
     {
         QHashIterator<int, Session*> it(m_sessions);
 
-        while (it.hasNext()) 
+        while (it.hasNext())
         {
             it.next();
 
@@ -130,6 +126,16 @@ void SessionStack::removeTerminal(int terminalId)
         }
     }
 }
+
+void SessionStack::closeActiveTerminal(int sessionId)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return;
+    if (!m_sessions.contains(sessionId)) return;
+
+    m_sessions[sessionId]->closeTerminal();
+}
+
 
 void SessionStack::cleanup(int sessionId)
 {
@@ -154,7 +160,7 @@ const QString SessionStack::sessionIdList()
 
     for (int i = 0; i < keyList.size(); ++i) 
         idList << QString::number(keyList.at(i));
-    
+
     return idList.join(",");
 }
 
@@ -202,6 +208,23 @@ void SessionStack::editProfile(int sessionId)
     m_sessions[sessionId]->editProfile();
 }
 
+void SessionStack::splitLeftRight(int sessionId)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return;
+    if (!m_sessions.contains(sessionId)) return;
+
+    m_sessions[sessionId]->splitLeftRight();
+}
+
+void SessionStack::splitTopBottom(int sessionId)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return;
+    if (!m_sessions.contains(sessionId)) return;
+
+    m_sessions[sessionId]->splitTopBottom();
+}
 
 void SessionStack::emitTitles()
 {

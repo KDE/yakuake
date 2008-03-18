@@ -50,8 +50,6 @@ class TabBar : public QWidget
 
         void applySkin();
 
-        int retrieveContextMenuSessionId();
-
 
     public slots:
         void addTab(int sessionId);
@@ -103,7 +101,7 @@ class TabBar : public QWidget
         QString makeTabTitle(int number);
         int tabAt(int x);
 
-        void updateTabContextMenuActions(int index);
+        void updateMoveActions(int index);
 
         MainWindow* m_mainWindow;
         Skin* m_skin;

@@ -62,9 +62,13 @@ class MainWindow : public KMainWindow
 
         bool useTranslucency() { return m_useTranslucency; }
 
+        void setContextDependendActionsQuiet(bool quiet);
+
 
     public slots:
         Q_SCRIPTABLE void toggleWindowState();
+
+        void handleContextDependendAction(QAction* action = 0, int sessionId = -1);
 
 
     protected:
@@ -106,8 +110,8 @@ class MainWindow : public KMainWindow
         void setFullScreen(bool state);
         void updateFullScreen();
 
-        void handleSpecialAction();
-    
+        void handleSwitchToAction();
+
         void whatsThis();
 
         void configureKeys();
@@ -138,6 +142,7 @@ class MainWindow : public KMainWindow
         bool m_useTranslucency;
 
         KActionCollection* m_actionCollection;
+        QList<KAction*> m_contextDependendActions;
 
         Skin* m_skin;
         TitleBar* m_titleBar;

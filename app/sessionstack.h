@@ -41,6 +41,13 @@ class SessionStack : public QStackedWidget
         explicit SessionStack(QWidget* parent = 0);
         ~SessionStack();
 
+        void closeActiveTerminal(int sessionId = -1);
+
+        void editProfile(int sessionId = -1);
+
+        void splitLeftRight(int sessionId = -1);
+        void splitTopBottom(int sessionId = -1);
+
         void emitTitles();
 
 
@@ -63,8 +70,6 @@ class SessionStack : public QStackedWidget
         Q_SCRIPTABLE void runCommand(const QString& command);
         Q_SCRIPTABLE void runCommandInTerminal(int terminalId, const QString& command);
 
-        void editProfile(int sessionId = -1);
-
 
     signals:
         void sessionAdded(int sessionId);
@@ -78,9 +83,6 @@ class SessionStack : public QStackedWidget
 
         void previousTerminal();
         void nextTerminal();
-
-        void splitLeftRight();
-        void splitTopBottom();
 
         void manageProfiles();
 
