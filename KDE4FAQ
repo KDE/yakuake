@@ -1,23 +1,19 @@
-Q: I am using KWin Desktop Effects and have the "Shadows" option enabled,
-   but the Yakuake window does not have a shadow. How come?
-
-A: Support for shadows for shaped windows (aka windows with a "mask") is
-   presently disabled in KWin due to bugs in the relevant code. It is ex-
-   pected to be reintroduced in a later KDE release.
-
-  ------------------------------------------------------------------------
-
 Q: The open/retract animation is very jerky. It was a lot smoother in the
    KDE 3 version on the same system. Why is that?
 
-A: While the specific reasons have yet to be uncovered, this appears to be 
+A: While the specific reasons have yet to be uncovered, this appears to be
    caused by a combination of the Qt 4 toolkit with the proprietary nVidia
-   graphics drivers' XRender acceleration framework, especially when using 
+   graphics drivers' XRender acceleration framework, especially when using
    a non-scalable bitmap font in the terminal profile. The animation is as
    smooth as it was in KDE 3 with other implementations of XRencer accele-
    ration, e.g. the EXA-based one found in the Intel drivers or even the
    software implementation found in the Xephyr nesting X server. Try using
    a scalable fixed-width font like DejaVu Sans Mono.
+
+   Update March 18th, 2008: Experimental new options added to the nVidia
+   drivers in the beta version 171.06 suggest that nVidia may be aware of
+   and working to resolve this issue. See:
+   http://www.nvnews.net/vbulletin/showthread.php?t=109422
 
   ------------------------------------------------------------------------
 
@@ -31,20 +27,29 @@ A: This is caused by a bug in the Fade Out window effect in the KDE window
 
   ------------------------------------------------------------------------
 
+Q: I am using KWin Desktop Effects and have the "Shadows" option enabled,
+   but the Yakuake window does not have a shadow. How come?
+
+A: Support for shadows for shaped windows (aka windows with a "mask") is
+   presently disabled in KWin due to bugs in the relevant code. It is ex-
+   pected to be reintroduced in a later KDE release.
+
+  ------------------------------------------------------------------------
+
 Q: I have translucency enabled in my terminal profile, but the terminal
-   does not appear translucent in practice. It works in Konsole with the 
-   "--enable-translucency" command line argument, but not in Yakuake. 
+   does not appear translucent in practice. It works in Konsole with the
+   "--enable-translucency" command line argument, but not in Yakuake.
 
 A: The Konsole KPart component that Yakuake embeds does not have support
-   for XComposite translucency in the KDE 4.0 release. I have contributed 
-   the required changes to Konsole, and they will be released with KDE 
-   4.0.1 and later versions. When using a sufficiently new version of the 
-   kdebase module the "--enable-translucency" command line is not required 
+   for XComposite translucency in the KDE 4.0 release. I have contributed
+   the required changes to Konsole, and they will be released with KDE
+   4.0.1 and later versions. When using a sufficiently new version of the
+   kdebase module the "--enable-translucency" command line is not required
    in Yakuake, and in fact not supported.
 
   ------------------------------------------------------------------------
 
-Q: Translucent areas of my skin look rather different from how they used 
+Q: Translucent areas of my skin look rather different from how they used
    to look in the KDE 3 version. Why is that?
 
 A: While the KDE 4 incarnation of Yakuake tries hard to preserve compati-
@@ -59,7 +64,15 @@ A: While the KDE 4 incarnation of Yakuake tries hard to preserve compati-
 Q: The terminal display corrupts in odd ways when I scroll. Anything I can
    do?
 
-A: This is usually caused by using compositing with an older version of the 
-   nVidia proprietary graphics driver, which has a known rendering bug with 
-   Qt4 scrollviews on an ARGB visual. nVidia fixed the problem in version 
+A: This is often caused by using compositing with an older version of the
+   nVidia proprietary graphics driver, which has a known rendering bug with
+   Qt 4 scrollviews on an ARGB visual. nVidia fixed the problem in version
    169.07 of the driver.
+
+   Terminal display corruption may also occur when using compositing and Qt
+   4.4 Beta 1. It is presently unclear if this problem will persist until
+   the final release of Qt 4.4. In the meantime, a workaround for this pro-
+   blem was added to the development version of the KDE 4 kdebase module on
+   March 10th, 2008. Depending on how the situation develops, this work-
+   around may be included with KDE 4.1 and possibly backported to a 4.0.x
+   release.

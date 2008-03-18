@@ -5,6 +5,7 @@ Changes since 2.9:
   possible to open and retract Yakuake from a panel button or simply run-
   ning the executable.
 * Disabled standard startup notifications ("Launch Feedback") for Yakuake.
+* Some additions to the KDE4FAQ file.
 
 
 Changes in 2.9 (KDE 4):
