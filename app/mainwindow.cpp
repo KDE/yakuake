@@ -298,7 +298,7 @@ void MainWindow::handleContextDependendAction(QAction* action, int sessionId)
     if (sessionId == -1) sessionId = m_sessionStack->activeSessionId();
     if (sessionId == -1) return;
 
-    if (!action) action = static_cast<QAction*>(QObject::sender());
+    if (!action) action = qobject_cast<QAction*>(QObject::sender());
 
     if (action == actionCollection()->action("edit-profile"))
         m_sessionStack->editProfile(sessionId);
@@ -335,7 +335,7 @@ void MainWindow::setContextDependendActionsQuiet(bool quiet)
 
 void MainWindow::handleSwitchToAction()
 {
-    QAction* action = static_cast<QAction*>(QObject::sender());
+    QAction* action = qobject_cast<QAction*>(QObject::sender());
 
     if (action && !action->data().isNull())
         m_sessionStack->raiseSession(m_tabBar->sessionAtTab(action->data().toInt()-1));
