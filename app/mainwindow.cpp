@@ -263,7 +263,7 @@ void MainWindow::setupActions()
     action->setText(i18nc("@action", "Close Active Terminal"));
     action->setIcon(KIcon("view-close"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_R));
-    connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(closeTerminal()));
+    connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(handleContextDependendAction()));
     m_contextDependendActions << action;
 
     action = actionCollection()->addAction("split-left-right");
@@ -294,7 +294,6 @@ void MainWindow::setupActions()
 
 void MainWindow::handleContextDependendAction(QAction* action, int sessionId)
 {
-
     if (sessionId == -1) sessionId = m_sessionStack->activeSessionId();
     if (sessionId == -1) return;
 
