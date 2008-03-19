@@ -21,6 +21,7 @@
 
 #include <terminal.h>
 
+#include <KActionCollection>
 #include <KApplication>
 #include <kde_terminal_interface.h>
 #include <KLibLoader>
@@ -28,6 +29,7 @@
 #include <KMessageBox>
 #include <KUser>
 
+#include <QAction>
 #include <QWidget>
 
 
@@ -62,6 +64,8 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
             m_terminalWidget->installEventFilter(this);
         }
 
+        disableOffendingPartActions();
+
         m_terminalInterface = qobject_cast<TerminalInterface*>(m_part);
         if (m_terminalInterface) m_terminalInterface->showShellInDir(KUser().homeDir());
     }
@@ -91,6 +95,40 @@ bool Terminal::eventFilter(QObject* /* watched */, QEvent* event)
     if (event->type() == QEvent::FocusIn) emit activated (m_terminalId);
 
     return false;
+}
+
+void Terminal::disableOffendingPartActions()
+{
+    // This is an unwelcome stop-gap that will be removed once we can
+    // count on a Konsole version that doesn't pollute a KPart user's
+    // shortcut "namespace".
+
+    if (!m_part) return;
+
+    KActionCollection* actionCollection = m_part->actionCollection();
+
+    if (actionCollection)
+    {
+        QAction* action = 0;
+
+        action = actionCollection->action("next-view");
+        if (action) action->setEnabled(false);
+
+        action = actionCollection->action("previous-view");
+        if (action) action->setEnabled(false);
+
+        action = actionCollection->action("close-active-view");
+        if (action) action->setEnabled(false);
+
+        action = actionCollection->action("split-view-left-right");
+        if (action) action->setEnabled(false);
+
+        action = actionCollection->action("split-view-top-bottom");
+        if (action) action->setEnabled(false);
+
+        action = actionCollection->action("rename-session");
+        if (action) action->setEnabled(false);
+    }
 }
 
 void Terminal::setTitle(const QString& title)

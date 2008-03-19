@@ -243,6 +243,7 @@ void MainWindow::setupActions()
     action = actionCollection()->addAction("rename-session");
     action->setText(i18nc("@action", "Rename Session..."));
     action->setIcon(KIcon("edit-rename"));
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_S));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependendAction()));
     m_contextDependendActions << action;
 

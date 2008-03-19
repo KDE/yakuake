@@ -67,6 +67,8 @@ class Terminal : public QObject
 
 
     private:
+        void disableOffendingPartActions();
+
         static int m_availableTerminalId;
         int m_terminalId;
 

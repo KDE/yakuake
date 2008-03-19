@@ -128,6 +128,8 @@ void TabBar::readySessionMenu()
 
 void TabBar::updateMoveActions(int index)
 {
+    if (index == -1) return;
+
     m_mainWindow->actionCollection()->action("move-session-left")->setEnabled(false);
     m_mainWindow->actionCollection()->action("move-session-right")->setEnabled(false);
 
@@ -157,6 +159,8 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
         if (action) m_mainWindow->handleContextDependendAction(action, sessionAtTab(index));
 
         m_mainWindow->setContextDependendActionsQuiet(false);
+
+        updateMoveActions(m_tabs.indexOf(m_selectedSessionId));
     }
 
     QWidget::contextMenuEvent(event);
