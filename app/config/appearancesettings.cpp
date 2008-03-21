@@ -35,6 +35,7 @@
 #include <QFile>
 #include <QStandardItemModel>
 
+#include <unistd.h>
 
 AppearanceSettings::AppearanceSettings(QWidget* parent) : QWidget(parent)
 {
