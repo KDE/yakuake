@@ -37,7 +37,7 @@ class SkinListDelegate : public QAbstractItemDelegate
 
 
     private:
-        void setupPaint(QPainter* painter, const QStyleOptionViewItem& option) const;
+        void paintBackground(QPainter* painter, const QStyleOptionViewItem& option) const;
         void paintIcon(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex &index) const;
         void paintText(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex &index) const;
 };

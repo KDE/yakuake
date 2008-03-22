@@ -1,3 +1,7 @@
+Changes since 2.9.1:
+* The item background in the skin list is now determined by the style en-
+  gine if on KDE 4.1.
+
 Changes in 2.9.1:
 * Starting Yakuake a second time now toggles the window state, making it
   possible to open and retract Yakuake from a panel button or by simply

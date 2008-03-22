@@ -22,6 +22,9 @@
 #include "skinlistdelegate.h"
 #include "appearancesettings.h"
 
+#include <kdeversion.h>
+
+#include <QApplication>
 #include <QModelIndex>
 #include <QPainter>
 
@@ -42,7 +45,7 @@ void SkinListDelegate::paint(QPainter* painter, const QStyleOptionViewItem& opti
 {
     painter->save();
 
-    setupPaint(painter, option);
+    paintBackground(painter, option);
 
     paintIcon(painter, option, index);
 
@@ -51,16 +54,19 @@ void SkinListDelegate::paint(QPainter* painter, const QStyleOptionViewItem& opti
     painter->restore();
 }
 
-void SkinListDelegate::setupPaint(QPainter* painter, const QStyleOptionViewItem& option) const
+void SkinListDelegate::paintBackground(QPainter* painter, const QStyleOptionViewItem& option) const
 {
+#if KDE_IS_VERSION(4, 0, 60)
+    QStyleOptionViewItemV4 opt = option;
+    QStyle* style = opt.widget ? opt.widget->style() : QApplication::style();
+    style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, opt.widget);
+#else
     QPalette::ColorGroup cg = option.state & QStyle::State_Enabled ? QPalette::Normal : QPalette::Disabled;
     if (cg == QPalette::Normal && !(option.state & QStyle::State_Active)) cg = QPalette::Inactive;
 
     if (option.showDecorationSelected && (option.state & QStyle::State_Selected))
-    {
         painter->fillRect(option.rect, option.palette.brush(cg, QPalette::Highlight));
-        painter->setPen(option.palette.color(cg, QPalette::HighlightedText));
-    }
+#endif
 }
 
 void SkinListDelegate::paintIcon(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex &index) const
@@ -87,6 +93,9 @@ void SkinListDelegate::paintText(QPainter* painter, const QStyleOptionViewItem& 
     int x = option.rect.x() + ICON + (3 * MARGIN);
     int y = option.rect.y();
     int width = option.rect.width() - ICON - (3 * MARGIN);
+
+    if (option.state & QStyle::State_Selected) 
+        painter->setPen(option.palette.color(QPalette::HighlightedText));
 
     QVariant value;
 
