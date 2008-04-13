@@ -7,26 +7,26 @@
   <group name="Window">
     <entry name="Screen" type="Int">
       <label context="@label">Screen to use</label>
-      <whatsthis context="@info:whatsthis">The screen that the application window will appear on. 0 is understood as the screen the mouse pointer is on.</whatsthis>
+      <whatsthis context="@info:whatsthis">The screen on which the application window will appear. 0 is understood to be the screen the mouse pointer is on.</whatsthis>
       <default>1</default>
     </entry>
     <entry name="Width" type="Int">
       <label context="@label">Window width</label>
-      <whatsthis context="@info:whatsthis">Width of the application window in percent of the screen.</whatsthis>
+      <whatsthis context="@info:whatsthis">Width of the application window as a percentage of the screen.</whatsthis>
       <default>90</default>
       <min>10</min>
       <max>100</max>
     </entry>
     <entry name="Height" type="Int">
       <label context="@label">Window height</label>
-      <whatsthis context="@info:whatsthis">Height of the application window in percent of the screen.</whatsthis>
+      <whatsthis context="@info:whatsthis">Height of the application window as a percentage of the screen.</whatsthis>
       <default>50</default>
       <min>10</min>
       <max>100</max>
     </entry>
     <entry name="Position" type="Int">
       <label context="@label">Window position</label>
-      <whatsthis context="@info:whatsthis">Center point of the application window in percent from the left screen edge.</whatsthis>
+      <whatsthis context="@info:whatsthis">Center point of the application window, as a percentage, measured from the left-hand edge of the screen.</whatsthis>
       <default>50</default>
       <min>0</min>
       <max>100</max>
@@ -86,12 +86,12 @@
   <group name="AutoOpen">
     <entry name="PollMouse" type="Bool">
       <label context="@label">Auto-open window</label>
-      <whatsthis context="@info:whatsthis">Whether to automatically open the application window when the mouse pointer is found at the screen edge.</whatsthis>
+      <whatsthis context="@info:whatsthis">Whether to automatically open the application window when the mouse pointer is found at the edge of the screen.</whatsthis>
       <default>false</default>
     </entry>
     <entry name="PollInterval" type="Int">
       <label context="@label">Mouse pointer poll interval</label>
-      <whatsthis context="@info:whatsthis">The interval in which the mouse pointer position will be recorded to detect whether or not it is at the same screen edge as the window.</whatsthis>
+      <whatsthis context="@info:whatsthis">The interval during which the mouse pointer position will be checked to determine whether or not it is at the same edge of the screen as the window.</whatsthis>
       <default>500</default>
     </entry>
   </group>
@@ -108,7 +108,7 @@
     </entry>
     <entry name="ConfirmQuit" type="Bool">
       <label context="@label">Confirm quit with multiple sessions</label>
-      <whatsthis context="@info:whatsthis">Whether to query the user before quitting the application when multiple sessions are open.</whatsthis>
+      <whatsthis context="@info:whatsthis">Whether to prompt the user before quitting the application when multiple sessions are open.</whatsthis>
       <default>true</default>
     </entry>
   </group>

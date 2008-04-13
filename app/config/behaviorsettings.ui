@@ -95,7 +95,7 @@
          </sizepolicy>
         </property>
         <property name="whatsThis" >
-         <string comment="@info:whatsthis" >If this option is enabled, the shortcut normally used to open and retract the window will focus rather than close it if it has previously lost focus.</string>
+         <string comment="@info:whatsthis" >If this option is enabled, the shortcut normally used to open and retract the window will give it focus, rather than close it, if it has previously lost focus.</string>
         </property>
         <property name="text" >
          <string comment="@option:check" >Use Open/Retract action to focus window</string>
@@ -105,7 +105,7 @@
       <item row="3" column="0" colspan="2" >
        <widget class="QCheckBox" name="kcfg_PollMouse" >
         <property name="whatsThis" >
-         <string comment="@info:whatsthis" >If this option is enabled, the window will automatically open when the mouse pointer is found at the same screen edge it would open on when using the shortcut.</string>
+         <string comment="@info:whatsthis" >If this option is enabled, the window will automatically open when the mouse pointer is moved to the same edge of the screen that it would open on when using the shortcut.</string>
         </property>
         <property name="text" >
          <string comment="@option:check" >Open window when the mouse pointer touches the screen edge</string>

@@ -63,7 +63,7 @@
          </sizepolicy>
         </property>
         <property name="whatsThis" >
-         <string comment="@info:whatsthis" >If this option is enabled, the information about the active terminal's contents that is normally shown in the titlebar will also be shown on the tab bar. You can modify the format of the information in the terminal profile.</string>
+         <string comment="@info:whatsthis" >If this option is enabled, the information about the active terminal's contents that is normally shown in the title bar will also be shown on the tab bar. You can modify the format of the information in the terminal profile.</string>
         </property>
         <property name="text" >
          <string comment="@option:check" >Show title bar contents in tab labels</string>
