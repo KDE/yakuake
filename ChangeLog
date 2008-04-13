@@ -1,6 +1,9 @@
 Changes since 2.9.1:
 * The item background in the skin list is now determined by the style en-
-  gine if on KDE 4.1.
+  gine if on KDE 4.1 / Qt 4.4.
+* Fix title bar not immediately being updated upon creating a new single-
+  terminal session.
+
 
 Changes in 2.9.1:
 * Starting Yakuake a second time now toggles the window state, making it

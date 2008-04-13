@@ -39,8 +39,6 @@ void SessionStack::addSession(Session::SessionType type)
 {
     Session* session = new Session(type, this);
     connect(session, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
-    connect(session, SIGNAL(titleChanged(int, const QString&)), 
-        this, SIGNAL(titleChanged(int, const QString&)));
 
     addWidget(session->widget());
 

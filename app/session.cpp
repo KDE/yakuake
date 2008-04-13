@@ -52,7 +52,7 @@ void Session::setupSession(SessionType type)
         case Single:
         {
             Terminal* terminal = addTerminal(m_baseSplitter);
-            m_activeTerminalId = terminal->id();
+            setActiveTerminal(terminal->id());
 
             break;
         }
