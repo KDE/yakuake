@@ -26,6 +26,8 @@
 #include <KParts/Part>
 
 
+class QKeyEvent;
+
 class TerminalInterface;
 
 
@@ -64,6 +66,7 @@ class Terminal : public QObject
 
     private slots:
         void setTitle(const QString& title);
+        void overrideShortcut(QKeyEvent* event, bool& override);
 
 
     private:

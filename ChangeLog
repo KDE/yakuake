@@ -1,8 +1,11 @@
-Changes since 2.9.1:
+Changes in 2.9.2:
 * The item background in the skin list is now determined by the style en-
-  gine if on KDE 4.1 / Qt 4.4.
-* Fix title bar not immediately being updated upon creating a new single-
+  gine if on KDE 4.1 (including pre-release versions) and hence Qt 4.4.
+* Fixed title bar not immediately being updated upon creating a new single-
   terminal session.
+* Fixed shortcuts with versions of KDE 4 trunk (4.1) from April 22nd 2008
+  and newer. The Konsole KPart now defaults to overriding shortcuts, and
+  Yakuake must do additional work to continue to receive them.
 
 
 Changes in 2.9.1:

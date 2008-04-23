@@ -31,6 +31,7 @@
 
 #include <QAction>
 #include <QWidget>
+#include <QKeyEvent>
 
 
 int Terminal::m_availableTerminalId = 0;
@@ -52,6 +53,7 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
     if (m_part)
     {
         connect(m_part, SIGNAL(setWindowCaption(const QString&)), this, SLOT(setTitle(const QString&)));
+        connect(m_part, SIGNAL(overrideShortcut(QKeyEvent*, bool&)), this, SLOT(overrideShortcut(QKeyEvent*, bool&)));
         connect(m_part, SIGNAL(destroyed()), this, SLOT(deleteLater()));
 
         m_partWidget = m_part->widget();
@@ -153,4 +155,9 @@ void Terminal::editProfile()
 {
     QMetaObject::invokeMethod(m_part, "showEditCurrentProfileDialog", 
         Qt::QueuedConnection, Q_ARG(QWidget*, KApplication::activeWindow()));
+}
+
+void Terminal::overrideShortcut(QKeyEvent* /* event */, bool& override)
+{
+    override = false;
 }
