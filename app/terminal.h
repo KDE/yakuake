@@ -72,6 +72,8 @@ class Terminal : public QObject
     private:
         void disableOffendingPartActions();
 
+        void displayKPartLoadError();
+
         static int m_availableTerminalId;
         int m_terminalId;
 

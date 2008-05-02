@@ -23,6 +23,7 @@
 
 #include <KActionCollection>
 #include <KApplication>
+#include <KColorScheme>
 #include <kde_terminal_interface.h>
 #include <KLibLoader>
 #include <KLocalizedString>
@@ -30,6 +31,8 @@
 #include <KUser>
 
 #include <QAction>
+#include <QHBoxLayout>
+#include <QLabel>
 #include <QWidget>
 #include <QKeyEvent>
 
@@ -72,14 +75,7 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
         if (m_terminalInterface) m_terminalInterface->showShellInDir(KUser().homeDir());
     }
     else
-    {
-        KMessageBox::error(KApplication::activeWindow(), 
-            i18nc("@info", "<application>Yakuake</application> was unable to load the <application>Konsole</application> component. "
-                           "A <application>Konsole</application> installation is required to run Yakuake.<nl/><nl/>"
-                           "The application will now quit."));
-
-        QMetaObject::invokeMethod(kapp, "quit", Qt::QueuedConnection);
-    }
+        displayKPartLoadError();
 }
 
 Terminal::~Terminal()
@@ -89,7 +85,10 @@ Terminal::~Terminal()
 
 void Terminal::deletePart()
 {
-    if (m_part) m_part->deleteLater();
+    if (m_part)
+        m_part->deleteLater();
+    else
+        deleteLater();
 }
 
 bool Terminal::eventFilter(QObject* /* watched */, QEvent* event)
@@ -97,6 +96,47 @@ bool Terminal::eventFilter(QObject* /* watched */, QEvent* event)
     if (event->type() == QEvent::FocusIn) emit activated (m_terminalId);
 
     return false;
+}
+
+void Terminal::displayKPartLoadError()
+{
+    KColorScheme colorScheme(QPalette::Active);
+    QColor warningColor = colorScheme.background(KColorScheme::NeutralBackground).color();
+    QColor warningColorLight = KColorScheme::shade(warningColor, KColorScheme::LightShade, 0.1);
+    QString gradient = "qlineargradient(x1:0, y1:0, x2:0, y2:1,"
+                       "stop: 0 %1, stop: 0.6 %1 ,stop: 1.0 %2)";
+    gradient = gradient.arg(warningColor.name()).arg(warningColorLight.name());
+    QString styleSheet = "QLabel { background: %1; }";
+
+    QWidget* widget = new QWidget(m_parentSplitter);
+    widget->setStyleSheet(styleSheet.arg(gradient));
+    m_partWidget = widget;
+    m_terminalWidget = widget;
+    m_terminalWidget->setFocusPolicy(Qt::WheelFocus);
+    m_terminalWidget->installEventFilter(this);
+
+    QLabel* label = new QLabel(widget);
+    label->setMargin(10);
+    label->setWordWrap(false);
+    label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    label->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    label->setText(i18nc("@info", "<application>Yakuake</application> was unable to load "
+                                 "the <application>Konsole</application> component.<nl/> "
+                                 "A <application>Konsole</application> installation is "
+                                 "required to use Yakuake."));
+
+    QLabel* icon = new QLabel(widget);
+    icon->setMargin(10);
+    icon->setPixmap(KIcon("dialog-warning").pixmap(QSize(48, 48)));
+    icon->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+
+    QHBoxLayout* layout = new QHBoxLayout(widget);
+    layout->addWidget(icon);
+    layout->addWidget(label);
+    layout->setSpacing(0);
+    layout->setMargin(0);
+    layout->setStretchFactor(icon, 1);
+    layout->setStretchFactor(label,5);
 }
 
 void Terminal::disableOffendingPartActions()

@@ -1,3 +1,12 @@
+Changes since 2.9.2:
+* Made the error condition when Yakuake is unable to load the Konsole KPart
+  component non-destructive, i.e. being unable to load the KPart will no
+  longer end in an unavoidable application quit. Instead, a good-looking
+  warning will be shown where the terminal would normally be. This also
+  takes care of the edge case in which Konsole is uninstalled while Yakuake
+  is already running, so that existing terminals won't be lost.
+
+
 Changes in 2.9.2:
 * The item background in the skin list is now determined by the style en-
   gine if on KDE 4.1 (including pre-release versions) and hence Qt 4.4.
