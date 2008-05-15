@@ -5,6 +5,8 @@ Changes since 2.9.2:
   warning will be shown where the terminal would normally be. This also
   takes care of the edge case in which Konsole is uninstalled while Yakuake
   is already running, so that existing terminals won't be lost.
+* Added an option to explicitly control whether the window will be shown on 
+  all (virtual) desktops. Defaults to true, as before.
 
 
 Changes in 2.9.2:

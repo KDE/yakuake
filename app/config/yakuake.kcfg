@@ -31,6 +31,11 @@
       <min>0</min>
       <max>100</max>
     </entry>
+    <entry name="ShowOnAllDesktops" type="Bool">
+      <label context="@label">Show window on all desktops</label>
+      <whatsthis context="@info:whatsthis">Whether to show the window on all desktops.</whatsthis>
+      <default>true</default>
+    </entry>
     <entry name="KeepOpen" type="Bool">
       <label context="@label">Keep window open</label>
       <whatsthis context="@info:whatsthis">Whether to keep the application window open when it loses focus.</whatsthis>

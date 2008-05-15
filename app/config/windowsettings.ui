@@ -5,21 +5,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>361</width>
-    <height>351</height>
+    <width>285</width>
+    <height>441</height>
    </rect>
   </property>
-  <layout class="QVBoxLayout" >
-   <property name="leftMargin" >
-    <number>0</number>
-   </property>
-   <property name="topMargin" >
-    <number>0</number>
-   </property>
-   <property name="rightMargin" >
-    <number>0</number>
-   </property>
-   <property name="bottomMargin" >
+  <layout class="QVBoxLayout" name="verticalLayout_2" >
+   <property name="margin" >
     <number>0</number>
    </property>
    <item>
@@ -43,7 +34,7 @@
         <property name="sizeType" >
          <enum>QSizePolicy::Fixed</enum>
         </property>
-        <property name="sizeHint" >
+        <property name="sizeHint" stdset="0" >
          <size>
           <width>20</width>
           <height>20</height>
@@ -246,7 +237,7 @@
      <property name="title" >
       <string comment="@title:group" >Position</string>
      </property>
-     <layout class="QVBoxLayout" >
+     <layout class="QVBoxLayout" name="verticalLayout" >
       <item>
        <layout class="QHBoxLayout" >
         <item>
@@ -324,7 +315,7 @@
           <property name="orientation" >
            <enum>Qt::Horizontal</enum>
           </property>
-          <property name="sizeHint" >
+          <property name="sizeHint" stdset="0" >
            <size>
             <width>40</width>
             <height>20</height>
@@ -334,6 +325,13 @@
         </item>
        </layout>
       </item>
+      <item>
+       <widget class="QCheckBox" name="kcfg_ShowOnAllDesktops" >
+        <property name="text" >
+         <string comment="@option:check" >Show on all desktops</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
@@ -342,10 +340,10 @@
      <property name="orientation" >
       <enum>Qt::Vertical</enum>
      </property>
-     <property name="sizeHint" >
+     <property name="sizeHint" stdset="0" >
       <size>
        <width>20</width>
-       <height>40</height>
+       <height>0</height>
       </size>
      </property>
     </spacer>

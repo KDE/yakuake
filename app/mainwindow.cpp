@@ -532,7 +532,7 @@ void MainWindow::applyWindowProperties()
     else
         KWindowSystem::setState(winId(), NET::KeepAbove | NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
 
-    KWindowSystem::setOnAllDesktops(winId(), true);
+    KWindowSystem::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
 }
 
 void MainWindow::applyWindowGeometry()
