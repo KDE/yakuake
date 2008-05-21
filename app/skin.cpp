@@ -19,7 +19,7 @@
 */
 
 
-#include <skin.h>
+#include "skin.h"
 
 #include <KConfig>
 #include <KConfigGroup>

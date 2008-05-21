@@ -62,6 +62,13 @@
       <default>false</default>
     </entry>
   </group>
+  <group name="Behavior">
+    <entry name="FocusFollowsMouse" type="Bool">
+      <label context="@label">Focus follows mouse</label>
+      <whatsthis context="@info:whatsthis">Whether an individual terminal in a session will be given focus when the mouse pointer is moved above it.</whatsthis>
+    <default>false</default>
+    </entry>
+  </group>
   <group name="Appearance">
     <entry name="Skin" type="String">
       <label context="@label">Skin</label>

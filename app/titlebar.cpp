@@ -19,9 +19,9 @@
 */
 
 
-#include <titlebar.h>
-#include <mainwindow.h>
-#include <skin.h>
+#include "titlebar.h"
+#include "mainwindow.h"
+#include "skin.h"
 
 #include <KMenu>
 #include <KPushButton>

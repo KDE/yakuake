@@ -19,7 +19,8 @@
 */
 
 
-#include <terminal.h>
+#include "terminal.h"
+#include "settings.h"
 
 #include <KActionCollection>
 #include <KApplication>
@@ -93,7 +94,13 @@ void Terminal::deletePart()
 
 bool Terminal::eventFilter(QObject* /* watched */, QEvent* event)
 {
-    if (event->type() == QEvent::FocusIn) emit activated (m_terminalId);
+    if (event->type() == QEvent::FocusIn)
+        emit activated (m_terminalId);
+    else if (event->type() == QEvent::MouseMove)
+    {
+        if (Settings::focusFollowsMouse() && m_terminalWidget && !m_terminalWidget->hasFocus())
+            m_terminalWidget->setFocus();
+    }
 
     return false;
 }

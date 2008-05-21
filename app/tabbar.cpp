@@ -19,9 +19,9 @@
 */
 
 
-#include <tabbar.h>
-#include <mainwindow.h>
-#include <skin.h>
+#include "tabbar.h"
+#include "mainwindow.h"
+#include "skin.h"
 
 #include <KLineEdit>
 #include <KMenu>
