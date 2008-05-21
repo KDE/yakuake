@@ -75,10 +75,12 @@ MainWindow::MainWindow(QWidget* parent)
     connect(m_tabBar, SIGNAL(tabSelected(int)), m_sessionStack, SLOT(raiseSession(int)));
     connect(m_tabBar, SIGNAL(tabClosed(int)), m_sessionStack, SLOT(removeSession(int)));
 
-    connect(m_sessionStack, SIGNAL(sessionAdded(int)), m_tabBar, SLOT(addTab(int)));
+    connect(m_sessionStack, SIGNAL(sessionAdded(int, const QString&)), 
+        m_tabBar, SLOT(addTab(int, const QString&)));
     connect(m_sessionStack, SIGNAL(sessionRaised(int)), m_tabBar, SLOT(selectTab(int)));
     connect(m_sessionStack, SIGNAL(sessionRemoved(int)), m_tabBar, SLOT(removeTab(int)));
-    connect(m_sessionStack, SIGNAL(activeTitleChanged(const QString&)),  m_titleBar, SLOT(setTitle(const QString&)));
+    connect(m_sessionStack, SIGNAL(activeTitleChanged(const QString&)),  
+        m_titleBar, SLOT(setTitle(const QString&)));
 
     connect(&m_mousePoller, SIGNAL(timeout()), this, SLOT(pollMouse()));
 

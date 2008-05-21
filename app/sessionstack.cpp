@@ -20,6 +20,7 @@
 
 
 #include "sessionstack.h"
+#include "settings.h"
 
 #include <QtDBus/QtDBus>
 
@@ -39,12 +40,17 @@ void SessionStack::addSession(Session::SessionType type)
 {
     Session* session = new Session(type, this);
     connect(session, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
+    connect(session, SIGNAL(titleChanged(int, const QString&)),
+        this, SIGNAL(titleChanged(int, const QString&)));
 
     addWidget(session->widget());
 
     m_sessions.insert(session->id(), session);
 
-    emit sessionAdded(session->id());
+    if (Settings::dynamicTabTitles())
+        emit sessionAdded(session->id(), session->title());
+    else
+        emit sessionAdded(session->id());
 }
 
 void SessionStack::addSessionTwoHorizontal()
@@ -91,6 +97,7 @@ void SessionStack::raiseSession(int sessionId)
         this, SIGNAL(activeTitleChanged(const QString&)));
 
     emit sessionRaised(sessionId);
+
     emit activeTitleChanged(m_sessions[sessionId]->title());
 }
 

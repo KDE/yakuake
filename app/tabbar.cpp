@@ -372,10 +372,14 @@ void TabBar::leaveEvent(QEvent* event)
     QWidget::leaveEvent(event);
 }
 
-void TabBar::addTab(int sessionId)
+void TabBar::addTab(int sessionId, const QString& title)
 {
     m_tabs.append(sessionId);
-    m_tabTitles.insert(sessionId, standardTabTitle());
+
+    if (title.isEmpty())
+        m_tabTitles.insert(sessionId, standardTabTitle());
+    else
+        m_tabTitles.insert(sessionId, title);
 
     emit tabSelected(sessionId);
 }
