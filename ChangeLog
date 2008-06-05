@@ -1,19 +1,18 @@
-Changes since 2.9.2:
+Changes in 2.9.3:
+* Added an option to focus individual sub-terminals as the mouse pointer is
+  moved over them.
+* Added an option to explicitly control whether the window will be shown on
+  all (virtual) desktops. Defaults to true, as before.
 * Made the error condition when Yakuake is unable to load the Konsole KPart
   component non-destructive, i.e. being unable to load the KPart will no
   longer end in an unavoidable application quit. Instead, a good-looking
   warning will be shown where the terminal would normally be. This also
   takes care of the edge case in which Konsole is uninstalled while Yakuake
   is already running, so that existing terminals won't be lost.
-* Added an option to explicitly control whether the window will be shown on
-  all (virtual) desktops. Defaults to true, as before.
 * Fixed a regression that caused the "Show title bar contents in tab labels"
   preference to no longer work.
 * Fixed tab label not immediately being updated upon creating a new session
   when "Show title bar contents in tab labels" is enabled.
-* Added an option to focus individual sub-terminals as the mouse pointer is
-  moved over them.
-
 
 Changes in 2.9.2:
 * The item background in the skin list is now determined by the style en-
