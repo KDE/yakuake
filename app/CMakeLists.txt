@@ -32,6 +32,6 @@ kde4_add_executable(yakuake ${yakuake_SRCS})
 
 target_link_libraries(yakuake ${KDE4_KPARTS_LIBS})
 
-install(TARGETS yakuake DESTINATION ${BIN_INSTALL_DIR})
+install(TARGETS yakuake ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES yakuake.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
