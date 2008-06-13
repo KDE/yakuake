@@ -1,3 +1,11 @@
+Changes since 2.9.3:
+* Added a new Oxygen-style application icon made by Nuno Pinheiro. In addi-
+  tion to fitting much better into KDE 4 visually, it's now also available
+  in all standard sizes up to 128px plus as SVG (whereas the old icon was
+  only available in 16px and 32px), meaning you won't see a blurry Yakuake
+  icon in various places in KDE 4 anymore as you did before.
+
+
 Changes in 2.9.3:
 * Added an option to focus individual sub-terminals as the mouse pointer is
   moved over them.
