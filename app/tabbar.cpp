@@ -490,6 +490,8 @@ void TabBar::moveTabLeft(int sessionId)
     m_tabs.swap(index, index - 1);
 
     repaint();
+
+    updateMoveActions(index - 1);
 }
 
 void TabBar::moveTabRight(int sessionId)
@@ -504,6 +506,8 @@ void TabBar::moveTabRight(int sessionId)
     m_tabs.swap(index, index + 1);
 
     repaint();
+
+    updateMoveActions(index + 1);
 }
 
 void TabBar::closeTabButtonClicked()

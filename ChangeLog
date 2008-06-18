@@ -4,6 +4,9 @@ Changes since 2.9.3:
   in all standard sizes up to 128px plus as SVG (whereas the old icon was
   only available in 16px and 32px), meaning you won't see a blurry Yakuake
   icon in various places in KDE 4 anymore as you did before.
+* Fixed a bug that made it impossible to move a session located at the
+  start or end of the tab bar back after moving it left/right using the
+  keyboard shortcuts.
 
 
 Changes in 2.9.3:
