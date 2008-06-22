@@ -10,16 +10,7 @@
    </rect>
   </property>
   <layout class="QVBoxLayout" >
-   <property name="leftMargin" >
-    <number>0</number>
-   </property>
-   <property name="topMargin" >
-    <number>0</number>
-   </property>
-   <property name="rightMargin" >
-    <number>0</number>
-   </property>
-   <property name="bottomMargin" >
+   <property name="margin" >
     <number>0</number>
    </property>
    <item>
@@ -49,7 +40,7 @@
           <property name="orientation" >
            <enum>Qt::Horizontal</enum>
           </property>
-          <property name="sizeHint" >
+          <property name="sizeHint" stdset="0" >
            <size>
             <width>41</width>
             <height>20</height>
@@ -106,7 +97,7 @@
        </widget>
       </item>
       <item row="2" column="0" colspan="2" >
-       <widget class="QLineEdit" name="kcfg_Skin" >
+       <widget class="KLineEdit" name="kcfg_Skin" >
         <property name="frame" >
          <bool>false</bool>
         </property>
@@ -122,6 +113,11 @@
    <class>KColorButton</class>
    <extends>QPushButton</extends>
    <header>kcolorbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>klineedit.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>
