@@ -318,8 +318,8 @@ void AppearanceSettings::failInstall(const QString& error)
 void AppearanceSettings::cleanupAfterInstall()
 {
     KIO::NetAccess::removeTempFile(m_installSkinFile);
-    m_installSkinId = QString();
-    m_installSkinFile = QString();
+    m_installSkinId.clear();
+    m_installSkinFile.clear();
     m_installSkinFileList.clear();
 }
 
