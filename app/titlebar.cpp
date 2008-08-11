@@ -98,17 +98,6 @@ void TitleBar::paintEvent(QPaintEvent*)
     QPainter painter(this);
     painter.setPen(m_skin->titleBarTextColor());
 
-    if (m_mainWindow->useTranslucency())
-    {
-        painter.setCompositionMode(QPainter::CompositionMode_Source);
-        painter.fillRect(rect(), Qt::transparent);
-    }
-    else
-    {
-        painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-        painter.fillRect(rect(), Settings::backgroundColor());
-    }
-
     const QPixmap& backgroundImage = m_skin->titleBarBackgroundImage();
     const QPixmap& leftCornerImage = m_skin->titleBarLeftCornerImage();
     const QPixmap& rightCornerImage = m_skin->titleBarRightCornerImage();

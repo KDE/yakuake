@@ -179,17 +179,6 @@ void TabBar::paintEvent(QPaintEvent*)
     QPainter painter(this);
     painter.setPen(m_skin->tabBarTextColor());
 
-    if (m_mainWindow->useTranslucency())
-    {
-        painter.setCompositionMode(QPainter::CompositionMode_Source);
-        painter.fillRect(rect(), Qt::transparent);
-    }
-    else
-    {
-        painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-        painter.fillRect(rect(), Settings::backgroundColor());
-    }
-
     QString title;
     int sessionId;
     bool selected;

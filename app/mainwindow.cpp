@@ -647,6 +647,20 @@ void MainWindow::paintEvent(QPaintEvent* event)
 {
     QPainter painter(this);
 
+    if (useTranslucency())
+    {
+        painter.setCompositionMode(QPainter::CompositionMode_Source);
+        painter.fillRect(rect(), Qt::transparent);
+        painter.setOpacity(qreal(Settings::backgroundColorOpacity()) / 100);
+        painter.fillRect(rect(), Settings::backgroundColor());
+        painter.setOpacity(1.0);
+    }
+    else
+    {
+        painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
+        painter.fillRect(rect(), Settings::backgroundColor());
+    }
+
     QRect leftBorder(0, 0, m_skin->borderWidth(), height() - m_titleBar->height());
     painter.fillRect(leftBorder, m_skin->borderColor());
 

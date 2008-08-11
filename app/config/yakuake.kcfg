@@ -85,6 +85,13 @@
       <whatsthis context="@info:whatsthis">Background color used if XComposite ARGB translucency is disabled.</whatsthis>
       <default>#000000</default>
     </entry>
+    <entry name="BackgroundColorOpacity" type="Int">
+      <label context="@label">Background color opacity</label>
+      <whatsthis context="@info:whatsthis">The opacity of the background color fill when using translucency.</whatsthis>
+      <default>50</default>
+      <min>0</min>
+      <max>100</max>
+    </entry>
   </group>
   <group name="Animation">
     <entry name="Frames" type="Int">

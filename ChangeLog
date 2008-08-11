@@ -7,6 +7,9 @@ Changes since 2.9.3:
 * Fixed a bug that made it impossible to move a session located at the
   start or end of the tab bar back after moving it left/right using the
   keyboard shortcuts.
+* Added a setting to fill with the configurable background color at a given
+  opacity before painting the skin elements. In effect, this allows some con-
+  trol over the opacity and color tint of translucent areas of the skin.
 
 
 Changes in 2.9.3:
@@ -24,6 +27,7 @@ Changes in 2.9.3:
   preference to no longer work.
 * Fixed tab label not immediately being updated upon creating a new session
   when "Show title bar contents in tab labels" is enabled.
+
 
 Changes in 2.9.2:
 * The item background in the skin list is now determined by the style en-
