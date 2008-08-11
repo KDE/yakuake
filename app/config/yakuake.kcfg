@@ -82,7 +82,7 @@
     </entry>
     <entry name="BackgroundColor" type="Color">
       <label context="@label">Window background color</label>
-      <whatsthis context="@info:whatsthis">Background color used if XComposite ARGB translucency is disabled.</whatsthis>
+      <whatsthis context="@info:whatsthis">Background color painted below skin elements.</whatsthis>
       <default>#000000</default>
     </entry>
     <entry name="BackgroundColorOpacity" type="Int">
