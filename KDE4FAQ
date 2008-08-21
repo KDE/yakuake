@@ -19,6 +19,15 @@ A: While the specific reasons have yet to be uncovered, this appears to be
    and working to resolve this issue. See:
    http://www.nvnews.net/vbulletin/showthread.php?t=109422
 
+   Update August 19th, 2008: A new beta nVidia driver v177.67 features new
+   experimental options that appear to greatly improve KDE 4 and Yakuake
+   performance: http://www.nvnews.net/vbulletin/showthread.php?t=118088
+   While rendering bitmap fonts still appears to be slower than rendering
+   scalable fonts on my own 8800GTX, the difference is significantly redu-
+   ced to the point of being usable again. The window animation has gene-
+   rally become considerably faster as well, matching or exceeding what is
+   found in the KDE 3 version when using a scalable font.
+
   ------------------------------------------------------------------------
 
 Q: There's a flicker in the animation when closing the window. What about
@@ -80,3 +89,10 @@ A: This is often caused by using compositing with an older version of the
    March 10th, 2008. Depending on how the situation develops, this work-
    around may be included with KDE 4.1 and possibly backported to a 4.0.x
    release.
+
+   Update August 19th, 2008: This problem continues to affect Yakuake and
+   Konsole in KDE 4.1 and with the final Qt 4.4 release. As a workaround,
+   exporting QT_USE_NATIVE_WINDOWS=1 in the environment to disable window-
+   less widgets in Qt prevents the problem from occuring at the cost of
+   increasing flickering during window resize back to KDE/Qt 3 levels. The
+   issue is still under investigation in cooperation with Trolltech/Nokia.
