@@ -72,6 +72,10 @@ A: While the KDE 4 incarnation of Yakuake tries hard to preserve compati-
    area of influence of the Yakuake code at this time. Translucent areas
    in skins may have to be adjusted accordingly.
 
+   Update August 11th, 2008: A new background tinting option in the confi-
+   guration dialog can help with recreating the previous appearance of un-
+   modified skins when using translucency.
+
   ------------------------------------------------------------------------
 
 Q: The terminal display corrupts in odd ways when I scroll. Anything I can
