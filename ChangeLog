@@ -1,15 +1,16 @@
-Changes since 2.9.3:
+Changes in 2.9.4:
 * Added a new Oxygen-style application icon made by Nuno Pinheiro. In addi-
   tion to fitting much better into KDE 4 visually, it's now also available
   in all standard sizes up to 128px plus as SVG (whereas the old icon was
   only available in 16px and 32px), meaning you won't see a blurry Yakuake
   icon in various places in KDE 4 anymore as you did before.
-* Fixed a bug that made it impossible to move a session located at the
-  start or end of the tab bar back after moving it left/right using the
-  keyboard shortcuts.
 * Added a setting to fill with the configurable background color at a given
   opacity before painting the skin elements. In effect, this allows some con-
   trol over the opacity and color tint of translucent areas of the skin.
+* Fixed a bug that made it impossible to move a session located at the
+  start or end of the tab bar back after moving it left/right using the
+  keyboard shortcuts.
+* Various updates to the KDE4FAQ file related to performance and rendering.
 
 
 Changes in 2.9.3:
