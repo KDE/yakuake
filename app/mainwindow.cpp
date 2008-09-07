@@ -165,8 +165,8 @@ void MainWindow::setupActions()
     action = actionCollection()->addAction("edit-profile");
     action->setText(i18nc("@action", "Edit Current Profile..."));
     action->setIcon(KIcon("document-properties"));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependendAction()));
-    m_contextDependendActions << action;
+    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    m_contextDependentActions << action;
 
     action = actionCollection()->addAction("increase-window-width");
     action->setText(i18nc("@action", "Increase Window Width"));
@@ -213,8 +213,8 @@ void MainWindow::setupActions()
     action->setText(i18nc("@action", "Close Session"));
     action->setIcon(KIcon("tab-close"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_S));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependendAction()));
-    m_contextDependendActions << action;
+    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    m_contextDependentActions << action;
 
     action = actionCollection()->addAction("previous-session");
     action->setText(i18nc("@action", "Previous Session"));
@@ -232,22 +232,22 @@ void MainWindow::setupActions()
     action->setText(i18nc("@action", "Move Session Left"));
     action->setIcon(KIcon("arrow-left"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Left));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependendAction()));
-    m_contextDependendActions << action;
+    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    m_contextDependentActions << action;
 
     action = actionCollection()->addAction("move-session-right");
     action->setText(i18nc("@action", "Move Session Right"));
     action->setIcon(KIcon("arrow-right"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Right));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependendAction()));
-    m_contextDependendActions << action;
+    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    m_contextDependentActions << action;
 
     action = actionCollection()->addAction("rename-session");
     action->setText(i18nc("@action", "Rename Session..."));
     action->setIcon(KIcon("edit-rename"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_S));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependendAction()));
-    m_contextDependendActions << action;
+    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    m_contextDependentActions << action;
 
     action = actionCollection()->addAction("previous-terminal");
     action->setText(i18nc("@action", "Previous Terminal"));
@@ -265,22 +265,22 @@ void MainWindow::setupActions()
     action->setText(i18nc("@action", "Close Active Terminal"));
     action->setIcon(KIcon("view-close"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_R));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependendAction()));
-    m_contextDependendActions << action;
+    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    m_contextDependentActions << action;
 
     action = actionCollection()->addAction("split-left-right");
     action->setText(i18nc("@action", "Split Left/Right"));
     action->setIcon(KIcon("view-split-left-right"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_L));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependendAction()));
-    m_contextDependendActions << action;
+    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    m_contextDependentActions << action;
 
     action = actionCollection()->addAction("split-top-bottom");
     action->setText(i18nc("@action", "Split Top/Bottom"));
     action->setIcon(KIcon("view-split-top-bottom"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_T));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependendAction()));
-    m_contextDependendActions << action;
+    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    m_contextDependentActions << action;
 
     for (uint i = 1; i <= 10; ++i)
     {
@@ -294,7 +294,7 @@ void MainWindow::setupActions()
     m_actionCollection->readSettings();
 }
 
-void MainWindow::handleContextDependendAction(QAction* action, int sessionId)
+void MainWindow::handleContextDependentAction(QAction* action, int sessionId)
 {
     if (sessionId == -1) sessionId = m_sessionStack->activeSessionId();
     if (sessionId == -1) return;
@@ -326,11 +326,11 @@ void MainWindow::handleContextDependendAction(QAction* action, int sessionId)
         m_sessionStack->splitTopBottom(sessionId);
 }
 
-void MainWindow::setContextDependendActionsQuiet(bool quiet)
+void MainWindow::setContextDependentActionsQuiet(bool quiet)
 {
-    for (int i = 0; i < m_contextDependendActions.size(); ++i) 
+    for (int i = 0; i < m_contextDependentActions.size(); ++i)
     {
-        m_contextDependendActions.at(i)->blockSignals(quiet);
+        m_contextDependentActions.at(i)->blockSignals(quiet);
     }
 }
 

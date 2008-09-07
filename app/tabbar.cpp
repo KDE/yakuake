@@ -152,13 +152,13 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
     {
         updateMoveActions(index);
 
-        m_mainWindow->setContextDependendActionsQuiet(true);
+        m_mainWindow->setContextDependentActionsQuiet(true);
 
         QAction* action = m_tabContextMenu->exec(QCursor::pos());
 
-        if (action) m_mainWindow->handleContextDependendAction(action, sessionAtTab(index));
+        if (action) m_mainWindow->handleContextDependentAction(action, sessionAtTab(index));
 
-        m_mainWindow->setContextDependendActionsQuiet(false);
+        m_mainWindow->setContextDependentActionsQuiet(false);
 
         updateMoveActions(m_tabs.indexOf(m_selectedSessionId));
     }
@@ -470,11 +470,10 @@ void TabBar::selectPreviousTab()
 void TabBar::moveTabLeft(int sessionId)
 {
     if (sessionId == -1) sessionId = m_selectedSessionId;
-    if (!m_tabs.contains(sessionId)) return;
-
-    if (m_tabs.indexOf(sessionId) == 0) return;
 
     int index = m_tabs.indexOf(sessionId);
+
+    if (index < 1) return;
 
     m_tabs.swap(index, index - 1);
 
@@ -486,11 +485,10 @@ void TabBar::moveTabLeft(int sessionId)
 void TabBar::moveTabRight(int sessionId)
 {
     if (sessionId == -1) sessionId = m_selectedSessionId;
-    if (!m_tabs.contains(sessionId)) return;
-
-    if (m_tabs.indexOf(sessionId) == m_tabs.count() - 1) return;
 
     int index = m_tabs.indexOf(sessionId);
+
+    if (index == -1 || index == m_tabs.count() - 1) return;
 
     m_tabs.swap(index, index + 1);
 
