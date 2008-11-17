@@ -562,5 +562,12 @@ QString TabBar::standardTabTitle()
 
 QString TabBar::makeTabTitle(int id)
 {
-    return i18ncp("@title:tab", "Shell", "Shell No. <numid>%1</numid>", id+1);
+    if (id == 0)
+    {
+        return i18nc("@title:tab", "Shell");
+    }
+    else
+    {
+        return i18nc("@title:tab", "Shell No. <numid>%1</numid>", id+1);
+    }
 }
