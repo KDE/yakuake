@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Yakuake
 Name[hi]=याकुआके
+Name[pa]=ਯਾਕੁਕੀ
 Name[x-test]=xxYakuakexx
 Exec=yakuake
 Icon=yakuake
@@ -25,6 +26,7 @@ Comment[lt]=Nusileidžiantis terminalo emuliatorius paremtas KDE Konsole technol
 Comment[nds]=En Konsool-Emulater, de sik utklappen lett, op KDE-Konsole opbuut.
 Comment[nl]=Een uitvouwbare terminalemulator, gebaseerd op de technologie van Konsole.
 Comment[nn]=Ein rullegardinbasert terminalemulator basert på KDE Konsoll-teknologien
+Comment[pa]=ਕੇਡੀਈ ਕਨਸੋਲ ਤਕਨਾਲੋਜੀ ਉੱਤੇ ਅਧਾਰਿਤ ਲਟਕਦਾ ਟਰਮੀਨਲ ਰੂਪ ਹੈ।
 Comment[pt]=Um emulador de terminal, baseado na tecnologia do Konsole do KDE.
 Comment[pt_BR]=Um emulador de terminal baseado na tecnologia do Konsole do KDE.
 Comment[ro]=Un emulator de terminal inspirat din Konsole.
