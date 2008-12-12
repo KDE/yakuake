@@ -31,6 +31,9 @@ kde4_add_ui_files(yakuake_SRCS
 kde4_add_executable(yakuake ${yakuake_SRCS})
 
 target_link_libraries(yakuake ${KDE4_KPARTS_LIBS})
+if(Q_WS_X11)
+  target_link_libraries(yakuake ${X11_Xrender_LIB} ${X11_X11_LIB})
+endif(Q_WS_X11)
 
 install(TARGETS yakuake ${INSTALL_TARGETS_DEFAULT_ARGS})
 
