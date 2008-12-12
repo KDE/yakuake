@@ -24,6 +24,7 @@
 
 Splitter::Splitter(Qt::Orientation orientation, QWidget* parent) : QSplitter(orientation, parent)
 {
+    setAutoFillBackground(true);
     setOpaqueResize(false);
 }
 
