@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Yakuake
 Name[hi]=याकुआके
+Name[ml]=യാക്വാകെ
 Name[pa]=ਯਾਕੁਕੀ
 Name[x-test]=xxYakuakexx
 Exec=yakuake
@@ -25,6 +26,7 @@ Comment[km]=កម្មវិធី​ត្រាប់​ស្ថានី�
 Comment[ko]=KDE Konsole을 기반으로 한 드롭 다운 방식 터미널 에뮬레이터.
 Comment[lt]=Nusileidžiantis terminalo emuliatorius paremtas KDE Konsole technologija.
 Comment[lv]=Izkrītošs termināļa emulators, kurš bāzēts uz KDE Konsole tehnoloģijas.
+Comment[ml]=കെഡി‌ഈയുടെ കണ്‍സോള്‍ സാങ്കേതികത്വം അടിസ്ഥാനമാക്കിയ ഇറങ്ങിവരുന്ന ടെര്‍മിനല്‍ എമുലേറ്റര്‍
 Comment[nds]=En Konsool-Emulater, de sik utklappen lett, op KDE-Konsole opbuut.
 Comment[nl]=Een uitvouwbare terminalemulator, gebaseerd op de technologie van Konsole.
 Comment[nn]=Ein rullegardinbasert terminalemulator basert på KDE Konsoll-teknologien
