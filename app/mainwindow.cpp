@@ -876,7 +876,7 @@ void MainWindow::showStartupPopup()
     popup->setTimeout(5000);
     popup->setView(popup->standardView(i18nc("@title:window", 
         "<application>Yakuake</application> Notification"), 
-        i18nc("@info", "Application successfully started!<nl/>"
+        i18nc("@info", "Application successfully started.<nl/>"
                        "Press <shortcut>%1</shortcut> to use it...", shortcut),
         KIconLoader::global()->loadIcon("yakuake", KIconLoader::Small)));
 
