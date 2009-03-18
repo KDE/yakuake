@@ -924,9 +924,6 @@ void MainWindow::firstRunDialogOk()
 
 void MainWindow::updateUseTranslucency()
 {
-    m_useTranslucency = true;
-    return;
-
 #if defined(Q_WS_X11) && QT_VERSION < 0x040500 || !KDE_IS_VERSION(4,3,0)
     bool ARGB = false;
 
