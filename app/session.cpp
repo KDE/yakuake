@@ -355,6 +355,11 @@ const QString Session::terminalIdList()
     return idList.join(",");
 }
 
+bool Session::hasTerminal(int terminalId)
+{
+    return (m_terminals.contains(terminalId));
+}
+
 void Session::runCommand(const QString& command, int terminalId)
 {
     if (terminalId == -1) terminalId = m_activeTerminalId;

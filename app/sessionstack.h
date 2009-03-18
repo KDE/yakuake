@@ -64,8 +64,11 @@ class SessionStack : public QStackedWidget
 
         Q_SCRIPTABLE int activeSessionId() { return m_activeSessionId; }
         Q_SCRIPTABLE int activeTerminalId();
+
         Q_SCRIPTABLE const QString sessionIdList();
         Q_SCRIPTABLE const QString terminalIdList();
+        Q_SCRIPTABLE const QString sessionIdForTerminalId(int terminalId);
+        Q_SCRIPTABLE const QString terminalIdsForSessionId(int sessionId);
 
         Q_SCRIPTABLE void runCommand(const QString& command);
         Q_SCRIPTABLE void runCommandInTerminal(int terminalId, const QString& command);

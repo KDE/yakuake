@@ -48,6 +48,7 @@ class Session : public QObject
 
         int activeTerminalId() { return m_activeTerminalId; }
         const QString terminalIdList();
+        bool hasTerminal(int terminalId);
 
 
     public slots:

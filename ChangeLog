@@ -8,6 +8,8 @@ Changes since 2.9.5:
 * Slightly improved options layout on the Behavior page of the configura-
   tion dialog.
 * Added support for moving tabs on the tab bar by drag and drop.
+* Added the frequently-requested 'sessionIdForTerminalId(int terminalId)'
+  and 'terminalIdsForSessionId(int sessionId)' D-Bus interfaces.
 
 
 Changes in 2.9.4:

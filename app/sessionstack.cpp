@@ -175,7 +175,7 @@ const QString SessionStack::terminalIdList()
 
     QHashIterator<int, Session*> it(m_sessions);
 
-    while (it.hasNext()) 
+    while (it.hasNext())
     {
         it.next();
 
@@ -183,6 +183,33 @@ const QString SessionStack::terminalIdList()
     }
 
     return idList.join(",");
+}
+
+const QString SessionStack::sessionIdForTerminalId(int terminalId)
+{
+    int sessionId = -1;
+
+    QHashIterator<int, Session*> it(m_sessions);
+
+    while (it.hasNext())
+    {
+        it.next();
+
+        if (it.value()->hasTerminal(terminalId))
+        {
+            sessionId = it.key();
+            break;
+        }
+    }
+
+    return QString::number(sessionId);
+}
+
+const QString SessionStack::terminalIdsForSessionId(int sessionId)
+{
+    if (!m_sessions.contains(sessionId)) return QString::number(-1);
+
+    return m_sessions[sessionId]->terminalIdList();
 }
 
 void SessionStack::runCommand(const QString& command)
