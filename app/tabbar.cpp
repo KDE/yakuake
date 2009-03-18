@@ -33,6 +33,10 @@
 #include <QToolButton>
 #include <QWheelEvent>
 
+#include <QMimeData>
+#include <QDrag>
+#include <QLabel>
+
 
 TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
 {
@@ -46,6 +50,8 @@ TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
 
     m_mousePressed = false;
     m_mousePressedIndex = -1;
+    
+    m_dropIndicator = 0;
 
     m_mainWindow = mainWindow;
     m_skin = mainWindow->skin();
@@ -78,6 +84,8 @@ TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
 
     connect(m_lineEdit, SIGNAL(editingFinished()), m_lineEdit, SLOT(hide()));
     connect(m_lineEdit, SIGNAL(returnPressed()), this, SLOT(renameTab()));
+
+    setAcceptDrops(true);
 }
 
 TabBar::~TabBar()
@@ -179,63 +187,16 @@ void TabBar::paintEvent(QPaintEvent*)
     QPainter painter(this);
     painter.setPen(m_skin->tabBarTextColor());
 
-    QString title;
-    int sessionId;
-    bool selected;
     int x = m_skin->tabBarPosition().x();
     int y = m_skin->tabBarPosition().y();
-    QFont font = KGlobalSettings::generalFont();
-    int textWidth = 0;
     m_tabWidths.clear();
-
+    
     QRect tabsClipRect(x, y, m_closeTabButton->x() - x, height() - y);
     painter.setClipRect(tabsClipRect);
 
     for (int index = 0; index < m_tabs.size(); ++index) 
     {
-        sessionId = m_tabs.at(index);
-        selected = (sessionId == m_selectedSessionId);
-        title = m_tabTitles[sessionId];
-
-        if (selected)
-        {
-            painter.drawPixmap(x, y, m_skin->tabBarSelectedLeftCornerImage());
-            x += m_skin->tabBarSelectedLeftCornerImage().width();
-        }
-        else if (index != m_tabs.indexOf(m_selectedSessionId) + 1)
-        {
-            painter.drawPixmap(x, y, m_skin->tabBarSeparatorImage());
-            x += m_skin->tabBarSeparatorImage().width();
-        }
-
-        if (selected) font.setBold(true);
-        else font.setBold(false);
-
-        painter.setFont(font);
-
-        QFontMetrics fontMetrics(font);
-        textWidth = fontMetrics.width(title) + 10;
-
-        if (selected)
-            painter.drawTiledPixmap(x, y, textWidth, height(), m_skin->tabBarSelectedBackgroundImage());
-        else
-            painter.drawTiledPixmap(x, y, textWidth, height(), m_skin->tabBarUnselectedBackgroundImage());
-
-        painter.drawText(x, y, textWidth + 1, height() + 2, Qt::AlignHCenter | Qt::AlignVCenter, title);
-
-        x += textWidth;
-
-        if (selected)
-        {
-            painter.drawPixmap(x, m_skin->tabBarPosition().y(), m_skin->tabBarSelectedRightCornerImage());
-            x += m_skin->tabBarSelectedRightCornerImage().width();
-        }
-        else if (index != m_tabs.indexOf(m_selectedSessionId) - 1)
-        {
-            painter.drawPixmap(x, m_skin->tabBarPosition().y(), m_skin->tabBarSeparatorImage());
-            x += m_skin->tabBarSeparatorImage().width();
-        }
-
+        x = drawButton(x, y, index, painter);        
         m_tabWidths << x;
     }
 
@@ -266,6 +227,60 @@ void TabBar::paintEvent(QPaintEvent*)
     painter.drawTiledPixmap(0, 0, width(), height(), backgroundImage);
 
     painter.end();
+}
+
+int TabBar::drawButton(int x, int y, int index, QPainter& painter)
+{
+    QString title;
+    int sessionId;
+    bool selected;
+    QFont font = KGlobalSettings::generalFont();
+    int textWidth = 0;
+
+    sessionId = m_tabs.at(index);
+    selected = (sessionId == m_selectedSessionId);
+    title = m_tabTitles[sessionId];
+
+    if (selected)
+    {
+        painter.drawPixmap(x, y, m_skin->tabBarSelectedLeftCornerImage());
+        x += m_skin->tabBarSelectedLeftCornerImage().width();
+    }
+    else if (index != m_tabs.indexOf(m_selectedSessionId) + 1)
+    {
+        painter.drawPixmap(x, y, m_skin->tabBarSeparatorImage());
+        x += m_skin->tabBarSeparatorImage().width();
+    }
+
+    if (selected) font.setBold(true);
+    else font.setBold(false);
+
+    painter.setFont(font);
+
+    QFontMetrics fontMetrics(font);
+    textWidth = fontMetrics.width(title) + 10;
+
+    if (selected)
+        painter.drawTiledPixmap(x, y, textWidth, height(), m_skin->tabBarSelectedBackgroundImage());
+    else
+        painter.drawTiledPixmap(x, y, textWidth, height(), m_skin->tabBarUnselectedBackgroundImage());
+
+    painter.drawText(x, y, textWidth + 1, height() + 2, Qt::AlignHCenter | Qt::AlignVCenter, title);
+
+    x += textWidth;
+
+    if (selected)
+    {
+        painter.drawPixmap(x, m_skin->tabBarPosition().y(), m_skin->tabBarSelectedRightCornerImage());
+        x += m_skin->tabBarSelectedRightCornerImage().width();
+    }
+    else if (index != m_tabs.indexOf(m_selectedSessionId) - 1)
+    {
+        painter.drawPixmap(x, m_skin->tabBarPosition().y(), m_skin->tabBarSeparatorImage());
+        x += m_skin->tabBarSeparatorImage().width();
+    }
+    
+    return x;
 }
 
 int TabBar::tabAt(int x)
@@ -305,10 +320,14 @@ void TabBar::mousePressEvent(QMouseEvent* event)
 
     if (index == -1) return;
 
-    if (event->button() == Qt::LeftButton && index != m_tabs.indexOf(m_selectedSessionId))
+    if (event->button() == Qt::LeftButton)
     {
-        m_mousePressed = true;
-        m_mousePressedIndex = index;
+        m_startPos = event->pos();
+        if (index != m_tabs.indexOf(m_selectedSessionId))
+        {
+            m_mousePressed = true;
+            m_mousePressedIndex = index;
+        }
     }
 
     QWidget::mousePressEvent(event);
@@ -331,6 +350,103 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
     m_mousePressed = false;
 
     QWidget::mouseReleaseEvent(event);
+}
+
+void TabBar::mouseMoveEvent(QMouseEvent* event)
+{
+    if (event->buttons() & Qt::LeftButton)
+    {
+        int distance = (event->pos() - m_startPos).manhattanLength();
+        if (distance >= KGlobalSettings::dndEventDelay())
+        {
+            int index = tabAt(event->x());
+            if (index >= 0)
+                startDrag(index);
+        }
+    }
+    
+    QWidget::mouseMoveEvent(event);
+}
+
+void TabBar::dragEnterEvent(QDragEnterEvent* event)
+{
+    TabBar* eventSource = qobject_cast<TabBar*>(event->source());
+    
+    if (eventSource)
+    {
+        event->setDropAction(Qt::MoveAction);
+        event->acceptProposedAction();
+    }
+    else
+    {
+        drawDropIndicator(-1);
+        event->ignore();
+    }        
+    
+    return;
+}
+
+void TabBar::dragMoveEvent(QDragMoveEvent* event)
+{
+    TabBar* eventSource = qobject_cast<TabBar*>(event->source());
+    
+    if (eventSource && event->pos().x() > m_skin->tabBarPosition().x() && event->pos().x() < m_closeTabButton->x())
+    {
+        int index = dropIndex(event->pos());
+        
+        if (index == -1)
+            index = m_tabs.size();
+        
+        drawDropIndicator(index, isSameTab(event));
+        
+        event->setDropAction(Qt::MoveAction);
+        event->accept();
+    }
+    else
+    {
+        drawDropIndicator(-1);
+        event->ignore();
+    }
+    
+    return;
+}
+
+void TabBar::dragLeaveEvent(QDragLeaveEvent* event)
+{
+    drawDropIndicator(-1);
+    event->ignore();
+    
+    return;
+}
+
+void TabBar::dropEvent(QDropEvent* event)
+{
+    drawDropIndicator(-1);
+    
+    int x = event->pos().x();
+    
+    if (isSameTab(event) || x < m_skin->tabBarPosition().x() || x > m_closeTabButton->x())
+        event->ignore();
+    else
+    {
+        int targetIndex = dropIndex(event->pos());
+        int sourceSessionId = event->mimeData()->text().toInt();
+        int sourceIndex = m_tabs.indexOf(sourceSessionId);
+        
+        if (targetIndex == -1)
+            targetIndex = m_tabs.size() - 1;
+        else if (targetIndex < 0)
+            targetIndex = 0;
+        else if (sourceIndex < targetIndex)
+            --targetIndex;
+        
+        m_tabs.move(sourceIndex, targetIndex);
+        selectTab(sourceSessionId);
+        
+        event->accept();
+    }
+    
+    return;
 }
 
 void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
@@ -357,6 +473,8 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
 void TabBar::leaveEvent(QEvent* event)
 {
     m_mousePressed = false;
+    drawDropIndicator(-1);
+    event->ignore();
 
     QWidget::leaveEvent(event);
 }
@@ -517,6 +635,7 @@ void TabBar::setTabTitle(int sessionId, const QString& newTitle)
 
 int TabBar::sessionAtTab(int index)
 {
+
     for (int i = 0; i < m_tabs.size(); ++i)
     {
         if (i == index) return m_tabs.at(i);
@@ -570,4 +689,113 @@ QString TabBar::makeTabTitle(int id)
     {
         return i18nc("@title:tab", "Shell No. <numid>%1</numid>", id+1);
     }
+}
+
+void TabBar::startDrag(int index)
+{
+    int sessionId = sessionAtTab(index);
+    
+    // if (sessionId < 0) return;
+    
+    int x = index ? m_tabWidths.at(index - 1) : m_skin->tabBarPosition().x();
+    int tabWidth = m_tabWidths.at(index) - x;
+    QString title = tabTitle(sessionId);
+    
+    QPixmap tab(tabWidth, height());
+    tab.fill(Qt::transparent);
+    
+    QPainter painter(&tab);
+    painter.initFrom(this);
+    painter.setPen(m_skin->tabBarTextColor());
+    drawButton(0, 0, index, painter);
+    painter.end();
+    
+    QMimeData* mimeData = new QMimeData;
+    mimeData->setText(QVariant(sessionId).toString());
+    
+    QDrag* drag = new QDrag(this);
+    drag->setMimeData(mimeData);
+    drag->setPixmap(tab);
+    drag->exec(Qt::MoveAction);
+    
+    return;
+}
+
+void TabBar::drawDropIndicator(int index, bool disabled)
+{
+    const int arrowSize = 16;
+    
+    if (!m_dropIndicator)
+    {
+        m_dropIndicator = new QLabel(parentWidget());
+        m_dropIndicator->resize(arrowSize, arrowSize);
+    }
+    
+    QIcon::Mode drawMode = disabled ? QIcon::Disabled : QIcon::Normal;
+    m_dropIndicator->setPixmap(KIcon("arrow-down").pixmap(arrowSize, arrowSize, drawMode));
+    
+    if (index < 0)
+    {
+        m_dropIndicator->hide();
+        return;
+    }
+
+    int temp_index;
+    if (index == m_tabs.size())
+        temp_index = index - 1;
+    else
+        temp_index = index;
+    
+    int x = temp_index ? m_tabWidths.at(temp_index - 1) : m_skin->tabBarPosition().x();
+    int tabWidth = m_tabWidths.at(temp_index) - x;
+    int y = m_skin->tabBarPosition().y();
+
+    m_dropRect = QRect(x, y - height(), tabWidth, height() - y);
+    QPoint pos;
+    
+    if (index < m_tabs.size())
+        pos = m_dropRect.topLeft();
+    else
+        pos = m_dropRect.topRight();    
+    
+    pos.rx() -= arrowSize/2; 
+
+    m_dropIndicator->move(mapTo(parentWidget(),pos));
+    m_dropIndicator->show();
+    
+    return;
+}
+
+int TabBar::dropIndex(const QPoint pos)
+{
+    int index = tabAt(pos.x());
+    if (index < 0)
+        return index;
+    
+    int x = index ? m_tabWidths.at(index - 1) : m_skin->tabBarPosition().x();
+    int tabWidth = m_tabWidths.at(index) - x;
+    int y = m_skin->tabBarPosition().y();
+    m_dropRect = QRect(x, y - height(), tabWidth, height() - y);
+    
+    if ((pos.x()-m_dropRect.left()) > (m_dropRect.width()/2))
+        ++index;
+   
+    if (index == m_tabs.size())
+        return -1;
+    
+    return index;
+}
+
+bool TabBar::isSameTab(const QDropEvent* event)
+{
+    int index = dropIndex(event->pos());
+    int sourceSessionId = event->mimeData()->text().toInt();
+    int sourceIndex = m_tabs.indexOf(sourceSessionId);
+    
+    bool isLastTab = (sourceIndex == m_tabs.size()-1) && (index == -1);
+    
+    if ((sourceIndex == index) || (sourceIndex == index-1) || isLastTab)
+        return true;
+    else
+        return false;
 }

@@ -27,7 +27,6 @@
 #include <QHash>
 #include <QWidget>
 
-
 class MainWindow;
 class Skin;
 
@@ -37,6 +36,7 @@ class KMenu;
 class KPushButton;
 
 class QToolButton;
+class QLabel;
 
 
 class TabBar : public QWidget
@@ -84,6 +84,11 @@ class TabBar : public QWidget
         virtual void keyPressEvent(QKeyEvent*);
         virtual void mousePressEvent(QMouseEvent*);
         virtual void mouseReleaseEvent(QMouseEvent*);
+        virtual void mouseMoveEvent(QMouseEvent*);
+        virtual void dragMoveEvent(QDragMoveEvent*);
+        virtual void dragEnterEvent(QDragEnterEvent*);
+        virtual void dragLeaveEvent(QDragLeaveEvent*);
+        virtual void dropEvent(QDropEvent*);
         virtual void mouseDoubleClickEvent(QMouseEvent*);
         virtual void contextMenuEvent(QContextMenuEvent*);
         virtual void leaveEvent(QEvent*);
@@ -102,6 +107,13 @@ class TabBar : public QWidget
         int tabAt(int x);
 
         void updateMoveActions(int index);
+        
+        int drawButton(int x, int y, int index, QPainter& painter);
+        
+        void startDrag(int index);
+        void drawDropIndicator(int index, bool disabled = false);
+        int dropIndex(const QPoint pos);
+        bool isSameTab(const QDropEvent*);
 
         MainWindow* m_mainWindow;
         Skin* m_skin;
@@ -123,6 +135,10 @@ class TabBar : public QWidget
 
         int m_mousePressed;
         int m_mousePressedIndex;
+        
+        QPoint m_startPos;
+        QLabel* m_dropIndicator;
+        QRect m_dropRect;
 };
 
 #endif

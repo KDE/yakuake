@@ -7,6 +7,7 @@ Changes since 2.9.5:
 * Added an option to open the application window after program start.
 * Slightly improved options layout on the Behavior page of the configura-
   tion dialog.
+* Added support for moving tabs on the tab bar by drag and drop.
 
 
 Changes in 2.9.4:
