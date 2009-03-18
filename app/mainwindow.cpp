@@ -47,7 +47,7 @@
 #include <QtDBus/QtDBus>
 #include <QTimer>
 
-#if defined(Q_WS_X11) && QT_VERSION < 0x040500
+#if defined(Q_WS_X11) && QT_VERSION < 0x040500 || !KDE_IS_VERSION(4,3,0)
 #include <QX11Info>
 
 #include <X11/Xlib.h>
@@ -927,7 +927,7 @@ void MainWindow::updateUseTranslucency()
     m_useTranslucency = true;
     return;
 
-#if defined(Q_WS_X11) && QT_VERSION < 0x040500
+#if defined(Q_WS_X11) && QT_VERSION < 0x040500 || !KDE_IS_VERSION(4,3,0)
     bool ARGB = false;
 
     int screen = QX11Info::appScreen();
