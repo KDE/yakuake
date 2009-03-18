@@ -3,6 +3,10 @@ Changes since 2.9.5:
 * Fixed a regression from the background painting changes in 2.9.4 that
   caused splitter handles between terminals to appear in the user-confi-
   gured background color.
+* Improved graphics for the window state lock button in the default skin.
+* Added an option to open the application window after program start.
+* Slightly improved options layout on the Behavior page of the configura-
+  tion dialog.
 
 
 Changes in 2.9.4:

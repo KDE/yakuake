@@ -1,40 +1,58 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>BehaviorSettings</class>
- <widget class="QWidget" name="BehaviorSettings" >
-  <property name="geometry" >
+ <widget class="QWidget" name="BehaviorSettings">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>364</width>
-    <height>281</height>
+    <height>308</height>
    </rect>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" >
-   <property name="margin" >
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="margin">
     <number>0</number>
    </property>
    <item>
-    <widget class="QGroupBox" name="groupBox_1" >
-     <property name="title" >
-      <string comment="@title:group Group box label" >General</string>
+    <widget class="QGroupBox" name="groupBox_1">
+     <property name="title">
+      <string comment="@title:group Group box label">General</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout" >
-      <item row="0" column="0" colspan="2" >
-       <widget class="QCheckBox" name="kcfg_KeepOpen" >
-        <property name="text" >
-         <string comment="@option:check" >Keep window open when it loses focus</string>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0" colspan="2">
+       <widget class="QCheckBox" name="kcfg_OpenAfterStart">
+        <property name="text">
+         <string comment="@option:check">Open window after program start</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="0" >
+      <item row="1" column="0" colspan="2">
+       <widget class="QCheckBox" name="kcfg_PollMouse">
+        <property name="whatsThis">
+         <string comment="@info:whatsthis">If this option is enabled, the window will automatically open when the mouse pointer is moved to the same edge of the screen that it would open on when using the shortcut.</string>
+        </property>
+        <property name="text">
+         <string comment="@option:check">Open window when the mouse pointer touches the screen edge</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QCheckBox" name="kcfg_KeepOpen">
+        <property name="text">
+         <string comment="@option:check">Keep window open when it loses focus</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
        <spacer>
-        <property name="orientation" >
+        <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
-        <property name="sizeType" >
+        <property name="sizeType">
          <enum>QSizePolicy::Fixed</enum>
         </property>
-        <property name="sizeHint" stdset="0" >
+        <property name="sizeHint" stdset="0">
          <size>
           <width>20</width>
           <height>20</height>
@@ -42,31 +60,31 @@
         </property>
        </spacer>
       </item>
-      <item row="1" column="1" >
-       <widget class="QCheckBox" name="kcfg_KeepAbove" >
-        <property name="enabled" >
+      <item row="3" column="1">
+       <widget class="QCheckBox" name="kcfg_KeepAbove">
+        <property name="enabled">
          <bool>false</bool>
         </property>
-        <property name="sizePolicy" >
-         <sizepolicy vsizetype="Fixed" hsizetype="MinimumExpanding" >
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="text" >
-         <string comment="@option:check" >Keep window above other windows</string>
+        <property name="text">
+         <string comment="@option:check">Keep window above other windows</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0" >
+      <item row="4" column="0">
        <spacer>
-        <property name="orientation" >
+        <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
-        <property name="sizeType" >
+        <property name="sizeType">
          <enum>QSizePolicy::Fixed</enum>
         </property>
-        <property name="sizeHint" stdset="0" >
+        <property name="sizeHint" stdset="0">
          <size>
           <width>20</width>
           <height>20</height>
@@ -74,39 +92,29 @@
         </property>
        </spacer>
       </item>
-      <item row="2" column="1" >
-       <widget class="QCheckBox" name="kcfg_ToggleToFocus" >
-        <property name="enabled" >
+      <item row="4" column="1">
+       <widget class="QCheckBox" name="kcfg_ToggleToFocus">
+        <property name="enabled">
          <bool>false</bool>
         </property>
-        <property name="sizePolicy" >
-         <sizepolicy vsizetype="Fixed" hsizetype="MinimumExpanding" >
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="whatsThis" >
-         <string comment="@info:whatsthis" >If this option is enabled, the shortcut normally used to open and retract the window will give it focus, rather than close it, if it has previously lost focus.</string>
+        <property name="whatsThis">
+         <string comment="@info:whatsthis">If this option is enabled, the shortcut normally used to open and retract the window will give it focus, rather than close it, if it has previously lost focus.</string>
         </property>
-        <property name="text" >
-         <string comment="@option:check" >Use Open/Retract action to focus window</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0" colspan="2" >
-       <widget class="QCheckBox" name="kcfg_PollMouse" >
-        <property name="whatsThis" >
-         <string comment="@info:whatsthis" >If this option is enabled, the window will automatically open when the mouse pointer is moved to the same edge of the screen that it would open on when using the shortcut.</string>
-        </property>
-        <property name="text" >
-         <string comment="@option:check" >Open window when the mouse pointer touches the screen edge</string>
+        <property name="text">
+         <string comment="@option:check">Use Open/Retract action to focus window</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="0" colspan="2" >
-       <widget class="QCheckBox" name="kcfg_FocusFollowsMouse" >
-        <property name="text" >
-         <string comment="@option:check" >Focus terminals when the mouse pointer is moved over them</string>
+      <item row="5" column="0" colspan="2">
+       <widget class="QCheckBox" name="kcfg_FocusFollowsMouse">
+        <property name="text">
+         <string comment="@option:check">Focus terminals when the mouse pointer is moved over them</string>
         </property>
        </widget>
       </item>
@@ -114,22 +122,22 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox_2" >
-     <property name="title" >
-      <string comment="@title:group" >Dialogs</string>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string comment="@title:group">Dialogs</string>
      </property>
-     <layout class="QVBoxLayout" >
+     <layout class="QVBoxLayout">
       <item>
-       <widget class="QCheckBox" name="kcfg_ShowPopup" >
-        <property name="text" >
-         <string comment="@option:check" >Show startup notification popup</string>
+       <widget class="QCheckBox" name="kcfg_ShowPopup">
+        <property name="text">
+         <string comment="@option:check">Show startup notification popup</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QCheckBox" name="kcfg_ConfirmQuit" >
-        <property name="text" >
-         <string comment="@option:check" >Confirm quit when more than one session is open</string>
+       <widget class="QCheckBox" name="kcfg_ConfirmQuit">
+        <property name="text">
+         <string comment="@option:check">Confirm quit when more than one session is open</string>
         </property>
        </widget>
       </item>
@@ -138,10 +146,10 @@
    </item>
    <item>
     <spacer>
-     <property name="orientation" >
+     <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <property name="sizeHint" stdset="0" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
        <height>0</height>
@@ -156,6 +164,7 @@
   <tabstop>kcfg_KeepAbove</tabstop>
   <tabstop>kcfg_ToggleToFocus</tabstop>
   <tabstop>kcfg_PollMouse</tabstop>
+  <tabstop>kcfg_OpenAfterStart</tabstop>
   <tabstop>kcfg_FocusFollowsMouse</tabstop>
   <tabstop>kcfg_ShowPopup</tabstop>
   <tabstop>kcfg_ConfirmQuit</tabstop>
@@ -168,11 +177,11 @@
    <receiver>kcfg_KeepAbove</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>32</x>
      <y>59</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>82</x>
      <y>86</y>
     </hint>
@@ -184,11 +193,11 @@
    <receiver>kcfg_ToggleToFocus</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>24</x>
      <y>59</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>74</x>
      <y>113</y>
     </hint>

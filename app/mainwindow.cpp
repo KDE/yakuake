@@ -100,6 +100,9 @@ MainWindow::MainWindow(QWidget* parent)
         if (Settings::showPopup()) showStartupPopup();
         if (Settings::pollMouse()) toggleMousePoll(true);
     }
+
+    if (Settings::openAfterStart())
+        QMetaObject::invokeMethod(this, "toggleWindowState", Qt::QueuedConnection);
 }
 
 MainWindow::~MainWindow()
