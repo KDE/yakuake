@@ -34,7 +34,7 @@ class Application : public KUniqueApplication
 
     public:
         explicit Application();
-#ifdef Q_WS_X11
+#if defined(Q_WS_X11) && QT_VERSION < 0x040500
         explicit Application(Display* display, Qt::HANDLE visual, Qt::HANDLE colormap);
 #endif
         virtual ~Application();

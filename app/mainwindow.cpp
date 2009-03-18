@@ -47,7 +47,7 @@
 #include <QtDBus/QtDBus>
 #include <QTimer>
 
-#ifdef Q_WS_X11
+#if defined(Q_WS_X11) && QT_VERSION < 0x040500
 #include <QX11Info>
 
 #include <X11/Xlib.h>
@@ -59,6 +59,10 @@ MainWindow::MainWindow(QWidget* parent)
     : KMainWindow(parent, Qt::CustomizeWindowHint | Qt::FramelessWindowHint)
 {
     QDBusConnection::sessionBus().registerObject("/yakuake/window", this, QDBusConnection::ExportScriptableSlots);
+
+#if QT_VERSION >= 0x040500 && KDE_IS_VERSION(4,3,0)
+    setAttribute(Qt::WA_TranslucentBackground, true);
+#endif
 
     m_skin = new Skin();
     m_menu = new KMenu(this);
@@ -920,7 +924,10 @@ void MainWindow::firstRunDialogOk()
 
 void MainWindow::updateUseTranslucency()
 {
-#ifdef Q_WS_X11
+    m_useTranslucency = true;
+    return;
+
+#if defined(Q_WS_X11) && QT_VERSION < 0x040500
     bool ARGB = false;
 
     int screen = QX11Info::appScreen();
@@ -941,6 +948,11 @@ void MainWindow::updateUseTranslucency()
         m_useTranslucency = KWindowSystem::compositingActive();
     }
     else
+#elif QT_VERSION >= 0x040500 && KDE_IS_VERSION(4,3,0)
+    if (Settings::translucency())
+    {
+        m_useTranslucency = KWindowSystem::compositingActive();
+    }
 #endif
     {
         m_useTranslucency = false;

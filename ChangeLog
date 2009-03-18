@@ -10,6 +10,8 @@ Changes since 2.9.5:
 * Added support for moving tabs on the tab bar by drag and drop.
 * Added the frequently-requested 'sessionIdForTerminalId(int terminalId)'
   and 'terminalIdsForSessionId(int sessionId)' D-Bus interfaces.
+* Rewrote the translucency support not to use X11-specific code on Qt 4.5
+  or higher and KDE 4.3 or higher.
 
 
 Changes in 2.9.4:

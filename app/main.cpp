@@ -28,13 +28,11 @@
 
 #include <QString>
 
-#ifdef Q_WS_X11
+#if defined(Q_WS_X11) && QT_VERSION < 0x040500
 #include <X11/Xlib.h>
 #include <X11/extensions/Xrender.h>
-#endif
 
 
-#ifdef Q_WS_X11
 void getDisplayInformation(Display*& display, Visual*& visual, Colormap& colormap);
 #endif
 
@@ -70,7 +68,7 @@ int main (int argc, char *argv[])
         exit(0);
     }
 
-#ifdef Q_WS_X11
+#if defined(Q_WS_X11) && QT_VERSION < 0x040500
     if (KWindowSystem::compositingActive()) 
     {
             Display* display = 0;
@@ -93,7 +91,7 @@ int main (int argc, char *argv[])
 }
 
 // Code from the Qt 4 graphics dojo examples at http://labs.trolltech.com
-#ifdef Q_WS_X11
+#if defined(Q_WS_X11) && QT_VERSION < 0x040500
 void getDisplayInformation(Display*& display, Visual*& visual, Colormap& colormap)
 {
     display = XOpenDisplay(0);
