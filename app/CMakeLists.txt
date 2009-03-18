@@ -31,9 +31,13 @@ kde4_add_ui_files(yakuake_SRCS
 kde4_add_executable(yakuake ${yakuake_SRCS})
 
 target_link_libraries(yakuake ${KDE4_KPARTS_LIBS})
-if(Q_WS_X11)
+
+macro_ensure_version("4.5.0" ${QTVERSION} QT_IS_45_OR_HIGHER)
+macro_ensure_version("4.3.0" ${KDE_VERSION} KDE_IS_43_OR_HIGHER)
+
+if(Q_WS_X11 AND !QT_IS_45_OR_HIGHER AND !KDE_IS_43_OR_HIGHER)
   target_link_libraries(yakuake ${X11_Xrender_LIB} ${X11_X11_LIB})
-endif(Q_WS_X11)
+endif(Q_WS_X11 AND !QT_IS_45_OR_HIGHER AND !KDE_IS_43_OR_HIGHER)
 
 install(TARGETS yakuake ${INSTALL_TARGETS_DEFAULT_ARGS})
 
