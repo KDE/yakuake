@@ -950,6 +950,7 @@ void MainWindow::updateUseTranslucency()
     {
         m_useTranslucency = KWindowSystem::compositingActive();
     }
+    else
 #endif
     {
         m_useTranslucency = false;
