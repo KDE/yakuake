@@ -57,8 +57,8 @@ class Session : public QObject
         void focusNextTerminal();
         void focusPreviousTerminal();
 
-        void splitLeftRight();
-        void splitTopBottom();
+        void splitLeftRight(int terminalId = -1);
+        void splitTopBottom(int terminalId = -1);
 
         void runCommand(const QString& command, int terminalId = -1);
 

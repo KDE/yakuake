@@ -18,6 +18,7 @@ Changes since 2.9.5:
   a multi-key shortcut to open/close the window, consistent with the short-
   cut configuration dialog (the required API is new in 4.2). The reason
   multi-key global shortcuts are not allowed in KDE is that they don't work.
+* Added D-Bus interfaces for splitting.
 
 
 Changes in 2.9.4:

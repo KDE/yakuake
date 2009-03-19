@@ -230,24 +230,26 @@ void Session::focusNextTerminal()
     }
 }
 
-void Session::splitLeftRight()
+void Session::splitLeftRight(int terminalId)
 {
-    if (m_activeTerminalId == -1) return;
-    if (!m_terminals.contains(m_activeTerminalId)) return;
+    if (terminalId == -1) terminalId = m_activeTerminalId;
+    if (terminalId == -1) return;
+    if (!m_terminals.contains(terminalId)) return;
 
-    Terminal* activeTerminal = m_terminals[m_activeTerminalId];
+    Terminal* terminal = m_terminals[terminalId];
 
-    if (activeTerminal) split(activeTerminal, Qt::Horizontal);
+    if (terminal) split(terminal, Qt::Horizontal);
 }
 
-void Session::splitTopBottom()
+void Session::splitTopBottom(int terminalId)
 {
-    if (m_activeTerminalId == -1) return;
-    if (!m_terminals.contains(m_activeTerminalId)) return;
+    if (terminalId == -1) terminalId = m_activeTerminalId;
+    if (terminalId == -1) return;
+    if (!m_terminals.contains(terminalId)) return;
 
-    Terminal* activeTerminal = m_terminals[m_activeTerminalId];
+    Terminal* terminal = m_terminals[terminalId];
 
-    if (activeTerminal) split(activeTerminal, Qt::Vertical);
+    if (terminal) split(terminal, Qt::Vertical);
 }
 
 void Session::split(Terminal* terminal, Qt::Orientation orientation)

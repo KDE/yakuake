@@ -185,7 +185,14 @@ const QString SessionStack::terminalIdList()
     return idList.join(",");
 }
 
-const QString SessionStack::sessionIdForTerminalId(int terminalId)
+const QString SessionStack::terminalIdsForSessionId(int sessionId)
+{
+    if (!m_sessions.contains(sessionId)) return QString::number(-1);
+
+    return m_sessions[sessionId]->terminalIdList();
+}
+
+int SessionStack::sessionIdForTerminalId(int terminalId)
 {
     int sessionId = -1;
 
@@ -202,14 +209,7 @@ const QString SessionStack::sessionIdForTerminalId(int terminalId)
         }
     }
 
-    return QString::number(sessionId);
-}
-
-const QString SessionStack::terminalIdsForSessionId(int sessionId)
-{
-    if (!m_sessions.contains(sessionId)) return QString::number(-1);
-
-    return m_sessions[sessionId]->terminalIdList();
+    return sessionId;
 }
 
 void SessionStack::runCommand(const QString& command)
@@ -249,22 +249,40 @@ void SessionStack::editProfile(int sessionId)
     m_sessions[sessionId]->editProfile();
 }
 
-void SessionStack::splitLeftRight(int sessionId)
+void SessionStack::splitSessionLeftRight(int sessionId)
 {
-    if (sessionId == -1) sessionId = m_activeSessionId;
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
     m_sessions[sessionId]->splitLeftRight();
 }
 
-void SessionStack::splitTopBottom(int sessionId)
+void SessionStack::splitSessionTopBottom(int sessionId)
 {
-    if (sessionId == -1) sessionId = m_activeSessionId;
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
     m_sessions[sessionId]->splitTopBottom();
+}
+
+void SessionStack::splitTerminalLeftRight(int terminalId)
+{
+    int sessionId = sessionIdForTerminalId(terminalId);
+
+    if (sessionId == -1) return;
+    if (!m_sessions.contains(sessionId)) return;
+
+    m_sessions[sessionId]->splitLeftRight(terminalId);
+}
+
+void SessionStack::splitTerminalTopBottom(int terminalId)
+{
+    int sessionId = sessionIdForTerminalId(terminalId);
+
+    if (sessionId == -1) return;
+    if (!m_sessions.contains(sessionId)) return;
+
+    m_sessions[sessionId]->splitTopBottom(terminalId);
 }
 
 void SessionStack::emitTitles()

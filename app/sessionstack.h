@@ -45,9 +45,6 @@ class SessionStack : public QStackedWidget
 
         void editProfile(int sessionId = -1);
 
-        void splitLeftRight(int sessionId = -1);
-        void splitTopBottom(int sessionId = -1);
-
         void emitTitles();
 
 
@@ -62,13 +59,18 @@ class SessionStack : public QStackedWidget
         Q_SCRIPTABLE void removeSession(int sessionId);
         Q_SCRIPTABLE void removeTerminal(int terminalId);
 
+        Q_SCRIPTABLE void splitSessionLeftRight(int sessionId);
+        Q_SCRIPTABLE void splitSessionTopBottom(int sessionId);
+        Q_SCRIPTABLE void splitTerminalLeftRight(int terminalId);
+        Q_SCRIPTABLE void splitTerminalTopBottom(int terminalId);
+
         Q_SCRIPTABLE int activeSessionId() { return m_activeSessionId; }
         Q_SCRIPTABLE int activeTerminalId();
 
         Q_SCRIPTABLE const QString sessionIdList();
         Q_SCRIPTABLE const QString terminalIdList();
-        Q_SCRIPTABLE const QString sessionIdForTerminalId(int terminalId);
         Q_SCRIPTABLE const QString terminalIdsForSessionId(int sessionId);
+        Q_SCRIPTABLE int sessionIdForTerminalId(int terminalId);
 
         Q_SCRIPTABLE void runCommand(const QString& command);
         Q_SCRIPTABLE void runCommandInTerminal(int terminalId, const QString& command);

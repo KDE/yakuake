@@ -334,10 +334,10 @@ void MainWindow::handleContextDependentAction(QAction* action, int sessionId)
         m_sessionStack->closeActiveTerminal(sessionId);
 
     if (action == actionCollection()->action("split-left-right"))
-        m_sessionStack->splitLeftRight(sessionId);
+        m_sessionStack->splitSessionLeftRight(sessionId);
 
     if (action == actionCollection()->action("split-top-bottom"))
-        m_sessionStack->splitTopBottom(sessionId);
+        m_sessionStack->splitSessionTopBottom(sessionId);
 }
 
 void MainWindow::handleContextDependentToggleAction(bool toggle, QAction* action, int sessionId)
