@@ -12,6 +12,8 @@ Changes since 2.9.5:
   and 'terminalIdsForSessionId(int sessionId)' D-Bus interfaces.
 * Rewrote the translucency support not to use X11-specific code on Qt 4.5
   or higher and KDE 4.3 or higher.
+* Added a feature to disable keyboard input for a session (via a user-con-
+  figured shortcut or the context menu).
 
 
 Changes in 2.9.4:

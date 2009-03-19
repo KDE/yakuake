@@ -65,6 +65,9 @@ class Session : public QObject
         void manageProfiles();
         void editProfile();
 
+        bool keyboardInputEnabled() { return m_keyboardInputEnabled; }
+        void setKeyboardInputEnabled(bool keyboardInputEnabled);
+
 
     signals:
         void titleChanged(const QString& title);
@@ -96,6 +99,8 @@ class Session : public QObject
         QMap<int, Terminal*> m_terminals;
 
         QString m_title;
+
+        bool m_keyboardInputEnabled;
 };
 
 #endif 

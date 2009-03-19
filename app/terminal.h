@@ -55,6 +55,9 @@ class Terminal : public QObject
         void manageProfiles();
         void editProfile();
 
+        bool keyboardInputEnabled() { return m_keyboardInputEnabled; }
+        void setKeyboardInputEnabled(bool keyboardInputEnabled);
+
         void deletePart();
 
 
@@ -84,6 +87,8 @@ class Terminal : public QObject
         QWidget* m_parentSplitter;
 
         QString m_title;
+
+        bool m_keyboardInputEnabled;
 };
 
 #endif 

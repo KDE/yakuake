@@ -32,6 +32,8 @@ Session::Session(SessionType type, QWidget* parent) : QObject(parent)
 
     m_activeTerminalId = -1;
 
+    m_keyboardInputEnabled = true;
+
     m_baseSplitter = new Splitter(Qt::Horizontal, parent);
     connect(m_baseSplitter, SIGNAL(destroyed()), this, SLOT(prepareShutdown()));
 
@@ -144,6 +146,8 @@ Terminal* Session::addTerminal(QWidget* parent)
     connect(terminal, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
 
     m_terminals.insert(terminal->id(), terminal);
+
+    terminal->setKeyboardInputEnabled(m_keyboardInputEnabled);
 
     QWidget* terminalWidget = terminal->terminalWidget();
     if (terminalWidget) terminalWidget->setFocus();
@@ -383,4 +387,18 @@ void Session::editProfile()
     if (!m_terminals.contains( m_activeTerminalId)) return;
 
     m_terminals[m_activeTerminalId]->editProfile();
+}
+
+void Session::setKeyboardInputEnabled(bool keyboardInputEnabled)
+{
+    m_keyboardInputEnabled = keyboardInputEnabled;
+
+    QMapIterator<int, Terminal*> it(m_terminals);
+
+    while (it.hasNext())
+    {
+        it.next();
+
+        it.value()->setKeyboardInputEnabled(m_keyboardInputEnabled);
+    }
 }

@@ -69,6 +69,7 @@ class MainWindow : public KMainWindow
         Q_SCRIPTABLE void toggleWindowState();
 
         void handleContextDependentAction(QAction* action = 0, int sessionId = -1);
+        void handleContextDependentToggleAction(bool toggle, QAction* action = 0, int sessionId = -1);
 
 
     protected:

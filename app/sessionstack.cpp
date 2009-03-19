@@ -231,6 +231,15 @@ void SessionStack::runCommandInTerminal(int terminalId, const QString& command)
     }
 }
 
+void SessionStack::setKeyboardInputEnabled(int sessionId, bool keyboardInputEnabled)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return;
+    if (!m_sessions.contains(sessionId)) return;
+
+    m_sessions[sessionId]->setKeyboardInputEnabled(keyboardInputEnabled);
+}
+
 void SessionStack::editProfile(int sessionId)
 {
     if (sessionId == -1) sessionId = m_activeSessionId;

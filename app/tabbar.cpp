@@ -114,6 +114,8 @@ void TabBar::readyTabContextMenu()
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("edit-profile"));
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("close-active-terminal"));
         m_tabContextMenu->addSeparator();
+        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("toggle-keyboard-input"));
+        m_tabContextMenu->addSeparator();
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("move-session-left"));
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("move-session-right"));
         m_tabContextMenu->addSeparator();
@@ -164,7 +166,13 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
 
         QAction* action = m_tabContextMenu->exec(QCursor::pos());
 
-        if (action) m_mainWindow->handleContextDependentAction(action, sessionAtTab(index));
+        if (action)
+        {
+            if (action->isCheckable())
+                m_mainWindow->handleContextDependentToggleAction(action->isChecked(), action, sessionAtTab(index));
+            else
+                m_mainWindow->handleContextDependentAction(action, sessionAtTab(index));
+        }
 
         m_mainWindow->setContextDependentActionsQuiet(false);
 

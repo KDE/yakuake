@@ -45,6 +45,8 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
     m_terminalId = m_availableTerminalId;
     m_availableTerminalId++;
 
+    m_keyboardInputEnabled = true;
+
     m_part = NULL;
     m_terminalInterface = NULL;
     m_partWidget = NULL;
@@ -100,6 +102,12 @@ bool Terminal::eventFilter(QObject* /* watched */, QEvent* event)
     {
         if (Settings::focusFollowsMouse() && m_terminalWidget && !m_terminalWidget->hasFocus())
             m_terminalWidget->setFocus();
+    }
+
+    if (!m_keyboardInputEnabled)
+    {
+        if (event->type() == QEvent::KeyPress || event->type() == QEvent::KeyRelease)
+            return true;
     }
 
     return false;
@@ -202,6 +210,11 @@ void Terminal::editProfile()
 {
     QMetaObject::invokeMethod(m_part, "showEditCurrentProfileDialog", 
         Qt::QueuedConnection, Q_ARG(QWidget*, KApplication::activeWindow()));
+}
+
+void Terminal::setKeyboardInputEnabled(bool keyboardInputEnabled)
+{
+    m_keyboardInputEnabled = keyboardInputEnabled;
 }
 
 void Terminal::overrideShortcut(QKeyEvent* /* event */, bool& override)

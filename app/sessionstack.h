@@ -73,6 +73,8 @@ class SessionStack : public QStackedWidget
         Q_SCRIPTABLE void runCommand(const QString& command);
         Q_SCRIPTABLE void runCommandInTerminal(int terminalId, const QString& command);
 
+        Q_SCRIPTABLE void setKeyboardInputEnabled(int sessionId, bool keyboardInputEnabled);
+
 
     signals:
         void sessionAdded(int sessionId, const QString& title = 0);

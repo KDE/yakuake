@@ -289,6 +289,13 @@ void MainWindow::setupActions()
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
+    action = actionCollection()->addAction("toggle-keyboard-input");
+    action->setText(i18nc("@action", "Disable Keyboard Input"));
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_U));
+    action->setCheckable(true);
+    connect(action, SIGNAL(toggled(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
+    m_contextDependentActions << action;
+
     for (uint i = 1; i <= 10; ++i)
     {
         action = actionCollection()->addAction(QString("switch-to-session-%1").arg(i));
@@ -331,6 +338,17 @@ void MainWindow::handleContextDependentAction(QAction* action, int sessionId)
 
     if (action == actionCollection()->action("split-top-bottom"))
         m_sessionStack->splitTopBottom(sessionId);
+}
+
+void MainWindow::handleContextDependentToggleAction(bool toggle, QAction* action, int sessionId)
+{
+    if (sessionId == -1) sessionId = m_sessionStack->activeSessionId();
+    if (sessionId == -1) return;
+
+    if (!action) action = qobject_cast<QAction*>(QObject::sender());
+
+    if (action == actionCollection()->action("toggle-keyboard-input"))
+        m_sessionStack->setKeyboardInputEnabled(sessionId, !toggle);
 }
 
 void MainWindow::setContextDependentActionsQuiet(bool quiet)
