@@ -71,6 +71,8 @@ class Terminal : public QObject
         void setTitle(const QString& title);
         void overrideShortcut(QKeyEvent* event, bool& override);
 
+        void terminalWidgetDestroyed();
+
 
     private:
         void disableOffendingPartActions();

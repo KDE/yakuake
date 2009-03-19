@@ -19,6 +19,7 @@ Changes since 2.9.5:
   cut configuration dialog (the required API is new in 4.2). The reason
   multi-key global shortcuts are not allowed in KDE is that they don't work.
 * Added D-Bus interfaces for splitting.
+* Fix crashes when closing sessions with certain split setups (also on quit).
 
 
 Changes in 2.9.4:
