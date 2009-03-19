@@ -24,6 +24,7 @@
 #include "ui_firstrundialog.h"
 
 #include <KGlobalAccel>
+#include <kdeversion.h>
 
 
 FirstRunDialog::FirstRunDialog(MainWindow* mainWindow) : KDialog(mainWindow)
@@ -55,6 +56,10 @@ FirstRunDialog::~FirstRunDialog()
 
 void FirstRunDialog::initKeyButton()
 {
+#if KDE_IS_VERSION(4,2,0)
+    m_ui->keyButton->setMultiKeyShortcutsAllowed(false);
+#endif
+
     m_ui->keyButton->blockSignals(true);
 
     KAction* action = static_cast<KAction*>(m_mainWindow->actionCollection()->action("toggle-window-state"));

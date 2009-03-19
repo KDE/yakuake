@@ -14,6 +14,10 @@ Changes since 2.9.5:
   or higher and KDE 4.3 or higher.
 * Added a feature to disable keyboard input for a session (via a user-con-
   figured shortcut or the context menu).
+* On KDE 4.2 and higher, the first-run dialog now no longer allows setting
+  a multi-key shortcut to open/close the window, consistent with the short-
+  cut configuration dialog (the required API is new in 4.2). The reason
+  multi-key global shortcuts are not allowed in KDE is that they don't work.
 
 
 Changes in 2.9.4:
