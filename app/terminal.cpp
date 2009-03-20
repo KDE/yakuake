@@ -68,7 +68,6 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
 
         if (m_terminalWidget)
         {
-            connect(m_terminalWidget, SIGNAL(destroyed()), this, SLOT(terminalWidgetDestroyed()));
             m_terminalWidget->setFocusPolicy(Qt::WheelFocus);
             m_terminalWidget->installEventFilter(this);
         }
@@ -93,11 +92,6 @@ void Terminal::deletePart()
         m_part->deleteLater();
     else
         deleteLater();
-}
-
-void Terminal::terminalWidgetDestroyed()
-{
-    m_terminalWidget = NULL;
 }
 
 bool Terminal::eventFilter(QObject* /* watched */, QEvent* event)

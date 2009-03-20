@@ -71,8 +71,6 @@ class Terminal : public QObject
         void setTitle(const QString& title);
         void overrideShortcut(QKeyEvent* event, bool& override);
 
-        void terminalWidgetDestroyed();
-
 
     private:
         void disableOffendingPartActions();
@@ -85,7 +83,7 @@ class Terminal : public QObject
         KParts::Part* m_part;
         TerminalInterface* m_terminalInterface;
         QWidget* m_partWidget;
-        QWidget* m_terminalWidget;
+        QPointer<QWidget> m_terminalWidget;
         QWidget* m_parentSplitter;
 
         QString m_title;
