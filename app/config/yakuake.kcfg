@@ -70,7 +70,7 @@
     </entry>
     <entry name="OpenAfterStart" type="Bool">
       <label context="@label">Open after start</label>
-      <whatsthis context="@info:whatsthis">Whether the application window window should be opened after program start.</whatsthis>
+      <whatsthis context="@info:whatsthis">Whether the application window should be opened after program start.</whatsthis>
     <default>false</default>
     </entry>
   </group>
