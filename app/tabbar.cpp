@@ -362,12 +362,14 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
 
 void TabBar::mouseMoveEvent(QMouseEvent* event)
 {
-    if (event->buttons() & Qt::LeftButton)
+    if (!m_startPos.isNull() && (event->buttons() & Qt::LeftButton))
     {
         int distance = (event->pos() - m_startPos).manhattanLength();
+
         if (distance >= KGlobalSettings::dndEventDelay())
         {
             int index = tabAt(m_startPos.x());
+
             if (index >= 0)
                 startDrag(index);
         }
@@ -703,7 +705,8 @@ void TabBar::startDrag(int index)
 {
     int sessionId = sessionAtTab(index);
 
-    // if (sessionId < 0) return;
+    m_startPos.setX(0);
+    m_startPos.setY(0);
 
     int x = index ? m_tabWidths.at(index - 1) : m_skin->tabBarPosition().x();
     int tabWidth = m_tabWidths.at(index) - x;
