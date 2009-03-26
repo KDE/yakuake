@@ -6,7 +6,7 @@
   published by the Free Software Foundation; either version 2 of
   the License or (at your option) version 3 or any later version
   accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy 
+  ved by the membership of KDE e.V.), which shall act as a proxy
   defined in Section 14 of version 3 of the license.
 
   This program is distributed in the hope that it will be useful,
@@ -42,7 +42,7 @@ TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
 {
     QDBusConnection::sessionBus().registerObject("/yakuake/tabs", this, QDBusConnection::ExportScriptableSlots);
 
-    setWhatsThis(i18nc("@info:whatsthis", 
+    setWhatsThis(i18nc("@info:whatsthis",
                        "<title>Tab Bar</title>"
                        "<para>The tab bar allows you to switch between sessions. You can double-click a tab to edit its label.</para>"));
 
@@ -50,7 +50,7 @@ TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
 
     m_mousePressed = false;
     m_mousePressedIndex = -1;
-    
+
     m_dropIndicator = 0;
 
     m_mainWindow = mainWindow;
@@ -198,13 +198,13 @@ void TabBar::paintEvent(QPaintEvent*)
     int x = m_skin->tabBarPosition().x();
     int y = m_skin->tabBarPosition().y();
     m_tabWidths.clear();
-    
+
     QRect tabsClipRect(x, y, m_closeTabButton->x() - x, height() - y);
     painter.setClipRect(tabsClipRect);
 
-    for (int index = 0; index < m_tabs.size(); ++index) 
+    for (int index = 0; index < m_tabs.size(); ++index)
     {
-        x = drawButton(x, y, index, painter);        
+        x = drawButton(x, y, index, painter);
         m_tabWidths << x;
     }
 
@@ -217,7 +217,7 @@ void TabBar::paintEvent(QPaintEvent*)
     QRegion backgroundClipRegion(rect());
     backgroundClipRegion = backgroundClipRegion.subtracted(m_newTabButton->geometry());
     backgroundClipRegion = backgroundClipRegion.subtracted(m_closeTabButton->geometry());
-    QRect tabsRect(m_skin->tabBarPosition().x(), y, x - m_skin->tabBarPosition().x(), 
+    QRect tabsRect(m_skin->tabBarPosition().x(), y, x - m_skin->tabBarPosition().x(),
         height() - m_skin->tabBarPosition().y());
     backgroundClipRegion = backgroundClipRegion.subtracted(tabsRect);
     painter.setClipRegion(backgroundClipRegion);
@@ -287,7 +287,7 @@ int TabBar::drawButton(int x, int y, int index, QPainter& painter)
         painter.drawPixmap(x, m_skin->tabBarPosition().y(), m_skin->tabBarSeparatorImage());
         x += m_skin->tabBarSeparatorImage().width();
     }
-    
+
     return x;
 }
 
@@ -312,7 +312,7 @@ void TabBar::wheelEvent(QWheelEvent* event)
 
 void TabBar::keyPressEvent(QKeyEvent* event)
 {
-    if (event->key() == Qt::Key_Escape && m_lineEdit->isVisible()) 
+    if (event->key() == Qt::Key_Escape && m_lineEdit->isVisible())
         m_lineEdit->hide();
 
     QWidget::keyPressEvent(event);
@@ -372,14 +372,14 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
                 startDrag(index);
         }
     }
-    
+
     QWidget::mouseMoveEvent(event);
 }
 
 void TabBar::dragEnterEvent(QDragEnterEvent* event)
 {
     TabBar* eventSource = qobject_cast<TabBar*>(event->source());
-    
+
     if (eventSource)
     {
         event->setDropAction(Qt::MoveAction);
@@ -389,24 +389,24 @@ void TabBar::dragEnterEvent(QDragEnterEvent* event)
     {
         drawDropIndicator(-1);
         event->ignore();
-    }        
-    
+    }
+
     return;
 }
 
 void TabBar::dragMoveEvent(QDragMoveEvent* event)
 {
     TabBar* eventSource = qobject_cast<TabBar*>(event->source());
-    
+
     if (eventSource && event->pos().x() > m_skin->tabBarPosition().x() && event->pos().x() < m_closeTabButton->x())
     {
         int index = dropIndex(event->pos());
-        
+
         if (index == -1)
             index = m_tabs.size();
-        
+
         drawDropIndicator(index, isSameTab(event));
-        
+
         event->setDropAction(Qt::MoveAction);
         event->accept();
     }
@@ -415,7 +415,7 @@ void TabBar::dragMoveEvent(QDragMoveEvent* event)
         drawDropIndicator(-1);
         event->ignore();
     }
-    
+
     return;
 }
 
@@ -423,16 +423,16 @@ void TabBar::dragLeaveEvent(QDragLeaveEvent* event)
 {
     drawDropIndicator(-1);
     event->ignore();
-    
+
     return;
 }
 
 void TabBar::dropEvent(QDropEvent* event)
 {
     drawDropIndicator(-1);
-    
+
     int x = event->pos().x();
-    
+
     if (isSameTab(event) || x < m_skin->tabBarPosition().x() || x > m_closeTabButton->x())
         event->ignore();
     else
@@ -440,20 +440,20 @@ void TabBar::dropEvent(QDropEvent* event)
         int targetIndex = dropIndex(event->pos());
         int sourceSessionId = event->mimeData()->text().toInt();
         int sourceIndex = m_tabs.indexOf(sourceSessionId);
-        
+
         if (targetIndex == -1)
             targetIndex = m_tabs.size() - 1;
         else if (targetIndex < 0)
             targetIndex = 0;
         else if (sourceIndex < targetIndex)
             --targetIndex;
-        
+
         m_tabs.move(sourceIndex, targetIndex);
         selectTab(sourceSessionId);
-        
+
         event->accept();
     }
-    
+
     return;
 }
 
@@ -513,7 +513,7 @@ void TabBar::removeTab(int sessionId)
     m_tabs.removeAt(index);
     m_tabTitles.remove(sessionId);
 
-    if (m_tabs.count() == 0) 
+    if (m_tabs.count() == 0)
         emit newTabRequested();
     else
         emit tabSelected(m_tabs.last());
@@ -665,7 +665,7 @@ QString TabBar::standardTabTitle()
 
         QHashIterator<int, QString> it(m_tabTitles);
 
-        while (it.hasNext()) 
+        while (it.hasNext())
         {
             it.next();
 
@@ -702,46 +702,46 @@ QString TabBar::makeTabTitle(int id)
 void TabBar::startDrag(int index)
 {
     int sessionId = sessionAtTab(index);
-    
+
     // if (sessionId < 0) return;
-    
+
     int x = index ? m_tabWidths.at(index - 1) : m_skin->tabBarPosition().x();
     int tabWidth = m_tabWidths.at(index) - x;
     QString title = tabTitle(sessionId);
-    
+
     QPixmap tab(tabWidth, height());
     tab.fill(Qt::transparent);
-    
+
     QPainter painter(&tab);
     painter.initFrom(this);
     painter.setPen(m_skin->tabBarTextColor());
     drawButton(0, 0, index, painter);
     painter.end();
-    
+
     QMimeData* mimeData = new QMimeData;
     mimeData->setText(QVariant(sessionId).toString());
-    
+
     QDrag* drag = new QDrag(this);
     drag->setMimeData(mimeData);
     drag->setPixmap(tab);
     drag->exec(Qt::MoveAction);
-    
+
     return;
 }
 
 void TabBar::drawDropIndicator(int index, bool disabled)
 {
     const int arrowSize = 16;
-    
+
     if (!m_dropIndicator)
     {
         m_dropIndicator = new QLabel(parentWidget());
         m_dropIndicator->resize(arrowSize, arrowSize);
     }
-    
+
     QIcon::Mode drawMode = disabled ? QIcon::Disabled : QIcon::Normal;
     m_dropIndicator->setPixmap(KIcon("arrow-down").pixmap(arrowSize, arrowSize, drawMode));
-    
+
     if (index < 0)
     {
         m_dropIndicator->hide();
@@ -753,24 +753,24 @@ void TabBar::drawDropIndicator(int index, bool disabled)
         temp_index = index - 1;
     else
         temp_index = index;
-    
+
     int x = temp_index ? m_tabWidths.at(temp_index - 1) : m_skin->tabBarPosition().x();
     int tabWidth = m_tabWidths.at(temp_index) - x;
     int y = m_skin->tabBarPosition().y();
 
     m_dropRect = QRect(x, y - height(), tabWidth, height() - y);
     QPoint pos;
-    
+
     if (index < m_tabs.size())
         pos = m_dropRect.topLeft();
     else
-        pos = m_dropRect.topRight();    
-    
-    pos.rx() -= arrowSize/2; 
+        pos = m_dropRect.topRight();
+
+    pos.rx() -= arrowSize/2;
 
     m_dropIndicator->move(mapTo(parentWidget(),pos));
     m_dropIndicator->show();
-    
+
     return;
 }
 
@@ -779,18 +779,18 @@ int TabBar::dropIndex(const QPoint pos)
     int index = tabAt(pos.x());
     if (index < 0)
         return index;
-    
+
     int x = index ? m_tabWidths.at(index - 1) : m_skin->tabBarPosition().x();
     int tabWidth = m_tabWidths.at(index) - x;
     int y = m_skin->tabBarPosition().y();
     m_dropRect = QRect(x, y - height(), tabWidth, height() - y);
-    
+
     if ((pos.x()-m_dropRect.left()) > (m_dropRect.width()/2))
         ++index;
-   
+
     if (index == m_tabs.size())
         return -1;
-    
+
     return index;
 }
 
@@ -799,9 +799,9 @@ bool TabBar::isSameTab(const QDropEvent* event)
     int index = dropIndex(event->pos());
     int sourceSessionId = event->mimeData()->text().toInt();
     int sourceIndex = m_tabs.indexOf(sourceSessionId);
-    
+
     bool isLastTab = (sourceIndex == m_tabs.size()-1) && (index == -1);
-    
+
     if ((sourceIndex == index) || (sourceIndex == index-1) || isLastTab)
         return true;
     else
