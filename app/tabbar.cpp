@@ -367,7 +367,7 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
         int distance = (event->pos() - m_startPos).manhattanLength();
         if (distance >= KGlobalSettings::dndEventDelay())
         {
-            int index = tabAt(event->x());
+            int index = tabAt(m_startPos.x());
             if (index >= 0)
                 startDrag(index);
         }
