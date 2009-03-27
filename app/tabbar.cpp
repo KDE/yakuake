@@ -22,6 +22,7 @@
 #include "tabbar.h"
 #include "mainwindow.h"
 #include "skin.h"
+#include "sessionstack.h"
 
 #include <KLineEdit>
 #include <KMenu>
@@ -120,6 +121,7 @@ void TabBar::readyTabContextMenu()
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("move-session-right"));
         m_tabContextMenu->addSeparator();
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("rename-session"));
+        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("toggle-session-closable"));
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("close-session"));
     }
 }
@@ -139,6 +141,7 @@ void TabBar::readySessionMenu()
 void TabBar::updateMoveActions(int index)
 {
     if (index == -1) return;
+    int sessionId = sessionAtTab(index);
 
     m_mainWindow->actionCollection()->action("move-session-left")->setEnabled(false);
     m_mainWindow->actionCollection()->action("move-session-right")->setEnabled(false);
@@ -148,6 +151,10 @@ void TabBar::updateMoveActions(int index)
 
     if (index != m_tabs.indexOf(m_tabs.last()))
         m_mainWindow->actionCollection()->action("move-session-right")->setEnabled(true);
+
+    m_mainWindow->actionCollection()->action("toggle-keyboard-input")->setChecked(!m_mainWindow->sessionStack()->isKeyboardInputEnabled(sessionId));
+
+    m_mainWindow->actionCollection()->action("toggle-session-closable")->setChecked(!m_mainWindow->sessionStack()->isSessionClosable(sessionId));
 }
 
 void TabBar::contextMenuEvent(QContextMenuEvent* event)

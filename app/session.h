@@ -65,8 +65,11 @@ class Session : public QObject
         void manageProfiles();
         void editProfile();
 
-        bool keyboardInputEnabled() { return m_keyboardInputEnabled; }
+        bool isKeyboardInputEnabled() { return m_keyboardInputEnabled; }
         void setKeyboardInputEnabled(bool keyboardInputEnabled);
+
+        bool isSessionClosable() { return m_sessionClosable; }
+        void setSessionClosable(bool sessionClosable);
 
 
     signals:
@@ -101,6 +104,7 @@ class Session : public QObject
         QString m_title;
 
         bool m_keyboardInputEnabled;
+        bool m_sessionClosable;
 };
 
 #endif 

@@ -56,6 +56,7 @@ class MainWindow : public KMainWindow
         ~MainWindow();
 
         KActionCollection* actionCollection() { return m_actionCollection; }
+        SessionStack* sessionStack() { return m_sessionStack; }
 
         Skin* skin() { return m_skin; }
         KMenu* menu() { return m_menu; }

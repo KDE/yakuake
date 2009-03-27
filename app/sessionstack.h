@@ -75,8 +75,11 @@ class SessionStack : public QStackedWidget
         Q_SCRIPTABLE void runCommand(const QString& command);
         Q_SCRIPTABLE void runCommandInTerminal(int terminalId, const QString& command);
 
+        Q_SCRIPTABLE bool isKeyboardInputEnabled(int sessionId);
         Q_SCRIPTABLE void setKeyboardInputEnabled(int sessionId, bool keyboardInputEnabled);
 
+        Q_SCRIPTABLE bool isSessionClosable(int sessionId);
+        Q_SCRIPTABLE void setSessionClosable(int sessionId, bool sessionClosable);
 
     signals:
         void sessionAdded(int sessionId, const QString& title = 0);
@@ -99,6 +102,7 @@ class SessionStack : public QStackedWidget
 
 
     private:
+        bool queryClose(int sessionId);
         int m_activeSessionId;
 
         QHash<int, Session*> m_sessions;

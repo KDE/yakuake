@@ -33,6 +33,7 @@ Session::Session(SessionType type, QWidget* parent) : QObject(parent)
     m_activeTerminalId = -1;
 
     m_keyboardInputEnabled = true;
+    m_sessionClosable = true;
 
     m_baseSplitter = new Splitter(Qt::Horizontal, parent);
     connect(m_baseSplitter, SIGNAL(destroyed()), this, SLOT(prepareShutdown()));
@@ -401,4 +402,9 @@ void Session::setKeyboardInputEnabled(bool keyboardInputEnabled)
 
         it.value()->setKeyboardInputEnabled(m_keyboardInputEnabled);
     }
+}
+
+void Session::setSessionClosable(bool sessionClosable)
+{
+    m_sessionClosable = sessionClosable;
 }

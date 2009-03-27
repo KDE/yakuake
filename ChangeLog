@@ -23,6 +23,12 @@ Changes since 2.9.5:
 * Fixed the 'removeTerminal(int terminalId)' D-Bus call always closing the
   active terminal of the session containing the target terminal, rather than
   the target terminal.
+* Added a feature to prevent a session from being closed (set through keyboard
+  shortcut or context menu). This lock only works if the session is closed
+  through either Close Session or Close Active Terminal.
+* Started fix for Disable Keyboard Input and Prevent Session Closing context
+  menus states being carried over to all sessions even if other sessions are
+  not really affected (still needs some more fixing though).
 
 
 Changes in 2.9.4:

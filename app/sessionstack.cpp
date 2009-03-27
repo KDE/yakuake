@@ -22,6 +22,9 @@
 #include "sessionstack.h"
 #include "settings.h"
 
+#include <KMessageBox>
+#include <KLocalizedString>
+
 #include <QtDBus/QtDBus>
 
 
@@ -107,28 +110,26 @@ void SessionStack::removeSession(int sessionId)
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
-    m_sessions[sessionId]->deleteLater();
+    if (queryClose(sessionId))
+        m_sessions[sessionId]->deleteLater();
 }
 
 void SessionStack::removeTerminal(int terminalId)
 {
+    int sessionId = sessionIdForTerminalId(terminalId);
+
     if (terminalId == -1)
     {
         if (m_activeSessionId == -1) return;
         if (!m_sessions.contains(m_activeSessionId)) return;
 
-        m_sessions[m_activeSessionId]->closeTerminal();
+        if (queryClose(sessionId))
+            m_sessions[m_activeSessionId]->closeTerminal();
     }
     else
     {
-        QHashIterator<int, Session*> it(m_sessions);
-
-        while (it.hasNext())
-        {
-            it.next();
-
-            it.value()->closeTerminal(terminalId);
-        }
+        if (queryClose(sessionId))
+            m_sessions[sessionId]->closeTerminal(terminalId);
     }
 }
 
@@ -138,7 +139,8 @@ void SessionStack::closeActiveTerminal(int sessionId)
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
-    m_sessions[sessionId]->closeTerminal();
+    if (queryClose(sessionId))
+        m_sessions[sessionId]->closeTerminal();
 }
 
 
@@ -231,6 +233,15 @@ void SessionStack::runCommandInTerminal(int terminalId, const QString& command)
     }
 }
 
+bool SessionStack::isKeyboardInputEnabled(int sessionId)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return false;
+    if (!m_sessions.contains(sessionId)) return false;
+
+    return m_sessions[sessionId]->isKeyboardInputEnabled();
+}
+
 void SessionStack::setKeyboardInputEnabled(int sessionId, bool keyboardInputEnabled)
 {
     if (sessionId == -1) sessionId = m_activeSessionId;
@@ -300,4 +311,38 @@ void SessionStack::emitTitles()
         if (!title.isEmpty()) 
             emit titleChanged(it.value()->id(), title);
     }
+}
+
+bool SessionStack::isSessionClosable(int sessionId)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return false;
+    if (!m_sessions.contains(sessionId)) return false;
+
+    return m_sessions[sessionId]->isSessionClosable();
+}
+
+void SessionStack::setSessionClosable(int sessionId, bool sessionClosable)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return;
+    if (!m_sessions.contains(sessionId)) return;
+
+    m_sessions[sessionId]->setSessionClosable(sessionClosable);
+}
+
+bool SessionStack::queryClose(int sessionId)
+{
+    if (!m_sessions[sessionId]->isSessionClosable())
+    {
+        int result = KMessageBox::warningContinueCancel(this,
+            i18nc("@info", "<warning>This session has been locked to prevent closing.</warning><nl/><nl/>"
+                        "Are you sure you want to close?"),
+            i18nc("@title:window", "Really Close?"), KStandardGuiItem::close(), KStandardGuiItem::cancel());
+
+        if (result != KMessageBox::Continue)
+            return false;
+    }
+
+    return true;
 }
