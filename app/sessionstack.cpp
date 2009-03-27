@@ -110,7 +110,7 @@ void SessionStack::removeSession(int sessionId)
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
-    if (queryClose(sessionId))
+    if (queryClose(sessionId, QueryCloseSession))
         m_sessions[sessionId]->deleteLater();
 }
 
@@ -123,12 +123,12 @@ void SessionStack::removeTerminal(int terminalId)
         if (m_activeSessionId == -1) return;
         if (!m_sessions.contains(m_activeSessionId)) return;
 
-        if (queryClose(sessionId))
+        if (m_sessions[m_activeSessionId]->isSessionClosable())
             m_sessions[m_activeSessionId]->closeTerminal();
     }
     else
     {
-        if (queryClose(sessionId))
+        if (m_sessions[sessionId]->isSessionClosable())
             m_sessions[sessionId]->closeTerminal(terminalId);
     }
 }
@@ -139,7 +139,7 @@ void SessionStack::closeActiveTerminal(int sessionId)
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
-    if (queryClose(sessionId))
+    if (queryClose(sessionId, QueryCloseTerminal))
         m_sessions[sessionId]->closeTerminal();
 }
 
@@ -331,13 +331,20 @@ void SessionStack::setSessionClosable(int sessionId, bool sessionClosable)
     m_sessions[sessionId]->setSessionClosable(sessionClosable);
 }
 
-bool SessionStack::queryClose(int sessionId)
+bool SessionStack::queryClose(int sessionId, QueryCloseType type)
 {
     if (!m_sessions[sessionId]->isSessionClosable())
     {
+        QString closeQuestionIntro = i18nc("@info", "<warning>This session has been locked to prevent accidental closing of terminals.</warning>");
+        QString closeQuestion;
+
+        if (type == QueryCloseSession)
+            closeQuestion = i18nc("@info", "Are you sure you want to close this session?");
+        else if (type == QueryCloseTerminal)
+            closeQuestion = i18nc("@info", "Are you sure you want to close this terminal?");
+
         int result = KMessageBox::warningContinueCancel(this,
-            i18nc("@info", "<warning>This session has been locked to prevent accidental closing of terminals.</warning><nl/><nl/>"
-                        "Are you sure you want to close?"),
+            closeQuestionIntro + "<br/><br/>" + closeQuestion,
             i18nc("@title:window", "Really Close?"), KStandardGuiItem::close(), KStandardGuiItem::cancel());
 
         if (result != KMessageBox::Continue)

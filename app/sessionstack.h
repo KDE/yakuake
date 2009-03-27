@@ -102,7 +102,9 @@ class SessionStack : public QStackedWidget
 
 
     private:
-        bool queryClose(int sessionId);
+        enum QueryCloseType { QueryCloseSession, QueryCloseTerminal };
+        bool queryClose(int sessionId, QueryCloseType type);
+
         int m_activeSessionId;
 
         QHash<int, Session*> m_sessions;
