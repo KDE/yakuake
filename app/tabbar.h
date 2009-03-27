@@ -108,9 +108,9 @@ class TabBar : public QWidget
 
         void updateMoveActions(int index);
         void updateToggleActions(int index);
-        
+
         int drawButton(int x, int y, int index, QPainter& painter);
-        
+
         void startDrag(int index);
         void drawDropIndicator(int index, bool disabled = false);
         int dropIndex(const QPoint pos);
@@ -136,7 +136,7 @@ class TabBar : public QWidget
 
         int m_mousePressed;
         int m_mousePressedIndex;
-        
+
         QPoint m_startPos;
         QLabel* m_dropIndicator;
         QRect m_dropRect;
