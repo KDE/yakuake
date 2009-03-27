@@ -27,9 +27,6 @@ Changes since 2.9.5:
 * Added a feature to prevent a session from being closed (toggled via a user-
   configured shortcut or the context menu) by way of Yakuake's own shortcuts
   and actions, including D-Bus calls to get/set this state bit.
-* Started fix for Disable Keyboard Input and Prevent Session Closing context
-  menus states being carried over to all sessions even if other sessions are
-  not really affected (still needs some more fixing though).
 
 
 Changes in 2.9.4:
