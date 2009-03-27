@@ -159,11 +159,9 @@ void Session::closeTerminal(int terminalId)
 {
     if (terminalId == -1) terminalId = m_activeTerminalId;
     if (terminalId == -1) return;
-    if (!m_terminals.contains(terminalId)) return;    
+    if (!m_terminals.contains(terminalId)) return;
 
-    Terminal* activeTerminal = m_terminals[m_activeTerminalId];
-
-    if (activeTerminal) activeTerminal->deletePart();
+    m_terminals[terminalId]->deletePart();
 }
 
 void Session::focusPreviousTerminal()

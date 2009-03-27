@@ -20,6 +20,9 @@ Changes since 2.9.5:
   multi-key global shortcuts are not allowed in KDE is that they don't work.
 * Added D-Bus interfaces for splitting.
 * Fix crashes when closing sessions with certain split setups (also on quit).
+* Fixed the 'removeTerminal(int terminalId)' D-Bus call always closing the
+  active terminal of the session containing the target terminal, rather than
+  the target terminal.
 
 
 Changes in 2.9.4:
