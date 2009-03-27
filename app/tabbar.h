@@ -107,6 +107,7 @@ class TabBar : public QWidget
         int tabAt(int x);
 
         void updateMoveActions(int index);
+        void updateToggleActions(int index);
         
         int drawButton(int x, int y, int index, QPainter& painter);
         

@@ -296,8 +296,8 @@ void MainWindow::setupActions()
     connect(action, SIGNAL(toggled(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
     m_contextDependentActions << action;
 
-    action = actionCollection()->addAction("toggle-session-closable");
-    action->setText(i18nc("@action", "Prevent Session Closing"));
+    action = actionCollection()->addAction("toggle-prevent-closing");
+    action->setText(i18nc("@action", "Prevent Closing"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_P));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), this, SLOT(handleContextDependentToggleAction(bool)));

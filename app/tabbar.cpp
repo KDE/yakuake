@@ -141,7 +141,6 @@ void TabBar::readySessionMenu()
 void TabBar::updateMoveActions(int index)
 {
     if (index == -1) return;
-    int sessionId = sessionAtTab(index);
 
     m_mainWindow->actionCollection()->action("move-session-left")->setEnabled(false);
     m_mainWindow->actionCollection()->action("move-session-right")->setEnabled(false);
@@ -151,10 +150,17 @@ void TabBar::updateMoveActions(int index)
 
     if (index != m_tabs.indexOf(m_tabs.last()))
         m_mainWindow->actionCollection()->action("move-session-right")->setEnabled(true);
+}
 
-    m_mainWindow->actionCollection()->action("toggle-keyboard-input")->setChecked(!m_mainWindow->sessionStack()->isKeyboardInputEnabled(sessionId));
+void TabBar::updateToggleActions(int index)
+{
+    int sessionId = sessionAtTab(index);
+    if (sessionId == -1) return;
 
-    m_mainWindow->actionCollection()->action("toggle-session-closable")->setChecked(!m_mainWindow->sessionStack()->isSessionClosable(sessionId));
+    KActionCollection* actionCollection = m_mainWindow->actionCollection();
+
+    actionCollection->action("toggle-keyboard-input")->setChecked(!m_mainWindow->sessionStack()->isKeyboardInputEnabled(sessionId));
+    actionCollection->action("toggle-prevent-closing")->setChecked(!m_mainWindow->sessionStack()->isSessionClosable(sessionId));
 }
 
 void TabBar::contextMenuEvent(QContextMenuEvent* event)
@@ -168,6 +174,7 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
     else
     {
         updateMoveActions(index);
+        updateToggleActions(index);
 
         m_mainWindow->setContextDependentActionsQuiet(true);
 
@@ -184,6 +191,7 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
         m_mainWindow->setContextDependentActionsQuiet(false);
 
         updateMoveActions(m_tabs.indexOf(m_selectedSessionId));
+        updateToggleActions(index);
     }
 
     QWidget::contextMenuEvent(event);

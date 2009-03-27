@@ -13,7 +13,8 @@ Changes since 2.9.5:
 * Rewrote the translucency support not to use X11-specific code on Qt 4.5
   or higher and KDE 4.3 or higher.
 * Added a feature to disable keyboard input for a session (via a user-con-
-  figured shortcut or the context menu).
+  figured shortcut or the context menu), including D-Bus calls to get/set
+  this state bit.
 * On KDE 4.2 and higher, the first-run dialog now no longer allows setting
   a multi-key shortcut to open/close the window, consistent with the short-
   cut configuration dialog (the required API is new in 4.2). The reason
@@ -23,9 +24,9 @@ Changes since 2.9.5:
 * Fixed the 'removeTerminal(int terminalId)' D-Bus call always closing the
   active terminal of the session containing the target terminal, rather than
   the target terminal.
-* Added a feature to prevent a session from being closed (set through keyboard
-  shortcut or context menu). This lock only works if the session is closed
-  through either Close Session or Close Active Terminal.
+* Added a feature to prevent a session from being closed (toggled via a user-
+  configured shortcut or the context menu) by way of Yakuake's own shortcuts
+  and actions, including D-Bus calls to get/set this state bit.
 * Started fix for Disable Keyboard Input and Prevent Session Closing context
   menus states being carried over to all sessions even if other sessions are
   not really affected (still needs some more fixing though).
