@@ -112,9 +112,9 @@ void TabBar::readyTabContextMenu()
     {
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("split-left-right"));
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("split-top-bottom"));
+        m_tabContextMenu->addSeparator();
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("edit-profile"));
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("rename-session"));
-        m_tabContextMenu->addSeparator();
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("toggle-keyboard-input"));
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("toggle-prevent-closing"));
         m_tabContextMenu->addSeparator();
