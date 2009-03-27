@@ -337,7 +337,7 @@ bool SessionStack::queryClose(int sessionId)
     {
         int result = KMessageBox::warningContinueCancel(this,
             i18nc("@info", "<warning>This session has been locked to prevent accidental closing of terminals.</warning><nl/><nl/>"
-                        "Are you sure you want to close it?"),
+                        "Are you sure you want to close?"),
             i18nc("@title:window", "Really Close?"), KStandardGuiItem::close(), KStandardGuiItem::cancel());
 
         if (result != KMessageBox::Continue)
