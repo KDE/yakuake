@@ -357,7 +357,7 @@ void MainWindow::handleContextDependentToggleAction(bool toggle, QAction* action
     if (action == actionCollection()->action("toggle-keyboard-input"))
         m_sessionStack->setKeyboardInputEnabled(sessionId, !toggle);
 
-    if (action == actionCollection()->action("toggle-session-closable"))
+    if (action == actionCollection()->action("toggle-prevent-closing"))
         m_sessionStack->setSessionClosable(sessionId, !toggle);
 }
 
