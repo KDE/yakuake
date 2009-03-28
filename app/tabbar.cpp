@@ -159,9 +159,8 @@ void TabBar::updateToggleActions(int index)
 
     KActionCollection* actionCollection = m_mainWindow->actionCollection();
     SessionStack* sessionStack = m_mainWindow->sessionStack();
-    QAction* toggleAction;
 
-    toggleAction = actionCollection->action("toggle-keyboard-input");
+    QAction* toggleAction = actionCollection->action("toggle-keyboard-input");
     toggleAction->setChecked(!sessionStack->isKeyboardInputEnabled(sessionId));
 
     toggleAction = actionCollection->action("toggle-prevent-closing");
