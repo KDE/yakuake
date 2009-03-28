@@ -292,13 +292,13 @@ void MainWindow::setupActions()
     action = actionCollection()->addAction("toggle-keyboard-input");
     action->setText(i18nc("@action", "Disable Keyboard Input"));
     action->setCheckable(true);
-    connect(action, SIGNAL(toggled(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
+    connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction("toggle-prevent-closing");
     action->setText(i18nc("@action", "Prevent Closing"));
     action->setCheckable(true);
-    connect(action, SIGNAL(toggled(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
+    connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
     m_contextDependentActions << action;
 
     for (uint i = 1; i <= 10; ++i)

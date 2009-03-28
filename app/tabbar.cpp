@@ -162,14 +162,8 @@ void TabBar::updateToggleActions(int index)
     QAction* toggleKeyboardInput = actionCollection->action("toggle-keyboard-input");
     QAction* togglePreventClosing = actionCollection->action("toggle-prevent-closing");
 
-    toggleKeyboardInput->blockSignals(true);
-    togglePreventClosing->blockSignals(true);
-
     toggleKeyboardInput->setChecked(!m_mainWindow->sessionStack()->isKeyboardInputEnabled(sessionId));
     togglePreventClosing->setChecked(!m_mainWindow->sessionStack()->isSessionClosable(sessionId));
-
-    toggleKeyboardInput->blockSignals(false);
-    togglePreventClosing->blockSignals(false);
 }
 
 void TabBar::contextMenuEvent(QContextMenuEvent* event)
