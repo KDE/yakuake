@@ -251,6 +251,24 @@ void SessionStack::setKeyboardInputEnabled(int sessionId, bool keyboardInputEnab
     m_sessions[sessionId]->setKeyboardInputEnabled(keyboardInputEnabled);
 }
 
+bool SessionStack::isSessionClosable(int sessionId)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return false;
+    if (!m_sessions.contains(sessionId)) return false;
+
+    return m_sessions[sessionId]->isSessionClosable();
+}
+
+void SessionStack::setSessionClosable(int sessionId, bool sessionClosable)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return;
+    if (!m_sessions.contains(sessionId)) return;
+
+    m_sessions[sessionId]->setSessionClosable(sessionClosable);
+}
+
 void SessionStack::editProfile(int sessionId)
 {
     if (sessionId == -1) sessionId = m_activeSessionId;
@@ -311,24 +329,6 @@ void SessionStack::emitTitles()
         if (!title.isEmpty()) 
             emit titleChanged(it.value()->id(), title);
     }
-}
-
-bool SessionStack::isSessionClosable(int sessionId)
-{
-    if (sessionId == -1) sessionId = m_activeSessionId;
-    if (sessionId == -1) return false;
-    if (!m_sessions.contains(sessionId)) return false;
-
-    return m_sessions[sessionId]->isSessionClosable();
-}
-
-void SessionStack::setSessionClosable(int sessionId, bool sessionClosable)
-{
-    if (sessionId == -1) sessionId = m_activeSessionId;
-    if (sessionId == -1) return;
-    if (!m_sessions.contains(sessionId)) return;
-
-    m_sessions[sessionId]->setSessionClosable(sessionClosable);
 }
 
 bool SessionStack::queryClose(int sessionId, QueryCloseType type)
