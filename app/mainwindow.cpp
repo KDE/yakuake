@@ -833,8 +833,12 @@ void MainWindow::toggleMousePoll(bool poll)
 void MainWindow::pollMouse()
 {
     QPoint pos = QCursor::pos();
+    QRect workArea = getDesktopGeometry();
 
-    if (pos.y() == 0 && pos.x() >= x() && pos.x() <= (x() + width()))
+    int windowX = workArea.x() + workArea.width() * Settings::position() * (100 - Settings::width()) / 10000;
+    int windowWidth = workArea.width() * Settings::width() / 100;
+
+    if (pos.y() == 0 && pos.x() >= windowX && pos.x() <= (windowX + windowWidth))
         toggleWindowState();
 }
 
