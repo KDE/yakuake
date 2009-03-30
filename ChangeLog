@@ -27,6 +27,12 @@ Changes since 2.9.5:
 * Added a feature to prevent a session from being closed (toggled via a user-
   configured shortcut or the context menu) by way of Yakuake's own shortcuts
   and actions, including D-Bus calls to get/set this state bit.
+* The auto-open-on-mouse-pointer-hitting-the-screen edge feature now checks
+  the position of the mouse pointer against the actual position and width of
+  the window rather than triggering on the entire screen edge. This way, the
+  screen corners are freed up e.g. for KWin Desktop Effects triggers with the
+  default Yakuake window width of 90%.
+* Simplified calculations done during mouse polling.
 
 
 Changes in 2.9.4:

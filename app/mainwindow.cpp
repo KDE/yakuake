@@ -834,13 +834,8 @@ void MainWindow::pollMouse()
 {
     QPoint pos = QCursor::pos();
 
-    if (pos.y() == 0)
-    {
-        if (Settings::screen() == 0) 
-            toggleWindowState();
-        else if (pos.x() >= getDesktopGeometry().x() && pos.x() <= (getDesktopGeometry().x() + getDesktopGeometry().width()))
-            toggleWindowState();
-    }
+    if (pos.y() == 0 && pos.x() >= x() && pos.x() <= (x() + width()))
+        toggleWindowState();
 }
 
 void MainWindow::setKeepOpen(bool keepOpen)
