@@ -72,6 +72,8 @@ MainWindow::MainWindow(QWidget* parent)
     m_titleBar = new TitleBar(this);
     m_firstRunDialog = NULL;
 
+    m_togglingWindowState = false;
+
     setupActions();
     setupMenu();
 
@@ -138,18 +140,20 @@ void MainWindow::setupActions()
 {
     m_actionCollection = new KActionCollection(this);
 
+    KToggleFullScreenAction* fullScreenAction = new KToggleFullScreenAction(this);
+    fullScreenAction->setWindow(this);
+    fullScreenAction->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_F11));
+    m_actionCollection->addAction("view-full-screen", fullScreenAction);
+    connect(fullScreenAction, SIGNAL(toggled(bool)), this, SLOT(setFullScreen(bool)));
+
     KAction* action = KStandardAction::quit(kapp, SLOT(quit()),actionCollection());
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Q));
 
     action = KStandardAction::aboutApp(m_helpMenu, SLOT(aboutApplication()), actionCollection());
     action = KStandardAction::aboutKDE(m_helpMenu, SLOT(aboutKDE()), actionCollection());
- 
+
     action = KStandardAction::keyBindings(this, SLOT(configureKeys()), actionCollection());
     action = KStandardAction::preferences(this, SLOT(configureApp()), actionCollection());
-
-    action = KStandardAction::fullScreen(this, SLOT(updateFullScreen()), this, actionCollection());
-    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_F11));
-    connect(action, SIGNAL(toggled(bool)), this, SLOT(setFullScreen(bool)));
 
     action = KStandardAction::whatsThis(this, SLOT(whatsThis()), actionCollection());
 
@@ -383,7 +387,7 @@ void MainWindow::setupMenu()
     m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::AboutKDE)));
 
     m_menu->addTitle(i18nc("@title:menu", "Quick Options"));
-    m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::FullScreen)));
+    m_menu->addAction(actionCollection()->action("view-full-screen"));
     m_menu->addAction(actionCollection()->action("keep-open"));
 
     m_screenMenu = new KMenu(this);
@@ -572,10 +576,22 @@ void MainWindow::applyWindowProperties()
 
 void MainWindow::applyWindowGeometry()
 {
-    QAction* action =  actionCollection()->action(KStandardAction::stdName(KStandardAction::FullScreen));
-    if (action->isChecked()) action->activate(KAction::Trigger);
+    int width, height;
 
-    setWindowGeometry(Settings::width(), Settings::height(), Settings::position());
+    QAction* action = actionCollection()->action("view-full-screen");
+
+    if (action->isChecked())
+    {
+        width = 100;
+        height = 100;
+    }
+    else
+    {
+        width = Settings::width();
+        height = Settings::height();
+    }
+
+    setWindowGeometry(width, height, Settings::position());
 }
 
 void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition)
@@ -731,6 +747,8 @@ void MainWindow::changeEvent(QEvent* event)
 
 void MainWindow::toggleWindowState()
 {
+    m_togglingWindowState = true;
+
     if (m_animationTimer.isActive()) return;
 
     if (isVisible())
@@ -739,6 +757,13 @@ void MainWindow::toggleWindowState()
         {
             KWindowSystem::forceActiveWindow(winId());
             return;
+        }
+
+        QAction* action = actionCollection()->action("view-full-screen");
+        if (action->isChecked())
+        {
+            action->setChecked(false);
+            applyWindowGeometry();
         }
 
         m_animationFrame = Settings::frames();
@@ -755,6 +780,8 @@ void MainWindow::toggleWindowState()
         connect(&m_animationTimer, SIGNAL(timeout()), this, SLOT(openWindow()));
         m_animationTimer.start();
     }
+
+    m_togglingWindowState = false;
 }
 
 void MainWindow::openWindow()
@@ -852,23 +879,18 @@ void MainWindow::setKeepOpen(bool keepOpen)
 
 void MainWindow::setFullScreen(bool state)
 {
-     if (state)
-        setWindowGeometry(100, 100, Settings::position());
-     else
-        applyWindowGeometry();
-}
-
-void MainWindow::updateFullScreen()
-{
-    QAction* action =  actionCollection()->action(KStandardAction::stdName(KStandardAction::FullScreen));
-
-    if (action->isChecked())
+    if (state)
     {
+        setWindowState(windowState() | Qt::WindowFullScreen);
         setWindowGeometry(100, 100, Settings::position());
-        this->setWindowState(windowState() | Qt::WindowFullScreen);
     }
     else
+    {
         this->setWindowState(windowState() & ~Qt::WindowFullScreen);
+
+        if (!m_togglingWindowState)
+            setWindowGeometry(Settings::width(), Settings::height(), Settings::position());
+    }
 }
 
 int MainWindow::getScreen()
@@ -881,7 +903,7 @@ int MainWindow::getScreen()
 
 QRect MainWindow::getDesktopGeometry()
 {
-    QAction* action = actionCollection()->action(KStandardAction::stdName(KStandardAction::FullScreen));
+    QAction* action = actionCollection()->action("view-full-screen");
 
     if (action->isChecked()) 
         return KApplication::desktop()->screenGeometry(getScreen());

@@ -30,8 +30,10 @@ Changes since 2.9.5:
 * The auto-open-on-mouse-pointer-hitting-the-screen edge feature now checks
   the position of the mouse pointer against the actual position and width of
   the window rather than triggering on the entire screen edge. This way, the
-  screen corners are freed up e.g. for KWin Desktop Effects triggers with the
-  default Yakuake window width of 90%.
+  screen corners are freed up e.g. for KWin Desktop Effects triggers with
+  the default Yakuake window width of 90%.
+* Rewrote fullscreen handling, fixing bugs such as exiting fullscreen mode
+  on virtual desktop switch.
 
 
 Changes in 2.9.4:

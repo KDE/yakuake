@@ -110,7 +110,6 @@ class MainWindow : public KMainWindow
         void setKeepOpen(bool keepOpen);
 
         void setFullScreen(bool state);
-        void updateFullScreen();
 
         void handleSwitchToAction();
 
@@ -163,6 +162,7 @@ class MainWindow : public KMainWindow
         QTimer m_mousePoller;
         int m_animationFrame;
         int m_animationStepSize;
+        bool m_togglingWindowState;
 };
 
 #endif
