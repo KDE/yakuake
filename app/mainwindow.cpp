@@ -72,8 +72,6 @@ MainWindow::MainWindow(QWidget* parent)
     m_titleBar = new TitleBar(this);
     m_firstRunDialog = NULL;
 
-    m_togglingWindowState = false;
-
     setupActions();
     setupMenu();
 
@@ -747,8 +745,6 @@ void MainWindow::changeEvent(QEvent* event)
 
 void MainWindow::toggleWindowState()
 {
-    m_togglingWindowState = true;
-
     if (m_animationTimer.isActive()) return;
 
     if (isVisible())
@@ -757,13 +753,6 @@ void MainWindow::toggleWindowState()
         {
             KWindowSystem::forceActiveWindow(winId());
             return;
-        }
-
-        QAction* action = actionCollection()->action("view-full-screen");
-        if (action->isChecked())
-        {
-            action->setChecked(false);
-            applyWindowGeometry();
         }
 
         m_animationFrame = Settings::frames();
@@ -780,8 +769,6 @@ void MainWindow::toggleWindowState()
         connect(&m_animationTimer, SIGNAL(timeout()), this, SLOT(openWindow()));
         m_animationTimer.start();
     }
-
-    m_togglingWindowState = false;
 }
 
 void MainWindow::openWindow()
@@ -886,10 +873,8 @@ void MainWindow::setFullScreen(bool state)
     }
     else
     {
-        this->setWindowState(windowState() & ~Qt::WindowFullScreen);
-
-        if (!m_togglingWindowState)
-            setWindowGeometry(Settings::width(), Settings::height(), Settings::position());
+        setWindowState(windowState() & ~Qt::WindowFullScreen);
+        setWindowGeometry(Settings::width(), Settings::height(), Settings::position());
     }
 }
 

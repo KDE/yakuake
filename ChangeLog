@@ -31,7 +31,7 @@ Changes since 2.9.5:
   the position of the mouse pointer against the actual position and width of
   the window rather than triggering on the entire screen edge. This way, the
   screen corners are freed up e.g. for KWin Desktop Effects triggers with
-  the default Yakuake window width of 90%.
+  the default Yakuake window width of 90% work area width.
 * Rewrote fullscreen handling, fixing bugs such as exiting fullscreen mode
   on virtual desktop switch.
 

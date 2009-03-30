@@ -162,7 +162,6 @@ class MainWindow : public KMainWindow
         QTimer m_mousePoller;
         int m_animationFrame;
         int m_animationStepSize;
-        bool m_togglingWindowState;
 };
 
 #endif
