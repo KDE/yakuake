@@ -118,11 +118,30 @@ MainWindow::~MainWindow()
 
 bool MainWindow::queryClose()
 {
-    if (Settings::confirmQuit() && m_sessionStack->count() > 1)
+    bool confirmQuit = Settings::confirmQuit();
+    bool hasUnclosableSessions = m_sessionStack->hasUnclosableSessions();
+
+    QString closeQuestion = i18nc("@info","Are you sure you want to quit?");
+    QString warningMessage;
+
+    if (!confirmQuit && !hasUnclosableSessions)
+        return true;
+    else
     {
+        if (confirmQuit && m_sessionStack->count() > 1)
+        {
+            if (hasUnclosableSessions)
+                warningMessage = i18nc("@info", "<warning>There are multiple open sessions, <strong>some of which you have locked to prevent closing them accidentally.</strong> These will be killed if you continue.</warning>");
+            else
+                warningMessage = i18nc("@info", "<warning>There are multiple open sessions. These will be killed if you continue.</warning>");
+        }
+        else if (hasUnclosableSessions)
+        {
+            warningMessage = i18nc("@info", "<warning>There are one or more open sessions that you have locked to prevent closing them accidentally. These will be killed if you continue.</warning>");
+        }
+
         int result = KMessageBox::warningContinueCancel(this,
-            i18nc("@info", "<warning>You have multiple open sessions. These will be killed if you continue.</warning><nl/><nl/>"
-                           "Are you sure you want to quit?"),
+            warningMessage + "<br /><br />" + closeQuestion,
             i18nc("@title:window", "Really Quit?"), KStandardGuiItem::quit(), KStandardGuiItem::cancel());
 
         if (result == KMessageBox::Continue)
@@ -130,8 +149,6 @@ bool MainWindow::queryClose()
         else
             return false;
     }
-
-    return true;
 }
 
 void MainWindow::setupActions()

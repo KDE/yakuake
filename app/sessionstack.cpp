@@ -229,6 +229,7 @@ void SessionStack::runCommandInTerminal(int terminalId, const QString& command)
     while (it.hasNext()) 
     {
         it.next();
+
         it.value()->runCommand(command, terminalId);
     }
 }
@@ -267,6 +268,20 @@ void SessionStack::setSessionClosable(int sessionId, bool sessionClosable)
     if (!m_sessions.contains(sessionId)) return;
 
     m_sessions[sessionId]->setSessionClosable(sessionClosable);
+}
+
+bool SessionStack::hasUnclosableSessions() const
+{
+    QHashIterator<int, Session*> it(m_sessions);
+
+    while (it.hasNext())
+    {
+        it.next();
+        if (!it.value()->isSessionClosable())
+            return true;
+    }
+
+    return false;
 }
 
 void SessionStack::editProfile(int sessionId)
@@ -335,7 +350,7 @@ bool SessionStack::queryClose(int sessionId, QueryCloseType type)
 {
     if (!m_sessions[sessionId]->isSessionClosable())
     {
-        QString closeQuestionIntro = i18nc("@info", "<warning>This session has been locked to prevent accidental closing of terminals.</warning>");
+        QString closeQuestionIntro = i18nc("@info", "<warning>You have locked this session to prevent accidental closing of terminals.</warning>");
         QString closeQuestion;
 
         if (type == QueryCloseSession)

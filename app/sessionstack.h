@@ -81,6 +81,8 @@ class SessionStack : public QStackedWidget
         Q_SCRIPTABLE bool isSessionClosable(int sessionId);
         Q_SCRIPTABLE void setSessionClosable(int sessionId, bool sessionClosable);
 
+        Q_SCRIPTABLE bool hasUnclosableSessions() const;
+
     signals:
         void sessionAdded(int sessionId, const QString& title = 0);
         void sessionRaised(int sessionId);
