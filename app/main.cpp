@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2008 by Eike Hein <hein@kde.org>
+  Copyright (C) 2008-2009 by Eike Hein <hein@kde.org>
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License as
@@ -45,7 +45,7 @@ int main (int argc, char *argv[])
         "2.9.4+",
         ki18nc("@title", "A drop-down terminal emulator based on KDE Konsole technology."),
         KAboutData::License_GPL,
-        ki18nc("@info:credit", "(c) 2008 The Yakuake Team"),
+        ki18nc("@info:credit", "(c) 2008-2009 The Yakuake Team"),
         ki18n(0),
         "http://yakuake.kde.org/");
 
