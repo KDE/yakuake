@@ -383,10 +383,9 @@ void MainWindow::handleContextDependentToggleAction(bool checked, QAction* actio
 
 void MainWindow::setContextDependentActionsQuiet(bool quiet)
 {
-    for (int i = 0; i < m_contextDependentActions.count(); ++i)
-    {
-        m_contextDependentActions.at(i)->blockSignals(quiet);
-    }
+    QListIterator<KAction*> i(m_contextDependentActions);
+
+    while (i.hasNext()) i.next()->blockSignals(quiet);
 }
 
 void MainWindow::handleToggleTerminalKeyboardInput(bool checked)

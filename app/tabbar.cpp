@@ -736,7 +736,6 @@ void TabBar::setTabTitle(int sessionId, const QString& newTitle)
 
 int TabBar::sessionAtTab(int index)
 {
-
     for (int i = 0; i < m_tabs.count(); ++i)
     {
         if (i == index) return m_tabs.at(i);

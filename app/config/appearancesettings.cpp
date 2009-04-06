@@ -81,26 +81,33 @@ void AppearanceSettings::populateSkinList()
     QStringList titleDirs = KGlobal::dirs()->findAllResources("data", "yakuake/skins/*/title.skin");
     QStringList tabDirs = KGlobal::dirs()->findAllResources("data", "yakuake/skins/*/tabs.skin");
 
-    for (int index = 0; index < titleDirs.count(); ++index)
+    QStringListIterator i(titleDirs);
+
+    while (i.hasNext())
     {
-        if (tabDirs.contains(titleDirs.at(index).section('/', 0, -2) + "/tabs.skin"))
-            skinDirs << titleDirs.at(index).section('/', 0, -2);
+        const QString& titleDir = i.next();
+
+        if (tabDirs.contains(titleDir.section('/', 0, -2) + "/tabs.skin"))
+            skinDirs << titleDir.section('/', 0, -2);
     }
 
     if (skinDirs.count() > 0)
     {
         m_skins->clear();
 
-        for (int index = 0; index < skinDirs.count(); ++index)
-        {
-            QString skinId = skinDirs.at(index).section('/', -1, -1);
+        QStringListIterator i(skinDirs);
 
-            int exists = m_skins->match(m_skins->index(0, 0), SkinId, skinId, 
+        while (i.hasNext())
+        {
+            const QString& skinDir = i.next();
+            QString skinId = skinDir.section('/', -1, -1);
+
+            int exists = m_skins->match(m_skins->index(0, 0), SkinId, skinId,
                 1, Qt::MatchExactly | Qt::MatchWrap).count();
 
-            if (exists == 0) 
+            if (exists == 0)
             {
-                QStandardItem* skin = createSkinItem(skinDirs.at(index));
+                QStandardItem* skin = createSkinItem(skinDir);
 
                 if (!skin) continue;
 
@@ -217,10 +224,10 @@ void AppearanceSettings::listSkinArchive(KIO::Job* /* job */, const KIO::UDSEntr
 {
     if (list.count() == 0) return;
 
-    for (int entry = 0; entry < list.count(); ++entry)
-    {  
-        m_installSkinFileList.append(list.at(entry).stringValue(KIO::UDSEntry::UDS_NAME));
-    }
+    QListIterator<KIO::UDSEntry> i(list);
+
+    while (i.hasNext())
+        m_installSkinFileList.append(i.next().stringValue(KIO::UDSEntry::UDS_NAME));
 }
 
 void AppearanceSettings::validateSkinArchive(KJob* job)

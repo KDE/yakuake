@@ -183,8 +183,10 @@ const QString SessionStack::sessionIdList()
     QList<int> keyList = m_sessions.uniqueKeys();
     QStringList idList;
 
-    for (int i = 0; i < keyList.count(); ++i)
-        idList << QString::number(keyList.at(i));
+    QListIterator<int> i(keyList);
+
+    while (i.hasNext())
+        idList << QString::number(i.next());
 
     return idList.join(",");
 }
