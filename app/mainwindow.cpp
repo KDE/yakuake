@@ -135,7 +135,7 @@ bool MainWindow::queryClose()
         if (confirmQuit && m_sessionStack->count() > 1)
         {
             if (hasUnclosableSessions)
-                warningMessage = i18nc("@info", "<warning>There are multiple open sessions, <strong>some of which you have locked to prevent closing them accidentally.</strong> These will be killed if you continue.</warning>");
+                warningMessage = i18nc("@info", "<warning>There are multiple open sessions, some of which you have locked to prevent closing them accidentally. These will be killed if you continue.</warning>");
             else
                 warningMessage = i18nc("@info", "<warning>There are multiple open sessions. These will be killed if you continue.</warning>");
         }
