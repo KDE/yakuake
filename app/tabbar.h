@@ -27,6 +27,7 @@
 #include <QHash>
 #include <QWidget>
 
+
 class MainWindow;
 class Skin;
 
@@ -76,6 +77,10 @@ class TabBar : public QWidget
         void tabSelected(int sessionId);
         void tabClosed(int sessionId);
 
+        void requestTerminalHighlight(int terminalId);
+        void requestRemoveTerminalHighlight();
+        void tabContextMenuClosed();
+
 
     protected:
         virtual void resizeEvent(QResizeEvent*);
@@ -98,6 +103,8 @@ class TabBar : public QWidget
         void readyTabContextMenu();
         void readySessionMenu();
 
+        void contextMenuActionHovered(QAction* action);
+
         void closeTabButtonClicked();
 
 
@@ -107,7 +114,8 @@ class TabBar : public QWidget
         int tabAt(int x);
 
         void updateMoveActions(int index);
-        void updateToggleActions(int index);
+        void updateToggleActions(int sessionId);
+        void updateToggleKeyboardInputMenu(int sessionId = -1);
 
         int drawButton(int x, int y, int index, QPainter& painter);
 
@@ -123,6 +131,7 @@ class TabBar : public QWidget
         KPushButton* m_closeTabButton;
 
         KMenu* m_tabContextMenu;
+        KMenu* m_toggleKeyboardInputMenu;
         KMenu* m_sessionMenu;
 
         KLineEdit* m_lineEdit;

@@ -21,6 +21,7 @@
 
 #include "sessionstack.h"
 #include "settings.h"
+#include "visualeventoverlay.h"
 
 #include <KMessageBox>
 #include <KLocalizedString>
@@ -33,6 +34,9 @@ SessionStack::SessionStack(QWidget* parent) : QStackedWidget(parent)
     QDBusConnection::sessionBus().registerObject("/yakuake/sessions", this, QDBusConnection::ExportScriptableSlots);
 
     m_activeSessionId = -1;
+
+    m_visualEventOverlay = new VisualEventOverlay(this);
+    connect(this, SIGNAL(removeTerminalHighlight()), m_visualEventOverlay, SLOT(removeTerminalHighlight()));
 }
 
 SessionStack::~SessionStack()
@@ -42,9 +46,10 @@ SessionStack::~SessionStack()
 void SessionStack::addSession(Session::SessionType type)
 {
     Session* session = new Session(type, this);
+    connect(session, SIGNAL(titleChanged(int, const QString&)), this, SIGNAL(titleChanged(int, const QString&)));
+    connect(session, SIGNAL(terminalManuallyActivated(Terminal*)), this, SLOT(handleManualTerminalActivation(Terminal*)));
+    connect(session, SIGNAL(keyboardInputBlocked(Terminal*)), m_visualEventOverlay, SLOT(indicateKeyboardInputBlocked(Terminal*)));
     connect(session, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
-    connect(session, SIGNAL(titleChanged(int, const QString&)),
-        this, SIGNAL(titleChanged(int, const QString&)));
 
     addWidget(session->widget());
 
@@ -75,6 +80,9 @@ void SessionStack::raiseSession(int sessionId)
 {
     if (sessionId == -1 || !m_sessions.contains(sessionId)) return;
 
+    if (!m_visualEventOverlay->isHidden())
+        m_visualEventOverlay->hide();
+
     if (m_activeSessionId != -1 && m_sessions.contains(m_activeSessionId))
     {
         disconnect(m_sessions[m_activeSessionId], SLOT(closeTerminal()));
@@ -91,6 +99,9 @@ void SessionStack::raiseSession(int sessionId)
 
     if (m_sessions[sessionId]->widget()->focusWidget())
         m_sessions[sessionId]->widget()->focusWidget()->setFocus();
+
+    if (!m_sessions[sessionId]->keyboardInputEnabled())
+        m_visualEventOverlay->show();
 
     connect(this, SIGNAL(closeTerminal()), m_sessions[sessionId], SLOT(closeTerminal()));
     connect(this, SIGNAL(previousTerminal()), m_sessions[sessionId], SLOT(focusPreviousTerminal()));
@@ -123,12 +134,12 @@ void SessionStack::removeTerminal(int terminalId)
         if (m_activeSessionId == -1) return;
         if (!m_sessions.contains(m_activeSessionId)) return;
 
-        if (m_sessions[m_activeSessionId]->isSessionClosable())
+        if (m_sessions[m_activeSessionId]->closable())
             m_sessions[m_activeSessionId]->closeTerminal();
     }
     else
     {
-        if (m_sessions[sessionId]->isSessionClosable())
+        if (m_sessions[sessionId]->closable())
             m_sessions[sessionId]->closeTerminal(terminalId);
     }
 }
@@ -151,6 +162,13 @@ void SessionStack::cleanup(int sessionId)
     m_sessions.remove(sessionId);
 
     emit sessionRemoved(sessionId);
+}
+
+QPointer<Session> SessionStack::session(int sessionId)
+{
+    if (!m_sessions.contains(sessionId)) return 0;
+
+    return m_sessions[sessionId];
 }
 
 int SessionStack::activeTerminalId()
@@ -207,6 +225,7 @@ int SessionStack::sessionIdForTerminalId(int terminalId)
         if (it.value()->hasTerminal(terminalId))
         {
             sessionId = it.key();
+
             break;
         }
     }
@@ -234,22 +253,56 @@ void SessionStack::runCommandInTerminal(int terminalId, const QString& command)
     }
 }
 
-bool SessionStack::isKeyboardInputEnabled(int sessionId)
+bool SessionStack::isSessionKeyboardInputEnabled(int sessionId)
 {
     if (sessionId == -1) sessionId = m_activeSessionId;
     if (sessionId == -1) return false;
     if (!m_sessions.contains(sessionId)) return false;
 
-    return m_sessions[sessionId]->isKeyboardInputEnabled();
+    return m_sessions[sessionId]->keyboardInputEnabled();
 }
 
-void SessionStack::setKeyboardInputEnabled(int sessionId, bool keyboardInputEnabled)
+void SessionStack::setSessionKeyboardInputEnabled(int sessionId, bool enabled)
 {
     if (sessionId == -1) sessionId = m_activeSessionId;
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
-    m_sessions[sessionId]->setKeyboardInputEnabled(keyboardInputEnabled);
+    m_sessions[sessionId]->setKeyboardInputEnabled(enabled);
+
+    if (sessionId == m_activeSessionId)
+    {
+        if (enabled)
+            m_visualEventOverlay->hide();
+        else
+            m_visualEventOverlay->show();
+    }
+}
+
+bool SessionStack::isTerminalKeyboardInputEnabled(int terminalId)
+{
+    int sessionId = sessionIdForTerminalId(terminalId);
+    if (sessionId == -1) return false;
+    if (!m_sessions.contains(sessionId)) return false;
+
+    return m_sessions[sessionId]->keyboardInputEnabled(terminalId);
+}
+
+void SessionStack::setTerminalKeyboardInputEnabled(int terminalId, bool enabled)
+{
+    int sessionId = sessionIdForTerminalId(terminalId);
+    if (sessionId == -1) return;
+    if (!m_sessions.contains(sessionId)) return;
+
+    m_sessions[sessionId]->setKeyboardInputEnabled(terminalId, enabled);
+
+    if (sessionId == m_activeSessionId)
+    {
+        if (enabled)
+            m_visualEventOverlay->hide();
+        else
+            m_visualEventOverlay->show();
+    }
 }
 
 bool SessionStack::isSessionClosable(int sessionId)
@@ -258,16 +311,16 @@ bool SessionStack::isSessionClosable(int sessionId)
     if (sessionId == -1) return false;
     if (!m_sessions.contains(sessionId)) return false;
 
-    return m_sessions[sessionId]->isSessionClosable();
+    return m_sessions[sessionId]->closable();
 }
 
-void SessionStack::setSessionClosable(int sessionId, bool sessionClosable)
+void SessionStack::setSessionClosable(int sessionId, bool closable)
 {
     if (sessionId == -1) sessionId = m_activeSessionId;
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
-    m_sessions[sessionId]->setSessionClosable(sessionClosable);
+    m_sessions[sessionId]->setClosable(closable);
 }
 
 bool SessionStack::hasUnclosableSessions() const
@@ -277,7 +330,8 @@ bool SessionStack::hasUnclosableSessions() const
     while (it.hasNext())
     {
         it.next();
-        if (!it.value()->isSessionClosable())
+
+        if (!it.value()->closable())
             return true;
     }
 
@@ -346,9 +400,51 @@ void SessionStack::emitTitles()
     }
 }
 
+bool SessionStack::requiresVisualEventOverlay()
+{
+    if (m_activeSessionId == -1) return false;
+    if (!m_sessions.contains(m_activeSessionId)) return false;
+
+    return m_sessions.value(m_activeSessionId)->hasTerminalsWithKeyboardInputDisabled();
+}
+
+void SessionStack::handleTerminalHighlightRequest(int terminalId)
+{
+    Terminal* terminal = 0;
+
+    QHashIterator<int, Session*> it(m_sessions);
+
+    while (it.hasNext())
+    {
+        it.next();
+
+        terminal = it.value()->getTerminal(terminalId);
+
+        if (terminal && it.value()->id() == m_activeSessionId)
+        {
+            m_visualEventOverlay->highlightTerminal(terminal, true);
+
+            break;
+        }
+    }
+}
+
+void SessionStack::handleManualTerminalActivation(Terminal* terminal)
+{
+    if (!Settings::terminalHighlightOnManualActivation())
+        return;
+
+    Session* session = qobject_cast<Session*>(QObject::sender());
+
+    if (session->terminalCount() > 1)
+        m_visualEventOverlay->highlightTerminal(terminal, false);
+}
+
 bool SessionStack::queryClose(int sessionId, QueryCloseType type)
 {
-    if (!m_sessions[sessionId]->isSessionClosable())
+    if (!m_sessions.contains(sessionId)) return false;
+
+    if (!m_sessions[sessionId]->closable())
     {
         QString closeQuestionIntro = i18nc("@info", "<warning>You have locked this session to prevent accidental closing of terminals.</warning>");
         QString closeQuestion;

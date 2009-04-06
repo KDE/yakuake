@@ -78,6 +78,9 @@ MainWindow::MainWindow(QWidget* parent)
     connect(m_tabBar, SIGNAL(newTabRequested()), m_sessionStack, SLOT(addSession()));
     connect(m_tabBar, SIGNAL(tabSelected(int)), m_sessionStack, SLOT(raiseSession(int)));
     connect(m_tabBar, SIGNAL(tabClosed(int)), m_sessionStack, SLOT(removeSession(int)));
+    connect(m_tabBar, SIGNAL(requestTerminalHighlight(int)), m_sessionStack, SLOT(handleTerminalHighlightRequest(int)));
+    connect(m_tabBar, SIGNAL(requestRemoveTerminalHighlight()), m_sessionStack, SIGNAL(removeTerminalHighlight()));
+    connect(m_tabBar, SIGNAL(tabContextMenuClosed()), m_sessionStack, SIGNAL(removeTerminalHighlight()));
 
     connect(m_sessionStack, SIGNAL(sessionAdded(int, const QString&)), 
         m_tabBar, SLOT(addTab(int, const QString&)));
@@ -308,13 +311,13 @@ void MainWindow::setupActions()
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
-    action = actionCollection()->addAction("toggle-keyboard-input");
+    action = actionCollection()->addAction("toggle-session-keyboard-input");
     action->setText(i18nc("@action", "Disable Keyboard Input"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
     m_contextDependentActions << action;
 
-    action = actionCollection()->addAction("toggle-prevent-closing");
+    action = actionCollection()->addAction("toggle-session-prevent-closing");
     action->setText(i18nc("@action", "Prevent Closing"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
@@ -364,18 +367,18 @@ void MainWindow::handleContextDependentAction(QAction* action, int sessionId)
         m_sessionStack->splitSessionTopBottom(sessionId);
 }
 
-void MainWindow::handleContextDependentToggleAction(bool toggle, QAction* action, int sessionId)
+void MainWindow::handleContextDependentToggleAction(bool checked, QAction* action, int sessionId)
 {
     if (sessionId == -1) sessionId = m_sessionStack->activeSessionId();
     if (sessionId == -1) return;
 
     if (!action) action = qobject_cast<QAction*>(QObject::sender());
 
-    if (action == actionCollection()->action("toggle-keyboard-input"))
-        m_sessionStack->setKeyboardInputEnabled(sessionId, !toggle);
+    if (action == actionCollection()->action("toggle-session-keyboard-input"))
+        m_sessionStack->setSessionKeyboardInputEnabled(sessionId, !checked);
 
-    if (action == actionCollection()->action("toggle-prevent-closing"))
-        m_sessionStack->setSessionClosable(sessionId, !toggle);
+    if (action == actionCollection()->action("toggle-session-prevent-closing"))
+        m_sessionStack->setSessionClosable(sessionId, !checked);
 }
 
 void MainWindow::setContextDependentActionsQuiet(bool quiet)
@@ -384,6 +387,19 @@ void MainWindow::setContextDependentActionsQuiet(bool quiet)
     {
         m_contextDependentActions.at(i)->blockSignals(quiet);
     }
+}
+
+void MainWindow::handleToggleTerminalKeyboardInput(bool checked)
+{
+    QAction* action = qobject_cast<QAction*>(QObject::sender());
+
+    if (!action || action->data().isNull()) return;
+
+    bool ok = false;
+    int terminalId = action->data().toInt(&ok);
+    if (!ok) return;
+
+    m_sessionStack->setTerminalKeyboardInputEnabled(terminalId, !checked);
 }
 
 void MainWindow::handleSwitchToAction()

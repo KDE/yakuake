@@ -35,6 +35,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QWidget>
+
 #include <QKeyEvent>
 
 
@@ -97,7 +98,14 @@ void Terminal::deletePart()
 bool Terminal::eventFilter(QObject* /* watched */, QEvent* event)
 {
     if (event->type() == QEvent::FocusIn)
-        emit activated (m_terminalId);
+    {
+        emit activated(m_terminalId);
+
+        QFocusEvent* focusEvent = static_cast<QFocusEvent*>(event);
+
+        if (focusEvent->reason() == Qt::MouseFocusReason || focusEvent->reason() == Qt::OtherFocusReason)
+            emit manuallyActivated(this);
+    }
     else if (event->type() == QEvent::MouseMove)
     {
         if (Settings::focusFollowsMouse() && m_terminalWidget && !m_terminalWidget->hasFocus())
@@ -106,7 +114,16 @@ bool Terminal::eventFilter(QObject* /* watched */, QEvent* event)
 
     if (!m_keyboardInputEnabled)
     {
-        if (event->type() == QEvent::KeyPress || event->type() == QEvent::KeyRelease)
+        if (event->type() == QEvent::KeyPress)
+        {
+            QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
+
+            if (keyEvent->modifiers() == Qt::NoModifier)
+                emit keyboardInputBlocked(this);
+
+            return true;
+        }
+        else if (event->type() == QEvent::KeyRelease)
             return true;
     }
 
@@ -210,11 +227,6 @@ void Terminal::editProfile()
 {
     QMetaObject::invokeMethod(m_part, "showEditCurrentProfileDialog", 
         Qt::QueuedConnection, Q_ARG(QWidget*, KApplication::activeWindow()));
-}
-
-void Terminal::setKeyboardInputEnabled(bool keyboardInputEnabled)
-{
-    m_keyboardInputEnabled = keyboardInputEnabled;
 }
 
 void Terminal::overrideShortcut(QKeyEvent* /* event */, bool& override)

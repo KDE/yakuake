@@ -1,46 +1,66 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>AppearanceSettings</class>
- <widget class="QWidget" name="AppearanceSettings" >
-  <property name="geometry" >
+ <widget class="QWidget" name="AppearanceSettings">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>245</width>
-    <height>289</height>
+    <width>307</width>
+    <height>355</height>
    </rect>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2" >
-   <property name="margin" >
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <property name="margin">
     <number>0</number>
    </property>
    <item>
-    <widget class="QGroupBox" name="groupBox_1" >
-     <property name="title" >
-      <string comment="@title:group" >Window Background</string>
+    <widget class="QGroupBox" name="groupBox_1">
+     <property name="title">
+      <string comment="@title:group">General</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout" >
+     <layout class="QVBoxLayout" name="verticalLayout_1">
       <item>
-       <layout class="QHBoxLayout" >
+       <widget class="QCheckBox" name="kcfg_TerminalHighlightOnManualActivation">
+        <property name="whatsThis">
+         <string comment="@info:whatsthis">Enabling this option will make Yakuake briefly display a colored overlay above the newly-focussed terminal when moving focus between multple terminals in a session, as well as over the currently focussed terminal when switching to a session with multiple terminals.</string>
+        </property>
+        <property name="text">
+         <string comment="@option:check">Highlight terminals when moving focus between them</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string comment="@title:group">Window Background</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QHBoxLayout">
         <item>
-         <widget class="QLabel" name="backgroundColorLabel" >
-          <property name="text" >
-           <string comment="@label:chooser" >Background color:</string>
+         <widget class="QLabel" name="backgroundColorLabel">
+          <property name="text">
+           <string comment="@label:chooser">Background color:</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="KColorButton" name="kcfg_BackgroundColor" >
-          <property name="text" >
+         <widget class="KColorButton" name="kcfg_BackgroundColor">
+          <property name="text">
            <string/>
           </property>
          </widget>
         </item>
         <item>
          <spacer>
-          <property name="orientation" >
+          <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
-          <property name="sizeHint" stdset="0" >
+          <property name="sizeHint" stdset="0">
            <size>
             <width>41</width>
             <height>20</height>
@@ -51,29 +71,29 @@
        </layout>
       </item>
       <item>
-       <widget class="QCheckBox" name="kcfg_Translucency" >
-        <property name="whatsThis" >
-         <string comment="@info:whatsthis" >Translucency requires support by the selected skin as well as your desktop environment. The default skin supports translucency.</string>
+       <widget class="QCheckBox" name="kcfg_Translucency">
+        <property name="whatsThis">
+         <string comment="@info:whatsthis">Translucency requires support by the selected skin as well as your desktop environment. The default skin supports translucency.</string>
         </property>
-        <property name="text" >
-         <string comment="@option:check" >Use skin translucency if supported</string>
+        <property name="text">
+         <string comment="@option:check">Use skin translucency if supported</string>
         </property>
        </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout" >
-        <property name="leftMargin" >
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="leftMargin">
          <number>7</number>
         </property>
         <item>
-         <spacer name="spacer" >
-          <property name="orientation" >
+         <spacer name="spacer">
+          <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
-          <property name="sizeType" >
+          <property name="sizeType">
            <enum>QSizePolicy::Fixed</enum>
           </property>
-          <property name="sizeHint" stdset="0" >
+          <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
             <height>20</height>
@@ -82,40 +102,40 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="backgroundColorOpacityLabel" >
-          <property name="enabled" >
+         <widget class="QLabel" name="backgroundColorOpacityLabel">
+          <property name="enabled">
            <bool>false</bool>
           </property>
-          <property name="text" >
-           <string comment="@label:spinbox" >Background color opacity:</string>
+          <property name="text">
+           <string comment="@label:spinbox">Background color opacity:</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="kcfg_BackgroundColorOpacity" >
-          <property name="enabled" >
+         <widget class="QSpinBox" name="kcfg_BackgroundColorOpacity">
+          <property name="enabled">
            <bool>false</bool>
           </property>
-          <property name="whatsThis" >
-           <string comment="@info:whatsthis" >When using translucency, the background color will be filled in using the given opacity before the skin elements are painted on top of the background. This allows influencing the opacity and color tint of translucent areas of the skin.</string>
+          <property name="whatsThis">
+           <string comment="@info:whatsthis">When using translucency, the background color will be filled in using the given opacity before the skin elements are painted on top of the background. This allows influencing the opacity and color tint of translucent areas of the skin.</string>
           </property>
-          <property name="suffix" >
-           <string comment="@label Spinbox unit suffix" >%</string>
+          <property name="suffix">
+           <string comment="@label Spinbox unit suffix">%</string>
           </property>
-          <property name="maximum" >
+          <property name="maximum">
            <number>100</number>
           </property>
-          <property name="value" >
+          <property name="value">
            <number>50</number>
           </property>
          </widget>
         </item>
         <item>
-         <spacer name="spacer_2" >
-          <property name="orientation" >
+         <spacer name="spacer_2">
+          <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
-          <property name="sizeHint" stdset="0" >
+          <property name="sizeHint" stdset="0">
            <size>
             <width>64</width>
             <height>17</height>
@@ -129,44 +149,44 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox_2" >
-     <property name="title" >
-      <string comment="@title:group" >Skin</string>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
+      <string comment="@title:group">Skin</string>
      </property>
-     <layout class="QGridLayout" >
-      <item row="0" column="0" colspan="2" >
-       <widget class="QListView" name="skinList" >
-        <property name="contextMenuPolicy" >
+     <layout class="QGridLayout">
+      <item row="0" column="0" colspan="2">
+       <widget class="QListView" name="skinList">
+        <property name="contextMenuPolicy">
          <enum>Qt::NoContextMenu</enum>
         </property>
-        <property name="horizontalScrollBarPolicy" >
+        <property name="horizontalScrollBarPolicy">
          <enum>Qt::ScrollBarAlwaysOff</enum>
         </property>
        </widget>
       </item>
-      <item row="1" column="0" >
-       <widget class="QPushButton" name="installButton" >
-        <property name="enabled" >
+      <item row="1" column="0">
+       <widget class="QPushButton" name="installButton">
+        <property name="enabled">
          <bool>true</bool>
         </property>
-        <property name="text" >
-         <string comment="@action:button" >Install Skin...</string>
+        <property name="text">
+         <string comment="@action:button">Install Skin...</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="1" >
-       <widget class="QPushButton" name="removeButton" >
-        <property name="enabled" >
+      <item row="1" column="1">
+       <widget class="QPushButton" name="removeButton">
+        <property name="enabled">
          <bool>false</bool>
         </property>
-        <property name="text" >
-         <string comment="@action:button" >Remove Skin</string>
+        <property name="text">
+         <string comment="@action:button">Remove Skin</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0" colspan="2" >
-       <widget class="KLineEdit" name="kcfg_Skin" >
-        <property name="frame" >
+      <item row="2" column="0" colspan="2">
+       <widget class="KLineEdit" name="kcfg_Skin">
+        <property name="frame">
          <bool>false</bool>
         </property>
        </widget>
@@ -189,6 +209,7 @@
   </customwidget>
  </customwidgets>
  <tabstops>
+  <tabstop>kcfg_TerminalHighlightOnManualActivation</tabstop>
   <tabstop>kcfg_BackgroundColor</tabstop>
   <tabstop>kcfg_Translucency</tabstop>
   <tabstop>kcfg_BackgroundColorOpacity</tabstop>
@@ -205,11 +226,11 @@
    <receiver>kcfg_BackgroundColorOpacity</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>152</x>
      <y>76</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>192</x>
      <y>106</y>
     </hint>
@@ -221,11 +242,11 @@
    <receiver>backgroundColorOpacityLabel</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>152</x>
      <y>76</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>95</x>
      <y>106</y>
     </hint>

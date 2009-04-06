@@ -22,6 +22,7 @@
 #include "tabbar.h"
 #include "mainwindow.h"
 #include "skin.h"
+#include "session.h"
 #include "sessionstack.h"
 
 #include <KLineEdit>
@@ -59,6 +60,9 @@ TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
 
     m_tabContextMenu = new KMenu(this);
     connect(m_tabContextMenu, SIGNAL(aboutToShow()), this, SLOT(readyTabContextMenu()));
+    connect(m_tabContextMenu, SIGNAL(hovered(QAction*)), this, SLOT(contextMenuActionHovered(QAction*)));
+
+    m_toggleKeyboardInputMenu = new KMenu(i18nc("@title:menu", "Disable Keyboard Input"), this);
 
     m_sessionMenu = new KMenu(this);
     connect(m_sessionMenu, SIGNAL(aboutToShow()), this, SLOT(readySessionMenu()));
@@ -115,8 +119,8 @@ void TabBar::readyTabContextMenu()
         m_tabContextMenu->addSeparator();
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("edit-profile"));
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("rename-session"));
-        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("toggle-keyboard-input"));
-        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("toggle-prevent-closing"));
+        m_tabContextMenu->addMenu(m_toggleKeyboardInputMenu);
+        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("toggle-session-prevent-closing"));
         m_tabContextMenu->addSeparator();
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("move-session-left"));
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("move-session-right"));
@@ -152,19 +156,80 @@ void TabBar::updateMoveActions(int index)
         m_mainWindow->actionCollection()->action("move-session-right")->setEnabled(true);
 }
 
-void TabBar::updateToggleActions(int index)
+void TabBar::updateToggleActions(int sessionId)
 {
-    int sessionId = sessionAtTab(index);
     if (sessionId == -1) return;
 
     KActionCollection* actionCollection = m_mainWindow->actionCollection();
     SessionStack* sessionStack = m_mainWindow->sessionStack();
 
-    QAction* toggleAction = actionCollection->action("toggle-keyboard-input");
-    toggleAction->setChecked(!sessionStack->isKeyboardInputEnabled(sessionId));
+    QAction* toggleAction = actionCollection->action("toggle-session-keyboard-input");
+    toggleAction->setChecked(!sessionStack->isSessionKeyboardInputEnabled(sessionId));
 
-    toggleAction = actionCollection->action("toggle-prevent-closing");
+    toggleAction = actionCollection->action("toggle-session-prevent-closing");
     toggleAction->setChecked(!sessionStack->isSessionClosable(sessionId));
+}
+
+void TabBar::updateToggleKeyboardInputMenu(int sessionId)
+{
+    QAction* toggleKeyboardInputAction = m_mainWindow->actionCollection()->action("toggle-session-keyboard-input");
+    QAction* anchor = m_toggleKeyboardInputMenu->menuAction();
+
+    if (sessionId == -1)
+    {
+        toggleKeyboardInputAction->setText(i18nc("@action", "Disable Keyboard Input"));
+        m_tabContextMenu->insertAction(anchor, toggleKeyboardInputAction);
+
+        m_toggleKeyboardInputMenu->clear();
+        m_toggleKeyboardInputMenu->menuAction()->setVisible(false);
+    }
+    else
+    {
+        SessionStack* sessionStack = m_mainWindow->sessionStack();
+
+        QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(",", QString::SkipEmptyParts);
+
+        if (terminalIds.count() <= 1) return;
+
+        toggleKeyboardInputAction->setText(i18nc("@action", "For This Session"));
+        m_toggleKeyboardInputMenu->menuAction()->setVisible(true);
+
+        m_tabContextMenu->removeAction(toggleKeyboardInputAction);
+        m_toggleKeyboardInputMenu->addAction(toggleKeyboardInputAction);
+
+        m_toggleKeyboardInputMenu->addSeparator();
+
+        int count = 0;
+
+        QStringListIterator i(terminalIds);
+
+        while (i.hasNext())
+        {
+            int terminalId = i.next().toInt();
+
+            ++count;
+
+            QAction* action = m_toggleKeyboardInputMenu->addAction(i18nc("@action", "For Terminal %1").arg(count));
+            action->setCheckable(true);
+            action->setChecked(!sessionStack->isTerminalKeyboardInputEnabled(terminalId));
+            action->setData(terminalId);
+            connect(action, SIGNAL(triggered(bool)), m_mainWindow, SLOT(handleToggleTerminalKeyboardInput(bool)));
+        }
+    }
+}
+
+void TabBar::contextMenuActionHovered(QAction* action)
+{
+    bool ok = false;
+
+    if (!action->data().isNull())
+    {
+        int terminalId = action->data().toInt(&ok);
+
+        if (ok) emit requestTerminalHighlight(terminalId);
+    }
+    else if (!ok)
+        emit requestRemoveTerminalHighlight();
 }
 
 void TabBar::contextMenuEvent(QContextMenuEvent* event)
@@ -178,11 +243,16 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
     else
     {
         updateMoveActions(index);
-        updateToggleActions(index);
+
+        int sessionId = sessionAtTab(index);
+        updateToggleActions(sessionId);
+        updateToggleKeyboardInputMenu(sessionId);
 
         m_mainWindow->setContextDependentActionsQuiet(true);
 
         QAction* action = m_tabContextMenu->exec(QCursor::pos());
+
+        emit tabContextMenuClosed();
 
         if (action)
         {
@@ -196,6 +266,7 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
 
         updateMoveActions(m_tabs.indexOf(m_selectedSessionId));
         updateToggleActions(index);
+        updateToggleKeyboardInputMenu();
     }
 
     QWidget::contextMenuEvent(event);
@@ -579,10 +650,8 @@ void TabBar::selectTab(int sessionId)
 
     m_selectedSessionId = sessionId;
 
-    int index = m_tabs.indexOf(sessionId);
-
-    updateMoveActions(index);
-    updateToggleActions(index);
+    updateMoveActions(m_tabs.indexOf(sessionId));
+    updateToggleActions(sessionId);
 
     repaint();
 }

@@ -97,6 +97,44 @@
       <min>0</min>
       <max>100</max>
     </entry>
+    <entry name="TerminalHighlightOnManualActivation" type="Bool">
+      <label context="@label">Highlight newly-focussed terminals</label>
+      <whatsthis context="@info:whatsthis">Whether to briefly display a colored overlay above the newly-focussed terminal when moving focus between multiple terminals in a session, as well as over the currently focussed terminal when switching to a session with multiple terminals.</whatsthis>
+      <default>false</default>
+    </entry>
+    <entry name="TerminalHighlightOpacity" type="Double">
+      <label context="@label">Terminal highlight opacity</label>
+      <whatsthis context="@info:whatsthis">The opacity of the colored overlay used to highlight a terminal.</whatsthis>
+      <default>0.4</default>
+      <min>0</min>
+      <max>1.0</max>
+    </entry>
+    <entry name="TerminalHighlightDuration" type="Int">
+      <label context="@label">Terminal highlight duration</label>
+      <whatsthis context="@info:whatsthis">The duration of the terminal highlight overlay.</whatsthis>
+      <default>250</default>
+      <min>0</min>
+      <max>86400000</max>
+    </entry>
+    <entry name="KeyboardInputBlockIndicatorColor" type="Color">
+      <label context="@label">Keyboard input block indicator color</label>
+      <whatsthis context="@info:whatsthis">The color of the keyboard input block indicator overlay.</whatsthis>
+      <default>#FF0000</default>
+    </entry>
+    <entry name="KeyboardInputBlockIndicatorOpacity" type="Double">
+      <label context="@label">Keyboard input block indicator opacity</label>
+      <whatsthis context="@info:whatsthis">The opacity of the keyboard input block indicator overlay.</whatsthis>
+      <default>0.5</default>
+      <min>0</min>
+      <max>1.0</max>
+    </entry>
+    <entry name="KeyboardInputBlockIndicatorDuration" type="Int">
+      <label context="@label">Keyboard input block indicator duration</label>
+      <whatsthis context="@info:whatsthis">The duration of the keyboard input block indicator overlay.</whatsthis>
+      <default>250</default>
+      <min>0</min>
+      <max>86400000</max>
+    </entry>
   </group>
   <group name="Animation">
     <entry name="Frames" type="Int">

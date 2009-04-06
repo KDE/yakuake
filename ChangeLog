@@ -1,32 +1,42 @@
 Changes since 2.9.5:
-* Fixed linking with the new gold linker in binutils.
-* Fixed a regression from the background painting changes in 2.9.4 that
-  caused splitter handles between terminals to appear in the user-confi-
-  gured background color.
-* Improved graphics for the window state lock button in the default skin.
-* Added an option to open the application window after program start.
-* Slightly improved options layout on the Behavior page of the configura-
-  tion dialog.
+* Added a new framework, referred to as the visual event overlay, to display
+  notifications (and potentially other information) on top of the terminals.
+  It's used for a number of new features found in this release, as described
+  in their separate entries.
+* Added an option to visually indicate the newly-focussed terminal when mo-
+  ving focus in a session with multiple terminals (i.e. via splits), or the
+  currently focussed terminal when switching to a session with multiple ter-
+  minals. This make the lives of users easier who prefer to use the "I-Beam"
+  or "Underline" cursors styles in the terminal, as those cursor styles do
+  not indicate terminal focus as the "Block" style does. The visual indica-
+  tion used here is a brief, translucent overlay in the global color scheme's
+  hover decoration color. This feature is realized using the new visual event
+  overlay described in a separate entry.
+* Added a feature to disable keyboard input for all or individual terminals
+  in a session. Both variants are available from the tab context menu; the
+  session-wide toggle is also available in the keyboard shortcuts configura-
+  tion. When typing into a terminal that has keyboard input disabled the
+  terminal will briefly flash red. When hovering one of the per-terminal
+  toggles in the context menu, the affected terminal will be highlighted
+  in the global color scheme's hover decoration color. The latter two aspects
+  of this new feature have been realized using the new visual event overlay
+  described in a separate entry. Furthermore, new D-Bus interfaces have been
+  added to get/set this state bit for both sessions and terminals.
+* Added a feature to lock a session to prevent it from being closed acciden-
+  tally, available from the tab context menu as well as in the keyboard short-
+  cuts configuration. When trying to close a locked session or its active ter-
+  minal via Yakuake's own actions/shortcuts, a warning dialog will be display-
+  ed, and also when trying to quit Yakuake with any locked sessions. Note that
+  this doesn't cover closing a terminal from within the Konsole KPart provi-
+  ding the terminal (such as running "exit" or via the terminal's context
+  menu), however. New D-Bus interfaces have been added to get/set this state
+  bit for sessions.
 * Added support for moving tabs on the tab bar by drag and drop.
+* Added an option to open the application window after program start.
+* Improved graphics for the window state lock button in the default skin.
+* Added D-Bus interfaces for splitting.
 * Added the frequently-requested 'sessionIdForTerminalId(int terminalId)'
   and 'terminalIdsForSessionId(int sessionId)' D-Bus interfaces.
-* Rewrote the translucency support not to use X11-specific code on Qt 4.5
-  or higher and KDE 4.3 or higher.
-* Added a feature to disable keyboard input for a session (via a user-con-
-  figured shortcut or the context menu), including D-Bus calls to get/set
-  this state bit.
-* On KDE 4.2 and higher, the first-run dialog now no longer allows setting
-  a multi-key shortcut to open/close the window, consistent with the short-
-  cut configuration dialog (the required API is new in 4.2). The reason
-  multi-key global shortcuts are not allowed in KDE is that they don't work.
-* Added D-Bus interfaces for splitting.
-* Fix crashes when closing sessions with certain split setups (also on quit).
-* Fixed the 'removeTerminal(int terminalId)' D-Bus call always closing the
-  active terminal of the session containing the target terminal, rather than
-  the target terminal.
-* Added a feature to prevent a session from being closed (toggled via a user-
-  configured shortcut or the context menu) by way of Yakuake's own shortcuts
-  and actions, including D-Bus calls to get/set this state bit.
 * The auto-open-on-mouse-pointer-hitting-the-screen edge feature now checks
   the position of the mouse pointer against the actual position and width of
   the window rather than triggering on the entire screen edge. This way, the
@@ -34,6 +44,22 @@ Changes since 2.9.5:
   the default Yakuake window width of 90% work area width.
 * Rewrote fullscreen handling, fixing bugs such as exiting fullscreen mode
   on virtual desktop switch.
+* Rewrote the translucency support not to use X11-specific code on Qt 4.5
+  or higher and KDE 4.3 or higher.
+* Fixed a regression from the background painting changes in 2.9.4 that
+  caused splitter handles between terminals to appear in the user-confi-
+  gured background color.
+* Fix crashes when closing sessions with certain split setups (also on quit).
+* Fixed the 'removeTerminal(int terminalId)' D-Bus call always closing the
+  active terminal of the session containing the target terminal, rather than
+  the target terminal.
+* Slightly improved options layout on the Behavior page of the configura-
+  tion dialog.
+* On KDE 4.2 and higher, the first-run dialog now no longer allows setting
+  a multi-key shortcut to open/close the window, consistent with the short-
+  cut configuration dialog (the required API is new in 4.2). The reason
+  multi-key global shortcuts are not allowed in KDE is that they don't work.
+* Fixed linking with the new gold linker in binutils.
 
 
 Changes in 2.9.4:

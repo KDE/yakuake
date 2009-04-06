@@ -32,8 +32,7 @@ Session::Session(SessionType type, QWidget* parent) : QObject(parent)
 
     m_activeTerminalId = -1;
 
-    m_keyboardInputEnabled = true;
-    m_sessionClosable = true;
+    m_closable = true;
 
     m_baseSplitter = new Splitter(Qt::Horizontal, parent);
     connect(m_baseSplitter, SIGNAL(destroyed()), this, SLOT(prepareShutdown()));
@@ -142,13 +141,13 @@ void Session::setupSession(SessionType type)
 Terminal* Session::addTerminal(QWidget* parent)
 {
     Terminal* terminal = new Terminal(parent);
-    connect(terminal, SIGNAL(titleChanged(int, const QString&)), this, SLOT(setTitle(int, const QString&)));
     connect(terminal, SIGNAL(activated(int)), this, SLOT(setActiveTerminal(int)));
+    connect(terminal, SIGNAL(manuallyActivated(Terminal*)), this, SIGNAL(terminalManuallyActivated(Terminal*)));
+    connect(terminal, SIGNAL(titleChanged(int, const QString&)), this, SLOT(setTitle(int, const QString&)));
+    connect(terminal, SIGNAL(keyboardInputBlocked(Terminal*)), this, SIGNAL(keyboardInputBlocked(Terminal*)));
     connect(terminal, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
 
     m_terminals.insert(terminal->id(), terminal);
-
-    terminal->setKeyboardInputEnabled(m_keyboardInputEnabled);
 
     QWidget* terminalWidget = terminal->terminalWidget();
     if (terminalWidget) terminalWidget->setFocus();
@@ -362,7 +361,14 @@ const QString Session::terminalIdList()
 
 bool Session::hasTerminal(int terminalId)
 {
-    return (m_terminals.contains(terminalId));
+    return m_terminals.contains(terminalId);
+}
+
+Terminal* Session::getTerminal(int terminalId)
+{
+    if (!m_terminals.contains(terminalId)) return 0;
+
+    return m_terminals.value(terminalId);
 }
 
 void Session::runCommand(const QString& command, int terminalId)
@@ -385,26 +391,65 @@ void Session::manageProfiles()
 void Session::editProfile()
 {
     if ( m_activeTerminalId == -1) return;
-    if (!m_terminals.contains( m_activeTerminalId)) return;
+    if (!m_terminals.contains(m_activeTerminalId)) return;
 
     m_terminals[m_activeTerminalId]->editProfile();
 }
 
-void Session::setKeyboardInputEnabled(bool keyboardInputEnabled)
+bool Session::keyboardInputEnabled()
 {
-    m_keyboardInputEnabled = keyboardInputEnabled;
+    int keyboardInputDisabledCount = 0;
 
-    QMapIterator<int, Terminal*> it(m_terminals);
+    QMapIterator<int, Terminal*> i(m_terminals);
 
-    while (it.hasNext())
+    while (i.hasNext())
     {
-        it.next();
+        i.next();
 
-        it.value()->setKeyboardInputEnabled(m_keyboardInputEnabled);
+        if (!i.value()->keyboardInputEnabled())
+            ++keyboardInputDisabledCount;
+    }
+
+    return m_terminals.count() != keyboardInputDisabledCount;
+}
+
+void Session::setKeyboardInputEnabled(bool enabled)
+{
+    QMapIterator<int, Terminal*> i(m_terminals);
+
+    while (i.hasNext())
+    {
+        i.next();
+
+        i.value()->setKeyboardInputEnabled(enabled);
     }
 }
 
-void Session::setSessionClosable(bool sessionClosable)
+bool Session::keyboardInputEnabled(int terminalId)
 {
-    m_sessionClosable = sessionClosable;
+    if (!m_terminals.contains(terminalId)) return false;
+
+    return m_terminals.value(terminalId)->keyboardInputEnabled();
+}
+
+void Session::setKeyboardInputEnabled(int terminalId, bool enabled)
+{
+    if (!m_terminals.contains(terminalId)) return;
+
+    m_terminals.value(terminalId)->setKeyboardInputEnabled(enabled);
+}
+
+bool Session::hasTerminalsWithKeyboardInputDisabled()
+{
+    QMapIterator<int, Terminal*> i(m_terminals);
+
+    while (i.hasNext())
+    {
+        i.next();
+
+        if (!i.value()->keyboardInputEnabled())
+            return true;
+    }
+
+    return false;
 }

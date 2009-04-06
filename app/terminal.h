@@ -56,7 +56,7 @@ class Terminal : public QObject
         void editProfile();
 
         bool keyboardInputEnabled() { return m_keyboardInputEnabled; }
-        void setKeyboardInputEnabled(bool keyboardInputEnabled);
+        void setKeyboardInputEnabled(bool enabled) { m_keyboardInputEnabled = enabled; }
 
         void deletePart();
 
@@ -64,6 +64,8 @@ class Terminal : public QObject
     signals:
         void titleChanged(int terminalId, const QString& title);
         void activated(int terminalId);
+        void manuallyActivated(Terminal* terminal);
+        void keyboardInputBlocked(Terminal* terminal);
         void destroyed(int terminalId);
 
 

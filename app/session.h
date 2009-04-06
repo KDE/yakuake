@@ -48,7 +48,18 @@ class Session : public QObject
 
         int activeTerminalId() { return m_activeTerminalId; }
         const QString terminalIdList();
+        int terminalCount() { return m_terminals.size(); }
         bool hasTerminal(int terminalId);
+        Terminal* getTerminal(int terminalId);
+
+        bool keyboardInputEnabled();
+        void setKeyboardInputEnabled(bool enabled);
+        bool keyboardInputEnabled(int terminalId);
+        void setKeyboardInputEnabled(int terminalId, bool enabled);
+        bool hasTerminalsWithKeyboardInputDisabled();
+
+        bool closable() { return m_closable; }
+        void setClosable(bool closable) { m_closable = closable; }
 
 
     public slots:
@@ -65,16 +76,12 @@ class Session : public QObject
         void manageProfiles();
         void editProfile();
 
-        bool isKeyboardInputEnabled() { return m_keyboardInputEnabled; }
-        void setKeyboardInputEnabled(bool keyboardInputEnabled);
-
-        bool isSessionClosable() { return m_sessionClosable; }
-        void setSessionClosable(bool sessionClosable);
-
 
     signals:
         void titleChanged(const QString& title);
         void titleChanged(int sessionId, const QString& title);
+        void terminalManuallyActivated(Terminal* terminal);
+        void keyboardInputBlocked(Terminal* terminal);
         void destroyed(int sessionId);
 
 
@@ -103,8 +110,7 @@ class Session : public QObject
 
         QString m_title;
 
-        bool m_keyboardInputEnabled;
-        bool m_sessionClosable;
+        bool m_closable;
 };
 
 #endif 

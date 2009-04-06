@@ -25,12 +25,14 @@
 
 #include "session.h"
 
+
 #include <QHash>
+#include <QPointer>
 #include <QStackedWidget>
 
 
 class Session;
-
+class VisualEventOverlay;
 
 class SessionStack : public QStackedWidget
 {
@@ -41,11 +43,15 @@ class SessionStack : public QStackedWidget
         explicit SessionStack(QWidget* parent = 0);
         ~SessionStack();
 
+        QPointer<Session> session(int sessionId);
+
         void closeActiveTerminal(int sessionId = -1);
 
         void editProfile(int sessionId = -1);
 
         void emitTitles();
+
+        bool requiresVisualEventOverlay();
 
 
     public slots:
@@ -75,13 +81,17 @@ class SessionStack : public QStackedWidget
         Q_SCRIPTABLE void runCommand(const QString& command);
         Q_SCRIPTABLE void runCommandInTerminal(int terminalId, const QString& command);
 
-        Q_SCRIPTABLE bool isKeyboardInputEnabled(int sessionId);
-        Q_SCRIPTABLE void setKeyboardInputEnabled(int sessionId, bool keyboardInputEnabled);
+        Q_SCRIPTABLE bool isSessionKeyboardInputEnabled(int sessionId);
+        Q_SCRIPTABLE void setSessionKeyboardInputEnabled(int sessionId, bool enabled);
+        Q_SCRIPTABLE bool isTerminalKeyboardInputEnabled(int terminalId);
+        Q_SCRIPTABLE void setTerminalKeyboardInputEnabled(int terminalId, bool enabled);
 
         Q_SCRIPTABLE bool isSessionClosable(int sessionId);
-        Q_SCRIPTABLE void setSessionClosable(int sessionId, bool sessionClosable);
-
+        Q_SCRIPTABLE void setSessionClosable(int sessionId, bool closable);
         Q_SCRIPTABLE bool hasUnclosableSessions() const;
+
+        void handleTerminalHighlightRequest(int terminalId);
+
 
     signals:
         void sessionAdded(int sessionId, const QString& title = 0);
@@ -98,14 +108,20 @@ class SessionStack : public QStackedWidget
 
         void manageProfiles();
 
+        void removeTerminalHighlight();
+
 
     private slots:
+        void handleManualTerminalActivation(Terminal*);
+
         void cleanup(int sessionId);
 
 
     private:
         enum QueryCloseType { QueryCloseSession, QueryCloseTerminal };
         bool queryClose(int sessionId, QueryCloseType type);
+
+        VisualEventOverlay* m_visualEventOverlay;
 
         int m_activeSessionId;
 

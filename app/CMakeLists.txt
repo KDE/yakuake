@@ -14,11 +14,12 @@ set(yakuake_SRCS
     terminal.cpp
     splitter.cpp
     firstrundialog.cpp
+    visualeventoverlay.cpp
     config/windowsettings.cpp
     config/appearancesettings.cpp
     config/skinlistdelegate.cpp
 )
- 
+
 kde4_add_kcfg_files(yakuake_SRCS config/settings.kcfgc)
 
 kde4_add_ui_files(yakuake_SRCS 
