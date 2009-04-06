@@ -40,7 +40,7 @@ void Splitter::recursiveCleanup()
     {
         QList<Splitter*> list = findChildren<Splitter*>();
 
-        for (int index = 0; index < list.size(); ++index) 
+        for (int index = 0; index < list.count(); ++index)
         {
             if (list.at(index)->parent() == this) 
             list.at(index)->recursiveCleanup();

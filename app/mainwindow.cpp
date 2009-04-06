@@ -383,7 +383,7 @@ void MainWindow::handleContextDependentToggleAction(bool checked, QAction* actio
 
 void MainWindow::setContextDependentActionsQuiet(bool quiet)
 {
-    for (int i = 0; i < m_contextDependentActions.size(); ++i)
+    for (int i = 0; i < m_contextDependentActions.count(); ++i)
     {
         m_contextDependentActions.at(i)->blockSignals(quiet);
     }

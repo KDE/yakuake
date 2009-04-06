@@ -48,7 +48,7 @@ class Session : public QObject
 
         int activeTerminalId() { return m_activeTerminalId; }
         const QString terminalIdList();
-        int terminalCount() { return m_terminals.size(); }
+        int terminalCount() { return m_terminals.count(); }
         bool hasTerminal(int terminalId);
         Terminal* getTerminal(int terminalId);
 

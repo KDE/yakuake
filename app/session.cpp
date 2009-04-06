@@ -323,7 +323,7 @@ void Session::setTitle(int terminalId, const QString& title)
 
 void Session::cleanup(int terminalId)
 {
-    if (m_activeTerminalId == terminalId && m_terminals.size() > 1)
+    if (m_activeTerminalId == terminalId && m_terminals.count() > 1)
         focusPreviousTerminal();
 
     m_terminals.remove(terminalId);
@@ -337,7 +337,7 @@ void Session::cleanup()
 
     m_baseSplitter->recursiveCleanup();
 
-    if (m_terminals.size() == 0) 
+    if (m_terminals.count() == 0)
         m_baseSplitter->deleteLater();
 }
 
@@ -353,7 +353,7 @@ const QString Session::terminalIdList()
     QList<int> keyList = m_terminals.uniqueKeys();
     QStringList idList;
 
-    for (int i = 0; i < keyList.size(); ++i) 
+    for (int i = 0; i < keyList.count(); ++i)
         idList << QString::number(keyList.at(i));
 
     return idList.join(",");

@@ -115,7 +115,7 @@ void VisualEventOverlay::highlightTerminal(Terminal* terminal, bool persistent)
 
 void VisualEventOverlay::removeTerminalHighlight()
 {
-    if (!m_eventRects.size()) return;
+    if (!m_eventRects.count()) return;
 
     QMutableListIterator<EventRect> i(m_eventRects);
 
@@ -161,7 +161,7 @@ void VisualEventOverlay::terminalEvent(Terminal* terminal, EventRect::EventType 
 
 void VisualEventOverlay::paintEvent(QPaintEvent*)
 {
-    if (!m_eventRects.size()) return;
+    if (!m_eventRects.count()) return;
 
     QPainter painter(this);
 
@@ -240,7 +240,7 @@ void VisualEventOverlay::scheduleCleanup(int in)
 
 void VisualEventOverlay::cleanupOverlay()
 {
-    if (m_eventRects.size())
+    if (m_eventRects.count())
     {
         m_time.start();
 

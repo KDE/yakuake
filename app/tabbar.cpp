@@ -292,7 +292,7 @@ void TabBar::paintEvent(QPaintEvent*)
     QRect tabsClipRect(x, y, m_closeTabButton->x() - x, height() - y);
     painter.setClipRect(tabsClipRect);
 
-    for (int index = 0; index < m_tabs.size(); ++index)
+    for (int index = 0; index < m_tabs.count(); ++index)
     {
         x = drawButton(x, y, index, painter);
         m_tabWidths << x;
@@ -383,7 +383,7 @@ int TabBar::drawButton(int x, int y, int index, QPainter& painter)
 
 int TabBar::tabAt(int x)
 {
-    for (int index = 0; index < m_tabWidths.size(); ++index)
+    for (int index = 0; index < m_tabWidths.count(); ++index)
     {
         if (x >  m_skin->tabBarPosition().x() && x < m_tabWidths.at(index))
             return index;
@@ -495,7 +495,7 @@ void TabBar::dragMoveEvent(QDragMoveEvent* event)
         int index = dropIndex(event->pos());
 
         if (index == -1)
-            index = m_tabs.size();
+            index = m_tabs.count();
 
         drawDropIndicator(index, isSameTab(event));
 
@@ -534,7 +534,7 @@ void TabBar::dropEvent(QDropEvent* event)
         int sourceIndex = m_tabs.indexOf(sourceSessionId);
 
         if (targetIndex == -1)
-            targetIndex = m_tabs.size() - 1;
+            targetIndex = m_tabs.count() - 1;
         else if (targetIndex < 0)
             targetIndex = 0;
         else if (sourceIndex < targetIndex)
@@ -737,7 +737,7 @@ void TabBar::setTabTitle(int sessionId, const QString& newTitle)
 int TabBar::sessionAtTab(int index)
 {
 
-    for (int i = 0; i < m_tabs.size(); ++i)
+    for (int i = 0; i < m_tabs.count(); ++i)
     {
         if (i == index) return m_tabs.at(i);
     }
@@ -843,7 +843,7 @@ void TabBar::drawDropIndicator(int index, bool disabled)
     }
 
     int temp_index;
-    if (index == m_tabs.size())
+    if (index == m_tabs.count())
         temp_index = index - 1;
     else
         temp_index = index;
@@ -855,7 +855,7 @@ void TabBar::drawDropIndicator(int index, bool disabled)
     m_dropRect = QRect(x, y - height(), tabWidth, height() - y);
     QPoint pos;
 
-    if (index < m_tabs.size())
+    if (index < m_tabs.count())
         pos = m_dropRect.topLeft();
     else
         pos = m_dropRect.topRight();
@@ -882,7 +882,7 @@ int TabBar::dropIndex(const QPoint pos)
     if ((pos.x()-m_dropRect.left()) > (m_dropRect.width()/2))
         ++index;
 
-    if (index == m_tabs.size())
+    if (index == m_tabs.count())
         return -1;
 
     return index;
@@ -894,7 +894,7 @@ bool TabBar::isSameTab(const QDropEvent* event)
     int sourceSessionId = event->mimeData()->text().toInt();
     int sourceIndex = m_tabs.indexOf(sourceSessionId);
 
-    bool isLastTab = (sourceIndex == m_tabs.size()-1) && (index == -1);
+    bool isLastTab = (sourceIndex == m_tabs.count()-1) && (index == -1);
 
     if ((sourceIndex == index) || (sourceIndex == index-1) || isLastTab)
         return true;

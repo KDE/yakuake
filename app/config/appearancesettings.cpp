@@ -81,22 +81,22 @@ void AppearanceSettings::populateSkinList()
     QStringList titleDirs = KGlobal::dirs()->findAllResources("data", "yakuake/skins/*/title.skin");
     QStringList tabDirs = KGlobal::dirs()->findAllResources("data", "yakuake/skins/*/tabs.skin");
 
-    for (int index = 0; index < titleDirs.size(); ++index)
+    for (int index = 0; index < titleDirs.count(); ++index)
     {
         if (tabDirs.contains(titleDirs.at(index).section('/', 0, -2) + "/tabs.skin"))
             skinDirs << titleDirs.at(index).section('/', 0, -2);
     }
 
-    if (skinDirs.size() > 0)
+    if (skinDirs.count() > 0)
     {
         m_skins->clear();
 
-        for (int index = 0; index < skinDirs.size(); ++index)
+        for (int index = 0; index < skinDirs.count(); ++index)
         {
             QString skinId = skinDirs.at(index).section('/', -1, -1);
 
             int exists = m_skins->match(m_skins->index(0, 0), SkinId, skinId, 
-                1, Qt::MatchExactly | Qt::MatchWrap).size();
+                1, Qt::MatchExactly | Qt::MatchWrap).count();
 
             if (exists == 0) 
             {
@@ -178,7 +178,7 @@ void AppearanceSettings::resetSelection()
     QModelIndexList skins = m_skins->match(m_skins->index(0, 0), SkinId, 
         Settings::skin(), 1, Qt::MatchExactly | Qt::MatchWrap);
 
-    if (skins.size() > 0) skinList->setCurrentIndex(skins.at(0));
+    if (skins.count() > 0) skinList->setCurrentIndex(skins.at(0));
 }
 
 void AppearanceSettings::installSkin()
@@ -215,9 +215,9 @@ void AppearanceSettings::installSkin()
 
 void AppearanceSettings::listSkinArchive(KIO::Job* /* job */, const KIO::UDSEntryList& list)
 {
-    if (list.size() == 0) return;
+    if (list.count() == 0) return;
 
-    for (int entry = 0; entry < list.size(); ++entry) 
+    for (int entry = 0; entry < list.count(); ++entry)
     {  
         m_installSkinFileList.append(list.at(entry).stringValue(KIO::UDSEntry::UDS_NAME));
     }
@@ -247,7 +247,7 @@ void AppearanceSettings::checkForExistingSkin()
     QModelIndexList skins = m_skins->match(m_skins->index(0, 0), SkinId, 
         m_installSkinId, 1, Qt::MatchExactly | Qt::MatchWrap);
 
-    int exists = skins.size();
+    int exists = skins.count();
 
     if (exists > 0)
     {
