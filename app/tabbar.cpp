@@ -210,7 +210,7 @@ void TabBar::updateToggleKeyboardInputMenu(int sessionId)
 
             ++count;
 
-            QAction* action = m_toggleKeyboardInputMenu->addAction(i18nc("@action", "For Terminal %1").arg(count));
+            QAction* action = m_toggleKeyboardInputMenu->addAction(i18nc("@action", "For Terminal %1", count));
             action->setCheckable(true);
             action->setChecked(!sessionStack->isTerminalKeyboardInputEnabled(terminalId));
             action->setData(terminalId);
