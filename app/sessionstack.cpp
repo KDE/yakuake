@@ -79,40 +79,42 @@ void SessionStack::addSessionQuad()
 void SessionStack::raiseSession(int sessionId)
 {
     if (sessionId == -1 || !m_sessions.contains(sessionId)) return;
+    Session* session = m_sessions.value(sessionId);
 
     if (!m_visualEventOverlay->isHidden())
         m_visualEventOverlay->hide();
 
     if (m_activeSessionId != -1 && m_sessions.contains(m_activeSessionId))
     {
-        disconnect(m_sessions[m_activeSessionId], SLOT(closeTerminal()));
-        disconnect(m_sessions[m_activeSessionId], SLOT(focusPreviousTerminal()));
-        disconnect(m_sessions[m_activeSessionId], SLOT(focusNextTerminal()));
-        disconnect(m_sessions[m_activeSessionId], SLOT(manageProfiles()));
-        disconnect(m_sessions[m_activeSessionId], SIGNAL(titleChanged(const QString&)),
+        Session* oldActiveSession = m_sessions.value(m_activeSessionId);
+
+        disconnect(oldActiveSession, SLOT(closeTerminal()));
+        disconnect(oldActiveSession, SLOT(focusPreviousTerminal()));
+        disconnect(oldActiveSession, SLOT(focusNextTerminal()));
+        disconnect(oldActiveSession, SLOT(manageProfiles()));
+        disconnect(oldActiveSession, SIGNAL(titleChanged(const QString&)),
             this, SIGNAL(activeTitleChanged(const QString&)));
     }
 
     m_activeSessionId = sessionId;
 
-    setCurrentWidget(m_sessions[sessionId]->widget());
+    setCurrentWidget(session->widget());
 
-    if (m_sessions[sessionId]->widget()->focusWidget())
-        m_sessions[sessionId]->widget()->focusWidget()->setFocus();
+    if (session->widget()->focusWidget())
+        session->widget()->focusWidget()->setFocus();
 
-    if (!m_sessions[sessionId]->keyboardInputEnabled())
+    if (!session->keyboardInputEnabled())
         m_visualEventOverlay->show();
 
-    connect(this, SIGNAL(closeTerminal()), m_sessions[sessionId], SLOT(closeTerminal()));
-    connect(this, SIGNAL(previousTerminal()), m_sessions[sessionId], SLOT(focusPreviousTerminal()));
-    connect(this, SIGNAL(nextTerminal()), m_sessions[sessionId], SLOT(focusNextTerminal()));
-    connect(this, SIGNAL(manageProfiles()), m_sessions[sessionId], SLOT(manageProfiles()));
-    connect(m_sessions[sessionId], SIGNAL(titleChanged(const QString&)),
-        this, SIGNAL(activeTitleChanged(const QString&)));
+    connect(this, SIGNAL(closeTerminal()), session, SLOT(closeTerminal()));
+    connect(this, SIGNAL(previousTerminal()), session, SLOT(focusPreviousTerminal()));
+    connect(this, SIGNAL(nextTerminal()), session, SLOT(focusNextTerminal()));
+    connect(this, SIGNAL(manageProfiles()), session, SLOT(manageProfiles()));
+    connect(session, SIGNAL(titleChanged(const QString&)), this, SIGNAL(activeTitleChanged(const QString&)));
 
     emit sessionRaised(sessionId);
 
-    emit activeTitleChanged(m_sessions[sessionId]->title());
+    emit activeTitleChanged(session->title());
 }
 
 void SessionStack::removeSession(int sessionId)
@@ -122,7 +124,7 @@ void SessionStack::removeSession(int sessionId)
     if (!m_sessions.contains(sessionId)) return;
 
     if (queryClose(sessionId, QueryCloseSession))
-        m_sessions[sessionId]->deleteLater();
+        m_sessions.value(sessionId)->deleteLater();
 }
 
 void SessionStack::removeTerminal(int terminalId)
@@ -134,13 +136,13 @@ void SessionStack::removeTerminal(int terminalId)
         if (m_activeSessionId == -1) return;
         if (!m_sessions.contains(m_activeSessionId)) return;
 
-        if (m_sessions[m_activeSessionId]->closable())
-            m_sessions[m_activeSessionId]->closeTerminal();
+        if (m_sessions.value(m_activeSessionId)->closable())
+            m_sessions.value(m_activeSessionId)->closeTerminal();
     }
     else
     {
-        if (m_sessions[sessionId]->closable())
-            m_sessions[sessionId]->closeTerminal(terminalId);
+        if (m_sessions.value(sessionId)->closable())
+            m_sessions.value(sessionId)->closeTerminal(terminalId);
     }
 }
 
@@ -151,7 +153,7 @@ void SessionStack::closeActiveTerminal(int sessionId)
     if (!m_sessions.contains(sessionId)) return;
 
     if (queryClose(sessionId, QueryCloseTerminal))
-        m_sessions[sessionId]->closeTerminal();
+        m_sessions.value(sessionId)->closeTerminal();
 }
 
 
@@ -164,18 +166,11 @@ void SessionStack::cleanup(int sessionId)
     emit sessionRemoved(sessionId);
 }
 
-QPointer<Session> SessionStack::session(int sessionId)
-{
-    if (!m_sessions.contains(sessionId)) return 0;
-
-    return m_sessions[sessionId];
-}
-
 int SessionStack::activeTerminalId()
 {
     if (!m_sessions.contains(m_activeSessionId)) return -1;
 
-    return m_sessions[m_activeSessionId]->activeTerminalId();
+    return m_sessions.value(m_activeSessionId)->activeTerminalId();
 }
 
 const QString SessionStack::sessionIdList()
@@ -211,7 +206,7 @@ const QString SessionStack::terminalIdsForSessionId(int sessionId)
 {
     if (!m_sessions.contains(sessionId)) return QString::number(-1);
 
-    return m_sessions[sessionId]->terminalIdList();
+    return m_sessions.value(sessionId)->terminalIdList();
 }
 
 int SessionStack::sessionIdForTerminalId(int terminalId)
@@ -240,7 +235,7 @@ void SessionStack::runCommand(const QString& command)
     if (m_activeSessionId == -1) return;
     if (!m_sessions.contains(m_activeSessionId)) return;
 
-    m_sessions[m_activeSessionId]->runCommand(command);
+    m_sessions.value(m_activeSessionId)->runCommand(command);
 }
 
 void SessionStack::runCommandInTerminal(int terminalId, const QString& command)
@@ -261,7 +256,7 @@ bool SessionStack::isSessionKeyboardInputEnabled(int sessionId)
     if (sessionId == -1) return false;
     if (!m_sessions.contains(sessionId)) return false;
 
-    return m_sessions[sessionId]->keyboardInputEnabled();
+    return m_sessions.value(sessionId)->keyboardInputEnabled();
 }
 
 void SessionStack::setSessionKeyboardInputEnabled(int sessionId, bool enabled)
@@ -270,7 +265,7 @@ void SessionStack::setSessionKeyboardInputEnabled(int sessionId, bool enabled)
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
-    m_sessions[sessionId]->setKeyboardInputEnabled(enabled);
+    m_sessions.value(sessionId)->setKeyboardInputEnabled(enabled);
 
     if (sessionId == m_activeSessionId)
     {
@@ -287,7 +282,7 @@ bool SessionStack::isTerminalKeyboardInputEnabled(int terminalId)
     if (sessionId == -1) return false;
     if (!m_sessions.contains(sessionId)) return false;
 
-    return m_sessions[sessionId]->keyboardInputEnabled(terminalId);
+    return m_sessions.value(sessionId)->keyboardInputEnabled(terminalId);
 }
 
 void SessionStack::setTerminalKeyboardInputEnabled(int terminalId, bool enabled)
@@ -296,7 +291,7 @@ void SessionStack::setTerminalKeyboardInputEnabled(int terminalId, bool enabled)
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
-    m_sessions[sessionId]->setKeyboardInputEnabled(terminalId, enabled);
+    m_sessions.value(sessionId)->setKeyboardInputEnabled(terminalId, enabled);
 
     if (sessionId == m_activeSessionId)
     {
@@ -313,7 +308,7 @@ bool SessionStack::isSessionClosable(int sessionId)
     if (sessionId == -1) return false;
     if (!m_sessions.contains(sessionId)) return false;
 
-    return m_sessions[sessionId]->closable();
+    return m_sessions.value(sessionId)->closable();
 }
 
 void SessionStack::setSessionClosable(int sessionId, bool closable)
@@ -322,7 +317,7 @@ void SessionStack::setSessionClosable(int sessionId, bool closable)
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
-    m_sessions[sessionId]->setClosable(closable);
+    m_sessions.value(sessionId)->setClosable(closable);
 }
 
 bool SessionStack::hasUnclosableSessions() const
@@ -346,7 +341,7 @@ void SessionStack::editProfile(int sessionId)
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
-    m_sessions[sessionId]->editProfile();
+    m_sessions.value(sessionId)->editProfile();
 }
 
 void SessionStack::splitSessionLeftRight(int sessionId)
@@ -354,7 +349,7 @@ void SessionStack::splitSessionLeftRight(int sessionId)
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
-    m_sessions[sessionId]->splitLeftRight();
+    m_sessions.value(sessionId)->splitLeftRight();
 }
 
 void SessionStack::splitSessionTopBottom(int sessionId)
@@ -362,7 +357,7 @@ void SessionStack::splitSessionTopBottom(int sessionId)
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
-    m_sessions[sessionId]->splitTopBottom();
+    m_sessions.value(sessionId)->splitTopBottom();
 }
 
 void SessionStack::splitTerminalLeftRight(int terminalId)
@@ -372,7 +367,7 @@ void SessionStack::splitTerminalLeftRight(int terminalId)
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
-    m_sessions[sessionId]->splitLeftRight(terminalId);
+    m_sessions.value(sessionId)->splitLeftRight(terminalId);
 }
 
 void SessionStack::splitTerminalTopBottom(int terminalId)
@@ -382,7 +377,7 @@ void SessionStack::splitTerminalTopBottom(int terminalId)
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
-    m_sessions[sessionId]->splitTopBottom(terminalId);
+    m_sessions.value(sessionId)->splitTopBottom(terminalId);
 }
 
 void SessionStack::emitTitles()
@@ -446,7 +441,7 @@ bool SessionStack::queryClose(int sessionId, QueryCloseType type)
 {
     if (!m_sessions.contains(sessionId)) return false;
 
-    if (!m_sessions[sessionId]->closable())
+    if (!m_sessions.value(sessionId)->closable())
     {
         QString closeQuestionIntro = i18nc("@info", "<warning>You have locked this session to prevent accidental closing of terminals.</warning>");
         QString closeQuestion;

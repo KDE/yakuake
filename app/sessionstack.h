@@ -27,7 +27,6 @@
 
 
 #include <QHash>
-#include <QPointer>
 #include <QStackedWidget>
 
 
@@ -42,8 +41,6 @@ class SessionStack : public QStackedWidget
     public:
         explicit SessionStack(QWidget* parent = 0);
         ~SessionStack();
-
-        QPointer<Session> session(int sessionId);
 
         void closeActiveTerminal(int sessionId = -1);
 

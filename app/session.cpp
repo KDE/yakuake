@@ -161,7 +161,7 @@ void Session::closeTerminal(int terminalId)
     if (terminalId == -1) return;
     if (!m_terminals.contains(terminalId)) return;
 
-    m_terminals[terminalId]->deletePart();
+    m_terminals.value(terminalId)->deletePart();
 }
 
 void Session::focusPreviousTerminal()
@@ -234,7 +234,7 @@ void Session::splitLeftRight(int terminalId)
     if (terminalId == -1) return;
     if (!m_terminals.contains(terminalId)) return;
 
-    Terminal* terminal = m_terminals[terminalId];
+    Terminal* terminal = m_terminals.value(terminalId);
 
     if (terminal) split(terminal, Qt::Horizontal);
 }
@@ -245,7 +245,7 @@ void Session::splitTopBottom(int terminalId)
     if (terminalId == -1) return;
     if (!m_terminals.contains(terminalId)) return;
 
-    Terminal* terminal = m_terminals[terminalId];
+    Terminal* terminal = m_terminals.value(terminalId);
 
     if (terminal) split(terminal, Qt::Vertical);
 }
@@ -307,7 +307,7 @@ void Session::setActiveTerminal(int terminalId)
 {
     m_activeTerminalId = terminalId;
 
-    setTitle(m_activeTerminalId, m_terminals[m_activeTerminalId]->title());
+    setTitle(m_activeTerminalId, m_terminals.value(m_activeTerminalId)->title());
 }
 
 void Session::setTitle(int terminalId, const QString& title)
@@ -379,15 +379,15 @@ void Session::runCommand(const QString& command, int terminalId)
     if (terminalId == -1) return;
     if (!m_terminals.contains(terminalId)) return;
 
-    m_terminals[terminalId]->runCommand(command);
+    m_terminals.value(terminalId)->runCommand(command);
 }
 
 void Session::manageProfiles()
 {
     if ( m_activeTerminalId == -1) return;
-    if (!m_terminals.contains( m_activeTerminalId)) return;
+    if (!m_terminals.contains(m_activeTerminalId)) return;
 
-    m_terminals[m_activeTerminalId]->manageProfiles();
+    m_terminals.value(m_activeTerminalId)->manageProfiles();
 }
 
 void Session::editProfile()
@@ -395,7 +395,7 @@ void Session::editProfile()
     if ( m_activeTerminalId == -1) return;
     if (!m_terminals.contains(m_activeTerminalId)) return;
 
-    m_terminals[m_activeTerminalId]->editProfile();
+    m_terminals.value(m_activeTerminalId)->editProfile();
 }
 
 bool Session::keyboardInputEnabled()
