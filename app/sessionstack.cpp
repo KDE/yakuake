@@ -103,7 +103,7 @@ void SessionStack::raiseSession(int sessionId)
     if (session->widget()->focusWidget())
         session->widget()->focusWidget()->setFocus();
 
-    if (!session->keyboardInputEnabled())
+    if (session->hasTerminalsWithKeyboardInputDisabled())
         m_visualEventOverlay->show();
 
     connect(this, SIGNAL(closeTerminal()), session, SLOT(closeTerminal()));
