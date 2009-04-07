@@ -98,8 +98,8 @@
       <max>100</max>
     </entry>
     <entry name="TerminalHighlightOnManualActivation" type="Bool">
-      <label context="@label">Highlight newly-focused terminals</label>
-      <whatsthis context="@info:whatsthis">Whether to briefly display a colored overlay above the newly-focused terminal when moving focus between multiple terminals in a session, as well as over the currently focused terminal when switching to a session with multiple terminals.</whatsthis>
+      <label context="@label">Highlight newly focused terminals</label>
+      <whatsthis context="@info:whatsthis">Whether to briefly display a colored overlay above the newly focused terminal when moving focus between multiple terminals in a session, as well as over the currently focused terminal when switching to a session with multiple terminals.</whatsthis>
       <default>false</default>
     </entry>
     <entry name="TerminalHighlightOpacity" type="Double">
