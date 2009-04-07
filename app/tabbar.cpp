@@ -180,7 +180,7 @@ void TabBar::updateToggleKeyboardInputMenu(int sessionId)
     QStringList terminalIds;
 
     if (sessionId != -1)
-        terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(",", QString::SkipEmptyParts);
+        terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(',', QString::SkipEmptyParts);
 
     if (sessionId == -1 || terminalIds.count() <= 1)
     {

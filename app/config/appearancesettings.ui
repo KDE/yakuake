@@ -23,7 +23,7 @@
       <item>
        <widget class="QCheckBox" name="kcfg_TerminalHighlightOnManualActivation">
         <property name="whatsThis">
-         <string comment="@info:whatsthis">Enabling this option will make Yakuake briefly display a colored overlay above the newly-focussed terminal when moving focus between multple terminals in a session, as well as over the currently focussed terminal when switching to a session with multiple terminals.</string>
+         <string comment="@info:whatsthis">Enabling this option will make Yakuake briefly display a colored overlay above the newly-focused terminal when moving focus between multple terminals in a session, as well as over the currently focused terminal when switching to a session with multiple terminals.</string>
         </property>
         <property name="text">
          <string comment="@option:check">Highlight terminals when moving focus between them</string>
