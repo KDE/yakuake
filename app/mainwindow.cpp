@@ -128,9 +128,7 @@ bool MainWindow::queryClose()
     QString closeQuestion = i18nc("@info","Are you sure you want to quit?");
     QString warningMessage;
 
-    if (!confirmQuit && !hasUnclosableSessions)
-        return true;
-    else
+    if ((confirmQuit && m_sessionStack->count() > 1) || hasUnclosableSessions)
     {
         if (confirmQuit && m_sessionStack->count() > 1)
         {
@@ -153,6 +151,8 @@ bool MainWindow::queryClose()
         else
             return false;
     }
+
+    return true;
 }
 
 void MainWindow::setupActions()
