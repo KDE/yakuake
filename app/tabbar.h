@@ -57,7 +57,6 @@ class TabBar : public QWidget
         void addTab(int sessionId, const QString& title = 0);
         void removeTab(int sessionId = -1);
 
-        void renameTab(int sessionId = -1, const QString& newTitle = 0);
         void interactiveRename(int sessionId);
 
         void selectTab(int sessionId);
