@@ -50,6 +50,7 @@ TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
                        "<para>The tab bar allows you to switch between sessions. You can double-click a tab to edit its label.</para>"));
 
     m_selectedSessionId = -1;
+    m_renamingSessionId = -1;
 
     m_mousePressed = false;
     m_mousePressedIndex = -1;
@@ -88,7 +89,7 @@ TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
     m_lineEdit->hide();
 
     connect(m_lineEdit, SIGNAL(editingFinished()), m_lineEdit, SLOT(hide()));
-    connect(m_lineEdit, SIGNAL(returnPressed()), this, SLOT(renameTab()));
+    connect(m_lineEdit, SIGNAL(returnPressed()), this, SLOT(interactiveRenameDone()));
 
     setAcceptDrops(true);
 }
@@ -462,7 +463,7 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
         {
             int index = tabAt(m_startPos.x());
 
-            if (index >= 0)
+            if (index >= 0 && !m_lineEdit->isVisible())
                 startDrag(index);
         }
     }
@@ -601,7 +602,7 @@ void TabBar::removeTab(int sessionId)
 
     int index = m_tabs.indexOf(sessionId);
 
-    if (m_lineEdit->isVisible() && index == m_editingSessionId)
+    if (m_lineEdit->isVisible() && sessionId == m_renamingSessionId)
         m_lineEdit->hide();
 
     m_tabs.removeAt(index);
@@ -615,16 +616,13 @@ void TabBar::removeTab(int sessionId)
 
 void TabBar::renameTab(int sessionId, const QString& newTitle)
 {
-    if (sessionId == -1) sessionId = m_selectedSessionId;
     if (sessionId == -1) return;
     if (!m_tabTitles.contains(sessionId)) return;
 
-    if (newTitle.isEmpty() && !m_lineEdit->text().isEmpty())
-        m_tabTitles[sessionId] = m_lineEdit->text().trimmed();
-    else
+    if (!newTitle.isEmpty())
         m_tabTitles[sessionId] = newTitle;
 
-    repaint();
+    update();
 }
 
 void TabBar::interactiveRename(int sessionId)
@@ -637,13 +635,22 @@ void TabBar::interactiveRename(int sessionId)
     int y = m_skin->tabBarPosition().y();
     int width = m_tabWidths.at(index) - x;
 
-    m_editingSessionId = index;
+    m_renamingSessionId = index;
 
     m_lineEdit->setText(m_tabTitles[sessionId]);
     m_lineEdit->setGeometry(x-1, y-1, width+3, height()+2);
     m_lineEdit->selectAll();
     m_lineEdit->setFocus();
     m_lineEdit->show();
+}
+
+void TabBar::interactiveRenameDone()
+{
+    int sessionId = m_renamingSessionId;
+
+    m_renamingSessionId = -1;
+
+    renameTab(sessionId, m_lineEdit->text().trimmed());
 }
 
 void TabBar::selectTab(int sessionId)

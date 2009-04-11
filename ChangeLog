@@ -55,6 +55,8 @@ Changes since 2.9.5:
 * Fixed the 'removeTerminal(int terminalId)' D-Bus call always closing the
   active terminal of the session containing the target terminal, rather than
   the target terminal.
+* Fixed interactive tab rename always renaming the active tab, rather than
+  the tab the line edit was invoked for and shown on top of.
 * Slightly improved options layout on the Behavior page of the configura-
   tion dialog.
 * On KDE 4.2 and higher, the first-run dialog now no longer allows setting

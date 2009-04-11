@@ -101,18 +101,21 @@ class TabBar : public QWidget
 
 
     private slots:
-        void readyTabContextMenu();
         void readySessionMenu();
 
         void contextMenuActionHovered(QAction* action);
 
         void closeTabButtonClicked();
 
+        void interactiveRenameDone();
+
 
     private:
         QString standardTabTitle();
         QString makeTabTitle(int number);
         int tabAt(int x);
+
+        void readyTabContextMenu();
 
         void updateMoveActions(int index);
         void updateToggleActions(int sessionId);
@@ -136,7 +139,7 @@ class TabBar : public QWidget
         KMenu* m_sessionMenu;
 
         KLineEdit* m_lineEdit;
-        int m_editingSessionId;
+        int m_renamingSessionId;
 
         QList<int> m_tabs;
         QHash<int, QString> m_tabTitles;
