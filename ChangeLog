@@ -57,7 +57,7 @@ Changes since 2.9.5:
   the target terminal.
 * Fixed interactive tab rename always renaming the active tab, rather than
   the tab the line edit was invoked for and shown on top of.
-* Fixed the interactive rename line edit possibly being hidden also when a
+* Fixed the interactive rename line edit possibly getting hidden also when a
   session other than the one that is being renamed gets deleted, rather than
   just when the session that is being renamed gets deleted.
 * Slightly improved options layout on the Behavior page of the configura-
