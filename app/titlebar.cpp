@@ -36,6 +36,8 @@ TitleBar::TitleBar(MainWindow* mainWindow) : QWidget(mainWindow)
                        "<title>Title Bar</title>"
                        "<para>The title bar displays the session title if available.</para>"));
 
+    setAttribute(Qt::WA_OpaquePaintEvent);
+
     m_mainWindow = mainWindow;
     m_skin = mainWindow->skin();
 
@@ -78,6 +80,12 @@ void TitleBar::applySkin()
     repaint();
 
     updateMask();
+
+    repaint();
+
+    updateMask();
+
+    repaint();
 }
 
 void TitleBar::resizeEvent(QResizeEvent* event) 
