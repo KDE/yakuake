@@ -473,31 +473,55 @@ void MainWindow::updateWindowSizeMenus()
 
 void MainWindow::updateWindowWidthMenu()
 {
-    QAction* action;
+    QAction* action = 0;
 
-    m_windowWidthMenu->clear(); 
-
-    for (int i = 10; i <= 100; i += 10)
+    if (m_windowWidthMenu->isEmpty())
     {
-        action = m_windowWidthMenu->addAction(QString::number(i) + '%');
-        action->setCheckable(true);
-        action->setData(i);
-        action->setChecked(i == Settings::width());
+        for (int i = 10; i <= 100; i += 10)
+        {
+            action = m_windowWidthMenu->addAction(QString::number(i) + '%');
+            action->setCheckable(true);
+            action->setData(i);
+            action->setChecked(i == Settings::width());
+        }
+    }
+    else
+    {
+        QListIterator<QAction*> i(m_windowWidthMenu->actions());
+
+        while (i.hasNext())
+        {
+            action = i.next();
+
+            action->setChecked(action->data().toInt() == Settings::width());
+        }
     }
 }
 
 void MainWindow::updateWindowHeightMenu()
 {
-    QAction* action;
+    QAction* action = 0;
 
-    m_windowHeightMenu->clear(); 
-
-    for (int i = 10; i <= 100; i += 10)
+    if (m_windowHeightMenu->isEmpty())
     {
-        action = m_windowHeightMenu->addAction(QString::number(i) + '%');
-        action->setCheckable(true);
-        action->setData(i);
-        action->setChecked(i == Settings::height());
+        for (int i = 10; i <= 100; i += 10)
+        {
+            action = m_windowHeightMenu->addAction(QString::number(i) + '%');
+            action->setCheckable(true);
+            action->setData(i);
+            action->setChecked(i == Settings::height());
+        }
+    }
+    else
+    {
+        QListIterator<QAction*> i(m_windowHeightMenu->actions());
+
+        while (i.hasNext())
+        {
+            action = i.next();
+
+            action->setChecked(action->data().toInt() == Settings::height());
+        }
     }
 }
 

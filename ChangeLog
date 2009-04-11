@@ -50,6 +50,8 @@ Changes since 2.9.5:
   caused splitter handles between terminals to appear in the user-confi-
   gured background color.
 * Fix crashes when closing sessions with certain split setups (also on quit).
+* Fixed crash when changing window width/height from the menu with Qt 4.5
+  (also generally improves efficiency of window size changes).
 * Fixed the 'removeTerminal(int terminalId)' D-Bus call always closing the
   active terminal of the session containing the target terminal, rather than
   the target terminal.
