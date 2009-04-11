@@ -172,22 +172,21 @@ void TabBar::updateToggleActions(int sessionId)
 
 void TabBar::updateToggleKeyboardInputMenu(int sessionId)
 {
+    if (!m_tabs.contains(sessionId)) return;
+
     QAction* toggleKeyboardInputAction = m_mainWindow->actionCollection()->action("toggle-session-keyboard-input");
     QAction* anchor = m_toggleKeyboardInputMenu->menuAction();
 
     SessionStack* sessionStack = m_mainWindow->sessionStack();
 
-    QStringList terminalIds;
+    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(',', QString::SkipEmptyParts);
 
-    if (sessionId != -1)
-        terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(',', QString::SkipEmptyParts);
+    m_toggleKeyboardInputMenu->clear();
 
-    if (sessionId == -1 || terminalIds.count() <= 1)
+    if (terminalIds.count() <= 1)
     {
         toggleKeyboardInputAction->setText(i18nc("@action", "Disable Keyboard Input"));
         m_tabContextMenu->insertAction(anchor, toggleKeyboardInputAction);
-
-        m_toggleKeyboardInputMenu->clear();
         m_toggleKeyboardInputMenu->menuAction()->setVisible(false);
     }
     else
@@ -260,16 +259,16 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
         if (action)
         {
             if (action->isCheckable())
-                m_mainWindow->handleContextDependentToggleAction(action->isChecked(), action, sessionAtTab(index));
+                m_mainWindow->handleContextDependentToggleAction(action->isChecked(), action, sessionId);
             else
-                m_mainWindow->handleContextDependentAction(action, sessionAtTab(index));
+                m_mainWindow->handleContextDependentAction(action, sessionId);
         }
 
         m_mainWindow->setContextDependentActionsQuiet(false);
 
         updateMoveActions(m_tabs.indexOf(m_selectedSessionId));
-        updateToggleActions(index);
-        updateToggleKeyboardInputMenu();
+        updateToggleActions(m_selectedSessionId);
+        updateToggleKeyboardInputMenu(m_selectedSessionId);
     }
 
     QWidget::contextMenuEvent(event);
@@ -739,12 +738,10 @@ void TabBar::setTabTitle(int sessionId, const QString& newTitle)
 
 int TabBar::sessionAtTab(int index)
 {
-    for (int i = 0; i < m_tabs.count(); ++i)
-    {
-        if (i == index) return m_tabs.at(i);
-    }
-
-    return -1;
+    if (index > m_tabs.count() - 1)
+        return -1;
+    else
+        return m_tabs.at(index);
 }
 
 QString TabBar::standardTabTitle()
