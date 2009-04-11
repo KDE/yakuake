@@ -80,12 +80,6 @@ void TitleBar::applySkin()
     repaint();
 
     updateMask();
-
-    repaint();
-
-    updateMask();
-
-    repaint();
 }
 
 void TitleBar::resizeEvent(QResizeEvent* event) 
