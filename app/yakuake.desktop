@@ -1,11 +1,11 @@
 [Desktop Entry]
 Name=Yakuake
-GenericName=Drop-down Terminal
 Name[hi]=याकुआके
 Name[hne]=याकुआके
 Name[ml]=യാക്വാകെ
 Name[pa]=ਯਾਕੁਕੀ
 Name[x-test]=xxYakuakexx
+GenericName=Drop-down Terminal
 Exec=yakuake
 Icon=yakuake
 Type=Application
