@@ -103,7 +103,8 @@ bool Terminal::eventFilter(QObject* /* watched */, QEvent* event)
 
         QFocusEvent* focusEvent = static_cast<QFocusEvent*>(event);
 
-        if (focusEvent->reason() == Qt::MouseFocusReason || focusEvent->reason() == Qt::OtherFocusReason)
+        if (focusEvent->reason() == Qt::MouseFocusReason || focusEvent->reason() == Qt::OtherFocusReason
+                || focusEvent->reason() == Qt::BacktabFocusReason)
             emit manuallyActivated(this);
     }
     else if (event->type() == QEvent::MouseMove)
