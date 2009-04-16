@@ -1,4 +1,4 @@
-Changes since 2.9.5:
+Changes since 2.9.4:
 * Added a new framework, referred to as the visual event overlay, to display
   notifications (and potentially other information) on top of the terminals.
   It's used for a number of new features found in this release, as described
