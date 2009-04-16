@@ -763,7 +763,9 @@ void MainWindow::paintEvent(QPaintEvent* event)
     }
     else
     {
+#if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
         painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
+#endif
         painter.fillRect(rect(), Settings::backgroundColor());
     }
 
