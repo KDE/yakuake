@@ -753,8 +753,10 @@ void MainWindow::paintEvent(QPaintEvent* event)
 
     if (useTranslucency())
     {
+#if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
         painter.setCompositionMode(QPainter::CompositionMode_Source);
         painter.fillRect(rect(), Qt::transparent);
+#endif
         painter.setOpacity(qreal(Settings::backgroundColorOpacity()) / 100);
         painter.fillRect(rect(), Settings::backgroundColor());
         painter.setOpacity(1.0);
