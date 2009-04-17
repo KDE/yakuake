@@ -805,11 +805,17 @@ void TabBar::startDrag(int index)
     QString title = tabTitle(sessionId);
 
     QPixmap tab(tabWidth, height());
-    tab.fill(Qt::transparent);
+    QColor fillColor(Settings::backgroundColor());
+
+    if (m_mainWindow->useTranslucency())
+        fillColor.setAlphaF(qreal(Settings::backgroundColorOpacity()) / 100);
+
+    tab.fill(fillColor);
 
     QPainter painter(&tab);
     painter.initFrom(this);
     painter.setPen(m_skin->tabBarTextColor());
+
     drawButton(0, 0, index, painter);
     painter.end();
 
