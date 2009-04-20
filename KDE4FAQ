@@ -28,6 +28,21 @@ A: While the specific reasons have yet to be uncovered, this appears to be
    rally become considerably faster as well, matching or exceeding what is
    found in the KDE 3 version when using a scalable font.
 
+   Update April 20th, 2009: It appears that the performance problem with
+   bitmap fonts on nVidia disappears when enabling font anti-aliasing,
+   despite anti-aliasing not being applied to bitmap fonts. Presumably
+   the codepath used for text display with anti-aliasing enabled is better
+   optimized. I observed this behavior with both v180.44 and 180.51 dri-
+   vers, i.e. the two latest driver versions, but I don't know if it's
+   actually a recent development or not, as I didn't use anti-aliasing
+   until now.
+
+   In the future, the Yakuake animation will be done via an effect plugin
+   for KDE's window manager, KWin. Performance is expected to greatly im-
+   prove then. The old animation code will be kept as a fallback for older
+   KDE versions, other desktop environments or for when compositing is not
+   enabled/available, however.
+
   ------------------------------------------------------------------------
 
 Q: There's a flicker in the animation when closing the window. What about

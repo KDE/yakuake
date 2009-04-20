@@ -67,6 +67,7 @@ Changes since 2.9.4:
   cut configuration dialog (the required API is new in 4.2). The reason
   multi-key global shortcuts are not allowed in KDE is that they don't work.
 * Fixed linking with the new gold linker in binutils.
+* Updated KDE4FAQ file (animation performance).
 
 
 Changes in 2.9.4:
