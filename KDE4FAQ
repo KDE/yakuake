@@ -32,7 +32,7 @@ A: While the specific reasons have yet to be uncovered, this appears to be
    bitmap fonts on nVidia disappears when enabling font anti-aliasing,
    despite anti-aliasing not being applied to bitmap fonts. Presumably
    the codepath used for text display with anti-aliasing enabled is better
-   optimized. I observed this behavior with both v180.44 and 180.51 dri-
+   optimized. I observed this behavior with both v180.44 and v180.51 dri-
    vers, i.e. the two latest driver versions, but I don't know if it's
    actually a recent development or not, as I didn't use anti-aliasing
    until now.
