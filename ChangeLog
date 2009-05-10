@@ -34,6 +34,8 @@ Changes in 2.9.5:
 * Added support for moving tabs on the tab bar by drag and drop.
 * Added an option to open the application window after program start.
 * Improved graphics for the window state lock button in the default skin.
+* Added a slightly improved version of the application icon (again done by
+  Oxygen lead artist Nuno Pinheiro) along with a 256x256px variant.
 * Added D-Bus interfaces for splitting.
 * Added the frequently-requested 'sessionIdForTerminalId(int terminalId)'
   and 'terminalIdsForSessionId(int sessionId)' D-Bus interfaces.
