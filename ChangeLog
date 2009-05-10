@@ -1,4 +1,4 @@
-Changes since 2.9.4:
+Changes in 2.9.5:
 * Added a new framework, referred to as the visual event overlay, to display
   notifications (and potentially other information) on top of the terminals.
   It's used for a number of new features found in this release, as described
@@ -49,7 +49,7 @@ Changes since 2.9.4:
 * Fixed a regression from the background painting changes in 2.9.4 that
   caused splitter handles between terminals to appear in the user-confi-
   gured background color.
-* Fix crashes when closing sessions with certain split setups (also on quit).
+* Fixed crashes when closing sessions with certain split setups (also on quit).
 * Fixed crash when changing window width/height from the menu with Qt 4.5
   (also generally improves efficiency of window size changes).
 * Fixed the 'removeTerminal(int terminalId)' D-Bus call always closing the
@@ -60,8 +60,9 @@ Changes since 2.9.4:
 * Fixed the interactive rename line edit possibly getting hidden also when a
   session other than the one that is being renamed gets deleted, rather than
   just when the session that is being renamed gets deleted.
-* Slightly improved options layout on the Behavior page of the configura-
-  tion dialog.
+* Slightly improved options layout on the Behavior page of the configuration
+  dialog and made sure that the skin list on the Appearance page scrolls so
+  that the selected skin is visible when the list is shown.
 * On KDE 4.2 and higher, the first-run dialog now no longer allows setting
   a multi-key shortcut to open/close the window, consistent with the short-
   cut configuration dialog (the required API is new in 4.2). The reason
