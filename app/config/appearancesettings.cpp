@@ -72,6 +72,9 @@ void AppearanceSettings::showEvent(QShowEvent* event)
 {
     populateSkinList();
 
+    if (skinList->currentIndex().isValid())
+        skinList->scrollTo(skinList->currentIndex());
+
     QWidget::showEvent(event);
 }
 
