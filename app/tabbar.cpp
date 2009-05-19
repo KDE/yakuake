@@ -619,12 +619,12 @@ void TabBar::interactiveRename(int sessionId)
     if (sessionId == -1) return;
     if (!m_tabs.contains(sessionId)) return;
 
+    m_renamingSessionId = sessionId;
+
     int index = m_tabs.indexOf(sessionId);
     int x = index ? m_tabWidths.at(index - 1) : m_skin->tabBarPosition().x();
     int y = m_skin->tabBarPosition().y();
     int width = m_tabWidths.at(index) - x;
-
-    m_renamingSessionId = index;
 
     m_lineEdit->setText(m_tabTitles[sessionId]);
     m_lineEdit->setGeometry(x-1, y-1, width+3, height()+2);
