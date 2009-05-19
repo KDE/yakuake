@@ -4,6 +4,8 @@ Changes since 2.9.5:
   moved or sessions closed, due to a mixup of tab indices and session IDs in
   the rename code.
 * Updated the application icon in the left corner graphic of the default skin.
+* Updated the icon for the default skin in the configuration dialog's skin
+  list to the new application icon.
 
 
 Changes in 2.9.5:
