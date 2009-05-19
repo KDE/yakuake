@@ -1,4 +1,4 @@
-Changes since 2.9.6:
+Changes in 2.9.6:
 * Fixed interactive rename of sessions not working reliably - either failing
   to implement a rename or renaming the wrong session - once tabs had been
   moved or sessions closed, due to a mixup of tab indices and session IDs in
