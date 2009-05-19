@@ -42,7 +42,7 @@ int main (int argc, char *argv[])
     KAboutData aboutData("yakuake",
         0,
         ki18nc("@title", "<application>Yakuake</application>"),
-        "2.9.5+",
+        "2.9.6",
         ki18nc("@title", "A drop-down terminal emulator based on KDE Konsole technology."),
         KAboutData::License_GPL,
         ki18nc("@info:credit", "(c) 2008-2009 The Yakuake Team"),
