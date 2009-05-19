@@ -3,7 +3,8 @@ Changes since 2.9.5:
   to implement a rename or renaming the wrong session - once tabs had been
   moved or sessions closed, due to a mixup of tab indices and session IDs in
   the rename code.
-* Updated the application icon in the left corner graphic of the default skin.
+* Updated the application icon in the bottom-left corner graphic of the de-
+  fault skin.
 * Updated the icon for the default skin in the configuration dialog's skin
   list to the new application icon.
 
