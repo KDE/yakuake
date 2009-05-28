@@ -21,6 +21,7 @@ GenericName[sv]=Rullgardinsterminal
 GenericName[tr]=Yukarıdan Açılan Uçbirim
 GenericName[uk]=Спадний термінал
 GenericName[x-test]=xxDrop-down Terminalxx
+GenericName[zh_CN]=拉幕式终端
 GenericName[zh_TW]=下拉式終端機
 Exec=yakuake
 Icon=yakuake
