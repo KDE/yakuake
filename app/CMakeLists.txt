@@ -29,6 +29,8 @@ kde4_add_ui_files(yakuake_SRCS
     config/appearancesettings.ui
 )
 
+kde4_add_app_icon(yakuake_SRCS "icons/hi*-app-yakuake.png")
+
 kde4_add_executable(yakuake ${yakuake_SRCS})
 
 target_link_libraries(yakuake ${KDE4_KPARTS_LIBS})
