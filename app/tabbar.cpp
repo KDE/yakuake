@@ -773,7 +773,7 @@ QString TabBar::standardTabTitle()
         if (!nameOk)
         {
             count++;
-            newTitle = newTitle = makeTabTitle(count);
+            newTitle = makeTabTitle(count);
         }
     }
     while (!nameOk);
