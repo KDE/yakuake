@@ -32,7 +32,6 @@
 class MainWindow;
 class Skin;
 
-class KAction;
 class KLineEdit;
 class KMenu;
 class KPushButton;
