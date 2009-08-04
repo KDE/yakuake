@@ -23,9 +23,10 @@
 #define APPLICATION_H
 
 
-#include "mainwindow.h"
-
 #include <KUniqueApplication>
+
+
+class MainWindow;
 
 
 class Application : public KUniqueApplication

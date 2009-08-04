@@ -62,7 +62,8 @@ int main (int argc, char *argv[])
     if (!KUniqueApplication::start())
     {
         fprintf(stderr, "Yakuake is already running! Opening window ...\n");
-        exit(0);
+
+        return 0;
     }
 
 #if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
