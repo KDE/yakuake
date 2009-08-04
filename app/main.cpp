@@ -6,7 +6,7 @@
   published by the Free Software Foundation; either version 2 of
   the License or (at your option) version 3 or any later version
   accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy 
+  ved by the membership of KDE e.V.), which shall act as a proxy
   defined in Section 14 of version 3 of the license.
 
   This program is distributed in the hope that it will be useful,
@@ -23,10 +23,7 @@
 
 #include <KAboutData>
 #include <KCmdLineArgs>
-#include <KLocalizedString>
 #include <KWindowSystem>
-
-#include <QString>
 
 #if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
 #include <X11/Xlib.h>
@@ -51,25 +48,25 @@ int main (int argc, char *argv[])
 
     aboutData.setProductName("yakuake");
 
-    aboutData.addAuthor(ki18nc("@info:credit", "Eike Hein"), 
+    aboutData.addAuthor(ki18nc("@info:credit", "Eike Hein"),
         ki18nc("@info:credit", "Maintainer, Lead Developer"), "hein@kde.org");
-    aboutData.addAuthor(ki18nc("@info:credit", "Francois Chazal"), 
+    aboutData.addAuthor(ki18nc("@info:credit", "Francois Chazal"),
         ki18nc("@info:credit", "Project Founder, Default skin (Inactive)"));
-    aboutData.addCredit(ki18nc("@info:credit", "Daniel 'suslik' D."), 
+    aboutData.addCredit(ki18nc("@info:credit", "Daniel 'suslik' D."),
         ki18nc("@info:credit", "Plastik skin"), "dd@accentsolution.com");
     aboutData.addCredit(ki18nc("@info:credit", "Juan Carlos Torres"),
         ki18nc("@info:credit", "Tab bar drag and drop support, Prevent Closing toggle"), "carlosdgtorres@gmail.com");
 
     KCmdLineArgs::init(argc, argv, &aboutData);
 
-    if (!KUniqueApplication::start()) 
+    if (!KUniqueApplication::start())
     {
         fprintf(stderr, "Yakuake is already running! Opening window ...\n");
         exit(0);
     }
 
 #if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
-    if (KWindowSystem::compositingActive()) 
+    if (KWindowSystem::compositingActive())
     {
             Display* display = 0;
             Visual* visual = 0;
@@ -105,7 +102,7 @@ void getDisplayInformation(Display*& display, Visual*& visual, Colormap& colorma
     int screen = DefaultScreen(display);
     int eventBase, errorBase;
 
-    if (XRenderQueryExtension(display, &eventBase, &errorBase)) 
+    if (XRenderQueryExtension(display, &eventBase, &errorBase))
     {
         int nvi;
         XVisualInfo templ;
@@ -116,7 +113,7 @@ void getDisplayInformation(Display*& display, Visual*& visual, Colormap& colorma
                                           VisualDepthMask |
                                           VisualClassMask, &templ, &nvi);
 
-        for (int i = 0; i < nvi; ++i) 
+        for (int i = 0; i < nvi; ++i)
         {
             XRenderPictFormat* format = XRenderFindVisualFormat(display, xvi[i].visual);
 
