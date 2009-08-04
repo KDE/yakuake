@@ -6,7 +6,7 @@
   published by the Free Software Foundation; either version 2 of
   the License or (at your option) version 3 or any later version
   accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy 
+  ved by the membership of KDE e.V.), which shall act as a proxy
   defined in Section 14 of version 3 of the license.
 
   This program is distributed in the hope that it will be useful,
@@ -25,14 +25,14 @@
 
 Application::Application() : KUniqueApplication()
 {
-    init();
+    m_mainWindow = 0;
 }
 
 #if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
 Application::Application(Display* display, Qt::HANDLE visual, Qt::HANDLE colormap)
     : KUniqueApplication(display, visual, colormap)
 {
-    init();
+    m_mainWindow = 0;
 }
 #endif
 
@@ -40,19 +40,15 @@ Application::~Application()
 {
 }
 
-void Application::init()
-{
-    m_firstInstance = true;
-
-    m_mainWindow = new MainWindow();
-    m_mainWindow->hide();
-}
-
 int Application::newInstance()
 {
-    if (!m_firstInstance) m_mainWindow->toggleWindowState();
-
-    m_firstInstance = false;
+    if (!m_mainWindow)
+    {
+        m_mainWindow = new MainWindow();
+        m_mainWindow->hide();
+    }
+    else
+        m_mainWindow->toggleWindowState();
 
     return 0;
 }
