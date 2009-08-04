@@ -25,6 +25,8 @@
 #include <KCmdLineArgs>
 #include <KWindowSystem>
 
+#include <cstdio>
+
 #if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
 #include <X11/Xlib.h>
 #include <X11/extensions/Xrender.h>
