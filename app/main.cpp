@@ -25,9 +25,13 @@
 #include <KCmdLineArgs>
 #include <KWindowSystem>
 
+#include <QTextStream>
+
 #include <cstdio>
 
 #if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
+#include <cstdlib>
+
 #include <X11/Xlib.h>
 #include <X11/extensions/Xrender.h>
 
@@ -63,7 +67,9 @@ int main (int argc, char *argv[])
 
     if (!KUniqueApplication::start())
     {
-        fprintf(stderr, "Yakuake is already running! Opening window ...\n");
+        QTextStream err(stderr);
+
+        err << i18nc("@info:shell", "Yakuake is already running! Opening window ...") << '\n';
 
         return 0;
     }
@@ -98,7 +104,10 @@ void getDisplayInformation(Display*& display, Visual*& visual, Colormap& colorma
 
     if (!display)
     {
-        fprintf(stderr, "Cannot connect to X server.\n");
+        QTextStream err(stderr);
+
+        err << i18nc("@info:shell", "Cannot connect to X server.") << '\n';
+
         exit(1);
     }
 
