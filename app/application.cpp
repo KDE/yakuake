@@ -45,6 +45,7 @@ int Application::newInstance()
     if (!m_mainWindow)
     {
         m_mainWindow = new MainWindow();
+
         m_mainWindow->hide();
     }
     else
