@@ -69,7 +69,7 @@ int main (int argc, char *argv[])
     {
         QTextStream err(stderr);
 
-        err << i18nc("@info:shell", "Yakuake is already running! Opening window ...") << '\n';
+        err << i18nc("@info:shell", "Yakuake is already running, opening window....") << '\n';
 
         return 0;
     }
