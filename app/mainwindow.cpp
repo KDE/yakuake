@@ -7,7 +7,7 @@
   published by the Free Software Foundation; either version 2 of
   the License or (at your option) version 3 or any later version
   accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy 
+  ved by the membership of KDE e.V.), which shall act as a proxy
   defined in Section 14 of version 3 of the license.
 
   This program is distributed in the hope that it will be useful,
@@ -56,7 +56,7 @@
 #endif
 
 
-MainWindow::MainWindow(QWidget* parent) 
+MainWindow::MainWindow(QWidget* parent)
     : KMainWindow(parent, Qt::CustomizeWindowHint | Qt::FramelessWindowHint)
 {
     QDBusConnection::sessionBus().registerObject("/yakuake/window", this, QDBusConnection::ExportScriptableSlots);
@@ -83,11 +83,11 @@ MainWindow::MainWindow(QWidget* parent)
     connect(m_tabBar, SIGNAL(requestRemoveTerminalHighlight()), m_sessionStack, SIGNAL(removeTerminalHighlight()));
     connect(m_tabBar, SIGNAL(tabContextMenuClosed()), m_sessionStack, SIGNAL(removeTerminalHighlight()));
 
-    connect(m_sessionStack, SIGNAL(sessionAdded(int, const QString&)), 
+    connect(m_sessionStack, SIGNAL(sessionAdded(int, const QString&)),
         m_tabBar, SLOT(addTab(int, const QString&)));
     connect(m_sessionStack, SIGNAL(sessionRaised(int)), m_tabBar, SLOT(selectTab(int)));
     connect(m_sessionStack, SIGNAL(sessionRemoved(int)), m_tabBar, SLOT(removeTab(int)));
-    connect(m_sessionStack, SIGNAL(activeTitleChanged(const QString&)),  
+    connect(m_sessionStack, SIGNAL(activeTitleChanged(const QString&)),
         m_titleBar, SLOT(setTitle(const QString&)));
 
     connect(&m_mousePoller, SIGNAL(timeout()), this, SLOT(pollMouse()));
@@ -165,7 +165,7 @@ void MainWindow::setupActions()
     m_actionCollection->addAction("view-full-screen", fullScreenAction);
     connect(fullScreenAction, SIGNAL(toggled(bool)), this, SLOT(setFullScreen(bool)));
 
-    KAction* action = KStandardAction::quit(kapp, SLOT(quit()),actionCollection());
+    KAction* action = KStandardAction::quit(this, SLOT(close()), actionCollection());
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Q));
 
     action = KStandardAction::aboutApp(m_helpMenu, SLOT(aboutApplication()), actionCollection());
@@ -542,7 +542,7 @@ void MainWindow::configureApp()
 
     WindowSettings* windowSettings = new WindowSettings(settingsDialog);
     settingsDialog->addPage(windowSettings, i18nc("@title Preferences page name", "Window"), "yakuake");
-    connect(windowSettings, SIGNAL(updateWindowGeometry(int, int, int)), 
+    connect(windowSettings, SIGNAL(updateWindowGeometry(int, int, int)),
         this, SLOT(setWindowGeometry(int, int, int)));
 
     QWidget* behaviorSettings = new QWidget(settingsDialog);
@@ -552,7 +552,7 @@ void MainWindow::configureApp()
         "preferences-other");
 
     AppearanceSettings* appearanceSettings = new AppearanceSettings(settingsDialog);
-    settingsDialog->addPage(appearanceSettings, i18nc("@title Preferences page name", "Appearance"), 
+    settingsDialog->addPage(appearanceSettings, i18nc("@title Preferences page name", "Appearance"),
         "preferences-desktop-theme");
     connect(appearanceSettings, SIGNAL(settingsChanged()), this, SLOT(applySettings()));
     connect(settingsDialog, SIGNAL(closeClicked()), appearanceSettings, SLOT(resetSelection()));
@@ -565,14 +565,14 @@ void MainWindow::applySettings()
 {
     if (Settings::dynamicTabTitles())
     {
-        connect(m_sessionStack, SIGNAL(titleChanged(int, const QString&)), 
+        connect(m_sessionStack, SIGNAL(titleChanged(int, const QString&)),
             m_tabBar, SLOT(setTabTitle(int, const QString&)));
 
         m_sessionStack->emitTitles();
     }
     else
     {
-        disconnect(m_sessionStack, SIGNAL(titleChanged(int, const QString&)), 
+        disconnect(m_sessionStack, SIGNAL(titleChanged(int, const QString&)),
             m_tabBar, SLOT(setTabTitle(int, const QString&)));
     }
 
@@ -604,7 +604,7 @@ void MainWindow::applySkin()
 
     if (!gotSkin)
     {
-        KMessageBox::error(parentWidget(), 
+        KMessageBox::error(parentWidget(),
             i18nc("@info", "<application>Yakuake</application> was unable to load a skin. It is likely that it was installed incorrectly.<nl/><nl/>"
                            "The application will now quit."),
             i18nc("@title:window", "Cannot Load Skin"));
@@ -669,11 +669,11 @@ void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition)
     if (Settings::showTabBar())
     {
         maxHeight -= m_tabBar->height();
-        m_tabBar->setGeometry(m_skin->borderWidth(), maxHeight, 
+        m_tabBar->setGeometry(m_skin->borderWidth(), maxHeight,
             width() - 2 * m_skin->borderWidth(), m_tabBar->height());
     }
 
-    m_sessionStack->setGeometry(m_skin->borderWidth(), 0, 
+    m_sessionStack->setGeometry(m_skin->borderWidth(), 0,
         width() - 2 * m_skin->borderWidth(), maxHeight);
 
     updateMask();
@@ -684,7 +684,7 @@ void MainWindow::setScreen(QAction* action)
     Settings::setScreen(action->data().toInt());
 
     applyWindowGeometry();
-    
+
     updateScreenMenu();
 }
 
@@ -772,7 +772,7 @@ void MainWindow::paintEvent(QPaintEvent* event)
     QRect leftBorder(0, 0, m_skin->borderWidth(), height() - m_titleBar->height());
     painter.fillRect(leftBorder, m_skin->borderColor());
 
-    QRect rightBorder(width() - m_skin->borderWidth(), 0, m_skin->borderWidth(), 
+    QRect rightBorder(width() - m_skin->borderWidth(), 0, m_skin->borderWidth(),
         height() - m_titleBar->height());
     painter.fillRect(rightBorder, m_skin->borderColor());
 
@@ -951,10 +951,10 @@ QRect MainWindow::getDesktopGeometry()
 {
     QAction* action = actionCollection()->action("view-full-screen");
 
-    if (action->isChecked()) 
+    if (action->isChecked())
         return KApplication::desktop()->screenGeometry(getScreen());
 
-    if (KApplication::desktop()->numScreens() > 1) 
+    if (KApplication::desktop()->numScreens() > 1)
         return KWindowSystem::workArea().intersect(KApplication::desktop()->screenGeometry(getScreen()));
 
     return KWindowSystem::workArea();
@@ -974,8 +974,8 @@ void MainWindow::showStartupPopup()
 
     popup->setAutoDelete(true);
     popup->setTimeout(5000);
-    popup->setView(popup->standardView(i18nc("@title:window", 
-        "<application>Yakuake</application> Notification"), 
+    popup->setView(popup->standardView(i18nc("@title:window",
+        "<application>Yakuake</application> Notification"),
         i18nc("@info", "Application successfully started.<nl/>"
                        "Press <shortcut>%1</shortcut> to use it...", shortcut),
         KIconLoader::global()->loadIcon("yakuake", KIconLoader::Small)));
@@ -1009,7 +1009,7 @@ void MainWindow::firstRunDialogOk()
 {
     KAction* action = static_cast<KAction*>(actionCollection()->action("toggle-window-state"));
 
-    action->setGlobalShortcut(KShortcut(m_firstRunDialog->keySequence()), 
+    action->setGlobalShortcut(KShortcut(m_firstRunDialog->keySequence()),
         KAction::ActiveShortcut, KAction::NoAutoloading);
 
     actionCollection()->writeSettings();
