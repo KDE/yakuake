@@ -6,7 +6,7 @@
   published by the Free Software Foundation; either version 2 of
   the License or (at your option) version 3 or any later version
   accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy 
+  ved by the membership of KDE e.V.), which shall act as a proxy
   defined in Section 14 of version 3 of the license.
 
   This program is distributed in the hope that it will be useful,
@@ -23,12 +23,15 @@
 #define SKIN_H
 
 
+#include <QObject>
 #include <QPixmap>
 #include <QString>
 
 
-class Skin
+class Skin : public QObject
 {
+    Q_OBJECT
+
     public:
         explicit Skin();
         ~Skin();
@@ -67,6 +70,8 @@ class Skin
         const QPixmap& tabBarSelectedLeftCornerImage() { return m_tabBarSelectedLeftCornerImage; }
         const QPixmap& tabBarSelectedRightCornerImage() { return m_tabBarSelectedRightCornerImage; }
 
+        const QPixmap tabBarPreventClosingImage();
+
         const QPixmap& tabBarBackgroundImage() { return m_tabBarBackgroundImage; }
         const QPixmap& tabBarLeftCornerImage() { return m_tabBarLeftCornerImage; }
         const QPixmap& tabBarRightCornerImage() { return m_tabBarRightCornerImage; }
@@ -76,6 +81,14 @@ class Skin
 
         const QPoint& tabBarCloseTabButtonPosition() { return m_tabBarCloseTabButtonPosition; }
         const QString tabBarCloseTabButtonStyleSheet() { return m_tabBarCloseTabButtonStyleSheet; }
+
+
+    signals:
+        void iconChanged();
+
+
+    private slots:
+        void systemIconsChanged(int group);
 
 
     private:
@@ -112,13 +125,15 @@ class Skin
         QPixmap m_tabBarSelectedLeftCornerImage;
         QPixmap m_tabBarSelectedRightCornerImage;
 
+        QPixmap m_tabBarPreventClosingImage;
+
         QPixmap m_tabBarBackgroundImage;
         QPixmap m_tabBarLeftCornerImage;
         QPixmap m_tabBarRightCornerImage;
 
         QPoint m_tabBarNewTabButtonPosition;
         QString m_tabBarNewTabButtonStyleSheet;
-        
+
         QPoint m_tabBarCloseTabButtonPosition;
         QString m_tabBarCloseTabButtonStyleSheet;
 };

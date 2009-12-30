@@ -62,6 +62,8 @@ int main (int argc, char *argv[])
         ki18nc("@info:credit", "Plastik skin"), "dd@accentsolution.com");
     aboutData.addCredit(ki18nc("@info:credit", "Juan Carlos Torres"),
         ki18nc("@info:credit", "Tab bar drag and drop support, Prevent Closing toggle"), "carlosdgtorres@gmail.com");
+    aboutData.addCredit(ki18nc("@info:credit", "Gustavo Ribeiro Croscato"),
+        ki18nc("@info:credit", "Icon on tabs with Prevent Closing enabled"), "croscato@gmail.com");
 
     KCmdLineArgs::init(argc, argv, &aboutData);
 

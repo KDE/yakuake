@@ -41,6 +41,7 @@
 #include <KStandardAction>
 #include <KToggleFullScreenAction>
 #include <KVBox>
+#include <KGlobalSettings>
 
 #include <QDesktopWidget>
 #include <QPainter>
@@ -378,8 +379,13 @@ void MainWindow::handleContextDependentToggleAction(bool checked, QAction* actio
     if (action == actionCollection()->action("toggle-session-keyboard-input"))
         m_sessionStack->setSessionKeyboardInputEnabled(sessionId, !checked);
 
-    if (action == actionCollection()->action("toggle-session-prevent-closing"))
+    if (action == actionCollection()->action("toggle-session-prevent-closing")) {
         m_sessionStack->setSessionClosable(sessionId, !checked);
+
+        // Repaint the tab bar when the Prevent Closing action is toggled
+        // so the lock icon is added to or removed from the tab label.
+        m_tabBar->repaint();
+    }
 }
 
 void MainWindow::setContextDependentActionsQuiet(bool quiet)

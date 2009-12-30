@@ -58,7 +58,9 @@ TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
     m_dropIndicator = 0;
 
     m_mainWindow = mainWindow;
+
     m_skin = mainWindow->skin();
+    connect(m_skin, SIGNAL(iconChanged()), this, SLOT(repaint()));
 
     m_tabContextMenu = new KMenu(this);
     connect(m_tabContextMenu, SIGNAL(hovered(QAction*)), this, SLOT(contextMenuActionHovered(QAction*)));
@@ -360,6 +362,22 @@ int TabBar::drawButton(int x, int y, int index, QPainter& painter)
 
     QFontMetrics fontMetrics(font);
     textWidth = fontMetrics.width(title) + 10;
+
+    // Draw the Prevent Closing image in the tab button.
+    if (m_mainWindow->sessionStack()->isSessionClosable(sessionId) == false)
+    {
+        QPixmap preventClosingImage = m_skin->tabBarPreventClosingImage().scaled(height() - 4, height() - 4,
+            Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+        if (selected)
+            painter.drawTiledPixmap(x, y, preventClosingImage.width(), height(), m_skin->tabBarSelectedBackgroundImage());
+        else
+            painter.drawTiledPixmap(x, y, preventClosingImage.width(), height(), m_skin->tabBarUnselectedBackgroundImage());
+
+        painter.drawPixmap(x + 1, (height() / 2) - (preventClosingImage.height() / 2), preventClosingImage);
+
+        x += preventClosingImage.width();
+    }
 
     if (selected)
         painter.drawTiledPixmap(x, y, textWidth, height(), m_skin->tabBarSelectedBackgroundImage());

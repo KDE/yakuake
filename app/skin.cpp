@@ -6,7 +6,7 @@
   published by the Free Software Foundation; either version 2 of
   the License or (at your option) version 3 or any later version
   accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy 
+  ved by the membership of KDE e.V.), which shall act as a proxy
   defined in Section 14 of version 3 of the license.
 
   This program is distributed in the hope that it will be useful,
@@ -23,13 +23,15 @@
 
 #include <KConfig>
 #include <KConfigGroup>
+#include <KIcon>
+#include <KGlobalSettings>
 #include <KStandardDirs>
 
 #include <QFileInfo>
 #include <QUrl>
 
 
-Skin::Skin() 
+Skin::Skin()
 {
 }
 
@@ -45,6 +47,9 @@ bool Skin::load(const QString& name)
     if (!QFile::exists(titlePath) || !QFile::exists(tabPath))
         return false;
 
+    connect(KGlobalSettings::self(), SIGNAL(iconChanged(int)), this, SLOT(systemIconsChanged(int)),
+        Qt::UniqueConnection);
+
     QString titleDir(QFileInfo(titlePath).absolutePath());
     QString tabDir(QFileInfo(tabPath).absolutePath());
 
@@ -54,8 +59,8 @@ bool Skin::load(const QString& name)
 
     KConfigGroup border = titleConfig.group("Border");
 
-    m_borderColor = QColor(border.readEntry("red", 0), 
-                           border.readEntry("green", 0), 
+    m_borderColor = QColor(border.readEntry("red", 0),
+                           border.readEntry("green", 0),
                            border.readEntry("blue", 0));
 
     m_borderWidth = border.readEntry("width", 1);
@@ -71,7 +76,7 @@ bool Skin::load(const QString& name)
     KConfigGroup titleBarFocusButton = titleConfig.group("FocusButton");
 
     m_titleBarFocusButtonPosition.setX(titleBarFocusButton.readEntry("x", 0));
-    m_titleBarFocusButtonPosition.setY(titleBarFocusButton.readEntry("y", 0));  
+    m_titleBarFocusButtonPosition.setY(titleBarFocusButton.readEntry("y", 0));
 
     m_titleBarFocusButtonStyleSheet = buttonStyleSheet(titleDir + titleBarFocusButton.readEntry("up_image", ""),
                                                        titleDir + titleBarFocusButton.readEntry("over_image", ""),
@@ -81,7 +86,7 @@ bool Skin::load(const QString& name)
     KConfigGroup titleBarMenuButton = titleConfig.group("ConfigButton");
 
     m_titleBarMenuButtonPosition.setX(titleBarMenuButton.readEntry("x", 0));
-    m_titleBarMenuButtonPosition.setY(titleBarMenuButton.readEntry("y", 0));  
+    m_titleBarMenuButtonPosition.setY(titleBarMenuButton.readEntry("y", 0));
 
     m_titleBarMenuButtonStyleSheet = buttonStyleSheet(titleDir + titleBarMenuButton.readEntry("up_image", ""),
                                                         titleDir + titleBarMenuButton.readEntry("over_image", ""),
@@ -91,7 +96,7 @@ bool Skin::load(const QString& name)
     KConfigGroup titleBarQuitButton = titleConfig.group("QuitButton");
 
     m_titleBarQuitButtonPosition.setX(titleBarQuitButton.readEntry("x", 0));
-    m_titleBarQuitButtonPosition.setY(titleBarQuitButton.readEntry("y", 0));  
+    m_titleBarQuitButtonPosition.setY(titleBarQuitButton.readEntry("y", 0));
 
     m_titleBarQuitButtonStyleSheet = buttonStyleSheet(titleDir + titleBarQuitButton.readEntry("up_image", ""),
                                                       titleDir + titleBarQuitButton.readEntry("over_image", ""),
@@ -103,10 +108,10 @@ bool Skin::load(const QString& name)
     m_titleBarText = titleBarText.readEntry("text", "");
 
     m_titleBarTextPosition.setX(titleBarText.readEntry("x", 0));
-    m_titleBarTextPosition.setY(titleBarText.readEntry("y", 0));  
+    m_titleBarTextPosition.setY(titleBarText.readEntry("y", 0));
 
-    m_titleBarTextColor = QColor(titleBarText.readEntry("red", 0), 
-                                 titleBarText.readEntry("green", 0), 
+    m_titleBarTextColor = QColor(titleBarText.readEntry("red", 0),
+                                 titleBarText.readEntry("green", 0),
                                  titleBarText.readEntry("blue", 0));
 
 
@@ -114,10 +119,10 @@ bool Skin::load(const QString& name)
     KConfigGroup tabBar = tabConfig.group("Tabs");
 
     m_tabBarPosition.setX(tabBar.readEntry("x", 0));
-    m_tabBarPosition.setY(tabBar.readEntry("y", 0)); 
+    m_tabBarPosition.setY(tabBar.readEntry("y", 0));
 
-    m_tabBarTextColor = QColor(tabBar.readEntry("red", 0), 
-                               tabBar.readEntry("green", 0), 
+    m_tabBarTextColor = QColor(tabBar.readEntry("red", 0),
+                               tabBar.readEntry("green", 0),
                                tabBar.readEntry("blue", 0));
 
     m_tabBarSeparatorImage.load(tabDir + tabBar.readEntry("separator_image", ""));
@@ -125,6 +130,8 @@ bool Skin::load(const QString& name)
     m_tabBarSelectedBackgroundImage.load(tabDir + tabBar.readEntry("selected_background", ""));
     m_tabBarSelectedLeftCornerImage.load(tabDir + tabBar.readEntry("selected_left_corner", ""));
     m_tabBarSelectedRightCornerImage.load(tabDir + tabBar.readEntry("selected_right_corner", ""));
+
+    m_tabBarPreventClosingImage.load(tabDir + tabBar.readEntry("prevent_closing_image", ""));
 
 
     KConfigGroup tabBarBackground = tabConfig.group("Background");
@@ -137,7 +144,7 @@ bool Skin::load(const QString& name)
     KConfigGroup tabBarNewTabButton = tabConfig.group("PlusButton");
 
     m_tabBarNewTabButtonPosition.setX(tabBarNewTabButton.readEntry("x", 0));
-    m_tabBarNewTabButtonPosition.setY(tabBarNewTabButton.readEntry("y", 0));  
+    m_tabBarNewTabButtonPosition.setY(tabBarNewTabButton.readEntry("y", 0));
 
     m_tabBarNewTabButtonStyleSheet = buttonStyleSheet(tabDir + tabBarNewTabButton.readEntry("up_image", ""),
                                                       tabDir + tabBarNewTabButton.readEntry("over_image", ""),
@@ -147,12 +154,11 @@ bool Skin::load(const QString& name)
     KConfigGroup tabBarCloseTabButton = tabConfig.group("MinusButton");
 
     m_tabBarCloseTabButtonPosition.setX(tabBarCloseTabButton.readEntry("x", 0));
-    m_tabBarCloseTabButtonPosition.setY(tabBarCloseTabButton.readEntry("y", 0));  
+    m_tabBarCloseTabButtonPosition.setY(tabBarCloseTabButton.readEntry("y", 0));
 
     m_tabBarCloseTabButtonStyleSheet = buttonStyleSheet(tabDir + tabBarCloseTabButton.readEntry("up_image", ""),
                                                         tabDir + tabBarCloseTabButton.readEntry("over_image", ""),
                                                         tabDir + tabBarCloseTabButton.readEntry("down_image", ""));
-
 
     return true;
 }
@@ -184,4 +190,22 @@ const QString Skin::buttonStyleSheet(const QString& up, const QString& over, con
     styleSheet.append("QToolButton::menu-indicator { left: " + w + " }");
 
     return styleSheet;
+}
+
+const QPixmap Skin::tabBarPreventClosingImage()
+{
+    // If the skin. doesn't provide a Prevent Closing image, procure one
+    // from the system icon theme.
+    if (m_tabBarPreventClosingImage.isNull())
+        return KIcon("object-locked.png").pixmap(QSize(32, 32));
+
+    return m_tabBarPreventClosingImage;
+}
+
+void Skin::systemIconsChanged(int group)
+{
+    Q_UNUSED(group);
+
+    if (m_tabBarPreventClosingImage.isNull())
+        emit iconChanged();
 }

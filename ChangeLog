@@ -1,7 +1,11 @@
 Changes since 2.9.6:
 * Fixed compilation with gcc 4.4 (missing cstdio include).
-* Fixed quit acction bypassing the "Confirm quit when more than one session
+* Fixed quit action bypassing the "Confirm quit when more than one session
   is open" setting.
+* When "Prevent Closing" is toggled for a tab an appropriate icon will now
+  be shown on the tab label. The icon can be provided by the skin, or, if
+  the skin does not provide one, it will be procured from the system icon
+  theme.
 
 
 Changes in 2.9.6:

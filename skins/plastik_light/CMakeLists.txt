@@ -19,6 +19,7 @@ install(FILES
     tabs/selected_right.png
     tabs/separator.png
     tabs/unselected_back.png
+    tabs/lock.png
     DESTINATION ${DATA_INSTALL_DIR}/yakuake/skins/plastik_light/tabs)
 
 install(FILES
