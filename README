@@ -25,5 +25,5 @@ Basic build and installtion instructions:
 6. make
 7. sudo make install
 
-For more, please see the KDE Techbase wiki (http://techbase.kde.org/)
-and the CMake documentation (at http://www.cmake.org/).
+For more, please see the KDE Techbase wiki (http://techbase.kde.org/) and
+the CMake documentation (at http://www.cmake.org/).
