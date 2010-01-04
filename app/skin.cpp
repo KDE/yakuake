@@ -47,8 +47,9 @@ bool Skin::load(const QString& name)
     if (!QFile::exists(titlePath) || !QFile::exists(tabPath))
         return false;
 
-    connect(KGlobalSettings::self(), SIGNAL(iconChanged(int)), this, SLOT(systemIconsChanged(int)),
-        Qt::UniqueConnection);
+    // FIXME: Use Qt::UniqueConnection once we depend on Qt 4.6.
+    disconnect(KGlobalSettings::self(), SIGNAL(iconChanged(int)), this, SLOT(systemIconsChanged(int)));
+    connect(KGlobalSettings::self(), SIGNAL(iconChanged(int)), this, SLOT(systemIconsChanged(int)));
 
     QString titleDir(QFileInfo(titlePath).absolutePath());
     QString tabDir(QFileInfo(tabPath).absolutePath());
