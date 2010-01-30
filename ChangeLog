@@ -6,6 +6,10 @@ Changes since 2.9.6:
   be shown on the tab label. The icon can be provided by the skin, or, if
   the skin does not provide one, it will be procured from the system icon
   theme.
+* Thanks to API improvements in the KDE libraries in KDE SC 4.4 a KNotify
+  notification is now used for announcing that Yakuake was started success-
+  fully, rather than the passive popup in the top-left desktop corner used
+  with older versions of the KDE platform.
 
 
 Changes in 2.9.6:
