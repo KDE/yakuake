@@ -366,17 +366,23 @@ int TabBar::drawButton(int x, int y, int index, QPainter& painter)
     // Draw the Prevent Closing image in the tab button.
     if (m_mainWindow->sessionStack()->isSessionClosable(sessionId) == false)
     {
-        QPixmap preventClosingImage = m_skin->tabBarPreventClosingImage().scaled(height() - 4, height() - 4,
-            Qt::KeepAspectRatio, Qt::SmoothTransformation);
-
         if (selected)
-            painter.drawTiledPixmap(x, y, preventClosingImage.width(), height(), m_skin->tabBarSelectedBackgroundImage());
+            painter.drawTiledPixmap(x, y,
+                    m_skin->tabBarPreventClosingImagePosition().x() +
+                    m_skin->tabBarPreventClosingImage().width(), height(), 
+                    m_skin->tabBarSelectedBackgroundImage());
         else
-            painter.drawTiledPixmap(x, y, preventClosingImage.width(), height(), m_skin->tabBarUnselectedBackgroundImage());
+            painter.drawTiledPixmap(x, y, 
+                    m_skin->tabBarPreventClosingImagePosition().x() +
+                    m_skin->tabBarPreventClosingImage().width(), height(),
+                    m_skin->tabBarUnselectedBackgroundImage());
 
-        painter.drawPixmap(x + 1, (height() / 2) - (preventClosingImage.height() / 2), preventClosingImage);
+        painter.drawPixmap(x + m_skin->tabBarPreventClosingImagePosition().x(),
+                           m_skin->tabBarPreventClosingImagePosition().y(),
+                           m_skin->tabBarPreventClosingImage());
 
-        x += preventClosingImage.width();
+        x += m_skin->tabBarPreventClosingImagePosition().x();
+        x += m_skin->tabBarPreventClosingImage().width();
     }
 
     if (selected)

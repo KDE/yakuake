@@ -133,6 +133,8 @@ bool Skin::load(const QString& name)
     m_tabBarSelectedRightCornerImage.load(tabDir + tabBar.readEntry("selected_right_corner", ""));
 
     m_tabBarPreventClosingImage.load(tabDir + tabBar.readEntry("prevent_closing_image", ""));
+    m_tabBarPreventClosingImagePosition.setX(tabBar.readEntry("prevent_closing_image_x", 0));
+    m_tabBarPreventClosingImagePosition.setY(tabBar.readEntry("prevent_closing_image_y", 0));
 
 
     KConfigGroup tabBarBackground = tabConfig.group("Background");
@@ -160,6 +162,9 @@ bool Skin::load(const QString& name)
     m_tabBarCloseTabButtonStyleSheet = buttonStyleSheet(tabDir + tabBarCloseTabButton.readEntry("up_image", ""),
                                                         tabDir + tabBarCloseTabButton.readEntry("over_image", ""),
                                                         tabDir + tabBarCloseTabButton.readEntry("down_image", ""));
+
+    if (m_tabBarPreventClosingImage.isNull())
+        updateTabBarPreventClosingImageCache();
 
     return true;
 }
@@ -195,12 +200,30 @@ const QString Skin::buttonStyleSheet(const QString& up, const QString& over, con
 
 const QPixmap Skin::tabBarPreventClosingImage()
 {
-    // If the skin. doesn't provide a Prevent Closing image, procure one
-    // from the system icon theme.
     if (m_tabBarPreventClosingImage.isNull())
-        return KIcon("object-locked.png").pixmap(QSize(32, 32));
+        return m_tabBarPreventClosingImageCached;
 
     return m_tabBarPreventClosingImage;
+}
+
+void Skin::updateTabBarPreventClosingImageCache()
+{
+    // Get the target image size from the tabBar height, aquired from
+    // background image, minus (2 * y position) of the lock icon.
+    int m_IconSize = m_tabBarBackgroundImage.height() -
+        (2 * m_tabBarPreventClosingImagePosition.y());
+
+    // Get the system lock icon in a generous size.
+    m_tabBarPreventClosingImageCached = KIcon("object-locked.png").pixmap(48, 48);
+
+    // Resize the image if it's too tall.
+    if (m_IconSize <  m_tabBarPreventClosingImageCached.height())
+    {
+        m_tabBarPreventClosingImageCached =
+            m_tabBarPreventClosingImageCached.scaled(m_IconSize,
+            m_IconSize, Qt::KeepAspectRatio,
+            Qt::SmoothTransformation);
+    }
 }
 
 void Skin::systemIconsChanged(int group)
@@ -208,5 +231,9 @@ void Skin::systemIconsChanged(int group)
     Q_UNUSED(group);
 
     if (m_tabBarPreventClosingImage.isNull())
+    {
+        updateTabBarPreventClosingImageCache();
+
         emit iconChanged();
+    }
 }

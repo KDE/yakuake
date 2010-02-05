@@ -71,6 +71,7 @@ class Skin : public QObject
         const QPixmap& tabBarSelectedRightCornerImage() { return m_tabBarSelectedRightCornerImage; }
 
         const QPixmap tabBarPreventClosingImage();
+        const QPoint& tabBarPreventClosingImagePosition() { return m_tabBarPreventClosingImagePosition; }
 
         const QPixmap& tabBarBackgroundImage() { return m_tabBarBackgroundImage; }
         const QPixmap& tabBarLeftCornerImage() { return m_tabBarLeftCornerImage; }
@@ -93,6 +94,8 @@ class Skin : public QObject
 
     private:
         const QString buttonStyleSheet(const QString& up, const QString& over, const QString& down);
+
+        void updateTabBarPreventClosingImageCache();
 
         QColor m_borderColor;
         int m_borderWidth;
@@ -126,6 +129,8 @@ class Skin : public QObject
         QPixmap m_tabBarSelectedRightCornerImage;
 
         QPixmap m_tabBarPreventClosingImage;
+        QPixmap m_tabBarPreventClosingImageCached;
+        QPoint m_tabBarPreventClosingImagePosition;
 
         QPixmap m_tabBarBackgroundImage;
         QPixmap m_tabBarLeftCornerImage;

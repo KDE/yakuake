@@ -16,6 +16,8 @@ selected_left_corner=/tabs/selected_left.png
 selected_right_corner=/tabs/selected_right.png
 unselected_background=/tabs/unselected_back.png
 prevent_closing_image=/tabs/lock.png
+prevent_closing_image_x=2
+prevent_closing_image_y=3
 
 [Background]
 back_image=/tabs/back_image.png
