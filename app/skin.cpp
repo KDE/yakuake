@@ -208,7 +208,7 @@ const QPixmap Skin::tabBarPreventClosingImage()
 
 void Skin::updateTabBarPreventClosingImageCache()
 {
-    // Get the target image size from the tabBar height, aquired from
+    // Get the target image size from the tabBar height, acquired from
     // background image, minus (2 * y position) of the lock icon.
     int m_IconSize = m_tabBarBackgroundImage.height() -
         (2 * m_tabBarPreventClosingImagePosition.y());
