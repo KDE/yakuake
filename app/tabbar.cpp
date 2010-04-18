@@ -445,10 +445,10 @@ void TabBar::mousePressEvent(QMouseEvent* event)
 
     if (index == -1) return;
 
-    if (event->button() == Qt::LeftButton)
+    if (event->button() == Qt::LeftButton || event->button() == Qt::MidButton)
     {
         m_startPos = event->pos();
-        if (index != m_tabs.indexOf(m_selectedSessionId))
+        if (index != m_tabs.indexOf(m_selectedSessionId) || event->button() == Qt::MidButton)
         {
             m_mousePressed = true;
             m_mousePressedIndex = index;
@@ -466,10 +466,13 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
 
     int index = tabAt(event->x());
 
-    if (event->button() == Qt::LeftButton && index != m_tabs.indexOf(m_selectedSessionId))
+    if (m_mousePressed && m_mousePressedIndex == index)
     {
-        if (m_mousePressed && m_mousePressedIndex == index)
+        if (event->button() == Qt::LeftButton && index != m_tabs.indexOf(m_selectedSessionId))
             emit tabSelected(m_tabs.at(index));
+
+        if (event->button() == Qt::MidButton)
+            emit tabClosed(m_tabs.at(index));
     }
 
     m_mousePressed = false;
@@ -479,7 +482,7 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
 
 void TabBar::mouseMoveEvent(QMouseEvent* event)
 {
-    if (!m_startPos.isNull() && (event->buttons() & Qt::LeftButton))
+    if (!m_startPos.isNull() && ((event->buttons() & Qt::LeftButton) || (event->buttons() & Qt::MidButton)))
     {
         int distance = (event->pos() - m_startPos).manhattanLength();
 

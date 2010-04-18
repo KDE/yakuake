@@ -10,6 +10,9 @@ Changes since 2.9.6:
   notification is now used for announcing that Yakuake was started success-
   fully, rather than the passive popup in the top-left desktop corner used
   with older versions of the KDE platform.
+* Middle-clicking a tab closes it now, consistent with many other KDE apps.
+* Tabs can now also be dragged using middle-mouse, again for consistency
+  with many other KDE apps.
 
 
 Changes in 2.9.6:
