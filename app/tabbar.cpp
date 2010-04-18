@@ -571,7 +571,7 @@ void TabBar::dropEvent(QDropEvent* event)
             --targetIndex;
 
         m_tabs.move(sourceIndex, targetIndex);
-        selectTab(sourceSessionId);
+        emit tabSelected(m_tabs.at(targetIndex));
 
         event->accept();
     }

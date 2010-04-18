@@ -13,6 +13,9 @@ Changes since 2.9.6:
 * Middle-clicking a tab closes it now, consistent with many other KDE apps.
 * Tabs can now also be dragged using middle-mouse, again for consistency
   with many other KDE apps.
+* Fixed a bug where dragging an inactive tab to a new position on the tab
+  bar would show the tab as selected after the drop, but the terminal
+  area wouldn't actually show the corresponding terminal(s).
 
 
 Changes in 2.9.6:
