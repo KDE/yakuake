@@ -477,6 +477,9 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
 
     m_mousePressed = false;
 
+    m_startPos.setX(0);
+    m_startPos.setY(0);
+
     QWidget::mouseReleaseEvent(event);
 }
 

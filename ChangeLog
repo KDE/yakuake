@@ -16,6 +16,8 @@ Changes since 2.9.6:
 * Fixed a bug where dragging an inactive tab to a new position on the tab
   bar would show the tab as selected after the drop, but the terminal
   area wouldn't actually show the corresponding terminal(s).
+* Fixed a bug causing the empty area of the tab bar to become draggable as
+  if if was the last tab that had been clicked.
 
 
 Changes in 2.9.6:
