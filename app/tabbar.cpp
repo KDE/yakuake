@@ -453,6 +453,7 @@ void TabBar::mousePressEvent(QMouseEvent* event)
             m_mousePressed = true;
             m_mousePressedIndex = index;
         }
+        return;
     }
 
     QWidget::mousePressEvent(event);
