@@ -123,12 +123,15 @@ void TitleBar::updateMask()
     const QPixmap& leftCornerImage = m_skin->titleBarLeftCornerImage();
     const QPixmap& rightCornerImage = m_skin->titleBarRightCornerImage();
 
-    QRegion mask = QRegion(leftCornerImage.mask());
+    QRegion leftCornerRegion = leftCornerImage.hasAlpha() ? QRegion(leftCornerImage.mask()) : QRegion(leftCornerImage.rect());
+    QRegion rightCornerRegion = rightCornerImage.hasAlpha() ? QRegion(rightCornerImage.mask()) : QRegion(rightCornerImage.rect());
+    
+    QRegion mask = leftCornerRegion;
 
     mask += QRegion(QRect(0, 0, width() - leftCornerImage.width() - rightCornerImage.width(), 
         height())).translated(leftCornerImage.width(), 0);
 
-    mask += QRegion(rightCornerImage.mask()).translated(width() - rightCornerImage.width(), 0);
+    mask += rightCornerRegion.translated(width() - rightCornerImage.width(), 0);
 
     setMask(mask);
 }

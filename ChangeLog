@@ -18,6 +18,8 @@ Changes since 2.9.6:
   area wouldn't actually show the corresponding terminal(s).
 * Fixed a bug causing the empty area of the tab bar to become draggable as
   if if was the last tab that had been clicked.
+* Fixed a bug causing the title bar corner images of a theme not to be shown
+  when they don't have an alpha channel.
 
 
 Changes in 2.9.6:
