@@ -174,6 +174,7 @@ void MainWindow::setupActions()
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Q));
 
     action = KStandardAction::aboutApp(m_helpMenu, SLOT(aboutApplication()), actionCollection());
+    action = KStandardAction::reportBug(m_helpMenu, SLOT(reportBug()), actionCollection());
     action = KStandardAction::aboutKDE(m_helpMenu, SLOT(aboutKDE()), actionCollection());
 
     action = KStandardAction::keyBindings(this, SLOT(configureKeys()), actionCollection());
@@ -424,6 +425,7 @@ void MainWindow::setupMenu()
 {
     m_menu->addTitle(i18nc("@title:menu", "Help"));
     m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::WhatsThis)));
+    m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::ReportBug)));
     m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::AboutApp)));
     m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::AboutKDE)));
 
