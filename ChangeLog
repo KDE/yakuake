@@ -20,6 +20,9 @@ Changes since 2.9.6:
   if if was the last tab that had been clicked.
 * Fixed a bug causing the title bar corner images of a theme not to be shown
   when they don't have an alpha channel.
+* Fixed a bug causing the window to appear at a distance away from the top
+  edge of the screen matching the height of a panel at the top edge of
+  another screen in a multi-screen setup.
 
 
 Changes in 2.9.6:

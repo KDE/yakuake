@@ -961,15 +961,46 @@ int MainWindow::getScreen()
 
 QRect MainWindow::getDesktopGeometry()
 {
+    QRect screenGeometry = KApplication::desktop()->screenGeometry(getScreen());
+    
     QAction* action = actionCollection()->action("view-full-screen");
 
     if (action->isChecked())
-        return KApplication::desktop()->screenGeometry(getScreen());
+        return screenGeometry;
 
+    int currentDesktop = KWindowSystem::windowInfo(winId(), NET::CurrentDesktop).desktop();
+    
     if (KApplication::desktop()->numScreens() > 1)
-        return KWindowSystem::workArea().intersect(KApplication::desktop()->screenGeometry(getScreen()));
+    {
+        const QList<WId> allWindows = KWindowSystem::windows();
+        QList<WId> offScreenWindows;
 
-    return KWindowSystem::workArea();
+        QListIterator<WId> i(allWindows);
+
+        while (i.hasNext())
+        {
+            WId windowId = i.next();
+
+            if (KWindowSystem::hasWId(windowId))
+            {
+                KWindowInfo windowInfo = KWindowSystem::windowInfo(windowId, NET::WMVisibleName, NET::WM2ExtendedStrut);
+                
+                if (windowInfo.valid() && windowInfo.desktop() == currentDesktop)
+                {
+                    NETExtendedStrut strut = windowInfo.extendedStrut();
+
+                    QRect topStrut(strut.top_start, 0, strut.top_end, strut.top_width);
+
+                    if (!topStrut.intersects(screenGeometry))
+                        offScreenWindows << windowId;
+                }
+            }
+        }
+
+        return KWindowSystem::workArea(offScreenWindows, currentDesktop).intersect(screenGeometry);
+    }
+
+    return KWindowSystem::workArea(currentDesktop);
 }
 
 void MainWindow::whatsThis()
