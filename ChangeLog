@@ -1,3 +1,9 @@
+Changes in 2.9.8:
+* Fixed a bug causing the "Keep above other windows" preference not to be
+  respected immediately when toggling the "Keep window open when it loses
+  focus" preference from the title bar or the main menu.
+
+
 Changes in 2.9.7:
 * Fixed compilation with gcc 4.4 (missing cstdio include).
 * Fixed quit action bypassing the "Confirm quit when more than one session

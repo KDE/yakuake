@@ -931,7 +931,12 @@ void MainWindow::pollMouse()
 
 void MainWindow::setKeepOpen(bool keepOpen)
 {
-    Settings::setKeepOpen(keepOpen);
+    if (Settings::keepOpen() != keepOpen)
+    {
+        Settings::setKeepOpen(keepOpen);
+
+        applyWindowProperties();
+    }
 
     actionCollection()->action("keep-open")->setChecked(keepOpen);
     m_titleBar->setFocusButtonState(keepOpen);
