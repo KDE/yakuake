@@ -962,14 +962,14 @@ int MainWindow::getScreen()
 QRect MainWindow::getDesktopGeometry()
 {
     QRect screenGeometry = KApplication::desktop()->screenGeometry(getScreen());
-    
+
     QAction* action = actionCollection()->action("view-full-screen");
 
     if (action->isChecked())
         return screenGeometry;
 
     int currentDesktop = KWindowSystem::windowInfo(winId(), NET::CurrentDesktop).desktop();
-    
+
     if (KApplication::desktop()->numScreens() > 1)
     {
         const QList<WId> allWindows = KWindowSystem::windows();
@@ -984,7 +984,7 @@ QRect MainWindow::getDesktopGeometry()
             if (KWindowSystem::hasWId(windowId))
             {
                 KWindowInfo windowInfo = KWindowSystem::windowInfo(windowId, 0, NET::WM2ExtendedStrut);
-                
+
                 if (windowInfo.valid() && windowInfo.desktop() == currentDesktop)
                 {
                     NETExtendedStrut strut = windowInfo.extendedStrut();

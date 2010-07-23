@@ -6,7 +6,7 @@
   published by the Free Software Foundation; either version 2 of
   the License or (at your option) version 3 or any later version
   accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy 
+  ved by the membership of KDE e.V.), which shall act as a proxy
   defined in Section 14 of version 3 of the license.
 
   This program is distributed in the hope that it will be useful,
@@ -32,7 +32,7 @@
 
 TitleBar::TitleBar(MainWindow* mainWindow) : QWidget(mainWindow)
 {
-    setWhatsThis(i18nc("@info:whatsthis", 
+    setWhatsThis(i18nc("@info:whatsthis",
                        "<title>Title Bar</title>"
                        "<para>The title bar displays the session title if available.</para>"));
 
@@ -82,7 +82,7 @@ void TitleBar::applySkin()
     updateMask();
 }
 
-void TitleBar::resizeEvent(QResizeEvent* event) 
+void TitleBar::resizeEvent(QResizeEvent* event)
 {
     m_focusButton->move(width() - m_skin->titleBarFocusButtonPosition().x(), m_skin->titleBarFocusButtonPosition().y());
     m_menuButton->move(width() - m_skin->titleBarMenuButtonPosition().x(), m_skin->titleBarMenuButtonPosition().y());
@@ -125,10 +125,10 @@ void TitleBar::updateMask()
 
     QRegion leftCornerRegion = leftCornerImage.hasAlpha() ? QRegion(leftCornerImage.mask()) : QRegion(leftCornerImage.rect());
     QRegion rightCornerRegion = rightCornerImage.hasAlpha() ? QRegion(rightCornerImage.mask()) : QRegion(rightCornerImage.rect());
-    
+
     QRegion mask = leftCornerRegion;
 
-    mask += QRegion(QRect(0, 0, width() - leftCornerImage.width() - rightCornerImage.width(), 
+    mask += QRegion(QRect(0, 0, width() - leftCornerImage.width() - rightCornerImage.width(),
         height())).translated(leftCornerImage.width(), 0);
 
     mask += rightCornerRegion.translated(width() - rightCornerImage.width(), 0);
@@ -152,8 +152,8 @@ QString TitleBar::title()
 }
 
 void TitleBar::setTitle(const QString& title)
-{ 
-    m_title = title; 
+{
+    m_title = title;
 
     repaint();
 }
