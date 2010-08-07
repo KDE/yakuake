@@ -3,6 +3,12 @@ Changes in 2.9.8:
   respected immediately when toggling the "Keep window open when it loses
   focus" preference from the title bar or the main menu.
 * Yakuake now depends on KDE 4.3.
+* Added a new "Ask the window manager to perform the animation" option to
+  the animation settings (only shown if Yakuake was built against KDE SC
+  4.6 Alpha 1 or higher). If this option is enabled (it is by default) and
+  the KDE Desktop Effect "Sliding Popups" is enabled as well, the animation
+  will be performed by KDE's window manager KWin, for much improved smooth-
+  ness on many systems.
 
 
 Changes in 2.9.7:

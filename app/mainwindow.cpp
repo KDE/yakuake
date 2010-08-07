@@ -51,7 +51,12 @@
 #include <QPainter>
 #include <QPalette>
 #include <QtDBus/QtDBus>
-#include <QTimer>
+
+#if defined(Q_WS_X11) && KDE_IS_VERSION(4,5,60)
+#include <QX11Info>
+
+#include <X11/Xlib.h>
+#endif
 
 
 MainWindow::MainWindow(QWidget* parent)
@@ -68,6 +73,11 @@ MainWindow::MainWindow(QWidget* parent)
     m_tabBar = new TabBar(this);
     m_titleBar = new TitleBar(this);
     m_firstRunDialog = NULL;
+    m_listenForActivationChanges = false;
+
+#if defined(Q_WS_X11) && KDE_IS_VERSION(4,5,60)
+    m_kwinAssistPropSet = false;
+#endif
 
     setupActions();
     setupMenu();
@@ -531,7 +541,7 @@ void MainWindow::updateWindowHeightMenu()
 void MainWindow::configureKeys()
 {
     KShortcutsDialog::configure(actionCollection());
-    KWindowSystem::activateWindow(winId());
+    activate();
 }
 
 void MainWindow::configureApp()
@@ -658,11 +668,14 @@ void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition)
 
     int maxHeight = workArea.height() * newHeight / 100;
 
+    int targetWidth = workArea.width() * newWidth / 100;
+
     setGeometry(workArea.x() + workArea.width() * newPosition * (100 - newWidth) / 10000,
-                workArea.y(), workArea.width() * newWidth / 100, maxHeight);
+                workArea.y(), targetWidth, maxHeight);
 
     maxHeight -= m_titleBar->height();
-    m_titleBar->setGeometry(0, maxHeight, width(), m_titleBar->height());
+    m_titleBar->setGeometry(0, maxHeight, targetWidth, m_titleBar->height());
+    if (!isVisible()) m_titleBar->updateMask();
 
     if (Settings::frames() > 0)
         m_animationStepSize = maxHeight / Settings::frames();
@@ -789,7 +802,7 @@ void MainWindow::moveEvent(QMoveEvent* event)
 
 void MainWindow::changeEvent(QEvent* event)
 {
-    if (event->type() == QEvent::ActivationChange)
+    if (m_listenForActivationChanges && event->type() == QEvent::ActivationChange)
     {
         if (isVisible() && !KApplication::activeWindow() && !Settings::keepOpen())
             toggleWindowState();
@@ -800,43 +813,127 @@ void MainWindow::changeEvent(QEvent* event)
 
 void MainWindow::toggleWindowState()
 {
+    bool visible = isVisible();
+
+    if (visible && !isActiveWindow() && Settings::keepOpen() && Settings::toggleToFocus())
+    {
+        KWindowSystem::forceActiveWindow(winId());
+
+        return;
+    }
+
+#if defined(Q_WS_X11) && KDE_IS_VERSION(4,5,60)
+    if (!Settings::useWMAssist() && m_kwinAssistPropSet)
+        kwinAssistPropCleanup();
+
+    if (Settings::useWMAssist() && KWindowSystem::compositingActive())
+        kwinAssistToggleWindowState(visible);
+    else
+#endif
+        xshapeToggleWindowState(visible);
+}
+
+#if defined(Q_WS_X11) && KDE_IS_VERSION(4,5,60)
+void MainWindow::kwinAssistToggleWindowState(bool visible)
+{
+    bool gotEffect = false;
+
+    Display* display = QX11Info::display();
+    Atom atom = XInternAtom(display, "_KDE_SLIDE", false);
+    int count;
+    Atom* list = XListProperties(display, DefaultRootWindow(display), &count);
+
+    if (list != NULL)
+    {
+        gotEffect = (qFind(list, list + count, atom) != list + count);
+
+        XFree(list);
+    }
+
+    if (gotEffect)
+    {
+        Atom atom = XInternAtom(display, "_KDE_SLIDE", false);
+
+        if (Settings::frames() > 0)
+        {
+            QVarLengthArray<long, 1024> data(4);
+
+            data[0] = 0;
+            data[1] = 1;
+            data[2] = Settings::frames() * 10;
+            data[3] = Settings::frames() * 10;
+
+            XChangeProperty(display, winId(), atom, atom, 32, PropModeReplace,
+                reinterpret_cast<unsigned char *>(data.data()), data.size());
+
+            m_kwinAssistPropSet = true;
+        }
+        else
+            XDeleteProperty(display, winId(), atom);
+
+        if (visible)
+        {
+            sharedPreHideWindow();
+
+            hide();
+
+            sharedAfterHideWindow();
+        }
+        else
+        {
+            sharedPreOpenWindow();
+
+            show();
+
+            sharedAfterOpenWindow();
+        }
+
+        return;
+    }
+
+    xshapeToggleWindowState(visible);
+}
+
+void MainWindow::kwinAssistPropCleanup()
+{
+    Display* display = QX11Info::display();
+    Atom atom = XInternAtom(display, "_KDE_SLIDE", false);
+
+    XDeleteProperty(display, winId(), atom);
+
+    m_kwinAssistPropSet = false;
+}
+#endif
+
+void MainWindow::xshapeToggleWindowState(bool visible)
+{
     if (m_animationTimer.isActive()) return;
 
-    if (isVisible())
+    if (visible)
     {
-        if (!isActiveWindow() && Settings::keepOpen() && Settings::toggleToFocus())
-        {
-            KWindowSystem::forceActiveWindow(winId());
-            return;
-        }
+        sharedPreHideWindow();
 
         m_animationFrame = Settings::frames();
 
-        connect(&m_animationTimer, SIGNAL(timeout()), this, SLOT(retractWindow()));
+        connect(&m_animationTimer, SIGNAL(timeout()), this, SLOT(xshapeRetractWindow()));
         m_animationTimer.start();
     }
     else
     {
-        applyWindowGeometry();
-
         m_animationFrame = 0;
 
-        connect(&m_animationTimer, SIGNAL(timeout()), this, SLOT(openWindow()));
+        connect(&m_animationTimer, SIGNAL(timeout()), this, SLOT(xshapeOpenWindow()));
         m_animationTimer.start();
     }
 }
 
-void MainWindow::openWindow()
+void MainWindow::xshapeOpenWindow()
 {
     if (m_animationFrame == 0)
     {
-        updateUseTranslucency();
-
-        applyWindowProperties();
+        sharedPreOpenWindow();
 
         show();
-
-        if (Settings::pollMouse()) toggleMousePoll(false);
     }
 
     if (m_animationFrame == Settings::frames())
@@ -847,7 +944,7 @@ void MainWindow::openWindow()
         m_titleBar->move(0, height() - m_titleBar->height());
         updateMask();
 
-        if (!Settings::firstRun()) KWindowSystem::forceActiveWindow(winId());
+        sharedAfterOpenWindow();
     }
     else
     {
@@ -865,7 +962,7 @@ void MainWindow::openWindow()
     }
 }
 
-void MainWindow::retractWindow()
+void MainWindow::xshapeRetractWindow()
 {
     if (m_animationFrame == 0)
     {
@@ -874,7 +971,7 @@ void MainWindow::retractWindow()
 
         hide();
 
-        if (Settings::pollMouse()) toggleMousePoll(true);
+        sharedAfterHideWindow();
     }
     else
     {
@@ -884,6 +981,34 @@ void MainWindow::retractWindow()
 
         --m_animationFrame;
     }
+}
+
+void MainWindow::sharedPreOpenWindow()
+{
+    applyWindowGeometry();
+
+    updateUseTranslucency();
+
+    applyWindowProperties();
+
+    if (Settings::pollMouse()) toggleMousePoll(false);
+}
+
+void MainWindow::sharedAfterOpenWindow()
+{
+    if (!Settings::firstRun()) KWindowSystem::forceActiveWindow(winId());
+
+    m_listenForActivationChanges = true;
+}
+
+void MainWindow::sharedPreHideWindow()
+{
+    m_listenForActivationChanges = false;
+}
+
+void MainWindow::sharedAfterHideWindow()
+{
+    if (Settings::pollMouse()) toggleMousePoll(true);
 }
 
 void MainWindow::activate()
@@ -955,7 +1080,7 @@ QRect MainWindow::getDesktopGeometry()
     if (action->isChecked())
         return screenGeometry;
 
-    int currentDesktop = KWindowSystem::windowInfo(winId(), NET::CurrentDesktop).desktop();
+    int currentDesktop = KWindowSystem::windowInfo(winId(), NET::WMDesktop).desktop();
 
     if (KApplication::desktop()->numScreens() > 1)
     {

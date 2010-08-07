@@ -137,9 +137,14 @@
     </entry>
   </group>
   <group name="Animation">
+    <entry name="UseWMAssist" type="Bool">
+       <label context="@label">Attempt to use the window manager to animate the window</label>
+      <whatsthis context="@info:whatsthis">Whether to try and let the window manager perform the window open/retract animation. Yakuake will fall back to an animation strategy of progressively adjusting the window mask if the window manager is unable to provide the requested service.</whatsthis>
+      <default>true</default>
+    </entry>
     <entry name="Frames" type="Int">
       <label context="@label">Animation frames</label>
-      <whatsthis context="@info:whatsthis">The number of frames of the open/retract animation.</whatsthis>
+      <whatsthis context="@info:whatsthis">The number of frames of the open/retract animation. One frame is taken to be 10 miliseconds.</whatsthis>
       <default>20</default>
       <min>0</min>
       <max>50</max>

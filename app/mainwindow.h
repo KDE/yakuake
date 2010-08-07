@@ -7,7 +7,7 @@
   published by the Free Software Foundation; either version 2 of
   the License or (at your option) version 3 or any later version
   accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy 
+  ved by the membership of KDE e.V.), which shall act as a proxy
   defined in Section 14 of version 3 of the license.
 
   This program is distributed in the hope that it will be useful,
@@ -23,11 +23,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-
 #include "settings.h"
 
 #include <KAction>
 #include <KActionCollection>
+#include <kdeversion.h>
 #include <KGlobalSettings>
 #include <KLocalizedString>
 #include <KMainWindow>
@@ -102,8 +102,9 @@ class MainWindow : public KMainWindow
         void increaseWindowHeight();
         void decreaseWindowHeight();
 
-        void openWindow();
-        void retractWindow();
+        void xshapeOpenWindow();
+        void xshapeRetractWindow();
+
         void activate();
 
         void toggleMousePoll(bool poll);
@@ -133,6 +134,19 @@ class MainWindow : public KMainWindow
         void updateWindowSizeMenus();
         void updateWindowHeightMenu();
         void updateWindowWidthMenu();
+
+#if defined(Q_WS_X11) && KDE_IS_VERSION(4,5,60)
+        void kwinAssistToggleWindowState(bool visible);
+        void kwinAssistPropCleanup();
+        bool m_kwinAssistPropSet;
+#endif
+
+        void xshapeToggleWindowState(bool visible);
+
+        void sharedPreOpenWindow();
+        void sharedAfterOpenWindow();
+        void sharedPreHideWindow();
+        void sharedAfterHideWindow();
 
         void updateMask();
 
@@ -164,6 +178,8 @@ class MainWindow : public KMainWindow
         QTimer m_mousePoller;
         int m_animationFrame;
         int m_animationStepSize;
+
+        bool m_listenForActivationChanges;
 };
 
 #endif

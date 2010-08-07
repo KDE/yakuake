@@ -22,8 +22,6 @@
 #include "skinlistdelegate.h"
 #include "appearancesettings.h"
 
-#include <kdeversion.h>
-
 #include <QApplication>
 #include <QModelIndex>
 #include <QPainter>
