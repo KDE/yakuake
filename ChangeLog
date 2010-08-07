@@ -2,6 +2,7 @@ Changes in 2.9.8:
 * Fixed a bug causing the "Keep above other windows" preference not to be
   respected immediately when toggling the "Keep window open when it loses
   focus" preference from the title bar or the main menu.
+* Yakuake now depends on KDE 4.3.
 
 
 Changes in 2.9.7:

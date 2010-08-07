@@ -6,7 +6,7 @@
   published by the Free Software Foundation; either version 2 of
   the License or (at your option) version 3 or any later version
   accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy 
+  ved by the membership of KDE e.V.), which shall act as a proxy
   defined in Section 14 of version 3 of the license.
 
   This program is distributed in the hope that it will be useful,
@@ -46,7 +46,7 @@ FirstRunDialog::FirstRunDialog(MainWindow* mainWindow) : KDialog(mainWindow)
 
     initKeyButton();
 
-    connect(m_ui->keyButton, SIGNAL(keySequenceChanged(const QKeySequence&)), 
+    connect(m_ui->keyButton, SIGNAL(keySequenceChanged(const QKeySequence&)),
         this, SLOT(validateKeySequence(const QKeySequence&)));
 }
 
@@ -56,9 +56,7 @@ FirstRunDialog::~FirstRunDialog()
 
 void FirstRunDialog::initKeyButton()
 {
-#if KDE_IS_VERSION(4,2,0)
     m_ui->keyButton->setMultiKeyShortcutsAllowed(false);
-#endif
 
     m_ui->keyButton->blockSignals(true);
 
@@ -79,7 +77,7 @@ void FirstRunDialog::validateKeySequence(const QKeySequence& keySequence)
     {
         bool steal = KGlobalAccel::promptStealShortcutSystemwide(this, actionIdentifiers, keySequence);
 
-        if (!steal) 
+        if (!steal)
             initKeyButton();
         else
         {

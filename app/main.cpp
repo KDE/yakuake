@@ -29,16 +29,6 @@
 
 #include <cstdio>
 
-#if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
-#include <cstdlib>
-
-#include <X11/Xlib.h>
-#include <X11/extensions/Xrender.h>
-
-
-void getDisplayInformation(Display*& display, Visual*& visual, Colormap& colormap);
-#endif
-
 
 int main (int argc, char *argv[])
 {
@@ -76,71 +66,7 @@ int main (int argc, char *argv[])
         return 0;
     }
 
-#if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
-    if (KWindowSystem::compositingActive())
-    {
-            Display* display = 0;
-            Visual* visual = 0;
-            Colormap colormap = 0;
+    Application app;
 
-            getDisplayInformation(display, visual, colormap);
-
-            Application app(display, (Qt::HANDLE)visual, (Qt::HANDLE)colormap);
-
-            return app.exec();
-    }
-    else
-#endif
-    {
-        Application app;
-
-        return app.exec();
-    }
+    return app.exec();
 }
-
-// Code from the Qt 4 graphics dojo examples at http://labs.trolltech.com
-#if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
-void getDisplayInformation(Display*& display, Visual*& visual, Colormap& colormap)
-{
-    display = XOpenDisplay(0);
-
-    if (!display)
-    {
-        QTextStream err(stderr);
-
-        err << i18nc("@info:shell", "Cannot connect to X server.") << '\n';
-
-        exit(1);
-    }
-
-    int screen = DefaultScreen(display);
-    int eventBase, errorBase;
-
-    if (XRenderQueryExtension(display, &eventBase, &errorBase))
-    {
-        int nvi;
-        XVisualInfo templ;
-        templ.screen  = screen;
-        templ.depth = 32;
-        templ.c_class = TrueColor;
-        XVisualInfo *xvi = XGetVisualInfo(display, VisualScreenMask |
-                                          VisualDepthMask |
-                                          VisualClassMask, &templ, &nvi);
-
-        for (int i = 0; i < nvi; ++i)
-        {
-            XRenderPictFormat* format = XRenderFindVisualFormat(display, xvi[i].visual);
-
-            if (format->type == PictTypeDirect && format->direct.alphaMask)
-            {
-                visual = xvi[i].visual;
-                colormap = XCreateColormap(display, RootWindow(display, screen),
-                                           visual, AllocNone);
-
-                // Found ARGB visual.
-                break;
-            }
-        }
-    }
-}
-#endif

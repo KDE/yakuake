@@ -35,9 +35,6 @@ class Application : public KUniqueApplication
 
     public:
         explicit Application();
-#if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
-        explicit Application(Display* display, Qt::HANDLE visual, Qt::HANDLE colormap);
-#endif
         virtual ~Application();
 
         virtual int newInstance();

@@ -53,22 +53,13 @@
 #include <QtDBus/QtDBus>
 #include <QTimer>
 
-#if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
-#include <QX11Info>
-
-#include <X11/Xlib.h>
-#include <X11/extensions/Xrender.h>
-#endif
-
 
 MainWindow::MainWindow(QWidget* parent)
     : KMainWindow(parent, Qt::CustomizeWindowHint | Qt::FramelessWindowHint)
 {
     QDBusConnection::sessionBus().registerObject("/yakuake/window", this, QDBusConnection::ExportScriptableSlots);
 
-#if KDE_IS_VERSION(4,2,68)
     setAttribute(Qt::WA_TranslucentBackground, true);
-#endif
 
     m_skin = new Skin();
     m_menu = new KMenu(this);
@@ -765,21 +756,12 @@ void MainWindow::paintEvent(QPaintEvent* event)
 
     if (useTranslucency())
     {
-#if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
-        painter.setCompositionMode(QPainter::CompositionMode_Source);
-        painter.fillRect(rect(), Qt::transparent);
-#endif
         painter.setOpacity(qreal(Settings::backgroundColorOpacity()) / 100);
         painter.fillRect(rect(), Settings::backgroundColor());
         painter.setOpacity(1.0);
     }
     else
-    {
-#if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
-        painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-#endif
         painter.fillRect(rect(), Settings::backgroundColor());
-    }
 
     QRect leftBorder(0, 0, m_skin->borderWidth(), height() - m_titleBar->height());
     painter.fillRect(leftBorder, m_skin->borderColor());
@@ -1069,35 +1051,5 @@ void MainWindow::firstRunDialogOk()
 
 void MainWindow::updateUseTranslucency()
 {
-#if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
-    bool ARGB = false;
-
-    int screen = QX11Info::appScreen();
-    bool depth = (QX11Info::appDepth() == 32);
-
-    Display* display = QX11Info::display();
-    Visual* visual = static_cast<Visual*>(QX11Info::appVisual(screen));
-
-    XRenderPictFormat* format = XRenderFindVisualFormat(display, visual);
-
-    if (depth && format->type == PictTypeDirect && format->direct.alphaMask)
-    {
-        ARGB = true;
-    }
-
-    if (ARGB && Settings::translucency())
-    {
-        m_useTranslucency = KWindowSystem::compositingActive();
-    }
-    else
-#elif KDE_IS_VERSION(4,2,68)
-    if (Settings::translucency())
-    {
-        m_useTranslucency = KWindowSystem::compositingActive();
-    }
-    else
-#endif
-    {
-        m_useTranslucency = false;
-    }
+    m_useTranslucency = (Settings::translucency() && KWindowSystem::compositingActive());
 }

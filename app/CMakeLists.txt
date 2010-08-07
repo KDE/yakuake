@@ -1,7 +1,7 @@
 add_subdirectory( icons )
 
 include_directories( ${KDE4_INCLUDES} )
- 
+
 set(yakuake_SRCS
     main.cpp
     application.cpp
@@ -22,7 +22,7 @@ set(yakuake_SRCS
 
 kde4_add_kcfg_files(yakuake_SRCS config/settings.kcfgc)
 
-kde4_add_ui_files(yakuake_SRCS 
+kde4_add_ui_files(yakuake_SRCS
     firstrundialog.ui
     config/windowsettings.ui
     config/behaviorsettings.ui
@@ -34,12 +34,6 @@ kde4_add_app_icon(yakuake_SRCS "icons/hi*-app-yakuake.png")
 kde4_add_executable(yakuake ${yakuake_SRCS})
 
 target_link_libraries(yakuake ${KDE4_KPARTS_LIBS})
-
-macro_ensure_version("4.2.68" ${KDE_VERSION} KDE_IS_43_OR_HIGHER)
-
-if(Q_WS_X11 AND !KDE_IS_43_OR_HIGHER)
-  target_link_libraries(yakuake ${X11_Xrender_LIB} ${X11_X11_LIB})
-endif(Q_WS_X11 AND !KDE_IS_43_OR_HIGHER)
 
 install(TARGETS yakuake ${INSTALL_TARGETS_DEFAULT_ARGS})
 

@@ -12,7 +12,7 @@ The Yakuake website is located at: http://yakuake.kde.org/
 Report bugs and wishes at: http://bugs.kde.org/
 
 
-Yakuake requires kdelibs and Konsole from KDE 4.0 or higher.
+Yakuake requires kdelibs and Konsole from KDE 4.3 or higher.
 
 
 Basic build and installtion instructions:

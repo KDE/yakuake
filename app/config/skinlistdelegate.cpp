@@ -6,7 +6,7 @@
   published by the Free Software Foundation; either version 2 of
   the License or (at your option) version 3 or any later version
   accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy 
+  ved by the membership of KDE e.V.), which shall act as a proxy
   defined in Section 14 of version 3 of the license.
 
   This program is distributed in the hope that it will be useful,
@@ -56,17 +56,9 @@ void SkinListDelegate::paint(QPainter* painter, const QStyleOptionViewItem& opti
 
 void SkinListDelegate::paintBackground(QPainter* painter, const QStyleOptionViewItem& option) const
 {
-#if KDE_IS_VERSION(4, 0, 60)
     QStyleOptionViewItemV4 opt = option;
     QStyle* style = opt.widget ? opt.widget->style() : QApplication::style();
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, opt.widget);
-#else
-    QPalette::ColorGroup cg = option.state & QStyle::State_Enabled ? QPalette::Normal : QPalette::Disabled;
-    if (cg == QPalette::Normal && !(option.state & QStyle::State_Active)) cg = QPalette::Inactive;
-
-    if (option.showDecorationSelected && (option.state & QStyle::State_Selected))
-        painter->fillRect(option.rect, option.palette.brush(cg, QPalette::Highlight));
-#endif
 }
 
 void SkinListDelegate::paintIcon(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex &index) const
@@ -94,7 +86,7 @@ void SkinListDelegate::paintText(QPainter* painter, const QStyleOptionViewItem& 
     int y = option.rect.y();
     int width = option.rect.width() - ICON - (3 * MARGIN);
 
-    if (option.state & QStyle::State_Selected) 
+    if (option.state & QStyle::State_Selected)
         painter->setPen(option.palette.color(QPalette::HighlightedText));
 
     QVariant value;

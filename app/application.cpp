@@ -28,14 +28,6 @@ Application::Application() : KUniqueApplication()
     m_mainWindow = 0;
 }
 
-#if defined(Q_WS_X11) && !KDE_IS_VERSION(4,2,68)
-Application::Application(Display* display, Qt::HANDLE visual, Qt::HANDLE colormap)
-    : KUniqueApplication(display, visual, colormap)
-{
-    m_mainWindow = 0;
-}
-#endif
-
 Application::~Application()
 {
 }

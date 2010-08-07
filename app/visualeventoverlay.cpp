@@ -6,7 +6,7 @@
   published by the Free Software Foundation; either version 2 of
   the License or (at your option) version 3 or any later version
   accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy 
+  ved by the membership of KDE e.V.), which shall act as a proxy
   defined in Section 14 of version 3 of the license.
 
   This program is distributed in the hope that it will be useful,
@@ -73,13 +73,7 @@ VisualEventOverlay::VisualEventOverlay(SessionStack* parent) : QWidget(parent)
 
     setAutoFillBackground(false);
 
-#if QT_VERSION >= 0x040500
     setAttribute(Qt::WA_TranslucentBackground, true);
-#endif
-
-#if QT_VERSION < 0x040500
-    setAttribute(Qt::WA_NoSystemBackground, true);
-#endif
 
     setFocusPolicy(Qt::NoFocus);
     setAttribute(Qt::WA_TransparentForMouseEvents, true);
@@ -164,10 +158,6 @@ void VisualEventOverlay::paintEvent(QPaintEvent*)
     if (!m_eventRects.count()) return;
 
     QPainter painter(this);
-
-#if QT_VERSION < 0x040500
-    painter.fillRect(rect(), Qt::transparent);
-#endif
 
     m_time.start();
     bool painted = false;
