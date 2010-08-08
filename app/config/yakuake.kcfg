@@ -145,7 +145,7 @@
     <entry name="Frames" type="Int">
       <label context="@label">Animation frames</label>
       <whatsthis context="@info:whatsthis">The number of frames of the open/retract animation. One frame is taken to be 10 miliseconds.</whatsthis>
-      <default>20</default>
+      <default>17</default>
       <min>0</min>
       <max>50</max>
     </entry>
