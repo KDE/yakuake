@@ -64,7 +64,7 @@ void SessionStack::addSession(Session::SessionType type)
 
 void SessionStack::addSessionTwoHorizontal()
 {
-addSession(Session::TwoHorizontal);
+    addSession(Session::TwoHorizontal);
 }
 
 void SessionStack::addSessionTwoVertical()
