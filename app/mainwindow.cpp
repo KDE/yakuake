@@ -279,6 +279,34 @@ void MainWindow::setupActions()
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
+    action = actionCollection()->addAction("grow-terminal-right");
+    action->setText(i18nc("@action", "Expand Terminal to the Right"));
+    action->setIcon(KIcon("arrow-right"));
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_Right));
+    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    m_contextDependentActions << action;
+
+    action = actionCollection()->addAction("grow-terminal-left");
+    action->setText(i18nc("@action", "Expand Terminal to the Left"));
+    action->setIcon(KIcon("arrow-left"));
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_Left));
+    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    m_contextDependentActions << action;
+
+    action = actionCollection()->addAction("grow-terminal-top");
+    action->setText(i18nc("@action", "Expand Terminal to the Top"));
+    action->setIcon(KIcon("arrow-up"));
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_Up));
+    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    m_contextDependentActions << action;
+
+    action = actionCollection()->addAction("grow-terminal-bottom");
+    action->setText(i18nc("@action", "Expand Terminal to the Bottom"));
+    action->setIcon(KIcon("arrow-down"));
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_Down));
+    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    m_contextDependentActions << action;
+
     action = actionCollection()->addAction("rename-session");
     action->setText(i18nc("@action", "Rename Session..."));
     action->setIcon(KIcon("edit-rename"));
@@ -373,6 +401,18 @@ void MainWindow::handleContextDependentAction(QAction* action, int sessionId)
 
     if (action == actionCollection()->action("split-top-bottom"))
         m_sessionStack->splitSessionTopBottom(sessionId);
+
+    if (action == actionCollection()->action("grow-terminal-right"))
+        m_sessionStack->tryGrowTerminalRight(m_sessionStack->activeTerminalId());
+
+    if (action == actionCollection()->action("grow-terminal-left"))
+        m_sessionStack->tryGrowTerminalLeft(m_sessionStack->activeTerminalId());
+
+    if (action == actionCollection()->action("grow-terminal-top"))
+        m_sessionStack->tryGrowTerminalTop(m_sessionStack->activeTerminalId());
+
+    if (action == actionCollection()->action("grow-terminal-bottom"))
+        m_sessionStack->tryGrowTerminalBottom(m_sessionStack->activeTerminalId());
 }
 
 void MainWindow::handleContextDependentToggleAction(bool checked, QAction* action, int sessionId)

@@ -39,6 +39,7 @@ class Session : public QObject
 
     public:
         enum SessionType { Single, TwoHorizontal, TwoVertical, Quad };
+        enum GrowthDirection { Up, Right, Down, Left };
 
         explicit Session(SessionType type = Single, QWidget* parent = 0);
          ~Session();
@@ -71,6 +72,8 @@ class Session : public QObject
 
         void splitLeftRight(int terminalId = -1);
         void splitTopBottom(int terminalId = -1);
+
+        int tryGrowTerminal(int terminalId, GrowthDirection direction, uint pixels);
 
         void runCommand(const QString& command, int terminalId = -1);
 

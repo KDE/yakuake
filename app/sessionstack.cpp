@@ -72,6 +72,34 @@ void SessionStack::addSessionTwoVertical()
     addSession(Session::TwoVertical);
 }
 
+int SessionStack::tryGrowTerminalRight(int terminalId, uint pixels)
+{
+    int sessionId = sessionIdForTerminalId(terminalId);
+    if (sessionId == -1) return -1;
+    return m_sessions.value(sessionId)->tryGrowTerminal(terminalId, Session::Right, pixels);
+}
+
+int SessionStack::tryGrowTerminalLeft(int terminalId, uint pixels)
+{
+    int sessionId = sessionIdForTerminalId(terminalId);
+    if (sessionId == -1) return -1;
+    return m_sessions.value(sessionId)->tryGrowTerminal(terminalId, Session::Left, pixels);
+}
+
+int SessionStack::tryGrowTerminalTop(int terminalId, uint pixels)
+{
+    int sessionId = sessionIdForTerminalId(terminalId);
+    if (sessionId == -1) return -1;
+    return m_sessions.value(sessionId)->tryGrowTerminal(terminalId, Session::Up, pixels);
+}
+
+int SessionStack::tryGrowTerminalBottom(int terminalId, uint pixels)
+{
+    int sessionId = sessionIdForTerminalId(terminalId);
+    if (sessionId == -1) return -1;
+    return m_sessions.value(sessionId)->tryGrowTerminal(terminalId, Session::Down, pixels);
+}
+
 void SessionStack::addSessionQuad()
 {
     addSession(Session::Quad);

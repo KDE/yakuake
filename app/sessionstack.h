@@ -68,6 +68,11 @@ class SessionStack : public QStackedWidget
         Q_SCRIPTABLE void splitTerminalLeftRight(int terminalId);
         Q_SCRIPTABLE void splitTerminalTopBottom(int terminalId);
 
+        Q_SCRIPTABLE int tryGrowTerminalRight(int terminalId, uint pixels = 10);
+        Q_SCRIPTABLE int tryGrowTerminalLeft(int terminalId, uint pixels = 10);
+        Q_SCRIPTABLE int tryGrowTerminalTop(int terminalId, uint pixels = 10);
+        Q_SCRIPTABLE int tryGrowTerminalBottom(int terminalId, uint pixels = 10);
+
         Q_SCRIPTABLE int activeSessionId() { return m_activeSessionId; }
         Q_SCRIPTABLE int activeTerminalId();
 

@@ -304,6 +304,47 @@ void Session::split(Terminal* terminal, Qt::Orientation orientation)
     }
 }
 
+int Session::tryGrowTerminal(int terminalId, GrowthDirection direction, uint pixels)
+{
+    Terminal* terminal = getTerminal(terminalId);
+    Splitter* splitter = static_cast<Splitter*>(terminal->splitter());
+    QWidget* child = terminal->partWidget();
+
+    while (splitter)
+    {
+        bool isHorizontal = (direction == Right || direction == Left);
+        bool isForward = (direction == Down || direction == Right);
+
+        // Detecting correct orientation.
+        if ((splitter->orientation() == Qt::Horizontal && isHorizontal)
+            || (splitter->orientation() == Qt::Vertical && !isHorizontal))
+        {
+
+            int currentPos = splitter->indexOf(child);
+
+            if (currentPos != -1 // Next/Prev movable element detection.
+                && (currentPos != 0 || isForward)
+                && (currentPos != splitter->count() - 1 || !isForward))
+            {
+                QList<int> currentSizes = splitter->sizes();
+                int oldSize = currentSizes[currentPos];
+
+                int affected = isForward ? currentPos + 1: currentPos -1;
+                currentSizes[currentPos] += pixels;
+                currentSizes[affected] -= pixels;
+                splitter->setSizes(currentSizes);
+
+                return splitter->sizes()[currentPos] - oldSize;
+            }
+        }
+        // Try with a higher level.
+        child = splitter;
+        splitter = static_cast<Splitter*>(splitter->parentWidget());
+    }
+
+    return -1;
+}
+
 void Session::setActiveTerminal(int terminalId)
 {
     m_activeTerminalId = terminalId;
