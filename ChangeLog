@@ -9,6 +9,10 @@ Changes in 2.9.8:
   the KDE Desktop Effect "Sliding Popups" is enabled as well, the animation
   will be performed by KDE's window manager KWin, for much improved smooth-
   ness on many systems.
+* Added keyboard shortcuts to attempt to grow the active terminal in the
+  left, right, top or bottom direction by 10px, as well as D-Bus calls to
+  attempt to grow any particular terminal by a given amount of pixels in
+  one of these directions.
 
 
 Changes in 2.9.7:
