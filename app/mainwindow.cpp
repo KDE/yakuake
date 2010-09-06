@@ -280,28 +280,28 @@ void MainWindow::setupActions()
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction("grow-terminal-right");
-    action->setText(i18nc("@action", "Expand Terminal to the Right"));
+    action->setText(i18nc("@action", "Grow Terminal to the Right"));
     action->setIcon(KIcon("arrow-right"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_Right));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction("grow-terminal-left");
-    action->setText(i18nc("@action", "Expand Terminal to the Left"));
+    action->setText(i18nc("@action", "Grow Terminal to the Left"));
     action->setIcon(KIcon("arrow-left"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_Left));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction("grow-terminal-top");
-    action->setText(i18nc("@action", "Expand Terminal to the Top"));
+    action->setText(i18nc("@action", "Grow Terminal to the Top"));
     action->setIcon(KIcon("arrow-up"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_Up));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction("grow-terminal-bottom");
-    action->setText(i18nc("@action", "Expand Terminal to the Bottom"));
+    action->setText(i18nc("@action", "Grow Terminal to the Bottom"));
     action->setIcon(KIcon("arrow-down"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_Down));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
