@@ -13,6 +13,8 @@ Changes in 2.9.8:
   left, right, top or bottom direction by 10px, as well as D-Bus calls to
   attempt to grow any particular terminal by a given amount of pixels in
   one of these directions.
+* The contents of the "Screen" sub-menu in the main menu now get updated
+  when the number of screens attached to the system changes.
 
 
 Changes in 2.9.7:

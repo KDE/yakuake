@@ -91,7 +91,9 @@ class MainWindow : public KMainWindow
         void applyWindowGeometry();
         void setWindowGeometry(int width, int height, int position);
 
+        void updateScreenMenu();
         void setScreen(QAction* action);
+
         void setWindowWidth(int width);
         void setWindowHeight(int height);
         void setWindowWidth(QAction* action);
@@ -130,7 +132,7 @@ class MainWindow : public KMainWindow
         void setupActions();
 
         void setupMenu();
-        void updateScreenMenu();
+
         void updateWindowSizeMenus();
         void updateWindowHeightMenu();
         void updateWindowWidthMenu();

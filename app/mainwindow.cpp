@@ -99,7 +99,8 @@ MainWindow::MainWindow(QWidget* parent)
     connect(&m_mousePoller, SIGNAL(timeout()), this, SLOT(pollMouse()));
 
     connect(KWindowSystem::self(), SIGNAL(workAreaChanged()), this, SLOT(applyWindowGeometry()));
-
+    connect(KApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(updateScreenMenu()));
+    
     applySettings();
 
     m_sessionStack->addSession();
