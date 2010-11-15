@@ -54,7 +54,9 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
     m_terminalWidget = NULL;
     m_parentSplitter = parent;
 
-    KPluginFactory* factory = KPluginLoader("libkonsolepart").factory();
+    KPluginFactory* factory = KPluginLoader("konsolepart").factory();
+    if (!factory)
+        factory = KPluginLoader("libkonsolepart").factory(); // deprecated name
     m_part = factory ? (factory->create<KParts::Part>(parent)) : 0;
 
     if (m_part)
