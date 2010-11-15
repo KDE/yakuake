@@ -26,9 +26,10 @@
 #include <KApplication>
 #include <KColorScheme>
 #include <kde_terminal_interface.h>
-#include <KLibLoader>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KPluginFactory>
+#include <KPluginLoader>
 #include <KUser>
 
 #include <QAction>
