@@ -33,6 +33,7 @@
 
 Skin::Skin()
 {
+    m_borderWidth = 0;
 }
 
 Skin::~Skin()
