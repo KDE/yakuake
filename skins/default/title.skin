@@ -17,6 +17,7 @@ red=40
 green=60
 blue=80
 text=KDE Terminal Emulator
+bold=true
 
 [Background]
 back_image=/title/back.png

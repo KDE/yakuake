@@ -116,6 +116,7 @@ bool Skin::load(const QString& name)
                                  titleBarText.readEntry("green", 0),
                                  titleBarText.readEntry("blue", 0));
 
+    m_titleBarTextBold = titleBarText.readEntry("bold", true);
 
 
     KConfigGroup tabBar = tabConfig.group("Tabs");

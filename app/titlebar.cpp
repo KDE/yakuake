@@ -110,7 +110,7 @@ void TitleBar::paintEvent(QPaintEvent*)
     painter.drawPixmap(width() - rightCornerImage.width(), 0, rightCornerImage);
 
     QFont font = KGlobalSettings::windowTitleFont();
-    font.setBold(true);
+    font.setBold(m_skin->titleBarTextBold());
     painter.setFont(font);
 
     painter.drawText(m_skin->titleBarTextPosition(), title());

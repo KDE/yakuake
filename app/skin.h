@@ -59,6 +59,7 @@ class Skin : public QObject
         const QString titleBarText() { return m_titleBarText; }
         const QPoint& titleBarTextPosition() { return m_titleBarTextPosition; }
         const QColor& titleBarTextColor() { return m_titleBarTextColor; }
+              bool    titleBarTextBold() { return m_titleBarTextBold; }
 
 
         const QPoint& tabBarPosition() { return m_tabBarPosition; }
@@ -117,7 +118,7 @@ class Skin : public QObject
         QString m_titleBarText;
         QPoint m_titleBarTextPosition;
         QColor m_titleBarTextColor;
-
+        bool m_titleBarTextBold;
 
         QPoint m_tabBarPosition;
         QColor m_tabBarTextColor;

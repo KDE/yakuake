@@ -15,6 +15,9 @@ Changes in 2.9.8:
   one of these directions.
 * The contents of the "Screen" sub-menu in the main menu now get updated
   when the number of screens attached to the system changes.
+* Skin authors can now control whether the title bar text is set in a bold
+  weight or not with the 'bold' key in the 'Text' group of title.skin. The
+  default is to use a bold weight to preserve existing behavior.
 
 
 Changes in 2.9.7:
