@@ -878,7 +878,7 @@ void MainWindow::toggleWindowState()
 #if defined(Q_WS_X11)
 void MainWindow::kwinAssistToggleWindowState(bool visible)
 {
-    // Always all back to legacy animation strategy if we're not on
+    // Always fall back to legacy animation strategy if we're not on
     // 4.6+. This block can be removed once we depend on KDE 4.6.
     if (!Application::isKDE46OrHigher())
     {
