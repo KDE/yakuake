@@ -35,11 +35,9 @@ kde4_add_executable(yakuake ${yakuake_SRCS})
 
 target_link_libraries(yakuake ${KDE4_KPARTS_LIBS})
 
-macro_ensure_version("4.5.60" ${KDE_VERSION} KDE_IS_46_OR_HIGHER)
-
-if(Q_WS_X11 AND KDE_IS_46_OR_HIGHER)
+if(Q_WS_X11)
   target_link_libraries(yakuake ${X11_X11_LIB})
-endif(Q_WS_X11 AND KDE_IS_46_OR_HIGHER)
+endif(Q_WS_X11)
 
 install(TARGETS yakuake ${INSTALL_TARGETS_DEFAULT_ARGS})
 

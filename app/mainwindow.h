@@ -137,7 +137,7 @@ class MainWindow : public KMainWindow
         void updateWindowHeightMenu();
         void updateWindowWidthMenu();
 
-#if defined(Q_WS_X11) && KDE_IS_VERSION(4,5,60)
+#if defined(Q_WS_X11)
         void kwinAssistToggleWindowState(bool visible);
         void kwinAssistPropCleanup();
         bool m_kwinAssistPropSet;

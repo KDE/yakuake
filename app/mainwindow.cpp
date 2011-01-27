@@ -21,6 +21,7 @@
 
 
 #include "mainwindow.h"
+#include "application.h"
 #include "config/appearancesettings.h"
 #include "config/windowsettings.h"
 #include "firstrundialog.h"
@@ -52,7 +53,7 @@
 #include <QPalette>
 #include <QtDBus/QtDBus>
 
-#if defined(Q_WS_X11) && KDE_IS_VERSION(4,5,60)
+#if defined(Q_WS_X11)
 #include <QX11Info>
 
 #include <X11/Xlib.h>
@@ -75,7 +76,7 @@ MainWindow::MainWindow(QWidget* parent)
     m_firstRunDialog = NULL;
     m_listenForActivationChanges = false;
 
-#if defined(Q_WS_X11) && KDE_IS_VERSION(4,5,60)
+#if defined(Q_WS_X11)
     m_kwinAssistPropSet = false;
 #endif
 
@@ -100,7 +101,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(KWindowSystem::self(), SIGNAL(workAreaChanged()), this, SLOT(applyWindowGeometry()));
     connect(KApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(updateScreenMenu()));
-    
+
     applySettings();
 
     m_sessionStack->addSession();
@@ -863,7 +864,7 @@ void MainWindow::toggleWindowState()
         return;
     }
 
-#if defined(Q_WS_X11) && KDE_IS_VERSION(4,5,60)
+#if defined(Q_WS_X11)
     if (!Settings::useWMAssist() && m_kwinAssistPropSet)
         kwinAssistPropCleanup();
 
@@ -874,9 +875,18 @@ void MainWindow::toggleWindowState()
         xshapeToggleWindowState(visible);
 }
 
-#if defined(Q_WS_X11) && KDE_IS_VERSION(4,5,60)
+#if defined(Q_WS_X11)
 void MainWindow::kwinAssistToggleWindowState(bool visible)
 {
+    // Always all back to legacy animation strategy if we're not on
+    // 4.6+. This block can be removed once we depend on KDE 4.6.
+    if (!Application::isKDE46OrHigher())
+    {
+        xshapeToggleWindowState(visible);
+
+        return;
+    }
+
     bool gotEffect = false;
 
     Display* display = QX11Info::display();
@@ -932,11 +942,19 @@ void MainWindow::kwinAssistToggleWindowState(bool visible)
         return;
     }
 
+    // Fall back to legacy animation strategy if kwin doesn't have the
+    // effect loaded.
     xshapeToggleWindowState(visible);
 }
 
 void MainWindow::kwinAssistPropCleanup()
 {
+    // We're not going to have set up the prop in the first place
+    // if we're not running in 4.6, so no need to clean it up.
+    // This block can be removed once we depend on KDE 4.6.
+    if (!Application::isKDE46OrHigher())
+        return;
+
     Display* display = QX11Info::display();
     Atom atom = XInternAtom(display, "_KDE_SLIDE", false);
 

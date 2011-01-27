@@ -20,6 +20,7 @@
 
 
 #include "windowsettings.h"
+#include "application.h"
 #include "settings.h"
 
 #include <QDesktopWidget>
@@ -31,9 +32,8 @@ WindowSettings::WindowSettings(QWidget* parent) : QWidget(parent)
 {
     setupUi(this);
 
-#if !KDE_IS_VERSION(4,5,60)
-    kcfg_UseWMAssist->hide();
-#endif
+    if (!Application::isKDE46OrHigher())
+        kcfg_UseWMAssist->hide();
 
     for (int i = 2; i <= QApplication::desktop()->numScreens(); i++)
         kcfg_Screen->insertItem(i, i18nc("@item:inlistbox", "Screen <numid>%1</numid>", i));

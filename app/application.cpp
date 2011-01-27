@@ -23,9 +23,16 @@
 #include "mainwindow.h"
 
 
+bool Application::m_isKDE46OrHigher = false;
+
 Application::Application() : KUniqueApplication()
 {
     m_mainWindow = 0;
+
+    if (KDE::versionMajor() >= 4 &&
+        KDE::versionMinor() >= 6 &&
+        (KDE::versionRelease() == 0 || KDE::versionRelease() > 0))
+        m_isKDE46OrHigher = true;
 }
 
 Application::~Application()
