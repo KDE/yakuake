@@ -29,9 +29,7 @@ Application::Application() : KUniqueApplication()
 {
     m_mainWindow = 0;
 
-    if (KDE::versionMajor() >= 4 &&
-        KDE::versionMinor() >= 6 &&
-        (KDE::versionRelease() == 0 || KDE::versionRelease() > 0))
+    if (KDE::version() >= KDE_MAKE_VERSION(4, 6, 0))
         m_isKDE46OrHigher = true;
 }
 
