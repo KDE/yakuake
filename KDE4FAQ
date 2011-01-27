@@ -43,6 +43,10 @@ A: While the specific reasons have yet to be uncovered, this appears to be
    KDE versions, other desktop environments or for when compositing is not
    enabled/available, however.
 
+   Update January 27th, 2011: As of Yakuake 2.9.8, the above has come true
+   when Yakuake is run inside a KDE Plasma Workspace v4.6 or newer (see
+   ChangeLog for more details).
+
   ------------------------------------------------------------------------
 
 Q: There's a flicker in the animation when closing the window. What about
