@@ -38,7 +38,7 @@ int main (int argc, char *argv[])
         "2.9.7+",
         ki18nc("@title", "A drop-down terminal emulator based on KDE Konsole technology."),
         KAboutData::License_GPL,
-        ki18nc("@info:credit", "(c) 2008-2010 The Yakuake Team"),
+        ki18nc("@info:credit", "(c) 2008-2011 The Yakuake Team"),
         ki18n(0),
         "http://yakuake.kde.org/");
 
