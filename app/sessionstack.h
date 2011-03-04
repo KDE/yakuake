@@ -53,20 +53,20 @@ class SessionStack : public QStackedWidget
 
 
     public slots:
-        Q_SCRIPTABLE void addSession(Session::SessionType type = Session::Single);
-        Q_SCRIPTABLE void addSessionTwoHorizontal();
-        Q_SCRIPTABLE void addSessionTwoVertical();
-        Q_SCRIPTABLE void addSessionQuad();
+        Q_SCRIPTABLE int addSession(Session::SessionType type = Session::Single);
+        Q_SCRIPTABLE int addSessionTwoHorizontal();
+        Q_SCRIPTABLE int addSessionTwoVertical();
+        Q_SCRIPTABLE int addSessionQuad();
 
         Q_SCRIPTABLE void raiseSession(int sessionId);
 
         Q_SCRIPTABLE void removeSession(int sessionId);
         Q_SCRIPTABLE void removeTerminal(int terminalId);
 
-        Q_SCRIPTABLE void splitSessionLeftRight(int sessionId);
-        Q_SCRIPTABLE void splitSessionTopBottom(int sessionId);
-        Q_SCRIPTABLE void splitTerminalLeftRight(int terminalId);
-        Q_SCRIPTABLE void splitTerminalTopBottom(int terminalId);
+        Q_SCRIPTABLE int splitSessionLeftRight(int sessionId);
+        Q_SCRIPTABLE int splitSessionTopBottom(int sessionId);
+        Q_SCRIPTABLE int splitTerminalLeftRight(int terminalId);
+        Q_SCRIPTABLE int splitTerminalTopBottom(int terminalId);
 
         Q_SCRIPTABLE int tryGrowTerminalRight(int terminalId, uint pixels = 10);
         Q_SCRIPTABLE int tryGrowTerminalLeft(int terminalId, uint pixels = 10);

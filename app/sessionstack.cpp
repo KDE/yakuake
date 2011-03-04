@@ -44,7 +44,7 @@ SessionStack::~SessionStack()
 {
 }
 
-void SessionStack::addSession(Session::SessionType type)
+int SessionStack::addSession(Session::SessionType type)
 {
     Session* session = new Session(type, this);
     connect(session, SIGNAL(titleChanged(int, const QString&)), this, SIGNAL(titleChanged(int, const QString&)));
@@ -60,21 +60,23 @@ void SessionStack::addSession(Session::SessionType type)
         emit sessionAdded(session->id(), session->title());
     else
         emit sessionAdded(session->id());
+
+    return session->id();
 }
 
-void SessionStack::addSessionTwoHorizontal()
+int SessionStack::addSessionTwoHorizontal()
 {
-    addSession(Session::TwoHorizontal);
+    return addSession(Session::TwoHorizontal);
 }
 
-void SessionStack::addSessionTwoVertical()
+int SessionStack::addSessionTwoVertical()
 {
-    addSession(Session::TwoVertical);
+    return addSession(Session::TwoVertical);
 }
 
-void SessionStack::addSessionQuad()
+int SessionStack::addSessionQuad()
 {
-    addSession(Session::Quad);
+    return addSession(Session::Quad);
 }
 
 void SessionStack::raiseSession(int sessionId)
@@ -345,38 +347,38 @@ void SessionStack::editProfile(int sessionId)
     m_sessions.value(sessionId)->editProfile();
 }
 
-void SessionStack::splitSessionLeftRight(int sessionId)
+int SessionStack::splitSessionLeftRight(int sessionId)
 {
-    if (sessionId == -1) return;
-    if (!m_sessions.contains(sessionId)) return;
+    if (sessionId == -1) return -1;
+    if (!m_sessions.contains(sessionId)) return -1;
 
-    m_sessions.value(sessionId)->splitLeftRight();
+    return m_sessions.value(sessionId)->splitLeftRight();
 }
 
-void SessionStack::splitSessionTopBottom(int sessionId)
+int SessionStack::splitSessionTopBottom(int sessionId)
 {
-    if (sessionId == -1) return;
-    if (!m_sessions.contains(sessionId)) return;
+    if (sessionId == -1) return -1;
+    if (!m_sessions.contains(sessionId)) return -1;
 
-    m_sessions.value(sessionId)->splitTopBottom();
+    return m_sessions.value(sessionId)->splitTopBottom();
 }
 
-void SessionStack::splitTerminalLeftRight(int terminalId)
+int SessionStack::splitTerminalLeftRight(int terminalId)
 {
     int sessionId = sessionIdForTerminalId(terminalId);
 
-    if (sessionId == -1) return;
+    if (sessionId == -1) return -1;
 
-    m_sessions.value(sessionId)->splitLeftRight(terminalId);
+    return m_sessions.value(sessionId)->splitLeftRight(terminalId);
 }
 
-void SessionStack::splitTerminalTopBottom(int terminalId)
+int SessionStack::splitTerminalTopBottom(int terminalId)
 {
     int sessionId = sessionIdForTerminalId(terminalId);
 
-    if (sessionId == -1) return;
+    if (sessionId == -1) return -1;
 
-    m_sessions.value(sessionId)->splitTopBottom(terminalId);
+    return m_sessions.value(sessionId)->splitTopBottom(terminalId);
 }
 
 int SessionStack::tryGrowTerminalRight(int terminalId, uint pixels)

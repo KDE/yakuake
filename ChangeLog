@@ -1,3 +1,9 @@
+Changes since 2.9.8:
+* The addSession* and split* D-Bus calls now return the id of the newly-
+  created session or terminal, or -1 if creating a new session or terminal
+  was not possible.
+
+
 Changes in 2.9.8:
 * Added a new "Ask the window manager to perform the animation" option to
   the animation settings (only shown if Yakuake is running in a KDE Plasma

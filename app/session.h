@@ -70,8 +70,8 @@ class Session : public QObject
         void focusNextTerminal();
         void focusPreviousTerminal();
 
-        void splitLeftRight(int terminalId = -1);
-        void splitTopBottom(int terminalId = -1);
+        int splitLeftRight(int terminalId = -1);
+        int splitTopBottom(int terminalId = -1);
 
         int tryGrowTerminal(int terminalId, GrowthDirection direction, uint pixels);
 
@@ -102,7 +102,7 @@ class Session : public QObject
         void setupSession(SessionType type);
 
         Terminal* addTerminal(QWidget* parent);
-        void split(Terminal* terminal, Qt::Orientation orientation);
+        int split(Terminal* terminal, Qt::Orientation orientation);
 
         static int m_availableSessionId;
         int m_sessionId;

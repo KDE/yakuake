@@ -229,29 +229,35 @@ void Session::focusNextTerminal()
     }
 }
 
-void Session::splitLeftRight(int terminalId)
+int Session::splitLeftRight(int terminalId)
 {
     if (terminalId == -1) terminalId = m_activeTerminalId;
-    if (terminalId == -1) return;
-    if (!m_terminals.contains(terminalId)) return;
+    if (terminalId == -1) return -1;
+    if (!m_terminals.contains(terminalId)) return -1;
 
     Terminal* terminal = m_terminals.value(terminalId);
 
-    if (terminal) split(terminal, Qt::Horizontal);
+    if (terminal)
+        return split(terminal, Qt::Horizontal);
+    else
+        return -1;
 }
 
-void Session::splitTopBottom(int terminalId)
+int Session::splitTopBottom(int terminalId)
 {
     if (terminalId == -1) terminalId = m_activeTerminalId;
-    if (terminalId == -1) return;
-    if (!m_terminals.contains(terminalId)) return;
+    if (terminalId == -1) return -1;
+    if (!m_terminals.contains(terminalId)) return -1;
 
     Terminal* terminal = m_terminals.value(terminalId);
 
-    if (terminal) split(terminal, Qt::Vertical);
+    if (terminal)
+        return split(terminal, Qt::Vertical);
+    else
+        return -1;
 }
 
-void Session::split(Terminal* terminal, Qt::Orientation orientation)
+int Session::split(Terminal* terminal, Qt::Orientation orientation)
 {
     Splitter* splitter = static_cast<Splitter*>(terminal->splitter());
 
@@ -302,6 +308,8 @@ void Session::split(Terminal* terminal, Qt::Orientation orientation)
 
         m_activeTerminalId = terminal->id();
     }
+    
+    return m_activeTerminalId;
 }
 
 int Session::tryGrowTerminal(int terminalId, GrowthDirection direction, uint pixels)
