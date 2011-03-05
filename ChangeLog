@@ -2,6 +2,15 @@ Changes since 2.9.8:
 * The addSession* and split* D-Bus calls now return the id of the newly-
   created session or terminal, or -1 if creating a new session or terminal
   was not possible.
+* When the window is set not to show on all virtual desktops and is not
+  residing on the current virtual desktop, but is open (i.e. set to stay
+  open regardless of focus loss), the Open/Retract action normally used
+  to either retract it, or, when the option to also use the action to
+  focus the window is enabled, cause the window manager to switch to the
+  virtual desktop the window resides on. The former case, i.e. when the
+  option to also use the action to focus the window is disabled, has now
+  been changed to move the window to the current virtual desktop and focus
+  it, rather than retract it.
 
 
 Changes in 2.9.8:

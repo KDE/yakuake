@@ -857,11 +857,41 @@ void MainWindow::toggleWindowState()
 {
     bool visible = isVisible();
 
-    if (visible && !isActiveWindow() && Settings::keepOpen() && Settings::toggleToFocus())
+    if (visible && !isActiveWindow() && Settings::keepOpen())
     {
-        KWindowSystem::forceActiveWindow(winId());
+        // Window is open but doesn't have focus; it's set to stay open
+        // regardless of focus loss.
+        
+        if (Settings::toggleToFocus())
+        {
+            // The open/retract action is set to focus the window when it's
+            // open but lacks focus. The following will cause it to receive
+            // focus, and in an environment with multiple virtual desktops
+            // will also cause the window manager to switch to the virtual
+            // desktop the window resides on.
+            
+            KWindowSystem::forceActiveWindow(winId());
 
-        return;
+            return;
+        }
+        else if (!Settings::showOnAllDesktops()
+                 &&  KWindowSystem::windowInfo(winId(), NET::WMDesktop).desktop() != KWindowSystem::currentDesktop())
+        {
+            // The open/restract action isn't set to focus the window, but
+            // the window is currently on another virtual desktop (the option
+            // to show it on all of them is disabled), so closing it doesn't
+            // make sense and we're opting to show it instead to avoid re-
+            // quiring the user to invoke the action twice to get to see
+            // Yakuake. Just forcing focus would cause the window manager to
+            // switch to the virtual desktop the window currently resides on,
+            // so move the window to the current desktop before doing so.
+
+            KWindowSystem::setOnDesktop(winId(), KWindowSystem::currentDesktop());
+
+            KWindowSystem::forceActiveWindow(winId());
+
+            return;
+        }
     }
 
 #if defined(Q_WS_X11)

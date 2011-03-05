@@ -104,7 +104,7 @@
          </sizepolicy>
         </property>
         <property name="whatsThis">
-         <string comment="@info:whatsthis">If this option is enabled, the shortcut normally used to open and retract the window will give it focus, rather than close it, if it has previously lost focus.</string>
+         <string comment="@info:whatsthis">If this option is enabled, the shortcut normally used to open and retract the window will give it focus, rather than close it, if it has previously lost focus. Unless the window is set to show on all virtual desktops, this may cause the window manager to switch to the virtual desktop it currently resides on.</string>
         </property>
         <property name="text">
          <string comment="@option:check">Use Open/Retract action to focus window</string>
