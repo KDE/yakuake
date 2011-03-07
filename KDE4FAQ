@@ -1,83 +1,51 @@
 
-   Yakuake KDE 4 FAQ (Last update: April 20th, 2009)
-  ===================================================
+   Yakuake KDE 4 FAQ (Last update: March 7th, 2011)
+  ==================================================
 
-Q: The open/retract animation is very jerky. It was a lot smoother in the
-   KDE 3 version on the same system. Why is that?
+Q: The open/retract animation is very jerky for me. Why is that?
 
-A: While the specific reasons have yet to be uncovered, this appears to be
-   caused by a combination of the Qt 4 toolkit with the proprietary nVidia
-   graphics drivers' XRender acceleration framework, especially when using
-   a non-scalable bitmap font in the terminal profile. The animation is as
-   smooth as it was in KDE 3 with other implementations of XRencer accele-
-   ration, e.g. the EXA-based one found in the Intel drivers or even the
-   software implementation found in the Xephyr nesting X server. Try using
-   a scalable fixed-width font like DejaVu Sans Mono.
+A: First of, Yakuake currently employs two entirely different animation
+   strategies depending on user settings and the environment it is run
+   in. By default, when running in a KDE Plasma workspace v4.6 or newer
+   that has OpenGL Desktop Effects (i.e., compositing) and specifically
+   the "Slide" effect enabled, Yakuake will ask KDE's window manager to
+   perform the animation on its behalf. There are currently no known
+   performance problems with this animation strategy.
 
-   Update March 18th, 2008: Experimental new options added to the nVidia
-   drivers in the beta version 171.06 suggest that nVidia may be aware of
-   and working to resolve this issue. See:
-   http://www.nvnews.net/vbulletin/showthread.php?t=109422
+   When Yakuake is run in an older version of the KDE Plasma workspace,
+   a KDE Plasma workspace with Desktop Effects or the "Slide" effect dis-
+   abled (or set to use XRender instead of OpenGL), or outside a KDE
+   Plasma workspace, it will fall back to the older animation strategy of
+   progressively adjusting (growing or shrinking) the window's mask and
+   moving the title bar along the mask's lower edge to simulate movement.
+   It will also fall back to this strategy when the user explicitly dis-
+   ables the window manager-assisted animation strategy in the configura-
+   tion dialog.
 
-   Update August 19th, 2008: A new beta nVidia driver v177.67 features new
-   experimental options that appear to greatly improve KDE 4 and Yakuake
-   performance: http://www.nvnews.net/vbulletin/showthread.php?t=118088
-   While rendering bitmap fonts still appears to be slower than rendering
-   scalable fonts on my own 8800GTX, the difference is significantly redu-
-   ced to the point of being usable again. The window animation has gene-
-   rally become considerably faster as well, matching or exceeding what is
-   found in the KDE 3 version when using a scalable font.
-
-   Update April 20th, 2009: It appears that the performance problem with
-   bitmap fonts on nVidia disappears when enabling font anti-aliasing,
-   despite anti-aliasing not being applied to bitmap fonts. Presumably
-   the codepath used for text display with anti-aliasing enabled is better
-   optimized. I observed this behavior with both v180.44 and v180.51 dri-
-   vers, i.e. the two latest driver versions, but I don't know if it's
-   actually a recent development or not, as I didn't use anti-aliasing
-   until now.
-
-   In the future, the Yakuake animation will be done via an effect plugin
-   for KDE's window manager, KWin. Performance is expected to greatly im-
-   prove then. The old animation code will be kept as a fallback for older
-   KDE versions, other desktop environments or for when compositing is not
-   enabled/available, however.
-
-   Update January 27th, 2011: As of Yakuake 2.9.8, the above has come true
-   when Yakuake is run inside a KDE Plasma Workspace v4.6 or newer (see
-   ChangeLog for more details).
+   This older animation strategy appears to have performance problems
+   in combination with older versions of the proprietary nVidia graphics
+   driver, especially when the terminal is set to use a bitmap font and
+   font anti-aliasing is disabled. Oddly, despite anti-aliasing not
+   being applicable to bitmap fonts, enabling anti-aliasing seems to
+   improve performance (probably because it changes the driver-internal
+   code path for glyph blending or memory management), as does switching
+   to a scalable font like DejaVu Sans Mono.
 
   ------------------------------------------------------------------------
 
-Q: There's a flicker in the animation when closing the window. What about
-   that?
+Q: The terminal display corrupts in odd ways when I scroll. Anything I can
+   do?
 
-A: This is caused by a bug in the Fade Out window effect in the KDE window
-   manager, kwin, related to how it handles window masks. A fix will be in-
-   cluded in KDE 4.0.3 and higher. Alternatively, the effect can be dis-
-   abled in System Settings.
+A: This is usually caused by using compositing (aka "Desktop Effects") with
+   an older version of the proprietary nVidia graphics driver, which has a
+   known rendering bug with Qt 4 scrollviews on an ARGB visual. nVidia
+   fixed the problem in version 169.07 of the driver.
 
-  ------------------------------------------------------------------------
-
-Q: I am using KWin Desktop Effects and have the "Shadows" option enabled,
-   but the Yakuake window does not have a shadow. How come?
-
-A: Support for shadows for shaped windows (aka windows with a "mask") is
-   presently disabled in KWin due to bugs in the relevant code. It is ex-
-   pected to be reintroduced in a later KDE release.
-
-  ------------------------------------------------------------------------
-
-Q: I have translucency enabled in my terminal profile, but the terminal
-   does not appear translucent in practice. It works in Konsole with the
-   "--enable-translucency" command line argument, but not in Yakuake.
-
-A: The Konsole KPart component that Yakuake embeds does not have support
-   for XComposite translucency in the KDE 4.0 release. I have contributed
-   the required changes to Konsole, and they will be released with KDE
-   4.0.1 and later versions. When using a sufficiently new version of the
-   kdebase module the "--enable-translucency" command line is not required
-   in Yakuake, and in fact not supported.
+   If a fixed driver is not available for your hardware or you are having
+   this problem despite not using nVidia hardware or their proprietary dri-
+   vers, exporting QT_USE_NATIVE_WINDOWS=1 has been known to help some
+   users. This comes at the cost of increasing flickering during window re-
+   size operations as it disables the use of windowless widgets in Qt.
 
   ------------------------------------------------------------------------
 
@@ -89,33 +57,16 @@ A: While the KDE 4 incarnation of Yakuake tries hard to preserve compati-
    XComposite translucency results in different blending behavior between
    skin elements and their background. Unfortunately this is outside the
    area of influence of the Yakuake code at this time. Translucent areas
-   in skins may have to be adjusted accordingly.
-
-   Update August 11th, 2008: A new background tinting option in the confi-
-   guration dialog can help with recreating the previous appearance of un-
-   modified skins when using translucency.
+   in skins may have to be adjusted accordingly, or the background tinting
+   option in the configuration dialog can be used to compensate.
 
   ------------------------------------------------------------------------
 
-Q: The terminal display corrupts in odd ways when I scroll. Anything I can
-   do?
+Q: I am using KWin Desktop Effects and have the "Shadows" option enabled,
+   but the Yakuake window does not have a shadow. How come?
 
-A: This is often caused by using compositing with an older version of the
-   nVidia proprietary graphics driver, which has a known rendering bug with
-   Qt 4 scrollviews on an ARGB visual. nVidia fixed the problem in version
-   169.07 of the driver.
-
-   Terminal display corruption may also occur when using compositing and Qt
-   4.4 Beta 1. It is presently unclear if this problem will persist until
-   the final release of Qt 4.4. In the meantime, a workaround for this pro-
-   blem was added to the development version of the KDE 4 kdebase module on
-   March 10th, 2008. Depending on how the situation develops, this work-
-   around may be included with KDE 4.1 and possibly backported to a 4.0.x
-   release.
-
-   Update August 19th, 2008: This problem continues to affect Yakuake and
-   Konsole in KDE 4.1 and with the final Qt 4.4 release. As a workaround,
-   exporting QT_USE_NATIVE_WINDOWS=1 in the environment to disable window-
-   less widgets in Qt prevents the problem from occuring at the cost of
-   increasing flickering during window resize back to KDE/Qt 3 levels. The
-   issue is still under investigation in cooperation with Trolltech/Nokia.
+A: KWin's Shadow effect currently doesn't paint shadows for shaped windows
+   (aka windows with a "mask") for performance reasons. This is unlikely
+   to change in the near future. To compensate Yakuake may introduce sup-
+   port for shadows in skins in the future, similar to what Plasma already
+   does today.
