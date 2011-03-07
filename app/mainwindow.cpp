@@ -37,11 +37,7 @@
 #include <KHelpMenu>
 #include <KMenu>
 #include <KMessageBox>
-#if KDE_IS_VERSION(4,3,95)
-    #include <KNotification>
-#else
-    #include <KPassivePopup>
-#endif
+#include <KNotification>
 #include <KShortcutsDialog>
 #include <KStandardAction>
 #include <KToggleFullScreenAction>
@@ -861,7 +857,7 @@ void MainWindow::toggleWindowState()
     {
         // Window is open but doesn't have focus; it's set to stay open
         // regardless of focus loss.
-        
+
         if (Settings::toggleToFocus())
         {
             // The open/retract action is set to focus the window when it's
@@ -869,7 +865,7 @@ void MainWindow::toggleWindowState()
             // focus, and in an environment with multiple virtual desktops
             // will also cause the window manager to switch to the virtual
             // desktop the window resides on.
-            
+
             KWindowSystem::forceActiveWindow(winId());
 
             return;
@@ -1216,19 +1212,8 @@ void MainWindow::showStartupPopup()
     QString title(i18nc("@title:window", "<application>Yakuake</application> Notification"));
     QString message(i18nc("@info", "Application successfully started.<nl/>" "Press <shortcut>%1</shortcut> to use it ...", shortcut));
 
-#if KDE_IS_VERSION(4,3,95)
     KNotification::event(KNotification::Notification, title, message,
         KIconLoader::global()->loadIcon("yakuake", KIconLoader::Desktop));
-#else
-    KPassivePopup* popup = new KPassivePopup();
-
-    popup->setAutoDelete(true);
-    popup->setTimeout(5000);
-    popup->setView(popup->standardView(title, message,
-        KIconLoader::global()->loadIcon("yakuake", KIconLoader::Small)));
-
-    popup->show(getDesktopGeometry().topLeft());
-#endif
 }
 
 void MainWindow::showFirstRunDialog()

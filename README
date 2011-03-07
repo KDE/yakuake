@@ -15,7 +15,8 @@ You can browse the latest and older sources at:
 http://projects.kde.org/projects/extragear/utils/yakuake/repository
 
 
-Yakuake requires kdelibs and Konsole from KDE 4.3 or higher.
+Yakuake requires kdelibs and Konsole from KDE Software Compilation 4.4.0 or
+higher.
 
 
 Basic build and installation instructions:
