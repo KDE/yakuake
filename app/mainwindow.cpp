@@ -226,7 +226,7 @@ void MainWindow::setupActions()
     action = actionCollection()->addAction("new-session");
     action->setText(i18nc("@action", "New Session"));
     action->setIcon(KIcon("tab-new"));
-    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_N));
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_T));
     connect(action, SIGNAL(triggered()), m_sessionStack, SLOT(addSession()));
 
     action = actionCollection()->addAction("new-session-two-horizontal");
@@ -247,7 +247,7 @@ void MainWindow::setupActions()
     action = actionCollection()->addAction("close-session");
     action->setText(i18nc("@action", "Close Session"));
     action->setIcon(KIcon("tab-close"));
-    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_S));
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_W));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
@@ -334,14 +334,14 @@ void MainWindow::setupActions()
     action = actionCollection()->addAction("split-left-right");
     action->setText(i18nc("@action", "Split Left/Right"));
     action->setIcon(KIcon("view-split-left-right"));
-    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_L));
+    action->setShortcut(QKeySequence(Qt::CTRL+ Qt::Key_ParenLeft));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction("split-top-bottom");
     action->setText(i18nc("@action", "Split Top/Bottom"));
     action->setIcon(KIcon("view-split-top-bottom"));
-    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_T));
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_ParenRight));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 

@@ -11,6 +11,9 @@ Changes since 2.9.8:
   option to also use the action to focus the window is disabled, has now
   been changed to move the window to the current virtual desktop and focus
   it, rather than retract it.
+* A number of default keyboard shortcuts have been changed to reestablish
+  consistency with Konsole, which introduced changed defaults in KDE Soft-
+  ware Compilation v4.6.
 * Yakuake now depends on KDE Platform 4.4.0 or newer.
 
 
