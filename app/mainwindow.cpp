@@ -866,6 +866,7 @@ void MainWindow::toggleWindowState()
             // will also cause the window manager to switch to the virtual
             // desktop the window resides on.
 
+            KWindowSystem::activateWindow(winId());
             KWindowSystem::forceActiveWindow(winId());
 
             return;
@@ -884,6 +885,7 @@ void MainWindow::toggleWindowState()
 
             KWindowSystem::setOnDesktop(winId(), KWindowSystem::currentDesktop());
 
+            KWindowSystem::activateWindow(winId());
             KWindowSystem::forceActiveWindow(winId());
 
             return;
