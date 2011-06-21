@@ -1039,9 +1039,8 @@ void MainWindow::xshapeOpenWindow()
         newMask.translate(0, maskHeight);
         newMask += QRegion(0, 0, width(), maskHeight);
 
-        setMask(newMask);
-
         m_titleBar->move(0, maskHeight);
+        setMask(newMask);
 
         m_animationFrame++;
     }
@@ -1060,9 +1059,8 @@ void MainWindow::xshapeRetractWindow()
     }
     else
     {
+        m_titleBar->move(0,m_titleBar->y() - m_animationStepSize);
         setMask(QRegion(mask()).translated(0, -m_animationStepSize));
-
-        m_titleBar->move(0, m_titleBar->y() - m_animationStepSize);
 
         --m_animationFrame;
     }
