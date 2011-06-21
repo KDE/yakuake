@@ -159,16 +159,6 @@
    </item>
   </layout>
  </widget>
- <tabstops>
-  <tabstop>kcfg_KeepOpen</tabstop>
-  <tabstop>kcfg_KeepAbove</tabstop>
-  <tabstop>kcfg_ToggleToFocus</tabstop>
-  <tabstop>kcfg_PollMouse</tabstop>
-  <tabstop>kcfg_OpenAfterStart</tabstop>
-  <tabstop>kcfg_FocusFollowsMouse</tabstop>
-  <tabstop>kcfg_ShowPopup</tabstop>
-  <tabstop>kcfg_ConfirmQuit</tabstop>
- </tabstops>
  <resources/>
  <connections>
   <connection>

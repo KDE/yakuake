@@ -380,8 +380,10 @@
   <tabstop>kcfg_Height</tabstop>
   <tabstop>kcfg_Frames</tabstop>
   <tabstop>framesSpinBox</tabstop>
+  <tabstop>kcfg_UseWMAssist</tabstop>
   <tabstop>kcfg_Position</tabstop>
   <tabstop>kcfg_Screen</tabstop>
+  <tabstop>kcfg_ShowOnAllDesktops</tabstop>
  </tabstops>
  <resources/>
  <connections>
