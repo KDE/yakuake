@@ -45,8 +45,8 @@ FirstRunDialog::FirstRunDialog(MainWindow* mainWindow) : KDialog(mainWindow)
 
     initKeyButton();
 
-    connect(m_ui->keyButton, SIGNAL(keySequenceChanged(const QKeySequence&)),
-        this, SLOT(validateKeySequence(const QKeySequence&)));
+    connect(m_ui->keyButton, SIGNAL(keySequenceChanged(QKeySequence)),
+        this, SLOT(validateKeySequence(QKeySequence)));
 }
 
 FirstRunDialog::~FirstRunDialog()

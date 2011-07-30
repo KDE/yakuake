@@ -50,9 +50,9 @@ AppearanceSettings::AppearanceSettings(QWidget* parent) : QWidget(parent)
     skinList->setModel(m_skins);
     skinList->setItemDelegate(m_skinListDelegate);
 
-    connect(skinList->selectionModel(), SIGNAL(currentChanged(const QModelIndex&, const QModelIndex&)),
+    connect(skinList->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
         this, SLOT(updateSkinSetting()));
-    connect(skinList->selectionModel(), SIGNAL(currentChanged(const QModelIndex&, const QModelIndex&)),
+    connect(skinList->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
         this, SLOT(updateRemoveSkinButton()));
     connect(installButton, SIGNAL(clicked()), this, SLOT(installSkin()));
     connect(removeButton, SIGNAL(clicked()), this, SLOT(removeSelectedSkin()));
@@ -214,8 +214,8 @@ void AppearanceSettings::installSkin()
     {
         KIO::ListJob* job = KIO::listRecursive("tar:" + m_installSkinFile, KIO::HideProgressInfo, false);
 
-        connect(job, SIGNAL(entries(KIO::Job*, const KIO::UDSEntryList&)),
-            this, SLOT(listSkinArchive(KIO::Job*, const KIO::UDSEntryList&)));
+        connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
+            this, SLOT(listSkinArchive(KIO::Job*,KIO::UDSEntryList)));
 
         connect(job, SIGNAL(result(KJob*)), this, SLOT(validateSkinArchive(KJob*)));
     }

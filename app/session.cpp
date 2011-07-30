@@ -144,7 +144,7 @@ Terminal* Session::addTerminal(QWidget* parent)
     Terminal* terminal = new Terminal(parent);
     connect(terminal, SIGNAL(activated(int)), this, SLOT(setActiveTerminal(int)));
     connect(terminal, SIGNAL(manuallyActivated(Terminal*)), this, SIGNAL(terminalManuallyActivated(Terminal*)));
-    connect(terminal, SIGNAL(titleChanged(int, const QString&)), this, SLOT(setTitle(int, const QString&)));
+    connect(terminal, SIGNAL(titleChanged(int,QString)), this, SLOT(setTitle(int,QString)));
     connect(terminal, SIGNAL(keyboardInputBlocked(Terminal*)), this, SIGNAL(keyboardInputBlocked(Terminal*)));
     connect(terminal, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
 

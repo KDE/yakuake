@@ -86,12 +86,12 @@ MainWindow::MainWindow(QWidget* parent)
     connect(m_tabBar, SIGNAL(requestRemoveTerminalHighlight()), m_sessionStack, SIGNAL(removeTerminalHighlight()));
     connect(m_tabBar, SIGNAL(tabContextMenuClosed()), m_sessionStack, SIGNAL(removeTerminalHighlight()));
 
-    connect(m_sessionStack, SIGNAL(sessionAdded(int, const QString&)),
-        m_tabBar, SLOT(addTab(int, const QString&)));
+    connect(m_sessionStack, SIGNAL(sessionAdded(int,QString)),
+        m_tabBar, SLOT(addTab(int,QString)));
     connect(m_sessionStack, SIGNAL(sessionRaised(int)), m_tabBar, SLOT(selectTab(int)));
     connect(m_sessionStack, SIGNAL(sessionRemoved(int)), m_tabBar, SLOT(removeTab(int)));
-    connect(m_sessionStack, SIGNAL(activeTitleChanged(const QString&)),
-        m_titleBar, SLOT(setTitle(const QString&)));
+    connect(m_sessionStack, SIGNAL(activeTitleChanged(QString)),
+        m_titleBar, SLOT(setTitle(QString)));
 
     connect(&m_mousePoller, SIGNAL(timeout()), this, SLOT(pollMouse()));
 
@@ -588,13 +588,13 @@ void MainWindow::configureApp()
 
     KConfigDialog* settingsDialog = new KConfigDialog(this, "settings", Settings::self());
     settingsDialog->setFaceType(KPageDialog::List);
-    connect(settingsDialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(applySettings()));
+    connect(settingsDialog, SIGNAL(settingsChanged(QString)), this, SLOT(applySettings()));
     connect(settingsDialog, SIGNAL(hidden()), this, SLOT(activate()));
 
     WindowSettings* windowSettings = new WindowSettings(settingsDialog);
     settingsDialog->addPage(windowSettings, i18nc("@title Preferences page name", "Window"), "yakuake");
-    connect(windowSettings, SIGNAL(updateWindowGeometry(int, int, int)),
-        this, SLOT(setWindowGeometry(int, int, int)));
+    connect(windowSettings, SIGNAL(updateWindowGeometry(int,int,int)),
+        this, SLOT(setWindowGeometry(int,int,int)));
 
     QWidget* behaviorSettings = new QWidget(settingsDialog);
     Ui::BehaviorSettings behaviorSettingsUi;
@@ -616,15 +616,15 @@ void MainWindow::applySettings()
 {
     if (Settings::dynamicTabTitles())
     {
-        connect(m_sessionStack, SIGNAL(titleChanged(int, const QString&)),
-            m_tabBar, SLOT(setTabTitle(int, const QString&)));
+        connect(m_sessionStack, SIGNAL(titleChanged(int,QString)),
+            m_tabBar, SLOT(setTabTitle(int,QString)));
 
         m_sessionStack->emitTitles();
     }
     else
     {
-        disconnect(m_sessionStack, SIGNAL(titleChanged(int, const QString&)),
-            m_tabBar, SLOT(setTabTitle(int, const QString&)));
+        disconnect(m_sessionStack, SIGNAL(titleChanged(int,QString)),
+            m_tabBar, SLOT(setTabTitle(int,QString)));
     }
 
     m_animationTimer.setInterval(10);

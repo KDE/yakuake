@@ -47,7 +47,7 @@ SessionStack::~SessionStack()
 int SessionStack::addSession(Session::SessionType type)
 {
     Session* session = new Session(type, this);
-    connect(session, SIGNAL(titleChanged(int, const QString&)), this, SIGNAL(titleChanged(int, const QString&)));
+    connect(session, SIGNAL(titleChanged(int,QString)), this, SIGNAL(titleChanged(int,QString)));
     connect(session, SIGNAL(terminalManuallyActivated(Terminal*)), this, SLOT(handleManualTerminalActivation(Terminal*)));
     connect(session, SIGNAL(keyboardInputBlocked(Terminal*)), m_visualEventOverlay, SLOT(indicateKeyboardInputBlocked(Terminal*)));
     connect(session, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
@@ -95,8 +95,8 @@ void SessionStack::raiseSession(int sessionId)
         disconnect(oldActiveSession, SLOT(focusPreviousTerminal()));
         disconnect(oldActiveSession, SLOT(focusNextTerminal()));
         disconnect(oldActiveSession, SLOT(manageProfiles()));
-        disconnect(oldActiveSession, SIGNAL(titleChanged(const QString&)),
-            this, SIGNAL(activeTitleChanged(const QString&)));
+        disconnect(oldActiveSession, SIGNAL(titleChanged(QString)),
+            this, SIGNAL(activeTitleChanged(QString)));
     }
 
     m_activeSessionId = sessionId;
@@ -113,7 +113,7 @@ void SessionStack::raiseSession(int sessionId)
     connect(this, SIGNAL(previousTerminal()), session, SLOT(focusPreviousTerminal()));
     connect(this, SIGNAL(nextTerminal()), session, SLOT(focusNextTerminal()));
     connect(this, SIGNAL(manageProfiles()), session, SLOT(manageProfiles()));
-    connect(session, SIGNAL(titleChanged(const QString&)), this, SIGNAL(activeTitleChanged(const QString&)));
+    connect(session, SIGNAL(titleChanged(QString)), this, SIGNAL(activeTitleChanged(QString)));
 
     emit sessionRaised(sessionId);
 

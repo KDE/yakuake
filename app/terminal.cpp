@@ -62,8 +62,8 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
 
     if (m_part)
     {
-        connect(m_part, SIGNAL(setWindowCaption(const QString&)), this, SLOT(setTitle(const QString&)));
-        connect(m_part, SIGNAL(overrideShortcut(QKeyEvent*, bool&)), this, SLOT(overrideShortcut(QKeyEvent*, bool&)));
+        connect(m_part, SIGNAL(setWindowCaption(QString)), this, SLOT(setTitle(QString)));
+        connect(m_part, SIGNAL(overrideShortcut(QKeyEvent*,bool&)), this, SLOT(overrideShortcut(QKeyEvent*,bool&)));
         connect(m_part, SIGNAL(destroyed()), this, SLOT(deleteLater()));
 
         m_partWidget = m_part->widget();
