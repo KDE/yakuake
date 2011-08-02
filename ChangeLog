@@ -14,6 +14,13 @@ Changes since 2.9.8:
 * A number of default keyboard shortcuts have been changed to reestablish
   consistency with Konsole, which introduced changed defaults in KDE Soft-
   ware Compilation v4.6.
+* Made sure that the activeTerminalId D-Bus call always returns something
+  useful after an addSessionTwo*/Quad call, even when the window is closed
+  while the call is made. Previously, activeTerminalId could return -1 in
+  this situation because there technically is no active terminal until the
+  window is opened and a focus event causes one to become active. Now the
+  terminal that will receive focus once the window is opened is immediate-
+  ly declared the active terminal.
 * Yakuake now depends on KDE Platform 4.4.0 or newer.
 
 

@@ -7,7 +7,7 @@
   published by the Free Software Foundation; either version 2 of
   the License or (at your option) version 3 or any later version
   accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy 
+  ved by the membership of KDE e.V.), which shall act as a proxy
   defined in Section 14 of version 3 of the license.
 
   This program is distributed in the hope that it will be useful,
@@ -23,6 +23,7 @@
 #include "session.h"
 #include "terminal.h"
 
+#include <KDebug>
 
 int Session::m_availableSessionId = 0;
 
@@ -72,7 +73,12 @@ void Session::setupSession(SessionType type)
             m_baseSplitter->setSizes(newSplitterSizes);
 
             QWidget* terminalWidget = terminal->terminalWidget();
-            if (terminalWidget) terminalWidget->setFocus();
+
+            if (terminalWidget)
+            {
+                terminalWidget->setFocus();
+                setActiveTerminal(terminal->id());
+            }
 
             break;
         }
@@ -91,7 +97,12 @@ void Session::setupSession(SessionType type)
             m_baseSplitter->setSizes(newSplitterSizes);
 
             QWidget* terminalWidget = terminal->terminalWidget();
-            if (terminalWidget) terminalWidget->setFocus();
+
+            if (terminalWidget)
+            {
+                terminalWidget->setFocus();
+                setActiveTerminal(terminal->id());
+            }
 
             break;
         }
@@ -125,7 +136,12 @@ void Session::setupSession(SessionType type)
             lowerSplitter->setSizes(newSplitterSizes);
 
             QWidget* terminalWidget = terminal->terminalWidget();
-            if (terminalWidget) terminalWidget->setFocus();
+
+            if (terminalWidget)
+            {
+                terminalWidget->setFocus();
+                setActiveTerminal(terminal->id());
+            }
 
             break;
         }
@@ -168,13 +184,13 @@ void Session::closeTerminal(int terminalId)
 void Session::focusPreviousTerminal()
 {
     if (m_activeTerminalId == -1) return;
-    if (!m_terminals.contains(m_activeTerminalId)) return; 
+    if (!m_terminals.contains(m_activeTerminalId)) return;
 
     QMapIterator<int, Terminal*> it(m_terminals);
 
     it.toBack();
 
-    while (it.hasPrevious()) 
+    while (it.hasPrevious())
     {
         it.previous();
 
@@ -205,7 +221,7 @@ void Session::focusNextTerminal()
 
     QMapIterator<int, Terminal*> it(m_terminals);
 
-    while (it.hasNext()) 
+    while (it.hasNext())
     {
         it.next();
 
@@ -286,7 +302,7 @@ int Session::split(Terminal* terminal, Qt::Orientation orientation)
         Splitter* newSplitter = new Splitter(orientation, splitter);
         connect(newSplitter, SIGNAL(destroyed()), this, SLOT(cleanup()));
 
-        if (splitter->indexOf(terminal->partWidget()) == 0) 
+        if (splitter->indexOf(terminal->partWidget()) == 0)
             splitter->insertWidget(0, newSplitter);
 
         QWidget* partWidget = terminal->partWidget();
@@ -308,7 +324,7 @@ int Session::split(Terminal* terminal, Qt::Orientation orientation)
 
         m_activeTerminalId = terminal->id();
     }
-    
+
     return m_activeTerminalId;
 }
 
