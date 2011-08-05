@@ -168,11 +168,6 @@
       <whatsthis context="@info:whatsthis">Whether this is the first time the application is run.</whatsthis>
       <default>true</default>
     </entry>
-    <entry name="ShowPopup" type="Bool">
-      <label context="@label">Show startup notification</label>
-      <whatsthis context="@info:whatsthis">Whether to show a notification popup at application startup.</whatsthis>
-      <default>true</default>
-    </entry>
     <entry name="ConfirmQuit" type="Bool">
       <label context="@label">Confirm quit with multiple sessions</label>
       <whatsthis context="@info:whatsthis">Whether to prompt the user before quitting the application when multiple sessions are open.</whatsthis>

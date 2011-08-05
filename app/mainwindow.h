@@ -121,6 +121,7 @@ class MainWindow : public KMainWindow
         void whatsThis();
 
         void configureKeys();
+        void configureNotifications();
         void configureApp();
 
         void showFirstRunDialog();

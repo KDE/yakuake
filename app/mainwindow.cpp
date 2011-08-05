@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2008-2009 by Eike Hein <hein@kde.org>
+  Copyright (C) 2008-2011 by Eike Hein <hein@kde.org>
   Copyright (C) 2009 by Juan Carlos Torres <carlosdgtorres@gmail.com>
 
   This program is free software; you can redistribute it and/or
@@ -38,6 +38,7 @@
 #include <KMenu>
 #include <KMessageBox>
 #include <KNotification>
+#include <KNotifyConfigWidget>
 #include <KShortcutsDialog>
 #include <KStandardAction>
 #include <KToggleFullScreenAction>
@@ -109,7 +110,7 @@ MainWindow::MainWindow(QWidget* parent)
     }
     else
     {
-        if (Settings::showPopup()) showStartupPopup();
+        showStartupPopup();
         if (Settings::pollMouse()) toggleMousePoll(true);
     }
 
@@ -177,6 +178,7 @@ void MainWindow::setupActions()
     action = KStandardAction::aboutKDE(m_helpMenu, SLOT(aboutKDE()), actionCollection());
 
     action = KStandardAction::keyBindings(this, SLOT(configureKeys()), actionCollection());
+    action = KStandardAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection());
     action = KStandardAction::preferences(this, SLOT(configureApp()), actionCollection());
 
     action = KStandardAction::whatsThis(this, SLOT(whatsThis()), actionCollection());
@@ -490,6 +492,7 @@ void MainWindow::setupMenu()
     m_menu->addTitle(i18nc("@title:menu", "Settings"));
     m_menu->addAction(actionCollection()->action("manage-profiles"));
     m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::KeyBindings)));
+    m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::ConfigureNotifications)));
     m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::Preferences)));
 }
 
@@ -580,6 +583,11 @@ void MainWindow::configureKeys()
 {
     KShortcutsDialog::configure(actionCollection());
     activate();
+}
+
+void MainWindow::configureNotifications()
+{
+    KNotifyConfigWidget::configure(this);
 }
 
 void MainWindow::configureApp()
@@ -1209,11 +1217,9 @@ void MainWindow::showStartupPopup()
 {
     KAction* action = static_cast<KAction*>(actionCollection()->action("toggle-window-state"));
     QString shortcut(action->globalShortcut().toString());
-    QString title(i18nc("@title:window", "<application>Yakuake</application> Notification"));
     QString message(i18nc("@info", "Application successfully started.<nl/>" "Press <shortcut>%1</shortcut> to use it ...", shortcut));
 
-    KNotification::event(KNotification::Notification, title, message,
-        KIconLoader::global()->loadIcon("yakuake", KIconLoader::Desktop));
+    KNotification::event(QLatin1String("startup"), message, QPixmap(), this);
 }
 
 void MainWindow::showFirstRunDialog()

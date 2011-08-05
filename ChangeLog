@@ -1,4 +1,6 @@
 Changes since 2.9.8:
+* Yakuake now sports a standard KDE "Configure Notifications..." item in
+  its menu. The startup notification popup configuration has moved there.
 * The addSession* and split* D-Bus calls now return the id of the newly-
   created session or terminal, or -1 if creating a new session or terminal
   was not possible.

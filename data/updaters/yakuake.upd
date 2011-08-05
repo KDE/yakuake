@@ -1,0 +1,3 @@
+Id=2.9.9-startupnotification
+File=yakuakerc,yakuake.notifyrc
+Script=yakuake-2.9.9-startupnotification.pl,perl

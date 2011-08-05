@@ -128,13 +128,6 @@
      </property>
      <layout class="QVBoxLayout">
       <item>
-       <widget class="QCheckBox" name="kcfg_ShowPopup">
-        <property name="text">
-         <string comment="@option:check">Show startup notification popup</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QCheckBox" name="kcfg_ConfirmQuit">
         <property name="text">
          <string comment="@option:check">Confirm quit when more than one session is open</string>
