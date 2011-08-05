@@ -8,6 +8,11 @@ Changes since 2.9.8:
   dialog mentioned above to configure what happens when activity or
   silence are detected in a monitored session or terminal (by default a
   desktop notification is triggered for each).
+  Note that repeated activity in a terminal does not result in repeated
+  notifications for that terminal: After the first notification, activity
+  monitoring has to be disabled or reenabled, or the active session
+  switched, or the window closed - only then another activity notification
+  will be shown.
 * The addSession* and split* D-Bus calls now return the id of the newly-
   created session or terminal, or -1 if creating a new session or terminal
   was not possible.

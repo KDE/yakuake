@@ -163,7 +163,6 @@ Terminal* Session::addTerminal(QWidget* parent)
     connect(terminal, SIGNAL(titleChanged(int,QString)), this, SLOT(setTitle(int,QString)));
     connect(terminal, SIGNAL(keyboardInputBlocked(Terminal*)), this, SIGNAL(keyboardInputBlocked(Terminal*)));
     connect(terminal, SIGNAL(silenceDetected(Terminal*)), this, SIGNAL(silenceDetected(Terminal*)));
-    connect(terminal, SIGNAL(activityDetected(Terminal*)), this, SIGNAL(activityDetected(Terminal*)));
     connect(terminal, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
 
     m_terminals.insert(terminal->id(), terminal);
@@ -488,11 +487,7 @@ void Session::setKeyboardInputEnabled(bool enabled)
     QMapIterator<int, Terminal*> i(m_terminals);
 
     while (i.hasNext())
-    {
-        i.next();
-
-        i.value()->setKeyboardInputEnabled(enabled);
-    }
+        setKeyboardInputEnabled(i.next().key(), enabled);
 }
 
 bool Session::keyboardInputEnabled(int terminalId)
@@ -546,11 +541,7 @@ void Session::setMonitorSilenceEnabled(bool enabled)
     QMapIterator<int, Terminal*> i(m_terminals);
 
     while (i.hasNext())
-    {
-        i.next();
-
-        i.value()->setMonitorSilenceEnabled(enabled);
-    }
+        setMonitorSilenceEnabled(i.next().key(), enabled);
 }
 
 bool Session::monitorSilenceEnabled(int terminalId)
@@ -589,11 +580,7 @@ void Session::setMonitorActivityEnabled(bool enabled)
     QMapIterator<int, Terminal*> i(m_terminals);
 
     while (i.hasNext())
-    {
-        i.next();
-
-        i.value()->setMonitorActivityEnabled(enabled);
-    }
+        setMonitorActivityEnabled(i.next().key(), enabled);
 }
 
 bool Session::monitorActivityEnabled(int terminalId)
@@ -607,7 +594,12 @@ void Session::setMonitorActivityEnabled(int terminalId, bool enabled)
 {
     if (!m_terminals.contains(terminalId)) return;
 
-    m_terminals.value(terminalId)->setMonitorActivityEnabled(enabled);
+    Terminal* terminal = m_terminals.value(terminalId);
+
+    connect(terminal, SIGNAL(activityDetected(Terminal*)), this, SIGNAL(activityDetected(Terminal*)),
+        Qt::UniqueConnection);
+
+    terminal->setMonitorActivityEnabled(enabled);
 }
 
 void Session::reconnectMonitorActivitySignals()
