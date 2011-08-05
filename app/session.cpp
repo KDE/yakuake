@@ -162,8 +162,6 @@ Terminal* Session::addTerminal(QWidget* parent)
     connect(terminal, SIGNAL(manuallyActivated(Terminal*)), this, SIGNAL(terminalManuallyActivated(Terminal*)));
     connect(terminal, SIGNAL(titleChanged(int,QString)), this, SLOT(setTitle(int,QString)));
     connect(terminal, SIGNAL(keyboardInputBlocked(Terminal*)), this, SIGNAL(keyboardInputBlocked(Terminal*)));
-    connect(terminal, SIGNAL(silenceDetected(Terminal*)), this, SIGNAL(silenceDetected(Terminal*)));
-    connect(terminal, SIGNAL(activityDetected(Terminal*)), this, SIGNAL(activityDetected(Terminal*)));
     connect(terminal, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
 
     m_terminals.insert(terminal->id(), terminal);
@@ -522,103 +520,4 @@ bool Session::hasTerminalsWithKeyboardInputDisabled()
     }
 
     return false;
-}
-
-bool Session::monitorSilenceEnabled()
-{
-    int monitorSilenceEnabledCount = 0;
-
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-    {
-        i.next();
-
-        if (!i.value()->monitorSilenceEnabled())
-            ++monitorSilenceEnabledCount;
-    }
-
-    return m_terminals.count() != monitorSilenceEnabledCount;
-}
-
-void Session::setMonitorSilenceEnabled(bool enabled)
-{
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-    {
-        i.next();
-
-        i.value()->setMonitorSilenceEnabled(enabled);
-    }
-}
-
-bool Session::monitorSilenceEnabled(int terminalId)
-{
-    if (!m_terminals.contains(terminalId)) return false;
-
-    return m_terminals.value(terminalId)->monitorSilenceEnabled();
-}
-
-void Session::setMonitorSilenceEnabled(int terminalId, bool enabled)
-{
-    if (!m_terminals.contains(terminalId)) return;
-
-    m_terminals.value(terminalId)->setMonitorSilenceEnabled(enabled);
-}
-
-bool Session::monitorActivityEnabled()
-{
-    int monitorActivityEnabledCount = 0;
-
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-    {
-        i.next();
-
-        if (!i.value()->monitorActivityEnabled())
-            ++monitorActivityEnabledCount;
-    }
-
-    return m_terminals.count() != monitorActivityEnabledCount;
-}
-
-void Session::setMonitorActivityEnabled(bool enabled)
-{
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-    {
-        i.next();
-
-        i.value()->setMonitorActivityEnabled(enabled);
-    }
-}
-
-bool Session::monitorActivityEnabled(int terminalId)
-{
-    if (!m_terminals.contains(terminalId)) return false;
-
-    return m_terminals.value(terminalId)->monitorActivityEnabled();
-}
-
-void Session::setMonitorActivityEnabled(int terminalId, bool enabled)
-{
-    if (!m_terminals.contains(terminalId)) return;
-
-    m_terminals.value(terminalId)->setMonitorActivityEnabled(enabled);
-}
-
-void Session::reconnectMonitorActivitySignals()
-{
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-    {
-        i.next();
-
-        connect(i.value(), SIGNAL(activityDetected(Terminal*)), this, SIGNAL(activityDetected(Terminal*)),
-            Qt::UniqueConnection);
-    }
 }

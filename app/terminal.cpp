@@ -49,9 +49,6 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
 
     m_keyboardInputEnabled = true;
 
-    m_monitorSilenceEnabled = false;
-    m_monitorActivityEnabled = false;
-
     m_part = NULL;
     m_terminalInterface = NULL;
     m_partWidget = NULL;
@@ -245,56 +242,4 @@ void Terminal::editProfile()
 void Terminal::overrideShortcut(QKeyEvent* /* event */, bool& override)
 {
     override = false;
-}
-
-void Terminal::setMonitorSilenceEnabled(bool enabled)
-{
-    m_monitorSilenceEnabled = enabled;
-
-    if (enabled)
-    {
-        connect(m_part, SIGNAL(silenceDetected()), this, SLOT(silenceDetected()),
-            Qt::UniqueConnection);
-
-        QMetaObject::invokeMethod(m_part, "setMonitorSilenceEnabled",
-            Qt::QueuedConnection, Q_ARG(bool, true));
-    }
-    else
-    {
-        disconnect(m_part, SIGNAL(silenceDetected()), this, SLOT(silenceDetected()));
-
-        QMetaObject::invokeMethod(m_part, "setMonitorSilenceEnabled",
-            Qt::QueuedConnection, Q_ARG(bool, false));
-    }
-}
-
-void Terminal::setMonitorActivityEnabled(bool enabled)
-{
-    m_monitorActivityEnabled = enabled;
-
-    if (enabled)
-    {
-        connect(m_part, SIGNAL(activityDetected()), this, SLOT(activityDetected()),
-            Qt::UniqueConnection);
-
-        QMetaObject::invokeMethod(m_part, "setMonitorActivityEnabled",
-            Qt::QueuedConnection, Q_ARG(bool, true));
-    }
-    else
-    {
-        disconnect(m_part, SIGNAL(activityDetected()), this, SLOT(activityDetected()));
-
-        QMetaObject::invokeMethod(m_part, "setMonitorActivityEnabled",
-            Qt::QueuedConnection, Q_ARG(bool, false));
-    }
-}
-
-void Terminal::silenceDetected()
-{
-    emit silenceDetected(this);
-}
-
-void Terminal::activityDetected()
-{
-    emit activityDetected(this);
 }
