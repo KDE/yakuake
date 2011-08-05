@@ -28,6 +28,7 @@
 #include "sessionstack.h"
 #include "skin.h"
 #include "tabbar.h"
+#include "terminal.h"
 #include "titlebar.h"
 #include "ui_behaviorsettings.h"
 
@@ -359,6 +360,20 @@ void MainWindow::setupActions()
     connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
     m_contextDependentActions << action;
 
+    action = actionCollection()->addAction("toggle-session-monitor-silence");
+    action->setText(i18nc("@action", "Monitor for Silence"));
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_I));
+    action->setCheckable(true);
+    connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
+    m_contextDependentActions << action;
+
+    action = actionCollection()->addAction("toggle-session-monitor-activity");
+    action->setText(i18nc("@action", "Monitor for Activity"));
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_A));
+    action->setCheckable(true);
+    connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
+    m_contextDependentActions << action;
+
     for (uint i = 1; i <= 10; ++i)
     {
         action = actionCollection()->addAction(QString("switch-to-session-%1").arg(i));
@@ -432,6 +447,12 @@ void MainWindow::handleContextDependentToggleAction(bool checked, QAction* actio
         // so the lock icon is added to or removed from the tab label.
         m_tabBar->repaint();
     }
+
+    if (action == actionCollection()->action("toggle-session-monitor-silence"))
+        m_sessionStack->setSessionMonitorSilenceEnabled(sessionId, checked);
+
+    if (action == actionCollection()->action("toggle-session-monitor-activity"))
+        m_sessionStack->setSessionMonitorActivityEnabled(sessionId, checked);
 }
 
 void MainWindow::setContextDependentActionsQuiet(bool quiet)
@@ -452,6 +473,62 @@ void MainWindow::handleToggleTerminalKeyboardInput(bool checked)
     if (!ok) return;
 
     m_sessionStack->setTerminalKeyboardInputEnabled(terminalId, !checked);
+}
+
+void MainWindow::handleToggleTerminalMonitorSilence(bool checked)
+{
+    QAction* action = qobject_cast<QAction*>(QObject::sender());
+
+    if (!action || action->data().isNull()) return;
+
+    bool ok = false;
+    int terminalId = action->data().toInt(&ok);
+    if (!ok) return;
+
+    m_sessionStack->setTerminalMonitorSilenceEnabled(terminalId, checked);
+}
+
+void MainWindow::handleToggleTerminalMonitorActivity(bool checked)
+{
+    QAction* action = qobject_cast<QAction*>(QObject::sender());
+
+    if (!action || action->data().isNull()) return;
+
+    bool ok = false;
+    int terminalId = action->data().toInt(&ok);
+    if (!ok) return;
+
+    m_sessionStack->setTerminalMonitorActivityEnabled(terminalId, checked);
+}
+
+void MainWindow::handleTerminalSilence(Terminal* terminal)
+{
+    Session* session = qobject_cast<Session*>(sender());
+
+    if (session)
+    {
+        QString message(i18nc("@info", "Silence detected in monitored terminal in session \"%1\".",
+            m_tabBar->tabTitle(session->id())));
+
+        KNotification::event(QLatin1String("silence"), message, QPixmap(), terminal->partWidget(),
+            KNotification::CloseWhenWidgetActivated);
+    }
+}
+
+void MainWindow::handleTerminalActivity(Terminal* terminal)
+{
+    Session* session = qobject_cast<Session*>(sender());
+
+    if (session)
+    {
+        disconnect(terminal, SIGNAL(activityDetected(Terminal*)), session, SIGNAL(activityDetected(Terminal*)));
+
+        QString message(i18nc("@info", "Activity detected in monitored terminal in session \"%1\".",
+            m_tabBar->tabTitle(session->id())));
+
+        KNotification::event(QLatin1String("activity"), message, QPixmap(), terminal->partWidget(),
+            KNotification::CloseWhenWidgetActivated);
+    }
 }
 
 void MainWindow::handleSwitchToAction()
@@ -1092,6 +1169,8 @@ void MainWindow::sharedAfterOpenWindow()
     if (!Settings::firstRun()) KWindowSystem::forceActiveWindow(winId());
 
     m_listenForActivationChanges = true;
+
+    emit windowOpened();
 }
 
 void MainWindow::sharedPreHideWindow()
@@ -1102,6 +1181,8 @@ void MainWindow::sharedPreHideWindow()
 void MainWindow::sharedAfterHideWindow()
 {
     if (Settings::pollMouse()) toggleMousePoll(true);
+
+    emit windowClosed();
 }
 
 void MainWindow::activate()
