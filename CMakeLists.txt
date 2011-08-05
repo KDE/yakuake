@@ -7,4 +7,4 @@ find_package(KDE4 ${KDE_MIN_VERSION} REQUIRED)
 include(KDE4Defaults)
 
 add_subdirectory( app )
-add_subdirectory( skins )
+add_subdirectory( data )

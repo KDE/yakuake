@@ -1,5 +1,3 @@
-add_subdirectory( icons )
-
 include_directories( ${KDE4_INCLUDES} )
 
 set(yakuake_SRCS
@@ -40,5 +38,3 @@ if(Q_WS_X11)
 endif(Q_WS_X11)
 
 install(TARGETS yakuake ${INSTALL_TARGETS_DEFAULT_ARGS})
-
-install(PROGRAMS yakuake.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
