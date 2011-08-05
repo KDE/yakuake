@@ -6,7 +6,7 @@
   published by the Free Software Foundation; either version 2 of
   the License or (at your option) version 3 or any later version
   accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy 
+  ved by the membership of KDE e.V.), which shall act as a proxy
   defined in Section 14 of version 3 of the license.
 
   This program is distributed in the hope that it will be useful,
@@ -58,6 +58,12 @@ class Terminal : public QObject
         bool keyboardInputEnabled() { return m_keyboardInputEnabled; }
         void setKeyboardInputEnabled(bool enabled) { m_keyboardInputEnabled = enabled; }
 
+        bool monitorSilenceEnabled() { return m_monitorSilenceEnabled; }
+        void setMonitorSilenceEnabled(bool enabled);
+
+        bool monitorActivityEnabled() { return m_monitorActivityEnabled; }
+        void setMonitorActivityEnabled(bool enabled);
+
         void deletePart();
 
 
@@ -66,12 +72,16 @@ class Terminal : public QObject
         void activated(int terminalId);
         void manuallyActivated(Terminal* terminal);
         void keyboardInputBlocked(Terminal* terminal);
+        void silenceDetected(Terminal* terminal);
+        void activityDetected(Terminal* terminal);
         void destroyed(int terminalId);
 
 
     private slots:
         void setTitle(const QString& title);
         void overrideShortcut(QKeyEvent* event, bool& override);
+        void silenceDetected();
+        void activityDetected();
 
 
     private:
@@ -91,6 +101,9 @@ class Terminal : public QObject
         QString m_title;
 
         bool m_keyboardInputEnabled;
+
+        bool m_monitorSilenceEnabled;
+        bool m_monitorActivityEnabled;
 };
 
-#endif 
+#endif

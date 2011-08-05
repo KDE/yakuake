@@ -50,6 +50,9 @@ int SessionStack::addSession(Session::SessionType type)
     connect(session, SIGNAL(titleChanged(int,QString)), this, SIGNAL(titleChanged(int,QString)));
     connect(session, SIGNAL(terminalManuallyActivated(Terminal*)), this, SLOT(handleManualTerminalActivation(Terminal*)));
     connect(session, SIGNAL(keyboardInputBlocked(Terminal*)), m_visualEventOverlay, SLOT(indicateKeyboardInputBlocked(Terminal*)));
+    connect(session, SIGNAL(silenceDetected(Terminal*)), parentWidget(), SLOT(handleTerminalSilence(Terminal*)));
+    connect(session, SIGNAL(activityDetected(Terminal*)), parentWidget(), SLOT(handleTerminalActivity(Terminal*)));
+    connect(parentWidget(), SIGNAL(windowClosed()), session, SLOT(reconnectMonitorActivitySignals()));
     connect(session, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
 
     addWidget(session->widget());
@@ -97,6 +100,8 @@ void SessionStack::raiseSession(int sessionId)
         disconnect(oldActiveSession, SLOT(manageProfiles()));
         disconnect(oldActiveSession, SIGNAL(titleChanged(QString)),
             this, SIGNAL(activeTitleChanged(QString)));
+
+        oldActiveSession->reconnectMonitorActivitySignals();
     }
 
     m_activeSessionId = sessionId;
@@ -328,6 +333,78 @@ bool SessionStack::hasUnclosableSessions() const
     }
 
     return false;
+}
+
+bool SessionStack::isSessionMonitorSilenceEnabled(int sessionId)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return false;
+    if (!m_sessions.contains(sessionId)) return false;
+
+    return m_sessions.value(sessionId)->monitorSilenceEnabled();
+}
+
+void SessionStack::setSessionMonitorSilenceEnabled(int sessionId, bool enabled)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return;
+    if (!m_sessions.contains(sessionId)) return;
+
+    m_sessions.value(sessionId)->setMonitorSilenceEnabled(enabled);
+}
+
+bool SessionStack::isTerminalMonitorSilenceEnabled(int terminalId)
+{
+    int sessionId = sessionIdForTerminalId(terminalId);
+    if (sessionId == -1) return false;
+    if (!m_sessions.contains(sessionId)) return false;
+
+    return m_sessions.value(sessionId)->monitorSilenceEnabled(terminalId);
+}
+
+void SessionStack::setTerminalMonitorSilenceEnabled(int terminalId, bool enabled)
+{
+    int sessionId = sessionIdForTerminalId(terminalId);
+    if (sessionId == -1) return;
+    if (!m_sessions.contains(sessionId)) return;
+
+    m_sessions.value(sessionId)->setMonitorSilenceEnabled(terminalId, enabled);
+}
+
+bool SessionStack::isSessionMonitorActivityEnabled(int sessionId)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return false;
+    if (!m_sessions.contains(sessionId)) return false;
+
+    return m_sessions.value(sessionId)->monitorActivityEnabled();
+}
+
+void SessionStack::setSessionMonitorActivityEnabled(int sessionId, bool enabled)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return;
+    if (!m_sessions.contains(sessionId)) return;
+
+    m_sessions.value(sessionId)->setMonitorActivityEnabled(enabled);
+}
+
+bool SessionStack::isTerminalMonitorActivityEnabled(int terminalId)
+{
+    int sessionId = sessionIdForTerminalId(terminalId);
+    if (sessionId == -1) return false;
+    if (!m_sessions.contains(sessionId)) return false;
+
+    return m_sessions.value(sessionId)->monitorActivityEnabled(terminalId);
+}
+
+void SessionStack::setTerminalMonitorActivityEnabled(int terminalId, bool enabled)
+{
+    int sessionId = sessionIdForTerminalId(terminalId);
+    if (sessionId == -1) return;
+    if (!m_sessions.contains(sessionId)) return;
+
+    m_sessions.value(sessionId)->setMonitorActivityEnabled(terminalId, enabled);
 }
 
 void SessionStack::editProfile(int sessionId)

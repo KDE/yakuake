@@ -6,3 +6,13 @@ Comment=Yakuake
 Name=Startup
 Comment=Yakuake has started
 Action=Popup
+
+[Event/silence]
+Name=Silence detected
+Comment=Silence detected in a monitored terminal or session
+Action=Popup
+
+[Event/activity]
+Name=Activity detected
+Comment=Activity detected in a monitored terminal or session
+Action=Popup

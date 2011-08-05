@@ -7,7 +7,7 @@
   published by the Free Software Foundation; either version 2 of
   the License or (at your option) version 3 or any later version
   accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy 
+  ved by the membership of KDE e.V.), which shall act as a proxy
   defined in Section 14 of version 3 of the license.
 
   This program is distributed in the hope that it will be useful,
@@ -92,6 +92,16 @@ class SessionStack : public QStackedWidget
         Q_SCRIPTABLE bool isSessionClosable(int sessionId);
         Q_SCRIPTABLE void setSessionClosable(int sessionId, bool closable);
         Q_SCRIPTABLE bool hasUnclosableSessions() const;
+
+        Q_SCRIPTABLE bool isSessionMonitorSilenceEnabled(int sessionId);
+        Q_SCRIPTABLE void setSessionMonitorSilenceEnabled(int sessionId, bool enabled);
+        Q_SCRIPTABLE bool isTerminalMonitorSilenceEnabled(int terminalId);
+        Q_SCRIPTABLE void setTerminalMonitorSilenceEnabled(int terminalId, bool enabled);
+
+        Q_SCRIPTABLE bool isSessionMonitorActivityEnabled(int sessionId);
+        Q_SCRIPTABLE void setSessionMonitorActivityEnabled(int sessionId, bool enabled);
+        Q_SCRIPTABLE bool isTerminalMonitorActivityEnabled(int terminalId);
+        Q_SCRIPTABLE void setTerminalMonitorActivityEnabled(int terminalId, bool enabled);
 
         void handleTerminalHighlightRequest(int terminalId);
 
