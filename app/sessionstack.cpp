@@ -343,6 +343,24 @@ void SessionStack::setTerminalKeyboardInputEnabled(int terminalId, bool enabled)
     }
 }
 
+bool SessionStack::hasTerminalsWithKeyboardInputEnabled(int sessionId)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return false;
+    if (!m_sessions.contains(sessionId)) return false;
+
+    return m_sessions.value(sessionId)->hasTerminalsWithKeyboardInputEnabled();
+}
+
+bool SessionStack::hasTerminalsWithKeyboardInputDisabled(int sessionId)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return false;
+    if (!m_sessions.contains(sessionId)) return false;
+
+    return m_sessions.value(sessionId)->hasTerminalsWithKeyboardInputDisabled();
+}
+
 bool SessionStack::isSessionMonitorActivityEnabled(int sessionId)
 {
 #if KDE_IS_VERSION(4, 7, 1)
@@ -399,6 +417,15 @@ void SessionStack::setTerminalMonitorActivityEnabled(int terminalId, bool enable
     Q_UNUSED(terminalId);
     Q_UNUSED(enabled);
 #endif
+}
+
+bool SessionStack::hasTerminalsWithMonitorActivityEnabled(int sessionId)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return false;
+    if (!m_sessions.contains(sessionId)) return false;
+
+    return m_sessions.value(sessionId)->hasTerminalsWithMonitorActivityEnabled();
 }
 
 bool SessionStack::hasTerminalsWithMonitorActivityDisabled(int sessionId)
@@ -466,6 +493,15 @@ void SessionStack::setTerminalMonitorSilenceEnabled(int terminalId, bool enabled
     Q_UNUSED(terminalId);
     Q_UNUSED(enabled);
 #endif
+}
+
+bool SessionStack::hasTerminalsWithMonitorSilenceEnabled(int sessionId)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return false;
+    if (!m_sessions.contains(sessionId)) return false;
+
+    return m_sessions.value(sessionId)->hasTerminalsWithMonitorSilenceEnabled();
 }
 
 bool SessionStack::hasTerminalsWithMonitorSilenceDisabled(int sessionId)

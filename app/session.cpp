@@ -500,6 +500,17 @@ void Session::setKeyboardInputEnabled(int terminalId, bool enabled)
     m_terminals.value(terminalId)->setKeyboardInputEnabled(enabled);
 }
 
+bool Session::hasTerminalsWithKeyboardInputEnabled()
+{
+    QMapIterator<int, Terminal*> i(m_terminals);
+
+    while (i.hasNext())
+        if (i.next().value()->keyboardInputEnabled())
+            return true;
+
+    return false;
+}
+
 bool Session::hasTerminalsWithKeyboardInputDisabled()
 {
     QMapIterator<int, Terminal*> i(m_terminals);
@@ -549,6 +560,17 @@ void Session::setMonitorActivityEnabled(int terminalId, bool enabled)
         Qt::UniqueConnection);
 
     terminal->setMonitorActivityEnabled(enabled);
+}
+
+bool Session::hasTerminalsWithMonitorActivityEnabled()
+{
+    QMapIterator<int, Terminal*> i(m_terminals);
+
+    while (i.hasNext())
+        if (i.next().value()->monitorActivityEnabled())
+            return true;
+
+    return false;
 }
 
 bool Session::hasTerminalsWithMonitorActivityDisabled()
@@ -618,6 +640,17 @@ bool Session::hasTerminalsWithMonitorSilenceDisabled()
 
     while (i.hasNext())
         if (!i.next().value()->monitorSilenceEnabled())
+            return true;
+
+    return false;
+}
+
+bool Session::hasTerminalsWithMonitorSilenceEnabled()
+{
+    QMapIterator<int, Terminal*> i(m_terminals);
+
+    while (i.hasNext())
+        if (i.next().value()->monitorSilenceEnabled())
             return true;
 
     return false;

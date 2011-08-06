@@ -63,18 +63,21 @@ class Session : public QObject
         void setKeyboardInputEnabled(bool enabled);
         bool keyboardInputEnabled(int terminalId);
         void setKeyboardInputEnabled(int terminalId, bool enabled);
+        bool hasTerminalsWithKeyboardInputEnabled();
         bool hasTerminalsWithKeyboardInputDisabled();
 
         bool monitorActivityEnabled();
         void setMonitorActivityEnabled(bool enabled);
         bool monitorActivityEnabled(int terminalId);
         void setMonitorActivityEnabled(int terminalId, bool enabled);
+        bool hasTerminalsWithMonitorActivityEnabled();
         bool hasTerminalsWithMonitorActivityDisabled();
 
         bool monitorSilenceEnabled();
         void setMonitorSilenceEnabled(bool enabled);
         bool monitorSilenceEnabled(int terminalId);
         void setMonitorSilenceEnabled(int terminalId, bool enabled);
+        bool hasTerminalsWithMonitorSilenceEnabled();
         bool hasTerminalsWithMonitorSilenceDisabled();
 
 

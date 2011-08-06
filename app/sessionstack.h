@@ -92,17 +92,21 @@ class SessionStack : public QStackedWidget
         Q_SCRIPTABLE void setSessionKeyboardInputEnabled(int sessionId, bool enabled);
         Q_SCRIPTABLE bool isTerminalKeyboardInputEnabled(int terminalId);
         Q_SCRIPTABLE void setTerminalKeyboardInputEnabled(int terminalId, bool enabled);
+        Q_SCRIPTABLE bool hasTerminalsWithKeyboardInputEnabled(int sessionId);
+        Q_SCRIPTABLE bool hasTerminalsWithKeyboardInputDisabled(int sessionId);
 
         Q_SCRIPTABLE bool isSessionMonitorActivityEnabled(int sessionId);
         Q_SCRIPTABLE void setSessionMonitorActivityEnabled(int sessionId, bool enabled);
         Q_SCRIPTABLE bool isTerminalMonitorActivityEnabled(int terminalId);
         Q_SCRIPTABLE void setTerminalMonitorActivityEnabled(int terminalId, bool enabled);
+        Q_SCRIPTABLE bool hasTerminalsWithMonitorActivityEnabled(int sessionId);
         Q_SCRIPTABLE bool hasTerminalsWithMonitorActivityDisabled(int sessionId);
 
         Q_SCRIPTABLE bool isSessionMonitorSilenceEnabled(int sessionId);
         Q_SCRIPTABLE void setSessionMonitorSilenceEnabled(int sessionId, bool enabled);
         Q_SCRIPTABLE bool isTerminalMonitorSilenceEnabled(int terminalId);
         Q_SCRIPTABLE void setTerminalMonitorSilenceEnabled(int terminalId, bool enabled);
+        Q_SCRIPTABLE bool hasTerminalsWithMonitorSilenceEnabled(int sessionId);
         Q_SCRIPTABLE bool hasTerminalsWithMonitorSilenceDisabled(int sessionId);
 
         void handleTerminalHighlightRequest(int terminalId);
