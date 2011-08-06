@@ -60,15 +60,15 @@ class Session : public QObject
         void setKeyboardInputEnabled(int terminalId, bool enabled);
         bool hasTerminalsWithKeyboardInputDisabled();
 
-        bool monitorSilenceEnabled();
-        void setMonitorSilenceEnabled(bool enabled);
-        bool monitorSilenceEnabled(int terminalId);
-        void setMonitorSilenceEnabled(int terminalId, bool enabled);
-
         bool monitorActivityEnabled();
         void setMonitorActivityEnabled(bool enabled);
         bool monitorActivityEnabled(int terminalId);
         void setMonitorActivityEnabled(int terminalId, bool enabled);
+
+        bool monitorSilenceEnabled();
+        void setMonitorSilenceEnabled(bool enabled);
+        bool monitorSilenceEnabled(int terminalId);
+        void setMonitorSilenceEnabled(int terminalId, bool enabled);
 
         bool closable() { return m_closable; }
         void setClosable(bool closable) { m_closable = closable; }
@@ -98,8 +98,8 @@ class Session : public QObject
         void titleChanged(int sessionId, const QString& title);
         void terminalManuallyActivated(Terminal* terminal);
         void keyboardInputBlocked(Terminal* terminal);
-        void silenceDetected(Terminal* terminal);
         void activityDetected(Terminal* terminal);
+        void silenceDetected(Terminal* terminal);
         void destroyed(int sessionId);
 
 

@@ -360,16 +360,16 @@ void MainWindow::setupActions()
     connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
     m_contextDependentActions << action;
 
-    action = actionCollection()->addAction("toggle-session-monitor-silence");
-    action->setText(i18nc("@action", "Monitor for Silence"));
-    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_I));
+    action = actionCollection()->addAction("toggle-session-monitor-activity");
+    action->setText(i18nc("@action", "Monitor for Activity"));
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_A));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
     m_contextDependentActions << action;
 
-    action = actionCollection()->addAction("toggle-session-monitor-activity");
-    action->setText(i18nc("@action", "Monitor for Activity"));
-    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_A));
+    action = actionCollection()->addAction("toggle-session-monitor-silence");
+    action->setText(i18nc("@action", "Monitor for Silence"));
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_I));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
     m_contextDependentActions << action;
@@ -448,11 +448,11 @@ void MainWindow::handleContextDependentToggleAction(bool checked, QAction* actio
         m_tabBar->repaint();
     }
 
-    if (action == actionCollection()->action("toggle-session-monitor-silence"))
-        m_sessionStack->setSessionMonitorSilenceEnabled(sessionId, checked);
-
     if (action == actionCollection()->action("toggle-session-monitor-activity"))
         m_sessionStack->setSessionMonitorActivityEnabled(sessionId, checked);
+
+    if (action == actionCollection()->action("toggle-session-monitor-silence"))
+        m_sessionStack->setSessionMonitorSilenceEnabled(sessionId, checked);
 }
 
 void MainWindow::setContextDependentActionsQuiet(bool quiet)
@@ -475,19 +475,6 @@ void MainWindow::handleToggleTerminalKeyboardInput(bool checked)
     m_sessionStack->setTerminalKeyboardInputEnabled(terminalId, !checked);
 }
 
-void MainWindow::handleToggleTerminalMonitorSilence(bool checked)
-{
-    QAction* action = qobject_cast<QAction*>(QObject::sender());
-
-    if (!action || action->data().isNull()) return;
-
-    bool ok = false;
-    int terminalId = action->data().toInt(&ok);
-    if (!ok) return;
-
-    m_sessionStack->setTerminalMonitorSilenceEnabled(terminalId, checked);
-}
-
 void MainWindow::handleToggleTerminalMonitorActivity(bool checked)
 {
     QAction* action = qobject_cast<QAction*>(QObject::sender());
@@ -501,18 +488,17 @@ void MainWindow::handleToggleTerminalMonitorActivity(bool checked)
     m_sessionStack->setTerminalMonitorActivityEnabled(terminalId, checked);
 }
 
-void MainWindow::handleTerminalSilence(Terminal* terminal)
+void MainWindow::handleToggleTerminalMonitorSilence(bool checked)
 {
-    Session* session = qobject_cast<Session*>(sender());
+    QAction* action = qobject_cast<QAction*>(QObject::sender());
 
-    if (session)
-    {
-        QString message(i18nc("@info", "Silence detected in monitored terminal in session \"%1\".",
-            m_tabBar->tabTitle(session->id())));
+    if (!action || action->data().isNull()) return;
 
-        KNotification::event(QLatin1String("silence"), message, QPixmap(), terminal->partWidget(),
-            KNotification::CloseWhenWidgetActivated);
-    }
+    bool ok = false;
+    int terminalId = action->data().toInt(&ok);
+    if (!ok) return;
+
+    m_sessionStack->setTerminalMonitorSilenceEnabled(terminalId, checked);
 }
 
 void MainWindow::handleTerminalActivity(Terminal* terminal)
@@ -527,6 +513,20 @@ void MainWindow::handleTerminalActivity(Terminal* terminal)
             m_tabBar->tabTitle(session->id())));
 
         KNotification::event(QLatin1String("activity"), message, QPixmap(), terminal->partWidget(),
+            KNotification::CloseWhenWidgetActivated);
+    }
+}
+
+void MainWindow::handleTerminalSilence(Terminal* terminal)
+{
+    Session* session = qobject_cast<Session*>(sender());
+
+    if (session)
+    {
+        QString message(i18nc("@info", "Silence detected in monitored terminal in session \"%1\".",
+            m_tabBar->tabTitle(session->id())));
+
+        KNotification::event(QLatin1String("silence"), message, QPixmap(), terminal->partWidget(),
             KNotification::CloseWhenWidgetActivated);
     }
 }

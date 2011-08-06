@@ -74,11 +74,11 @@ class MainWindow : public KMainWindow
         void handleContextDependentAction(QAction* action = 0, int sessionId = -1);
         void handleContextDependentToggleAction(bool checked, QAction* action = 0, int sessionId = -1);
         void handleToggleTerminalKeyboardInput(bool checked);
-        void handleToggleTerminalMonitorSilence(bool checked);
         void handleToggleTerminalMonitorActivity(bool checked);
+        void handleToggleTerminalMonitorSilence(bool checked);
 
-        void handleTerminalSilence(Terminal* terminal);
         void handleTerminalActivity(Terminal* terminal);
+        void handleTerminalSilence(Terminal* terminal);
 
 
     signals:

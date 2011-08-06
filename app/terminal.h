@@ -58,11 +58,11 @@ class Terminal : public QObject
         bool keyboardInputEnabled() { return m_keyboardInputEnabled; }
         void setKeyboardInputEnabled(bool enabled) { m_keyboardInputEnabled = enabled; }
 
-        bool monitorSilenceEnabled() { return m_monitorSilenceEnabled; }
-        void setMonitorSilenceEnabled(bool enabled);
-
         bool monitorActivityEnabled() { return m_monitorActivityEnabled; }
         void setMonitorActivityEnabled(bool enabled);
+
+        bool monitorSilenceEnabled() { return m_monitorSilenceEnabled; }
+        void setMonitorSilenceEnabled(bool enabled);
 
         void deletePart();
 
@@ -72,8 +72,8 @@ class Terminal : public QObject
         void activated(int terminalId);
         void manuallyActivated(Terminal* terminal);
         void keyboardInputBlocked(Terminal* terminal);
-        void silenceDetected(Terminal* terminal);
         void activityDetected(Terminal* terminal);
+        void silenceDetected(Terminal* terminal);
         void destroyed(int terminalId);
 
 
@@ -102,8 +102,8 @@ class Terminal : public QObject
 
         bool m_keyboardInputEnabled;
 
-        bool m_monitorSilenceEnabled;
         bool m_monitorActivityEnabled;
+        bool m_monitorSilenceEnabled;
 };
 
 #endif

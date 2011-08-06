@@ -519,45 +519,6 @@ bool Session::hasTerminalsWithKeyboardInputDisabled()
     return false;
 }
 
-bool Session::monitorSilenceEnabled()
-{
-    int monitorSilenceEnabledCount = 0;
-
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-    {
-        i.next();
-
-        if (!i.value()->monitorSilenceEnabled())
-            ++monitorSilenceEnabledCount;
-    }
-
-    return m_terminals.count() != monitorSilenceEnabledCount;
-}
-
-void Session::setMonitorSilenceEnabled(bool enabled)
-{
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-        setMonitorSilenceEnabled(i.next().key(), enabled);
-}
-
-bool Session::monitorSilenceEnabled(int terminalId)
-{
-    if (!m_terminals.contains(terminalId)) return false;
-
-    return m_terminals.value(terminalId)->monitorSilenceEnabled();
-}
-
-void Session::setMonitorSilenceEnabled(int terminalId, bool enabled)
-{
-    if (!m_terminals.contains(terminalId)) return;
-
-    m_terminals.value(terminalId)->setMonitorSilenceEnabled(enabled);
-}
-
 bool Session::monitorActivityEnabled()
 {
     int monitorActivityEnabledCount = 0;
@@ -613,4 +574,43 @@ void Session::reconnectMonitorActivitySignals()
         connect(i.value(), SIGNAL(activityDetected(Terminal*)), this, SIGNAL(activityDetected(Terminal*)),
             Qt::UniqueConnection);
     }
+}
+
+bool Session::monitorSilenceEnabled()
+{
+    int monitorSilenceEnabledCount = 0;
+
+    QMapIterator<int, Terminal*> i(m_terminals);
+
+    while (i.hasNext())
+    {
+        i.next();
+
+        if (!i.value()->monitorSilenceEnabled())
+            ++monitorSilenceEnabledCount;
+    }
+
+    return m_terminals.count() != monitorSilenceEnabledCount;
+}
+
+void Session::setMonitorSilenceEnabled(bool enabled)
+{
+    QMapIterator<int, Terminal*> i(m_terminals);
+
+    while (i.hasNext())
+        setMonitorSilenceEnabled(i.next().key(), enabled);
+}
+
+bool Session::monitorSilenceEnabled(int terminalId)
+{
+    if (!m_terminals.contains(terminalId)) return false;
+
+    return m_terminals.value(terminalId)->monitorSilenceEnabled();
+}
+
+void Session::setMonitorSilenceEnabled(int terminalId, bool enabled)
+{
+    if (!m_terminals.contains(terminalId)) return;
+
+    m_terminals.value(terminalId)->setMonitorSilenceEnabled(enabled);
 }

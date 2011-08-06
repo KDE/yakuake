@@ -49,8 +49,8 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
 
     m_keyboardInputEnabled = true;
 
-    m_monitorSilenceEnabled = false;
     m_monitorActivityEnabled = false;
+    m_monitorSilenceEnabled = false;
 
     m_part = NULL;
     m_terminalInterface = NULL;
@@ -247,27 +247,6 @@ void Terminal::overrideShortcut(QKeyEvent* /* event */, bool& override)
     override = false;
 }
 
-void Terminal::setMonitorSilenceEnabled(bool enabled)
-{
-    m_monitorSilenceEnabled = enabled;
-
-    if (enabled)
-    {
-        connect(m_part, SIGNAL(silenceDetected()), this, SLOT(silenceDetected()),
-            Qt::UniqueConnection);
-
-        QMetaObject::invokeMethod(m_part, "setMonitorSilenceEnabled",
-            Qt::QueuedConnection, Q_ARG(bool, true));
-    }
-    else
-    {
-        disconnect(m_part, SIGNAL(silenceDetected()), this, SLOT(silenceDetected()));
-
-        QMetaObject::invokeMethod(m_part, "setMonitorSilenceEnabled",
-            Qt::QueuedConnection, Q_ARG(bool, false));
-    }
-}
-
 void Terminal::setMonitorActivityEnabled(bool enabled)
 {
     m_monitorActivityEnabled = enabled;
@@ -289,12 +268,33 @@ void Terminal::setMonitorActivityEnabled(bool enabled)
     }
 }
 
-void Terminal::silenceDetected()
+void Terminal::setMonitorSilenceEnabled(bool enabled)
 {
-    emit silenceDetected(this);
+    m_monitorSilenceEnabled = enabled;
+
+    if (enabled)
+    {
+        connect(m_part, SIGNAL(silenceDetected()), this, SLOT(silenceDetected()),
+            Qt::UniqueConnection);
+
+        QMetaObject::invokeMethod(m_part, "setMonitorSilenceEnabled",
+            Qt::QueuedConnection, Q_ARG(bool, true));
+    }
+    else
+    {
+        disconnect(m_part, SIGNAL(silenceDetected()), this, SLOT(silenceDetected()));
+
+        QMetaObject::invokeMethod(m_part, "setMonitorSilenceEnabled",
+            Qt::QueuedConnection, Q_ARG(bool, false));
+    }
 }
 
 void Terminal::activityDetected()
 {
     emit activityDetected(this);
+}
+
+void Terminal::silenceDetected()
+{
+    emit silenceDetected(this);
 }

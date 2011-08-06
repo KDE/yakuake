@@ -136,8 +136,8 @@ class TabBar : public QWidget
 
         KMenu* m_tabContextMenu;
         KMenu* m_toggleKeyboardInputMenu;
-        KMenu* m_toggleMonitorSilenceMenu;
         KMenu* m_toggleMonitorActivityMenu;
+        KMenu* m_toggleMonitorSilenceMenu;
         KMenu* m_sessionMenu;
 
         KLineEdit* m_lineEdit;
