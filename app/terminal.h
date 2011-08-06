@@ -74,10 +74,8 @@ class Terminal : public QObject
         void activated(int terminalId);
         void manuallyActivated(Terminal* terminal);
         void keyboardInputBlocked(Terminal* terminal);
-#if KDE_IS_VERSION(4, 7, 1)
         void activityDetected(Terminal* terminal);
         void silenceDetected(Terminal* terminal);
-#endif
         void destroyed(int terminalId);
 
 
