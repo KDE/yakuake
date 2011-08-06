@@ -337,6 +337,14 @@ void SessionStack::setTerminalKeyboardInputEnabled(int terminalId, bool enabled)
     if (!m_sessions.contains(sessionId)) return;
 
     m_sessions.value(sessionId)->setKeyboardInputEnabled(terminalId, enabled);
+
+    if (sessionId == m_activeSessionId)
+    {
+        if (enabled)
+            m_visualEventOverlay->hide();
+        else
+            m_visualEventOverlay->show();
+    }
 }
 
 #if KDE_IS_VERSION(4, 7, 1)
