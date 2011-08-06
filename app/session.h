@@ -69,11 +69,13 @@ class Session : public QObject
         void setMonitorActivityEnabled(bool enabled);
         bool monitorActivityEnabled(int terminalId);
         void setMonitorActivityEnabled(int terminalId, bool enabled);
+        bool hasTerminalsWithMonitorActivityDisabled();
 
         bool monitorSilenceEnabled();
         void setMonitorSilenceEnabled(bool enabled);
         bool monitorSilenceEnabled(int terminalId);
         void setMonitorSilenceEnabled(int terminalId, bool enabled);
+        bool hasTerminalsWithMonitorSilenceDisabled();
 
 
     public slots:

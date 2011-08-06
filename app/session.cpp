@@ -467,19 +467,15 @@ void Session::editProfile()
 
 bool Session::keyboardInputEnabled()
 {
-    int keyboardInputDisabledCount = 0;
+    int keyboardInputEnabledCount = 0;
 
     QMapIterator<int, Terminal*> i(m_terminals);
 
     while (i.hasNext())
-    {
-        i.next();
+        if (i.next().value()->keyboardInputEnabled())
+            ++keyboardInputEnabledCount;
 
-        if (!i.value()->keyboardInputEnabled())
-            ++keyboardInputDisabledCount;
-    }
-
-    return m_terminals.count() != keyboardInputDisabledCount;
+    return m_terminals.count() == keyboardInputEnabledCount;
 }
 
 void Session::setKeyboardInputEnabled(bool enabled)
@@ -509,12 +505,8 @@ bool Session::hasTerminalsWithKeyboardInputDisabled()
     QMapIterator<int, Terminal*> i(m_terminals);
 
     while (i.hasNext())
-    {
-        i.next();
-
-        if (!i.value()->keyboardInputEnabled())
+        if (!i.next().value()->keyboardInputEnabled())
             return true;
-    }
 
     return false;
 }
@@ -526,14 +518,10 @@ bool Session::monitorActivityEnabled()
     QMapIterator<int, Terminal*> i(m_terminals);
 
     while (i.hasNext())
-    {
-        i.next();
-
-        if (!i.value()->monitorActivityEnabled())
+        if (i.next().value()->monitorActivityEnabled())
             ++monitorActivityEnabledCount;
-    }
 
-    return m_terminals.count() != monitorActivityEnabledCount;
+    return m_terminals.count() == monitorActivityEnabledCount;
 }
 
 void Session::setMonitorActivityEnabled(bool enabled)
@@ -563,6 +551,17 @@ void Session::setMonitorActivityEnabled(int terminalId, bool enabled)
     terminal->setMonitorActivityEnabled(enabled);
 }
 
+bool Session::hasTerminalsWithMonitorActivityDisabled()
+{
+    QMapIterator<int, Terminal*> i(m_terminals);
+
+    while (i.hasNext())
+        if (!i.next().value()->monitorActivityEnabled())
+            return true;
+
+    return false;
+}
+
 void Session::reconnectMonitorActivitySignals()
 {
 #if KDE_IS_VERSION(4, 7, 1)
@@ -585,14 +584,10 @@ bool Session::monitorSilenceEnabled()
     QMapIterator<int, Terminal*> i(m_terminals);
 
     while (i.hasNext())
-    {
-        i.next();
-
-        if (!i.value()->monitorSilenceEnabled())
+        if (i.next().value()->monitorSilenceEnabled())
             ++monitorSilenceEnabledCount;
-    }
 
-    return m_terminals.count() != monitorSilenceEnabledCount;
+    return m_terminals.count() == monitorSilenceEnabledCount;
 }
 
 void Session::setMonitorSilenceEnabled(bool enabled)
@@ -615,4 +610,15 @@ void Session::setMonitorSilenceEnabled(int terminalId, bool enabled)
     if (!m_terminals.contains(terminalId)) return;
 
     m_terminals.value(terminalId)->setMonitorSilenceEnabled(enabled);
+}
+
+bool Session::hasTerminalsWithMonitorSilenceDisabled()
+{
+    QMapIterator<int, Terminal*> i(m_terminals);
+
+    while (i.hasNext())
+        if (!i.next().value()->monitorSilenceEnabled())
+            return true;
+
+    return false;
 }

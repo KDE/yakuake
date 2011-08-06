@@ -401,6 +401,15 @@ void SessionStack::setTerminalMonitorActivityEnabled(int terminalId, bool enable
 #endif
 }
 
+bool SessionStack::hasTerminalsWithMonitorActivityDisabled(int sessionId)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return false;
+    if (!m_sessions.contains(sessionId)) return false;
+
+    return m_sessions.value(sessionId)->hasTerminalsWithMonitorActivityDisabled();
+}
+
 bool SessionStack::isSessionMonitorSilenceEnabled(int sessionId)
 {
 #if KDE_IS_VERSION(4, 7, 1)
@@ -457,6 +466,15 @@ void SessionStack::setTerminalMonitorSilenceEnabled(int terminalId, bool enabled
     Q_UNUSED(terminalId);
     Q_UNUSED(enabled);
 #endif
+}
+
+bool SessionStack::hasTerminalsWithMonitorSilenceDisabled(int sessionId)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return false;
+    if (!m_sessions.contains(sessionId)) return false;
+
+    return m_sessions.value(sessionId)->hasTerminalsWithMonitorSilenceDisabled();
 }
 
 void SessionStack::editProfile(int sessionId)

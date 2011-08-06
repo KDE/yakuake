@@ -180,10 +180,10 @@ void TabBar::updateToggleActions(int sessionId)
 
 #if KDE_IS_VERSION(4, 7, 1)
     toggleAction = actionCollection->action("toggle-session-monitor-activity");
-    toggleAction->setChecked(sessionStack->isSessionMonitorActivityEnabled(sessionId));
+    toggleAction->setChecked(!sessionStack->hasTerminalsWithMonitorActivityDisabled(sessionId));
 
     toggleAction = actionCollection->action("toggle-session-monitor-silence");
-    toggleAction->setChecked(sessionStack->isSessionMonitorSilenceEnabled(sessionId));
+    toggleAction->setChecked(!sessionStack->hasTerminalsWithMonitorSilenceDisabled(sessionId));
 #endif
 }
 
