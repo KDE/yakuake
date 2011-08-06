@@ -22,7 +22,7 @@
 #ifndef TERMINAL_H
 #define TERMINAL_H
 
-
+#include <kdeversion.h>
 #include <KParts/Part>
 
 
@@ -58,11 +58,13 @@ class Terminal : public QObject
         bool keyboardInputEnabled() { return m_keyboardInputEnabled; }
         void setKeyboardInputEnabled(bool enabled) { m_keyboardInputEnabled = enabled; }
 
+#if KDE_IS_VERSION(4, 7, 1)
         bool monitorActivityEnabled() { return m_monitorActivityEnabled; }
         void setMonitorActivityEnabled(bool enabled);
 
         bool monitorSilenceEnabled() { return m_monitorSilenceEnabled; }
         void setMonitorSilenceEnabled(bool enabled);
+#endif
 
         void deletePart();
 
@@ -72,16 +74,20 @@ class Terminal : public QObject
         void activated(int terminalId);
         void manuallyActivated(Terminal* terminal);
         void keyboardInputBlocked(Terminal* terminal);
+#if KDE_IS_VERSION(4, 7, 1)
         void activityDetected(Terminal* terminal);
         void silenceDetected(Terminal* terminal);
+#endif
         void destroyed(int terminalId);
 
 
     private slots:
         void setTitle(const QString& title);
         void overrideShortcut(QKeyEvent* event, bool& override);
+#if KDE_IS_VERSION(4, 7, 1)
         void silenceDetected();
         void activityDetected();
+#endif
 
 
     private:
@@ -102,8 +108,10 @@ class Terminal : public QObject
 
         bool m_keyboardInputEnabled;
 
+#if KDE_IS_VERSION(4, 7, 1)
         bool m_monitorActivityEnabled;
         bool m_monitorSilenceEnabled;
+#endif
 };
 
 #endif

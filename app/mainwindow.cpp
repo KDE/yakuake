@@ -360,6 +360,7 @@ void MainWindow::setupActions()
     connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
     m_contextDependentActions << action;
 
+#if KDE_IS_VERSION(4, 7, 1)
     action = actionCollection()->addAction("toggle-session-monitor-activity");
     action->setText(i18nc("@action", "Monitor for Activity"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_A));
@@ -373,6 +374,7 @@ void MainWindow::setupActions()
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
     m_contextDependentActions << action;
+#endif
 
     for (uint i = 1; i <= 10; ++i)
     {
@@ -448,11 +450,13 @@ void MainWindow::handleContextDependentToggleAction(bool checked, QAction* actio
         m_tabBar->repaint();
     }
 
+#if KDE_IS_VERSION(4, 7, 1)
     if (action == actionCollection()->action("toggle-session-monitor-activity"))
         m_sessionStack->setSessionMonitorActivityEnabled(sessionId, checked);
 
     if (action == actionCollection()->action("toggle-session-monitor-silence"))
         m_sessionStack->setSessionMonitorSilenceEnabled(sessionId, checked);
+#endif
 }
 
 void MainWindow::setContextDependentActionsQuiet(bool quiet)
@@ -475,6 +479,7 @@ void MainWindow::handleToggleTerminalKeyboardInput(bool checked)
     m_sessionStack->setTerminalKeyboardInputEnabled(terminalId, !checked);
 }
 
+#if KDE_IS_VERSION(4, 7, 1)
 void MainWindow::handleToggleTerminalMonitorActivity(bool checked)
 {
     QAction* action = qobject_cast<QAction*>(QObject::sender());
@@ -530,6 +535,7 @@ void MainWindow::handleTerminalSilence(Terminal* terminal)
             KNotification::CloseWhenWidgetActivated);
     }
 }
+#endif
 
 void MainWindow::handleSwitchToAction()
 {

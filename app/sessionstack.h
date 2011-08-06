@@ -93,6 +93,7 @@ class SessionStack : public QStackedWidget
         Q_SCRIPTABLE void setSessionClosable(int sessionId, bool closable);
         Q_SCRIPTABLE bool hasUnclosableSessions() const;
 
+#if KDE_IS_VERSION(4, 7, 1)
         Q_SCRIPTABLE bool isSessionMonitorActivityEnabled(int sessionId);
         Q_SCRIPTABLE void setSessionMonitorActivityEnabled(int sessionId, bool enabled);
         Q_SCRIPTABLE bool isTerminalMonitorActivityEnabled(int terminalId);
@@ -102,6 +103,7 @@ class SessionStack : public QStackedWidget
         Q_SCRIPTABLE void setSessionMonitorSilenceEnabled(int sessionId, bool enabled);
         Q_SCRIPTABLE bool isTerminalMonitorSilenceEnabled(int terminalId);
         Q_SCRIPTABLE void setTerminalMonitorSilenceEnabled(int terminalId, bool enabled);
+#endif
 
         void handleTerminalHighlightRequest(int terminalId);
 

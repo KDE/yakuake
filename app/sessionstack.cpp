@@ -50,9 +50,11 @@ int SessionStack::addSession(Session::SessionType type)
     connect(session, SIGNAL(titleChanged(int,QString)), this, SIGNAL(titleChanged(int,QString)));
     connect(session, SIGNAL(terminalManuallyActivated(Terminal*)), this, SLOT(handleManualTerminalActivation(Terminal*)));
     connect(session, SIGNAL(keyboardInputBlocked(Terminal*)), m_visualEventOverlay, SLOT(indicateKeyboardInputBlocked(Terminal*)));
+#if KDE_IS_VERSION(4, 7, 1)
     connect(session, SIGNAL(activityDetected(Terminal*)), parentWidget(), SLOT(handleTerminalActivity(Terminal*)));
     connect(session, SIGNAL(silenceDetected(Terminal*)), parentWidget(), SLOT(handleTerminalSilence(Terminal*)));
     connect(parentWidget(), SIGNAL(windowClosed()), session, SLOT(reconnectMonitorActivitySignals()));
+#endif
     connect(session, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
 
     addWidget(session->widget());
@@ -101,7 +103,9 @@ void SessionStack::raiseSession(int sessionId)
         disconnect(oldActiveSession, SIGNAL(titleChanged(QString)),
             this, SIGNAL(activeTitleChanged(QString)));
 
+#if KDE_IS_VERSION(4, 7, 1)
         oldActiveSession->reconnectMonitorActivitySignals();
+#endif
     }
 
     m_activeSessionId = sessionId;
@@ -335,6 +339,7 @@ bool SessionStack::hasUnclosableSessions() const
     return false;
 }
 
+#if KDE_IS_VERSION(4, 7, 1)
 bool SessionStack::isSessionMonitorActivityEnabled(int sessionId)
 {
     if (sessionId == -1) sessionId = m_activeSessionId;
@@ -406,6 +411,7 @@ void SessionStack::setTerminalMonitorSilenceEnabled(int terminalId, bool enabled
 
     m_sessions.value(sessionId)->setMonitorSilenceEnabled(terminalId, enabled);
 }
+#endif
 
 void SessionStack::editProfile(int sessionId)
 {

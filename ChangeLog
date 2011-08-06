@@ -2,12 +2,14 @@ Changes since 2.9.8:
 * Yakuake now sports a standard KDE "Configure Notifications..." item in
   its menu. The startup notification popup configuration has moved there,
   and newly-added notification events covered below are found there.
-* It's now possible to monitor sessions (or individual terminals within
-  them) for activity or silence. See the tab context menu or the keyboard
-  shortcuts to toggle monitoring, and the new "Configure Notifications"
-  dialog mentioned above to configure what happens when activity or
-  silence are detected in a monitored session or terminal (by default a
-  desktop notification is triggered for each).
+* If Yakuake is built against KDE Platform 4.7.1 or newer and the corres-
+  ponding Konsole version is installed it is now possible to monitor
+  sessions (or individual terminals within them) for activity or silence.
+  See the tab context menu or the keyboard shortcuts to toggle monitoring,
+  and the new "Configure Notifications" dialog mentioned above to confi-
+  gure what happens when activity or silence are detected in a monitored
+  session or terminal (by default a desktop notification popup is trigger-
+  ed for each).
   Note that repeated activity in a terminal does not result in repeated
   notifications for that terminal: After the first notification, activity
   monitoring has to be disabled or reenabled, or the active session
