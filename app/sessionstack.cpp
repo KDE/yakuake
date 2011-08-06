@@ -262,6 +262,39 @@ void SessionStack::runCommandInTerminal(int terminalId, const QString& command)
     }
 }
 
+bool SessionStack::isSessionClosable(int sessionId)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return false;
+    if (!m_sessions.contains(sessionId)) return false;
+
+    return m_sessions.value(sessionId)->closable();
+}
+
+void SessionStack::setSessionClosable(int sessionId, bool closable)
+{
+    if (sessionId == -1) sessionId = m_activeSessionId;
+    if (sessionId == -1) return;
+    if (!m_sessions.contains(sessionId)) return;
+
+    m_sessions.value(sessionId)->setClosable(closable);
+}
+
+bool SessionStack::hasUnclosableSessions() const
+{
+    QHashIterator<int, Session*> it(m_sessions);
+
+    while (it.hasNext())
+    {
+        it.next();
+
+        if (!it.value()->closable())
+            return true;
+    }
+
+    return false;
+}
+
 bool SessionStack::isSessionKeyboardInputEnabled(int sessionId)
 {
     if (sessionId == -1) sessionId = m_activeSessionId;
@@ -304,39 +337,6 @@ void SessionStack::setTerminalKeyboardInputEnabled(int terminalId, bool enabled)
     if (!m_sessions.contains(sessionId)) return;
 
     m_sessions.value(sessionId)->setKeyboardInputEnabled(terminalId, enabled);
-}
-
-bool SessionStack::isSessionClosable(int sessionId)
-{
-    if (sessionId == -1) sessionId = m_activeSessionId;
-    if (sessionId == -1) return false;
-    if (!m_sessions.contains(sessionId)) return false;
-
-    return m_sessions.value(sessionId)->closable();
-}
-
-void SessionStack::setSessionClosable(int sessionId, bool closable)
-{
-    if (sessionId == -1) sessionId = m_activeSessionId;
-    if (sessionId == -1) return;
-    if (!m_sessions.contains(sessionId)) return;
-
-    m_sessions.value(sessionId)->setClosable(closable);
-}
-
-bool SessionStack::hasUnclosableSessions() const
-{
-    QHashIterator<int, Session*> it(m_sessions);
-
-    while (it.hasNext())
-    {
-        it.next();
-
-        if (!it.value()->closable())
-            return true;
-    }
-
-    return false;
 }
 
 #if KDE_IS_VERSION(4, 7, 1)

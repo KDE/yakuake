@@ -56,6 +56,9 @@ class Session : public QObject
         bool hasTerminal(int terminalId);
         Terminal* getTerminal(int terminalId);
 
+        bool closable() { return m_closable; }
+        void setClosable(bool closable) { m_closable = closable; }
+
         bool keyboardInputEnabled();
         void setKeyboardInputEnabled(bool enabled);
         bool keyboardInputEnabled(int terminalId);
@@ -73,9 +76,6 @@ class Session : public QObject
         bool monitorSilenceEnabled(int terminalId);
         void setMonitorSilenceEnabled(int terminalId, bool enabled);
 #endif
-
-        bool closable() { return m_closable; }
-        void setClosable(bool closable) { m_closable = closable; }
 
 
     public slots:

@@ -84,14 +84,14 @@ class SessionStack : public QStackedWidget
         Q_SCRIPTABLE void runCommand(const QString& command);
         Q_SCRIPTABLE void runCommandInTerminal(int terminalId, const QString& command);
 
+        Q_SCRIPTABLE bool isSessionClosable(int sessionId);
+        Q_SCRIPTABLE void setSessionClosable(int sessionId, bool closable);
+        Q_SCRIPTABLE bool hasUnclosableSessions() const;
+
         Q_SCRIPTABLE bool isSessionKeyboardInputEnabled(int sessionId);
         Q_SCRIPTABLE void setSessionKeyboardInputEnabled(int sessionId, bool enabled);
         Q_SCRIPTABLE bool isTerminalKeyboardInputEnabled(int terminalId);
         Q_SCRIPTABLE void setTerminalKeyboardInputEnabled(int terminalId, bool enabled);
-
-        Q_SCRIPTABLE bool isSessionClosable(int sessionId);
-        Q_SCRIPTABLE void setSessionClosable(int sessionId, bool closable);
-        Q_SCRIPTABLE bool hasUnclosableSessions() const;
 
 #if KDE_IS_VERSION(4, 7, 1)
         Q_SCRIPTABLE bool isSessionMonitorActivityEnabled(int sessionId);

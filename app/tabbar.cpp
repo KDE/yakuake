@@ -174,11 +174,11 @@ void TabBar::updateToggleActions(int sessionId)
     KActionCollection* actionCollection = m_mainWindow->actionCollection();
     SessionStack* sessionStack = m_mainWindow->sessionStack();
 
-    QAction* toggleAction = actionCollection->action("toggle-session-keyboard-input");
-    toggleAction->setChecked(!sessionStack->isSessionKeyboardInputEnabled(sessionId));
-
-    toggleAction = actionCollection->action("toggle-session-prevent-closing");
+    QAction* toggleAction = actionCollection->action("toggle-session-prevent-closing");
     toggleAction->setChecked(!sessionStack->isSessionClosable(sessionId));
+
+    toggleAction = actionCollection->action("toggle-session-keyboard-input");
+    toggleAction->setChecked(!sessionStack->isSessionKeyboardInputEnabled(sessionId));
 
 #if KDE_IS_VERSION(4, 7, 1)
     toggleAction = actionCollection->action("toggle-session-monitor-activity");

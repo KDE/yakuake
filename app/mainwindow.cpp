@@ -348,14 +348,14 @@ void MainWindow::setupActions()
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
-    action = actionCollection()->addAction("toggle-session-keyboard-input");
-    action->setText(i18nc("@action", "Disable Keyboard Input"));
+    action = actionCollection()->addAction("toggle-session-prevent-closing");
+    action->setText(i18nc("@action", "Prevent Closing"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
     m_contextDependentActions << action;
 
-    action = actionCollection()->addAction("toggle-session-prevent-closing");
-    action->setText(i18nc("@action", "Prevent Closing"));
+    action = actionCollection()->addAction("toggle-session-keyboard-input");
+    action->setText(i18nc("@action", "Disable Keyboard Input"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
     m_contextDependentActions << action;
@@ -439,9 +439,6 @@ void MainWindow::handleContextDependentToggleAction(bool checked, QAction* actio
 
     if (!action) action = qobject_cast<QAction*>(QObject::sender());
 
-    if (action == actionCollection()->action("toggle-session-keyboard-input"))
-        m_sessionStack->setSessionKeyboardInputEnabled(sessionId, !checked);
-
     if (action == actionCollection()->action("toggle-session-prevent-closing")) {
         m_sessionStack->setSessionClosable(sessionId, !checked);
 
@@ -449,6 +446,9 @@ void MainWindow::handleContextDependentToggleAction(bool checked, QAction* actio
         // so the lock icon is added to or removed from the tab label.
         m_tabBar->repaint();
     }
+
+    if (action == actionCollection()->action("toggle-session-keyboard-input"))
+        m_sessionStack->setSessionKeyboardInputEnabled(sessionId, !checked);
 
 #if KDE_IS_VERSION(4, 7, 1)
     if (action == actionCollection()->action("toggle-session-monitor-activity"))
