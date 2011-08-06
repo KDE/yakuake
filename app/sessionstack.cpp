@@ -32,8 +32,7 @@
 
 SessionStack::SessionStack(QWidget* parent) : QStackedWidget(parent)
 {
-    QDBusConnection::sessionBus().registerObject("/yakuake/sessions", this,
-        QDBusConnection::ExportAdaptors | QDBusConnection::ExportScriptableSlots);
+    QDBusConnection::sessionBus().registerObject("/yakuake/sessions", this, QDBusConnection::ExportScriptableSlots);
 
     m_activeSessionId = -1;
 
