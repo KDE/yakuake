@@ -66,10 +66,8 @@ TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
     connect(m_tabContextMenu, SIGNAL(hovered(QAction*)), this, SLOT(contextMenuActionHovered(QAction*)));
 
     m_toggleKeyboardInputMenu = new KMenu(i18nc("@title:menu", "Disable Keyboard Input"), this);
-#if KDE_IS_VERSION(4, 7, 1)
     m_toggleMonitorActivityMenu = new KMenu(i18nc("@title:menu", "Monitor for Activity"), this);
     m_toggleMonitorSilenceMenu = new KMenu(i18nc("@title:menu", "Monitor for Silence"), this);
-#endif
 
     m_sessionMenu = new KMenu(this);
     connect(m_sessionMenu, SIGNAL(aboutToShow()), this, SLOT(readySessionMenu()));
@@ -237,7 +235,6 @@ void TabBar::updateToggleKeyboardInputMenu(int sessionId)
     }
 }
 
-#if KDE_IS_VERSION(4, 7, 1)
 void TabBar::updateToggleMonitorActivityMenu(int sessionId)
 {
     if (!m_tabs.contains(sessionId)) return;
@@ -333,7 +330,6 @@ void TabBar::updateToggleMonitorSilenceMenu(int sessionId)
         }
     }
 }
-#endif
 
 void TabBar::contextMenuActionHovered(QAction* action)
 {

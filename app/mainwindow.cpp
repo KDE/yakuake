@@ -450,13 +450,11 @@ void MainWindow::handleContextDependentToggleAction(bool checked, QAction* actio
     if (action == actionCollection()->action("toggle-session-keyboard-input"))
         m_sessionStack->setSessionKeyboardInputEnabled(sessionId, !checked);
 
-#if KDE_IS_VERSION(4, 7, 1)
     if (action == actionCollection()->action("toggle-session-monitor-activity"))
         m_sessionStack->setSessionMonitorActivityEnabled(sessionId, checked);
 
     if (action == actionCollection()->action("toggle-session-monitor-silence"))
         m_sessionStack->setSessionMonitorSilenceEnabled(sessionId, checked);
-#endif
 }
 
 void MainWindow::setContextDependentActionsQuiet(bool quiet)
@@ -479,7 +477,6 @@ void MainWindow::handleToggleTerminalKeyboardInput(bool checked)
     m_sessionStack->setTerminalKeyboardInputEnabled(terminalId, !checked);
 }
 
-#if KDE_IS_VERSION(4, 7, 1)
 void MainWindow::handleToggleTerminalMonitorActivity(bool checked)
 {
     QAction* action = qobject_cast<QAction*>(QObject::sender());
@@ -535,7 +532,6 @@ void MainWindow::handleTerminalSilence(Terminal* terminal)
             KNotification::CloseWhenWidgetActivated);
     }
 }
-#endif
 
 void MainWindow::handleSwitchToAction()
 {

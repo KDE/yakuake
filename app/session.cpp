@@ -162,9 +162,7 @@ Terminal* Session::addTerminal(QWidget* parent)
     connect(terminal, SIGNAL(manuallyActivated(Terminal*)), this, SIGNAL(terminalManuallyActivated(Terminal*)));
     connect(terminal, SIGNAL(titleChanged(int,QString)), this, SLOT(setTitle(int,QString)));
     connect(terminal, SIGNAL(keyboardInputBlocked(Terminal*)), this, SIGNAL(keyboardInputBlocked(Terminal*)));
-#if KDE_IS_VERSION(4, 7, 1)
     connect(terminal, SIGNAL(silenceDetected(Terminal*)), this, SIGNAL(silenceDetected(Terminal*)));
-#endif
     connect(terminal, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
 
     m_terminals.insert(terminal->id(), terminal);
@@ -521,7 +519,6 @@ bool Session::hasTerminalsWithKeyboardInputDisabled()
     return false;
 }
 
-#if KDE_IS_VERSION(4, 7, 1)
 bool Session::monitorActivityEnabled()
 {
     int monitorActivityEnabledCount = 0;
@@ -568,6 +565,7 @@ void Session::setMonitorActivityEnabled(int terminalId, bool enabled)
 
 void Session::reconnectMonitorActivitySignals()
 {
+#if KDE_IS_VERSION(4, 7, 1)
     QMapIterator<int, Terminal*> i(m_terminals);
 
     while (i.hasNext())
@@ -577,6 +575,7 @@ void Session::reconnectMonitorActivitySignals()
         connect(i.value(), SIGNAL(activityDetected(Terminal*)), this, SIGNAL(activityDetected(Terminal*)),
             Qt::UniqueConnection);
     }
+#endif
 }
 
 bool Session::monitorSilenceEnabled()
@@ -617,4 +616,3 @@ void Session::setMonitorSilenceEnabled(int terminalId, bool enabled)
 
     m_terminals.value(terminalId)->setMonitorSilenceEnabled(enabled);
 }
-#endif

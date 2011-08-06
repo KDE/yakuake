@@ -49,10 +49,8 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
 
     m_keyboardInputEnabled = true;
 
-#if KDE_IS_VERSION(4, 7, 1)
     m_monitorActivityEnabled = false;
     m_monitorSilenceEnabled = false;
-#endif
 
     m_part = NULL;
     m_terminalInterface = NULL;
@@ -249,7 +247,6 @@ void Terminal::overrideShortcut(QKeyEvent* /* event */, bool& override)
     override = false;
 }
 
-#if KDE_IS_VERSION(4, 7, 1)
 void Terminal::setMonitorActivityEnabled(bool enabled)
 {
     m_monitorActivityEnabled = enabled;
@@ -301,4 +298,3 @@ void Terminal::silenceDetected()
 {
     emit silenceDetected(this);
 }
-#endif

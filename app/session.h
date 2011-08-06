@@ -65,7 +65,6 @@ class Session : public QObject
         void setKeyboardInputEnabled(int terminalId, bool enabled);
         bool hasTerminalsWithKeyboardInputDisabled();
 
-#if KDE_IS_VERSION(4, 7, 1)
         bool monitorActivityEnabled();
         void setMonitorActivityEnabled(bool enabled);
         bool monitorActivityEnabled(int terminalId);
@@ -75,7 +74,6 @@ class Session : public QObject
         void setMonitorSilenceEnabled(bool enabled);
         bool monitorSilenceEnabled(int terminalId);
         void setMonitorSilenceEnabled(int terminalId, bool enabled);
-#endif
 
 
     public slots:
@@ -94,9 +92,7 @@ class Session : public QObject
         void manageProfiles();
         void editProfile();
 
-#if KDE_IS_VERSION(4, 7, 1)
         void reconnectMonitorActivitySignals();
-#endif
 
 
     signals:

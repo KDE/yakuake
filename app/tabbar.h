@@ -120,10 +120,8 @@ class TabBar : public QWidget
         void updateMoveActions(int index);
         void updateToggleActions(int sessionId);
         void updateToggleKeyboardInputMenu(int sessionId = -1);
-#if KDE_IS_VERSION(4, 7, 1)
         void updateToggleMonitorSilenceMenu(int sessionId = -1);
         void updateToggleMonitorActivityMenu(int sessionId = -1);
-#endif
 
         int drawButton(int x, int y, int index, QPainter& painter);
 
@@ -140,10 +138,8 @@ class TabBar : public QWidget
 
         KMenu* m_tabContextMenu;
         KMenu* m_toggleKeyboardInputMenu;
-#if KDE_IS_VERSION(4, 7, 1)
         KMenu* m_toggleMonitorActivityMenu;
         KMenu* m_toggleMonitorSilenceMenu;
-#endif
         KMenu* m_sessionMenu;
 
         KLineEdit* m_lineEdit;
