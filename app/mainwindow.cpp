@@ -665,7 +665,6 @@ void MainWindow::updateWindowHeightMenu()
 void MainWindow::configureKeys()
 {
     KShortcutsDialog::configure(actionCollection());
-    activate();
 }
 
 void MainWindow::configureNotifications()
