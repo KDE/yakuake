@@ -1,10 +1,25 @@
 [Global]
 IconName=yakuake
 Comment=Yakuake
+Comment[da]=Yakuake
+Comment[pt]=Yakuake
+Comment[pt_BR]=Yakuake
+Comment[uk]=Yakuake
+Comment[x-test]=xxYakuakexx
 
 [Event/startup]
 Name=Startup
+Name[da]=Opstart
+Name[pt]=Arranque
+Name[pt_BR]=Inicialização
+Name[uk]=Запуск
+Name[x-test]=xxStartupxx
 Comment=Yakuake has started
+Comment[da]=Yakuake er startet
+Comment[pt]=O Yakuake foi iniciado
+Comment[pt_BR]=O Yakuake foi iniciado
+Comment[uk]=Yakuake запущено
+Comment[x-test]=xxYakuake has startedxx
 Action=Popup
 
 [Event/silence]
