@@ -4,6 +4,7 @@ Comment=Yakuake
 Comment[da]=Yakuake
 Comment[pt]=Yakuake
 Comment[pt_BR]=Yakuake
+Comment[sv]=Yakuake
 Comment[uk]=Yakuake
 Comment[x-test]=xxYakuakexx
 
@@ -12,22 +13,41 @@ Name=Startup
 Name[da]=Opstart
 Name[pt]=Arranque
 Name[pt_BR]=Inicialização
+Name[sv]=Start
+Name[ug]=قوزغىلىش
 Name[uk]=Запуск
 Name[x-test]=xxStartupxx
 Comment=Yakuake has started
 Comment[da]=Yakuake er startet
 Comment[pt]=O Yakuake foi iniciado
 Comment[pt_BR]=O Yakuake foi iniciado
+Comment[sv]=Yakuake har startats
 Comment[uk]=Yakuake запущено
 Comment[x-test]=xxYakuake has startedxx
 Action=Popup
 
 [Event/silence]
 Name=Silence detected
+Name[pt]=Silêncio detectado
+Name[sv]=Tystnad funnen
+Name[uk]=Виявлено бездіяльність
+Name[x-test]=xxSilence detectedxx
 Comment=Silence detected in a monitored terminal or session
+Comment[pt]=Silêncio detectado num terminal ou sessão vigiado
+Comment[sv]=Tystnad funnen i en bevakad terminal eller session
+Comment[uk]=У сеансі або терміналі, за яким ведеться спостереження виявлено бездіяльність
+Comment[x-test]=xxSilence detected in a monitored terminal or sessionxx
 Action=Popup
 
 [Event/activity]
 Name=Activity detected
+Name[pt]=Actividade detectada
+Name[sv]=Aktivitet funnen
+Name[uk]=Виявлено діяльність
+Name[x-test]=xxActivity detectedxx
 Comment=Activity detected in a monitored terminal or session
+Comment[pt]=Actividade detectada num terminal ou sessão vigiado
+Comment[sv]=Aktivitet funnen i en bevakad terminal eller session
+Comment[uk]=У сеансі або терміналі, за яким ведеться спостереження виявлено діяльність
+Comment[x-test]=xxActivity detected in a monitored terminal or sessionxx
 Action=Popup
