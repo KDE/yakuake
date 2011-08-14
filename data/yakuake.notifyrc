@@ -31,6 +31,7 @@ Action=Popup
 
 [Event/silence]
 Name=Silence detected
+Name[da]=Stilhed detekteret
 Name[it]=Inattività rilevata
 Name[pt]=Silêncio detectado
 Name[pt_BR]=Silêncio detectado
@@ -38,6 +39,7 @@ Name[sv]=Tystnad funnen
 Name[uk]=Виявлено бездіяльність
 Name[x-test]=xxSilence detectedxx
 Comment=Silence detected in a monitored terminal or session
+Comment[da]=Stilhed detekteret i en overvåget terminalsession
 Comment[it]=Inattività rilevata in un terminale o sessione monitorata
 Comment[pt]=Silêncio detectado num terminal ou sessão vigiado
 Comment[pt_BR]=Silêncio detectado em um terminal ou sessão monitorado
@@ -48,6 +50,7 @@ Action=Popup
 
 [Event/activity]
 Name=Activity detected
+Name[da]=Aktivitet detekteret
 Name[it]=Attività rilevata
 Name[pt]=Actividade detectada
 Name[pt_BR]=Atividade detectada
@@ -55,6 +58,7 @@ Name[sv]=Aktivitet funnen
 Name[uk]=Виявлено діяльність
 Name[x-test]=xxActivity detectedxx
 Comment=Activity detected in a monitored terminal or session
+Comment[da]=Aktivitet detekteret i en overvåget terminal eller session
 Comment[it]=Attività rilevata in un terminale o sessione monitorata
 Comment[pt]=Actividade detectada num terminal ou sessão vigiado
 Comment[pt_BR]=Atividade detectada em um terminal ou sessão monitorado
