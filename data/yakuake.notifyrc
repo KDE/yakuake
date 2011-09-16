@@ -14,6 +14,7 @@ Comment[pt_BR]=Yakuake
 Comment[sv]=Yakuake
 Comment[uk]=Yakuake
 Comment[x-test]=xxYakuakexx
+Comment[zh_TW]=Yakuake
 
 [Event/startup]
 Name=Startup
@@ -31,6 +32,7 @@ Name[sv]=Start
 Name[ug]=قوزغىلىش
 Name[uk]=Запуск
 Name[x-test]=xxStartupxx
+Name[zh_TW]=啟動
 Comment=Yakuake has started
 Comment[cs]=Yakuake byl spuštěn
 Comment[da]=Yakuake er startet
@@ -45,6 +47,7 @@ Comment[pt_BR]=O Yakuake foi iniciado
 Comment[sv]=Yakuake har startats
 Comment[uk]=Yakuake запущено
 Comment[x-test]=xxYakuake has startedxx
+Comment[zh_TW]=Yakuake 已啟動
 Action=Popup
 
 [Event/silence]
@@ -62,6 +65,7 @@ Name[pt_BR]=Silêncio detectado
 Name[sv]=Tystnad funnen
 Name[uk]=Виявлено бездіяльність
 Name[x-test]=xxSilence detectedxx
+Name[zh_TW]=偵測到沉默狀態
 Comment=Silence detected in a monitored terminal or session
 Comment[cs]=Detekováno ticho v monitorovaném terminálu nebo sezení
 Comment[da]=Stilhed detekteret i en overvåget terminalsession
@@ -74,6 +78,7 @@ Comment[pt_BR]=Silêncio detectado em um terminal ou sessão monitorado
 Comment[sv]=Tystnad funnen i en bevakad terminal eller session
 Comment[uk]=У сеансі або терміналі, за яким ведеться спостереження виявлено бездіяльність
 Comment[x-test]=xxSilence detected in a monitored terminal or sessionxx
+Comment[zh_TW]=在一個監控中的終端機或工作階段偵測到沉默狀態
 Action=Popup
 
 [Event/activity]
@@ -91,6 +96,7 @@ Name[pt_BR]=Atividade detectada
 Name[sv]=Aktivitet funnen
 Name[uk]=Виявлено діяльність
 Name[x-test]=xxActivity detectedxx
+Name[zh_TW]=偵測到活動
 Comment=Activity detected in a monitored terminal or session
 Comment[cs]=Detekována aktivita v monitorovaném terminálu nebo sezení
 Comment[da]=Aktivitet detekteret i en overvåget terminal eller session
@@ -103,4 +109,5 @@ Comment[pt_BR]=Atividade detectada em um terminal ou sessão monitorado
 Comment[sv]=Aktivitet funnen i en bevakad terminal eller session
 Comment[uk]=У сеансі або терміналі, за яким ведеться спостереження виявлено діяльність
 Comment[x-test]=xxActivity detected in a monitored terminal or sessionxx
+Comment[zh_TW]=在一個監控中的終端機或工作階段偵測到有活動
 Action=Popup
