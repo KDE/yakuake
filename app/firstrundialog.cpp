@@ -70,11 +70,10 @@ void FirstRunDialog::initKeyButton()
 
 void FirstRunDialog::validateKeySequence(const QKeySequence& keySequence)
 {
-    QStringList actionIdentifiers = KGlobalAccel::findActionNameSystemwide(keySequence);
-
-    if (!actionIdentifiers.isEmpty())
+    if (!KGlobalAccel::isGlobalShortcutAvailable(keySequence))
     {
-        bool steal = KGlobalAccel::promptStealShortcutSystemwide(this, actionIdentifiers, keySequence);
+        bool steal = KGlobalAccel::promptStealShortcutSystemwide(this,
+            KGlobalAccel::getGlobalShortcutsByKey(keySequence), keySequence);
 
         if (!steal)
             initKeyButton();

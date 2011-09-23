@@ -544,10 +544,10 @@ void MainWindow::handleSwitchToAction()
 void MainWindow::setupMenu()
 {
     m_menu->addTitle(i18nc("@title:menu", "Help"));
-    m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::WhatsThis)));
-    m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::ReportBug)));
-    m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::AboutApp)));
-    m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::AboutKDE)));
+    m_menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::WhatsThis)));
+    m_menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::ReportBug)));
+    m_menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::AboutApp)));
+    m_menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::AboutKDE)));
 
     m_menu->addTitle(i18nc("@title:menu", "Quick Options"));
     m_menu->addAction(actionCollection()->action("view-full-screen"));
@@ -570,9 +570,9 @@ void MainWindow::setupMenu()
 
     m_menu->addTitle(i18nc("@title:menu", "Settings"));
     m_menu->addAction(actionCollection()->action("manage-profiles"));
-    m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::KeyBindings)));
-    m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::ConfigureNotifications)));
-    m_menu->addAction(actionCollection()->action(KStandardAction::stdName(KStandardAction::Preferences)));
+    m_menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::KeyBindings)));
+    m_menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::ConfigureNotifications)));
+    m_menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::Preferences)));
 }
 
 void MainWindow::updateScreenMenu()
