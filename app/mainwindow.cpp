@@ -1279,10 +1279,26 @@ QRect MainWindow::getDesktopGeometry()
                 {
                     NETExtendedStrut strut = windowInfo.extendedStrut();
 
-                    QRect topStrut(strut.top_start, 0, strut.top_end, strut.top_width);
+                    // Get the area covered by each strut
+                    QRect topStrut(strut.top_start, 0, strut.top_end - strut.top_start, strut.top_width);
+                    QRect bottomStrut(strut.bottom_start, screenGeometry.bottom() - strut.bottom_width,
+                                      strut.bottom_end - strut.bottom_start, strut.bottom_width);
+                    QRect leftStrut(0, strut.left_width, strut.left_start, strut.left_end - strut.left_start);
+                    QRect rightStrut(screenGeometry.right() - strut.right_width, strut.right_start,
+                                     strut.right_end - strut.right_start, strut.right_width);
 
-                    if (!topStrut.intersects(screenGeometry))
-                        offScreenWindows << windowId;
+                    // If the window has no strut, no need to bother further
+                    if (topStrut.isEmpty() && bottomStrut.isEmpty() && leftStrut.isEmpty() && rightStrut.isEmpty())
+                        continue;
+
+                    // If any of the strut intersects with our screen geometry, it will be correctly handled by workArea()
+                    if (topStrut.intersects(screenGeometry) || bottomStrut.intersects(screenGeometry) ||
+                        leftStrut.intersects(screenGeometry) || rightStrut.intersects(screenGeometry))
+                        continue;
+
+                    // This window has a strut on the same desktop as us but which does not cover our screen geometry. It should be ignored
+                    // otherwise the returned work area will wrongly include the strut.
+                    offScreenWindows << windowId;
                 }
             }
         }
