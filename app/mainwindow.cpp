@@ -40,6 +40,7 @@
 #include <KMessageBox>
 #include <KNotification>
 #include <KNotifyConfigWidget>
+#include <KPushButton>
 #include <KShortcutsDialog>
 #include <KStandardAction>
 #include <KToggleFullScreenAction>
@@ -694,6 +695,8 @@ void MainWindow::configureApp()
     connect(appearanceSettings, SIGNAL(settingsChanged()), this, SLOT(applySettings()));
     connect(settingsDialog, SIGNAL(closeClicked()), appearanceSettings, SLOT(resetSelection()));
     connect(settingsDialog, SIGNAL(cancelClicked()), appearanceSettings, SLOT(resetSelection()));
+
+    settingsDialog->button(KDialog::Help)->hide();
 
     settingsDialog->show();
 }
