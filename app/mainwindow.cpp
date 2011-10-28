@@ -1279,7 +1279,7 @@ QRect MainWindow::getDesktopGeometry()
                 {
                     NETExtendedStrut strut = windowInfo.extendedStrut();
 
-                    // Get the area covered by each strut
+                    // Get the area covered by each strut.
                     QRect topStrut(strut.top_start, 0, strut.top_end - strut.top_start, strut.top_width);
                     QRect bottomStrut(strut.bottom_start, screenGeometry.bottom() - strut.bottom_width,
                                       strut.bottom_end - strut.bottom_start, strut.bottom_width);
@@ -1287,7 +1287,7 @@ QRect MainWindow::getDesktopGeometry()
                     QRect rightStrut(screenGeometry.right() - strut.right_width, strut.right_start,
                                      strut.right_end - strut.right_start, strut.right_width);
 
-                    // If the window has no strut, no need to bother further
+                    // If the window has no strut, no need to bother further.
                     if (topStrut.isEmpty() && bottomStrut.isEmpty() && leftStrut.isEmpty() && rightStrut.isEmpty())
                         continue;
 
