@@ -1291,13 +1291,15 @@ QRect MainWindow::getDesktopGeometry()
                     if (topStrut.isEmpty() && bottomStrut.isEmpty() && leftStrut.isEmpty() && rightStrut.isEmpty())
                         continue;
 
-                    // If any of the strut intersects with our screen geometry, it will be correctly handled by workArea()
+                    // If any of the strut intersects with our screen geometry, it will be correctly handled
+                    // by workArea().
                     if (topStrut.intersects(screenGeometry) || bottomStrut.intersects(screenGeometry) ||
                         leftStrut.intersects(screenGeometry) || rightStrut.intersects(screenGeometry))
                         continue;
 
-                    // This window has a strut on the same desktop as us but which does not cover our screen geometry. It should be ignored
-                    // otherwise the returned work area will wrongly include the strut.
+                    // This window has a strut on the same desktop as us but which does not cover our screen
+                    // geometry. It should be ignored, otherwise the returned work area will wrongly include
+                    // the strut.
                     offScreenWindows << windowId;
                 }
             }
