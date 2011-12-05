@@ -83,6 +83,8 @@ MainWindow::MainWindow(QWidget* parent)
     setupMenu();
 
     connect(m_tabBar, SIGNAL(newTabRequested()), m_sessionStack, SLOT(addSession()));
+    connect(m_tabBar, SIGNAL(lastTabClosed()), m_tabBar, SIGNAL(newTabRequested()));
+    connect(m_tabBar, SIGNAL(lastTabClosed()), this, SLOT(void handleLastTabClosed()));
     connect(m_tabBar, SIGNAL(tabSelected(int)), m_sessionStack, SLOT(raiseSession(int)));
     connect(m_tabBar, SIGNAL(tabClosed(int)), m_sessionStack, SLOT(removeSession(int)));
     connect(m_tabBar, SIGNAL(requestTerminalHighlight(int)), m_sessionStack, SLOT(handleTerminalHighlightRequest(int)));
@@ -532,6 +534,12 @@ void MainWindow::handleTerminalSilence(Terminal* terminal)
         KNotification::event(QLatin1String("silence"), message, QPixmap(), terminal->partWidget(),
             KNotification::CloseWhenWidgetActivated);
     }
+}
+
+void MainWindow::handleLastTabClosed()
+{
+    if (isVisible())
+        toggleWindowState();
 }
 
 void MainWindow::handleSwitchToAction()

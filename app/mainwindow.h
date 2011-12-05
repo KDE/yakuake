@@ -78,6 +78,7 @@ class MainWindow : public KMainWindow
         void handleToggleTerminalMonitorSilence(bool checked);
         void handleTerminalActivity(Terminal* terminal);
         void handleTerminalSilence(Terminal* terminal);
+        void handleLastTabClosed();
 
 
     signals:

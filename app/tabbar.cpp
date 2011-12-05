@@ -758,7 +758,7 @@ void TabBar::removeTab(int sessionId)
     m_tabTitles.remove(sessionId);
 
     if (m_tabs.count() == 0)
-        emit newTabRequested();
+        emit lastTabClosed();
     else
         emit tabSelected(m_tabs.last());
 }
