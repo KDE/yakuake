@@ -15,9 +15,6 @@ Changes since 2.9.8:
   monitoring has to be disabled or reenabled, or the active session
   switched, or the window closed - only then another activity notification
   will be shown.
-* The addSession* and split* D-Bus calls now return the id of the newly-
-  created session or terminal, or -1 if creating a new session or terminal
-  was not possible.
 * When the window is set not to show on all virtual desktops and is not
   residing on the current virtual desktop, but is open (i.e. set to stay
   open regardless of focus loss), the Open/Retract action normally used
@@ -31,6 +28,16 @@ Changes since 2.9.8:
 * A number of default keyboard shortcuts have been changed to reestablish
   consistency with Konsole, which introduced changed defaults in KDE Soft-
   ware Compilation v4.6.
+* Tweaks to the code Yakuake uses to make itself the active window when
+  invoked should improve compatibility with more window managers, particu-
+  larly xfwm.
+* The D-Bus API has been expanded further to cover the new activity and
+  silence monitoring options, as well as with additional methods related
+  to retrieving information about the keyboard input enabled state for
+  sessions and terminals.
+* The addSession* and split* D-Bus calls now return the id of the newly-
+  created session or terminal, or -1 if creating a new session or terminal
+  was not possible.
 * Made sure that the activeTerminalId D-Bus call always returns something
   useful after an addSessionTwo*/Quad call, even when the window is closed
   while the call is made. Previously, activeTerminalId could return -1 in
@@ -38,6 +45,25 @@ Changes since 2.9.8:
   window is opened and a focus event causes one to become active. Now the
   terminal that will receive focus once the window is opened is immediate-
   ly declared the active terminal.
+* The "Help" button was removed from the configuration dialog since there
+  currently is no handbook included.
+* Fixes to the window geometry and placement calculation in multi-screen
+  setups and with panels located on screen edges other than the bottom
+  edge.
+* Fixed a bug causing the "Disable Keyboard Input -> For This Session"
+  checkbox in the context menu of a multi-terminal session to become
+  enabled when keyboard input was disabled for any of the individual ter-
+  minals, rather than only when all terminals have it disabled (i.e. what
+  enabling the checkbox manually actually does).
+* Fixed errors in the tab stop order in several pages of the configuration
+  dialog.
+* Fixed the message shown on stderr when Yakuake is already running to
+  refer to toggling rather than opening the window, since that is what a
+  repeated execution actually does - if the window is already open, it
+  will be closed at this time.
+* Code cleanups, including porting away from recently deprecated KDE Plat-
+  form APIs for future-compatibility.
+* The KDE4FAQ document included in the tarball has been updated.
 * Yakuake now depends on KDE Platform 4.4.0 or newer.
 
 
