@@ -30,6 +30,7 @@
 #include <KMessageBox>
 #include <KPluginFactory>
 #include <KPluginLoader>
+#include <KService>
 #include <KUser>
 
 #include <QAction>
@@ -58,9 +59,13 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
     m_terminalWidget = NULL;
     m_parentSplitter = parent;
 
-    KPluginFactory* factory = KPluginLoader("konsolepart").factory();
-    if (!factory)
-        factory = KPluginLoader("libkonsolepart").factory(); // deprecated name
+    KPluginFactory* factory = 0;
+    KService::Ptr service = KService::serviceByDesktopName("konsolepart");
+    if( service )
+    {
+        factory = KPluginLoader(service->library()).factory();
+    }
+
     m_part = factory ? (factory->create<KParts::Part>(parent)) : 0;
 
     if (m_part)
