@@ -25,9 +25,6 @@
 
 #include <QDesktopWidget>
 
-#include <kdeversion.h>
-
-
 WindowSettings::WindowSettings(QWidget* parent) : QWidget(parent)
 {
     setupUi(this);

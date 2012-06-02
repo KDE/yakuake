@@ -32,7 +32,6 @@
 #include "titlebar.h"
 #include "ui_behaviorsettings.h"
 
-#include <KAboutApplicationDialog>
 #include <KApplication>
 #include <KConfigDialog>
 #include <KHelpMenu>
@@ -44,12 +43,10 @@
 #include <KShortcutsDialog>
 #include <KStandardAction>
 #include <KToggleFullScreenAction>
-#include <KVBox>
 #include <KGlobalSettings>
 
 #include <QDesktopWidget>
 #include <QPainter>
-#include <QPalette>
 #include <QtDBus/QtDBus>
 
 #if defined(Q_WS_X11)

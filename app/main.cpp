@@ -23,7 +23,6 @@
 
 #include <KAboutData>
 #include <KCmdLineArgs>
-#include <KWindowSystem>
 
 #include <QTextStream>
 
