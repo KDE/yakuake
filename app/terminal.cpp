@@ -27,7 +27,7 @@
 #include <KColorScheme>
 #include <kde_terminal_interface.h>
 #include <KLocalizedString>
-#include <KMessageBox>
+#include <KIcon>
 #include <KPluginFactory>
 #include <KPluginLoader>
 #include <KService>

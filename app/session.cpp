@@ -24,7 +24,6 @@
 #include "terminal.h"
 
 #include <kdeversion.h>
-#include <KDebug>
 
 int Session::m_availableSessionId = 0;
 

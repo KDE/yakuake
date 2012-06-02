@@ -46,7 +46,6 @@
 #include <KStandardAction>
 #include <KToggleFullScreenAction>
 #include <KActionCollection>
-#include <KGlobalSettings>
 #include <KWindowSystem>
 #include <KLocalizedString>
 #include <kdeversion.h>

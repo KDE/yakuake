@@ -28,7 +28,6 @@
 #include <KStandardDirs>
 
 #include <QFileInfo>
-//#include <QUrl>
 
 
 Skin::Skin()
