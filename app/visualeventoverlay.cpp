@@ -24,7 +24,7 @@
 #include "settings.h"
 #include "terminal.h"
 
-#include <kcolorscheme.h>
+#include <KColorScheme>
 
 #include <QPainter>
 #include <QTimer>
