@@ -25,16 +25,22 @@
 #include "skin.h"
 #include "session.h"
 #include "sessionstack.h"
+#include "settings.h"
 
 #include <KLineEdit>
 #include <KMenu>
 #include <KPushButton>
+#include <KActionCollection>
+#include <KGlobalSettings>
+#include <KLocalizedString>
+#include <kdeversion.h>
 
 #include <QBitmap>
 #include <QPainter>
 #include <QtDBus/QtDBus>
 #include <QToolButton>
 #include <QWheelEvent>
+#include <QWhatsThis>
 
 #include <QMimeData>
 #include <QDrag>

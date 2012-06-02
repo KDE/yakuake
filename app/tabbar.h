@@ -23,9 +23,6 @@
 #ifndef TABBAR_H
 #define TABBAR_H
 
-
-#include <kdeversion.h>
-
 #include <QList>
 #include <QHash>
 #include <QWidget>

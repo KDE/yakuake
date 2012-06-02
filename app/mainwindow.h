@@ -23,18 +23,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "settings.h"
-
-#include <KAction>
-#include <KActionCollection>
-#include <kdeversion.h>
-#include <KGlobalSettings>
-#include <KLocalizedString>
 #include <KMainWindow>
-#include <KWindowSystem>
 
 #include <QTimer>
-#include <QWhatsThis>
 
 
 class FirstRunDialog;
@@ -46,6 +37,8 @@ class TitleBar;
 
 class KHelpMenu;
 class KMenu;
+class KAction;
+class KActionCollection;
 
 
 class MainWindow : public KMainWindow

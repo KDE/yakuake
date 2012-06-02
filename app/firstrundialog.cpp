@@ -24,6 +24,7 @@
 #include "ui_firstrundialog.h"
 
 #include <KGlobalAccel>
+#include <KActionCollection>
 
 
 FirstRunDialog::FirstRunDialog(MainWindow* mainWindow) : KDialog(mainWindow)

@@ -25,6 +25,8 @@
 
 #include <KMenu>
 #include <KPushButton>
+#include <KGlobalSettings>
+#include <KLocalizedString>
 
 #include <QBitmap>
 #include <QPainter>

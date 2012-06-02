@@ -26,8 +26,6 @@
 
 #include "splitter.h"
 
-#include <kdeversion.h>
-
 #include <QMap>
 #include <QObject>
 
