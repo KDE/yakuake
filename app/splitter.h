@@ -36,4 +36,4 @@ class Splitter: public QSplitter
         void recursiveCleanup();
 };
 
-#endif 
+#endif

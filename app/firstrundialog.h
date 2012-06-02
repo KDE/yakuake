@@ -54,4 +54,4 @@ class FirstRunDialog : public KDialog
         QKeySequence m_keySequence;
 };
 
-#endif 
+#endif
