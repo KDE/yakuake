@@ -225,11 +225,31 @@ Action=Popup
 
 [Event/BellVisible]
 Name=Bell in Visible Session
+Name[pt]=Campainha numa Sessão Visível
+Name[pt_BR]=Campainha na sessão visível
+Name[sv]=Ljudsignal i synlig session
+Name[uk]=Гудок у видимий сеанс
+Name[x-test]=xxBell in Visible Sessionxx
 Comment=Bell emitted within a visible session
+Comment[pt]=Campainha emitida dentro de uma sessão visível
+Comment[pt_BR]=Campainha emitida dentro de uma sessão visível
+Comment[sv]=Ljudsignal avgiven inne i en synlig session
+Comment[uk]=Звучить гудок у видимому сеансі
+Comment[x-test]=xxBell emitted within a visible sessionxx
 Action=None
 
 [Event/BellInvisible]
 Name=Bell in Non-Visible Session
+Name[pt]=Campainha numa Sessão Invisível
+Name[pt_BR]=Campainha na sessão não visível
+Name[sv]=Ljudsignal i icke-synlig session
+Name[uk]=Гудок у невидимому сеансі
+Name[x-test]=xxBell in Non-Visible Sessionxx
 Comment=Bell emitted within a non-visible session
+Comment[pt]=Campainha emitida dentro de uma sessão não-visível
+Comment[pt_BR]=Campainha emitida dentro de uma sessão não visível
+Comment[sv]=Ljudsignal avgiven inne i en icke-synlig session
+Comment[uk]=Звучить гудок у невидимому сеансі
+Comment[x-test]=xxBell emitted within a non-visible sessionxx
 Sound=KDE-Sys-App-Message.ogg
 Action=Popup
