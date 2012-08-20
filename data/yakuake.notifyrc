@@ -225,12 +225,18 @@ Action=Popup
 
 [Event/BellVisible]
 Name=Bell in Visible Session
+Name[da]=Bip i synlig session
+Name[hu]=Csengő a látható munkamenetben
+Name[it]=Campana in sessione visibile
 Name[pt]=Campainha numa Sessão Visível
 Name[pt_BR]=Campainha na sessão visível
 Name[sv]=Ljudsignal i synlig session
 Name[uk]=Гудок у видимий сеанс
 Name[x-test]=xxBell in Visible Sessionxx
 Comment=Bell emitted within a visible session
+Comment[da]=Bip udsendt indenfor en synlig session
+Comment[hu]=Csengetés a látható munkamenetben
+Comment[it]=Campana emessa in una sessione visibile
 Comment[pt]=Campainha emitida dentro de uma sessão visível
 Comment[pt_BR]=Campainha emitida dentro de uma sessão visível
 Comment[sv]=Ljudsignal avgiven inne i en synlig session
@@ -240,12 +246,18 @@ Action=None
 
 [Event/BellInvisible]
 Name=Bell in Non-Visible Session
+Name[da]=Bip i ikke-synlig session
+Name[hu]=Csengő a nem látható munkamenetben
+Name[it]=Campana in sessione non visibile
 Name[pt]=Campainha numa Sessão Invisível
 Name[pt_BR]=Campainha na sessão não visível
 Name[sv]=Ljudsignal i icke-synlig session
 Name[uk]=Гудок у невидимому сеансі
 Name[x-test]=xxBell in Non-Visible Sessionxx
 Comment=Bell emitted within a non-visible session
+Comment[da]=Bip udsendt indenfor en ikke-synlig session
+Comment[hu]=Csengetés a nem látható munkamenetben
+Comment[it]=Campana emessa in una sessione non visibile
 Comment[pt]=Campainha emitida dentro de uma sessão não-visível
 Comment[pt_BR]=Campainha emitida dentro de uma sessão não visível
 Comment[sv]=Ljudsignal avgiven inne i en icke-synlig session
