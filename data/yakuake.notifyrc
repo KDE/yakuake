@@ -225,6 +225,7 @@ Action=Popup
 
 [Event/BellVisible]
 Name=Bell in Visible Session
+Name[cs]=Zvonek ve viditelném sezení
 Name[da]=Bip i synlig session
 Name[de]=Signalton in sichtbarer Sitzung
 Name[hu]=Csengő a látható munkamenetben
@@ -236,6 +237,7 @@ Name[sv]=Ljudsignal i synlig session
 Name[uk]=Гудок у видимий сеанс
 Name[x-test]=xxBell in Visible Sessionxx
 Comment=Bell emitted within a visible session
+Comment[cs]=Zvonek spuštěný ve viditelném sezení
 Comment[da]=Bip udsendt indenfor en synlig session
 Comment[de]=Signalton, der in einer sichtbaren Sitzung ertönt
 Comment[hu]=Csengetés a látható munkamenetben
@@ -250,6 +252,7 @@ Action=None
 
 [Event/BellInvisible]
 Name=Bell in Non-Visible Session
+Name[cs]=Zvonek ve skrytém sezení
 Name[da]=Bip i ikke-synlig session
 Name[de]=Signalton in nicht sichtbarer Sitzung
 Name[hu]=Csengő a nem látható munkamenetben
@@ -261,6 +264,7 @@ Name[sv]=Ljudsignal i icke-synlig session
 Name[uk]=Гудок у невидимому сеансі
 Name[x-test]=xxBell in Non-Visible Sessionxx
 Comment=Bell emitted within a non-visible session
+Comment[cs]=Zvonek spuštěný ve skrytém sezení
 Comment[da]=Bip udsendt indenfor en ikke-synlig session
 Comment[de]=Signalton, der in einer nicht sichtbaren Sitzung ertönt
 Comment[hu]=Csengetés a nem látható munkamenetben
