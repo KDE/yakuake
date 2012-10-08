@@ -308,6 +308,12 @@ void AppearanceSettings::checkForExistingSkin()
 
     int exists = skins.count();
 
+    foreach (const QModelIndex& skin, skins)
+    {
+        if (m_skins->item(skin.row())->data(SkinInstalledWithKns).toBool())
+            --exists;
+    }
+
     if (exists > 0)
     {
         QString skinDir = skins.at(0).data(SkinDir).toString();
