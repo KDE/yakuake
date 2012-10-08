@@ -26,13 +26,17 @@
 #include "ui_appearancesettings.h"
 
 #include <KIO/Job>
-
+#include <kdeversion.h>
 
 class SkinListDelegate;
 
 class QStandardItem;
 class QStandardItemModel;
 
+namespace KNS3
+{
+    class DownloadManager;
+}
 
 class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
 {
@@ -48,7 +52,8 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
             SkinDir = Qt::UserRole + 2,
             SkinName = Qt::UserRole + 3,
             SkinAuthor = Qt::UserRole + 4,
-            SkinIcon = Qt::UserRole + 5
+            SkinIcon = Qt::UserRole + 5,
+            SkinInstalledWithKns = Qt::UserRole + 6
         };
 
 
@@ -74,9 +79,45 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
         void validateSkinArchive(KJob* job);
         void installSkinArchive(KJob* deleteJob = 0);
 
+        /**
+         * Validates the given skin.
+         * This method checks if the fileList of the skin
+         * contains all required files.
+         *
+         * @param skinId The SkinID of the skin which will be validated.
+         * @param fileList The filelist of the skin.
+         *
+         * @return True if the skin is valid, otherwise false.
+         */
+        bool validateSkin(const QString &skinId, const QStringList& fileList);
+
+
+#if KDE_IS_VERSION(4, 7, 0)
+        /**
+         * Extracts the skin IDs from the given fileList.
+         * There can be multiple skins, but only one skin per directory.
+         * The files need to be located in the m_knsSkinDir.
+         *
+         * @param fileList All files which were installed.
+         *
+         * @return The list of skin IDs which were extracted from the
+         *         given fileList.
+         */
+        QStringList extractKnsSkinIds(const QStringList& fileList);
+#endif
+
+        /**
+         * Shows the KNS3 dialog where the user can download new skins.
+         * @note Only works from KDE platform 4.7.0 onwards.
+         *       The signature needs to be compiled always, because
+         *       otherwise the SLOT cannot be found during runtime.
+         *       The code for this method is disabled inside the method
+         *       body.
+         */
+        void getNewSkins();
+
         void updateRemoveSkinButton();
         void removeSelectedSkin();
-
 
     private:
         QStandardItem* createSkinItem(const QString& skinDir);
@@ -85,15 +126,34 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
         void failInstall(const QString& error);
         void cleanupAfterInstall();
 
+        /**
+         * Populates the skins from the given base directory.
+         * The skins will be added to the item model (m_skins)
+         * if they are valid.
+         *
+         * @param baseDirectory The directory where the skins are
+         *                      located in. This will be used as
+         *                      filter-prefix for the call to
+         *                      KGlobal::dirs()->findAllResources().
+         */
+        void populateSkins(const QString& baseDirectory);
+
         QString m_selectedSkinId;
 
         QStandardItemModel* m_skins;
         SkinListDelegate* m_skinListDelegate;
 
         QString m_localSkinsDir;
+        QString m_knsSkinDir;
+        QString m_defaultSkinDir;
         QString m_installSkinId;
         QString m_installSkinFile;
         QStringList m_installSkinFileList;
+
+#if KDE_IS_VERSION(4, 7, 0)
+        QString m_knsConfigFileName;
+        KNS3::DownloadManager* m_knsDownloadManager;
+#endif
 };
 
 #endif 

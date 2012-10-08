@@ -37,4 +37,14 @@ if(Q_WS_X11)
   target_link_libraries(yakuake ${X11_X11_LIB})
 endif(Q_WS_X11)
 
+macro_ensure_version("4.7.0" ${KDE_VERSION} HAVEKDE4_7_0)
+
+# We depend on a KNS3 feature (programatically uninstalling entries),
+# which is only available from KDE platform 4.7.0 onwards.
+if(HAVEKDE4_7_0)
+  target_link_libraries(yakuake ${KDE4_KNEWSTUFF3_LIBS})
+endif(HAVEKDE4_7_0)
+
 install(TARGETS yakuake ${INSTALL_TARGETS_DEFAULT_ARGS})
+
+install(FILES yakuake.knsrc DESTINATION ${CONFIG_INSTALL_DIR})

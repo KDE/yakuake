@@ -32,6 +32,9 @@
 #include <KTar>
 #include <KUrl>
 
+#include <KNS3/DownloadDialog>
+#include <knewstuff3/downloadmanager.h>
+
 #include <QFile>
 #include <QStandardItemModel>
 
@@ -57,9 +60,31 @@ AppearanceSettings::AppearanceSettings(QWidget* parent) : QWidget(parent)
     connect(installButton, SIGNAL(clicked()), this, SLOT(installSkin()));
     connect(removeButton, SIGNAL(clicked()), this, SLOT(removeSelectedSkin()));
 
+    installButton->setIcon(KIcon("folder"));
+    removeButton->setIcon(KIcon("edit-delete"));
+    ghnsButton->setIcon(KIcon("get-hot-new-stuff"));
+
+#if KDE_IS_VERSION(4, 7, 0)
+    m_knsConfigFileName = QLatin1String("yakuake.knsrc");
+    m_knsDownloadManager = new KNS3::DownloadManager(m_knsConfigFileName);
+
+    connect(ghnsButton, SIGNAL(clicked()), this, SLOT(getNewSkins()));
+#else
+    // Hide the GHNS button.
+    ghnsButton->setVisible(false);
+#endif
+
     m_selectedSkinId = Settings::skin();
 
+    // Get all local skin directories.
+    // One for manually installed skins, one for skins installed
+    // through KNS3.
     m_localSkinsDir = KStandardDirs::locateLocal("data", "yakuake/skins/");
+    m_knsSkinDir = KStandardDirs::locateLocal("data", "yakuake/kns_skins/");
+
+    // The default skin dir does not have any prefix.
+    // These are the skins that were shipped with yakuake.
+    m_defaultSkinDir = QLatin1String("yakuake/skins/");
 
     populateSkinList();
 }
@@ -80,9 +105,34 @@ void AppearanceSettings::showEvent(QShowEvent* event)
 
 void AppearanceSettings::populateSkinList()
 {
+    // Clear the list of skins before getting all installed skins.
+    m_skins->clear();
+
+    // Populate the skins which were shipped with yakuake
+    // first. Afterwards add all skins which were
+    // installed by the user (first the manually ones,
+    // then the ones installed via KNS).
+    populateSkins(m_defaultSkinDir);
+    populateSkins(m_localSkinsDir);
+    populateSkins(m_knsSkinDir);
+
+    // Finally sort our skin list.
+    m_skins->sort(0);
+
+    updateRemoveSkinButton();
+}
+
+void AppearanceSettings::populateSkins(const QString& baseDirectory)
+{
     QStringList skinDirs;
-    QStringList titleDirs = KGlobal::dirs()->findAllResources("data", "yakuake/skins/*/title.skin");
-    QStringList tabDirs = KGlobal::dirs()->findAllResources("data", "yakuake/skins/*/tabs.skin");
+
+    // Filter for title.skin and tabs.skin files in the current skin base directory.
+    QString titleFilter = baseDirectory + QLatin1String("/*/title.skin");
+    QString tabFilter = baseDirectory + QLatin1String("/*/tabs.skin");
+
+    // Find the title and tab skin files.
+    QStringList titleDirs = KGlobal::dirs()->findAllResources("data", titleFilter);
+    QStringList tabDirs = KGlobal::dirs()->findAllResources("data", tabFilter);
 
     QStringListIterator i(titleDirs);
 
@@ -96,8 +146,6 @@ void AppearanceSettings::populateSkinList()
 
     if (skinDirs.count() > 0)
     {
-        m_skins->clear();
-
         QStringListIterator i(skinDirs);
 
         while (i.hasNext())
@@ -112,7 +160,8 @@ void AppearanceSettings::populateSkinList()
             {
                 QStandardItem* skin = createSkinItem(skinDir);
 
-                if (!skin) continue;
+                if (!skin)
+                    continue;
 
                 m_skins->appendRow(skin);
 
@@ -120,11 +169,7 @@ void AppearanceSettings::populateSkinList()
                     skinList->setCurrentIndex(skin->index());
             }
         }
-
-        m_skins->sort(0);
     }
-
-    updateRemoveSkinButton();
 }
 
 QStandardItem* AppearanceSettings::createSkinItem(const QString& skinDir)
@@ -134,6 +179,10 @@ QStandardItem* AppearanceSettings::createSkinItem(const QString& skinDir)
     QString titleAuthor, tabAuthor, skinAuthor;
     QString titleIcon, tabIcon;
     QIcon skinIcon;
+
+    // Check if the skin dir starts with the path where all
+    // KNS3 skins are found in.
+    bool isKnsSkin = skinDir.startsWith(m_knsSkinDir);
 
     KConfig titleConfig(skinDir + "/title.skin", KConfig::SimpleConfig);
     KConfigGroup titleDescription = titleConfig.group("Description");
@@ -166,6 +215,7 @@ QStandardItem* AppearanceSettings::createSkinItem(const QString& skinDir)
     skin->setData(skinName, SkinName);
     skin->setData(skinAuthor, SkinAuthor);
     skin->setData(skinIcon, SkinIcon);
+    skin->setData(isKnsSkin, SkinInstalledWithKns);
 
     return skin;
 }
@@ -239,16 +289,35 @@ void AppearanceSettings::validateSkinArchive(KJob* job)
     {
         m_installSkinId = m_installSkinFileList.at(0);
 
-        if (m_installSkinFileList.contains(QString(m_installSkinId + "/title.skin"))
-            && m_installSkinFileList.contains(QString(m_installSkinId + "/tabs.skin")))
-        {
+        if (validateSkin(m_installSkinId, m_installSkinFileList))
             checkForExistingSkin();
-        }
         else
             failInstall(i18nc("@info", "Unable to locate required files in the skin archive.<nl/><nl/>The archive appears to be invalid."));
     }
     else
         failInstall(i18nc("@info", "Unable to list the skin archive contents.") + "\n\n" + job->errorString());
+}
+
+bool AppearanceSettings::validateSkin(const QString &skinId, const QStringList& fileList)
+{
+    bool titleFileFound = false;
+    bool tabsFileFound = false;
+    QString titleFileName = skinId + "/title.skin";
+    QString tabsFileName = skinId + "/tabs.skin";
+
+    foreach (const QString& fileName, fileList)
+    {
+        if (fileName.endsWith(titleFileName))
+        {
+            titleFileFound = true;
+        }
+        else if (fileName.endsWith(tabsFileName))
+        {
+            tabsFileFound = true;
+        }
+    }
+
+    return titleFileFound && tabsFileFound;
 }
 
 void AppearanceSettings::checkForExistingSkin()
@@ -310,7 +379,8 @@ void AppearanceSettings::installSkinArchive(KJob* deleteJob)
 
         populateSkinList();
 
-        if (Settings::skin() == m_installSkinId) emit settingsChanged();
+        if (Settings::skin() == m_installSkinId)
+            emit settingsChanged();
 
         cleanupAfterInstall();
     }
@@ -344,9 +414,15 @@ void AppearanceSettings::updateRemoveSkinButton()
     QString skinDir;
 
     QVariant value = skinList->currentIndex().data(SkinDir);
-    if (value.isValid()) skinDir = value.toString();
+    if (value.isValid())
+        skinDir = value.toString();
 
-    if (skinDir.isEmpty())
+    value = skinList->currentIndex().data(SkinInstalledWithKns);
+    bool isKnsSkin = value.toBool();
+
+    // We don't allow the user to remove the default skin
+    // or any skin which was installed through KNS3.
+    if (skinDir.isEmpty() || isKnsSkin)
     {
         removeButton->setEnabled(false);
         return;
@@ -374,9 +450,9 @@ void AppearanceSettings::removeSelectedSkin()
     if (skinDir.isEmpty()) return;
 
     int remove = KMessageBox::warningContinueCancel(parentWidget(),
-        i18nc("@info", "Do you want to remove \"%1\" by %2?", skinName, skinAuthor),
-        i18nc("@title:window", "Remove Skin"),
-        KStandardGuiItem::del());
+            i18nc("@info", "Do you want to remove \"%1\" by %2?", skinName, skinAuthor),
+            i18nc("@title:window", "Remove Skin"),
+            KStandardGuiItem::del());
 
     if (remove == KMessageBox::Continue)
     {
@@ -400,3 +476,115 @@ void AppearanceSettings::removeSelectedSkin()
             KMessageBox::error(parentWidget(), i18nc("@info", "Could not remove skin \"%1\".", skinName));
     }
 }
+
+#if KDE_IS_VERSION(4, 7, 0)
+
+QStringList AppearanceSettings::extractKnsSkinIds(const QStringList& fileList)
+{
+    QStringList skinIdList;
+
+    foreach (const QString& file, fileList)
+    {
+        // We only care about files/directories which are subdirectories of our KNS skins dir.
+        if (file.startsWith(m_knsSkinDir, Qt::CaseInsensitive))
+        {
+            // Get the relative filename (this removes the KNS install dir from the filename).
+            QString relativeName = QString(file).remove(m_knsSkinDir, Qt::CaseInsensitive);
+
+            // Get everything before the first slash - that should be our skins ID.
+            QString skinId = relativeName.section('/', 0, QString::SectionSkipEmpty);
+
+            // Skip all other entries in the file list if we found what we were searching for.
+            if (!skinId.isEmpty())
+            {
+                // First remove all remaining slashes (as there could be leading or trailing ones).
+                skinId = skinId.replace('/', QString());
+
+                // Don't insert duplicate entries.
+                if (skinIdList.contains(skinId))
+                {
+                    skinIdList.append(skinId);
+                }
+            }
+        }
+    }
+
+    return skinIdList;
+}
+
+void AppearanceSettings::getNewSkins()
+{
+    KNS3::DownloadDialog dialog(m_knsConfigFileName, this);
+    dialog.exec();
+
+    if (!dialog.installedEntries().empty())
+    {
+        quint32 invalidEntryCount = 0;
+        QString invalidSkinText;
+
+        foreach (const KNS3::Entry &entry, dialog.installedEntries())
+        {
+            bool isValid = true;
+            QStringList skinIdList = extractKnsSkinIds(entry.installedFiles());
+
+            // Validate all skin IDs as each archive can contain multiple skins.
+            foreach (const QString& skinId, skinIdList)
+            {
+                // Validate the current skin.
+                if (!validateSkin(skinId, entry.installedFiles()))
+                {
+                    kDebug() << "skinId '" << skinId << "' is invalid "
+                             << "(it's either missing the 'title.skin' or 'tabs.skin' file).";
+                    isValid = false;
+                }
+            }
+
+            // We'll add an error message for the whole KNS entry if
+            // the current skin is marked as invalid.
+            // We should not do this per skin as the user does not know that
+            // there are more skins inside one archive.
+            if (!isValid)
+            {
+                invalidEntryCount++;
+
+                // The user needs to know the name of the skin which
+                // was removed.
+                invalidSkinText += QString("<li>%1</li>").arg(entry.name());
+
+                // Then remove the skin.
+                m_knsDownloadManager->uninstallEntry(entry);
+            }
+        }
+
+        // Are there any invalid entries?
+        if (invalidEntryCount > 0)
+        {
+            failInstall(i18ncp("@info",
+                               "The following skin is missing required files. Thus it was removed:<ul>%2</ul>",
+                               "The following skins are missing required files. Thus they were removed:<ul>%2</ul>",
+                               invalidEntryCount,
+                               invalidSkinText));
+        }
+    }
+
+    if (!dialog.changedEntries().isEmpty())
+    {
+        // Reset the selection in case the currently selected
+        // skin was removed.
+        resetSelection();
+
+        // Re-populate the list of skins if the user changed something.
+        populateSkinList();
+    }
+}
+
+#else
+
+void AppearanceSettings::getNewSkins()
+{
+    // This shouldn't be possible since the connect() for this slot
+    // is protected by the same if.
+    Q_ASSERT(false);
+}
+
+#endif

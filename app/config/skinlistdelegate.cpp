@@ -29,6 +29,7 @@
 
 #define MARGIN 3
 #define ICON 32
+#define KNS_ICON_SIZE (ICON / 2)
 
 
 SkinListDelegate::SkinListDelegate(QObject* parent) : QAbstractItemDelegate(parent)
@@ -80,8 +81,10 @@ void SkinListDelegate::paintIcon(QPainter* painter, const QStyleOptionViewItem& 
 void SkinListDelegate::paintText(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex &index) const
 {
     QFont font = option.font;
+    int initialY = option.rect.y();
     int x = option.rect.x() + ICON + (3 * MARGIN);
-    int y = option.rect.y();
+    int y = initialY;
+    int textWidth = 0;
     int width = option.rect.width() - ICON - (3 * MARGIN);
 
     if (option.state & QStyle::State_Selected)
@@ -98,18 +101,39 @@ void SkinListDelegate::paintText(QPainter* painter, const QStyleOptionViewItem& 
         QFontMetrics fontMetrics(font);
 
         QRect textRect = fontMetrics.boundingRect(value.toString());
+        textWidth = textRect.width();
 
         if (option.direction == Qt::RightToLeft)
         {
-            if (width < textRect.width())
+            if (width < textWidth)
                 x = option.rect.x() + MARGIN;
             else
-                x = option.rect.right() - ICON - (3 * MARGIN) - textRect.width();
+                x = option.rect.right() - ICON - (3 * MARGIN) - textWidth;
         }
 
         y += textRect.height();
 
         painter->drawText(x, y, fontMetrics.elidedText(value.toString(), option.textElideMode, width));
+    }
+
+    value = index.data(AppearanceSettings::SkinInstalledWithKns);
+
+    if (value.isValid() && value.toBool())
+    {
+        KIcon ghnsIcon("get-hot-new-stuff");
+        int knsIconX = x;
+
+        if (option.direction == Qt::RightToLeft)
+            // In RTL mode we have to correct our position
+            // so there's room for the icon and enough space
+            // between the text and the icon.
+            knsIconX -= (KNS_ICON_SIZE + MARGIN);
+        else
+            // Otherwise we just have to make sure that we
+            // start painting after the text and add some margin.
+            knsIconX += textWidth + MARGIN;
+
+        ghnsIcon.paint(painter, knsIconX, initialY + MARGIN, KNS_ICON_SIZE, KNS_ICON_SIZE);
     }
 
     value = index.data(AppearanceSettings::SkinAuthor);
