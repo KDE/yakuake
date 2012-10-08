@@ -13,6 +13,9 @@ Changes since 2.9.8:
   monitoring has to be disabled or reenabled, or the active session
   switched, or the window closed - only then another activity notification
   will be shown.
+* Support for Get Hot New Stuff for skins has been added. See the new "Get
+  New Skins..." button below the skin list in the Appearance page of the
+  config dialog.
 * When the window is set not to show on all virtual desktops and is not
   residing on the current virtual desktop, but is open (i.e. set to stay
   open regardless of focus loss), the Open/Retract action normally used
