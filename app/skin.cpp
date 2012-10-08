@@ -39,10 +39,12 @@ Skin::~Skin()
 {
 }
 
-bool Skin::load(const QString& name)
+bool Skin::load(const QString& name, bool kns)
 {
-    QString titlePath = KStandardDirs::locate("appdata", "skins/" + name + "/title.skin");
-    QString tabPath = KStandardDirs::locate("appdata", "skins/" + name + "/tabs.skin");
+    QString dir = kns ? "kns_skins/" : "skins/";
+
+    QString titlePath = KStandardDirs::locate("appdata", dir + name + "/title.skin");
+    QString tabPath = KStandardDirs::locate("appdata", dir + name + "/tabs.skin");
 
     if (!QFile::exists(titlePath) || !QFile::exists(tabPath))
         return false;

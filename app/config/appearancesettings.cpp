@@ -6,7 +6,7 @@
   published by the Free Software Foundation; either version 2 of
   the License or (at your option) version 3 or any later version
   accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy 
+  ved by the membership of KDE e.V.), which shall act as a proxy
   defined in Section 14 of version 3 of the license.
 
   This program is distributed in the hope that it will be useful,
@@ -45,6 +45,7 @@ AppearanceSettings::AppearanceSettings(QWidget* parent) : QWidget(parent)
     setupUi(this);
 
     kcfg_Skin->hide();
+    kcfg_SkinInstalledWithKns->hide();
 
     m_skins = new QStandardItemModel(this);
 
@@ -224,10 +225,11 @@ void AppearanceSettings::updateSkinSetting()
 {
     QString skinId = skinList->currentIndex().data(SkinId).toString();
 
-    if (!skinId.isEmpty()) 
+    if (!skinId.isEmpty())
     {
         m_selectedSkinId = skinId;
         kcfg_Skin->setText(skinId);
+        kcfg_SkinInstalledWithKns->setChecked(skinList->currentIndex().data(SkinInstalledWithKns).toBool());
     }
 }
 
@@ -235,7 +237,7 @@ void AppearanceSettings::resetSelection()
 {
     m_selectedSkinId = Settings::skin();
 
-    QModelIndexList skins = m_skins->match(m_skins->index(0, 0), SkinId, 
+    QModelIndexList skins = m_skins->match(m_skins->index(0, 0), SkinId,
         Settings::skin(), 1, Qt::MatchExactly | Qt::MatchWrap);
 
     if (skins.count() > 0) skinList->setCurrentIndex(skins.at(0));
@@ -322,8 +324,7 @@ bool AppearanceSettings::validateSkin(const QString &skinId, const QStringList& 
 
 void AppearanceSettings::checkForExistingSkin()
 {
-
-    QModelIndexList skins = m_skins->match(m_skins->index(0, 0), SkinId, 
+    QModelIndexList skins = m_skins->match(m_skins->index(0, 0), SkinId,
         m_installSkinId, 1, Qt::MatchExactly | Qt::MatchWrap);
 
     int exists = skins.count();
@@ -465,6 +466,7 @@ void AppearanceSettings::removeSelectedSkin()
             if (skinId == Settings::skin())
             {
                 Settings::setSkin("default");
+                Settings::setSkinInstalledWithKns(false);
                 Settings::self()->writeConfig();
                 emit settingsChanged();
             }

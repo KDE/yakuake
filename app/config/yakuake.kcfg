@@ -80,6 +80,11 @@
       <whatsthis context="@info:whatsthis">The skin to be used by the application window.</whatsthis>
       <default>default</default>
     </entry>
+    <entry name="SkinInstalledWithKns" type="Bool">
+      <label context="@label">Skin installed by KNS</label>
+      <whatsthis context="@info:whatsthis">Whether the currently active skin was installed via KNS.</whatsthis>
+      <default>false</default>
+    </entry>
     <entry name="Translucency" type="Bool">
       <label context="@label">Use translucent background</label>
       <whatsthis context="@info:whatsthis">Whether to make use of XComposite ARGB translucency.</whatsthis>

@@ -745,7 +745,7 @@ void MainWindow::applySettings()
 
 void MainWindow::applySkin()
 {
-    bool gotSkin = m_skin->load(Settings::skin());
+    bool gotSkin = m_skin->load(Settings::skin(), Settings::skinInstalledWithKns());
 
     if (!gotSkin)
     {

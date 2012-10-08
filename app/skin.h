@@ -36,7 +36,7 @@ class Skin : public QObject
         explicit Skin();
         ~Skin();
 
-        bool load(const QString& name);
+        bool load(const QString& name, bool kns = false);
 
 
         const QColor& borderColor() { return m_borderColor; }
