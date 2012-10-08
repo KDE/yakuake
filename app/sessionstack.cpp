@@ -26,7 +26,6 @@
 
 #include <KMessageBox>
 #include <KLocalizedString>
-#include <kdeversion.h>
 
 #include <QtDBus/QtDBus>
 

@@ -23,7 +23,6 @@
 #include "session.h"
 #include "terminal.h"
 
-#include <kdeversion.h>
 
 int Session::m_availableSessionId = 0;
 

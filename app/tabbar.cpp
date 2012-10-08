@@ -33,7 +33,6 @@
 #include <KActionCollection>
 #include <KGlobalSettings>
 #include <KLocalizedString>
-#include <kdeversion.h>
 
 #include <QBitmap>
 #include <QPainter>

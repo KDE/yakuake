@@ -26,7 +26,7 @@
 #include "ui_appearancesettings.h"
 
 #include <KIO/Job>
-#include <kdeversion.h>
+
 
 class SkinListDelegate;
 
@@ -37,6 +37,7 @@ namespace KNS3
 {
     class DownloadManager;
 }
+
 
 class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
 {

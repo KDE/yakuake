@@ -48,7 +48,6 @@
 #include <KActionCollection>
 #include <KWindowSystem>
 #include <KLocalizedString>
-#include <kdeversion.h>
 
 #include <QDesktopWidget>
 #include <QPainter>
