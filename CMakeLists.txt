@@ -1,6 +1,6 @@
 project(yakuake)
 
-set(KDE_MIN_VERSION "4.4.0")
+set(KDE_MIN_VERSION "4.7.1")
 
 find_package(KDE4 ${KDE_MIN_VERSION} REQUIRED)
 

@@ -39,12 +39,9 @@ class Application : public KUniqueApplication
 
         virtual int newInstance();
 
-        static bool isKDE46OrHigher() { return m_isKDE46OrHigher; }
 
     private:
         MainWindow* m_mainWindow;
-
-        static bool m_isKDE46OrHigher;
 };
 
 #endif

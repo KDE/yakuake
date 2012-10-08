@@ -364,60 +364,38 @@ bool SessionStack::hasTerminalsWithKeyboardInputDisabled(int sessionId)
 
 bool SessionStack::isSessionMonitorActivityEnabled(int sessionId)
 {
-#if KDE_IS_VERSION(4, 7, 1)
     if (sessionId == -1) sessionId = m_activeSessionId;
     if (sessionId == -1) return false;
     if (!m_sessions.contains(sessionId)) return false;
 
     return m_sessions.value(sessionId)->monitorActivityEnabled();
-#else
-    Q_UNUSED(sessionId);
-
-    return false;
-#endif
 }
 
 void SessionStack::setSessionMonitorActivityEnabled(int sessionId, bool enabled)
 {
-#if KDE_IS_VERSION(4, 7, 1)
     if (sessionId == -1) sessionId = m_activeSessionId;
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
     m_sessions.value(sessionId)->setMonitorActivityEnabled(enabled);
-#else
-    Q_UNUSED(sessionId);
-    Q_UNUSED(enabled);
-#endif
 }
 
 bool SessionStack::isTerminalMonitorActivityEnabled(int terminalId)
 {
-#if KDE_IS_VERSION(4, 7, 1)
     int sessionId = sessionIdForTerminalId(terminalId);
     if (sessionId == -1) return false;
     if (!m_sessions.contains(sessionId)) return false;
 
     return m_sessions.value(sessionId)->monitorActivityEnabled(terminalId);
-#else
-    Q_UNUSED(terminalId);
-
-    return false;
-#endif
 }
 
 void SessionStack::setTerminalMonitorActivityEnabled(int terminalId, bool enabled)
 {
-#if KDE_IS_VERSION(4, 7, 1)
     int sessionId = sessionIdForTerminalId(terminalId);
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
     m_sessions.value(sessionId)->setMonitorActivityEnabled(terminalId, enabled);
-#else
-    Q_UNUSED(terminalId);
-    Q_UNUSED(enabled);
-#endif
 }
 
 bool SessionStack::hasTerminalsWithMonitorActivityEnabled(int sessionId)
@@ -440,60 +418,38 @@ bool SessionStack::hasTerminalsWithMonitorActivityDisabled(int sessionId)
 
 bool SessionStack::isSessionMonitorSilenceEnabled(int sessionId)
 {
-#if KDE_IS_VERSION(4, 7, 1)
     if (sessionId == -1) sessionId = m_activeSessionId;
     if (sessionId == -1) return false;
     if (!m_sessions.contains(sessionId)) return false;
 
     return m_sessions.value(sessionId)->monitorSilenceEnabled();
-#else
-    Q_UNUSED(sessionId);
-
-    return false;
-#endif
 }
 
 void SessionStack::setSessionMonitorSilenceEnabled(int sessionId, bool enabled)
 {
-#if KDE_IS_VERSION(4, 7, 1)
     if (sessionId == -1) sessionId = m_activeSessionId;
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
     m_sessions.value(sessionId)->setMonitorSilenceEnabled(enabled);
-#else
-    Q_UNUSED(sessionId);
-    Q_UNUSED(enabled);
-#endif
 }
 
 bool SessionStack::isTerminalMonitorSilenceEnabled(int terminalId)
 {
-#if KDE_IS_VERSION(4, 7, 1)
     int sessionId = sessionIdForTerminalId(terminalId);
     if (sessionId == -1) return false;
     if (!m_sessions.contains(sessionId)) return false;
 
     return m_sessions.value(sessionId)->monitorSilenceEnabled(terminalId);
-#else
-    Q_UNUSED(terminalId);
-
-    return false;
-#endif
 }
 
 void SessionStack::setTerminalMonitorSilenceEnabled(int terminalId, bool enabled)
 {
-#if KDE_IS_VERSION(4, 7, 1)
     int sessionId = sessionIdForTerminalId(terminalId);
     if (sessionId == -1) return;
     if (!m_sessions.contains(sessionId)) return;
 
     m_sessions.value(sessionId)->setMonitorSilenceEnabled(terminalId, enabled);
-#else
-    Q_UNUSED(terminalId);
-    Q_UNUSED(enabled);
-#endif
 }
 
 bool SessionStack::hasTerminalsWithMonitorSilenceEnabled(int sessionId)

@@ -65,15 +65,10 @@ AppearanceSettings::AppearanceSettings(QWidget* parent) : QWidget(parent)
     removeButton->setIcon(KIcon("edit-delete"));
     ghnsButton->setIcon(KIcon("get-hot-new-stuff"));
 
-#if KDE_IS_VERSION(4, 7, 0)
     m_knsConfigFileName = QLatin1String("yakuake.knsrc");
     m_knsDownloadManager = new KNS3::DownloadManager(m_knsConfigFileName);
 
     connect(ghnsButton, SIGNAL(clicked()), this, SLOT(getNewSkins()));
-#else
-    // Hide the GHNS button.
-    ghnsButton->setVisible(false);
-#endif
 
     m_selectedSkinId = Settings::skin();
 
@@ -464,8 +459,6 @@ void AppearanceSettings::removeSelectedSkin()
     }
 }
 
-#if KDE_IS_VERSION(4, 7, 0)
-
 QSet<QString> AppearanceSettings::extractKnsSkinIds(const QStringList& fileList)
 {
     QSet<QString> skinIdList;
@@ -560,14 +553,3 @@ void AppearanceSettings::getNewSkins()
         populateSkinList();
     }
 }
-
-#else
-
-void AppearanceSettings::getNewSkins()
-{
-    // This shouldn't be possible since the connect() for this slot
-    // is protected by the same if.
-    Q_ASSERT(false);
-}
-
-#endif

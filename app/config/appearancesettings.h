@@ -91,8 +91,6 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
          */
         bool validateSkin(const QString &skinId, const QStringList& fileList);
 
-
-#if KDE_IS_VERSION(4, 7, 0)
         /**
          * Extracts the skin IDs from the given fileList.
          * There can be multiple skins, but only one skin per directory.
@@ -104,7 +102,6 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
          *         given fileList.
          */
         QSet<QString> extractKnsSkinIds(const QStringList& fileList);
-#endif
 
         /**
          * Shows the KNS3 dialog where the user can download new skins.
@@ -118,6 +115,7 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
 
         void updateRemoveSkinButton();
         void removeSelectedSkin();
+
 
     private:
         QStandardItem* createSkinItem(const QString& skinDir);
@@ -137,10 +135,8 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
         QString m_installSkinFile;
         QStringList m_installSkinFileList;
 
-#if KDE_IS_VERSION(4, 7, 0)
         QString m_knsConfigFileName;
         KNS3::DownloadManager* m_knsDownloadManager;
-#endif
 };
 
 #endif

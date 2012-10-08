@@ -132,10 +132,8 @@ void TabBar::readyTabContextMenu()
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("rename-session"));
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("toggle-session-prevent-closing"));
         m_tabContextMenu->addMenu(m_toggleKeyboardInputMenu);
-#if KDE_IS_VERSION(4, 7, 1)
         m_tabContextMenu->addMenu(m_toggleMonitorActivityMenu);
         m_tabContextMenu->addMenu(m_toggleMonitorSilenceMenu);
-#endif
         m_tabContextMenu->addSeparator();
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("move-session-left"));
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("move-session-right"));
@@ -184,13 +182,11 @@ void TabBar::updateToggleActions(int sessionId)
     toggleAction = actionCollection->action("toggle-session-keyboard-input");
     toggleAction->setChecked(!sessionStack->hasTerminalsWithKeyboardInputEnabled(sessionId));
 
-#if KDE_IS_VERSION(4, 7, 1)
     toggleAction = actionCollection->action("toggle-session-monitor-activity");
     toggleAction->setChecked(!sessionStack->hasTerminalsWithMonitorActivityDisabled(sessionId));
 
     toggleAction = actionCollection->action("toggle-session-monitor-silence");
     toggleAction->setChecked(!sessionStack->hasTerminalsWithMonitorSilenceDisabled(sessionId));
-#endif
 }
 
 void TabBar::updateToggleKeyboardInputMenu(int sessionId)
@@ -368,10 +364,8 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
         int sessionId = sessionAtTab(index);
         updateToggleActions(sessionId);
         updateToggleKeyboardInputMenu(sessionId);
-#if KDE_IS_VERSION(4, 7, 1)
         updateToggleMonitorActivityMenu(sessionId);
         updateToggleMonitorSilenceMenu(sessionId);
-#endif
 
         m_mainWindow->setContextDependentActionsQuiet(true);
 
@@ -392,10 +386,8 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
         updateMoveActions(m_tabs.indexOf(m_selectedSessionId));
         updateToggleActions(m_selectedSessionId);
         updateToggleKeyboardInputMenu(m_selectedSessionId);
-#if KDE_IS_VERSION(4, 7, 1)
         updateToggleMonitorActivityMenu(m_selectedSessionId);
         updateToggleMonitorSilenceMenu(m_selectedSessionId);
-#endif
     }
 
     QWidget::contextMenuEvent(event);

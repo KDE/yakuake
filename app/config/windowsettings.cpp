@@ -29,9 +29,6 @@ WindowSettings::WindowSettings(QWidget* parent) : QWidget(parent)
 {
     setupUi(this);
 
-    if (!Application::isKDE46OrHigher())
-        kcfg_UseWMAssist->hide();
-
     for (int i = 2; i <= QApplication::desktop()->numScreens(); i++)
         kcfg_Screen->insertItem(i, i18nc("@item:inlistbox", "Screen <numid>%1</numid>", i));
 

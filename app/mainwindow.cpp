@@ -366,7 +366,6 @@ void MainWindow::setupActions()
     connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
     m_contextDependentActions << action;
 
-#if KDE_IS_VERSION(4, 7, 1)
     action = actionCollection()->addAction("toggle-session-monitor-activity");
     action->setText(i18nc("@action", "Monitor for Activity"));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_A));
@@ -380,7 +379,6 @@ void MainWindow::setupActions()
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
     m_contextDependentActions << action;
-#endif
 
     for (uint i = 1; i <= 10; ++i)
     {
@@ -1006,15 +1004,6 @@ void MainWindow::toggleWindowState()
 #if defined(Q_WS_X11)
 void MainWindow::kwinAssistToggleWindowState(bool visible)
 {
-    // Always fall back to legacy animation strategy if we're not on
-    // 4.6+. This block can be removed once we depend on KDE 4.6.
-    if (!Application::isKDE46OrHigher())
-    {
-        xshapeToggleWindowState(visible);
-
-        return;
-    }
-
     bool gotEffect = false;
 
     Display* display = QX11Info::display();
@@ -1077,12 +1066,6 @@ void MainWindow::kwinAssistToggleWindowState(bool visible)
 
 void MainWindow::kwinAssistPropCleanup()
 {
-    // We're not going to have set up the prop in the first place
-    // if we're not running in 4.6, so no need to clean it up.
-    // This block can be removed once we depend on KDE 4.6.
-    if (!Application::isKDE46OrHigher())
-        return;
-
     Display* display = QX11Info::display();
     Atom atom = XInternAtom(display, "_KDE_SLIDE", false);
 

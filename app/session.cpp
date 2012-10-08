@@ -586,7 +586,6 @@ bool Session::hasTerminalsWithMonitorActivityDisabled()
 
 void Session::reconnectMonitorActivitySignals()
 {
-#if KDE_IS_VERSION(4, 7, 1)
     QMapIterator<int, Terminal*> i(m_terminals);
 
     while (i.hasNext())
@@ -596,7 +595,6 @@ void Session::reconnectMonitorActivitySignals()
         connect(i.value(), SIGNAL(activityDetected(Terminal*)), this, SIGNAL(activityDetected(Terminal*)),
             Qt::UniqueConnection);
     }
-#endif
 }
 
 bool Session::monitorSilenceEnabled()
