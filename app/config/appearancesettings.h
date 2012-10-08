@@ -103,7 +103,7 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
          * @return The list of skin IDs which were extracted from the
          *         given fileList.
          */
-        QStringList extractKnsSkinIds(const QStringList& fileList);
+        QSet<QString> extractKnsSkinIds(const QStringList& fileList);
 #endif
 
         /**

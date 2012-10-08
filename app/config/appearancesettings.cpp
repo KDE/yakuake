@@ -466,9 +466,9 @@ void AppearanceSettings::removeSelectedSkin()
 
 #if KDE_IS_VERSION(4, 7, 0)
 
-QStringList AppearanceSettings::extractKnsSkinIds(const QStringList& fileList)
+QSet<QString> AppearanceSettings::extractKnsSkinIds(const QStringList& fileList)
 {
-    QStringList skinIdList;
+    QSet<QString> skinIdList;
 
     foreach (const QString& file, fileList)
     {
@@ -487,11 +487,7 @@ QStringList AppearanceSettings::extractKnsSkinIds(const QStringList& fileList)
                 // First remove all remaining slashes (as there could be leading or trailing ones).
                 skinId = skinId.replace('/', QString());
 
-                // Don't insert duplicate entries.
-                if (skinIdList.contains(skinId))
-                {
-                    skinIdList.append(skinId);
-                }
+                skinIdList.insert(skinId);
             }
         }
     }
@@ -512,7 +508,7 @@ void AppearanceSettings::getNewSkins()
         foreach (const KNS3::Entry &entry, dialog.installedEntries())
         {
             bool isValid = true;
-            QStringList skinIdList = extractKnsSkinIds(entry.installedFiles());
+            const QSet<QString>& skinIdList = extractKnsSkinIds(entry.installedFiles());
 
             // Validate all skin IDs as each archive can contain multiple skins.
             foreach (const QString& skinId, skinIdList)
