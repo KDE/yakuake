@@ -83,10 +83,6 @@ AppearanceSettings::AppearanceSettings(QWidget* parent) : QWidget(parent)
     m_localSkinsDir = KStandardDirs::locateLocal("data", "yakuake/skins/");
     m_knsSkinDir = KStandardDirs::locateLocal("data", "yakuake/kns_skins/");
 
-    // The default skin dir does not have any prefix.
-    // These are the skins that were shipped with yakuake.
-    m_defaultSkinDir = QLatin1String("yakuake/skins/");
-
     populateSkinList();
 }
 
@@ -106,71 +102,54 @@ void AppearanceSettings::showEvent(QShowEvent* event)
 
 void AppearanceSettings::populateSkinList()
 {
-    // Clear the list of skins before getting all installed skins.
     m_skins->clear();
 
-    // Populate the skins which were shipped with yakuake
-    // first. Afterwards add all skins which were
-    // installed by the user (first the manually ones,
-    // then the ones installed via KNS).
-    populateSkins(m_defaultSkinDir);
-    populateSkins(m_localSkinsDir);
-    populateSkins(m_knsSkinDir);
+    QStringList titleDirs = KGlobal::dirs()->findAllResources("data", "yakuake/skins/*/title.skin")
+        + KGlobal::dirs()->findAllResources("data", m_knsSkinDir + "*/title.skin");
+    QStringList tabDirs = KGlobal::dirs()->findAllResources("data", "yakuake/skins/*/tabs.skin")
+        + KGlobal::dirs()->findAllResources("data", m_knsSkinDir + "*/tabs.skin");
 
-    // Finally sort our skin list.
-    m_skins->sort(0);
-
-    updateRemoveSkinButton();
-}
-
-void AppearanceSettings::populateSkins(const QString& baseDirectory)
-{
     QStringList skinDirs;
-
-    // Filter for title.skin and tabs.skin files in the current skin base directory.
-    QString titleFilter = baseDirectory + QLatin1String("/*/title.skin");
-    QString tabFilter = baseDirectory + QLatin1String("/*/tabs.skin");
-
-    // Find the title and tab skin files.
-    QStringList titleDirs = KGlobal::dirs()->findAllResources("data", titleFilter);
-    QStringList tabDirs = KGlobal::dirs()->findAllResources("data", tabFilter);
-
     QStringListIterator i(titleDirs);
 
     while (i.hasNext())
     {
         const QString& titleDir = i.next();
+        const QString& skinDir(titleDir.section('/', 0, -2));
+        kDebug() << skinDir.section('/', -2, -1);
 
-        if (tabDirs.contains(titleDir.section('/', 0, -2) + "/tabs.skin"))
-            skinDirs << titleDir.section('/', 0, -2);
-    }
-
-    if (skinDirs.count() > 0)
-    {
-        QStringListIterator i(skinDirs);
-
-        while (i.hasNext())
+        if (tabDirs.contains(skinDir + "/tabs.skin")
+            && !skinDirs.filter(QRegExp(QRegExp::escape(skinDir.section('/', -2, -1)) + '$')).count())
         {
-            const QString& skinDir = i.next();
-            QString skinId = skinDir.section('/', -1, -1);
-
-            int exists = m_skins->match(m_skins->index(0, 0), SkinId, skinId,
-                1, Qt::MatchExactly | Qt::MatchWrap).count();
-
-            if (exists == 0)
-            {
-                QStandardItem* skin = createSkinItem(skinDir);
-
-                if (!skin)
-                    continue;
-
-                m_skins->appendRow(skin);
-
-                if (skin->data(SkinId).toString() == m_selectedSkinId)
-                    skinList->setCurrentIndex(skin->index());
-            }
+            skinDirs << skinDir;
         }
     }
+
+    kDebug() << skinDirs;
+
+    if (skinDirs.count() == 0)
+        return;
+
+    QStringListIterator i2(skinDirs);
+
+    while (i2.hasNext())
+    {
+        const QString& skinDir = i2.next();
+
+        QStandardItem* skin = createSkinItem(skinDir);
+
+        if (!skin)
+            continue;
+
+        m_skins->appendRow(skin);
+
+        if (skin->data(SkinId).toString() == m_selectedSkinId)
+            skinList->setCurrentIndex(skin->index());
+    }
+
+    m_skins->sort(0);
+
+    updateRemoveSkinButton();
 }
 
 QStandardItem* AppearanceSettings::createSkinItem(const QString& skinDir)

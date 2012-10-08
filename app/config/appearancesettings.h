@@ -126,18 +126,6 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
         void failInstall(const QString& error);
         void cleanupAfterInstall();
 
-        /**
-         * Populates the skins from the given base directory.
-         * The skins will be added to the item model (m_skins)
-         * if they are valid.
-         *
-         * @param baseDirectory The directory where the skins are
-         *                      located in. This will be used as
-         *                      filter-prefix for the call to
-         *                      KGlobal::dirs()->findAllResources().
-         */
-        void populateSkins(const QString& baseDirectory);
-
         QString m_selectedSkinId;
 
         QStandardItemModel* m_skins;
@@ -145,7 +133,6 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
 
         QString m_localSkinsDir;
         QString m_knsSkinDir;
-        QString m_defaultSkinDir;
         QString m_installSkinId;
         QString m_installSkinFile;
         QStringList m_installSkinFileList;
