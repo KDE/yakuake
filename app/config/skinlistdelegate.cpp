@@ -114,26 +114,27 @@ void SkinListDelegate::paintText(QPainter* painter, const QStyleOptionViewItem& 
         y += textRect.height();
 
         painter->drawText(x, y, fontMetrics.elidedText(value.toString(), option.textElideMode, width));
-    }
 
-    value = index.data(AppearanceSettings::SkinInstalledWithKns);
+        value = index.data(AppearanceSettings::SkinInstalledWithKns);
 
-    if (value.isValid() && value.toBool())
-    {
-        KIcon ghnsIcon("get-hot-new-stuff");
-        int knsIconX = x;
+        if (value.isValid() && value.toBool())
+        {
+            KIcon ghnsIcon("get-hot-new-stuff");
+            int knsIconX = x;
+            int iconSize = qMin(textRect.height(), KNS_ICON_SIZE);
 
-        if (option.direction == Qt::RightToLeft)
-            // In RTL mode we have to correct our position
-            // so there's room for the icon and enough space
-            // between the text and the icon.
-            knsIconX -= (KNS_ICON_SIZE + MARGIN);
-        else
-            // Otherwise we just have to make sure that we
-            // start painting after the text and add some margin.
-            knsIconX += textWidth + MARGIN;
+            if (option.direction == Qt::RightToLeft)
+                // In RTL mode we have to correct our position
+                // so there's room for the icon and enough space
+                // between the text and the icon.
+                knsIconX -= (iconSize + MARGIN);
+            else
+                // Otherwise we just have to make sure that we
+                // start painting after the text and add some margin.
+                knsIconX += textWidth + MARGIN;
 
-        ghnsIcon.paint(painter, knsIconX, initialY + MARGIN, KNS_ICON_SIZE, KNS_ICON_SIZE);
+            ghnsIcon.paint(painter, knsIconX, initialY + MARGIN, iconSize, iconSize);
+        }
     }
 
     value = index.data(AppearanceSettings::SkinAuthor);
