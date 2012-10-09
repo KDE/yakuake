@@ -948,8 +948,13 @@ void MainWindow::changeEvent(QEvent* event)
         && Settings::width() != 100
         && Settings::height() != 100)
     {
-        setWindowWidth(100);
-        setWindowHeight(100);
+        Settings::setWidth(100);
+        Settings::setHeight(100);
+
+        applyWindowGeometry();
+
+        updateWindowWidthMenu();
+        updateWindowHeightMenu();
     }
 
     KMainWindow::changeEvent(event);
