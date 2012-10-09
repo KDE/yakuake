@@ -111,7 +111,6 @@ void AppearanceSettings::populateSkinList()
     {
         const QString& titleDir = i.next();
         const QString& skinDir(titleDir.section('/', 0, -2));
-        kDebug() << skinDir.section('/', -2, -1);
 
         if (tabDirs.contains(skinDir + "/tabs.skin")
             && !skinDirs.filter(QRegExp(QRegExp::escape(skinDir.section('/', -2, -1)) + '$')).count())
@@ -119,8 +118,6 @@ void AppearanceSettings::populateSkinList()
             skinDirs << skinDir;
         }
     }
-
-    kDebug() << skinDirs;
 
     if (skinDirs.count() == 0)
         return;
