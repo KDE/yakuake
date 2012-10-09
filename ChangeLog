@@ -29,6 +29,11 @@ Changes since 2.9.8:
 * A number of default keyboard shortcuts have been changed to reestablish
   consistency with Konsole, which introduced changed defaults in KDE Soft-
   ware Compilation v4.6.
+* Invoking the window manager maximization feature now results in a
+  Yakuake window with 100% width and height instead of the unresized win-
+  dow getting moved to the top-left corner of the screen. However, restore
+  is not supported as it doesn't easily fit with Yakuake's window size
+  state model.
 * Tweaks to the code Yakuake uses to make itself the active window when
   invoked should improve compatibility with more window managers, particu-
   larly xfwm.

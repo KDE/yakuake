@@ -943,6 +943,15 @@ void MainWindow::changeEvent(QEvent* event)
             toggleWindowState();
     }
 
+    if (event->type() == QEvent::WindowStateChange
+        && (windowState() & Qt::WindowMaximized)
+        && Settings::width() != 100
+        && Settings::height() != 100)
+    {
+        setWindowWidth(100);
+        setWindowHeight(100);
+    }
+
     KMainWindow::changeEvent(event);
 }
 
