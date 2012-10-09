@@ -1280,7 +1280,7 @@ QRect MainWindow::getDesktopGeometry()
 
             if (KWindowSystem::hasWId(windowId))
             {
-                KWindowInfo windowInfo = KWindowSystem::windowInfo(windowId, 0, NET::WM2ExtendedStrut);
+                KWindowInfo windowInfo = KWindowSystem::windowInfo(windowId, NET::WMDesktop, NET::WM2ExtendedStrut);
 
                 if (windowInfo.valid() && windowInfo.desktop() == currentDesktop)
                 {
