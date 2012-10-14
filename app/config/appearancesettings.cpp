@@ -487,15 +487,25 @@ QSet<QString> AppearanceSettings::extractKnsSkinIds(const QStringList& fileList)
 
 void AppearanceSettings::getNewSkins()
 {
-    KNS3::DownloadDialog dialog(m_knsConfigFileName, this);
-    dialog.exec();
+    QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog(m_knsConfigFileName, this);
 
-    if (!dialog.installedEntries().empty())
+    // Show the KNS dialog. NOTE: We are NOT supposed to check the dialog's result,
+    // because the actions are asynchronous (items are installed or uninstalled,
+    // regardless whether the dialog's result is Accepted or Rejected)!
+    dialog->exec();
+
+    if (dialog.isNull())
+    {
+        kDebug() << "KNS3::DownloadDialog was destroyed during exec()!";
+        return;
+    }
+
+    if (!dialog->installedEntries().empty())
     {
         quint32 invalidEntryCount = 0;
         QString invalidSkinText;
 
-        foreach (const KNS3::Entry &entry, dialog.installedEntries())
+        foreach (const KNS3::Entry &entry, dialog->installedEntries())
         {
             bool isValid = true;
             const QSet<QString>& skinIdList = extractKnsSkinIds(entry.installedFiles());
@@ -540,7 +550,7 @@ void AppearanceSettings::getNewSkins()
         }
     }
 
-    if (!dialog.changedEntries().isEmpty())
+    if (!dialog->changedEntries().isEmpty())
     {
         // Reset the selection in case the currently selected
         // skin was removed.
@@ -549,4 +559,6 @@ void AppearanceSettings::getNewSkins()
         // Re-populate the list of skins if the user changed something.
         populateSkinList();
     }
+
+    delete dialog;
 }
