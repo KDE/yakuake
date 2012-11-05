@@ -538,7 +538,7 @@ void MainWindow::handleTerminalSilence(Terminal* terminal)
 
 void MainWindow::handleLastTabClosed()
 {
-    if (isVisible())
+    if (isVisible() && !Settings::keepOpenAfterLastSessionCloses())
         toggleWindowState();
 }
 

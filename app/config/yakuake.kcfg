@@ -41,6 +41,11 @@
       <whatsthis context="@info:whatsthis">Whether to keep the application window open when it loses focus.</whatsthis>
       <default>true</default>
     </entry>
+    <entry name="KeepOpenAfterLastSessionCloses" type="Bool">
+      <label context="@label">Keep window open after last session closes</label>
+      <whatsthis context="@info:whatsthis">Whether to keep the application window open after the last session is closed.</whatsthis>
+      <default>false</default>
+    </entry>
     <entry name="ToggleToFocus" type="Bool">
       <label context="@label">Use open/retract shortcut to focus window</label>
       <whatsthis context="@info:whatsthis">Whether the open/retract keyboard shortcut can be used to focus the application window when it is already open.</whatsthis>

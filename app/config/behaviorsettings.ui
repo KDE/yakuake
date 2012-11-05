@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>364</width>
-    <height>308</height>
+    <width>356</width>
+    <height>289</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -20,6 +20,64 @@
       <string comment="@title:group Group box label">General</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
+      <item row="6" column="0" colspan="2">
+       <widget class="QCheckBox" name="kcfg_FocusFollowsMouse">
+        <property name="text">
+         <string comment="@option:check">Focus terminals when the mouse pointer is moved over them</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QCheckBox" name="kcfg_ToggleToFocus">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="whatsThis">
+         <string comment="@info:whatsthis">If this option is enabled, the shortcut normally used to open and retract the window will give it focus, rather than close it, if it has previously lost focus. Unless the window is set to show on all virtual desktops, this may cause the window manager to switch to the virtual desktop it currently resides on.</string>
+        </property>
+        <property name="text">
+         <string comment="@option:check">Use Open/Retract action to focus window</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QCheckBox" name="kcfg_KeepAbove">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string comment="@option:check">Keep window above other windows</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <spacer>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
       <item row="0" column="0" colspan="2">
        <widget class="QCheckBox" name="kcfg_OpenAfterStart">
         <property name="text">
@@ -60,61 +118,10 @@
         </property>
        </spacer>
       </item>
-      <item row="3" column="1">
-       <widget class="QCheckBox" name="kcfg_KeepAbove">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string comment="@option:check">Keep window above other windows</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <spacer>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="4" column="1">
-       <widget class="QCheckBox" name="kcfg_ToggleToFocus">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="whatsThis">
-         <string comment="@info:whatsthis">If this option is enabled, the shortcut normally used to open and retract the window will give it focus, rather than close it, if it has previously lost focus. Unless the window is set to show on all virtual desktops, this may cause the window manager to switch to the virtual desktop it currently resides on.</string>
-        </property>
-        <property name="text">
-         <string comment="@option:check">Use Open/Retract action to focus window</string>
-        </property>
-       </widget>
-      </item>
       <item row="5" column="0" colspan="2">
-       <widget class="QCheckBox" name="kcfg_FocusFollowsMouse">
+       <widget class="QCheckBox" name="kcfg_KeepOpenAfterLastSessionCloses">
         <property name="text">
-         <string comment="@option:check">Focus terminals when the mouse pointer is moved over them</string>
+         <string extracomment="@option:check">Keep window open after the last session is closed</string>
         </property>
        </widget>
       </item>
@@ -152,6 +159,16 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>kcfg_OpenAfterStart</tabstop>
+  <tabstop>kcfg_PollMouse</tabstop>
+  <tabstop>kcfg_KeepOpen</tabstop>
+  <tabstop>kcfg_KeepAbove</tabstop>
+  <tabstop>kcfg_ToggleToFocus</tabstop>
+  <tabstop>kcg_KeepOpenAfterLastSessionCloses</tabstop>
+  <tabstop>kcfg_FocusFollowsMouse</tabstop>
+  <tabstop>kcfg_ConfirmQuit</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
