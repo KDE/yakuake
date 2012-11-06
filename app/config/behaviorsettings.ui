@@ -165,7 +165,7 @@
   <tabstop>kcfg_KeepOpen</tabstop>
   <tabstop>kcfg_KeepAbove</tabstop>
   <tabstop>kcfg_ToggleToFocus</tabstop>
-  <tabstop>kcg_KeepOpenAfterLastSessionCloses</tabstop>
+  <tabstop>kcfg_KeepOpenAfterLastSessionCloses</tabstop>
   <tabstop>kcfg_FocusFollowsMouse</tabstop>
   <tabstop>kcfg_ConfirmQuit</tabstop>
  </tabstops>
