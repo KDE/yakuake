@@ -245,6 +245,7 @@ Action=Popup
 
 [Event/BellVisible]
 Name=Bell in Visible Session
+Name[bs]=Zvono u vidljivoj sesiji
 Name[ca]=Timbre en una sessió visible
 Name[cs]=Zvonek ve viditelném sezení
 Name[da]=Bip i synlig session
@@ -275,6 +276,7 @@ Name[x-test]=xxBell in Visible Sessionxx
 Name[zh_CN]=可见会话中的响铃
 Name[zh_TW]=可見工作階段響鈴
 Comment=Bell emitted within a visible session
+Comment[bs]=Oglašeno je zvono unutar vidljive sesije
 Comment[ca]=Timbre emès en una sessió visible
 Comment[cs]=Zvonek spuštěný ve viditelném sezení
 Comment[da]=Bip udsendt indenfor en synlig session
@@ -308,6 +310,7 @@ Action=None
 
 [Event/BellInvisible]
 Name=Bell in Non-Visible Session
+Name[bs]=Zvono u zaklonjenoj sesiji
 Name[ca]=Timbre en una sessió no visible
 Name[cs]=Zvonek ve skrytém sezení
 Name[da]=Bip i ikke-synlig session
@@ -338,6 +341,7 @@ Name[x-test]=xxBell in Non-Visible Sessionxx
 Name[zh_CN]=不可见会话中的响铃
 Name[zh_TW]=非可見工作階段的響鈴
 Comment=Bell emitted within a non-visible session
+Comment[bs]=Oglašeno je zvono unutar zaklonjene sesije
 Comment[ca]=Timbre emès en una sessió no visible
 Comment[cs]=Zvonek spuštěný ve skrytém sezení
 Comment[da]=Bip udsendt indenfor en ikke-synlig session
