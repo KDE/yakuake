@@ -28,6 +28,7 @@ Name[ko]=Yakuake
 Name[lt]=Yakuake
 Name[lv]=Yakuake
 Name[ml]=യാക്വാകെ
+Name[mr]=याकुआके
 Name[nb]=Yakuake
 Name[nds]=Yakuake
 Name[nl]=Yakuake
@@ -73,6 +74,7 @@ GenericName[ja]=ドロップダウン式ターミナル
 GenericName[km]=ស្ថានីយ​ទម្លាក់​ចុះ
 GenericName[ko]=위에서 내려오는 터미널
 GenericName[lt]=Išskleidžiamasis terminalas
+GenericName[mr]=खाली येणारा टर्मिनल
 GenericName[nb]=Nedtrekksterminal
 GenericName[nds]=Utklapp-Konsool
 GenericName[nl]=Uitvouwbare terminalemulator
@@ -126,6 +128,7 @@ Comment[ko]=KDE Konsole을 기반으로 한 드롭 다운 방식 터미널 에�
 Comment[lt]=Nusileidžiantis terminalo emuliatorius paremtas KDE Konsole technologija.
 Comment[lv]=Izkrītošs termināļa emulators, kurš bāzēts uz KDE Konsole tehnoloģijas.
 Comment[ml]=കെഡി‌ഈയുടെ കണ്‍സോള്‍ സാങ്കേതികത്വം അടിസ്ഥാനമാക്കിയ ഇറങ്ങിവരുന്ന ടെര്‍മിനല്‍ എമുലേറ്റര്‍
+Comment[mr]=केडीई कंसोल तंत्रज्ञानावर आधारित खाली येणारा टर्मिनल एम्युलेटर.
 Comment[nb]=En terminalemulator basert på KDEs Konsole-teknologi.
 Comment[nds]=En Konsool-Emulater, de sik utklappen lett, op KDE-Konsole opbuut.
 Comment[nl]=Een uitvouwbare terminalemulator, gebaseerd op de technologie van KDE Konsole.
