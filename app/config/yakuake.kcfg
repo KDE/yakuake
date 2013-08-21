@@ -8,7 +8,7 @@
     <entry name="Screen" type="Int">
       <label context="@label">Screen to use</label>
       <whatsthis context="@info:whatsthis">The screen on which the application window will appear. 0 is understood to be the screen the mouse pointer is on.</whatsthis>
-      <default>1</default>
+      <default>0</default>
     </entry>
     <entry name="Width" type="Int">
       <label context="@label">Window width</label>
