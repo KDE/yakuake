@@ -1282,7 +1282,7 @@ QRect MainWindow::getDesktopGeometry()
             {
                 KWindowInfo windowInfo = KWindowSystem::windowInfo(windowId, NET::WMDesktop, NET::WM2ExtendedStrut);
 
-                if (windowInfo.valid() && windowInfo.desktop() == currentDesktop)
+                if (windowInfo.valid() && (windowInfo.desktop() == currentDesktop || windowInfo.desktop() == -1))
                 {
                     NETExtendedStrut strut = windowInfo.extendedStrut();
 
