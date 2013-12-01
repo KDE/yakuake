@@ -192,7 +192,11 @@ void MainWindow::setupActions()
     action = actionCollection()->addAction("toggle-window-state");
     action->setText(i18nc("@action", "Open/Retract Yakuake"));
     action->setIcon(KIcon("yakuake"));
+#ifndef Q_OS_WIN
     action->setGlobalShortcut(KShortcut(Qt::Key_F12));
+#else
+    action->setGlobalShortcut(KShortcut(Qt::Key_F11));
+#endif
     connect(action, SIGNAL(triggered()), this, SLOT(toggleWindowState()));
 
     action = actionCollection()->addAction("keep-open");
