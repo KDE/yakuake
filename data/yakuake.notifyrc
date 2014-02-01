@@ -2,6 +2,7 @@
 IconName=yakuake
 Comment=Yakuake
 Comment[bg]=Yakuake
+Comment[bs]=Yakuake
 Comment[ca]=Yakuake
 Comment[ca@valencia]=Yakuake
 Comment[cs]=Yakuake
@@ -42,6 +43,7 @@ Comment[zh_TW]=Yakuake
 
 [Event/startup]
 Name=Startup
+Name[bs]=Pokretanje
 Name[ca]=Inici
 Name[ca@valencia]=Inici
 Name[cs]=Spuštění
@@ -79,6 +81,7 @@ Name[x-test]=xxStartupxx
 Name[zh_CN]=启动
 Name[zh_TW]=啟動
 Comment=Yakuake has started
+Comment[bs]=Yakuake je pokrenut
 Comment[ca]=S'ha engegat el Yakuake
 Comment[ca@valencia]=S'ha engegat el Yakuake
 Comment[cs]=Yakuake byl spuštěn
@@ -118,6 +121,7 @@ Action=Popup
 
 [Event/silence]
 Name=Silence detected
+Name[bs]=Tišina prepoznata
 Name[ca]=S'ha detectat silenci
 Name[ca@valencia]=S'ha detectat silenci
 Name[cs]=Detekováno ticho
@@ -154,6 +158,7 @@ Name[x-test]=xxSilence detectedxx
 Name[zh_CN]=探测到静默
 Name[zh_TW]=偵測到沉默狀態
 Comment=Silence detected in a monitored terminal or session
+Comment[bs]=Tišina prepoznata u praćenom terminalu ili sesiji
 Comment[ca]=S'ha detectat silenci en un terminal vigilat o sessió
 Comment[ca@valencia]=S'ha detectat silenci en un terminal vigilat o sessió
 Comment[cs]=Detekováno ticho v monitorovaném terminálu nebo sezení
@@ -192,6 +197,7 @@ Action=Popup
 
 [Event/activity]
 Name=Activity detected
+Name[bs]=Aktivnost detektovana
 Name[ca]=S'ha detectat activitat
 Name[ca@valencia]=S'ha detectat activitat
 Name[cs]=Detekována aktivita
@@ -228,6 +234,7 @@ Name[x-test]=xxActivity detectedxx
 Name[zh_CN]=探测到活动
 Name[zh_TW]=偵測到活動
 Comment=Activity detected in a monitored terminal or session
+Comment[bs]=Aktivnost detektovana u praćenom terminalu ili sesiji
 Comment[ca]=S'ha detectat activitat en un terminal vigilat o sessió
 Comment[ca@valencia]=S'ha detectat activitat en un terminal vigilat o sessió
 Comment[cs]=Detekována aktivita v monitorovaném terminálu nebo sezení
