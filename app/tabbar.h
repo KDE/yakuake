@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2008-2009 by Eike Hein <hein@kde.org>
+  Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
   Copyright (C) 2009 by Juan Carlos Torres <carlosdgtorres@gmail.com>
 
   This program is free software; you can redistribute it and/or
@@ -31,10 +31,9 @@
 class MainWindow;
 class Skin;
 
-class KLineEdit;
-class KMenu;
-class KPushButton;
-
+class QLineEdit;
+class QMenu;
+class QPushButton;
 class QToolButton;
 class QLabel;
 
@@ -51,8 +50,8 @@ class TabBar : public QWidget
         void applySkin();
 
 
-    public slots:
-        void addTab(int sessionId, const QString& title = 0);
+    public Q_SLOTS:
+        void addTab(int sessionId, const QString& title);
         void removeTab(int sessionId = -1);
 
         void interactiveRename(int sessionId);
@@ -70,7 +69,7 @@ class TabBar : public QWidget
         Q_SCRIPTABLE int sessionAtTab(int index);
 
 
-    signals:
+    Q_SIGNALS:
         void newTabRequested();
         void tabSelected(int sessionId);
         void tabClosed(int sessionId);
@@ -98,7 +97,7 @@ class TabBar : public QWidget
         virtual void leaveEvent(QEvent*);
 
 
-    private slots:
+    private Q_SLOTS:
         void readySessionMenu();
 
         void contextMenuActionHovered(QAction* action);
@@ -132,15 +131,15 @@ class TabBar : public QWidget
         Skin* m_skin;
 
         QToolButton* m_newTabButton;
-        KPushButton* m_closeTabButton;
+        QPushButton* m_closeTabButton;
 
-        KMenu* m_tabContextMenu;
-        KMenu* m_toggleKeyboardInputMenu;
-        KMenu* m_toggleMonitorActivityMenu;
-        KMenu* m_toggleMonitorSilenceMenu;
-        KMenu* m_sessionMenu;
+        QMenu* m_tabContextMenu;
+        QMenu* m_toggleKeyboardInputMenu;
+        QMenu* m_toggleMonitorActivityMenu;
+        QMenu* m_toggleMonitorSilenceMenu;
+        QMenu* m_sessionMenu;
 
-        KLineEdit* m_lineEdit;
+        QLineEdit* m_lineEdit;
         int m_renamingSessionId;
 
         QList<int> m_tabs;

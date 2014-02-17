@@ -85,11 +85,11 @@ class Skin : public QObject
         const QString tabBarCloseTabButtonStyleSheet() { return m_tabBarCloseTabButtonStyleSheet; }
 
 
-    signals:
+    Q_SIGNALS:
         void iconChanged();
 
 
-    private slots:
+    private Q_SLOTS:
         void systemIconsChanged(int group);
 
 

@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2008-2009 by Eike Hein <hein@kde.org>
+  Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License as
@@ -23,6 +23,8 @@
 #define TERMINAL_H
 
 #include <KParts/Part>
+
+#include <QPointer>
 
 
 class QKeyEvent;
@@ -66,7 +68,7 @@ class Terminal : public QObject
         void deletePart();
 
 
-    signals:
+    Q_SIGNALS:
         void titleChanged(int terminalId, const QString& title);
         void activated(int terminalId);
         void manuallyActivated(Terminal* terminal);
@@ -76,7 +78,7 @@ class Terminal : public QObject
         void destroyed(int terminalId);
 
 
-    private slots:
+    private Q_SLOTS:
         void setTitle(const QString& title);
         void overrideShortcut(QKeyEvent* event, bool& override);
         void silenceDetected();

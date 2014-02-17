@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2008-2009 by Eike Hein <hein@kde.org>
+  Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
   Copyright (C) 2009 by Juan Carlos Torres <carlosdgtorres@gmail.com>
 
   This program is free software; you can redistribute it and/or
@@ -424,7 +424,7 @@ const QString Session::terminalIdList()
     while (i.hasNext())
         idList << QString::number(i.next());
 
-    return idList.join(",");
+    return idList.join(QStringLiteral(","));
 }
 
 bool Session::hasTerminal(int terminalId)

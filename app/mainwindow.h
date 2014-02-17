@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2008-2009 by Eike Hein <hein@kde.org>
+  Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
   Copyright (C) 2009 by Juan Carlos Torres <carlosdgtorres@gmail.com>
 
   This program is free software; you can redistribute it and/or
@@ -23,7 +23,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <KMainWindow>
+#include "config-yakuake.h"
+
+#include <QMainWindow>
 
 #include <QTimer>
 
@@ -36,12 +38,10 @@ class Terminal;
 class TitleBar;
 
 class KHelpMenu;
-class KMenu;
-class KAction;
 class KActionCollection;
 
 
-class MainWindow : public KMainWindow
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.yakuake")
@@ -54,14 +54,14 @@ class MainWindow : public KMainWindow
         SessionStack* sessionStack() { return m_sessionStack; }
 
         Skin* skin() { return m_skin; }
-        KMenu* menu() { return m_menu; }
+        QMenu* menu() { return m_menu; }
 
         bool useTranslucency() { return m_useTranslucency; }
 
         void setContextDependentActionsQuiet(bool quiet);
 
 
-    public slots:
+    public Q_SLOTS:
         Q_SCRIPTABLE void toggleWindowState();
 
         void handleContextDependentAction(QAction* action = 0, int sessionId = -1);
@@ -74,7 +74,7 @@ class MainWindow : public KMainWindow
         void handleLastTabClosed();
 
 
-    signals:
+    Q_SIGNALS:
         void windowOpened();
         void windowClosed();
 
@@ -87,7 +87,7 @@ class MainWindow : public KMainWindow
         virtual bool queryClose();
 
 
-    private slots:
+    private Q_SLOTS:
         void applySettings();
         void applySkin();
         void applyWindowProperties();
@@ -142,7 +142,7 @@ class MainWindow : public KMainWindow
         void updateWindowHeightMenu();
         void updateWindowWidthMenu();
 
-#if defined(Q_WS_X11)
+#if HAVE_X11
         void kwinAssistToggleWindowState(bool visible);
         void kwinAssistPropCleanup();
         bool m_kwinAssistPropSet;
@@ -166,18 +166,18 @@ class MainWindow : public KMainWindow
         bool m_useTranslucency;
 
         KActionCollection* m_actionCollection;
-        QList<KAction*> m_contextDependentActions;
+        QList<QAction*> m_contextDependentActions;
 
         Skin* m_skin;
         TitleBar* m_titleBar;
         TabBar* m_tabBar;
         SessionStack* m_sessionStack;
 
-        KMenu* m_menu;
+        QMenu* m_menu;
         KHelpMenu* m_helpMenu;
-        KMenu* m_screenMenu;
-        KMenu* m_windowWidthMenu;
-        KMenu* m_windowHeightMenu;
+        QMenu* m_screenMenu;
+        QMenu* m_windowWidthMenu;
+        QMenu* m_windowHeightMenu;
 
         FirstRunDialog* m_firstRunDialog;
 

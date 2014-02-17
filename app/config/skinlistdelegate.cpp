@@ -22,6 +22,8 @@
 #include "skinlistdelegate.h"
 #include "appearancesettings.h"
 
+#include <KLocalizedString>
+
 #include <QApplication>
 #include <QModelIndex>
 #include <QPainter>
@@ -119,7 +121,7 @@ void SkinListDelegate::paintText(QPainter* painter, const QStyleOptionViewItem& 
 
         if (value.isValid() && value.toBool())
         {
-            KIcon ghnsIcon("get-hot-new-stuff");
+            QIcon ghnsIcon(QStringLiteral("get-hot-new-stuff"));
             int knsIconX = x;
             int iconSize = qMin(textRect.height(), KNS_ICON_SIZE);
 
@@ -141,7 +143,7 @@ void SkinListDelegate::paintText(QPainter* painter, const QStyleOptionViewItem& 
 
     if (value.isValid())
     {
-        QString skinAuthor = i18nc("@item:intext", "by %1", value.toString());
+        QString skinAuthor = xi18nc("@item:intext", "by %1", value.toString());
 
         font.setBold(false);
         painter->setFont(font);
@@ -184,7 +186,7 @@ QSize SkinListDelegate::sizeHint(const QStyleOptionViewItem&option, const QModel
 
     if (value.isValid())
     {
-        QString skinAuthor = i18nc("@item:intext", "by %1", value.toString());
+        QString skinAuthor = xi18nc("@item:intext", "by %1", value.toString());
 
         font.setBold(false);
         QFontMetrics fontMetrics(font);

@@ -20,8 +20,9 @@
 
 
 #include "windowsettings.h"
-#include "application.h"
 #include "settings.h"
+
+#include <KLocalizedString>
 
 #include <QDesktopWidget>
 
@@ -30,7 +31,7 @@ WindowSettings::WindowSettings(QWidget* parent) : QWidget(parent)
     setupUi(this);
 
     for (int i = 2; i <= QApplication::desktop()->numScreens(); i++)
-        kcfg_Screen->insertItem(i, i18nc("@item:inlistbox", "Screen <numid>%1</numid>", i));
+        kcfg_Screen->insertItem(i, xi18nc("@item:inlistbox", "Screen %1", i));
 
     if (QApplication::desktop()->numScreens() > 1)
     {

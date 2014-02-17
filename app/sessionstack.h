@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2008-2009 by Eike Hein <hein@kde.org>
+  Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
   Copyright (C) 2009 by Juan Carlos Torres <carlosdgtorres@gmail.com>
 
   This program is free software; you can redistribute it and/or
@@ -52,7 +52,7 @@ class SessionStack : public QStackedWidget
         bool requiresVisualEventOverlay();
 
 
-    public slots:
+    public Q_SLOTS:
         Q_SCRIPTABLE int addSession(Session::SessionType type = Session::Single);
         Q_SCRIPTABLE int addSessionTwoHorizontal();
         Q_SCRIPTABLE int addSessionTwoVertical();
@@ -112,8 +112,8 @@ class SessionStack : public QStackedWidget
         void handleTerminalHighlightRequest(int terminalId);
 
 
-    signals:
-        void sessionAdded(int sessionId, const QString& title = 0);
+    Q_SIGNALS:
+        void sessionAdded(int sessionId, const QString& title);
         void sessionRaised(int sessionId);
         void sessionRemoved(int sessionId);
 
@@ -130,7 +130,7 @@ class SessionStack : public QStackedWidget
         void removeTerminalHighlight();
 
 
-    private slots:
+    private Q_SLOTS:
         void handleManualTerminalActivation(Terminal*);
 
         void cleanup(int sessionId);

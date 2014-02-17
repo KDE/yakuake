@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2008-2009 by Eike Hein <hein@kde.org>
+  Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License as
@@ -23,9 +23,9 @@
 #include "mainwindow.h"
 #include "skin.h"
 
-#include <KMenu>
-#include <KPushButton>
-#include <KGlobalSettings>
+#include <QFontDatabase>
+#include <QMenu>
+#include <QPushButton>
 #include <KLocalizedString>
 
 #include <QBitmap>
@@ -34,7 +34,7 @@
 
 TitleBar::TitleBar(MainWindow* mainWindow) : QWidget(mainWindow)
 {
-    setWhatsThis(i18nc("@info:whatsthis",
+    setWhatsThis(xi18nc("@info:whatsthis",
                        "<title>Title Bar</title>"
                        "<para>The title bar displays the session title if available.</para>"));
 
@@ -43,23 +43,23 @@ TitleBar::TitleBar(MainWindow* mainWindow) : QWidget(mainWindow)
     m_mainWindow = mainWindow;
     m_skin = mainWindow->skin();
 
-    m_focusButton = new KPushButton(this);
+    m_focusButton = new QPushButton(this);
     m_focusButton->setFocusPolicy(Qt::NoFocus);
     m_focusButton->setCheckable(true);
-    m_focusButton->setToolTip(i18nc("@info:tooltip", "Keep window open when it loses focus"));
-    m_focusButton->setWhatsThis(i18nc("@info:whatsthis", "If this is checked, the window will stay open when it loses focus."));
+    m_focusButton->setToolTip(xi18nc("@info:tooltip", "Keep window open when it loses focus"));
+    m_focusButton->setWhatsThis(xi18nc("@info:whatsthis", "If this is checked, the window will stay open when it loses focus."));
     connect(m_focusButton, SIGNAL(toggled(bool)), mainWindow, SLOT(setKeepOpen(bool)));
 
-    m_menuButton = new KPushButton(this);
+    m_menuButton = new QPushButton(this);
     m_menuButton->setFocusPolicy(Qt::NoFocus);
     m_menuButton->setMenu(mainWindow->menu());
-    m_menuButton->setToolTip(i18nc("@info:tooltip", "Open Menu"));
-    m_menuButton->setWhatsThis(i18nc("@info:whatsthis", "Opens the main menu."));
+    m_menuButton->setToolTip(xi18nc("@info:tooltip", "Open Menu"));
+    m_menuButton->setWhatsThis(xi18nc("@info:whatsthis", "Opens the main menu."));
 
-    m_quitButton = new KPushButton(this);
+    m_quitButton = new QPushButton(this);
     m_quitButton->setFocusPolicy(Qt::NoFocus);
-    m_quitButton->setToolTip(i18nc("@info:tooltip Quits the application", "Quit"));
-    m_quitButton->setWhatsThis(i18nc("@info:whatsthis", "Quits the application."));
+    m_quitButton->setToolTip(xi18nc("@info:tooltip Quits the application", "Quit"));
+    m_quitButton->setWhatsThis(xi18nc("@info:whatsthis", "Quits the application."));
     connect(m_quitButton, SIGNAL(clicked()), mainWindow, SLOT(close()));
 }
 
@@ -111,7 +111,7 @@ void TitleBar::paintEvent(QPaintEvent*)
     painter.drawPixmap(0, 0, leftCornerImage);
     painter.drawPixmap(width() - rightCornerImage.width(), 0, rightCornerImage);
 
-    QFont font = KGlobalSettings::windowTitleFont();
+    QFont font = QFontDatabase::systemFont(QFontDatabase::TitleFont);
     font.setBold(m_skin->titleBarTextBold());
     painter.setFont(font);
 
@@ -146,7 +146,7 @@ void TitleBar::setFocusButtonState(bool checked)
 QString TitleBar::title()
 {
     if (!m_skin->titleBarText().isEmpty() && !m_title.isEmpty())
-        return m_title + " - " + m_skin->titleBarText();
+        return m_title + QStringLiteral(" - ") + m_skin->titleBarText();
     else if (!m_skin->titleBarText().isEmpty() && m_title.isEmpty())
         return m_skin->titleBarText();
     else

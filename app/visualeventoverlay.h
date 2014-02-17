@@ -81,7 +81,7 @@ class VisualEventOverlay : public QWidget
          ~VisualEventOverlay();
 
 
-    public slots:
+    public Q_SLOTS:
         void highlightTerminal(Terminal* terminal, bool persistent = false);
         void removeTerminalHighlight();
 
@@ -97,7 +97,7 @@ class VisualEventOverlay : public QWidget
         virtual void paintEvent(QPaintEvent*);
 
 
-    private slots:
+    private Q_SLOTS:
         void cleanupOverlay();
 
 

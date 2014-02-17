@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2008-2009 by Eike Hein <hein@kde.org>
+  Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
   Copyright (C) 2009 by Juan Carlos Torres <carlosdgtorres@gmail.com>
 
   This program is free software; you can redistribute it and/or
@@ -27,15 +27,16 @@
 #include "sessionstack.h"
 #include "settings.h"
 
-#include <KLineEdit>
-#include <KMenu>
-#include <KPushButton>
 #include <KActionCollection>
-#include <KGlobalSettings>
 #include <KLocalizedString>
 
+#include <QApplication>
 #include <QBitmap>
+#include <QFontDatabase>
+#include <QLineEdit>
+#include <QMenu>
 #include <QPainter>
+#include <QPushButton>
 #include <QtDBus/QtDBus>
 #include <QToolButton>
 #include <QWheelEvent>
@@ -48,9 +49,9 @@
 
 TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
 {
-    QDBusConnection::sessionBus().registerObject("/yakuake/tabs", this, QDBusConnection::ExportScriptableSlots);
+    QDBusConnection::sessionBus().registerObject(QStringLiteral("/yakuake/tabs"), this, QDBusConnection::ExportScriptableSlots);
 
-    setWhatsThis(i18nc("@info:whatsthis",
+    setWhatsThis(xi18nc("@info:whatsthis",
                        "<title>Tab Bar</title>"
                        "<para>The tab bar allows you to switch between sessions. You can double-click a tab to edit its label.</para>"));
 
@@ -67,33 +68,33 @@ TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
     m_skin = mainWindow->skin();
     connect(m_skin, SIGNAL(iconChanged()), this, SLOT(repaint()));
 
-    m_tabContextMenu = new KMenu(this);
+    m_tabContextMenu = new QMenu(this);
     connect(m_tabContextMenu, SIGNAL(hovered(QAction*)), this, SLOT(contextMenuActionHovered(QAction*)));
 
-    m_toggleKeyboardInputMenu = new KMenu(i18nc("@title:menu", "Disable Keyboard Input"), this);
-    m_toggleMonitorActivityMenu = new KMenu(i18nc("@title:menu", "Monitor for Activity"), this);
-    m_toggleMonitorSilenceMenu = new KMenu(i18nc("@title:menu", "Monitor for Silence"), this);
+    m_toggleKeyboardInputMenu = new QMenu(xi18nc("@title:menu", "Disable Keyboard Input"), this);
+    m_toggleMonitorActivityMenu = new QMenu(xi18nc("@title:menu", "Monitor for Activity"), this);
+    m_toggleMonitorSilenceMenu = new QMenu(xi18nc("@title:menu", "Monitor for Silence"), this);
 
-    m_sessionMenu = new KMenu(this);
+    m_sessionMenu = new QMenu(this);
     connect(m_sessionMenu, SIGNAL(aboutToShow()), this, SLOT(readySessionMenu()));
 
     m_newTabButton = new QToolButton(this);
     m_newTabButton->setFocusPolicy(Qt::NoFocus);
     m_newTabButton->setMenu(m_sessionMenu);
     m_newTabButton->setPopupMode(QToolButton::DelayedPopup);
-    m_newTabButton->setToolTip(i18nc("@info:tooltip", "New Session"));
-    m_newTabButton->setWhatsThis(i18nc("@info:whatsthis", "Adds a new session. Press and hold to select session type from menu."));
+    m_newTabButton->setToolTip(xi18nc("@info:tooltip", "New Session"));
+    m_newTabButton->setWhatsThis(xi18nc("@info:whatsthis", "Adds a new session. Press and hold to select session type from menu."));
     connect(m_newTabButton, SIGNAL(clicked()), this, SIGNAL(newTabRequested()));
 
-    m_closeTabButton = new KPushButton(this);
+    m_closeTabButton = new QPushButton(this);
     m_closeTabButton->setFocusPolicy(Qt::NoFocus);
-    m_closeTabButton->setToolTip(i18nc("@info:tooltip", "Close Session"));
-    m_closeTabButton->setWhatsThis(i18nc("@info:whatsthis", "Closes the active session."));
+    m_closeTabButton->setToolTip(xi18nc("@info:tooltip", "Close Session"));
+    m_closeTabButton->setWhatsThis(xi18nc("@info:whatsthis", "Closes the active session."));
     connect(m_closeTabButton, SIGNAL(clicked()), this, SLOT(closeTabButtonClicked()));
 
-    m_lineEdit = new KLineEdit(this);
+    m_lineEdit = new QLineEdit(this);
     m_lineEdit->setFrame(false);
-    m_lineEdit->setClearButtonShown(false);
+    m_lineEdit->setClearButtonEnabled(false);
     m_lineEdit->setAlignment(Qt::AlignHCenter);
     m_lineEdit->hide();
 
@@ -124,21 +125,21 @@ void TabBar::readyTabContextMenu()
 {
     if (m_tabContextMenu->isEmpty())
     {
-        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("split-left-right"));
-        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("split-top-bottom"));
+        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("split-left-right")));
+        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("split-top-bottom")));
         m_tabContextMenu->addSeparator();
-        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("edit-profile"));
-        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("rename-session"));
-        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("toggle-session-prevent-closing"));
+        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("edit-profile")));
+        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("rename-session")));
+        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("toggle-session-prevent-closing")));
         m_tabContextMenu->addMenu(m_toggleKeyboardInputMenu);
         m_tabContextMenu->addMenu(m_toggleMonitorActivityMenu);
         m_tabContextMenu->addMenu(m_toggleMonitorSilenceMenu);
         m_tabContextMenu->addSeparator();
-        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("move-session-left"));
-        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("move-session-right"));
+        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("move-session-left")));
+        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("move-session-right")));
         m_tabContextMenu->addSeparator();
-        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("close-active-terminal"));
-        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action("close-session"));
+        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("close-active-terminal")));
+        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("close-session")));
     }
 }
 
@@ -146,11 +147,11 @@ void TabBar::readySessionMenu()
 {
     if (m_sessionMenu->isEmpty())
     {
-        m_sessionMenu->addAction(m_mainWindow->actionCollection()->action("new-session"));
+        m_sessionMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("new-session")));
         m_sessionMenu->addSeparator();
-        m_sessionMenu->addAction(m_mainWindow->actionCollection()->action("new-session-two-horizontal"));
-        m_sessionMenu->addAction(m_mainWindow->actionCollection()->action("new-session-two-vertical"));
-        m_sessionMenu->addAction(m_mainWindow->actionCollection()->action("new-session-quad"));
+        m_sessionMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("new-session-two-horizontal")));
+        m_sessionMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("new-session-two-vertical")));
+        m_sessionMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("new-session-quad")));
     }
 }
 
@@ -158,14 +159,14 @@ void TabBar::updateMoveActions(int index)
 {
     if (index == -1) return;
 
-    m_mainWindow->actionCollection()->action("move-session-left")->setEnabled(false);
-    m_mainWindow->actionCollection()->action("move-session-right")->setEnabled(false);
+    m_mainWindow->actionCollection()->action(QStringLiteral("move-session-left"))->setEnabled(false);
+    m_mainWindow->actionCollection()->action(QStringLiteral("move-session-right"))->setEnabled(false);
 
     if (index != m_tabs.indexOf(m_tabs.first()))
-        m_mainWindow->actionCollection()->action("move-session-left")->setEnabled(true);
+        m_mainWindow->actionCollection()->action(QStringLiteral("move-session-left"))->setEnabled(true);
 
     if (index != m_tabs.indexOf(m_tabs.last()))
-        m_mainWindow->actionCollection()->action("move-session-right")->setEnabled(true);
+        m_mainWindow->actionCollection()->action(QStringLiteral("move-session-right"))->setEnabled(true);
 }
 
 void TabBar::updateToggleActions(int sessionId)
@@ -175,16 +176,16 @@ void TabBar::updateToggleActions(int sessionId)
     KActionCollection* actionCollection = m_mainWindow->actionCollection();
     SessionStack* sessionStack = m_mainWindow->sessionStack();
 
-    QAction* toggleAction = actionCollection->action("toggle-session-prevent-closing");
+    QAction* toggleAction = actionCollection->action(QStringLiteral("toggle-session-prevent-closing"));
     toggleAction->setChecked(!sessionStack->isSessionClosable(sessionId));
 
-    toggleAction = actionCollection->action("toggle-session-keyboard-input");
+    toggleAction = actionCollection->action(QStringLiteral("toggle-session-keyboard-input"));
     toggleAction->setChecked(!sessionStack->hasTerminalsWithKeyboardInputEnabled(sessionId));
 
-    toggleAction = actionCollection->action("toggle-session-monitor-activity");
+    toggleAction = actionCollection->action(QStringLiteral("toggle-session-monitor-activity"));
     toggleAction->setChecked(!sessionStack->hasTerminalsWithMonitorActivityDisabled(sessionId));
 
-    toggleAction = actionCollection->action("toggle-session-monitor-silence");
+    toggleAction = actionCollection->action(QStringLiteral("toggle-session-monitor-silence"));
     toggleAction->setChecked(!sessionStack->hasTerminalsWithMonitorSilenceDisabled(sessionId));
 }
 
@@ -192,24 +193,24 @@ void TabBar::updateToggleKeyboardInputMenu(int sessionId)
 {
     if (!m_tabs.contains(sessionId)) return;
 
-    QAction* toggleKeyboardInputAction = m_mainWindow->actionCollection()->action("toggle-session-keyboard-input");
+    QAction* toggleKeyboardInputAction = m_mainWindow->actionCollection()->action(QStringLiteral("toggle-session-keyboard-input"));
     QAction* anchor = m_toggleKeyboardInputMenu->menuAction();
 
     SessionStack* sessionStack = m_mainWindow->sessionStack();
 
-    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(',', QString::SkipEmptyParts);
+    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QStringLiteral(","), QString::SkipEmptyParts);
 
     m_toggleKeyboardInputMenu->clear();
 
     if (terminalIds.count() <= 1)
     {
-        toggleKeyboardInputAction->setText(i18nc("@action", "Disable Keyboard Input"));
+        toggleKeyboardInputAction->setText(xi18nc("@action", "Disable Keyboard Input"));
         m_tabContextMenu->insertAction(anchor, toggleKeyboardInputAction);
         m_toggleKeyboardInputMenu->menuAction()->setVisible(false);
     }
     else
     {
-        toggleKeyboardInputAction->setText(i18nc("@action", "For This Session"));
+        toggleKeyboardInputAction->setText(xi18nc("@action", "For This Session"));
         m_toggleKeyboardInputMenu->menuAction()->setVisible(true);
 
         m_tabContextMenu->removeAction(toggleKeyboardInputAction);
@@ -227,7 +228,7 @@ void TabBar::updateToggleKeyboardInputMenu(int sessionId)
 
             ++count;
 
-            QAction* action = m_toggleKeyboardInputMenu->addAction(i18nc("@action", "For Terminal %1", count));
+            QAction* action = m_toggleKeyboardInputMenu->addAction(xi18nc("@action", "For Terminal %1", count));
             action->setCheckable(true);
             action->setChecked(!sessionStack->isTerminalKeyboardInputEnabled(terminalId));
             action->setData(terminalId);
@@ -240,24 +241,24 @@ void TabBar::updateToggleMonitorActivityMenu(int sessionId)
 {
     if (!m_tabs.contains(sessionId)) return;
 
-    QAction* toggleMonitorActivityAction = m_mainWindow->actionCollection()->action("toggle-session-monitor-activity");
+    QAction* toggleMonitorActivityAction = m_mainWindow->actionCollection()->action(QStringLiteral("toggle-session-monitor-activity"));
     QAction* anchor = m_toggleMonitorActivityMenu->menuAction();
 
     SessionStack* sessionStack = m_mainWindow->sessionStack();
 
-    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(',', QString::SkipEmptyParts);
+    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QStringLiteral(","), QString::SkipEmptyParts);
 
     m_toggleMonitorActivityMenu->clear();
 
     if (terminalIds.count() <= 1)
     {
-        toggleMonitorActivityAction->setText(i18nc("@action", "Monitor for Activity"));
+        toggleMonitorActivityAction->setText(xi18nc("@action", "Monitor for Activity"));
         m_tabContextMenu->insertAction(anchor, toggleMonitorActivityAction);
         m_toggleMonitorActivityMenu->menuAction()->setVisible(false);
     }
     else
     {
-        toggleMonitorActivityAction->setText(i18nc("@action", "In This Session"));
+        toggleMonitorActivityAction->setText(xi18nc("@action", "In This Session"));
         m_toggleMonitorActivityMenu->menuAction()->setVisible(true);
 
         m_tabContextMenu->removeAction(toggleMonitorActivityAction);
@@ -275,7 +276,7 @@ void TabBar::updateToggleMonitorActivityMenu(int sessionId)
 
             ++count;
 
-            QAction* action = m_toggleMonitorActivityMenu->addAction(i18nc("@action", "In Terminal %1", count));
+            QAction* action = m_toggleMonitorActivityMenu->addAction(xi18nc("@action", "In Terminal %1", count));
             action->setCheckable(true);
             action->setChecked(sessionStack->isTerminalMonitorActivityEnabled(terminalId));
             action->setData(terminalId);
@@ -288,24 +289,24 @@ void TabBar::updateToggleMonitorSilenceMenu(int sessionId)
 {
     if (!m_tabs.contains(sessionId)) return;
 
-    QAction* toggleMonitorSilenceAction = m_mainWindow->actionCollection()->action("toggle-session-monitor-silence");
+    QAction* toggleMonitorSilenceAction = m_mainWindow->actionCollection()->action(QStringLiteral("toggle-session-monitor-silence"));
     QAction* anchor = m_toggleMonitorSilenceMenu->menuAction();
 
     SessionStack* sessionStack = m_mainWindow->sessionStack();
 
-    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(',', QString::SkipEmptyParts);
+    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QStringLiteral(","), QString::SkipEmptyParts);
 
     m_toggleMonitorSilenceMenu->clear();
 
     if (terminalIds.count() <= 1)
     {
-        toggleMonitorSilenceAction->setText(i18nc("@action", "Monitor for Silence"));
+        toggleMonitorSilenceAction->setText(xi18nc("@action", "Monitor for Silence"));
         m_tabContextMenu->insertAction(anchor, toggleMonitorSilenceAction);
         m_toggleMonitorSilenceMenu->menuAction()->setVisible(false);
     }
     else
     {
-        toggleMonitorSilenceAction->setText(i18nc("@action", "In This Session"));
+        toggleMonitorSilenceAction->setText(xi18nc("@action", "In This Session"));
         m_toggleMonitorSilenceMenu->menuAction()->setVisible(true);
 
         m_tabContextMenu->removeAction(toggleMonitorSilenceAction);
@@ -323,7 +324,7 @@ void TabBar::updateToggleMonitorSilenceMenu(int sessionId)
 
             ++count;
 
-            QAction* action = m_toggleMonitorSilenceMenu->addAction(i18nc("@action", "In Terminal %1", count));
+            QAction* action = m_toggleMonitorSilenceMenu->addAction(xi18nc("@action", "In Terminal %1", count));
             action->setCheckable(true);
             action->setChecked(sessionStack->isTerminalMonitorSilenceEnabled(terminalId));
             action->setData(terminalId);
@@ -452,7 +453,7 @@ int TabBar::drawButton(int x, int y, int index, QPainter& painter)
     QString title;
     int sessionId;
     bool selected;
-    QFont font = KGlobalSettings::generalFont();
+    QFont font = QFontDatabase::systemFont(QFontDatabase::GeneralFont);
     int textWidth = 0;
 
     sessionId = m_tabs.at(index);
@@ -605,7 +606,7 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
     {
         int distance = (event->pos() - m_startPos).manhattanLength();
 
-        if (distance >= KGlobalSettings::dndEventDelay())
+        if (distance >= QApplication::startDragDistance())
         {
             int index = tabAt(m_startPos.x());
 
@@ -931,11 +932,11 @@ QString TabBar::makeTabTitle(int id)
 {
     if (id == 0)
     {
-        return i18nc("@title:tab", "Shell");
+        return xi18nc("@title:tab", "Shell");
     }
     else
     {
-        return i18nc("@title:tab", "Shell No. <numid>%1</numid>", id+1);
+        return xi18nc("@title:tab", "Shell No. %1", id+1);
     }
 }
 
@@ -987,7 +988,7 @@ void TabBar::drawDropIndicator(int index, bool disabled)
     }
 
     QIcon::Mode drawMode = disabled ? QIcon::Disabled : QIcon::Normal;
-    m_dropIndicator->setPixmap(KIcon("arrow-down").pixmap(arrowSize, arrowSize, drawMode));
+    m_dropIndicator->setPixmap(QIcon(QStringLiteral("arrow-down")).pixmap(arrowSize, arrowSize, drawMode));
 
     if (index < 0)
     {

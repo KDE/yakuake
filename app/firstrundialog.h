@@ -23,14 +23,14 @@
 #define FIRSTRUNDIALOG_H
 
 
-#include <KDialog>
+#include <QDialog>
 
 
 class MainWindow;
 class Ui_FirstRunDialog;
 
 
-class FirstRunDialog : public KDialog
+class FirstRunDialog : public QDialog
 {
     Q_OBJECT
 
@@ -41,7 +41,7 @@ class FirstRunDialog : public KDialog
         QKeySequence keySequence() { return m_keySequence; }
 
 
-    private slots:
+    private Q_SLOTS:
         void validateKeySequence(const QKeySequence& keySequence);
 
 

@@ -23,19 +23,18 @@
 #include "settings.h"
 #include "skinlistdelegate.h"
 
-#include <KApplication>
-#include <KFileDialog>
 #include <KIO/DeleteJob>
-#include <KIO/NetAccess>
+#include <KLocalizedString>
 #include <KMessageBox>
-#include <KStandardDirs>
 #include <KTar>
-#include <KUrl>
 
 #include <KNS3/DownloadDialog>
-#include <knewstuff3/downloadmanager.h>
+#include <KNS3/DownloadManager>
 
+#include <QDir>
 #include <QFile>
+#include <QFileDialog>
+#include <QPointer>
 #include <QStandardItemModel>
 
 #include <unistd.h>
@@ -61,9 +60,9 @@ AppearanceSettings::AppearanceSettings(QWidget* parent) : QWidget(parent)
     connect(installButton, SIGNAL(clicked()), this, SLOT(installSkin()));
     connect(removeButton, SIGNAL(clicked()), this, SLOT(removeSelectedSkin()));
 
-    installButton->setIcon(KIcon("folder"));
-    removeButton->setIcon(KIcon("edit-delete"));
-    ghnsButton->setIcon(KIcon("get-hot-new-stuff"));
+    installButton->setIcon(QIcon(QStringLiteral("folder")));
+    removeButton->setIcon(QIcon(QStringLiteral("edit-delete")));
+    ghnsButton->setIcon(QIcon(QStringLiteral("get-hot-new-stuff")));
 
     m_knsConfigFileName = QLatin1String("yakuake.knsrc");
     m_knsDownloadManager = new KNS3::DownloadManager(m_knsConfigFileName);
@@ -75,8 +74,8 @@ AppearanceSettings::AppearanceSettings(QWidget* parent) : QWidget(parent)
     // Get all local skin directories.
     // One for manually installed skins, one for skins installed
     // through KNS3.
-    m_localSkinsDir = KStandardDirs::locateLocal("data", "yakuake/skins/");
-    m_knsSkinDir = KStandardDirs::locateLocal("data", "yakuake/kns_skins/");
+    m_localSkinsDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/yakuake/skins/");
+    m_knsSkinDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/yakuake/kns_skins/");
 
     populateSkinList();
 }
@@ -99,11 +98,11 @@ void AppearanceSettings::populateSkinList()
 {
     m_skins->clear();
 
-    QStringList titleDirs = KGlobal::dirs()->findAllResources("data", "yakuake/skins/*/title.skin")
-        + KGlobal::dirs()->findAllResources("data", m_knsSkinDir + "*/title.skin");
-    QStringList tabDirs = KGlobal::dirs()->findAllResources("data", "yakuake/skins/*/tabs.skin")
-        + KGlobal::dirs()->findAllResources("data", m_knsSkinDir + "*/tabs.skin");
-
+// PORT    QStringList titleDirs = KGlobal::dirs()->findAllResources("data", "yakuake/skins/*/title.skin")
+// PORT       + KGlobal::dirs()->findAllResources("data", m_knsSkinDir + "*/title.skin");
+// PORT   QStringList tabDirs = KGlobal::dirs()->findAllResources("data", "yakuake/skins/*/tabs.skin")
+// PORT       + KGlobal::dirs()->findAllResources("data", m_knsSkinDir + "*/tabs.skin");
+/* PORT
     QStringList skinDirs;
     QStringListIterator i(titleDirs);
 
@@ -142,11 +141,12 @@ void AppearanceSettings::populateSkinList()
     m_skins->sort(0);
 
     updateRemoveSkinButton();
+*/
 }
 
 QStandardItem* AppearanceSettings::createSkinItem(const QString& skinDir)
 {
-    QString skinId = skinDir.section('/', -1, -1);
+    QString skinId = skinDir.section(QStringLiteral("/"), -1, -1);
     QString titleName, tabName, skinName;
     QString titleAuthor, tabAuthor, skinAuthor;
     QString titleIcon, tabIcon;
@@ -156,10 +156,10 @@ QStandardItem* AppearanceSettings::createSkinItem(const QString& skinDir)
     // KNS3 skins are found in.
     bool isKnsSkin = skinDir.startsWith(m_knsSkinDir);
 
-    KConfig titleConfig(skinDir + "/title.skin", KConfig::SimpleConfig);
+    KConfig titleConfig(skinDir + QStringLiteral("/title.skin"), KConfig::SimpleConfig);
     KConfigGroup titleDescription = titleConfig.group("Description");
 
-    KConfig tabConfig(skinDir + "/tabs.skin", KConfig::SimpleConfig);
+    KConfig tabConfig(skinDir + QStringLiteral("/tabs.skin"), KConfig::SimpleConfig);
     KConfigGroup tabDescription = tabConfig.group("Description");
 
     titleName = titleDescription.readEntry("Skin", "");
@@ -178,7 +178,7 @@ QStandardItem* AppearanceSettings::createSkinItem(const QString& skinDir)
         skinName = skinId;
 
     if (skinAuthor.isEmpty())
-        skinAuthor = i18nc("@item:inlistbox Unknown skin author", "Unknown");
+        skinAuthor = xi18nc("@item:inlistbox Unknown skin author", "Unknown");
 
     QStandardItem* skin = new QStandardItem(skinName);
 
@@ -216,17 +216,18 @@ void AppearanceSettings::resetSelection()
 
 void AppearanceSettings::installSkin()
 {
+/* PORT
     QString mimeFilter = "application/x-tar application/x-compressed-tar "
                          "application/x-bzip-compressed-tar application/zip";
 
-    KUrl skinUrl = KFileDialog::getOpenUrl(KUrl(), mimeFilter, parentWidget());
+    QUrl skinUrl = QFileDialog::getOpenFileUrl(parentWidget());
 
     if (skinUrl.isEmpty()) return;
 
-    if (!KIO::NetAccess::download(skinUrl, m_installSkinFile, KApplication::activeWindow()))
+    if (!KIO::NetAccess::download(skinUrl, m_installSkinFile, QApplication::activeWindow()))
     {
         KMessageBox::error(parentWidget(), KIO::NetAccess::lastErrorString(),
-            i18nc("@title:window", "Failed to Download Skin"));
+            xi18nc("@title:window", "Failed to Download Skin"));
 
         return;
     }
@@ -235,7 +236,7 @@ void AppearanceSettings::installSkin()
 
     if (!skinDir.exists())
     {
-        KIO::ListJob* job = KIO::listRecursive("tar:" + m_installSkinFile, KIO::HideProgressInfo, false);
+        KIO::ListJob* job = KIO::listRecursive(QUrl("tar:" + m_installSkinFile), KIO::HideProgressInfo, false);
 
         connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
             this, SLOT(listSkinArchive(KIO::Job*,KIO::UDSEntryList)));
@@ -243,7 +244,8 @@ void AppearanceSettings::installSkin()
         connect(job, SIGNAL(result(KJob*)), this, SLOT(validateSkinArchive(KJob*)));
     }
     else
-        failInstall(i18nc("@info", "The installer was given a directory, not a file."));
+        failInstall(xi18nc("@info", "The installer was given a directory, not a file."));
+*/
 }
 
 void AppearanceSettings::listSkinArchive(KIO::Job* /* job */, const KIO::UDSEntryList& list)
@@ -265,18 +267,18 @@ void AppearanceSettings::validateSkinArchive(KJob* job)
         if (validateSkin(m_installSkinId, m_installSkinFileList))
             checkForExistingSkin();
         else
-            failInstall(i18nc("@info", "Unable to locate required files in the skin archive.<nl/><nl/>The archive appears to be invalid."));
+            failInstall(xi18nc("@info", "Unable to locate required files in the skin archive.<nl/><nl/>The archive appears to be invalid."));
     }
     else
-        failInstall(i18nc("@info", "Unable to list the skin archive contents.") + "\n\n" + job->errorString());
+        failInstall(xi18nc("@info", "Unable to list the skin archive contents.") + QStringLiteral("\n\n") + job->errorString());
 }
 
 bool AppearanceSettings::validateSkin(const QString &skinId, const QStringList& fileList)
 {
     bool titleFileFound = false;
     bool tabsFileFound = false;
-    QString titleFileName = skinId + "/title.skin";
-    QString tabsFileName = skinId + "/tabs.skin";
+    QString titleFileName = skinId + QStringLiteral("/title.skin");
+    QString tabsFileName = skinId + QStringLiteral("/tabs.skin");
 
     foreach (const QString& fileName, fileList)
     {
@@ -309,25 +311,25 @@ void AppearanceSettings::checkForExistingSkin()
     if (exists > 0)
     {
         QString skinDir = skins.at(0).data(SkinDir).toString();
-        QFile skin(skinDir + "/titles.skin");
+        QFile skin(skinDir + QStringLiteral("/titles.skin"));
 
         if (!skin.open(QIODevice::ReadWrite))
         {
-            failInstall(i18nc("@info", "This skin appears to be already installed and you lack the required permissions to overwrite it."));
+            failInstall(xi18nc("@info", "This skin appears to be already installed and you lack the required permissions to overwrite it."));
         }
         else
         {
             skin.close();
 
             int remove = KMessageBox::warningContinueCancel(parentWidget(),
-                i18nc("@info", "This skin appears to be already installed. Do you want to overwrite it?"),
-                i18nc("@title:window", "Skin Already Exists"),
-                KGuiItem(i18nc("@action:button", "Reinstall Skin")));
+                xi18nc("@info", "This skin appears to be already installed. Do you want to overwrite it?"),
+                xi18nc("@title:window", "Skin Already Exists"),
+                KGuiItem(xi18nc("@action:button", "Reinstall Skin")));
 
             if (remove == KMessageBox::Continue)
             {
-                unlink(QFile::encodeName(skinDir));
-                KIO::DeleteJob* job = KIO::del(KUrl(skinDir), KIO::HideProgressInfo);
+                //PORTunlink(QFile::encodeName(skinDir));
+                KIO::DeleteJob* job = KIO::del(QUrl(skinDir), KIO::HideProgressInfo);
                 connect(job, SIGNAL(result(KJob*)), this, SLOT(installSkinArchive(KJob*)));
             }
             else
@@ -342,7 +344,7 @@ void AppearanceSettings::installSkinArchive(KJob* deleteJob)
 {
     if (deleteJob && deleteJob->error())
     {
-        KMessageBox::error(parentWidget(), deleteJob->errorString(), i18nc("@title:Window", "Could Not Delete Skin"));
+        KMessageBox::error(parentWidget(), deleteJob->errorString(), xi18nc("@title:Window", "Could Not Delete Skin"));
 
         return;
     }
@@ -363,22 +365,24 @@ void AppearanceSettings::installSkinArchive(KJob* deleteJob)
         cleanupAfterInstall();
     }
     else
-        failInstall(i18nc("@info", "The skin archive file could not be opened."));
+        failInstall(xi18nc("@info", "The skin archive file could not be opened."));
 }
 
 void AppearanceSettings::failInstall(const QString& error)
 {
-    KMessageBox::error(parentWidget(), error, i18nc("@title:window", "Cannot Install Skin"));
+    KMessageBox::error(parentWidget(), error, xi18nc("@title:window", "Cannot Install Skin"));
 
     cleanupAfterInstall();
 }
 
 void AppearanceSettings::cleanupAfterInstall()
 {
+/* PORT
     KIO::NetAccess::removeTempFile(m_installSkinFile);
     m_installSkinId.clear();
     m_installSkinFile.clear();
     m_installSkinFileList.clear();
+*/
 }
 
 void AppearanceSettings::updateRemoveSkinButton()
@@ -406,7 +410,7 @@ void AppearanceSettings::updateRemoveSkinButton()
         return;
     }
 
-    QFile titleSkin(skinDir + "/title.skin");
+    QFile titleSkin(skinDir + QStringLiteral("/title.skin"));
 
     if (!titleSkin.open(QIODevice::ReadWrite))
         removeButton->setEnabled(false);
@@ -418,6 +422,7 @@ void AppearanceSettings::updateRemoveSkinButton()
 
 void AppearanceSettings::removeSelectedSkin()
 {
+/* PORT
     if (m_skins->rowCount() <= 1) return;
 
     QString skinId = skinList->currentIndex().data(SkinId).toString();
@@ -428,15 +433,15 @@ void AppearanceSettings::removeSelectedSkin()
     if (skinDir.isEmpty()) return;
 
     int remove = KMessageBox::warningContinueCancel(parentWidget(),
-            i18nc("@info", "Do you want to remove \"%1\" by %2?", skinName, skinAuthor),
-            i18nc("@title:window", "Remove Skin"),
+            xi18nc("@info", "Do you want to remove \"%1\" by %2?", skinName, skinAuthor),
+            xi18nc("@title:window", "Remove Skin"),
             KStandardGuiItem::del());
 
     if (remove == KMessageBox::Continue)
     {
         unlink(QFile::encodeName(skinDir));
 
-        bool deleted = KIO::NetAccess::del(KUrl(skinDir), KApplication::activeWindow());
+        bool deleted = KIO::NetAccess::del(QUrl(skinDir), QApplication::activeWindow());
 
         if (deleted)
         {
@@ -452,8 +457,9 @@ void AppearanceSettings::removeSelectedSkin()
             populateSkinList();
         }
         else
-            KMessageBox::error(parentWidget(), i18nc("@info", "Could not remove skin \"%1\".", skinName));
+            KMessageBox::error(parentWidget(), xi18nc("@info", "Could not remove skin \"%1\".", skinName));
     }
+*/
 }
 
 QSet<QString> AppearanceSettings::extractKnsSkinIds(const QStringList& fileList)
@@ -469,13 +475,13 @@ QSet<QString> AppearanceSettings::extractKnsSkinIds(const QStringList& fileList)
             QString relativeName = QString(file).remove(m_knsSkinDir, Qt::CaseInsensitive);
 
             // Get everything before the first slash - that should be our skins ID.
-            QString skinId = relativeName.section('/', 0, QString::SectionSkipEmpty);
+            QString skinId = relativeName.section(QStringLiteral("/"), 0, QString::SectionSkipEmpty);
 
             // Skip all other entries in the file list if we found what we were searching for.
             if (!skinId.isEmpty())
             {
                 // First remove all remaining slashes (as there could be leading or trailing ones).
-                skinId = skinId.replace('/', QString());
+                skinId = skinId.replace(QStringLiteral("/"), QString());
 
                 skinIdList.insert(skinId);
             }
@@ -496,7 +502,6 @@ void AppearanceSettings::getNewSkins()
 
     if (dialog.isNull())
     {
-        kDebug() << "KNS3::DownloadDialog was destroyed during exec()!";
         return;
     }
 
@@ -516,8 +521,6 @@ void AppearanceSettings::getNewSkins()
                 // Validate the current skin.
                 if (!validateSkin(skinId, entry.installedFiles()))
                 {
-                    kDebug() << "skinId '" << skinId << "' is invalid "
-                             << "(it's either missing the 'title.skin' or 'tabs.skin' file).";
                     isValid = false;
                 }
             }
@@ -532,7 +535,7 @@ void AppearanceSettings::getNewSkins()
 
                 // The user needs to know the name of the skin which
                 // was removed.
-                invalidSkinText += QString("<li>%1</li>").arg(entry.name());
+                invalidSkinText += QString(QStringLiteral("<li>%1</li>")).arg(entry.name());
 
                 // Then remove the skin.
                 m_knsDownloadManager->uninstallEntry(entry);
@@ -542,7 +545,7 @@ void AppearanceSettings::getNewSkins()
         // Are there any invalid entries?
         if (invalidEntryCount > 0)
         {
-            failInstall(i18ncp("@info",
+            failInstall(xi18ncp("@info",
                                "The following skin is missing required files. Thus it was removed:<ul>%2</ul>",
                                "The following skins are missing required files. Thus they were removed:<ul>%2</ul>",
                                invalidEntryCount,

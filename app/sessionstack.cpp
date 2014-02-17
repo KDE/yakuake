@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2008-2009 by Eike Hein <hein@kde.org>
+  Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
   Copyright (C) 2009 by Juan Carlos Torres <carlosdgtorres@gmail.com>
 
   This program is free software; you can redistribute it and/or
@@ -32,7 +32,7 @@
 
 SessionStack::SessionStack(QWidget* parent) : QStackedWidget(parent)
 {
-    QDBusConnection::sessionBus().registerObject("/yakuake/sessions", this, QDBusConnection::ExportScriptableSlots);
+    QDBusConnection::sessionBus().registerObject(QStringLiteral("/yakuake/sessions"), this, QDBusConnection::ExportScriptableSlots);
 
     m_activeSessionId = -1;
 
@@ -62,7 +62,7 @@ int SessionStack::addSession(Session::SessionType type)
     if (Settings::dynamicTabTitles())
         emit sessionAdded(session->id(), session->title());
     else
-        emit sessionAdded(session->id());
+        emit sessionAdded(session->id(), QString());
 
     return session->id();
 }
@@ -191,7 +191,7 @@ const QString SessionStack::sessionIdList()
     while (i.hasNext())
         idList << QString::number(i.next());
 
-    return idList.join(",");
+    return idList.join(QStringLiteral(","));
 }
 
 const QString SessionStack::terminalIdList()
@@ -207,7 +207,7 @@ const QString SessionStack::terminalIdList()
         idList << it.value()->terminalIdList();
     }
 
-    return idList.join(",");
+    return idList.join(QStringLiteral(","));
 }
 
 const QString SessionStack::terminalIdsForSessionId(int sessionId)
@@ -611,17 +611,17 @@ bool SessionStack::queryClose(int sessionId, QueryCloseType type)
 
     if (!m_sessions.value(sessionId)->closable())
     {
-        QString closeQuestionIntro = i18nc("@info", "<warning>You have locked this session to prevent accidental closing of terminals.</warning>");
+        QString closeQuestionIntro = xi18nc("@info", "<warning>You have locked this session to prevent accidental closing of terminals.</warning>");
         QString closeQuestion;
 
         if (type == QueryCloseSession)
-            closeQuestion = i18nc("@info", "Are you sure you want to close this session?");
+            closeQuestion = xi18nc("@info", "Are you sure you want to close this session?");
         else if (type == QueryCloseTerminal)
-            closeQuestion = i18nc("@info", "Are you sure you want to close this terminal?");
+            closeQuestion = xi18nc("@info", "Are you sure you want to close this terminal?");
 
         int result = KMessageBox::warningContinueCancel(this,
-            closeQuestionIntro + "<br/><br/>" + closeQuestion,
-            i18nc("@title:window", "Really Close?"), KStandardGuiItem::close(), KStandardGuiItem::cancel());
+            closeQuestionIntro + QStringLiteral("<br/><br/>") + closeQuestion,
+            xi18nc("@title:window", "Really Close?"), KStandardGuiItem::close(), KStandardGuiItem::cancel());
 
         if (result != KMessageBox::Continue)
             return false;

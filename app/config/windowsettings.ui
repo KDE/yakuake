@@ -308,7 +308,7 @@
          </widget>
         </item>
         <item>
-         <widget class="KComboBox" name="kcfg_Screen">
+         <widget class="QComboBox" name="kcfg_Screen">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -364,13 +364,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
-  </customwidget>
- </customwidgets>
  <tabstops>
   <tabstop>kcfg_ShowTabBar</tabstop>
   <tabstop>kcfg_DynamicTabTitles</tabstop>

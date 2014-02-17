@@ -155,7 +155,7 @@
      </property>
      <layout class="QGridLayout">
       <item row="2" column="0" colspan="2">
-       <widget class="KPushButton" name="ghnsButton">
+       <widget class="QPushButton" name="ghnsButton">
         <property name="text">
          <string comment="@action:button">Get New Skins...</string>
         </property>
@@ -172,14 +172,14 @@
        </widget>
       </item>
       <item row="3" column="0" colspan="2">
-       <widget class="KLineEdit" name="kcfg_Skin">
+       <widget class="QLineEdit" name="kcfg_Skin">
         <property name="frame">
          <bool>false</bool>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="KPushButton" name="removeButton">
+       <widget class="QPushButton" name="removeButton">
         <property name="enabled">
          <bool>false</bool>
         </property>
@@ -189,7 +189,7 @@
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="KPushButton" name="installButton">
+       <widget class="QPushButton" name="installButton">
         <property name="enabled">
          <bool>true</bool>
         </property>
@@ -215,16 +215,6 @@
    <class>KColorButton</class>
    <extends>QPushButton</extends>
    <header>kcolorbutton.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

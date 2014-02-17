@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2008-2009 by Eike Hein <hein@kde.org>
+  Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License as
@@ -29,7 +29,7 @@
 class MainWindow;
 class Skin;
 
-class KPushButton;
+class QPushButton;
 
 
 class TitleBar : public QWidget
@@ -48,7 +48,7 @@ class TitleBar : public QWidget
         void setFocusButtonState(bool checked);
 
 
-    public slots:
+    public Q_SLOTS:
         void setTitle(const QString& title);
 
 
@@ -61,9 +61,9 @@ class TitleBar : public QWidget
         MainWindow* m_mainWindow;
         Skin* m_skin;
 
-        KPushButton* m_focusButton;
-        KPushButton* m_menuButton;
-        KPushButton* m_quitButton;
+        QPushButton* m_focusButton;
+        QPushButton* m_menuButton;
+        QPushButton* m_quitButton;
 
         QString m_title;
 };

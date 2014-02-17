@@ -35,11 +35,11 @@ class WindowSettings : public QWidget, private Ui::WindowSettings
          ~WindowSettings();
 
 
-    signals:
+    Q_SIGNALS:
         void updateWindowGeometry(int width, int height, int position);
 
 
-    private slots:
+    private Q_SLOTS:
         void updateWidthSlider(int width);
         void updateWidthSpinBox(int width);
 

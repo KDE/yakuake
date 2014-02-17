@@ -1,8 +1,7 @@
-include_directories( ${KDE4_INCLUDES} )
+configure_file(config-yakuake.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-yakuake.h)
 
 set(yakuake_SRCS
     main.cpp
-    application.cpp
     mainwindow.cpp
     skin.cpp
     titlebar.cpp
@@ -18,24 +17,39 @@ set(yakuake_SRCS
     config/skinlistdelegate.cpp
 )
 
-kde4_add_kcfg_files(yakuake_SRCS config/settings.kcfgc)
-
-kde4_add_ui_files(yakuake_SRCS
+qt5_wrap_ui(yakuake_SRCS
     firstrundialog.ui
     config/windowsettings.ui
     config/behaviorsettings.ui
     config/appearancesettings.ui
 )
 
-kde4_add_app_icon(yakuake_SRCS "icons/hi*-app-yakuake.png")
+kconfig_add_kcfg_files(yakuake_SRCS config/settings.kcfgc)
 
-kde4_add_executable(yakuake ${yakuake_SRCS})
+# PORT kde4_add_app_icon(yakuake_SRCS "icons/hi*-app-yakuake.png")
 
-target_link_libraries(yakuake ${KDE4_KNOTIFYCONFIG_LIBRARY} ${KDE4_KPARTS_LIBS} ${KDE4_KNEWSTUFF3_LIBS})
+add_executable(yakuake ${yakuake_SRCS})
 
-if(Q_WS_X11)
-  target_link_libraries(yakuake ${X11_X11_LIB})
-endif(Q_WS_X11)
+target_link_libraries(yakuake
+    Qt5::Widgets
+    KF5::Archive
+    KF5::ConfigGui
+    KF5::CoreAddons
+    KF5::DBusAddons
+    KF5::GlobalAccel
+    KF5::I18n
+    KF5::IconThemes
+    KF5::KIOCore
+    KF5::NewStuff
+    KF5::Notifications
+    KF5::NotifyConfig
+    KF5::Parts
+    KF5::WidgetsAddons
+    KF5::WindowSystem)
+
+if(X11_FOUND)
+  target_link_libraries(yakuake Qt5::X11Extras ${X11_X11_LIB})
+endif(X11_FOUND)
 
 install(TARGETS yakuake ${INSTALL_TARGETS_DEFAULT_ARGS})
 

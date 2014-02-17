@@ -79,7 +79,7 @@ class Session : public QObject
         bool hasTerminalsWithMonitorSilenceDisabled();
 
 
-    public slots:
+    public Q_SLOTS:
         void closeTerminal(int terminalId = -1);
 
         void focusNextTerminal();
@@ -98,7 +98,7 @@ class Session : public QObject
         void reconnectMonitorActivitySignals();
 
 
-    signals:
+    Q_SIGNALS:
         void titleChanged(const QString& title);
         void titleChanged(int sessionId, const QString& title);
         void terminalManuallyActivated(Terminal* terminal);
@@ -108,7 +108,7 @@ class Session : public QObject
         void destroyed(int sessionId);
 
 
-    private slots:
+    private Q_SLOTS:
         void setActiveTerminal(int terminalId);
         void setTitle(int terminalId, const QString& title);
 

@@ -23,26 +23,26 @@
 #include "mainwindow.h"
 #include "ui_firstrundialog.h"
 
-#include <KGlobalAccel>
 #include <KActionCollection>
+#include <KGlobalAccel>
+#include <KLocalizedString>
 
-
-FirstRunDialog::FirstRunDialog(MainWindow* mainWindow) : KDialog(mainWindow)
+FirstRunDialog::FirstRunDialog(MainWindow* mainWindow) : QDialog(mainWindow)
 {
     m_mainWindow = mainWindow;
 
-    setCaption(i18nc("@title:window", "First Run"));
-    setButtons(KDialog::Ok | KDialog::Cancel);
+    // PORT setCaption(xi18nc("@title:window", "First Run"));
+    // PORT setButtons(KDialog::Ok | KDialog::Cancel);
 
     QWidget* widget = new QWidget(this);
 
     m_ui = new Ui::FirstRunDialog();
     m_ui->setupUi(widget);
-    m_ui->titleWidget->setPixmap(KIcon("yakuake").pixmap(22, 22));
+    m_ui->titleWidget->setPixmap(QIcon(QStringLiteral("yakuake")).pixmap(22, 22));
 
-    widget->layout()->setSpacing(spacingHint());
+    // PORT widget->layout()->setSpacing(spacingHint());
     widget->setMinimumSize(widget->sizeHint());
-    setMainWidget(widget);
+    // PORT setMainWidget(widget);
 
     initKeyButton();
 
@@ -60,9 +60,9 @@ void FirstRunDialog::initKeyButton()
 
     m_ui->keyButton->blockSignals(true);
 
-    KAction* action = static_cast<KAction*>(m_mainWindow->actionCollection()->action("toggle-window-state"));
+    QAction* action = static_cast<QAction*>(m_mainWindow->actionCollection()->action(QStringLiteral("toggle-window-state")));
 
-    m_keySequence = action->globalShortcut().primary();
+    m_keySequence = KGlobalAccel::self()->shortcut(action).first();
 
     m_ui->keyButton->setKeySequence(m_keySequence);
 

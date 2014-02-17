@@ -58,11 +58,11 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
         };
 
 
-    public slots:
+    public Q_SLOTS:
         void resetSelection();
 
 
-    signals:
+    Q_SIGNALS:
         void settingsChanged();
 
 
@@ -70,7 +70,7 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
         virtual void showEvent(QShowEvent* event);
 
 
-    private slots:
+    private Q_SLOTS:
         void populateSkinList();
 
         void updateSkinSetting();

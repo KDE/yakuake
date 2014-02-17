@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2008 by Eike Hein <hein@kde.org>
+  Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License as
@@ -23,11 +23,10 @@
 
 #include <KConfig>
 #include <KConfigGroup>
-#include <KIcon>
-#include <KGlobalSettings>
-#include <KStandardDirs>
+#include <KIconLoader>
 
 #include <QFileInfo>
+#include <QIcon>
 
 
 Skin::Skin()
@@ -41,15 +40,15 @@ Skin::~Skin()
 
 bool Skin::load(const QString& name, bool kns)
 {
-    QString dir = kns ? "kns_skins/" : "skins/";
+    QString dir = kns ? QStringLiteral("kns_skins/") : QStringLiteral("skins/");
 
-    QString titlePath = KStandardDirs::locate("appdata", dir + name + "/title.skin");
-    QString tabPath = KStandardDirs::locate("appdata", dir + name + "/tabs.skin");
+    QString titlePath = QStandardPaths::locate(QStandardPaths::DataLocation, dir + name + QStringLiteral("/title.skin"));
+    QString tabPath = QStandardPaths::locate(QStandardPaths::DataLocation, dir + name + QStringLiteral("/tabs.skin"));
 
     if (!QFile::exists(titlePath) || !QFile::exists(tabPath))
         return false;
 
-    connect(KGlobalSettings::self(), SIGNAL(iconChanged(int)), this, SLOT(systemIconsChanged(int)),
+    connect(KIconLoader::global(), SIGNAL(iconChanged(int)), this, SLOT(systemIconsChanged(int)),
             Qt::UniqueConnection);
 
     QString titleDir(QFileInfo(titlePath).absolutePath());
@@ -175,27 +174,38 @@ const QString Skin::buttonStyleSheet(const QString& up, const QString& over, con
 {
     QString styleSheet;
 
-    QString borderBit("border: none;");
+    QString borderBit(QStringLiteral("border: none;"));
 
     QPixmap buttonImage(up);
     QString w(QString::number(buttonImage.width()));
     QString h(QString::number(buttonImage.height()));
 
-    QString sizeBit("min-width:" + w + "; min-height:" + h + "; max-width:" + w + "; max-height:" + h + ';');
+    QString sizeBit(QStringLiteral("min-width:") + w + QStringLiteral("; min-height:") + h
+        + QStringLiteral("; max-width:") + w + QStringLiteral("; max-height:") + h + QStringLiteral(";"));
 
-    styleSheet.append("KPushButton {" + borderBit + "image:url(" + up + ");" + sizeBit + '}');
-    styleSheet.append("KPushButton::hover {" + borderBit + "image:url(" + over + ");" + sizeBit + '}');
-    styleSheet.append("KPushButton::pressed {" + borderBit + "image:url(" + down + ");" + sizeBit + '}');
-    styleSheet.append("KPushButton::checked {" + borderBit + "image:url(" + down + ");" + sizeBit + '}');
-    styleSheet.append("KPushButton::open {" + borderBit + "image:url(" + down + ");" + sizeBit + '}');
-    styleSheet.append("KPushButton::menu-indicator { left: " + w + " }");
+    styleSheet.append(QStringLiteral("QPushButton {") + borderBit + QStringLiteral("image:url(")
+        + up + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QPushButton::hover {") + borderBit + QStringLiteral("image:url(")
+        + over + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QPushButton::pressed {") + borderBit + QStringLiteral("image:url(")
+        + down + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QPushButton::checked {") + borderBit + QStringLiteral("image:url(")
+        + down + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QPushButton::open {") + borderBit + QStringLiteral("image:url(")
+        + down + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QPushButton::menu-indicator { left: ") + w + QStringLiteral(" }"));
 
-    styleSheet.append("QToolButton {" + borderBit + "image:url(" + up + ");" + sizeBit + '}');
-    styleSheet.append("QToolButton::hover {" + borderBit + "image:url(" + over + ");" + sizeBit + '}');
-    styleSheet.append("QToolButton::pressed {" + borderBit + "image:url(" + down + ");" + sizeBit + '}');
-    styleSheet.append("QToolButton::checked {" + borderBit + "image:url(" + down + ");" + sizeBit + '}');
-    styleSheet.append("QToolButton::open {" + borderBit + "image:url(" + down + ");" + sizeBit + '}');
-    styleSheet.append("QToolButton::menu-indicator { left: " + w + " }");
+    styleSheet.append(QStringLiteral("QToolButton {") + borderBit + QStringLiteral("image:url(")
+        + up + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QToolButton::hover {") + borderBit + QStringLiteral("image:url(")
+        + over + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QToolButton::pressed {") + borderBit + QStringLiteral("image:url(")
+        + down + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QToolButton::checked {") + borderBit + QStringLiteral("image:url(")
+        + down + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QToolButton::open {") + borderBit + QStringLiteral("image:url(")
+        + down + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QToolButton::menu-indicator { left: ") + w + QStringLiteral(" }"));
 
     return styleSheet;
 }
@@ -216,7 +226,7 @@ void Skin::updateTabBarPreventClosingImageCache()
         (2 * m_tabBarPreventClosingImagePosition.y());
 
     // Get the system lock icon in a generous size.
-    m_tabBarPreventClosingImageCached = KIcon("object-locked.png").pixmap(48, 48);
+    m_tabBarPreventClosingImageCached = QIcon(QStringLiteral("object-locked.png")).pixmap(48, 48);
 
     // Resize the image if it's too tall.
     if (m_IconSize <  m_tabBarPreventClosingImageCached.height())

@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2008-2009 by Eike Hein <hein@kde.org>
+  Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License as
@@ -23,17 +23,16 @@
 #include "settings.h"
 
 #include <KActionCollection>
-#include <KApplication>
 #include <KColorScheme>
 #include <kde_terminal_interface.h>
 #include <KLocalizedString>
-#include <KIcon>
 #include <KPluginFactory>
 #include <KPluginLoader>
 #include <KService>
 #include <KUser>
 
 #include <QAction>
+#include <QApplication>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QWidget>
@@ -60,7 +59,7 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
     m_parentSplitter = parent;
 
     KPluginFactory* factory = 0;
-    KService::Ptr service = KService::serviceByDesktopName("konsolepart");
+    KService::Ptr service = KService::serviceByDesktopName(QStringLiteral("konsolepart"));
     if( service )
     {
         factory = KPluginLoader(service->library()).factory();
@@ -147,10 +146,9 @@ void Terminal::displayKPartLoadError()
     KColorScheme colorScheme(QPalette::Active);
     QColor warningColor = colorScheme.background(KColorScheme::NeutralBackground).color();
     QColor warningColorLight = KColorScheme::shade(warningColor, KColorScheme::LightShade, 0.1);
-    QString gradient = "qlineargradient(x1:0, y1:0, x2:0, y2:1,"
-                       "stop: 0 %1, stop: 0.6 %1 ,stop: 1.0 %2)";
+    QString gradient = QStringLiteral("qlineargradient(x1:0, y1:0, x2:0, y2:1,stop: 0 %1, stop: 0.6 %1, stop: 1.0 %2)");
     gradient = gradient.arg(warningColor.name()).arg(warningColorLight.name());
-    QString styleSheet = "QLabel { background: %1; }";
+    QString styleSheet = QStringLiteral("QLabel { background: %1; }");
 
     QWidget* widget = new QWidget(m_parentSplitter);
     widget->setStyleSheet(styleSheet.arg(gradient));
@@ -164,14 +162,14 @@ void Terminal::displayKPartLoadError()
     label->setWordWrap(false);
     label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     label->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    label->setText(i18nc("@info", "<application>Yakuake</application> was unable to load "
+    label->setText(xi18nc("@info", "<application>Yakuake</application> was unable to load "
                                  "the <application>Konsole</application> component.<nl/> "
                                  "A <application>Konsole</application> installation is "
                                  "required to use Yakuake."));
 
     QLabel* icon = new QLabel(widget);
     icon->setMargin(10);
-    icon->setPixmap(KIcon("dialog-warning").pixmap(QSize(48, 48)));
+    icon->setPixmap(QIcon(QStringLiteral("dialog-warning")).pixmap(QSize(48, 48)));
     icon->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
     QHBoxLayout* layout = new QHBoxLayout(widget);
@@ -197,28 +195,28 @@ void Terminal::disableOffendingPartActions()
     {
         QAction* action = 0;
 
-        action = actionCollection->action("next-view");
+        action = actionCollection->action(QStringLiteral("next-view"));
         if (action) action->setEnabled(false);
 
-        action = actionCollection->action("previous-view");
+        action = actionCollection->action(QStringLiteral("previous-view"));
         if (action) action->setEnabled(false);
 
-        action = actionCollection->action("close-active-view");
+        action = actionCollection->action(QStringLiteral("close-active-view"));
         if (action) action->setEnabled(false);
 
-        action = actionCollection->action("split-view-left-right");
+        action = actionCollection->action(QStringLiteral("split-view-left-right"));
         if (action) action->setEnabled(false);
 
-        action = actionCollection->action("split-view-top-bottom");
+        action = actionCollection->action(QStringLiteral("split-view-top-bottom"));
         if (action) action->setEnabled(false);
 
-        action = actionCollection->action("rename-session");
+        action = actionCollection->action(QStringLiteral("rename-session"));
         if (action) action->setEnabled(false);
 
-        action = actionCollection->action("enlarge-font");
+        action = actionCollection->action(QStringLiteral("enlarge-font"));
         if (action) action->setEnabled(false);
 
-        action = actionCollection->action("shrink-font");
+        action = actionCollection->action(QStringLiteral("shrink-font"));
         if (action) action->setEnabled(false);
     }
 }
@@ -232,19 +230,19 @@ void Terminal::setTitle(const QString& title)
 
 void Terminal::runCommand(const QString& command)
 {
-    m_terminalInterface->sendInput(command + '\n');
+    m_terminalInterface->sendInput(command + QStringLiteral("\n"));
 }
 
 void Terminal::manageProfiles()
 {
     QMetaObject::invokeMethod(m_part, "showManageProfilesDialog",
-        Qt::QueuedConnection, Q_ARG(QWidget*, KApplication::activeWindow()));
+        Qt::QueuedConnection, Q_ARG(QWidget*, QApplication::activeWindow()));
 }
 
 void Terminal::editProfile()
 {
     QMetaObject::invokeMethod(m_part, "showEditCurrentProfileDialog",
-        Qt::QueuedConnection, Q_ARG(QWidget*, KApplication::activeWindow()));
+        Qt::QueuedConnection, Q_ARG(QWidget*, QApplication::activeWindow()));
 }
 
 void Terminal::overrideShortcut(QKeyEvent* /* event */, bool& override)
