@@ -30,10 +30,10 @@ WindowSettings::WindowSettings(QWidget* parent) : QWidget(parent)
 {
     setupUi(this);
 
-    for (int i = 2; i <= QApplication::desktop()->numScreens(); i++)
+    for (int i = 2; i <= QApplication::desktop()->screenCount(); i++)
         kcfg_Screen->insertItem(i, xi18nc("@item:inlistbox", "Screen %1", i));
 
-    if (QApplication::desktop()->numScreens() > 1)
+    if (QApplication::desktop()->screenCount() > 1)
     {
         screenLabel->setEnabled(true);
         kcfg_Screen->setEnabled(true);
