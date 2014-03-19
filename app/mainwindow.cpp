@@ -1176,8 +1176,6 @@ void MainWindow::sharedPreOpenWindow()
 
     updateUseTranslucency();
 
-    applyWindowProperties();
-
     if (Settings::pollMouse()) toggleMousePoll(false);
 }
 
@@ -1186,6 +1184,8 @@ void MainWindow::sharedAfterOpenWindow()
     if (!Settings::firstRun()) KWindowSystem::forceActiveWindow(winId());
 
     m_listenForActivationChanges = true;
+
+    applyWindowProperties();
 
     emit windowOpened();
 }
