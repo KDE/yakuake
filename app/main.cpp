@@ -69,7 +69,7 @@ int main (int argc, char *argv[])
 
     MainWindow mainWindow;
     mainWindow.hide();
-    QObject::connect(&service, SIGNAL(activateRequested(QStringList)), &mainWindow, SLOT(toggleWindowState()));
+    QObject::connect(&service, SIGNAL(activateRequested(QStringList, QString)), &mainWindow, SLOT(toggleWindowState()));
 
     return app.exec();
 }
