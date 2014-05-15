@@ -31,12 +31,14 @@ find_package(KF5 REQUIRED
     WindowSystem
 )
 
-find_package(X11)
-set(HAVE_X11 ${X11_FOUND})
+if(NOT APPLE)
+  find_package(X11)
+  set(HAVE_X11 ${X11_FOUND})
 
-if(X11_FOUND)
-  find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED X11Extras)
-endif(X11_FOUND)
+  if(X11_FOUND)
+    find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED X11Extras)
+  endif(X11_FOUND)
+endif(NOT APPLE)
 
 add_definitions(
   -DQT_USE_QSTRINGBUILDER
