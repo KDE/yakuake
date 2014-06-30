@@ -190,11 +190,9 @@ void MainWindow::setupActions()
     action->setText(xi18nc("@action", "Open/Retract Yakuake"));
     action->setIcon(QIcon(QStringLiteral("yakuake")));
 #ifndef Q_OS_WIN /* PORT */
-    KGlobalAccel::self()->setDefaultShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_F12));
-    KGlobalAccel::self()->setShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_F12));
+    KGlobalAccel::self()->setGlobalShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_F12));
 #else
-    KGlobalAccel::self()->setDefaultShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_F11));
-    KGlobalAccel::self()->setShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_F11));
+    KGlobalAccel::self()->setGlobalShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_F11));
 #endif
     connect(action, SIGNAL(triggered()), this, SLOT(toggleWindowState()));
 
