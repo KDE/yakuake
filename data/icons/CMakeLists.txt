@@ -1,1 +1,1 @@
-ecm_install_icons(${ICON_INSTALL_DIR})
+ecm_install_icons(ICONS hi128-app-yakuake.png  hi16-app-yakuake.png  hi22-app-yakuake.png  hi256-app-yakuake.png  hi32-app-yakuake.png  hi48-app-yakuake.png  hi64-app-yakuake.png DESTINATION ${ICON_INSTALL_DIR})

@@ -17,7 +17,7 @@ set(yakuake_SRCS
     config/skinlistdelegate.cpp
 )
 
-qt5_wrap_ui(yakuake_SRCS
+ki18n_wrap_ui(yakuake_SRCS
     firstrundialog.ui
     config/windowsettings.ui
     config/behaviorsettings.ui

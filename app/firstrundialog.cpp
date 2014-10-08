@@ -26,23 +26,32 @@
 #include <KActionCollection>
 #include <KGlobalAccel>
 #include <KLocalizedString>
+#include <QPushButton>
+#include <QDialogButtonBox>
 
 FirstRunDialog::FirstRunDialog(MainWindow* mainWindow) : QDialog(mainWindow)
 {
     m_mainWindow = mainWindow;
 
-    // PORT setCaption(xi18nc("@title:window", "First Run"));
-    // PORT setButtons(KDialog::Ok | KDialog::Cancel);
+    setWindowTitle(xi18nc("@title:window", "First Run"));
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     QWidget* widget = new QWidget(this);
+    mainLayout->addWidget(widget);
+    mainLayout->addWidget(buttonBox);
 
     m_ui = new Ui::FirstRunDialog();
     m_ui->setupUi(widget);
     m_ui->titleWidget->setPixmap(QIcon(QStringLiteral("yakuake")).pixmap(22, 22));
 
-    // PORT widget->layout()->setSpacing(spacingHint());
     widget->setMinimumSize(widget->sizeHint());
-    // PORT setMainWidget(widget);
 
     initKeyButton();
 

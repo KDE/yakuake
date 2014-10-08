@@ -125,7 +125,7 @@ MainWindow::MainWindow(QWidget* parent)
 
 MainWindow::~MainWindow()
 {
-    Settings::self()->writeConfig();
+    Settings::self()->save();
 
     delete m_skin;
 }
@@ -1357,7 +1357,7 @@ void MainWindow::showFirstRunDialog()
 void MainWindow::firstRunDialogFinished()
 {
     Settings::setFirstRun(false);
-    Settings::self()->writeConfig();
+    Settings::self()->save();
 
     m_firstRunDialog->deleteLater();
 
