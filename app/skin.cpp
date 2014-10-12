@@ -130,6 +130,8 @@ bool Skin::load(const QString& name, bool kns)
     m_tabBarSeparatorImage.load(tabDir + tabBar.readEntry("separator_image", ""));
     m_tabBarUnselectedBackgroundImage.load(tabDir + tabBar.readEntry("unselected_background", ""));
     m_tabBarSelectedBackgroundImage.load(tabDir + tabBar.readEntry("selected_background", ""));
+    m_tabBarUnselectedLeftCornerImage.load(tabDir + tabBar.readEntry("unselected_left_corner", ""));
+    m_tabBarUnselectedRightCornerImage.load(tabDir + tabBar.readEntry("unselected_right_corner", ""));
     m_tabBarSelectedLeftCornerImage.load(tabDir + tabBar.readEntry("selected_left_corner", ""));
     m_tabBarSelectedRightCornerImage.load(tabDir + tabBar.readEntry("selected_right_corner", ""));
 

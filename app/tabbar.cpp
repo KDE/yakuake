@@ -465,6 +465,11 @@ int TabBar::drawButton(int x, int y, int index, QPainter& painter)
         painter.drawPixmap(x, y, m_skin->tabBarSelectedLeftCornerImage());
         x += m_skin->tabBarSelectedLeftCornerImage().width();
     }
+    else if (!m_skin->tabBarSelectedLeftCornerImage().isNull())
+    {
+        painter.drawPixmap(x, y, m_skin->tabBarUnselectedLeftCornerImage());
+        x += m_skin->tabBarUnselectedLeftCornerImage().width();
+    }
     else if (index != m_tabs.indexOf(m_selectedSessionId) + 1)
     {
         painter.drawPixmap(x, y, m_skin->tabBarSeparatorImage());
@@ -514,6 +519,11 @@ int TabBar::drawButton(int x, int y, int index, QPainter& painter)
     {
         painter.drawPixmap(x, m_skin->tabBarPosition().y(), m_skin->tabBarSelectedRightCornerImage());
         x += m_skin->tabBarSelectedRightCornerImage().width();
+    }
+    else if (!m_skin->tabBarUnselectedRightCornerImage().isNull())
+    {
+        painter.drawPixmap(x, m_skin->tabBarPosition().y(), m_skin->tabBarUnselectedRightCornerImage());
+        x += m_skin->tabBarUnselectedRightCornerImage().width();
     }
     else if (index != m_tabs.indexOf(m_selectedSessionId) - 1)
     {

@@ -68,6 +68,8 @@ class Skin : public QObject
         const QPixmap& tabBarSeparatorImage() { return m_tabBarSeparatorImage; }
         const QPixmap& tabBarUnselectedBackgroundImage() { return m_tabBarUnselectedBackgroundImage; }
         const QPixmap& tabBarSelectedBackgroundImage() { return m_tabBarSelectedBackgroundImage; }
+        const QPixmap& tabBarUnselectedLeftCornerImage() { return m_tabBarUnselectedLeftCornerImage; }
+        const QPixmap& tabBarUnselectedRightCornerImage() { return m_tabBarUnselectedRightCornerImage; }
         const QPixmap& tabBarSelectedLeftCornerImage() { return m_tabBarSelectedLeftCornerImage; }
         const QPixmap& tabBarSelectedRightCornerImage() { return m_tabBarSelectedRightCornerImage; }
 
@@ -126,6 +128,8 @@ class Skin : public QObject
         QPixmap m_tabBarSeparatorImage;
         QPixmap m_tabBarUnselectedBackgroundImage;
         QPixmap m_tabBarSelectedBackgroundImage;
+        QPixmap m_tabBarUnselectedLeftCornerImage;
+        QPixmap m_tabBarUnselectedRightCornerImage;
         QPixmap m_tabBarSelectedLeftCornerImage;
         QPixmap m_tabBarSelectedRightCornerImage;
 
