@@ -465,7 +465,7 @@ int TabBar::drawButton(int x, int y, int index, QPainter& painter)
         painter.drawPixmap(x, y, m_skin->tabBarSelectedLeftCornerImage());
         x += m_skin->tabBarSelectedLeftCornerImage().width();
     }
-    else if (!m_skin->tabBarSelectedLeftCornerImage().isNull())
+    else if (!m_skin->tabBarUnselectedLeftCornerImage().isNull())
     {
         painter.drawPixmap(x, y, m_skin->tabBarUnselectedLeftCornerImage());
         x += m_skin->tabBarUnselectedLeftCornerImage().width();
