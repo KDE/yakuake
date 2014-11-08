@@ -3,6 +3,7 @@ add_subdirectory( skins )
 add_subdirectory( updaters )
 
 install(PROGRAMS yakuake.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(FILES yakuake.appdata.xml DESTINATION share/appdata)
 
 macro_ensure_version("4.7.1" ${KDE_VERSION} HAVEKDE4_7_1)
 

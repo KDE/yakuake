@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<component type="desktop">
+  <id>yakuake.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>Yakuake</name>
+  <summary>Drop-down Terminal</summary>
+  <description>
+    <p>
+      Yakuake is a drop-down terminal emulator based on KDE Konsole technology.
+    </p>
+    <p>Features:</p>
+    <ul>
+      <li>Smoothly rolls down from the top of your screen</li>
+      <li>Tabbed interface</li>
+      <li>Configurable dimensions and animation speed</li>
+      <li>Skinnable</li>
+      <li>Sophisticated D-Bus interface</li>
+    </ul>
+  </description>
+  <url type="homepage">http://yakuake.kde.org/</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=yakuake</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>http://kde.org/images/screenshots/yakuake.png</image>
+    </screenshot>
+  </screenshots>
+  <project_group>KDE</project_group>
+  <provides>
+    <binary>yakuake</binary>
+  </provides>
+</component>
