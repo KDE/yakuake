@@ -12,6 +12,7 @@
   <name xml:lang="uk">Yakuake</name>
   <name xml:lang="x-test">xxYakuakexx</name>
   <summary>Drop-down Terminal</summary>
+  <summary xml:lang="de">Aufklapp-Terminal</summary>
   <summary xml:lang="es">Terminal desplegable</summary>
   <summary xml:lang="nl">Uitvouwbare terminalemulator</summary>
   <summary xml:lang="pl">Rozwijany terminal</summary>
@@ -22,6 +23,7 @@
     <p>
       Yakuake is a drop-down terminal emulator based on KDE Konsole technology.
     </p>
+    <p xml:lang="de">Yakuake ist ein Aufklapp-Terminalemulator basierend auf der KDE-Konsole.</p>
     <p xml:lang="es">Yakuake en un emulador de terminal desplegable basado en la tecnología de Konsole de KDE.</p>
     <p xml:lang="nl">Yakuake is een uitvouwbare terminalemulator, gebaseerd op de technologie van KDE Konsole.</p>
     <p xml:lang="pl">Yakuake jest rozwijanym emulatorem terminala opartym na technologii KDE Konsole.</p>
@@ -45,6 +47,7 @@
       <li xml:lang="uk">Плавно розгортається з верхньої частини вашого екрана.</li>
       <li xml:lang="x-test">xxSmoothly rolls down from the top of your screenxx</li>
       <li>Tabbed interface</li>
+      <li xml:lang="de">Bedienungsoberfläche mit Unterfenstern</li>
       <li xml:lang="es">Interfaz con pestañas</li>
       <li xml:lang="nl">Interface met tabbladen</li>
       <li xml:lang="pl">Interfejs z kartami</li>
