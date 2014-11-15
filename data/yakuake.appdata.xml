@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Yakuake</name>
+  <name xml:lang="cs">Yakuake</name>
   <name xml:lang="de">Yakuake</name>
   <name xml:lang="el">Yakuake</name>
   <name xml:lang="es">Yakuake</name>
@@ -15,6 +16,7 @@
   <name xml:lang="uk">Yakuake</name>
   <name xml:lang="x-test">xxYakuakexx</name>
   <summary>Drop-down Terminal</summary>
+  <summary xml:lang="cs">Vysouvací terminál</summary>
   <summary xml:lang="de">Aufklapp-Terminal</summary>
   <summary xml:lang="el">Τερματικό καθοδικής κύλισης</summary>
   <summary xml:lang="es">Terminal desplegable</summary>
@@ -29,6 +31,7 @@
     <p>
       Yakuake is a drop-down terminal emulator based on KDE Konsole technology.
     </p>
+    <p xml:lang="cs">Yakuake je vysunovací emulátor terminálu založený na technologii KDE Konsole.</p>
     <p xml:lang="de">Yakuake ist ein Aufklapp-Terminalemulator basierend auf der KDE-Konsole.</p>
     <p xml:lang="el">Το Yakuake είναι μία εφαρμογή τερματικού καθοδικής κύλισης βασισμένη στην τεχνολογία KDE Konsole.</p>
     <p xml:lang="es">Yakuake en un emulador de terminal desplegable basado en la tecnología de Konsole de KDE.</p>
@@ -40,6 +43,7 @@
     <p xml:lang="uk">Yakuake — спадний замінник термінала, заснований на технології KDE Konsole.</p>
     <p xml:lang="x-test">xxYakuake is a drop-down terminal emulator based on KDE Konsole technology.xx</p>
     <p>Features:</p>
+    <p xml:lang="cs">Vlastnosti:</p>
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="el">Χαρακτηριστικά:</p>
     <p xml:lang="es">Funcionalidades:</p>
