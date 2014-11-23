@@ -1,7 +1,6 @@
 [Global]
 IconName=yakuake
 Comment=Yakuake
-Comment[ar]=ياكواكي
 Comment[bg]=Yakuake
 Comment[bs]=Yakuake
 Comment[ca]=Yakuake
@@ -48,7 +47,6 @@ Comment[zh_TW]=Yakuake
 
 [Event/startup]
 Name=Startup
-Name[ar]=بدء
 Name[bs]=Pokretanje
 Name[ca]=Inici
 Name[ca@valencia]=Inici
@@ -91,7 +89,6 @@ Name[x-test]=xxStartupxx
 Name[zh_CN]=启动
 Name[zh_TW]=啟動
 Comment=Yakuake has started
-Comment[ar]=بدأ ياكواكي
 Comment[bs]=Yakuake je pokrenut
 Comment[ca]=S'ha engegat el Yakuake
 Comment[ca@valencia]=S'ha engegat el Yakuake
@@ -136,7 +133,6 @@ Action=Popup
 
 [Event/silence]
 Name=Silence detected
-Name[ar]=اكتُشف سكون
 Name[bs]=Tišina prepoznata
 Name[ca]=S'ha detectat silenci
 Name[ca@valencia]=S'ha detectat silenci
@@ -178,7 +174,6 @@ Name[x-test]=xxSilence detectedxx
 Name[zh_CN]=探测到静默
 Name[zh_TW]=偵測到沉默狀態
 Comment=Silence detected in a monitored terminal or session
-Comment[ar]=اكتُشف سكون في جلسةٍ أو طرفيّةٍ مُراقبة
 Comment[bs]=Tišina prepoznata u praćenom terminalu ili sesiji
 Comment[ca]=S'ha detectat silenci en un terminal o sessió vigilat
 Comment[ca@valencia]=S'ha detectat silenci en un terminal vigilat o sessió
@@ -222,7 +217,6 @@ Action=Popup
 
 [Event/activity]
 Name=Activity detected
-Name[ar]=اكتُشف نشاط
 Name[bs]=Aktivnost detektovana
 Name[ca]=S'ha detectat activitat
 Name[ca@valencia]=S'ha detectat activitat
@@ -264,7 +258,6 @@ Name[x-test]=xxActivity detectedxx
 Name[zh_CN]=探测到活动
 Name[zh_TW]=偵測到活動
 Comment=Activity detected in a monitored terminal or session
-Comment[ar]=اكتُشف نشاط في جلسةٍ أو طرفيّةٍ مُراقبة
 Comment[bs]=Aktivnost detektovana u praćenom terminalu ili sesiji
 Comment[ca]=S'ha detectat activitat en un terminal o sessió vigilat
 Comment[ca@valencia]=S'ha detectat activitat en un terminal vigilat o sessió
@@ -308,7 +301,6 @@ Action=Popup
 
 [Event/BellVisible]
 Name=Bell in Visible Session
-Name[ar]=جرس في جلسة ظاهرة
 Name[bs]=Zvono u vidljivoj sesiji
 Name[ca]=Timbre en una sessió visible
 Name[ca@valencia]=Timbre en una sessió visible
@@ -352,7 +344,6 @@ Name[x-test]=xxBell in Visible Sessionxx
 Name[zh_CN]=可见会话中的响铃
 Name[zh_TW]=可見工作階段響鈴
 Comment=Bell emitted within a visible session
-Comment[ar]=جرس أُصدر في جلسة ظاهرة
 Comment[bs]=Oglašeno je zvono unutar vidljive sesije
 Comment[ca]=Timbre emès en una sessió visible
 Comment[ca@valencia]=Timbre emés en una sessió visible
@@ -399,7 +390,6 @@ Action=None
 
 [Event/BellInvisible]
 Name=Bell in Non-Visible Session
-Name[ar]=جرس في جلسة غير ظاهرة
 Name[bs]=Zvono u zaklonjenoj sesiji
 Name[ca]=Timbre en una sessió no visible
 Name[ca@valencia]=Timbre en una sessió no visible
@@ -443,7 +433,6 @@ Name[x-test]=xxBell in Non-Visible Sessionxx
 Name[zh_CN]=不可见会话中的响铃
 Name[zh_TW]=非可見工作階段的響鈴
 Comment=Bell emitted within a non-visible session
-Comment[ar]=جرس أُصدر في جلسة غير ظاهرة
 Comment[bs]=Oglašeno je zvono unutar zaklonjene sesije
 Comment[ca]=Timbre emès en una sessió no visible
 Comment[ca@valencia]=Timbre emés en una sessió no visible
