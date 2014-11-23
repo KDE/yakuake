@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Yakuake
+Name[ar]=ياكواكي
 Name[be]=Yakuake
 Name[bg]=Yakuake
 Name[bs]=Yakuake
@@ -54,6 +55,7 @@ Name[x-test]=xxYakuakexx
 Name[zh_CN]=Yakuake
 Name[zh_TW]=Yakuake
 GenericName=Drop-down Terminal
+GenericName[ar]=طرفيّة منسدلة
 GenericName[bg]=Падащ терминал
 GenericName[bs]=Padajući terminal
 GenericName[ca]=Terminal desplegable
@@ -104,6 +106,7 @@ Type=Application
 Terminal=false
 Categories=Qt;KDE;System;TerminalEmulator;
 Comment=A drop-down terminal emulator based on KDE Konsole technology.
+Comment[ar]=محاكي طرفيّة منسدل مبنيّ على تقنيّة طرفيّة كدي.
 Comment[bg]=Падащ терминален емулатор с меню, базиран на конзолната технология на KDE.
 Comment[bs]=Padajući simulator terminala baziran na KDE konzolnoj tehnologiji
 Comment[ca]=Un emulador de terminal desplegable basat en la tecnologia del Konsole del KDE.

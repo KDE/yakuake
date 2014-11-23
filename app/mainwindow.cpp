@@ -1269,8 +1269,6 @@ QRect MainWindow::getDesktopGeometry()
     if (action->isChecked())
         return screenGeometry;
 
-    int currentDesktop = KWindowInfo(winId(), NET::WMDesktop).desktop();
-
     if (QApplication::desktop()->screenCount() > 1)
     {
         const QList<WId> allWindows = KWindowSystem::windows();
@@ -1286,7 +1284,9 @@ QRect MainWindow::getDesktopGeometry()
             {
                 KWindowInfo windowInfo = KWindowInfo(windowId, NET::WMDesktop, NET::WM2ExtendedStrut);
 
-                if (windowInfo.valid() && (windowInfo.desktop() == currentDesktop || windowInfo.desktop() == -1))
+                // If windowInfo is valid and the window is located at the same (current)
+                // desktop with the yakuake window...
+                if (windowInfo.valid() && windowInfo.isOnCurrentDesktop())
                 {
                     NETExtendedStrut strut = windowInfo.extendedStrut();
 
@@ -1316,10 +1316,10 @@ QRect MainWindow::getDesktopGeometry()
             }
         }
 
-        return KWindowSystem::workArea(offScreenWindows, currentDesktop).intersected(screenGeometry);
+        return KWindowSystem::workArea(offScreenWindows).intersected(screenGeometry);
     }
 
-    return KWindowSystem::workArea(currentDesktop);
+    return KWindowSystem::workArea();
 }
 
 void MainWindow::whatsThis()

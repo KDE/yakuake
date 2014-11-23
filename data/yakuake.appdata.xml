@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop">
+  <id>yakuake.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>Yakuake</name>
+  <name xml:lang="cs">Yakuake</name>
+  <name xml:lang="de">Yakuake</name>
+  <name xml:lang="el">Yakuake</name>
+  <name xml:lang="es">Yakuake</name>
+  <name xml:lang="nl">Yakuake</name>
+  <name xml:lang="pl">Yakuake</name>
+  <name xml:lang="pt">Yakuake</name>
+  <name xml:lang="pt-BR">Yakuake</name>
+  <name xml:lang="sk">Yakuake</name>
+  <name xml:lang="sr">Јакуаке</name>
+  <name xml:lang="sr-Latn">Yakuake</name>
+  <name xml:lang="sr-ijekavian">Јакуаке</name>
+  <name xml:lang="sr-ijekavianlatin">Yakuake</name>
+  <name xml:lang="uk">Yakuake</name>
+  <name xml:lang="x-test">xxYakuakexx</name>
+  <summary>Drop-down Terminal</summary>
+  <summary xml:lang="cs">Vysouvací terminál</summary>
+  <summary xml:lang="de">Aufklapp-Terminal</summary>
+  <summary xml:lang="el">Τερματικό καθοδικής κύλισης</summary>
+  <summary xml:lang="es">Terminal desplegable</summary>
+  <summary xml:lang="nl">Uitvouwbare terminalemulator</summary>
+  <summary xml:lang="pl">Rozwijany terminal</summary>
+  <summary xml:lang="pt">Terminal Acoplável</summary>
+  <summary xml:lang="pt-BR">Terminal suspenso</summary>
+  <summary xml:lang="sk">Rozbaľovací terminál</summary>
+  <summary xml:lang="sr">Падајући терминал</summary>
+  <summary xml:lang="sr-Latn">Padajući terminal</summary>
+  <summary xml:lang="sr-ijekavian">Падајући терминал</summary>
+  <summary xml:lang="sr-ijekavianlatin">Padajući terminal</summary>
+  <summary xml:lang="uk">Спадний термінал</summary>
+  <summary xml:lang="x-test">xxDrop-down Terminalxx</summary>
+  <description>
+    <p>
+      Yakuake is a drop-down terminal emulator based on KDE Konsole technology.
+    </p>
+    <p xml:lang="cs">Yakuake je vysunovací emulátor terminálu založený na technologii KDE Konsole.</p>
+    <p xml:lang="de">Yakuake ist ein Aufklapp-Terminalemulator basierend auf der KDE-Konsole.</p>
+    <p xml:lang="el">Το Yakuake είναι μία εφαρμογή τερματικού καθοδικής κύλισης βασισμένη στην τεχνολογία KDE Konsole.</p>
+    <p xml:lang="es">Yakuake en un emulador de terminal desplegable basado en la tecnología de Konsole de KDE.</p>
+    <p xml:lang="nl">Yakuake is een uitvouwbare terminalemulator, gebaseerd op de technologie van KDE Konsole.</p>
+    <p xml:lang="pl">Yakuake jest rozwijanym emulatorem terminala opartym na technologii KDE Konsole.</p>
+    <p xml:lang="pt">O Yakuake é um emulador de terminal acoplável, baseado na tecnologia do Konsole para o KDE.</p>
+    <p xml:lang="pt-BR">Yakuake é um emulador de terminal baseado na tecnologia do Konsole do KDE.</p>
+    <p xml:lang="sk">Yakuake je drop-down emulátor terminálu založený na KDE technológii Konsole.</p>
+    <p xml:lang="sr">Јакуаке је падајући емулатор терминала над технологијом КДЕ‑ове Конзоле.</p>
+    <p xml:lang="sr-Latn">Yakuake je padajući emulator terminala nad tehnologijom KDE‑ove Konsole.</p>
+    <p xml:lang="sr-ijekavian">Јакуаке је падајући емулатор терминала над технологијом КДЕ‑ове Конзоле.</p>
+    <p xml:lang="sr-ijekavianlatin">Yakuake je padajući emulator terminala nad tehnologijom KDE‑ove Konsole.</p>
+    <p xml:lang="uk">Yakuake — спадний замінник термінала, заснований на технології KDE Konsole.</p>
+    <p xml:lang="x-test">xxYakuake is a drop-down terminal emulator based on KDE Konsole technology.xx</p>
+    <p>Features:</p>
+    <p xml:lang="cs">Vlastnosti:</p>
+    <p xml:lang="de">Funktionen:</p>
+    <p xml:lang="el">Χαρακτηριστικά:</p>
+    <p xml:lang="es">Funcionalidades:</p>
+    <p xml:lang="nl">Mogelijkheden:</p>
+    <p xml:lang="pl">Możliwości:</p>
+    <p xml:lang="pt">Características:</p>
+    <p xml:lang="pt-BR">Funcionalidades:</p>
+    <p xml:lang="sk">Funkcie:</p>
+    <p xml:lang="sr">Могућности:</p>
+    <p xml:lang="sr-Latn">Mogućnosti:</p>
+    <p xml:lang="sr-ijekavian">Могућности:</p>
+    <p xml:lang="sr-ijekavianlatin">Mogućnosti:</p>
+    <p xml:lang="uk">Можливості:</p>
+    <p xml:lang="x-test">xxFeatures:xx</p>
+    <ul>
+      <li>Smoothly rolls down from the top of your screen</li>
+      <li xml:lang="el">Κατεβαίνει με απαλή κύλιση από την κορυφή της οθόνης σας</li>
+      <li xml:lang="es">Se despliega suavemente desde la parte superior de la pantalla</li>
+      <li xml:lang="nl">Rolt langzaam naar beneden vanaf de bovenkant van uw scherm</li>
+      <li xml:lang="pl">Płynnie rozwija się z góry ekranu</li>
+      <li xml:lang="pt">Desenrola-se suavemente a partir do topo do seu ecrã</li>
+      <li xml:lang="pt-BR">Desenrola-se suavemente a partir do topo da sua tela</li>
+      <li xml:lang="sk">Plynulé rolovanie dolu z vrchu obrazovky</li>
+      <li xml:lang="sr">глатко одмотавање са врха екрана</li>
+      <li xml:lang="sr-Latn">glatko odmotavanje sa vrha ekrana</li>
+      <li xml:lang="sr-ijekavian">глатко одмотавање са врха екрана</li>
+      <li xml:lang="sr-ijekavianlatin">glatko odmotavanje sa vrha ekrana</li>
+      <li xml:lang="uk">Плавно розгортається з верхньої частини вашого екрана.</li>
+      <li xml:lang="x-test">xxSmoothly rolls down from the top of your screenxx</li>
+      <li>Tabbed interface</li>
+      <li xml:lang="de">Bedienungsoberfläche mit Unterfenstern</li>
+      <li xml:lang="el">Περιβάλλον χρήσης με καρτέλες</li>
+      <li xml:lang="es">Interfaz con pestañas</li>
+      <li xml:lang="nl">Interface met tabbladen</li>
+      <li xml:lang="pl">Interfejs z kartami</li>
+      <li xml:lang="pt">Interface por páginas</li>
+      <li xml:lang="pt-BR">Interface por abas</li>
+      <li xml:lang="sk">Kartové rozhranie</li>
+      <li xml:lang="sr">сучеље са језичцима</li>
+      <li xml:lang="sr-Latn">sučelje sa jezičcima</li>
+      <li xml:lang="sr-ijekavian">сучеље са језичцима</li>
+      <li xml:lang="sr-ijekavianlatin">sučelje sa jezičcima</li>
+      <li xml:lang="uk">Інтерфейс із вкладками.</li>
+      <li xml:lang="x-test">xxTabbed interfacexx</li>
+      <li>Configurable dimensions and animation speed</li>
+      <li xml:lang="el">Διαμορφώσιμες διαστάσεις και ταχύτητα εφέ κίνησης</li>
+      <li xml:lang="es">Se pueden configurar las dimensiones y la velocidad de animación</li>
+      <li xml:lang="nl">Instelbare afmetingen en animatiesnelheid</li>
+      <li xml:lang="pl">Ustawialny rozmiar i szybkość animacji</li>
+      <li xml:lang="pt">Dimensões e velocidade de animação configuráveis</li>
+      <li xml:lang="pt-BR">Dimensões e velocidade de animação configuráveis</li>
+      <li xml:lang="sk">Nastaviteľné rozmery a rýchlosť animácií</li>
+      <li xml:lang="sr">подесиве димензије и брзина анимације</li>
+      <li xml:lang="sr-Latn">podesive dimenzije i brzina animacije</li>
+      <li xml:lang="sr-ijekavian">подесиве димензије и брзина анимације</li>
+      <li xml:lang="sr-ijekavianlatin">podesive dimenzije i brzina animacije</li>
+      <li xml:lang="uk">Можливість налаштовування розмірів та швидкості анімації.</li>
+      <li xml:lang="x-test">xxConfigurable dimensions and animation speedxx</li>
+      <li>Skinnable</li>
+      <li xml:lang="el">Με δυνατότητα θεμάτων</li>
+      <li xml:lang="es">Admite el uso de pieles</li>
+      <li xml:lang="nl">Te voorzien van een skin</li>
+      <li xml:lang="pl">Możliwość używania skórek</li>
+      <li xml:lang="pt">Visual personalizável</li>
+      <li xml:lang="pt-BR">Visual personalizável</li>
+      <li xml:lang="sk">Skinovateľné</li>
+      <li xml:lang="sr">подршка за маске</li>
+      <li xml:lang="sr-Latn">podrška za maske</li>
+      <li xml:lang="sr-ijekavian">подршка за маске</li>
+      <li xml:lang="sr-ijekavianlatin">podrška za maske</li>
+      <li xml:lang="uk">Можливість використання різних обрамлень («шкірок»).</li>
+      <li xml:lang="x-test">xxSkinnablexx</li>
+      <li>Sophisticated D-Bus interface</li>
+      <li xml:lang="el">Εξελιγμένο περιβάλλον D-Bus</li>
+      <li xml:lang="es">Interfaz D-Bus sofisticado</li>
+      <li xml:lang="nl">Intelligent D-Bus-interface</li>
+      <li xml:lang="pl">Zaawansowany interfejs D-Bus</li>
+      <li xml:lang="pt">Interface de D-Bus sofisticada</li>
+      <li xml:lang="pt-BR">Interface D-Bus sofisticada</li>
+      <li xml:lang="sk">Sofistikované rozhranie </li>
+      <li xml:lang="sr">свеобухватно д‑бус сучеље</li>
+      <li xml:lang="sr-Latn">sveobuhvatno D‑Bus sučelje</li>
+      <li xml:lang="sr-ijekavian">свеобухватно д‑бус сучеље</li>
+      <li xml:lang="sr-ijekavianlatin">sveobuhvatno D‑Bus sučelje</li>
+      <li xml:lang="uk">Продуманий інтерфейс D-Bus.</li>
+      <li xml:lang="x-test">xxSophisticated D-Bus interfacexx</li>
+    </ul>
+  </description>
+  <url type="homepage">http://yakuake.kde.org/</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=yakuake</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>http://kde.org/images/screenshots/yakuake.png</image>
+    </screenshot>
+  </screenshots>
+  <project_group>KDE</project_group>
+  <provides>
+    <binary>yakuake</binary>
+  </provides>
+</component>
