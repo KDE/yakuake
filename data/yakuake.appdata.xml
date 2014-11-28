@@ -5,8 +5,10 @@
   <project_license>GPL-2.0+</project_license>
   <name>Yakuake</name>
   <name xml:lang="cs">Yakuake</name>
+  <name xml:lang="da">Yakuake</name>
   <name xml:lang="de">Yakuake</name>
   <name xml:lang="es">Yakuake</name>
+  <name xml:lang="fi">Yakuake</name>
   <name xml:lang="nl">Yakuake</name>
   <name xml:lang="pt">Yakuake</name>
   <name xml:lang="pt-BR">Yakuake</name>
@@ -17,6 +19,7 @@
   <summary xml:lang="cs">Vysouvací terminál</summary>
   <summary xml:lang="de">Aufklapp-Terminal</summary>
   <summary xml:lang="es">Terminal desplegable</summary>
+  <summary xml:lang="fi">Alas putoava pääte</summary>
   <summary xml:lang="nl">Uitvouwbare terminalemulator</summary>
   <summary xml:lang="pt">Terminal Acoplável</summary>
   <summary xml:lang="pt-BR">Terminal suspenso</summary>
@@ -30,6 +33,7 @@
     <p xml:lang="cs">Yakuake je vysouvací emulátor terminálu založený na technologii KDE Konsole.</p>
     <p xml:lang="de">Yakuake ist ein Aufklapp-Terminalemulator basierend auf der KDE-Konsole.</p>
     <p xml:lang="es">Yakuake en un emulador de terminal desplegable basado en la tecnología de Konsole de KDE.</p>
+    <p xml:lang="fi">Yakuake on KDE:n Konsolen tekniikkaan perustuva alas putoava pääte.</p>
     <p xml:lang="nl">Yakuake is een uitvouwbare terminalemulator, gebaseerd op de technologie van KDE Konsole.</p>
     <p xml:lang="pt">O Yakuake é um emulador de terminal acoplável que se baseia na tecnologia do Konsole para o KDE.</p>
     <p xml:lang="pt-BR">Yakuake é um emulador de terminal baseado na tecnologia do Konsole do KDE.</p>
@@ -40,6 +44,7 @@
     <p xml:lang="cs">Vlastnosti:</p>
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="es">Funcionalidades:</p>
+    <p xml:lang="fi">Ominaisuuksia:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Funcionalidades:</p>
@@ -49,6 +54,7 @@
     <ul>
       <li>Smoothly rolls down from the top of your screen</li>
       <li xml:lang="es">Se despliega suavemente desde la parte superior de la pantalla</li>
+      <li xml:lang="fi">Rullaa sulavasti alas näytön ylälaidasta</li>
       <li xml:lang="nl">Rolt langzaam naar beneden vanaf de bovenkant van uw scherm</li>
       <li xml:lang="pt">Desenrola-se suavemente a partir do topo do seu ecrã</li>
       <li xml:lang="pt-BR">Desenrola-se suavemente a partir do topo da sua tela</li>
@@ -58,6 +64,7 @@
       <li>Tabbed interface</li>
       <li xml:lang="de">Bedienungsoberfläche mit Unterfenstern</li>
       <li xml:lang="es">Interfaz con pestañas</li>
+      <li xml:lang="fi">Välilehdet</li>
       <li xml:lang="nl">Interface met tabbladen</li>
       <li xml:lang="pt">Interface por páginas</li>
       <li xml:lang="pt-BR">Interface por abas</li>
@@ -66,6 +73,7 @@
       <li xml:lang="x-test">xxTabbed interfacexx</li>
       <li>Configurable dimensions and animation speed</li>
       <li xml:lang="es">Se pueden configurar las dimensiones y la velocidad de animación</li>
+      <li xml:lang="fi">Muutettavissa olevat mitat ja animointinopeus</li>
       <li xml:lang="nl">Instelbare afmetingen en animatiesnelheid</li>
       <li xml:lang="pt">Dimensões e velocidade de animação configuráveis</li>
       <li xml:lang="pt-BR">Dimensões e velocidade de animação configuráveis</li>
@@ -74,6 +82,7 @@
       <li xml:lang="x-test">xxConfigurable dimensions and animation speedxx</li>
       <li>Skinnable</li>
       <li xml:lang="es">Admite el uso de pieles</li>
+      <li xml:lang="fi">Vaihdettava teema</li>
       <li xml:lang="nl">Te voorzien van een skin</li>
       <li xml:lang="pt">Visual personalizável</li>
       <li xml:lang="pt-BR">Visual personalizável</li>
@@ -82,6 +91,7 @@
       <li xml:lang="x-test">xxSkinnablexx</li>
       <li>Sophisticated D-Bus interface</li>
       <li xml:lang="es">Interfaz D-Bus sofisticado</li>
+      <li xml:lang="fi">Kehittynyt D-Bus-liittymä</li>
       <li xml:lang="nl">Intelligent D-Bus-interface</li>
       <li xml:lang="pt">Interface de D-Bus sofisticada</li>
       <li xml:lang="pt-BR">Interface D-Bus sofisticada</li>
