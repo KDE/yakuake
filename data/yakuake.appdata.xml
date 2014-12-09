@@ -22,6 +22,7 @@
   <name xml:lang="sr-ijekavianlatin">Yakuake</name>
   <name xml:lang="uk">Yakuake</name>
   <name xml:lang="x-test">xxYakuakexx</name>
+  <name xml:lang="zh-CN">Yakuake</name>
   <summary>Drop-down Terminal</summary>
   <summary xml:lang="ca">Terminal desplegable</summary>
   <summary xml:lang="cs">Vysouvací terminál</summary>
@@ -40,6 +41,7 @@
   <summary xml:lang="sr-ijekavianlatin">Padajući terminal</summary>
   <summary xml:lang="uk">Спадний термінал</summary>
   <summary xml:lang="x-test">xxDrop-down Terminalxx</summary>
+  <summary xml:lang="zh-CN">拉幕式终端</summary>
   <description>
     <p>
       Yakuake is a drop-down terminal emulator based on KDE Konsole technology.
@@ -61,6 +63,7 @@
     <p xml:lang="sr-ijekavianlatin">Yakuake je padajući emulator terminala nad tehnologijom KDE‑ove Konsole.</p>
     <p xml:lang="uk">Yakuake — спадний замінник термінала, заснований на технології KDE Konsole.</p>
     <p xml:lang="x-test">xxYakuake is a drop-down terminal emulator based on KDE Konsole technology.xx</p>
+    <p xml:lang="zh-CN">Yakuake 是一个基于 KDE Konsole 技术的拉幕式终端仿真器。</p>
     <p>Features:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="cs">Vlastnosti:</p>
@@ -79,6 +82,7 @@
     <p xml:lang="sr-ijekavianlatin">Mogućnosti:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
+    <p xml:lang="zh-CN">功能：</p>
     <ul>
       <li>Smoothly rolls down from the top of your screen</li>
       <li xml:lang="ca">S'estén suaument des de la part superior de la pantalla</li>
@@ -96,6 +100,7 @@
       <li xml:lang="sr-ijekavianlatin">glatko odmotavanje sa vrha ekrana</li>
       <li xml:lang="uk">Плавно розгортається з верхньої частини вашого екрана.</li>
       <li xml:lang="x-test">xxSmoothly rolls down from the top of your screenxx</li>
+      <li xml:lang="zh-CN">平滑从屏幕顶端下滑</li>
       <li>Tabbed interface</li>
       <li xml:lang="ca">Interfície amb pestanyes</li>
       <li xml:lang="de">Bedienungsoberfläche mit Unterfenstern</li>
@@ -113,6 +118,7 @@
       <li xml:lang="sr-ijekavianlatin">sučelje sa jezičcima</li>
       <li xml:lang="uk">Інтерфейс із вкладками.</li>
       <li xml:lang="x-test">xxTabbed interfacexx</li>
+      <li xml:lang="zh-CN">标签式界面</li>
       <li>Configurable dimensions and animation speed</li>
       <li xml:lang="ca">Les dimensions i la velocitat de l'animació es poden configurar</li>
       <li xml:lang="en-GB">Configurable dimensions and animation speed</li>
@@ -129,6 +135,7 @@
       <li xml:lang="sr-ijekavianlatin">podesive dimenzije i brzina animacije</li>
       <li xml:lang="uk">Можливість налаштовування розмірів та швидкості анімації.</li>
       <li xml:lang="x-test">xxConfigurable dimensions and animation speedxx</li>
+      <li xml:lang="zh-CN">可配置位置和动画速度</li>
       <li>Skinnable</li>
       <li xml:lang="ca">Es pot canvia l'aparença</li>
       <li xml:lang="en-GB">Skinnable</li>
@@ -145,6 +152,7 @@
       <li xml:lang="sr-ijekavianlatin">podrška za maske</li>
       <li xml:lang="uk">Можливість використання різних обрамлень («шкірок»).</li>
       <li xml:lang="x-test">xxSkinnablexx</li>
+      <li xml:lang="zh-CN">可更换主题</li>
       <li>Sophisticated D-Bus interface</li>
       <li xml:lang="ca">Interfície del D-Bus sofisticada</li>
       <li xml:lang="en-GB">Sophisticated D-Bus interface</li>
@@ -161,6 +169,7 @@
       <li xml:lang="sr-ijekavianlatin">sveobuhvatno D‑Bus sučelje</li>
       <li xml:lang="uk">Продуманий інтерфейс D-Bus.</li>
       <li xml:lang="x-test">xxSophisticated D-Bus interfacexx</li>
+      <li xml:lang="zh-CN">复杂的 D-Bus 接口</li>
     </ul>
   </description>
   <url type="homepage">http://yakuake.kde.org/</url>
