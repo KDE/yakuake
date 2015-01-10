@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Yakuake</name>
+  <name xml:lang="ar">ياكواكي</name>
   <name xml:lang="ca">Yakuake</name>
   <name xml:lang="cs">Yakuake</name>
   <name xml:lang="da">Yakuake</name>
@@ -25,6 +26,7 @@
   <name xml:lang="x-test">xxYakuakexx</name>
   <name xml:lang="zh-CN">Yakuake</name>
   <summary>Drop-down Terminal</summary>
+  <summary xml:lang="ar">طرفيّة منسدلة</summary>
   <summary xml:lang="ca">Terminal desplegable</summary>
   <summary xml:lang="cs">Vysouvací terminál</summary>
   <summary xml:lang="de">Aufklapp-Terminal</summary>
@@ -48,6 +50,7 @@
     <p>
       Yakuake is a drop-down terminal emulator based on KDE Konsole technology.
     </p>
+    <p xml:lang="ar">ياكواكي هو محاكي طرفيّة منسدل مبنيّ على تقنيّة طرفيّة كدي.</p>
     <p xml:lang="ca">El Yakuake és un emulador de terminal desplegable basat en la tecnologia del Konsole del KDE.</p>
     <p xml:lang="cs">Yakuake je vysouvací emulátor terminálu založený na technologii KDE Konsole.</p>
     <p xml:lang="de">Yakuake ist ein Aufklapp-Terminalemulator basierend auf der KDE-Konsole.</p>
@@ -68,6 +71,7 @@
     <p xml:lang="x-test">xxYakuake is a drop-down terminal emulator based on KDE Konsole technology.xx</p>
     <p xml:lang="zh-CN">Yakuake 是一个基于 KDE Konsole 技术的拉幕式终端仿真器。</p>
     <p>Features:</p>
+    <p xml:lang="ar">الميزات:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="cs">Vlastnosti:</p>
     <p xml:lang="de">Funktionen:</p>
@@ -89,6 +93,7 @@
     <p xml:lang="zh-CN">功能：</p>
     <ul>
       <li>Smoothly rolls down from the top of your screen</li>
+      <li xml:lang="ar">ينسدل انسيابيًّا من أعلى شاشتك</li>
       <li xml:lang="ca">S'estén suaument des de la part superior de la pantalla</li>
       <li xml:lang="en-GB">Smoothly rolls down from the top of your screen</li>
       <li xml:lang="es">Se despliega suavemente desde la parte superior de la pantalla</li>
@@ -107,6 +112,7 @@
       <li xml:lang="x-test">xxSmoothly rolls down from the top of your screenxx</li>
       <li xml:lang="zh-CN">平滑从屏幕顶端下滑</li>
       <li>Tabbed interface</li>
+      <li xml:lang="ar">واجهة ألسنة</li>
       <li xml:lang="ca">Interfície amb pestanyes</li>
       <li xml:lang="de">Bedienungsoberfläche mit Unterfenstern</li>
       <li xml:lang="en-GB">Tabbed interface</li>
@@ -144,6 +150,7 @@
       <li xml:lang="x-test">xxConfigurable dimensions and animation speedxx</li>
       <li xml:lang="zh-CN">可配置位置和动画速度</li>
       <li>Skinnable</li>
+      <li xml:lang="ar">قابل للتّخصيص</li>
       <li xml:lang="ca">Es pot canvia l'aparença</li>
       <li xml:lang="en-GB">Skinnable</li>
       <li xml:lang="es">Admite el uso de pieles</li>
