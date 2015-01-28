@@ -12,6 +12,7 @@
   <name xml:lang="en-GB">Yakuake</name>
   <name xml:lang="es">Yakuake</name>
   <name xml:lang="fi">Yakuake</name>
+  <name xml:lang="lt">Yakuake</name>
   <name xml:lang="nl">Yakuake</name>
   <name xml:lang="pl">Yakuake</name>
   <name xml:lang="pt">Yakuake</name>
@@ -33,6 +34,7 @@
   <summary xml:lang="en-GB">Drop-down Terminal</summary>
   <summary xml:lang="es">Terminal desplegable</summary>
   <summary xml:lang="fi">Alas putoava pääte</summary>
+  <summary xml:lang="lt">Išskleidžiamasis terminalas</summary>
   <summary xml:lang="nl">Uitvouwbare terminalemulator</summary>
   <summary xml:lang="pl">Rozwijany terminal</summary>
   <summary xml:lang="pt">Terminal Acoplável</summary>
@@ -57,6 +59,7 @@
     <p xml:lang="en-GB">Yakuake is a drop-down terminal emulator based on KDE Konsole technology.</p>
     <p xml:lang="es">Yakuake en un emulador de terminal desplegable basado en la tecnología de Konsole de KDE.</p>
     <p xml:lang="fi">Yakuake on KDE:n Konsolen tekniikkaan perustuva alas putoava pääte.</p>
+    <p xml:lang="lt">Yakuake yra nusileidžiantis terminalo emuliatorius paremtas KDE Konsole technologija.</p>
     <p xml:lang="nl">Yakuake is een uitvouwbare terminalemulator, gebaseerd op de technologie van KDE Konsole.</p>
     <p xml:lang="pl">Yakuake jest rozwijanym emulatorem terminala opartym na technologii KDE Konsole.</p>
     <p xml:lang="pt">O Yakuake é um emulador de terminal acoplável que se baseia na tecnologia do Konsole para o KDE.</p>
@@ -78,6 +81,7 @@
     <p xml:lang="en-GB">Features:</p>
     <p xml:lang="es">Funcionalidades:</p>
     <p xml:lang="fi">Ominaisuuksia:</p>
+    <p xml:lang="lt">Ypatybės:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
@@ -98,6 +102,7 @@
       <li xml:lang="en-GB">Smoothly rolls down from the top of your screen</li>
       <li xml:lang="es">Se despliega suavemente desde la parte superior de la pantalla</li>
       <li xml:lang="fi">Rullaa sulavasti alas näytön ylälaidasta</li>
+      <li xml:lang="lt">Sklandžiai nusileidžia žemyn nuo jūsų ekrano viršaus</li>
       <li xml:lang="nl">Rolt langzaam naar beneden vanaf de bovenkant van uw scherm</li>
       <li xml:lang="pl">Płynnie rozwija się z góry ekranu</li>
       <li xml:lang="pt">Desenrola-se suavemente a partir do topo do seu ecrã</li>
@@ -118,6 +123,7 @@
       <li xml:lang="en-GB">Tabbed interface</li>
       <li xml:lang="es">Interfaz con pestañas</li>
       <li xml:lang="fi">Välilehdet</li>
+      <li xml:lang="lt">Kortelės sąsajoje</li>
       <li xml:lang="nl">Interface met tabbladen</li>
       <li xml:lang="pl">Interfejs z kartami</li>
       <li xml:lang="pt">Interface por páginas</li>
@@ -136,6 +142,7 @@
       <li xml:lang="en-GB">Configurable dimensions and animation speed</li>
       <li xml:lang="es">Se pueden configurar las dimensiones y la velocidad de animación</li>
       <li xml:lang="fi">Muutettavissa olevat mitat ja animointinopeus</li>
+      <li xml:lang="lt">Konfigūruojami dydi ir animacijos greitis</li>
       <li xml:lang="nl">Instelbare afmetingen en animatiesnelheid</li>
       <li xml:lang="pl">Ustawialny rozmiar i szybkość animacji</li>
       <li xml:lang="pt">Dimensões e velocidade de animação configuráveis</li>
@@ -155,6 +162,7 @@
       <li xml:lang="en-GB">Skinnable</li>
       <li xml:lang="es">Admite el uso de pieles</li>
       <li xml:lang="fi">Vaihdettava teema</li>
+      <li xml:lang="lt">Keičiama išvaizda</li>
       <li xml:lang="nl">Te voorzien van een skin</li>
       <li xml:lang="pl">Możliwość używania skórek</li>
       <li xml:lang="pt">Visual personalizável</li>
@@ -173,6 +181,7 @@
       <li xml:lang="en-GB">Sophisticated D-Bus interface</li>
       <li xml:lang="es">Interfaz D-Bus sofisticado</li>
       <li xml:lang="fi">Kehittynyt D-Bus-liittymä</li>
+      <li xml:lang="lt">Įmantri D-Bus sąsaja</li>
       <li xml:lang="nl">Intelligent D-Bus-interface</li>
       <li xml:lang="pl">Zaawansowany interfejs D-Bus</li>
       <li xml:lang="pt">Interface de D-Bus sofisticada</li>
