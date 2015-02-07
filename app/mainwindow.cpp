@@ -725,7 +725,7 @@ void MainWindow::applySettings()
             m_tabBar, SLOT(setTabTitle(int,QString)));
     }
 
-    m_animationTimer.setInterval(10);
+    m_animationTimer.setInterval(Settings::frames() ? 10 : 0);
 
     m_tabBar->setVisible(Settings::showTabBar());
 
