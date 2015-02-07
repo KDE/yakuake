@@ -1121,6 +1121,8 @@ void MainWindow::xshapeOpenWindow()
         sharedPreOpenWindow();
 
         show();
+
+        sharedAfterOpenWindow();
     }
 
     if (m_animationFrame == Settings::frames())
@@ -1130,8 +1132,6 @@ void MainWindow::xshapeOpenWindow()
 
         m_titleBar->move(0, height() - m_titleBar->height());
         updateMask();
-
-        sharedAfterOpenWindow();
     }
     else
     {
