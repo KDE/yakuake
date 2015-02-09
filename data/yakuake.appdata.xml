@@ -23,6 +23,7 @@
   <name xml:lang="sr-ijekavian">Јакуаке</name>
   <name xml:lang="sr-ijekavianlatin">Yakuake</name>
   <name xml:lang="sv">Yakuake</name>
+  <name xml:lang="tr">Yakuake</name>
   <name xml:lang="uk">Yakuake</name>
   <name xml:lang="x-test">xxYakuakexx</name>
   <name xml:lang="zh-CN">Yakuake</name>
@@ -45,6 +46,7 @@
   <summary xml:lang="sr-ijekavian">Падајући терминал</summary>
   <summary xml:lang="sr-ijekavianlatin">Padajući terminal</summary>
   <summary xml:lang="sv">Rullgardinsterminal</summary>
+  <summary xml:lang="tr">Açılır Uçbirim</summary>
   <summary xml:lang="uk">Спадний термінал</summary>
   <summary xml:lang="x-test">xxDrop-down Terminalxx</summary>
   <summary xml:lang="zh-CN">拉幕式终端</summary>
