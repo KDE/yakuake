@@ -32,6 +32,7 @@
 #include <KNS3/DownloadManager>
 
 #include <QDir>
+#include <QDirIterator>
 #include <QFile>
 #include <QFileDialog>
 #include <QPointer>
@@ -98,50 +99,41 @@ void AppearanceSettings::populateSkinList()
 {
     m_skins->clear();
 
-// PORT    QStringList titleDirs = KGlobal::dirs()->findAllResources("data", "yakuake/skins/*/title.skin")
-// PORT       + KGlobal::dirs()->findAllResources("data", m_knsSkinDir + "*/title.skin");
-// PORT   QStringList tabDirs = KGlobal::dirs()->findAllResources("data", "yakuake/skins/*/tabs.skin")
-// PORT       + KGlobal::dirs()->findAllResources("data", m_knsSkinDir + "*/tabs.skin");
-/* PORT
-    QStringList skinDirs;
-    QStringListIterator i(titleDirs);
+    QStringList allSkinLocations;
+    allSkinLocations << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("/yakuake/skins/"), QStandardPaths::LocateDirectory);
+    allSkinLocations << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("/yakuake/kns_skins/"), QStandardPaths::LocateDirectory);
 
-    while (i.hasNext())
+    Q_FOREACH (const QString& skinLocation, allSkinLocations)
     {
-        const QString& titleDir = i.next();
-        const QString& skinDir(titleDir.section('/', 0, -2));
-
-        if (tabDirs.contains(skinDir + "/tabs.skin")
-            && !skinDirs.filter(QRegExp(QRegExp::escape(skinDir.section('/', -2, -1)) + '$')).count())
-        {
-            skinDirs << skinDir;
-        }
-    }
-
-    if (skinDirs.count() == 0)
-        return;
-
-    QStringListIterator i2(skinDirs);
-
-    while (i2.hasNext())
-    {
-        const QString& skinDir = i2.next();
-
-        QStandardItem* skin = createSkinItem(skinDir);
-
-        if (!skin)
-            continue;
-
-        m_skins->appendRow(skin);
-
-        if (skin->data(SkinId).toString() == m_selectedSkinId)
-            skinList->setCurrentIndex(skin->index());
+        populateSkinList(skinLocation);
     }
 
     m_skins->sort(0);
 
     updateRemoveSkinButton();
-*/
+}
+
+void AppearanceSettings::populateSkinList(const QString& installLocation)
+{
+    QDirIterator it(installLocation, QDir::Dirs | QDir::NoDotAndDotDot);
+
+    while (it.hasNext())
+    {
+        const QDir& skinDir(it.next());
+
+        if (skinDir.exists(QStringLiteral("title.skin")) && skinDir.exists(QStringLiteral("tabs.skin")))
+        {
+            QStandardItem* skin = createSkinItem(skinDir.absolutePath());
+
+            if (!skin)
+                continue;
+
+            m_skins->appendRow(skin);
+
+            if (skin->data(SkinId).toString() == m_selectedSkinId)
+                skinList->setCurrentIndex(skin->index());
+        }
+    }
 }
 
 QStandardItem* AppearanceSettings::createSkinItem(const QString& skinDir)

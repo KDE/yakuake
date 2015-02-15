@@ -121,6 +121,7 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
     private:
         QStandardItem* createSkinItem(const QString& skinDir);
 
+        void populateSkinList(const QString& installationDirectory);
         void checkForExistingSkin();
         void failInstall(const QString& error);
         void cleanupAfterInstall();
