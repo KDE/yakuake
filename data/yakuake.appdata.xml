@@ -72,6 +72,7 @@
     <p xml:lang="sr-ijekavian">Јакуаке је падајући емулатор терминала над технологијом КДЕ‑ове Конзоле.</p>
     <p xml:lang="sr-ijekavianlatin">Yakuake je padajući emulator terminala nad tehnologijom KDE‑ove Konsole.</p>
     <p xml:lang="sv">Yakuake är en nerfällbar terminalemulator baserad på teknologi från KDE:s Terminal.</p>
+    <p xml:lang="tr">Yakuake KDE Konsole teknolojisi üzerine kurulu, yukarıdan aşağı açılabilen bir uç birim öykünücüsüdür.</p>
     <p xml:lang="uk">Yakuake — спадний замінник термінала, заснований на технології KDE Konsole.</p>
     <p xml:lang="x-test">xxYakuake is a drop-down terminal emulator based on KDE Konsole technology.xx</p>
     <p xml:lang="zh-CN">Yakuake 是一个基于 KDE Konsole 技术的拉幕式终端仿真器。</p>
@@ -94,6 +95,7 @@
     <p xml:lang="sr-ijekavian">Могућности:</p>
     <p xml:lang="sr-ijekavianlatin">Mogućnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
+    <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
     <p xml:lang="zh-CN">功能：</p>
@@ -115,6 +117,7 @@
       <li xml:lang="sr-ijekavian">глатко одмотавање са врха екрана</li>
       <li xml:lang="sr-ijekavianlatin">glatko odmotavanje sa vrha ekrana</li>
       <li xml:lang="sv">Rullar ner mjukt från skärmens överkant</li>
+      <li xml:lang="tr">Ekranınızın üst bölümünden düzgünce aşağı iner</li>
       <li xml:lang="uk">Плавно розгортається з верхньої частини вашого екрана.</li>
       <li xml:lang="x-test">xxSmoothly rolls down from the top of your screenxx</li>
       <li xml:lang="zh-CN">平滑从屏幕顶端下滑</li>
@@ -136,6 +139,7 @@
       <li xml:lang="sr-ijekavian">сучеље са језичцима</li>
       <li xml:lang="sr-ijekavianlatin">sučelje sa jezičcima</li>
       <li xml:lang="sv">Flikgränssnitt</li>
+      <li xml:lang="tr">Sekmeli arayüz</li>
       <li xml:lang="uk">Інтерфейс із вкладками.</li>
       <li xml:lang="x-test">xxTabbed interfacexx</li>
       <li xml:lang="zh-CN">标签式界面</li>
@@ -155,6 +159,7 @@
       <li xml:lang="sr-ijekavian">подесиве димензије и брзина анимације</li>
       <li xml:lang="sr-ijekavianlatin">podesive dimenzije i brzina animacije</li>
       <li xml:lang="sv">Anpassningsbara dimensioner och animeringshastighet</li>
+      <li xml:lang="tr">Yapılandırılabilir boyutlar ve canlandırma hızı</li>
       <li xml:lang="uk">Можливість налаштовування розмірів та швидкості анімації.</li>
       <li xml:lang="x-test">xxConfigurable dimensions and animation speedxx</li>
       <li xml:lang="zh-CN">可配置位置和动画速度</li>
@@ -175,6 +180,7 @@
       <li xml:lang="sr-ijekavian">подршка за маске</li>
       <li xml:lang="sr-ijekavianlatin">podrška za maske</li>
       <li xml:lang="sv">Kan använda skal</li>
+      <li xml:lang="tr">Katlanabilir</li>
       <li xml:lang="uk">Можливість використання різних обрамлень («шкірок»).</li>
       <li xml:lang="x-test">xxSkinnablexx</li>
       <li xml:lang="zh-CN">可更换主题</li>
@@ -194,6 +200,7 @@
       <li xml:lang="sr-ijekavian">свеобухватно д‑бус сучеље</li>
       <li xml:lang="sr-ijekavianlatin">sveobuhvatno D‑Bus sučelje</li>
       <li xml:lang="sv">Sofistikerat D-Bus gränssnitt</li>
+      <li xml:lang="tr">Gelişmiş D-Bus arayüzü</li>
       <li xml:lang="uk">Продуманий інтерфейс D-Bus.</li>
       <li xml:lang="x-test">xxSophisticated D-Bus interfacexx</li>
       <li xml:lang="zh-CN">复杂的 D-Bus 接口</li>
