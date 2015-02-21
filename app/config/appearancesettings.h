@@ -25,6 +25,8 @@
 
 #include "ui_appearancesettings.h"
 
+#include <QTemporaryFile>
+
 #include <KIO/Job>
 
 
@@ -76,8 +78,6 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
         void updateSkinSetting();
 
         void installSkin();
-        void listSkinArchive(KIO::Job* job, const KIO::UDSEntryList& list);
-        void validateSkinArchive(KJob* job);
         void installSkinArchive(KJob* deleteJob = 0);
 
         /**
@@ -106,11 +106,6 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
 
         /**
          * Shows the KNS3 dialog where the user can download new skins.
-         * @note Only works from KDE platform 4.7.0 onwards.
-         *       The signature needs to be compiled always, because
-         *       otherwise the SLOT cannot be found during runtime.
-         *       The code for this method is disabled inside the method
-         *       body.
          */
         void getNewSkins();
 
@@ -123,6 +118,7 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
 
         void populateSkinList(const QString& installationDirectory);
         void checkForExistingSkin();
+        void installSkin(const QUrl& skinUrl);
         void failInstall(const QString& error);
         void cleanupAfterInstall();
 
@@ -134,7 +130,7 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
         QString m_localSkinsDir;
         QString m_knsSkinDir;
         QString m_installSkinId;
-        QString m_installSkinFile;
+        QTemporaryFile m_installSkinFile;
         QStringList m_installSkinFileList;
 
         QString m_knsConfigFileName;
