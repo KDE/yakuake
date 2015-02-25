@@ -5,6 +5,7 @@
   <project_license>GPL-2.0+</project_license>
   <name>Yakuake</name>
   <name xml:lang="ar">ياكواكي</name>
+  <name xml:lang="bs">Yakuake</name>
   <name xml:lang="ca">Yakuake</name>
   <name xml:lang="cs">Yakuake</name>
   <name xml:lang="da">Yakuake</name>
@@ -30,6 +31,7 @@
   <name xml:lang="zh-CN">Yakuake</name>
   <summary>Drop-down Terminal</summary>
   <summary xml:lang="ar">طرفيّة منسدلة</summary>
+  <summary xml:lang="bs">Padajući terminal</summary>
   <summary xml:lang="ca">Terminal desplegable</summary>
   <summary xml:lang="cs">Vysouvací terminál</summary>
   <summary xml:lang="de">Aufklapp-Terminal</summary>
@@ -81,6 +83,7 @@
     <p xml:lang="zh-CN">Yakuake 是一个基于 KDE Konsole 技术的拉幕式终端仿真器。</p>
     <p>Features:</p>
     <p xml:lang="ar">الميزات:</p>
+    <p xml:lang="bs">Svojstva:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="cs">Vlastnosti:</p>
     <p xml:lang="de">Funktionen:</p>
