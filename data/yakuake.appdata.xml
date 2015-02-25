@@ -71,6 +71,7 @@
     <p xml:lang="uk">Yakuake — спадний замінник термінала, заснований на технології KDE Konsole.</p>
     <p xml:lang="x-test">xxYakuake is a drop-down terminal emulator based on KDE Konsole technology.xx</p>
     <p>Features:</p>
+    <p xml:lang="bs">Svojstva:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="cs">Vlastnosti:</p>
     <p xml:lang="da">Funktioner:</p>
@@ -111,6 +112,7 @@
       <li xml:lang="uk">Плавно розгортається з верхньої частини вашого екрана.</li>
       <li xml:lang="x-test">xxSmoothly rolls down from the top of your screenxx</li>
       <li>Tabbed interface</li>
+      <li xml:lang="bs">Kartični interfejs</li>
       <li xml:lang="ca">Interfície amb pestanyes</li>
       <li xml:lang="de">Bedienungsoberfläche mit Unterfenstern</li>
       <li xml:lang="el">Περιβάλλον χρήσης με καρτέλες</li>
