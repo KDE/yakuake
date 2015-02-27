@@ -51,6 +51,7 @@
     <p>
       Yakuake is a drop-down terminal emulator based on KDE Konsole technology.
     </p>
+    <p xml:lang="bs">Yakuake je padajući terminal emulator baziran na KDE Konsole tehnologiji.</p>
     <p xml:lang="ca">El Yakuake és un emulador de terminal desplegable basat en la tecnologia del Konsole del KDE.</p>
     <p xml:lang="cs">Yakuake je vysouvací emulátor terminálu založený na technologii KDE Konsole.</p>
     <p xml:lang="de">Yakuake ist ein Aufklapp-Terminalemulator basierend auf der KDE-Konsole.</p>
@@ -94,6 +95,7 @@
     <p xml:lang="x-test">xxFeatures:xx</p>
     <ul>
       <li>Smoothly rolls down from the top of your screen</li>
+      <li xml:lang="bs">Lagano se spušta s vrha vašeg ekrana</li>
       <li xml:lang="ca">S'estén suaument des de la part superior de la pantalla</li>
       <li xml:lang="el">Κατεβαίνει με απαλή κύλιση από την κορυφή της οθόνης σας</li>
       <li xml:lang="en-GB">Smoothly rolls down from the top of your screen</li>
@@ -132,6 +134,7 @@
       <li xml:lang="uk">Інтерфейс із вкладками.</li>
       <li xml:lang="x-test">xxTabbed interfacexx</li>
       <li>Configurable dimensions and animation speed</li>
+      <li xml:lang="bs">Konfigurabilne dimenzije i brzina animacije</li>
       <li xml:lang="ca">Les dimensions i la velocitat de l'animació es poden configurar</li>
       <li xml:lang="el">Διαμορφώσιμες διαστάσεις και ταχύτητα εφέ κίνησης</li>
       <li xml:lang="en-GB">Configurable dimensions and animation speed</li>
@@ -150,6 +153,7 @@
       <li xml:lang="uk">Можливість налаштовування розмірів та швидкості анімації.</li>
       <li xml:lang="x-test">xxConfigurable dimensions and animation speedxx</li>
       <li>Skinnable</li>
+      <li xml:lang="bs">Izmjenjiv izgled</li>
       <li xml:lang="ca">Es pot canvia l'aparença</li>
       <li xml:lang="el">Με δυνατότητα θεμάτων</li>
       <li xml:lang="en-GB">Skinnable</li>
@@ -168,6 +172,7 @@
       <li xml:lang="uk">Можливість використання різних обрамлень («шкірок»).</li>
       <li xml:lang="x-test">xxSkinnablexx</li>
       <li>Sophisticated D-Bus interface</li>
+      <li xml:lang="bs">Sofisticirani D-Bus interfejs</li>
       <li xml:lang="ca">Interfície del D-Bus sofisticada</li>
       <li xml:lang="el">Εξελιγμένο περιβάλλον D-Bus</li>
       <li xml:lang="en-GB">Sophisticated D-Bus interface</li>
