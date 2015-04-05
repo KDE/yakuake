@@ -31,6 +31,8 @@ int main (int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
+    KLocalizedString::setApplicationDomain("yakuake");
+
     KAboutData aboutData(QStringLiteral("yakuake"),
         xi18nc("@title", "<application>Yakuake</application>"),
         QStringLiteral("2.9.9+"),
