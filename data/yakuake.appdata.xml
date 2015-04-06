@@ -5,7 +5,6 @@
   <project_license>GPL-2.0+</project_license>
   <name>Yakuake</name>
   <name xml:lang="ar">ياكواكي</name>
-  <name xml:lang="ast">Yakuake</name>
   <name xml:lang="bs">Yakuake</name>
   <name xml:lang="ca">Yakuake</name>
   <name xml:lang="cs">Yakuake</name>
@@ -87,7 +86,6 @@
     <p xml:lang="zh-CN">Yakuake 是一个基于 KDE Konsole 技术的拉幕式终端仿真器。</p>
     <p>Features:</p>
     <p xml:lang="ar">الميزات:</p>
-    <p xml:lang="ast">Carauterístiques:</p>
     <p xml:lang="bs">Svojstva:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="cs">Vlastnosti:</p>
@@ -138,7 +136,6 @@
       <li xml:lang="zh-CN">平滑从屏幕顶端下滑</li>
       <li>Tabbed interface</li>
       <li xml:lang="ar">واجهة ألسنة</li>
-      <li xml:lang="ast">Interfaz per llingüetes</li>
       <li xml:lang="ca">Interfície amb pestanyes</li>
       <li xml:lang="de">Bedienungsoberfläche mit Unterfenstern</li>
       <li xml:lang="en-GB">Tabbed interface</li>
@@ -162,7 +159,6 @@
       <li xml:lang="x-test">xxTabbed interfacexx</li>
       <li xml:lang="zh-CN">标签式界面</li>
       <li>Configurable dimensions and animation speed</li>
-      <li xml:lang="ast">Dimensiones y velocidá d'animación configurables</li>
       <li xml:lang="ca">Les dimensions i la velocitat de l'animació es poden configurar</li>
       <li xml:lang="en-GB">Configurable dimensions and animation speed</li>
       <li xml:lang="es">Se pueden configurar las dimensiones y la velocidad de animación</li>
