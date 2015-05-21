@@ -35,6 +35,7 @@ target_link_libraries(yakuake
     KF5::Archive
     KF5::ConfigGui
     KF5::CoreAddons
+    KF5::Crash
     KF5::DBusAddons
     KF5::GlobalAccel
     KF5::I18n

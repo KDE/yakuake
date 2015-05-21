@@ -18,6 +18,7 @@ find_package(KF5 REQUIRED
     Archive
     Config
     CoreAddons
+    Crash
     DBusAddons
     GlobalAccel
     I18n
