@@ -28,6 +28,7 @@
 #include <QPushButton>
 #include <KLocalizedString>
 
+#include <QApplication>
 #include <QBitmap>
 #include <QPainter>
 
@@ -60,7 +61,7 @@ TitleBar::TitleBar(MainWindow* mainWindow) : QWidget(mainWindow)
     m_quitButton->setFocusPolicy(Qt::NoFocus);
     m_quitButton->setToolTip(xi18nc("@info:tooltip Quits the application", "Quit"));
     m_quitButton->setWhatsThis(xi18nc("@info:whatsthis", "Quits the application."));
-    connect(m_quitButton, SIGNAL(clicked()), mainWindow, SLOT(close()));
+    connect(m_quitButton, SIGNAL(clicked()), qApp, SLOT(quit()));
 }
 
 TitleBar::~TitleBar()
