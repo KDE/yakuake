@@ -106,6 +106,7 @@
       <li>Smoothly rolls down from the top of your screen</li>
       <li xml:lang="bs">Lagano se spušta s vrha vašeg ekrana</li>
       <li xml:lang="ca">S'estén suaument des de la part superior de la pantalla</li>
+      <li xml:lang="de">Rollt geschmeidig von der oberen Kante des Bildschirms herab</li>
       <li xml:lang="el">Κατεβαίνει με απαλή κύλιση από την κορυφή της οθόνης σας</li>
       <li xml:lang="en-GB">Smoothly rolls down from the top of your screen</li>
       <li xml:lang="es">Se despliega suavemente desde la parte superior de la pantalla</li>
@@ -149,6 +150,7 @@
       <li>Configurable dimensions and animation speed</li>
       <li xml:lang="bs">Konfigurabilne dimenzije i brzina animacije</li>
       <li xml:lang="ca">Les dimensions i la velocitat de l'animació es poden configurar</li>
+      <li xml:lang="de">Benutzerdefinierte Abmessungen und Animationsgeschwindigkeit</li>
       <li xml:lang="el">Διαμορφώσιμες διαστάσεις και ταχύτητα εφέ κίνησης</li>
       <li xml:lang="en-GB">Configurable dimensions and animation speed</li>
       <li xml:lang="es">Se pueden configurar las dimensiones y la velocidad de animación</li>
@@ -170,6 +172,7 @@
       <li>Skinnable</li>
       <li xml:lang="bs">Izmjenjiv izgled</li>
       <li xml:lang="ca">Es pot canviar l'aparença</li>
+      <li xml:lang="de">Anpassung der Oberfläche über Skin/Design</li>
       <li xml:lang="el">Με δυνατότητα θεμάτων</li>
       <li xml:lang="en-GB">Skinnable</li>
       <li xml:lang="es">Admite el uso de pieles</li>
@@ -191,6 +194,7 @@
       <li>Sophisticated D-Bus interface</li>
       <li xml:lang="bs">Sofisticirani D-Bus interfejs</li>
       <li xml:lang="ca">Interfície del D-Bus sofisticada</li>
+      <li xml:lang="de">Hoch entwickelte D-Bus-Schnittstelle</li>
       <li xml:lang="el">Εξελιγμένο περιβάλλον D-Bus</li>
       <li xml:lang="en-GB">Sophisticated D-Bus interface</li>
       <li xml:lang="es">Interfaz D-Bus sofisticado</li>
