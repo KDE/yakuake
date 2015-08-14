@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 2.8.9)
 project(yakuake)
 
 set(KDE_MIN_VERSION "4.7.1")
