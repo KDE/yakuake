@@ -691,7 +691,7 @@ void MainWindow::configureApp()
     connect(settingsDialog, SIGNAL(hidden()), this, SLOT(activate()));
 
     WindowSettings* windowSettings = new WindowSettings(settingsDialog);
-    settingsDialog->addPage(windowSettings, i18nc("@title Preferences page name", "Window"), "yakuake");
+    settingsDialog->addPage(windowSettings, i18nc("@title Preferences page name", "Window"), "preferences-system-windows-move");
     connect(windowSettings, SIGNAL(updateWindowGeometry(int,int,int)),
         this, SLOT(setWindowGeometry(int,int,int)));
 
@@ -699,7 +699,7 @@ void MainWindow::configureApp()
     Ui::BehaviorSettings behaviorSettingsUi;
     behaviorSettingsUi.setupUi(behaviorSettings);
     settingsDialog->addPage(behaviorSettings, i18nc("@title Preferences page name", "Behavior"),
-        "preferences-other");
+        "preferences-system-windows-actions");
 
     AppearanceSettings* appearanceSettings = new AppearanceSettings(settingsDialog);
     settingsDialog->addPage(appearanceSettings, i18nc("@title Preferences page name", "Appearance"),
