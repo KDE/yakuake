@@ -121,7 +121,7 @@
       <item row="5" column="0" colspan="2">
        <widget class="QCheckBox" name="kcfg_KeepOpenAfterLastSessionCloses">
         <property name="text">
-         <string extracomment="@option:check">Keep window open after the last session is closed</string>
+         <string comment="@option:check">Keep window open after the last session is closed</string>
         </property>
        </widget>
       </item>
