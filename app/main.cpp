@@ -29,6 +29,9 @@
 
 int main (int argc, char *argv[])
 {
+#if HAVE_X11
+    qputenv("QT_QPA_PLATFORM", QByteArrayLiteral("xcb"));
+#endif
     QApplication app(argc, argv);
     app.setQuitOnLastWindowClosed(false);
 
