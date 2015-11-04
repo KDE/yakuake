@@ -8,6 +8,7 @@
   <name xml:lang="ast">Yakuake</name>
   <name xml:lang="bs">Yakuake</name>
   <name xml:lang="ca">Yakuake</name>
+  <name xml:lang="ca-valencia">Yakuake</name>
   <name xml:lang="cs">Yakuake</name>
   <name xml:lang="da">Yakuake</name>
   <name xml:lang="de">Yakuake</name>
@@ -38,6 +39,7 @@
   <summary xml:lang="ast">Terminal estenderexable</summary>
   <summary xml:lang="bs">Padajući terminal</summary>
   <summary xml:lang="ca">Terminal desplegable</summary>
+  <summary xml:lang="ca-valencia">Terminal desplegable</summary>
   <summary xml:lang="cs">Vysouvací terminál</summary>
   <summary xml:lang="de">Aufklapp-Terminal</summary>
   <summary xml:lang="el">Τερματικό καθοδικής κύλισης</summary>
@@ -69,6 +71,7 @@
     <p xml:lang="ar">ياكواكي هو محاكي طرفيّة منسدل مبنيّ على تقنيّة طرفيّة كدي.</p>
     <p xml:lang="ast">Yakuake ye un emulador de terminal estenderexable basáu na teunoloxía de KDE Konsole</p>
     <p xml:lang="ca">El Yakuake és un emulador de terminal desplegable basat en la tecnologia del Konsole del KDE.</p>
+    <p xml:lang="ca-valencia">El Yakuake és un emulador de terminal desplegable basat en la tecnologia del Konsole del KDE.</p>
     <p xml:lang="cs">Yakuake je vysouvací emulátor terminálu založený na technologii KDE Konsole.</p>
     <p xml:lang="de">Yakuake ist ein Aufklapp-Terminalemulator basierend auf der KDE-Konsole.</p>
     <p xml:lang="el">Το Yakuake είναι ένας εξομοιωτής τερματικού καθοδικής κύλισης με βάση την τεχνολογία του KDE Konsole.</p>
@@ -98,6 +101,7 @@
     <p xml:lang="ast">Carauterístiques:</p>
     <p xml:lang="bs">Svojstva:</p>
     <p xml:lang="ca">Característiques:</p>
+    <p xml:lang="ca-valencia">Característiques:</p>
     <p xml:lang="cs">Vlastnosti:</p>
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="el">Λειτουργίες:</p>
@@ -127,6 +131,7 @@
       <li xml:lang="ar">ينسدل انسيابيًّا من أعلى شاشتك</li>
       <li xml:lang="ast">Desendolcase adulces dende'l berbesu cimeru de la to pantalla</li>
       <li xml:lang="ca">S'estén suaument des de la part superior de la pantalla</li>
+      <li xml:lang="ca-valencia">S'estén suaument des de la part superior de la pantalla</li>
       <li xml:lang="de">Rollt geschmeidig von der oberen Kante des Bildschirms herab</li>
       <li xml:lang="el">Ομαλή καθοδική κύλιση από την κορυφή της οθόνης σας</li>
       <li xml:lang="en-GB">Smoothly rolls down from the top of your screen</li>
@@ -154,6 +159,7 @@
       <li xml:lang="ar">واجهة ألسنة</li>
       <li xml:lang="ast">Interfaz per llingüetes</li>
       <li xml:lang="ca">Interfície amb pestanyes</li>
+      <li xml:lang="ca-valencia">Interfície amb pestanyes</li>
       <li xml:lang="de">Bedienungsoberfläche mit Unterfenstern</li>
       <li xml:lang="el">Περιβάλλον χρήσης με καρτέλες</li>
       <li xml:lang="en-GB">Tabbed interface</li>
@@ -180,6 +186,7 @@
       <li>Configurable dimensions and animation speed</li>
       <li xml:lang="ast">Dimensiones y velocidá d'animación configurables</li>
       <li xml:lang="ca">Les dimensions i la velocitat de l'animació es poden configurar</li>
+      <li xml:lang="ca-valencia">Les dimensions i la velocitat de l'animació es poden configurar</li>
       <li xml:lang="de">Benutzerdefinierte Abmessungen und Animationsgeschwindigkeit</li>
       <li xml:lang="el">Διαμορφώσιμες διαστάσεις και ταχύτητα με εφέ κίνησης</li>
       <li xml:lang="en-GB">Configurable dimensions and animation speed</li>
@@ -207,6 +214,7 @@
       <li xml:lang="ar">قابل للتّخصيص</li>
       <li xml:lang="ast">Personalizable</li>
       <li xml:lang="ca">Es pot canviar l'aparença</li>
+      <li xml:lang="ca-valencia">Es pot canviar l'aparença</li>
       <li xml:lang="de">Anpassung der Oberfläche über Skin/Design</li>
       <li xml:lang="el">Διαμορφώσιμα θέματα</li>
       <li xml:lang="en-GB">Skinnable</li>
@@ -233,6 +241,7 @@
       <li>Sophisticated D-Bus interface</li>
       <li xml:lang="ast">Interfaz D-Bus sofisticada</li>
       <li xml:lang="ca">Interfície del D-Bus sofisticada</li>
+      <li xml:lang="ca-valencia">Interfície del D-Bus sofisticada</li>
       <li xml:lang="de">Hoch entwickelte D-Bus-Schnittstelle</li>
       <li xml:lang="el">Εκλεπτυσμένη D-Bus διεπαφή</li>
       <li xml:lang="en-GB">Sophisticated D-Bus interface</li>
