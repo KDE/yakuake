@@ -97,6 +97,8 @@ class TabBar : public QWidget
         virtual void contextMenuEvent(QContextMenuEvent*);
         virtual void leaveEvent(QEvent*);
 
+        void setTabTitleInteractive(int sessionId, const QString& newTitle);
+
 
     private slots:
         void readySessionMenu();
@@ -145,6 +147,7 @@ class TabBar : public QWidget
 
         QList<int> m_tabs;
         QHash<int, QString> m_tabTitles;
+        QHash<int, bool> m_tabTitlesSetInteractive;
         QList<int> m_tabWidths;
 
         int m_selectedSessionId;
