@@ -14,7 +14,7 @@ include(FeatureSummary)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets)
 
-find_package(KF5 REQUIRED
+find_package(KF5 5.15 REQUIRED
     Archive
     Config
     CoreAddons

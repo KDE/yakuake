@@ -21,6 +21,7 @@
 #include "mainwindow.h"
 
 #include <KAboutData>
+#include <KCrash>
 #include <KDBusService>
 #include <KLocalizedString>
 
@@ -72,6 +73,7 @@ int main (int argc, char *argv[])
 
     KDBusService service(KDBusService::Unique);
 
+    KCrash::initialize();
     MainWindow mainWindow;
     mainWindow.hide();
     QObject::connect(&service, SIGNAL(activateRequested(QStringList, QString)), &mainWindow, SLOT(toggleWindowState()));
