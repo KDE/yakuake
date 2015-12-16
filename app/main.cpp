@@ -54,7 +54,7 @@ int main (int argc, char *argv[])
     aboutData.addAuthor(xi18nc("@info:credit", "Eike Hein"),
         xi18nc("@info:credit", "Maintainer, Lead Developer"), QStringLiteral("hein@kde.org"));
     aboutData.addAuthor(xi18nc("@info:credit", "Francois Chazal"),
-        xi18nc("@info:credit", "Project Founder, Default skin (Inactive)"));
+        xi18nc("@info:credit", "Project Founder, Legacy skin (Inactive)"));
     aboutData.addCredit(xi18nc("@info:credit", "Daniel 'suslik' D."),
         xi18nc("@info:credit", "Plastik skin"), QStringLiteral("dd@accentsolution.com"));
     aboutData.addCredit(xi18nc("@info:credit", "Juan Carlos Torres"),
