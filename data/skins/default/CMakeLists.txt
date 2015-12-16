@@ -2,7 +2,7 @@ install(FILES
     title.skin
     tabs.skin
     icon.png
-    DESTINATION ${DATA_INSTALL_DIR}/yakuake/skins/breeze)
+    DESTINATION ${DATA_INSTALL_DIR}/yakuake/skins/default)
 
 install(FILES
     tabs/add_down.png
@@ -35,7 +35,7 @@ install(FILES
     tabs/unselected_left.svg
     tabs/unselected_right.png
     tabs/unselected_right.svg
-    DESTINATION ${DATA_INSTALL_DIR}/yakuake/skins/breeze/tabs)
+    DESTINATION ${DATA_INSTALL_DIR}/yakuake/skins/default/tabs)
 
 install(FILES
     title/back.png
@@ -58,4 +58,4 @@ install(FILES
     title/quit_up.svg
     title/right.png
     title/right.svg
-    DESTINATION ${DATA_INSTALL_DIR}/yakuake/skins/breeze/title)
+    DESTINATION ${DATA_INSTALL_DIR}/yakuake/skins/default/title)
