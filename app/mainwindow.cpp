@@ -747,7 +747,7 @@ void MainWindow::applySkin()
 
     if (!gotSkin)
     {
-        Settings::setSkin(QStringLiteral("default"));
+        Settings::setSkin(QStringLiteral("breeze"));
         gotSkin = m_skin->load(Settings::skin());
     }
 

@@ -1,0 +1,13 @@
+#!/bin/bash
+# Bilder in jpg convertieren
+
+find -name "*.svg" -o -name "*.SVG" | while read i;
+do 
+	echo "Diese Datei $i wird komprimiert"
+	fname=$( basename "$i")
+#	echo "hat den Namen: $fname"
+	fdir=$( dirname "$i")
+#	echo "und steht im Verzeichnis: ${fdir##*/}"
+	inkscape -f "$i" -e "${i%.*}.png"
+	#convert "$i" -quality 75 "$i"
+done 
