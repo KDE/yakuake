@@ -64,6 +64,9 @@ int main (int argc, char *argv[])
     aboutData.addCredit(xi18nc("@info:credit", "Danilo Cesar Lemes de Paula"),
         xi18nc("@info:credit", "Actions to grow terminals"), QStringLiteral("danilo.eu@gmail.com"));
 
+    aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"),
+                            i18nc("EMAIL OF TRANSLATORS", "Your emails"));
+
     KAboutData::setApplicationData(aboutData);
 
     app.setApplicationName(aboutData.componentName());
