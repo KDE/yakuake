@@ -688,7 +688,7 @@ void MainWindow::configureApp()
     connect(settingsDialog, SIGNAL(hidden()), this, SLOT(activate()));
 
     WindowSettings* windowSettings = new WindowSettings(settingsDialog);
-    settingsDialog->addPage(windowSettings, xi18nc("@title Preferences page name", "Window"), QStringLiteral("yakuake"));
+    settingsDialog->addPage(windowSettings, xi18nc("@title Preferences page name", "Window"), QStringLiteral("preferences-system-windows-move"));
     connect(windowSettings, SIGNAL(updateWindowGeometry(int,int,int)),
         this, SLOT(setWindowGeometry(int,int,int)));
 
@@ -696,7 +696,7 @@ void MainWindow::configureApp()
     Ui::BehaviorSettings behaviorSettingsUi;
     behaviorSettingsUi.setupUi(behaviorSettings);
     settingsDialog->addPage(behaviorSettings, xi18nc("@title Preferences page name", "Behavior"),
-        QStringLiteral("preferences-other"));
+        QStringLiteral("preferences-system-windows-actions"));
 
     AppearanceSettings* appearanceSettings = new AppearanceSettings(settingsDialog);
     settingsDialog->addPage(appearanceSettings, xi18nc("@title Preferences page name", "Appearance"),
