@@ -108,6 +108,8 @@ class MainWindow : public QMainWindow
         void increaseWindowHeight();
         void decreaseWindowHeight();
 
+        void wmActiveWindowChanged();
+
         void xshapeOpenWindow();
         void xshapeRetractWindow();
 
@@ -185,8 +187,6 @@ class MainWindow : public QMainWindow
         QTimer m_mousePoller;
         int m_animationFrame;
         int m_animationStepSize;
-
-        bool m_listenForActivationChanges;
 };
 
 #endif

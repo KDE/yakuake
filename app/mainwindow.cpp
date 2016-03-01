@@ -74,7 +74,6 @@ MainWindow::MainWindow(QWidget* parent)
     m_tabBar = new TabBar(this);
     m_titleBar = new TitleBar(this);
     m_firstRunDialog = NULL;
-    m_listenForActivationChanges = false;
 
 #if HAVE_X11
     m_kwinAssistPropSet = false;
@@ -936,15 +935,15 @@ void MainWindow::moveEvent(QMoveEvent* event)
     QMainWindow::moveEvent(event);
 }
 
+void MainWindow::wmActiveWindowChanged()
+{
+    if (isVisible() && !(KWindowSystem::activeWindow() == winId()) && !Settings::keepOpen()) {
+        toggleWindowState();
+    }
+}
+
 void MainWindow::changeEvent(QEvent* event)
 {
-    if (m_listenForActivationChanges && event->type() == QEvent::ActivationChange)
-    {
-        if (isVisible() && !(KWindowSystem::activeWindow() == winId()) && !Settings::keepOpen()) {
-            toggleWindowState();
-        }
-    }
-
     if (event->type() == QEvent::WindowStateChange
         && (windowState() & Qt::WindowMaximized)
         && Settings::width() != 100
@@ -1182,7 +1181,8 @@ void MainWindow::sharedAfterOpenWindow()
 {
     if (!Settings::firstRun()) KWindowSystem::forceActiveWindow(winId());
 
-    m_listenForActivationChanges = true;
+    connect(KWindowSystem::self(), &KWindowSystem::activeWindowChanged,
+        this, &MainWindow::wmActiveWindowChanged);
 
     applyWindowProperties();
 
@@ -1191,7 +1191,8 @@ void MainWindow::sharedAfterOpenWindow()
 
 void MainWindow::sharedPreHideWindow()
 {
-    m_listenForActivationChanges = false;
+    disconnect(KWindowSystem::self(), &KWindowSystem::activeWindowChanged,
+        this, &MainWindow::wmActiveWindowChanged);
 }
 
 void MainWindow::sharedAfterHideWindow()
