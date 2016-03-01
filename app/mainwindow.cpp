@@ -940,8 +940,9 @@ void MainWindow::changeEvent(QEvent* event)
 {
     if (m_listenForActivationChanges && event->type() == QEvent::ActivationChange)
     {
-        if (isVisible() && !QApplication::activeWindow() && !Settings::keepOpen())
+        if (isVisible() && !(KWindowSystem::activeWindow() == winId()) && !Settings::keepOpen()) {
             toggleWindowState();
+        }
     }
 
     if (event->type() == QEvent::WindowStateChange
