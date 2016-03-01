@@ -833,6 +833,7 @@ void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition)
 void MainWindow::setScreen(QAction* action)
 {
     Settings::setScreen(action->data().toInt());
+    Settings::self()->save();
 
     applyWindowGeometry();
 
@@ -842,6 +843,7 @@ void MainWindow::setScreen(QAction* action)
 void MainWindow::setWindowWidth(int width)
 {
     Settings::setWidth(width);
+    Settings::self()->save();
 
     applyWindowGeometry();
 
@@ -851,6 +853,7 @@ void MainWindow::setWindowWidth(int width)
 void MainWindow::setWindowHeight(int height)
 {
     Settings::setHeight(height);
+    Settings::self()->save();
 
     applyWindowGeometry();
 
@@ -1232,6 +1235,7 @@ void MainWindow::setKeepOpen(bool keepOpen)
     if (Settings::keepOpen() != keepOpen)
     {
         Settings::setKeepOpen(keepOpen);
+        Settings::self()->save();
 
         applyWindowProperties();
     }
