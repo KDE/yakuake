@@ -552,13 +552,13 @@ void MainWindow::handleSwitchToAction()
 
 void MainWindow::setupMenu()
 {
-    // PORT m_menu->addTitle(xi18nc("@title:menu", "Help"));
+    m_menu->insertSection(0, xi18nc("@title:menu", "Help"));
     m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::WhatsThis))));
     m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::ReportBug))));
     m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::AboutApp))));
     m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::AboutKDE))));
 
-    // PORT m_menu->addTitle(xi18nc("@title:menu", "Quick Options"));
+    m_menu->insertSection(0, xi18nc("@title:menu", "Quick Options"));
     m_menu->addAction(actionCollection()->action(QStringLiteral("view-full-screen")));
     m_menu->addAction(actionCollection()->action(QStringLiteral("keep-open")));
 
@@ -577,7 +577,7 @@ void MainWindow::setupMenu()
     m_windowHeightMenu->setTitle(xi18nc("@title:menu", "Height"));
     m_menu->addMenu(m_windowHeightMenu);
 
-    // PORT m_menu->addTitle(xi18nc("@title:menu", "Settings"));
+    m_menu->insertSection(0, xi18nc("@title:menu", "Settings"));
     m_menu->addAction(actionCollection()->action(QStringLiteral("manage-profiles")));
     m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::KeyBindings))));
     m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))));
