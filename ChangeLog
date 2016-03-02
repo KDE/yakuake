@@ -1,3 +1,19 @@
+Changes in 3.0:
+* Yakuake was ported to KDE Frameworks 5 and Qt 5.
+* A new default skin follows the Plasma 5 Breeze design.
+* Terminal focus is now preserved more reliably when closing and
+  reopening Yakuake.
+* Config changes made via the title bar menu are now synced to disk
+  immediately, and thus preserved if Yakuake is killed instead of quit
+  gracefully.
+* The option to auto-update tab titles with the title bar contents no
+  longer interferes with manually setting a tab title. To return to auto-
+  updating just clear the title.
+* Performance improvements in the compositor-unassisted animation code
+  path.
+* Fixed bug causing incorrect window height calculation in multi-monitor
+  systems.
+
 Changes in 2.9.9:
 * Yakuake now sports a standard KDE "Configure Notifications..." item in
   its menu. The startup notification popup configuration has moved there,

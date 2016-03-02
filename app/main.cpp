@@ -43,7 +43,7 @@ int main (int argc, char *argv[])
         QStringLiteral("2.9.9+"),
         xi18nc("@title", "A drop-down terminal emulator based on KDE Konsole technology."),
         KAboutLicense::GPL,
-        xi18nc("@info:credit", "(c) 2008-2014 The Yakuake Team"),
+        xi18nc("@info:credit", "(c) 2008-2016 The Yakuake Team"),
         QString(),
         QStringLiteral("http://yakuake.kde.org/"));
 
