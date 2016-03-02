@@ -706,6 +706,9 @@ void MainWindow::configureApp()
 
     // PORT settingsDialog->button(KDialog::Help)->hide();
 
+    settingsDialog->setStandardButtons(QDialogButtonBox::RestoreDefaults | QDialogButtonBox::Ok
+        | QDialogButtonBox::Apply | QDialogButtonBox::Cancel);
+
     settingsDialog->show();
 }
 
