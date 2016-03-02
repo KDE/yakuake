@@ -943,6 +943,12 @@ void MainWindow::moveEvent(QMoveEvent* event)
 
 void MainWindow::wmActiveWindowChanged()
 {
+    KConfigDialog *dlg = KConfigDialog::exists(QStringLiteral("settings"));
+
+    if (dlg && dlg->isVisible()) {
+        return;
+    }
+
     if (!Settings::keepOpen() && isVisible() && KWindowSystem::activeWindow() != winId()) {
         toggleWindowState();
     }
