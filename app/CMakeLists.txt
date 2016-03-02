@@ -26,7 +26,8 @@ ki18n_wrap_ui(yakuake_SRCS
 
 kconfig_add_kcfg_files(yakuake_SRCS config/settings.kcfgc)
 
-# PORT kde4_add_app_icon(yakuake_SRCS "icons/hi*-app-yakuake.png")
+file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../data/icons/hi*-app-yakuake.png")
+ecm_add_app_icon(yakuake_SRCS ICONS ${ICONS_SRCS})
 
 add_executable(yakuake ${yakuake_SRCS})
 
