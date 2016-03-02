@@ -22,6 +22,7 @@
 
 #include "sessionstack.h"
 #include "settings.h"
+#include "terminal.h"
 #include "visualeventoverlay.h"
 
 #include <KMessageBox>
@@ -591,6 +592,21 @@ void SessionStack::handleTerminalHighlightRequest(int terminalId)
 
             break;
         }
+    }
+}
+
+void SessionStack::showEvent(QShowEvent *event)
+{
+    Q_UNUSED(event)
+
+    if (m_activeSessionId == -1) return;
+    if (!m_sessions.contains(m_activeSessionId)) return;
+
+    Terminal *terminal = m_sessions.value(m_activeSessionId)->getTerminal(activeTerminalId());
+
+    if (terminal) {
+        QWidget* terminalWidget = terminal->terminalWidget();
+        if (terminalWidget) terminalWidget->setFocus();
     }
 }
 
