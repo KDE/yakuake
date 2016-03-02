@@ -940,7 +940,7 @@ void MainWindow::moveEvent(QMoveEvent* event)
 
 void MainWindow::wmActiveWindowChanged()
 {
-    if (!Settings::keepOpen() && isVisible() && !(KWindowSystem::activeWindow() == winId())) {
+    if (!Settings::keepOpen() && isVisible() && KWindowSystem::activeWindow() != winId()) {
         toggleWindowState();
     }
 }
