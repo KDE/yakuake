@@ -1,3 +1,7 @@
+Changes in 3.0.2:
+* Added back a description file implementing the freedesktop.org AppData
+  specification.
+
 Changes in 3.0.1:
 * Fixed installation and integratin of hicolor application icon.
 
