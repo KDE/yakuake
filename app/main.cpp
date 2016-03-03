@@ -48,7 +48,6 @@ int main (int argc, char *argv[])
         QStringLiteral("http://yakuake.kde.org/"));
 
     aboutData.setOrganizationDomain(QByteArray("kde.org"));
-    aboutData.setProgramIconName(QStringLiteral("yakuake"));
     aboutData.setProductName(QByteArray("yakuake"));
 
     aboutData.addAuthor(xi18nc("@info:credit", "Eike Hein"),
@@ -73,6 +72,7 @@ int main (int argc, char *argv[])
     app.setApplicationDisplayName(aboutData.displayName());
     app.setOrganizationDomain(aboutData.organizationDomain());
     app.setApplicationVersion(aboutData.version());
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("yakuake")));
 
     KDBusService service(KDBusService::Unique);
 
