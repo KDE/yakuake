@@ -1,3 +1,6 @@
+Changes in 3.0.1:
+* Fixed installation and integratin of hicolor application icon.
+
 Changes in 3.0:
 * Yakuake was ported to KDE Frameworks 5 and Qt 5.
 * A new default skin follows the Plasma 5 Breeze design.
