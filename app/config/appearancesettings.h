@@ -69,7 +69,7 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
 
 
     protected:
-        virtual void showEvent(QShowEvent* event);
+        void showEvent(QShowEvent* event);
 
 
     private Q_SLOTS:

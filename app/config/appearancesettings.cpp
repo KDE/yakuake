@@ -68,7 +68,7 @@ AppearanceSettings::AppearanceSettings(QWidget* parent) : QWidget(parent)
     ghnsButton->setIcon(QIcon(QStringLiteral("get-hot-new-stuff")));
 
     m_knsConfigFileName = QLatin1String("yakuake.knsrc");
-    m_knsDownloadManager = new KNS3::DownloadManager(m_knsConfigFileName);
+    //m_knsDownloadManager = new KNS3::DownloadManager(m_knsConfigFileName);
 
     connect(ghnsButton, &QPushButton::clicked, this, &AppearanceSettings::getNewSkins);
 

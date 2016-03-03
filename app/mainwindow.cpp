@@ -51,6 +51,7 @@
 #include <QMenu>
 #include <QPainter>
 #include <QWhatsThis>
+#include <QWindow>
 #include <QtDBus/QtDBus>
 
 #if HAVE_X11
@@ -78,6 +79,8 @@ MainWindow::MainWindow(QWidget* parent)
 #if HAVE_X11
     m_kwinAssistPropSet = false;
 #endif
+
+    m_toggleLock = false;
 
     setupActions();
     setupMenu();
@@ -107,7 +110,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     m_sessionStack->addSession();
 
-    if (0 /* PORT Settings::firstRun() */)
+    if (Settings::firstRun())
     {
         QMetaObject::invokeMethod(this, "toggleWindowState", Qt::QueuedConnection);
         QMetaObject::invokeMethod(this, "showFirstRunDialog", Qt::QueuedConnection);
@@ -683,8 +686,7 @@ void MainWindow::configureApp()
 
     KConfigDialog* settingsDialog = new KConfigDialog(this, QStringLiteral("settings"), Settings::self());
     settingsDialog->setFaceType(KPageDialog::List);
-    connect(settingsDialog, SIGNAL(settingsChanged(QString)), this, SLOT(applySettings()));
-    connect(settingsDialog, SIGNAL(hidden()), this, SLOT(activate()));
+    connect(settingsDialog, &KConfigDialog::settingsChanged, this, &MainWindow::applySettings);
 
     WindowSettings* windowSettings = new WindowSettings(settingsDialog);
     settingsDialog->addPage(windowSettings, xi18nc("@title Preferences page name", "Window"), QStringLiteral("preferences-system-windows-move"));
@@ -700,14 +702,16 @@ void MainWindow::configureApp()
     AppearanceSettings* appearanceSettings = new AppearanceSettings(settingsDialog);
     settingsDialog->addPage(appearanceSettings, xi18nc("@title Preferences page name", "Appearance"),
         QStringLiteral("preferences-desktop-theme"));
-    connect(appearanceSettings, SIGNAL(settingsChanged()), this, SLOT(applySettings()));
-    // PORT connect(settingsDialog, SIGNAL(closeClicked()), appearanceSettings, SLOT(resetSelection()));
-    // PORT connect(settingsDialog, SIGNAL(cancelClicked()), appearanceSettings, SLOT(resetSelection()));
+    connect(settingsDialog, &QDialog::rejected, appearanceSettings, &AppearanceSettings::resetSelection);
 
-    // PORT settingsDialog->button(KDialog::Help)->hide();
+    settingsDialog->button(QDialogButtonBox::Help)->hide();
+    settingsDialog->button(QDialogButtonBox::Cancel)->setFocus();
 
-    settingsDialog->setStandardButtons(QDialogButtonBox::RestoreDefaults | QDialogButtonBox::Ok
-        | QDialogButtonBox::Apply | QDialogButtonBox::Cancel);
+    connect(settingsDialog, &QDialog::finished, [=]() {
+        m_toggleLock = true;
+        KWindowSystem::activateWindow(winId());
+        KWindowSystem::forceActiveWindow(winId());
+    });
 
     settingsDialog->show();
 }
@@ -943,9 +947,14 @@ void MainWindow::moveEvent(QMoveEvent* event)
 
 void MainWindow::wmActiveWindowChanged()
 {
-    KConfigDialog *dlg = KConfigDialog::exists(QStringLiteral("settings"));
+    if (m_toggleLock) {
+        m_toggleLock = false;
+        return;
+    }
 
-    if (dlg && dlg->isVisible()) {
+    KWindowInfo info(KWindowSystem::activeWindow(), 0, NET::WM2TransientFor);
+
+    if (info.valid() && info.transientFor() == winId()) {
         return;
     }
 
@@ -977,7 +986,7 @@ void MainWindow::toggleWindowState()
 {
     bool visible = isVisible();
 
-    if (visible && !isActiveWindow() && Settings::keepOpen())
+    if (visible && KWindowSystem::activeWindow() != winId() && Settings::keepOpen())
     {
         // Window is open but doesn't have focus; it's set to stay open
         // regardless of focus loss.
@@ -1362,8 +1371,9 @@ void MainWindow::showFirstRunDialog()
     if (!m_firstRunDialog)
     {
         m_firstRunDialog = new FirstRunDialog(this);
-        // PORT connect(m_firstRunDialog, SIGNAL(finished()), this, SLOT(firstRunDialogFinished()));
-        // PORT connect(m_firstRunDialog, SIGNAL(okClicked()), this, SLOT(firstRunDialogOk()));
+
+        connect(m_firstRunDialog, &QDialog::finished, this, &MainWindow::firstRunDialogFinished);
+        connect(m_firstRunDialog, &QDialog::accepted, this, &MainWindow::firstRunDialogOk);
     }
 
     m_firstRunDialog->show();
