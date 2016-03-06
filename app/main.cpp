@@ -26,7 +26,7 @@
 #include <KLocalizedString>
 
 #include <QApplication>
-
+#include <QCommandLineParser>
 
 int main (int argc, char *argv[])
 {
@@ -67,6 +67,13 @@ int main (int argc, char *argv[])
                             i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     KAboutData::setApplicationData(aboutData);
+    QCommandLineParser parser;
+    parser.addHelpOption();
+    parser.addVersionOption();
+
+    aboutData.setupCommandLine(&parser);
+    parser.process(app);
+    aboutData.processCommandLine(&parser);
 
     app.setApplicationName(aboutData.componentName());
     app.setApplicationDisplayName(aboutData.displayName());
