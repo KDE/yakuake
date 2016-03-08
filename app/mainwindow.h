@@ -189,6 +189,9 @@ class MainWindow : public QMainWindow
         int m_animationStepSize;
 
         bool m_toggleLock;
+
+        bool m_isX11;
+        bool m_isWayland;
 };
 
 #endif

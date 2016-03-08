@@ -78,7 +78,11 @@ MainWindow::MainWindow(QWidget* parent)
 
 #if HAVE_X11
     m_kwinAssistPropSet = false;
+    m_isX11 = QX11Info::isPlatformX11();
+#else
+    m_isX11 = false;
 #endif
+    m_isWayland = QGuiApplication::platformName().startsWith(QLatin1String("wayland"));
 
     m_toggleLock = false;
 
@@ -1029,11 +1033,30 @@ void MainWindow::toggleWindowState()
     if (!Settings::useWMAssist() && m_kwinAssistPropSet)
         kwinAssistPropCleanup();
 
-    if (QX11Info::isPlatformX11() && Settings::useWMAssist() && KWindowSystem::compositingActive())
+    if (m_isX11 && Settings::useWMAssist() && KWindowSystem::compositingActive())
         kwinAssistToggleWindowState(visible);
     else
 #endif
+    if (!m_isWayland) {
         xshapeToggleWindowState(visible);
+    } else {
+        if (visible)
+        {
+            sharedPreHideWindow();
+
+            hide();
+
+            sharedAfterHideWindow();
+        }
+        else
+        {
+            sharedPreOpenWindow();
+
+            show();
+
+            sharedAfterOpenWindow();
+        }
+    }
 }
 
 #if HAVE_X11
@@ -1292,6 +1315,11 @@ QRect MainWindow::getDesktopGeometry()
 
     if (action->isChecked())
         return screenGeometry;
+
+    if (m_isWayland) {
+        // on Wayland it's not possible to get the work area
+        return screenGeometry;
+    }
 
     if (QApplication::desktop()->screenCount() > 1)
     {
