@@ -53,6 +53,10 @@ if(X11_FOUND)
   target_link_libraries(yakuake Qt5::X11Extras ${X11_X11_LIB})
 endif(X11_FOUND)
 
+if(KF5Wayland_FOUND)
+  target_link_libraries(yakuake KF5::WaylandClient)
+endif()
+
 install(TARGETS yakuake ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES yakuake.knsrc DESTINATION ${CONFIG_INSTALL_DIR})

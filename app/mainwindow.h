@@ -40,6 +40,13 @@ class TitleBar;
 class KHelpMenu;
 class KActionCollection;
 
+#if HAVE_KWAYLAND
+namespace KWayland {
+    namespace Client {
+        class PlasmaShell;
+    }
+}
+#endif
 
 class MainWindow : public QMainWindow
 {
@@ -192,6 +199,11 @@ class MainWindow : public QMainWindow
 
         bool m_isX11;
         bool m_isWayland;
+
+#if HAVE_KWAYLAND
+        void initWayland();
+        KWayland::Client::PlasmaShell *m_plasmaShell;
+#endif
 };
 
 #endif

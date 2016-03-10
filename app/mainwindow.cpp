@@ -62,6 +62,13 @@
 #include <fixx11h.h>
 #endif
 
+#if HAVE_KWAYLAND
+#include <KWayland/Client/connection_thread.h>
+#include <KWayland/Client/registry.h>
+#include <KWayland/Client/surface.h>
+#include <KWayland/Client/plasmashell.h>
+#endif
+
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent, Qt::CustomizeWindowHint | Qt::FramelessWindowHint)
@@ -85,6 +92,10 @@ MainWindow::MainWindow(QWidget* parent)
     m_isX11 = false;
 #endif
     m_isWayland = QGuiApplication::platformName().startsWith(QLatin1String("wayland"));
+#if HAVE_KWAYLAND
+    m_plasmaShell = Q_NULLPTR;
+    initWayland();
+#endif
 
     m_toggleLock = false;
 
@@ -137,6 +148,34 @@ MainWindow::~MainWindow()
 
     delete m_skin;
 }
+
+#if HAVE_KWAYLAND
+void MainWindow::initWayland()
+{
+    if (!m_isWayland) {
+        return;
+    }
+
+    using namespace KWayland::Client;
+    auto connection = ConnectionThread::fromApplication(this);
+    if (!connection) {
+        return;
+    }
+    Registry *registry = new Registry(this);
+    registry->create(connection);
+    QObject::connect(registry, &Registry::interfacesAnnounced, this,
+        [registry, this] {
+            const auto interface = registry->interface(Registry::Interface::PlasmaShell);
+            if (interface.name != 0) {
+                m_plasmaShell = registry->createPlasmaShell(interface.name, interface.version, this);
+            }
+        }
+    );
+
+    registry->setup();
+    connection->roundtrip();
+}
+#endif
 
 bool MainWindow::queryClose()
 {
@@ -820,6 +859,15 @@ void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition)
 
     setGeometry(workArea.x() + workArea.width() * newPosition * (100 - newWidth) / 10000,
                 workArea.y(), targetWidth, maxHeight);
+#if HAVE_KWAYLAND
+    if (m_plasmaShell) {
+        if (auto surface = KWayland::Client::Surface::fromWindow(windowHandle())) {
+            if (auto plasmaSurface = m_plasmaShell->createSurface(surface, this)) {
+                plasmaSurface->setPosition(pos());
+            }
+        }
+    }
+#endif
 
     maxHeight -= m_titleBar->height();
     m_titleBar->setGeometry(0, maxHeight, targetWidth, m_titleBar->height());

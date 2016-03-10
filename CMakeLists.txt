@@ -40,6 +40,9 @@ if(NOT APPLE)
   if(X11_FOUND)
     find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED X11Extras)
   endif(X11_FOUND)
+
+  find_package(KF5Wayland 5.5 CONFIG)
+  set(HAVE_KWAYLAND ${KF5Wayland_FOUND})
 endif(NOT APPLE)
 
 add_definitions(
