@@ -44,6 +44,7 @@
 #include <KToggleFullScreenAction>
 #include <KActionCollection>
 #include <KWindowSystem>
+#include <KWindowEffects>
 #include <KLocalizedString>
 
 #include <QApplication>
@@ -1051,6 +1052,9 @@ void MainWindow::toggleWindowState()
         else
         {
             sharedPreOpenWindow();
+            if (KWindowEffects::isEffectAvailable(KWindowEffects::Slide)) {
+                KWindowEffects::slideWindow(this, KWindowEffects::TopEdge);
+            }
 
             show();
 
