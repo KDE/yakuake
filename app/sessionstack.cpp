@@ -25,11 +25,15 @@
 #include "terminal.h"
 #include "visualeventoverlay.h"
 
+#include "config-yakuake.h"
+
 #include <KMessageBox>
 #include <KLocalizedString>
+#include <KNotification>
 
 #include <QtDBus/QtDBus>
 
+static bool show_disallow_certain_dbus_methods_message = true;
 
 SessionStack::SessionStack(QWidget* parent) : QStackedWidget(parent)
 {
@@ -239,8 +243,21 @@ int SessionStack::sessionIdForTerminalId(int terminalId)
     return sessionId;
 }
 
+static void warnAboutDBus()
+{
+#if not defined(REMOVE_SENDTEXT_RUNCOMMAND_DBUS_METHODS)
+    if (show_disallow_certain_dbus_methods_message) {
+        KNotification::event(KNotification::Warning, QStringLiteral("Yakuake D-Bus Warning"),
+            i18n("The D-Bus method runCommand was just used.  There are security concerns about allowing these methods to be public.  If desired, these methods can be changed to internal use only by re-compiling Yakuake. <p>This warning will only show once for this Yakuake instance.</p>"));
+        show_disallow_certain_dbus_methods_message = false;
+    }
+#endif
+}
+
 void SessionStack::runCommand(const QString& command)
 {
+    warnAboutDBus();
+
     if (m_activeSessionId == -1) return;
     if (!m_sessions.contains(m_activeSessionId)) return;
 
@@ -249,6 +266,8 @@ void SessionStack::runCommand(const QString& command)
 
 void SessionStack::runCommandInTerminal(int terminalId, const QString& command)
 {
+    warnAboutDBus();
+
     QHashIterator<int, Session*> it(m_sessions);
 
     while (it.hasNext())

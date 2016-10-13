@@ -26,6 +26,7 @@
 
 #include "session.h"
 
+#include "config-yakuake.h"
 
 #include <QHash>
 #include <QStackedWidget>
@@ -81,8 +82,13 @@ class SessionStack : public QStackedWidget
         Q_SCRIPTABLE const QString terminalIdsForSessionId(int sessionId);
         Q_SCRIPTABLE int sessionIdForTerminalId(int terminalId);
 
+#if defined(REMOVE_SENDTEXT_RUNCOMMAND_DBUS_METHODS)
+        void runCommand(const QString& command);
+        void runCommandInTerminal(int terminalId, const QString& command);
+#else
         Q_SCRIPTABLE void runCommand(const QString& command);
         Q_SCRIPTABLE void runCommandInTerminal(int terminalId, const QString& command);
+#endif
 
         Q_SCRIPTABLE bool isSessionClosable(int sessionId);
         Q_SCRIPTABLE void setSessionClosable(int sessionId, bool closable);
