@@ -20,6 +20,7 @@
   <name xml:lang="it">Yakuake</name>
   <name xml:lang="lt">Yakuake</name>
   <name xml:lang="nl">Yakuake</name>
+  <name xml:lang="nn">Yakuake</name>
   <name xml:lang="pl">Yakuake</name>
   <name xml:lang="pt">Yakuake</name>
   <name xml:lang="pt-BR">Yakuake</name>
@@ -50,6 +51,7 @@
   <summary xml:lang="it">Terminale a discesa</summary>
   <summary xml:lang="lt">Išskleidžiamasis terminalas</summary>
   <summary xml:lang="nl">Uitvouwbare terminalemulator</summary>
+  <summary xml:lang="nn">Nedtrekksterminal</summary>
   <summary xml:lang="pl">Rozwijany terminal</summary>
   <summary xml:lang="pt">Terminal Acoplável</summary>
   <summary xml:lang="pt-BR">Terminal suspenso</summary>
@@ -82,6 +84,7 @@
     <p xml:lang="it">Yakuake è un emulatore di terminale a discesa basato sulla tecnologia di Konsole di KDE</p>
     <p xml:lang="lt">Yakuake yra nusileidžiantis terminalo emuliatorius paremtas KDE Konsole technologija.</p>
     <p xml:lang="nl">Yakuake is een uitvouwbare terminalemulator, gebaseerd op de technologie van KDE Konsole.</p>
+    <p xml:lang="nn">Rullegardinbasert terminalemulator basert på KDE Konsoll-teknologien.</p>
     <p xml:lang="pl">Yakuake jest rozwijanym emulatorem terminala opartym na technologii KDE Konsole.</p>
     <p xml:lang="pt">O Yakuake é um emulador de terminal acoplável que se baseia na tecnologia do Konsole para o KDE.</p>
     <p xml:lang="pt-BR">Yakuake é um emulador de terminal baseado na tecnologia do Konsole do KDE.</p>
@@ -112,6 +115,7 @@
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="lt">Ypatybės:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
+    <p xml:lang="nn">Funksjonar:</p>
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Funcionalidades:</p>
@@ -141,6 +145,7 @@
       <li xml:lang="it">Si srotola dolcemente dalla parte alta del tuo schermo</li>
       <li xml:lang="lt">Sklandžiai nusileidžia žemyn nuo jūsų ekrano viršaus</li>
       <li xml:lang="nl">Rolt langzaam naar beneden vanaf de bovenkant van uw scherm</li>
+      <li xml:lang="nn">Rullar jamt ned frå toppen av skjermen</li>
       <li xml:lang="pl">Płynnie rozwija się z góry ekranu</li>
       <li xml:lang="pt">Desenrola-se suavemente a partir do topo do seu ecrã</li>
       <li xml:lang="pt-BR">Desenrola-se suavemente a partir do topo da sua tela</li>
@@ -169,6 +174,7 @@
       <li xml:lang="it">Interfaccia a schede</li>
       <li xml:lang="lt">Kortelės sąsajoje</li>
       <li xml:lang="nl">Interface met tabbladen</li>
+      <li xml:lang="nn">Brukargrensesnitt med faner</li>
       <li xml:lang="pl">Interfejs z kartami</li>
       <li xml:lang="pt">Interface por páginas</li>
       <li xml:lang="pt-BR">Interface por abas</li>
@@ -196,6 +202,7 @@
       <li xml:lang="it">Dimensioni e velocità dell'animazione configurabili</li>
       <li xml:lang="lt">Konfigūruojami dydi ir animacijos greitis</li>
       <li xml:lang="nl">Instelbare afmetingen en animatiesnelheid</li>
+      <li xml:lang="nn">Tilpassbar storleik og animasjonsfart</li>
       <li xml:lang="pl">Ustawialny rozmiar i szybkość animacji</li>
       <li xml:lang="pt">Dimensões e velocidade de animação configuráveis</li>
       <li xml:lang="pt-BR">Dimensões e velocidade de animação configuráveis</li>
@@ -224,6 +231,7 @@
       <li xml:lang="it">Aspetto personalizzabile</li>
       <li xml:lang="lt">Keičiama išvaizda</li>
       <li xml:lang="nl">Te voorzien van een skin</li>
+      <li xml:lang="nn">Støtte for fleire grafiske tema</li>
       <li xml:lang="pl">Możliwość używania skórek</li>
       <li xml:lang="pt">Visual personalizável</li>
       <li xml:lang="pt-BR">Visual personalizável</li>
@@ -251,6 +259,7 @@
       <li xml:lang="it">Interfaccia D-Bus sofisticata</li>
       <li xml:lang="lt">Įmantri D-Bus sąsaja</li>
       <li xml:lang="nl">Intelligent D-Bus-interface</li>
+      <li xml:lang="nn">Avansert D-Bus-grensesnitt</li>
       <li xml:lang="pl">Zaawansowany interfejs D-Bus</li>
       <li xml:lang="pt">Interface de D-Bus sofisticada</li>
       <li xml:lang="pt-BR">Interface D-Bus sofisticada</li>
