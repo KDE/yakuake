@@ -37,7 +37,6 @@
   <name xml:lang="zh-TW">Yakuake</name>
   <summary>Drop-down Terminal</summary>
   <summary xml:lang="ar">طرفيّة منسدلة</summary>
-  <summary xml:lang="ast">Terminal estenderexable</summary>
   <summary xml:lang="bs">Padajući terminal</summary>
   <summary xml:lang="ca">Terminal desplegable</summary>
   <summary xml:lang="ca-valencia">Terminal desplegable</summary>
@@ -71,7 +70,6 @@
       Yakuake is a drop-down terminal emulator based on KDE Konsole technology.
     </p>
     <p xml:lang="ar">ياكواكي هو محاكي طرفيّة منسدل مبنيّ على تقنيّة طرفيّة كدي.</p>
-    <p xml:lang="ast">Yakuake ye un emulador de terminal estenderexable basáu na teunoloxía de KDE Konsole</p>
     <p xml:lang="ca">El Yakuake és un emulador de terminal desplegable basat en la tecnologia del Konsole del KDE.</p>
     <p xml:lang="ca-valencia">El Yakuake és un emulador de terminal desplegable basat en la tecnologia del Konsole del KDE.</p>
     <p xml:lang="cs">Yakuake je vysouvací emulátor terminálu založený na technologii KDE Konsole.</p>
@@ -101,7 +99,6 @@
     <p xml:lang="zh-TW">Yakuake 是一套基於 KDE 的 Konsole 開發出來的下拉式終端模擬器。</p>
     <p>Features:</p>
     <p xml:lang="ar">الميزات:</p>
-    <p xml:lang="ast">Carauterístiques:</p>
     <p xml:lang="bs">Svojstva:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
@@ -133,7 +130,6 @@
     <ul>
       <li>Smoothly rolls down from the top of your screen</li>
       <li xml:lang="ar">ينسدل انسيابيًّا من أعلى شاشتك</li>
-      <li xml:lang="ast">Desendolcase adulces dende'l berbesu cimeru de la to pantalla</li>
       <li xml:lang="ca">S'estén suaument des de la part superior de la pantalla</li>
       <li xml:lang="ca-valencia">S'estén suaument des de la part superior de la pantalla</li>
       <li xml:lang="de">Rollt geschmeidig von der oberen Kante des Bildschirms herab</li>
@@ -162,7 +158,6 @@
       <li xml:lang="zh-TW">平滑地從螢幕頂端拉下來</li>
       <li>Tabbed interface</li>
       <li xml:lang="ar">واجهة ألسنة</li>
-      <li xml:lang="ast">Interfaz per llingüetes</li>
       <li xml:lang="ca">Interfície amb pestanyes</li>
       <li xml:lang="ca-valencia">Interfície amb pestanyes</li>
       <li xml:lang="de">Bedienungsoberfläche mit Unterfenstern</li>
@@ -190,7 +185,6 @@
       <li xml:lang="zh-CN">标签式界面</li>
       <li xml:lang="zh-TW">分頁介面</li>
       <li>Configurable dimensions and animation speed</li>
-      <li xml:lang="ast">Dimensiones y velocidá d'animación configurables</li>
       <li xml:lang="ca">Les dimensions i la velocitat de l'animació es poden configurar</li>
       <li xml:lang="ca-valencia">Les dimensions i la velocitat de l'animació es poden configurar</li>
       <li xml:lang="de">Benutzerdefinierte Abmessungen und Animationsgeschwindigkeit</li>
@@ -219,7 +213,6 @@
       <li xml:lang="zh-TW">設定動畫速度與大小</li>
       <li>Skinnable</li>
       <li xml:lang="ar">قابل للتّخصيص</li>
-      <li xml:lang="ast">Personalizable</li>
       <li xml:lang="ca">Es pot canviar l'aparença</li>
       <li xml:lang="ca-valencia">Es pot canviar l'aparença</li>
       <li xml:lang="de">Anpassung der Oberfläche über Skin/Design</li>
@@ -247,7 +240,6 @@
       <li xml:lang="zh-CN">可更换主题</li>
       <li xml:lang="zh-TW">Skinnable</li>
       <li>Sophisticated D-Bus interface</li>
-      <li xml:lang="ast">Interfaz D-Bus sofisticada</li>
       <li xml:lang="ca">Interfície de D-Bus sofisticada</li>
       <li xml:lang="ca-valencia">Interfície de D-Bus sofisticada</li>
       <li xml:lang="de">Hoch entwickelte D-Bus-Schnittstelle</li>
