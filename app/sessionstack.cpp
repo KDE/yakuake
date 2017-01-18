@@ -245,7 +245,7 @@ int SessionStack::sessionIdForTerminalId(int terminalId)
 
 static void warnAboutDBus()
 {
-#if not defined(REMOVE_SENDTEXT_RUNCOMMAND_DBUS_METHODS)
+#if !defined(REMOVE_SENDTEXT_RUNCOMMAND_DBUS_METHODS)
     if (show_disallow_certain_dbus_methods_message) {
         KNotification::event(KNotification::Warning, QStringLiteral("Yakuake D-Bus Warning"),
             i18n("The D-Bus method runCommand was just used.  There are security concerns about allowing these methods to be public.  If desired, these methods can be changed to internal use only by re-compiling Yakuake. <p>This warning will only show once for this Yakuake instance.</p>"));
