@@ -30,8 +30,8 @@
 #include <KMessageBox>
 #include <KTar>
 
-#include <KNS3/DownloadDialog>
-#include <KNS3/DownloadManager>
+#include <downloaddialog.h>
+#include <downloadmanager.h>
 
 #include <QDir>
 #include <QDirIterator>
@@ -68,7 +68,7 @@ AppearanceSettings::AppearanceSettings(QWidget* parent) : QWidget(parent)
     ghnsButton->setIcon(QIcon(QStringLiteral("get-hot-new-stuff")));
 
     m_knsConfigFileName = QLatin1String("yakuake.knsrc");
-    m_knsDownloadManager = new KNS3::DownloadManager(m_knsConfigFileName);
+    m_knsDownloadManager = new KNSCore::DownloadManager(m_knsConfigFileName);
 
     connect(ghnsButton, &QPushButton::clicked, this, &AppearanceSettings::getNewSkins);
 
@@ -509,8 +509,9 @@ void AppearanceSettings::getNewSkins()
         quint32 invalidEntryCount = 0;
         QString invalidSkinText;
 
-        foreach (const KNS3::Entry &entry, dialog->installedEntries())
+        foreach (const KNS3::Entry &entry3, dialog->installedEntries())
         {
+            KNSCore::EntryInternal entry = KNSCore::EntryInternal::fromEntry(entry3);
             bool isValid = true;
             const QSet<QString>& skinIdList = extractKnsSkinIds(entry.installedFiles());
 
