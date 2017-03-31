@@ -54,6 +54,7 @@
 #include <QWhatsThis>
 #include <QWindow>
 #include <QtDBus/QtDBus>
+#include <QPlatformSurfaceEvent>
 
 #if HAVE_X11
 #include <QX11Info>
