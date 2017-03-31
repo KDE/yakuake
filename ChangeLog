@@ -1,3 +1,16 @@
+Changes since 3.0.3:
+* Fixed Yakuake sometimes showing up in the Task Manager.
+* Much improved Wayland support on Plasma 5.
+* Added a security warning when using the runCommand DBus API (as
+  recently added to KDE Konsole as well).
+* Switched to a different API for getting the user home path to avoid
+  blocking on network logins.
+* The bell notification event now uses the correct Plasma 5 sound file
+  name instead of an old KDE 4 one that may not be present.
+* Fixed standard CLI arguments like --help and --version.
+* Code cleanups, e.g. porting away from deprecated API.
+* Updated AppStream metadata.
+
 Changes in 3.0.2:
 * Added back a description file implementing the freedesktop.org AppData
   specification.
