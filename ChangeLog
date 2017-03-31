@@ -1,4 +1,7 @@
 Changes since 3.0.3:
+* ...
+
+Changes in 3.0.3:
 * Fixed Yakuake sometimes showing up in the Task Manager.
 * Much improved Wayland support on Plasma 5.
 * Added a security warning when using the runCommand DBus API (as
