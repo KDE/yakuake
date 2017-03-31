@@ -1036,6 +1036,25 @@ void MainWindow::changeEvent(QEvent* event)
     QMainWindow::changeEvent(event);
 }
 
+bool MainWindow::event(QEvent* event)
+{
+    if (event->type() == QEvent::Expose) {
+        // FIXME TODO: We can remove this once we depend on Qt 5.6.1+.
+        // See: https://bugreports.qt.io/browse/QTBUG-26978
+        applyWindowProperties();
+#if (QT_VERSION > QT_VERSION_CHECK(5, 5, 0))
+    } else if (event->type() == QEvent::PlatformSurface) {
+        const QPlatformSurfaceEvent *pSEvent = static_cast<QPlatformSurfaceEvent *>(event);
+
+        if (pSEvent->surfaceEventType() == QPlatformSurfaceEvent::SurfaceCreated) {
+            applyWindowProperties();
+        }
+#endif
+    }
+
+    return QMainWindow::event(event);
+}
+
 void MainWindow::toggleWindowState()
 {
     bool visible = isVisible();

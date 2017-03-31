@@ -90,6 +90,7 @@ class MainWindow : public QMainWindow
         virtual void paintEvent(QPaintEvent*);
         virtual void moveEvent(QMoveEvent*);
         virtual void changeEvent(QEvent* event);
+        virtual bool event(QEvent* event);
 
         virtual bool queryClose();
 
