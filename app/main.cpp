@@ -37,10 +37,10 @@ int main (int argc, char *argv[])
 
     KAboutData aboutData(QStringLiteral("yakuake"),
         xi18nc("@title", "<application>Yakuake</application>"),
-        QStringLiteral("3.0.2+"),
+        QStringLiteral("3.0.3"),
         xi18nc("@title", "A drop-down terminal emulator based on KDE Konsole technology."),
         KAboutLicense::GPL,
-        xi18nc("@info:credit", "(c) 2008-2016 The Yakuake Team"),
+        xi18nc("@info:credit", "(c) 2008-2017 The Yakuake Team"),
         QString(),
         QStringLiteral("http://yakuake.kde.org/"));
 
