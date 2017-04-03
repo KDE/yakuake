@@ -1,5 +1,5 @@
-Changes since 3.0.3:
-* ...
+Changes in 3.0.4:
+* Fixed build on Qt 5.7.
 
 Changes in 3.0.3:
 * Fixed Yakuake sometimes showing up in the Task Manager.
