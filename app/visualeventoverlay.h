@@ -92,9 +92,9 @@ class VisualEventOverlay : public QWidget
 
 
     protected:
-        virtual void showEvent(QShowEvent*);
-        virtual void hideEvent(QHideEvent*);
-        virtual void paintEvent(QPaintEvent*);
+        void showEvent(QShowEvent*) Q_DECL_OVERRIDE;
+        void hideEvent(QHideEvent*) Q_DECL_OVERRIDE;
+        void paintEvent(QPaintEvent*) Q_DECL_OVERRIDE;
 
 
     private Q_SLOTS:

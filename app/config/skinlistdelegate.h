@@ -32,8 +32,8 @@ class SkinListDelegate : public QAbstractItemDelegate
         explicit SkinListDelegate(QObject* parent = 0);
          ~SkinListDelegate();
 
-        virtual void paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex &index) const;
-        virtual QSize sizeHint (const QStyleOptionViewItem& option, const QModelIndex& index) const;
+        void paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex &index) const Q_DECL_OVERRIDE;
+        QSize sizeHint (const QStyleOptionViewItem& option, const QModelIndex& index) const Q_DECL_OVERRIDE;
 
 
     private:

@@ -87,10 +87,10 @@ class MainWindow : public QMainWindow
 
 
     protected:
-        virtual void paintEvent(QPaintEvent*);
-        virtual void moveEvent(QMoveEvent*);
-        virtual void changeEvent(QEvent* event);
-        virtual bool event(QEvent* event);
+        void paintEvent(QPaintEvent*) Q_DECL_OVERRIDE;
+        void moveEvent(QMoveEvent*) Q_DECL_OVERRIDE;
+        void changeEvent(QEvent* event) Q_DECL_OVERRIDE;
+        bool event(QEvent* event) Q_DECL_OVERRIDE;
 
         virtual bool queryClose();
 

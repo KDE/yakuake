@@ -40,7 +40,7 @@ class Terminal : public QObject
         explicit Terminal(QWidget* parent = 0);
          ~Terminal();
 
-        bool eventFilter(QObject* watched, QEvent* event);
+        bool eventFilter(QObject* watched, QEvent* event) Q_DECL_OVERRIDE;
 
         int id() { return m_terminalId; }
         const QString title() { return m_title; }

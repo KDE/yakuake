@@ -81,20 +81,20 @@ class TabBar : public QWidget
 
 
     protected:
-        virtual void resizeEvent(QResizeEvent*);
-        virtual void paintEvent(QPaintEvent*);
-        virtual void wheelEvent(QWheelEvent*);
-        virtual void keyPressEvent(QKeyEvent*);
-        virtual void mousePressEvent(QMouseEvent*);
-        virtual void mouseReleaseEvent(QMouseEvent*);
-        virtual void mouseMoveEvent(QMouseEvent*);
-        virtual void dragMoveEvent(QDragMoveEvent*);
-        virtual void dragEnterEvent(QDragEnterEvent*);
-        virtual void dragLeaveEvent(QDragLeaveEvent*);
-        virtual void dropEvent(QDropEvent*);
-        virtual void mouseDoubleClickEvent(QMouseEvent*);
-        virtual void contextMenuEvent(QContextMenuEvent*);
-        virtual void leaveEvent(QEvent*);
+        void resizeEvent(QResizeEvent*) Q_DECL_OVERRIDE;
+        void paintEvent(QPaintEvent*) Q_DECL_OVERRIDE;
+        void wheelEvent(QWheelEvent*) Q_DECL_OVERRIDE;
+        void keyPressEvent(QKeyEvent*) Q_DECL_OVERRIDE;
+        void mousePressEvent(QMouseEvent*) Q_DECL_OVERRIDE;
+        void mouseReleaseEvent(QMouseEvent*) Q_DECL_OVERRIDE;
+        void mouseMoveEvent(QMouseEvent*) Q_DECL_OVERRIDE;
+        void dragMoveEvent(QDragMoveEvent*) Q_DECL_OVERRIDE;
+        void dragEnterEvent(QDragEnterEvent*) Q_DECL_OVERRIDE;
+        void dragLeaveEvent(QDragLeaveEvent*) Q_DECL_OVERRIDE;
+        void dropEvent(QDropEvent*) Q_DECL_OVERRIDE;
+        void mouseDoubleClickEvent(QMouseEvent*) Q_DECL_OVERRIDE;
+        void contextMenuEvent(QContextMenuEvent*) Q_DECL_OVERRIDE;
+        void leaveEvent(QEvent*) Q_DECL_OVERRIDE;
 
         void setTabTitleInteractive(int sessionId, const QString& newTitle);
 
