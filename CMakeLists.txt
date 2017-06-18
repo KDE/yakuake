@@ -18,7 +18,7 @@ option(REMOVE_SENDTEXT_RUNCOMMAND_DBUS_METHODS "yakuake: remove runCommand dbus 
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets)
 
-find_package(KF5 5.15 REQUIRED
+find_package(KF5 5.29 REQUIRED
     Archive
     Config
     CoreAddons
