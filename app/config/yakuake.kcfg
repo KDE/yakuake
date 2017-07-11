@@ -78,6 +78,11 @@
       <whatsthis context="@info:whatsthis">Whether the application window should be opened after program start.</whatsthis>
     <default>false</default>
     </entry>
+    <entry name="NewSessionSamePwd" type="Bool">
+      <label context="@label">Open new session in same directory</label>
+      <whatsthis context="@info:whatsthis">Whether the new session should be opened in the same directory as the current session.</whatsthis>
+      <default>true</default>
+    </entry>
   </group>
   <group name="Appearance">
     <entry name="Skin" type="String">
