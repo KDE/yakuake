@@ -54,7 +54,7 @@ int SessionStack::addSession(Session::SessionType type)
     Session*  currentSession  = m_sessions.value(m_activeSessionId);
     Terminal* currentTerminal = currentSession ? currentSession->getTerminal(currentSession->activeTerminalId()) : NULL;
     bool ok = false;
-    QString workingDir(currentTerminal ? currentTerminal->currentDir(&ok) : QString::null);
+    QString workingDir(Settings::newSessionSamePwd() && currentTerminal ? currentTerminal->currentDir(&ok) : QString::null);
 
     if (!ok) {
         workingDir = QDir::homePath();

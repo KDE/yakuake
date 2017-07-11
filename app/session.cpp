@@ -19,7 +19,7 @@
   along with this program. If not, see http://www.gnu.org/licenses/.
 */
 
-
+#include "settings.h"
 #include "session.h"
 #include "terminal.h"
 
@@ -286,7 +286,7 @@ int Session::split(Terminal* terminal, Qt::Orientation orientation)
             splitter->setOrientation(orientation);
 
         // XXX: find out if terminal can be NULL here
-        terminal = addTerminal(terminal ? terminal->currentDir() : QDir::homePath(), splitter);
+        terminal = addTerminal(Settings::newSessionSamePwd() && terminal ? terminal->currentDir() : QDir::homePath(), splitter);
 
         QList<int> newSplitterSizes;
         newSplitterSizes << (splitterWidth / 2) << (splitterWidth / 2);
@@ -312,7 +312,7 @@ int Session::split(Terminal* terminal, Qt::Orientation orientation)
 
         terminal->setSplitter(newSplitter);
 
-        terminal = addTerminal(terminal->currentDir(), newSplitter);
+        terminal = addTerminal(Settings::newSessionSamePwd() ? terminal->currentDir() : QDir::homePath(), newSplitter);
 
         splitter->setSizes(splitterSizes);
         QList<int> newSplitterSizes;

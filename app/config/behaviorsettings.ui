@@ -20,6 +20,13 @@
       <string comment="@title:group Group box label">General</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
+      <item row="7" column="0" colspan="2">
+       <widget class="QCheckBox" name="kcfg_NewSessionSamePwd">
+        <property name="text">
+         <string comment="@option:check">Open new sessions in the same directory as current session</string>
+        </property>
+       </widget>
+      </item>
       <item row="6" column="0" colspan="2">
        <widget class="QCheckBox" name="kcfg_FocusFollowsMouse">
         <property name="text">
@@ -167,6 +174,7 @@
   <tabstop>kcfg_ToggleToFocus</tabstop>
   <tabstop>kcfg_KeepOpenAfterLastSessionCloses</tabstop>
   <tabstop>kcfg_FocusFollowsMouse</tabstop>
+  <tabstop>kcfg_NewSessionSamePwd</tabstop>
   <tabstop>kcfg_ConfirmQuit</tabstop>
  </tabstops>
  <resources/>
