@@ -63,9 +63,9 @@ AppearanceSettings::AppearanceSettings(QWidget* parent) : QWidget(parent)
     connect(installButton, SIGNAL(clicked()), this, SLOT(installSkin()));
     connect(removeButton, SIGNAL(clicked()), this, SLOT(removeSelectedSkin()));
 
-    installButton->setIcon(QIcon(QStringLiteral("folder")));
-    removeButton->setIcon(QIcon(QStringLiteral("edit-delete")));
-    ghnsButton->setIcon(QIcon(QStringLiteral("get-hot-new-stuff")));
+    installButton->setIcon(QIcon::fromTheme(QStringLiteral("folder")));
+    removeButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete")));
+    ghnsButton->setIcon(QIcon::fromTheme(QStringLiteral("get-hot-new-stuff")));
 
     m_knsConfigFileName = QLatin1String("yakuake.knsrc");
     m_knsDownloadManager = new KNSCore::DownloadManager(m_knsConfigFileName);
