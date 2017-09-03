@@ -69,7 +69,7 @@
     <p>
       Yakuake is a drop-down terminal emulator based on KDE Konsole technology.
     </p>
-    <p xml:lang="ar">ياكواكي هو محاكي طرفيّة منسدل مبنيّ على تقنيّة طرفيّة كدي.</p>
+    <p xml:lang="ar">«ياكواكي» هو محاكي طرفيّة منسدل مبنيّ على تقنيّة «طرفيّة كدي».</p>
     <p xml:lang="ca">El Yakuake és un emulador de terminal desplegable basat en la tecnologia del Konsole del KDE.</p>
     <p xml:lang="ca-valencia">El Yakuake és un emulador de terminal desplegable basat en la tecnologia del Konsole del KDE.</p>
     <p xml:lang="cs">Yakuake je vysouvací emulátor terminálu založený na technologii KDE Konsole.</p>
@@ -213,7 +213,6 @@
       <li xml:lang="zh-CN">可配置位置和动画速度</li>
       <li xml:lang="zh-TW">設定動畫速度與大小</li>
       <li>Skinnable</li>
-      <li xml:lang="ar">قابل للتّخصيص</li>
       <li xml:lang="ca">Es pot canviar l'aparença</li>
       <li xml:lang="ca-valencia">Es pot canviar l'aparença</li>
       <li xml:lang="de">Anpassung der Oberfläche über Skin/Design</li>
