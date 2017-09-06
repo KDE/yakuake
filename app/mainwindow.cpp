@@ -95,6 +95,7 @@ MainWindow::MainWindow(QWidget* parent)
     m_isWayland = QGuiApplication::platformName().startsWith(QLatin1String("wayland"));
 #if HAVE_KWAYLAND
     m_plasmaShell = Q_NULLPTR;
+    m_plasmaShellSurface = Q_NULLPTR;
     initWayland();
 #endif
 
@@ -176,6 +177,21 @@ void MainWindow::initWayland()
     registry->setup();
     connection->roundtrip();
 }
+
+void MainWindow::initWaylandSurface()
+{
+    if (m_plasmaShellSurface) {
+        return;
+    }
+    if (!m_plasmaShell) {
+        return;
+    }
+    if (auto surface = KWayland::Client::Surface::fromWindow(windowHandle())) {
+        m_plasmaShellSurface = m_plasmaShell->createSurface(surface, this);
+        m_plasmaShellSurface->setPosition(pos());
+    }
+}
+
 #endif
 
 bool MainWindow::queryClose()
@@ -861,13 +877,7 @@ void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition)
     setGeometry(workArea.x() + workArea.width() * newPosition * (100 - newWidth) / 10000,
                 workArea.y(), targetWidth, maxHeight);
 #if HAVE_KWAYLAND
-    if (m_plasmaShell) {
-        if (auto surface = KWayland::Client::Surface::fromWindow(windowHandle())) {
-            if (auto plasmaSurface = m_plasmaShell->createSurface(surface, this)) {
-                plasmaSurface->setPosition(pos());
-            }
-        }
-    }
+    initWaylandSurface();
 #endif
 
     maxHeight -= m_titleBar->height();
@@ -1303,6 +1313,10 @@ void MainWindow::sharedAfterOpenWindow()
 
     applyWindowProperties();
 
+#if HAVE_KWAYLAND
+    initWaylandSurface();
+#endif
+
     emit windowOpened();
 }
 
@@ -1315,6 +1329,11 @@ void MainWindow::sharedPreHideWindow()
 void MainWindow::sharedAfterHideWindow()
 {
     if (Settings::pollMouse()) toggleMousePoll(true);
+
+#if HAVE_KWAYLAND
+    delete m_plasmaShellSurface;
+    m_plasmaShellSurface = Q_NULLPTR;
+#endif
 
     emit windowClosed();
 }

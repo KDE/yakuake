@@ -44,6 +44,7 @@ class KActionCollection;
 namespace KWayland {
     namespace Client {
         class PlasmaShell;
+        class PlasmaShellSurface;
     }
 }
 #endif
@@ -203,7 +204,9 @@ class MainWindow : public QMainWindow
 
 #if HAVE_KWAYLAND
         void initWayland();
+        void initWaylandSurface();
         KWayland::Client::PlasmaShell *m_plasmaShell;
+        KWayland::Client::PlasmaShellSurface *m_plasmaShellSurface;
 #endif
 };
 
