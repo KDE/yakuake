@@ -914,7 +914,7 @@ void TabBar::setTabTitleInteractive(int sessionId, const QString& newTitle)
 
 int TabBar::sessionAtTab(int index)
 {
-    if (index > m_tabs.count() - 1)
+    if (index < 0 || index > m_tabs.count() - 1)
         return -1;
     else
         return m_tabs.at(index);
