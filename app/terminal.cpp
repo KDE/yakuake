@@ -42,8 +42,12 @@
 
 int Terminal::m_availableTerminalId = 0;
 
-Terminal::Terminal(QWidget* parent) : QObject(parent)
+Terminal::Terminal(QString currentWorkingDirectory, QWidget* parent) : QObject(parent)
 {
+    if (currentWorkingDirectory.isEmpty()) {
+        currentWorkingDirectory = QDir::homePath();
+    }
+
     m_terminalId = m_availableTerminalId;
     m_availableTerminalId++;
 
@@ -86,7 +90,7 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
         disableOffendingPartActions();
 
         m_terminalInterface = qobject_cast<TerminalInterface*>(m_part);
-        if (m_terminalInterface) m_terminalInterface->showShellInDir(QDir::homePath());
+        if (m_terminalInterface) m_terminalInterface->showShellInDir(currentWorkingDirectory);
     }
     else
         displayKPartLoadError();
@@ -139,6 +143,14 @@ bool Terminal::eventFilter(QObject* /* watched */, QEvent* event)
     }
 
     return false;
+}
+
+const QString Terminal::currentWorkingDirectory()
+{
+    if (m_terminalInterface) {
+        return m_terminalInterface->currentWorkingDirectory();
+    }
+    return QString();
 }
 
 void Terminal::displayKPartLoadError()

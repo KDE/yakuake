@@ -26,8 +26,11 @@
 
 int Session::m_availableSessionId = 0;
 
-Session::Session(SessionType type, QWidget* parent) : QObject(parent)
+Session::Session(SessionType type, QString workingDirectory, QWidget* parent) : QObject(parent)
 {
+    // Default initial working directory
+    m_workingDirectory = workingDirectory;
+
     m_sessionId = m_availableSessionId;
     m_availableSessionId++;
 
@@ -154,9 +157,17 @@ void Session::setupSession(SessionType type)
     }
 }
 
+const QString Session::workingDirectory()
+{
+    if (m_activeTerminalId == -1) return m_workingDirectory;
+    if (!m_terminals.contains(m_activeTerminalId)) return m_workingDirectory;
+
+    return m_terminals.value(m_activeTerminalId)->currentWorkingDirectory();
+}
+
 Terminal* Session::addTerminal(QWidget* parent)
 {
-    Terminal* terminal = new Terminal(parent);
+    Terminal* terminal = new Terminal(workingDirectory(), parent);
     connect(terminal, SIGNAL(activated(int)), this, SLOT(setActiveTerminal(int)));
     connect(terminal, SIGNAL(manuallyActivated(Terminal*)), this, SIGNAL(terminalManuallyActivated(Terminal*)));
     connect(terminal, SIGNAL(titleChanged(int,QString)), this, SLOT(setTitle(int,QString)));
@@ -168,6 +179,8 @@ Terminal* Session::addTerminal(QWidget* parent)
 
     QWidget* terminalWidget = terminal->terminalWidget();
     if (terminalWidget) terminalWidget->setFocus();
+
+    m_activeTerminalId = terminal->id();
 
     return terminal;
 }

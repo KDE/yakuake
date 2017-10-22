@@ -150,6 +150,8 @@ class SessionStack : public QStackedWidget
         enum QueryCloseType { QueryCloseSession, QueryCloseTerminal };
         bool queryClose(int sessionId, QueryCloseType type);
 
+        const QString currentWorkingDirectory();
+
         VisualEventOverlay* m_visualEventOverlay;
 
         int m_activeSessionId;

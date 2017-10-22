@@ -49,9 +49,23 @@ SessionStack::~SessionStack()
 {
 }
 
+const QString SessionStack::activeTerminalCurrentWorkingDirectory()
+{
+    QString q = QString();
+    if (m_activeSessionId == -1) return q;
+    if (!m_sessions.contains(m_activeSessionId)) return q;
+
+    Terminal *activeTerminal = m_sessions.value(m_activeSessionId)->getTerminal(activeTerminalId());
+    if (activeTerminal) {
+        return activeTerminal->currentWorkingDirectory();
+    }
+    return q;
+}
+
 int SessionStack::addSession(Session::SessionType type)
 {
-    Session* session = new Session(type, this);
+    QString currentWorkingDirectory = activeTerminalCurrentWorkingDirectory();
+    Session* session = new Session(type, currentWorkingDirectory, this);
     connect(session, SIGNAL(titleChanged(int,QString)), this, SIGNAL(titleChanged(int,QString)));
     connect(session, SIGNAL(terminalManuallyActivated(Terminal*)), this, SLOT(handleManualTerminalActivation(Terminal*)));
     connect(session, SIGNAL(keyboardInputBlocked(Terminal*)), m_visualEventOverlay, SLOT(indicateKeyboardInputBlocked(Terminal*)));
@@ -68,6 +82,8 @@ int SessionStack::addSession(Session::SessionType type)
         emit sessionAdded(session->id(), session->title());
     else
         emit sessionAdded(session->id(), QString());
+
+    raiseSession(session->id())
 
     return session->id();
 }
