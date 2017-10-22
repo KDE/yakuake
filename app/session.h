@@ -41,11 +41,12 @@ class Session : public QObject
         enum SessionType { Single, TwoHorizontal, TwoVertical, Quad };
         enum GrowthDirection { Up, Right, Down, Left };
 
-        explicit Session(SessionType type = Single, QWidget* parent = 0);
+        explicit Session(SessionType type = Single, QString workingDirectory = QString(), QWidget* parent = 0);
          ~Session();
 
         int id() { return m_sessionId; }
         const QString title() { return m_title; }
+        const QString workingDirectory();
         QWidget* widget() { return m_baseSplitter; }
 
         int activeTerminalId() { return m_activeTerminalId; }
@@ -132,6 +133,8 @@ class Session : public QObject
         QMap<int, Terminal*> m_terminals;
 
         QString m_title;
+
+        QString m_workingDirectory;
 
         bool m_closable;
 };
