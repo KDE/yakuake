@@ -49,7 +49,7 @@ SessionStack::~SessionStack()
 {
 }
 
-int SessionStack::addSession(Session::SessionType type)
+int SessionStack::addSessionImpl(Session::SessionType type)
 {
     Session* session = new Session(type, this);
     connect(session, SIGNAL(titleChanged(int,QString)), this, SIGNAL(titleChanged(int,QString)));
@@ -72,19 +72,24 @@ int SessionStack::addSession(Session::SessionType type)
     return session->id();
 }
 
+int SessionStack::addSession()
+{
+    return addSessionImpl(Session::Single);
+}
+
 int SessionStack::addSessionTwoHorizontal()
 {
-    return addSession(Session::TwoHorizontal);
+    return addSessionImpl(Session::TwoHorizontal);
 }
 
 int SessionStack::addSessionTwoVertical()
 {
-    return addSession(Session::TwoVertical);
+    return addSessionImpl(Session::TwoVertical);
 }
 
 int SessionStack::addSessionQuad()
 {
-    return addSession(Session::Quad);
+    return addSessionImpl(Session::Quad);
 }
 
 void SessionStack::raiseSession(int sessionId)
