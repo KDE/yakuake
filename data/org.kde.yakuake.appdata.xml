@@ -41,6 +41,7 @@
   <summary xml:lang="ca">Terminal desplegable</summary>
   <summary xml:lang="ca-valencia">Terminal desplegable</summary>
   <summary xml:lang="cs">Vysouvací terminál</summary>
+  <summary xml:lang="da">Rul-ned terminal</summary>
   <summary xml:lang="de">Aufklapp-Terminal</summary>
   <summary xml:lang="el">Τερματικό καθοδικής κύλισης</summary>
   <summary xml:lang="en-GB">Drop-down Terminal</summary>
@@ -73,6 +74,7 @@
     <p xml:lang="ca">El Yakuake és un emulador de terminal desplegable basat en la tecnologia del Konsole del KDE.</p>
     <p xml:lang="ca-valencia">El Yakuake és un emulador de terminal desplegable basat en la tecnologia del Konsole del KDE.</p>
     <p xml:lang="cs">Yakuake je vysouvací emulátor terminálu založený na technologii KDE Konsole.</p>
+    <p xml:lang="da">Yakuake er en rul-ned terminalemulator baseret på KDE Konsole-teknologi.</p>
     <p xml:lang="de">Yakuake ist ein Aufklapp-Terminalemulator basierend auf der KDE-Konsole.</p>
     <p xml:lang="el">Το Yakuake είναι ένας εξομοιωτής τερματικού καθοδικής κύλισης με βάση την τεχνολογία του KDE Konsole.</p>
     <p xml:lang="en-GB">Yakuake is a drop-down terminal emulator based on KDE Konsole technology.</p>
@@ -103,6 +105,7 @@
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
     <p xml:lang="cs">Vlastnosti:</p>
+    <p xml:lang="da">Funktioner:</p>
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="el">Λειτουργίες:</p>
     <p xml:lang="en-GB">Features:</p>
@@ -133,6 +136,7 @@
       <li xml:lang="ar">ينسدل انسيابيًّا من أعلى شاشتك</li>
       <li xml:lang="ca">S'estén suaument des de la part superior de la pantalla</li>
       <li xml:lang="ca-valencia">S'estén suaument des de la part superior de la pantalla</li>
+      <li xml:lang="da">Ruller blødt ned fra toppen af skærmen</li>
       <li xml:lang="de">Rollt geschmeidig von der oberen Kante des Bildschirms herab</li>
       <li xml:lang="el">Ομαλή καθοδική κύλιση από την κορυφή της οθόνης σας</li>
       <li xml:lang="en-GB">Smoothly rolls down from the top of your screen</li>
@@ -161,6 +165,7 @@
       <li xml:lang="ar">واجهة ألسنة</li>
       <li xml:lang="ca">Interfície amb pestanyes</li>
       <li xml:lang="ca-valencia">Interfície amb pestanyes</li>
+      <li xml:lang="da">Grænseflade med faneblade</li>
       <li xml:lang="de">Bedienungsoberfläche mit Unterfenstern</li>
       <li xml:lang="el">Περιβάλλον χρήσης με καρτέλες</li>
       <li xml:lang="en-GB">Tabbed interface</li>
@@ -188,6 +193,7 @@
       <li>Configurable dimensions and animation speed</li>
       <li xml:lang="ca">Les dimensions i la velocitat de l'animació es poden configurar</li>
       <li xml:lang="ca-valencia">Les dimensions i la velocitat de l'animació es poden configurar</li>
+      <li xml:lang="da">Dimensioner og animationshastighed kan indstilles</li>
       <li xml:lang="de">Benutzerdefinierte Abmessungen und Animationsgeschwindigkeit</li>
       <li xml:lang="el">Διαμορφώσιμες διαστάσεις και ταχύτητα με εφέ κίνησης</li>
       <li xml:lang="en-GB">Configurable dimensions and animation speed</li>
@@ -215,6 +221,7 @@
       <li>Skinnable</li>
       <li xml:lang="ca">Es pot canviar l'aparença</li>
       <li xml:lang="ca-valencia">Es pot canviar l'aparença</li>
+      <li xml:lang="da">Kan bruge skins</li>
       <li xml:lang="de">Anpassung der Oberfläche über Skin/Design</li>
       <li xml:lang="el">Διαμορφώσιμα θέματα</li>
       <li xml:lang="en-GB">Skinnable</li>
@@ -242,6 +249,7 @@
       <li>Sophisticated D-Bus interface</li>
       <li xml:lang="ca">Interfície de D-Bus sofisticada</li>
       <li xml:lang="ca-valencia">Interfície de D-Bus sofisticada</li>
+      <li xml:lang="da">Sofistikeret D-Bus-grænseflade</li>
       <li xml:lang="de">Hoch entwickelte D-Bus-Schnittstelle</li>
       <li xml:lang="el">Εκλεπτυσμένη D-Bus διεπαφή</li>
       <li xml:lang="en-GB">Sophisticated D-Bus interface</li>
