@@ -1023,8 +1023,15 @@ void MainWindow::wmActiveWindowChanged()
         return;
     }
 
-    if (!Settings::keepOpen() && hasFocus()) {
-        toggleWindowState();
+
+    if (m_isX11) {
+        if (!Settings::keepOpen() && isVisible() && KWindowSystem::activeWindow() != winId()) {
+            toggleWindowState();
+        }
+    } else {
+        if (!Settings::keepOpen() && hasFocus()) {
+            toggleWindowState();
+        }
     }
 }
 
