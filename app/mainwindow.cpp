@@ -119,6 +119,8 @@ MainWindow::MainWindow(QWidget* parent)
     connect(m_sessionStack, SIGNAL(sessionRemoved(int)), m_tabBar, SLOT(removeTab(int)));
     connect(m_sessionStack, SIGNAL(activeTitleChanged(QString)),
         m_titleBar, SLOT(setTitle(QString)));
+    connect(m_sessionStack, SIGNAL(activeTitleChanged(QString)),
+        this, SLOT(setWindowTitle(QString)));
 
     connect(&m_mousePoller, SIGNAL(timeout()), this, SLOT(pollMouse()));
 
