@@ -59,6 +59,12 @@ add_definitions(
   -DQT_USE_FAST_OPERATOR_PLUS
 )
 
+configure_file(org.kde.yakuake.service.in
+	       ${CMAKE_CURRENT_BINARY_DIR}/org.kde.yakuake.service)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.yakuake.service
+	DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
+
 add_subdirectory(app)
 add_subdirectory(data)
 
