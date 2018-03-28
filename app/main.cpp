@@ -37,7 +37,7 @@ int main (int argc, char *argv[])
 
     KAboutData aboutData(QStringLiteral("yakuake"),
         xi18nc("@title", "<application>Yakuake</application>"),
-        QStringLiteral("3.0.5"),
+        QStringLiteral("3.0.5+"),
         xi18nc("@title", "A drop-down terminal emulator based on KDE Konsole technology."),
         KAboutLicense::GPL,
         xi18nc("@info:credit", "(c) 2008-2018 The Yakuake Team"),
