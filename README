@@ -12,11 +12,7 @@ The Yakuake website is located at: http://yakuake.kde.org/
 Report bugs and wishes at: http://bugs.kde.org/
 
 You can browse the latest and older sources at:
-http://projects.kde.org/projects/extragear/utils/yakuake/repository
-
-
-Yakuake requires kdelibs and Konsole from KDE Software Compilation 4.4.0 or
-higher.
+https://cgit.kde.org/yakuake.git
 
 
 Basic build and installation instructions:

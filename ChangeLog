@@ -1,3 +1,17 @@
+Changes in 3.0.5:
+* Improved Wayland support.
+* Yakuake's window title now always matches what's shown in its title
+  bar.
+* Fixed button icons in the 'Appearance' settings page.
+* Yakuake now installs a D-Bus service file. This allows calling its
+  D-Bus methods even when Yakuake is not running yet- it will then be
+  started implicitly.
+* Fixed a crash due to a missing bounds check in the 'sessionAtTab'
+  D-Bus method.
+* Fixed a type marshalling issue with the 'addSession' D-Bus method
+  that caused a noisy warning when using it via qdbus.
+* Yakuake now depends on KDE Frameworks 5.29 or higher.
+
 Changes in 3.0.4:
 * Fixed build on Qt 5.7.
 
