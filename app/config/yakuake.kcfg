@@ -150,7 +150,7 @@
     <entry name="UseWMAssist" type="Bool">
        <label context="@label">Attempt to use the window manager to animate the window</label>
       <whatsthis context="@info:whatsthis">Whether to try and let the window manager perform the window open/retract animation. Yakuake will fall back to an animation strategy of progressively adjusting the window mask if the window manager is unable to provide the requested service.</whatsthis>
-      <default>true</default>
+      <default>false</default>
     </entry>
     <entry name="Frames" type="Int">
       <label context="@label">Animation frames</label>
