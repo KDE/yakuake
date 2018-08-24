@@ -53,7 +53,7 @@
 #include <QPainter>
 #include <QWhatsThis>
 #include <QWindow>
-#include <QtDBus/QtDBus>
+#include <QtDBus>
 #include <QPlatformSurfaceEvent>
 
 #if HAVE_X11

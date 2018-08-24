@@ -31,7 +31,7 @@
 #include <KLocalizedString>
 #include <KNotification>
 
-#include <QtDBus/QtDBus>
+#include <QtDBus>
 
 static bool show_disallow_certain_dbus_methods_message = true;
 
