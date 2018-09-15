@@ -26,7 +26,7 @@
 
 #include "session.h"
 
-#include "config-yakuake.h"
+#include <config-yakuake.h>
 
 #include <QHash>
 #include <QStackedWidget>

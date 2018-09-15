@@ -25,13 +25,13 @@
 #include "terminal.h"
 #include "visualeventoverlay.h"
 
-#include "config-yakuake.h"
+#include <config-yakuake.h>
 
 #include <KMessageBox>
 #include <KLocalizedString>
 #include <KNotification>
 
-#include <QtDBus>
+#include <QDBusConnection>
 
 static bool show_disallow_certain_dbus_methods_message = true;
 

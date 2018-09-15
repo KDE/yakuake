@@ -37,7 +37,7 @@
 #include <QMenu>
 #include <QPainter>
 #include <QPushButton>
-#include <QtDBus>
+#include <QDBusConnection>
 #include <QToolButton>
 #include <QWheelEvent>
 #include <QWhatsThis>
