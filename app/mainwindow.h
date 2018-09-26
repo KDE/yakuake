@@ -23,7 +23,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "config-yakuake.h"
+#include <config-yakuake.h>
 
 #include <QMainWindow>
 

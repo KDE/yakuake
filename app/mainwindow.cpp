@@ -1100,11 +1100,11 @@ void MainWindow::toggleWindowState()
         else if (!Settings::showOnAllDesktops()
                  &&  KWindowInfo(winId(), NET::WMDesktop).desktop() != KWindowSystem::currentDesktop())
         {
-            // The open/restract action isn't set to focus the window, but
+            // The open/restrict action isn't set to focus the window, but
             // the window is currently on another virtual desktop (the option
             // to show it on all of them is disabled), so closing it doesn't
-            // make sense and we're opting to show it instead to avoid re-
-            // quiring the user to invoke the action twice to get to see
+            // make sense and we're opting to show it instead to avoid
+            // requiring the user to invoke the action twice to get to see
             // Yakuake. Just forcing focus would cause the window manager to
             // switch to the virtual desktop the window currently resides on,
             // so move the window to the current desktop before doing so.
