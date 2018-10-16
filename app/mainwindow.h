@@ -25,7 +25,7 @@
 
 #include <config-yakuake.h>
 
-#include <QMainWindow>
+#include <KMainWindow>
 
 #include <QTimer>
 
@@ -49,7 +49,7 @@ namespace KWayland {
 }
 #endif
 
-class MainWindow : public QMainWindow
+class MainWindow : public KMainWindow
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.yakuake")
@@ -88,12 +88,13 @@ class MainWindow : public QMainWindow
 
 
     protected:
-        void paintEvent(QPaintEvent*) Q_DECL_OVERRIDE;
-        void moveEvent(QMoveEvent*) Q_DECL_OVERRIDE;
-        void changeEvent(QEvent* event) Q_DECL_OVERRIDE;
-        bool event(QEvent* event) Q_DECL_OVERRIDE;
+        void paintEvent(QPaintEvent*) override;
+        void moveEvent(QMoveEvent*) override;
+        void changeEvent(QEvent* event) override;
+        void closeEvent(QCloseEvent *event) override;
+        bool event(QEvent* event) override;
 
-        virtual bool queryClose();
+        virtual bool queryClose() override;
 
 
     private Q_SLOTS:

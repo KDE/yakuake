@@ -81,20 +81,20 @@ class TabBar : public QWidget
 
 
     protected:
-        void resizeEvent(QResizeEvent*) Q_DECL_OVERRIDE;
-        void paintEvent(QPaintEvent*) Q_DECL_OVERRIDE;
-        void wheelEvent(QWheelEvent*) Q_DECL_OVERRIDE;
-        void keyPressEvent(QKeyEvent*) Q_DECL_OVERRIDE;
-        void mousePressEvent(QMouseEvent*) Q_DECL_OVERRIDE;
-        void mouseReleaseEvent(QMouseEvent*) Q_DECL_OVERRIDE;
-        void mouseMoveEvent(QMouseEvent*) Q_DECL_OVERRIDE;
-        void dragMoveEvent(QDragMoveEvent*) Q_DECL_OVERRIDE;
-        void dragEnterEvent(QDragEnterEvent*) Q_DECL_OVERRIDE;
-        void dragLeaveEvent(QDragLeaveEvent*) Q_DECL_OVERRIDE;
-        void dropEvent(QDropEvent*) Q_DECL_OVERRIDE;
-        void mouseDoubleClickEvent(QMouseEvent*) Q_DECL_OVERRIDE;
-        void contextMenuEvent(QContextMenuEvent*) Q_DECL_OVERRIDE;
-        void leaveEvent(QEvent*) Q_DECL_OVERRIDE;
+        void resizeEvent(QResizeEvent*) override;
+        void paintEvent(QPaintEvent*) override;
+        void wheelEvent(QWheelEvent*) override;
+        void keyPressEvent(QKeyEvent*) override;
+        void mousePressEvent(QMouseEvent*) override;
+        void mouseReleaseEvent(QMouseEvent*) override;
+        void mouseMoveEvent(QMouseEvent*) override;
+        void dragMoveEvent(QDragMoveEvent*) override;
+        void dragEnterEvent(QDragEnterEvent*) override;
+        void dragLeaveEvent(QDragLeaveEvent*) override;
+        void dropEvent(QDropEvent*) override;
+        void mouseDoubleClickEvent(QMouseEvent*) override;
+        void contextMenuEvent(QContextMenuEvent*) override;
+        void leaveEvent(QEvent*) override;
 
         void setTabTitleInteractive(int sessionId, const QString& newTitle);
 

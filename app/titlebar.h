@@ -53,8 +53,8 @@ class TitleBar : public QWidget
 
 
     protected:
-        void resizeEvent(QResizeEvent*) Q_DECL_OVERRIDE;
-        void paintEvent(QPaintEvent*) Q_DECL_OVERRIDE;
+        void resizeEvent(QResizeEvent*) override;
+        void paintEvent(QPaintEvent*) override;
 
 
     private:

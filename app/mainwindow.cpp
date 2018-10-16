@@ -72,11 +72,13 @@
 
 
 MainWindow::MainWindow(QWidget* parent)
-    : QMainWindow(parent, Qt::CustomizeWindowHint | Qt::FramelessWindowHint)
+    : KMainWindow(parent, Qt::CustomizeWindowHint | Qt::FramelessWindowHint)
 {
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/yakuake/window"), this, QDBusConnection::ExportScriptableSlots);
 
     setAttribute(Qt::WA_TranslucentBackground, true);
+    setAttribute(Qt::WA_DeleteOnClose, false);
+    setAttribute(Qt::WA_QuitOnClose, true);
 
     m_skin = new Skin();
     m_menu = new QMenu(this);
@@ -222,10 +224,7 @@ bool MainWindow::queryClose()
             warningMessage + QStringLiteral("<br /><br />") + closeQuestion,
             xi18nc("@title:window", "Really Quit?"), KStandardGuiItem::quit(), KStandardGuiItem::cancel());
 
-        if (result == KMessageBox::Continue)
-            return true;
-        else
-            return false;
+        return result != KMessageBox::Cancel;
     }
 
     return true;
@@ -995,7 +994,7 @@ void MainWindow::paintEvent(QPaintEvent* event)
         height() - m_titleBar->height());
     painter.fillRect(rightBorder, m_skin->borderColor());
 
-    QMainWindow::paintEvent(event);
+    KMainWindow::paintEvent(event);
 }
 
 void MainWindow::moveEvent(QMoveEvent* event)
@@ -1009,7 +1008,15 @@ void MainWindow::moveEvent(QMoveEvent* event)
         applyWindowGeometry();
     }
 
-    QMainWindow::moveEvent(event);
+    KMainWindow::moveEvent(event);
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    KMainWindow::closeEvent(event);
+    if (event->isAccepted()) {
+        QApplication::quit();
+    }
 }
 
 void MainWindow::wmActiveWindowChanged()
@@ -1053,7 +1060,7 @@ void MainWindow::changeEvent(QEvent* event)
         updateWindowHeightMenu();
     }
 
-    QMainWindow::changeEvent(event);
+    KMainWindow::changeEvent(event);
 }
 
 bool MainWindow::event(QEvent* event)
@@ -1072,7 +1079,7 @@ bool MainWindow::event(QEvent* event)
 #endif
     }
 
-    return QMainWindow::event(event);
+    return KMainWindow::event(event);
 }
 
 void MainWindow::toggleWindowState()
