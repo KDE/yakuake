@@ -1015,7 +1015,7 @@ void TabBar::drawDropIndicator(int index, bool disabled)
     }
 
     QIcon::Mode drawMode = disabled ? QIcon::Disabled : QIcon::Normal;
-    m_dropIndicator->setPixmap(QIcon(QStringLiteral("arrow-down")).pixmap(arrowSize, arrowSize, drawMode));
+    m_dropIndicator->setPixmap(QIcon::fromTheme(QStringLiteral("arrow-down")).pixmap(arrowSize, arrowSize, drawMode));
 
     if (index < 0)
     {

@@ -253,7 +253,7 @@ void MainWindow::setupActions()
 
     action = actionCollection()->addAction(QStringLiteral("toggle-window-state"));
     action->setText(xi18nc("@action", "Open/Retract Yakuake"));
-    action->setIcon(QIcon(QStringLiteral("yakuake")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("yakuake")));
 #ifndef Q_OS_WIN /* PORT */
     KGlobalAccel::self()->setGlobalShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_F12));
 #else
@@ -268,12 +268,12 @@ void MainWindow::setupActions()
 
     action = actionCollection()->addAction(QStringLiteral("manage-profiles"));
     action->setText(xi18nc("@action", "Manage Profiles..."));
-    action->setIcon(QIcon(QStringLiteral("configure")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("configure")));
     connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(manageProfiles()));
 
     action = actionCollection()->addAction(QStringLiteral("edit-profile"));
     action->setText(xi18nc("@action", "Edit Current Profile..."));
-    action->setIcon(QIcon(QStringLiteral("document-properties")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("document-properties")));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
@@ -299,122 +299,122 @@ void MainWindow::setupActions()
 
     action = actionCollection()->addAction(QStringLiteral("new-session"));
     action->setText(xi18nc("@action", "New Session"));
-    action->setIcon(QIcon(QStringLiteral("tab-new")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("tab-new")));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_T));
     connect(action, SIGNAL(triggered()), m_sessionStack, SLOT(addSession()));
 
     action = actionCollection()->addAction(QStringLiteral("new-session-two-horizontal"));
     action->setText(xi18nc("@action", "Two Terminals, Horizontally"));
-    action->setIcon(QIcon(QStringLiteral("tab-new")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("tab-new")));
     connect(action, SIGNAL(triggered()), m_sessionStack, SLOT(addSessionTwoHorizontal()));
 
     action = actionCollection()->addAction(QStringLiteral("new-session-two-vertical"));
     action->setText(xi18nc("@action", "Two Terminals, Vertically"));
-    action->setIcon(QIcon(QStringLiteral("tab-new")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("tab-new")));
     connect(action, SIGNAL(triggered()), m_sessionStack, SLOT(addSessionTwoVertical()));
 
     action = actionCollection()->addAction(QStringLiteral("new-session-quad"));
     action->setText(xi18nc("@action", "Four Terminals, Grid"));
-    action->setIcon(QIcon(QStringLiteral("tab-new")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("tab-new")));
     connect(action, SIGNAL(triggered()), m_sessionStack, SLOT(addSessionQuad()));
 
     action = actionCollection()->addAction(QStringLiteral("close-session"));
     action->setText(xi18nc("@action", "Close Session"));
-    action->setIcon(QIcon(QStringLiteral("tab-close")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("tab-close")));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_W));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("previous-session"));
     action->setText(xi18nc("@action", "Previous Session"));
-    action->setIcon(QIcon(QStringLiteral("go-previous")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("go-previous")));
     action->setShortcut(QKeySequence(Qt::SHIFT + Qt::Key_Left));
     connect(action, SIGNAL(triggered()), m_tabBar, SLOT(selectPreviousTab()));
 
     action = actionCollection()->addAction(QStringLiteral("next-session"));
     action->setText(xi18nc("@action", "Next Session"));
-    action->setIcon(QIcon(QStringLiteral("go-next")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("go-next")));
     action->setShortcut(QKeySequence(Qt::SHIFT + Qt::Key_Right));
     connect(action, SIGNAL(triggered()), m_tabBar, SLOT(selectNextTab()));
 
     action = actionCollection()->addAction(QStringLiteral("move-session-left"));
     action->setText(xi18nc("@action", "Move Session Left"));
-    action->setIcon(QIcon(QStringLiteral("arrow-left")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-left")));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Left));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("move-session-right"));
     action->setText(xi18nc("@action", "Move Session Right"));
-    action->setIcon(QIcon(QStringLiteral("arrow-right")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-right")));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Right));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("grow-terminal-right"));
     action->setText(xi18nc("@action", "Grow Terminal to the Right"));
-    action->setIcon(QIcon(QStringLiteral("arrow-right")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-right")));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_Right));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("grow-terminal-left"));
     action->setText(xi18nc("@action", "Grow Terminal to the Left"));
-    action->setIcon(QIcon(QStringLiteral("arrow-left")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-left")));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_Left));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("grow-terminal-top"));
     action->setText(xi18nc("@action", "Grow Terminal to the Top"));
-    action->setIcon(QIcon(QStringLiteral("arrow-up")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-up")));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_Up));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("grow-terminal-bottom"));
     action->setText(xi18nc("@action", "Grow Terminal to the Bottom"));
-    action->setIcon(QIcon(QStringLiteral("arrow-down")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-down")));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_Down));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("rename-session"));
     action->setText(xi18nc("@action", "Rename Session..."));
-    action->setIcon(QIcon(QStringLiteral("edit-rename")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("edit-rename")));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_S));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("previous-terminal"));
     action->setText(xi18nc("@action", "Previous Terminal"));
-    action->setIcon(QIcon(QStringLiteral("go-previous")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("go-previous")));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Up));
     connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(previousTerminal()));
 
     action = actionCollection()->addAction(QStringLiteral("next-terminal"));
     action->setText(xi18nc("@action", "Next Terminal"));
-    action->setIcon(QIcon(QStringLiteral("go-next")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("go-next")));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Down));
     connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(nextTerminal()));
 
     action = actionCollection()->addAction(QStringLiteral("close-active-terminal"));
     action->setText(xi18nc("@action", "Close Active Terminal"));
-    action->setIcon(QIcon(QStringLiteral("view-close")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("view-close")));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_R));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("split-left-right"));
     action->setText(xi18nc("@action", "Split Left/Right"));
-    action->setIcon(QIcon(QStringLiteral("view-split-left-right")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("view-split-left-right")));
     action->setShortcut(QKeySequence(Qt::CTRL+ Qt::Key_ParenLeft));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("split-top-bottom"));
     action->setText(xi18nc("@action", "Split Top/Bottom"));
-    action->setIcon(QIcon(QStringLiteral("view-split-top-bottom")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("view-split-top-bottom")));
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_ParenRight));
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;

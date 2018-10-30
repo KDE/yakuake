@@ -169,7 +169,7 @@ void Terminal::displayKPartLoadError()
 
     QLabel* icon = new QLabel(widget);
     icon->setMargin(10);
-    icon->setPixmap(QIcon(QStringLiteral("dialog-warning")).pixmap(QSize(48, 48)));
+    icon->setPixmap(QIcon::fromTheme(QStringLiteral("dialog-warning")).pixmap(QSize(48, 48)));
     icon->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
     QHBoxLayout* layout = new QHBoxLayout(widget);

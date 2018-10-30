@@ -49,7 +49,7 @@ FirstRunDialog::FirstRunDialog(MainWindow* mainWindow) : QDialog(mainWindow)
 
     m_ui = new Ui::FirstRunDialog();
     m_ui->setupUi(widget);
-    m_ui->titleWidget->setPixmap(QIcon(QStringLiteral("yakuake")).pixmap(22, 22));
+    m_ui->titleWidget->setPixmap(QIcon::fromTheme(QStringLiteral("yakuake")).pixmap(22, 22));
 
     widget->setMinimumSize(widget->sizeHint());
 

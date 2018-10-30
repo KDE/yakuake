@@ -228,7 +228,7 @@ void Skin::updateTabBarPreventClosingImageCache()
         (2 * m_tabBarPreventClosingImagePosition.y());
 
     // Get the system lock icon in a generous size.
-    m_tabBarPreventClosingImageCached = QIcon(QStringLiteral("object-locked.png")).pixmap(48, 48);
+    m_tabBarPreventClosingImageCached = QIcon::fromTheme(QStringLiteral("object-locked.png")).pixmap(48, 48);
 
     // Resize the image if it's too tall.
     if (m_IconSize <  m_tabBarPreventClosingImageCached.height())
