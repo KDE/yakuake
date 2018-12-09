@@ -90,11 +90,11 @@ MainWindow::MainWindow(QWidget* parent)
 
 #if HAVE_X11
     m_kwinAssistPropSet = false;
-    m_isX11 = QX11Info::isPlatformX11();
+    m_isX11 = KWindowSystem::isPlatformX11();
 #else
     m_isX11 = false;
 #endif
-    m_isWayland = QGuiApplication::platformName().startsWith(QLatin1String("wayland"));
+    m_isWayland = KWindowSystem::isPlatformWayland();
 #if HAVE_KWAYLAND
     m_plasmaShell = Q_NULLPTR;
     m_plasmaShellSurface = Q_NULLPTR;
