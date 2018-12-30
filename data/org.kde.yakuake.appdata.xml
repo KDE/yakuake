@@ -16,6 +16,7 @@
   <name xml:lang="es">Yakuake</name>
   <name xml:lang="fi">Yakuake</name>
   <name xml:lang="gl">Yakuake</name>
+  <name xml:lang="id">Yakuake</name>
   <name xml:lang="it">Yakuake</name>
   <name xml:lang="ko">Yakuake</name>
   <name xml:lang="lt">Yakuake</name>
@@ -48,6 +49,7 @@
   <summary xml:lang="es">Terminal desplegable</summary>
   <summary xml:lang="fi">Alas putoava pääte</summary>
   <summary xml:lang="gl">Terminal despregábel</summary>
+  <summary xml:lang="id">Terminal Bentangturun</summary>
   <summary xml:lang="it">Terminale a discesa</summary>
   <summary xml:lang="ko">위에서 내려오는 터미널</summary>
   <summary xml:lang="lt">Išskleidžiamasis terminalas</summary>
@@ -82,6 +84,7 @@
     <p xml:lang="es">Yakuake en un emulador de terminal desplegable basado en la tecnología de Konsole de KDE.</p>
     <p xml:lang="fi">Yakuake on KDE:n Konsolen tekniikkaan perustuva alas putoava pääte.</p>
     <p xml:lang="gl">Yakuake é un emulador despregábel de terminal baseado en Konsole.</p>
+    <p xml:lang="id">Yakuake adalah emulator terminal bentangturun berdasarkan pada teknologi Konsole KDE</p>
     <p xml:lang="it">Yakuake è un emulatore di terminale a discesa basato sulla tecnologia di Konsole di KDE</p>
     <p xml:lang="ko">Yakuake는 KDE Konsole을 기반으로 한 드롭다운 터미널 에뮬레이터jd3hduf.</p>
     <p xml:lang="lt">Yakuake yra nusileidžiantis terminalo emuliatorius paremtas KDE Konsole technologija.</p>
@@ -115,6 +118,7 @@
     <p xml:lang="fi">Ominaisuuksia:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
+    <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="ko">기능:</p>
     <p xml:lang="lt">Ypatybės:</p>
@@ -146,6 +150,7 @@
       <li xml:lang="es">Se despliega suavemente desde la parte superior de la pantalla</li>
       <li xml:lang="fi">Rullaa sulavasti alas näytön ylälaidasta</li>
       <li xml:lang="gl">Desprégase suavemente desde a parte superior da pantalla.</li>
+      <li xml:lang="id">Membentang turun secara lembut dari atas layarmu</li>
       <li xml:lang="it">Si srotola dolcemente dalla parte alta del tuo schermo</li>
       <li xml:lang="ko">화면 위에서 부드럽게 펼쳐져 내려오기</li>
       <li xml:lang="lt">Sklandžiai nusileidžia žemyn nuo jūsų ekrano viršaus</li>
@@ -176,6 +181,7 @@
       <li xml:lang="es">Interfaz con pestañas</li>
       <li xml:lang="fi">Välilehdet</li>
       <li xml:lang="gl">Permite usar lapelas.</li>
+      <li xml:lang="id">Antarmuka bertab</li>
       <li xml:lang="it">Interfaccia a schede</li>
       <li xml:lang="ko">탭 인터페이스</li>
       <li xml:lang="lt">Kortelės sąsajoje</li>
@@ -205,6 +211,7 @@
       <li xml:lang="es">Se pueden configurar las dimensiones y la velocidad de animación</li>
       <li xml:lang="fi">Muutettavissa olevat mitat ja animointinopeus</li>
       <li xml:lang="gl">Tanto as súas dimensións como a velocidade da animación de despregamento poden configurarse.</li>
+      <li xml:lang="id">Kecepatan animasi dan dimensi yang dapat dikonfigurasi</li>
       <li xml:lang="it">Dimensioni e velocità dell'animazione configurabili</li>
       <li xml:lang="ko">크기와 애니메이션 속도 설정</li>
       <li xml:lang="lt">Konfigūruojami dydi ir animacijos greitis</li>
@@ -234,6 +241,7 @@
       <li xml:lang="es">Admite el uso de pieles</li>
       <li xml:lang="fi">Vaihdettava teema</li>
       <li xml:lang="gl">O seu aspecto pode modificarse con temas.</li>
+      <li xml:lang="id">Dapat di-skin</li>
       <li xml:lang="it">Aspetto personalizzabile</li>
       <li xml:lang="ko">스킨</li>
       <li xml:lang="lt">Keičiama išvaizda</li>
@@ -263,6 +271,7 @@
       <li xml:lang="es">Interfaz D-Bus sofisticado</li>
       <li xml:lang="fi">Kehittynyt D-Bus-liittymä</li>
       <li xml:lang="gl">Conta cunha sofisticada interface de D-Bus.</li>
+      <li xml:lang="id">Antarmuka D-Bus yang njlimet</li>
       <li xml:lang="it">Interfaccia D-Bus sofisticata</li>
       <li xml:lang="ko">D-Bus 인터페이스</li>
       <li xml:lang="lt">Įmantri D-Bus sąsaja</li>
