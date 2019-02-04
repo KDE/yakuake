@@ -151,7 +151,7 @@ class TabBar : public QWidget
 
         int m_selectedSessionId;
 
-        int m_mousePressed;
+        bool m_mousePressed;
         int m_mousePressedIndex;
 
         QPoint m_startPos;
