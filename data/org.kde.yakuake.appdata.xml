@@ -22,6 +22,7 @@
   <name xml:lang="lt">Yakuake</name>
   <name xml:lang="nl">Yakuake</name>
   <name xml:lang="nn">Yakuake</name>
+  <name xml:lang="pa">ਯਾਕੁਕੀ</name>
   <name xml:lang="pl">Yakuake</name>
   <name xml:lang="pt">Yakuake</name>
   <name xml:lang="pt-BR">Yakuake</name>
@@ -55,6 +56,7 @@
   <summary xml:lang="lt">Išskleidžiamasis terminalas</summary>
   <summary xml:lang="nl">Uitvouwbare terminalemulator</summary>
   <summary xml:lang="nn">Nedtrekksterminal</summary>
+  <summary xml:lang="pa">ਲਟਕਦਾ ਟਰਮੀਨਲ</summary>
   <summary xml:lang="pl">Rozwijany terminal</summary>
   <summary xml:lang="pt">Terminal Acoplável</summary>
   <summary xml:lang="pt-BR">Terminal suspenso</summary>
@@ -124,6 +126,7 @@
     <p xml:lang="lt">Ypatybės:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="nn">Funksjonar:</p>
+    <p xml:lang="pa">ਫੀਚਰ:</p>
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Funcionalidades:</p>
@@ -187,6 +190,7 @@
       <li xml:lang="lt">Kortelės sąsajoje</li>
       <li xml:lang="nl">Interface met tabbladen</li>
       <li xml:lang="nn">Brukargrensesnitt med faner</li>
+      <li xml:lang="pa">ਟੈਬਾਂ ਵਾਲਾ ਇੰਟਰਫੇਸ</li>
       <li xml:lang="pl">Interfejs z kartami</li>
       <li xml:lang="pt">Interface por páginas</li>
       <li xml:lang="pt-BR">Interface por abas</li>
