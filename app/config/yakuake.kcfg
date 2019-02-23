@@ -78,6 +78,11 @@
       <whatsthis context="@info:whatsthis">Whether the application window should be opened after program start.</whatsthis>
     <default>false</default>
     </entry>
+    <entry name="RememberFullscreen" type="Bool">
+      <label context="@label">Remember window fullscreen state</label>
+      <whatsthis context="@info:whatsthis">Whether the window will be shown fullscreen again when it has been previously.</whatsthis>
+    <default>false</default>
+    </entry>
   </group>
   <group name="Appearance">
     <entry name="Skin" type="String">

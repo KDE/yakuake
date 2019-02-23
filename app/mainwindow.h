@@ -176,6 +176,7 @@ class MainWindow : public KMainWindow
 
         void updateUseTranslucency();
         bool m_useTranslucency;
+        bool m_isFullscreen;
 
         KActionCollection* m_actionCollection;
         QList<QAction*> m_contextDependentActions;
