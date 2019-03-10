@@ -78,7 +78,7 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
         void updateSkinSetting();
 
         void installSkin();
-        void installSkinArchive(KJob* deleteJob = 0);
+        void installSkinArchive();
 
         /**
          * Validates the given skin.
@@ -86,11 +86,11 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
          * contains all required files.
          *
          * @param skinId The SkinID of the skin which will be validated.
-         * @param fileList The filelist of the skin.
+         * @param kns The skin has been installed from kns.
          *
          * @return True if the skin is valid, otherwise false.
          */
-        bool validateSkin(const QString &skinId, const QStringList& fileList);
+        bool validateSkin(const QString &skinId, bool kns);
 
         /**
          * Extracts the skin IDs from the given fileList.
@@ -118,6 +118,7 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
 
         void populateSkinList(const QString& installationDirectory);
         void checkForExistingSkin();
+        void removeSkin(const QString& skinDir, std::function<void()> successCallback = 0);
         void installSkin(const QUrl& skinUrl);
         void failInstall(const QString& error);
         void cleanupAfterInstall();
