@@ -749,6 +749,7 @@ void MainWindow::configureApp()
     if (KConfigDialog::showDialog(QStringLiteral("settings"))) return;
 
     KConfigDialog* settingsDialog = new KConfigDialog(this, QStringLiteral("settings"), Settings::self());
+    settingsDialog->setMinimumHeight(560);
     settingsDialog->setFaceType(KPageDialog::List);
     connect(settingsDialog, &KConfigDialog::settingsChanged, this, &MainWindow::applySettings);
 
