@@ -83,6 +83,8 @@ bool Skin::load(const QString& name, bool kns)
                                                        titleDir + titleBarFocusButton.readEntry("over_image", ""),
                                                        titleDir + titleBarFocusButton.readEntry("down_image", ""));
 
+    m_titleBarFocusButtonAnchor = titleBarFocusButton.readEntry("anchor", "") == QStringLiteral("left") ? Qt::AnchorLeft : Qt::AnchorRight;
+
 
     KConfigGroup titleBarMenuButton = titleConfig.group("ConfigButton");
 
@@ -93,6 +95,8 @@ bool Skin::load(const QString& name, bool kns)
                                                         titleDir + titleBarMenuButton.readEntry("over_image", ""),
                                                         titleDir + titleBarMenuButton.readEntry("down_image", ""));
 
+    m_titleBarMenuButtonAnchor = titleBarMenuButton.readEntry("anchor", "") == QStringLiteral("left") ? Qt::AnchorLeft : Qt::AnchorRight;
+
 
     KConfigGroup titleBarQuitButton = titleConfig.group("QuitButton");
 
@@ -102,6 +106,8 @@ bool Skin::load(const QString& name, bool kns)
     m_titleBarQuitButtonStyleSheet = buttonStyleSheet(titleDir + titleBarQuitButton.readEntry("up_image", ""),
                                                       titleDir + titleBarQuitButton.readEntry("over_image", ""),
                                                       titleDir + titleBarQuitButton.readEntry("down_image", ""));
+
+    m_titleBarQuitButtonAnchor = titleBarQuitButton.readEntry("anchor", "") == QStringLiteral("left") ? Qt::AnchorLeft : Qt::AnchorRight;
 
 
     KConfigGroup titleBarText = titleConfig.group("Text");
@@ -116,6 +122,7 @@ bool Skin::load(const QString& name, bool kns)
                                  titleBarText.readEntry("blue", 0));
 
     m_titleBarTextBold = titleBarText.readEntry("bold", true);
+    m_titleBarTextCentered = titleBarText.readEntry("centered", false);
 
 
     KConfigGroup tabBar = tabConfig.group("Tabs");
@@ -134,11 +141,13 @@ bool Skin::load(const QString& name, bool kns)
     m_tabBarUnselectedRightCornerImage.load(tabDir + tabBar.readEntry("unselected_right_corner", ""));
     m_tabBarSelectedLeftCornerImage.load(tabDir + tabBar.readEntry("selected_left_corner", ""));
     m_tabBarSelectedRightCornerImage.load(tabDir + tabBar.readEntry("selected_right_corner", ""));
+    m_tabBarSelectedTextBold = tabBar.readEntry("selected_text_bold", true);
 
     m_tabBarPreventClosingImage.load(tabDir + tabBar.readEntry("prevent_closing_image", ""));
     m_tabBarPreventClosingImagePosition.setX(tabBar.readEntry("prevent_closing_image_x", 0));
     m_tabBarPreventClosingImagePosition.setY(tabBar.readEntry("prevent_closing_image_y", 0));
 
+    m_tabBarCompact = tabBar.readEntry("compact", false);
 
     KConfigGroup tabBarBackground = tabConfig.group("Background");
 
@@ -156,6 +165,8 @@ bool Skin::load(const QString& name, bool kns)
                                                       tabDir + tabBarNewTabButton.readEntry("over_image", ""),
                                                       tabDir + tabBarNewTabButton.readEntry("down_image", ""));
 
+    m_tabBarNewTabButtonIsAtEndOfTabs = tabBarNewTabButton.readEntry("at_end_of_tabs", false);
+
 
     KConfigGroup tabBarCloseTabButton = tabConfig.group("MinusButton");
 
@@ -165,6 +176,29 @@ bool Skin::load(const QString& name, bool kns)
     m_tabBarCloseTabButtonStyleSheet = buttonStyleSheet(tabDir + tabBarCloseTabButton.readEntry("up_image", ""),
                                                         tabDir + tabBarCloseTabButton.readEntry("over_image", ""),
                                                         tabDir + tabBarCloseTabButton.readEntry("down_image", ""));
+
+    if (m_tabBarCompact)
+    {
+        if (m_tabBarNewTabButtonIsAtEndOfTabs)
+        {
+            m_tabBarLeft = m_tabBarPosition.x();
+            m_tabBarPosition.setX(0);
+        }
+        else
+        {
+            if (m_tabBarNewTabButtonPosition.x() < m_tabBarPosition.x())
+                m_tabBarLeft = m_tabBarNewTabButtonPosition.x();
+            else
+                m_tabBarLeft = m_tabBarPosition.x();
+
+            m_tabBarPosition.setX(m_tabBarPosition.x() - m_tabBarLeft);
+            m_tabBarNewTabButtonPosition.setX(m_tabBarNewTabButtonPosition.x() - m_tabBarLeft);
+        }
+
+        int closeButtonWidth = QPixmap(tabDir + tabBarCloseTabButton.readEntry("up_image", "")).width();
+        m_tabBarRight = m_tabBarCloseTabButtonPosition.x() - closeButtonWidth;
+        m_tabBarCloseTabButtonPosition.setX(closeButtonWidth);
+    }
 
     if (m_tabBarPreventClosingImage.isNull())
         updateTabBarPreventClosingImageCache();

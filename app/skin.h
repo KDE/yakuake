@@ -48,19 +48,22 @@ class Skin : public QObject
         const QPixmap& titleBarRightCornerImage() { return m_titleBarRightCornerImage; }
 
         const QPoint& titleBarFocusButtonPosition() { return m_titleBarFocusButtonPosition; }
+        const Qt::AnchorPoint& titleBarFocusButtonAnchor() { return m_titleBarFocusButtonAnchor; }
         const QString titleBarFocusButtonStyleSheet() { return m_titleBarFocusButtonStyleSheet; }
 
         const QPoint& titleBarMenuButtonPosition() { return m_titleBarMenuButtonPosition; }
+        const Qt::AnchorPoint& titleBarMenuButtonAnchor() { return m_titleBarMenuButtonAnchor; }
         const QString titleBarMenuButtonStyleSheet() { return m_titleBarMenuButtonStyleSheet; }
 
         const QPoint& titleBarQuitButtonPosition() { return m_titleBarQuitButtonPosition; }
+        const Qt::AnchorPoint& titleBarQuitButtonAnchor() { return m_titleBarQuitButtonAnchor; }
         const QString titleBarQuitButtonStyleSheet() { return m_titleBarQuitButtonStyleSheet; }
 
         const QString titleBarText() { return m_titleBarText; }
         const QPoint& titleBarTextPosition() { return m_titleBarTextPosition; }
         const QColor& titleBarTextColor() { return m_titleBarTextColor; }
-              bool    titleBarTextBold() { return m_titleBarTextBold; }
-
+        bool titleBarTextBold() { return m_titleBarTextBold; }
+        bool titleBarTextCentered() { return m_titleBarTextCentered; }
 
         const QPoint& tabBarPosition() { return m_tabBarPosition; }
         const QColor& tabBarTextColor() { return m_tabBarTextColor; }
@@ -72,6 +75,11 @@ class Skin : public QObject
         const QPixmap& tabBarUnselectedRightCornerImage() { return m_tabBarUnselectedRightCornerImage; }
         const QPixmap& tabBarSelectedLeftCornerImage() { return m_tabBarSelectedLeftCornerImage; }
         const QPixmap& tabBarSelectedRightCornerImage() { return m_tabBarSelectedRightCornerImage; }
+        bool tabBarSelectedTextBold() { return m_tabBarSelectedTextBold; }
+
+        bool tabBarCompact() { return m_tabBarCompact; }
+        int tabBarLeft() { return m_tabBarLeft; }
+        int tabBarRight() { return m_tabBarRight; }
 
         const QPixmap tabBarPreventClosingImage();
         const QPoint& tabBarPreventClosingImagePosition() { return m_tabBarPreventClosingImagePosition; }
@@ -82,10 +90,10 @@ class Skin : public QObject
 
         const QPoint& tabBarNewTabButtonPosition() { return m_tabBarNewTabButtonPosition; }
         const QString tabBarNewTabButtonStyleSheet() { return m_tabBarNewTabButtonStyleSheet; }
+        bool tabBarNewTabButtonIsAtEndOfTabs() { return m_tabBarNewTabButtonIsAtEndOfTabs; }
 
         const QPoint& tabBarCloseTabButtonPosition() { return m_tabBarCloseTabButtonPosition; }
         const QString tabBarCloseTabButtonStyleSheet() { return m_tabBarCloseTabButtonStyleSheet; }
-
 
     Q_SIGNALS:
         void iconChanged();
@@ -109,18 +117,22 @@ class Skin : public QObject
         QPixmap m_titleBarRightCornerImage;
 
         QPoint m_titleBarFocusButtonPosition;
+        Qt::AnchorPoint m_titleBarFocusButtonAnchor;
         QString m_titleBarFocusButtonStyleSheet;
 
         QPoint m_titleBarMenuButtonPosition;
+        Qt::AnchorPoint m_titleBarMenuButtonAnchor;
         QString m_titleBarMenuButtonStyleSheet;
 
         QPoint m_titleBarQuitButtonPosition;
+        Qt::AnchorPoint m_titleBarQuitButtonAnchor;
         QString m_titleBarQuitButtonStyleSheet;
 
         QString m_titleBarText;
         QPoint m_titleBarTextPosition;
         QColor m_titleBarTextColor;
         bool m_titleBarTextBold;
+        bool m_titleBarTextCentered;
 
         QPoint m_tabBarPosition;
         QColor m_tabBarTextColor;
@@ -132,6 +144,7 @@ class Skin : public QObject
         QPixmap m_tabBarUnselectedRightCornerImage;
         QPixmap m_tabBarSelectedLeftCornerImage;
         QPixmap m_tabBarSelectedRightCornerImage;
+        bool m_tabBarSelectedTextBold;
 
         QPixmap m_tabBarPreventClosingImage;
         QPixmap m_tabBarPreventClosingImageCached;
@@ -143,6 +156,11 @@ class Skin : public QObject
 
         QPoint m_tabBarNewTabButtonPosition;
         QString m_tabBarNewTabButtonStyleSheet;
+        bool m_tabBarNewTabButtonIsAtEndOfTabs;
+
+        bool m_tabBarCompact;
+        int m_tabBarLeft;
+        int m_tabBarRight;
 
         QPoint m_tabBarCloseTabButtonPosition;
         QString m_tabBarCloseTabButtonStyleSheet;

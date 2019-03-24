@@ -58,6 +58,8 @@ class TitleBar : public QWidget
 
 
     private:
+        void moveButtons();
+
         MainWindow* m_mainWindow;
         Skin* m_skin;
 

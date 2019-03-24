@@ -115,9 +115,8 @@ void TabBar::applySkin()
     m_newTabButton->setStyleSheet(m_skin->tabBarNewTabButtonStyleSheet());
     m_closeTabButton->setStyleSheet(m_skin->tabBarCloseTabButtonStyleSheet());
 
-    m_newTabButton->move( m_skin->tabBarNewTabButtonPosition().x(), m_skin->tabBarNewTabButtonPosition().y());
+    moveNewTabButton();
     m_closeTabButton->move(width() - m_skin->tabBarCloseTabButtonPosition().x(), m_skin->tabBarCloseTabButtonPosition().y());
-
     repaint();
 }
 
@@ -395,10 +394,18 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
 
 void TabBar::resizeEvent(QResizeEvent* event)
 {
-    m_newTabButton->move(m_skin->tabBarNewTabButtonPosition().x(), m_skin->tabBarNewTabButtonPosition().y());
+    moveNewTabButton();
     m_closeTabButton->move(width() - m_skin->tabBarCloseTabButtonPosition().x(), m_skin->tabBarCloseTabButtonPosition().y());
-
     QWidget::resizeEvent(event);
+}
+
+void TabBar::moveNewTabButton()
+{
+    int newTabButtonX = m_skin->tabBarNewTabButtonPosition().x();
+    if (m_skin->tabBarNewTabButtonIsAtEndOfTabs()) {
+        newTabButtonX += m_tabWidths.last();
+    }
+    m_newTabButton->move(newTabButtonX, m_skin->tabBarNewTabButtonPosition().y());
 }
 
 void TabBar::paintEvent(QPaintEvent*)
@@ -415,7 +422,7 @@ void TabBar::paintEvent(QPaintEvent*)
 
     for (int index = 0; index < m_tabs.count(); ++index)
     {
-        x = drawButton(x, y, index, painter);
+        x = drawTab(x, y, index, painter);
         m_tabWidths << x;
     }
 
@@ -446,9 +453,13 @@ void TabBar::paintEvent(QPaintEvent*)
     painter.drawTiledPixmap(0, 0, width(), height(), backgroundImage);
 
     painter.end();
+
+    if (m_skin->tabBarNewTabButtonIsAtEndOfTabs()) {
+        moveNewTabButton();
+    }
 }
 
-int TabBar::drawButton(int x, int y, int index, QPainter& painter)
+int TabBar::drawTab(int x, int y, int index, QPainter& painter)
 {
     QString title;
     int sessionId;
@@ -476,7 +487,7 @@ int TabBar::drawButton(int x, int y, int index, QPainter& painter)
         x += m_skin->tabBarSeparatorImage().width();
     }
 
-    if (selected) font.setBold(true);
+    if (selected) font.setBold(m_skin->tabBarSelectedTextBold());
     else font.setBold(false);
 
     painter.setFont(font);
@@ -990,7 +1001,7 @@ void TabBar::startDrag(int index)
     painter.initFrom(this);
     painter.setPen(m_skin->tabBarTextColor());
 
-    drawButton(0, 0, index, painter);
+    drawTab(0, 0, index, painter);
     painter.end();
 
     QMimeData* mimeData = new QMimeData;

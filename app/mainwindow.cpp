@@ -84,8 +84,9 @@ MainWindow::MainWindow(QWidget* parent)
     m_menu = new QMenu(this);
     m_helpMenu = new KHelpMenu(this, KAboutData::applicationData());
     m_sessionStack = new SessionStack(this);
-    m_tabBar = new TabBar(this);
     m_titleBar = new TitleBar(this);
+    m_tabBar = new TabBar(this);
+
     m_firstRunDialog = NULL;
     m_isFullscreen = false;
 
@@ -649,6 +650,9 @@ void MainWindow::setupMenu()
     m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::KeyBindings))));
     m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))));
     m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Preferences))));
+
+    m_menu->addSeparator();
+    m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Quit))));
 }
 
 void MainWindow::updateScreenMenu()
@@ -894,9 +898,17 @@ void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition)
 
     if (Settings::showTabBar())
     {
-        maxHeight -= m_tabBar->height();
-        m_tabBar->setGeometry(m_skin->borderWidth(), maxHeight,
-            width() - 2 * m_skin->borderWidth(), m_tabBar->height());
+        if (m_skin->tabBarCompact())
+        {
+            m_tabBar->setGeometry(m_skin->tabBarLeft(), maxHeight,
+                width() - m_skin->tabBarLeft() - m_skin->tabBarRight(), m_tabBar->height());
+        }
+        else
+        {
+            maxHeight -= m_tabBar->height();
+            m_tabBar->setGeometry(m_skin->borderWidth(), maxHeight,
+                width() - 2 * m_skin->borderWidth(), m_tabBar->height());
+        }
     }
 
     m_sessionStack->setGeometry(m_skin->borderWidth(), 0,

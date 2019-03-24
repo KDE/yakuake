@@ -32,7 +32,6 @@
 #include <QBitmap>
 #include <QPainter>
 
-
 TitleBar::TitleBar(MainWindow* mainWindow) : QWidget(mainWindow)
 {
     setWhatsThis(xi18nc("@info:whatsthis",
@@ -76,20 +75,34 @@ void TitleBar::applySkin()
     m_menuButton->setStyleSheet(m_skin->titleBarMenuButtonStyleSheet());
     m_quitButton->setStyleSheet(m_skin->titleBarQuitButtonStyleSheet());
 
-    m_focusButton->move(width() - m_skin->titleBarFocusButtonPosition().x(), m_skin->titleBarFocusButtonPosition().y());
-    m_menuButton->move(width() - m_skin->titleBarMenuButtonPosition().x(), m_skin->titleBarMenuButtonPosition().y());
-    m_quitButton->move(width() - m_skin->titleBarQuitButtonPosition().x(), m_skin->titleBarQuitButtonPosition().y());
+    moveButtons();
 
     repaint();
 
     updateMask();
 }
 
+void TitleBar::moveButtons()
+{
+    if (m_skin->titleBarFocusButtonAnchor() == Qt::AnchorLeft)
+        m_focusButton->move(m_skin->titleBarFocusButtonPosition().x(), m_skin->titleBarFocusButtonPosition().y());
+    else if (m_skin->titleBarFocusButtonAnchor() == Qt::AnchorRight)
+        m_focusButton->move(width() - m_skin->titleBarFocusButtonPosition().x(), m_skin->titleBarFocusButtonPosition().y());
+
+    if (m_skin->titleBarMenuButtonAnchor() == Qt::AnchorLeft)
+        m_menuButton->move(m_skin->titleBarMenuButtonPosition().x(), m_skin->titleBarMenuButtonPosition().y());
+    else if (m_skin->titleBarMenuButtonAnchor() == Qt::AnchorRight)
+        m_menuButton->move(width() - m_skin->titleBarMenuButtonPosition().x(), m_skin->titleBarMenuButtonPosition().y());
+
+    if (m_skin->titleBarQuitButtonAnchor() == Qt::AnchorLeft)
+        m_quitButton->move(m_skin->titleBarQuitButtonPosition().x(), m_skin->titleBarQuitButtonPosition().y());
+    else if (m_skin->titleBarQuitButtonAnchor() == Qt::AnchorRight)
+        m_quitButton->move(width() - m_skin->titleBarQuitButtonPosition().x(), m_skin->titleBarQuitButtonPosition().y());
+}
+
 void TitleBar::resizeEvent(QResizeEvent* event)
 {
-    m_focusButton->move(width() - m_skin->titleBarFocusButtonPosition().x(), m_skin->titleBarFocusButtonPosition().y());
-    m_menuButton->move(width() - m_skin->titleBarMenuButtonPosition().x(), m_skin->titleBarMenuButtonPosition().y());
-    m_quitButton->move(width() - m_skin->titleBarQuitButtonPosition().x(), m_skin->titleBarQuitButtonPosition().y());
+    moveButtons();
 
     updateMask();
 
@@ -116,7 +129,11 @@ void TitleBar::paintEvent(QPaintEvent*)
     font.setBold(m_skin->titleBarTextBold());
     painter.setFont(font);
 
-    painter.drawText(m_skin->titleBarTextPosition(), title());
+    const QString title = this->title();
+    if (m_skin->titleBarTextCentered() && width() > m_skin->titleBarTextPosition().x() + painter.fontMetrics().width(title) + m_focusButton->width() + m_quitButton->width() + m_menuButton->width())
+        painter.drawText(0, 0, width(), height(), Qt::AlignCenter, title);
+    else
+        painter.drawText(m_skin->titleBarTextPosition(), title);
 
     painter.end();
 }
