@@ -1,5 +1,6 @@
 [Global]
 IconName=yakuake
+DesktopEntry=org.kde.yakuake
 Comment=Yakuake
 Comment[ar]=ياكواكي
 Comment[bg]=Yakuake
