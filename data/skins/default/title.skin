@@ -19,27 +19,27 @@ blue=241
 text=Drop-Down Terminal
 
 [Background]
-back_image=/title/back.png
-left_corner=/title/left.png
-right_corner=/title/right.png
+back_image=/title/back.svg
+left_corner=/title/left.svg
+right_corner=/title/right.svg
 
 [FocusButton]
 x=78
 y=0
-up_image=/title/focus_up.png
-over_image=/title/focus_over.png
-down_image=/title/focus_down.png
+up_image=/title/focus_up.svg
+over_image=/title/focus_over.svg
+down_image=/title/focus_down.svg
 
 [ConfigButton]
 x=53
 y=0
-up_image=/title/config_up.png
-over_image=/title/config_down.png
-down_image=/title/config_down.png
+up_image=/title/config_up.svg
+over_image=/title/config_down.svg
+down_image=/title/config_down.svg
 
 [QuitButton]
 x=30
 y=0
-up_image=/title/quit_up.png
-over_image=/title/quit_down.png
-down_image=/title/quit_down.png
+up_image=/title/quit_up.svg
+over_image=/title/quit_down.svg
+down_image=/title/quit_down.svg

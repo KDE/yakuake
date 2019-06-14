@@ -1,61 +1,36 @@
 install(FILES
     title.skin
     tabs.skin
-    icon.png
+    icon.svg
     DESTINATION ${DATA_INSTALL_DIR}/yakuake/skins/default)
 
 install(FILES
-    tabs/add_down.png
     tabs/add_down.svg
-    tabs/add_up.png
     tabs/add_up.svg
-    tabs/back_image.png
     tabs/back_image.svg
-    tabs/close_down.png
     tabs/close_down.svg
-    tabs/close_up.png
     tabs/close_up.svg
-    tabs/left_corner.png
     tabs/left_corner.svg
-    tabs/lock.png
     tabs/lock.svg
-    tabs/right_corner.png
     tabs/right_corner.svg
-    tabs/selected_back.png
     tabs/selected_back.svg
-    tabs/selected_left.png
     tabs/selected_left.svg
-    tabs/selected_right.png
     tabs/selected_right.svg
-    tabs/separator.png
     tabs/separator.svg
-    tabs/unselected_back.png
     tabs/unselected_back.svg
-    tabs/unselected_left.png
     tabs/unselected_left.svg
-    tabs/unselected_right.png
     tabs/unselected_right.svg
     DESTINATION ${DATA_INSTALL_DIR}/yakuake/skins/default/tabs)
 
 install(FILES
-    title/back.png
     title/back.svg
-    title/config_down.png
     title/config_down.svg
-    title/config_up.png
     title/config_up.svg
-    title/focus_down.png
     title/focus_down.svg
-    title/focus_over.png
     title/focus_over.svg
-    title/focus_up.png
     title/focus_up.svg
-    title/left.png
     title/left.svg
-    title/quit_down.png
     title/quit_down.svg
-    title/quit_up.png
     title/quit_up.svg
-    title/right.png
     title/right.svg
     DESTINATION ${DATA_INSTALL_DIR}/yakuake/skins/default/title)

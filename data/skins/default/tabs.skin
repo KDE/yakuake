@@ -2,7 +2,7 @@
 Skin=Breeze
 Author=Andreas Kainz
 Email=kainz.a@gmail.com
-Icon=/icon.png
+Icon=/icon.svg
 
 [Tabs]
 x=22
@@ -10,32 +10,32 @@ y=0
 red=239
 green=240
 blue=241
-separator_image=/tabs/separator.png
-selected_background=/tabs/selected_back.png
-selected_left_corner=/tabs/selected_left.png
-selected_right_corner=/tabs/selected_right.png
-unselected_background=/tabs/unselected_back.png
-unselected_left_corner=/tabs/selected_left.png
-unselected_right_corner=/tabs/selected_right.png
-prevent_closing_image=/tabs/lock.png
+separator_image=/tabs/separator.svg
+selected_background=/tabs/selected_back.svg
+selected_left_corner=/tabs/selected_left.svg
+selected_right_corner=/tabs/selected_right.svg
+unselected_background=/tabs/unselected_back.svg
+unselected_left_corner=/tabs/selected_left.svg
+unselected_right_corner=/tabs/selected_right.svg
+prevent_closing_image=/tabs/lock.svg
 prevent_closing_image_x=0
 prevent_closing_image_y=0
 
 [Background]
-back_image=/tabs/back_image.png
-left_corner=/tabs/left_corner.png
-right_corner=/tabs/right_corner.png
+back_image=/tabs/back_image.svg
+left_corner=/tabs/left_corner.svg
+right_corner=/tabs/right_corner.svg
 
 [PlusButton]
 x=0
 y=0
-up_image=/tabs/add_up.png
-over_image=/tabs/add_down.png
-down_image=/tabs/add_down.png
+up_image=/tabs/add_up.svg
+over_image=/tabs/add_down.svg
+down_image=/tabs/add_down.svg
 
 [MinusButton]
 x=22
 y=0
-up_image=/tabs/close_up.png
-over_image=/tabs/close_down.png
-down_image=/tabs/close_down.png
+up_image=/tabs/close_up.svg
+over_image=/tabs/close_down.svg
+down_image=/tabs/close_down.svg
