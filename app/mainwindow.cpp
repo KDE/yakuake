@@ -851,6 +851,7 @@ void MainWindow::applyWindowProperties()
         KWindowSystem::setState(winId(), NET::KeepAbove | NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
 
     KWindowSystem::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
+    KWindowEffects::enableBlurBehind(winId(), Settings::blur());
 }
 
 void MainWindow::applyWindowGeometry()
