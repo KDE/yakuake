@@ -308,7 +308,7 @@
       <li xml:lang="zh-TW">複雜的 D-Bus 介面</li>
     </ul>
   </description>
-  <url type="homepage">http://yakuake.kde.org/</url>
+  <url type="homepage">https://kde.org/applications/system/org.kde.yakuake</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=yakuake</url>
   <screenshots>
     <screenshot type="default">
