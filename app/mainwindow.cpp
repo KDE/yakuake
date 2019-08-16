@@ -666,7 +666,7 @@ void MainWindow::updateScreenMenu()
     action->setData(0);
     action->setChecked(Settings::screen() == 0);
 
-    for (int i = 1; i <= QApplication::desktop()->screenCount(); i++)
+    for (int i = 1; i <= QGuiApplication::screens().count(); i++)
     {
         action = m_screenMenu->addAction(xi18nc("@item:inmenu", "Screen %1", i));
         action->setCheckable(true);
@@ -675,7 +675,7 @@ void MainWindow::updateScreenMenu()
     }
 
     action = m_screenMenu->menuAction();
-    action->setVisible(QApplication::desktop()->screenCount() > 1);
+    action->setVisible(QGuiApplication::screens().count() > 1);
 }
 
 void MainWindow::updateWindowSizeMenus()
@@ -1185,7 +1185,7 @@ void MainWindow::kwinAssistToggleWindowState(bool visible)
 
     if (list != NULL)
     {
-        gotEffect = (qFind(list, list + count, atom) != list + count);
+        gotEffect = (std::find(list, list + count, atom) != list + count);
 
         XFree(list);
     }
@@ -1446,7 +1446,7 @@ QRect MainWindow::getDesktopGeometry()
         return screenGeometry;
     }
 
-    if (QApplication::desktop()->screenCount() > 1)
+    if (QGuiApplication::screens().count() > 1)
     {
         const QList<WId> allWindows = KWindowSystem::windows();
         QList<WId> offScreenWindows;

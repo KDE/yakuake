@@ -148,7 +148,7 @@ void VisualEventOverlay::terminalEvent(Terminal* terminal, EventRect::EventType 
     m_eventRects.removeAll(eventRect);
     m_eventRects.append(eventRect);
 
-    qSort(m_eventRects);
+    std::sort(m_eventRects.begin(), m_eventRects.end());
 
     update();
 }
