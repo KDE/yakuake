@@ -19,6 +19,7 @@
   <name xml:lang="fi">Yakuake</name>
   <name xml:lang="fr">Yakuake</name>
   <name xml:lang="gl">Yakuake</name>
+  <name xml:lang="ia">Yakuake</name>
   <name xml:lang="id">Yakuake</name>
   <name xml:lang="it">Yakuake</name>
   <name xml:lang="ko">Yakuake</name>
@@ -134,6 +135,7 @@
     <p xml:lang="fi">Ominaisuuksia:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
+    <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="ko">기능:</p>
