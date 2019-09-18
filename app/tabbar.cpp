@@ -197,7 +197,7 @@ void TabBar::updateToggleKeyboardInputMenu(int sessionId)
 
     SessionStack* sessionStack = m_mainWindow->sessionStack();
 
-    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QStringLiteral(","), QString::SkipEmptyParts);
+    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QLatin1Char(','), QString::SkipEmptyParts);
 
     m_toggleKeyboardInputMenu->clear();
 
@@ -245,7 +245,7 @@ void TabBar::updateToggleMonitorActivityMenu(int sessionId)
 
     SessionStack* sessionStack = m_mainWindow->sessionStack();
 
-    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QStringLiteral(","), QString::SkipEmptyParts);
+    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QLatin1Char(','), QString::SkipEmptyParts);
 
     m_toggleMonitorActivityMenu->clear();
 
@@ -293,7 +293,7 @@ void TabBar::updateToggleMonitorSilenceMenu(int sessionId)
 
     SessionStack* sessionStack = m_mainWindow->sessionStack();
 
-    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QStringLiteral(","), QString::SkipEmptyParts);
+    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QLatin1Char(','), QString::SkipEmptyParts);
 
     m_toggleMonitorSilenceMenu->clear();
 
@@ -776,7 +776,7 @@ void TabBar::removeTab(int sessionId)
     m_tabs.removeAt(index);
     m_tabTitles.remove(sessionId);
 
-    if (m_tabs.count() == 0)
+    if (m_tabs.isEmpty())
         emit lastTabClosed();
     else
         emit tabSelected(m_tabs.last());

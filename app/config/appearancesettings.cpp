@@ -140,7 +140,7 @@ void AppearanceSettings::populateSkinList(const QString& installLocation)
 
 QStandardItem* AppearanceSettings::createSkinItem(const QString& skinDir)
 {
-    QString skinId = skinDir.section(QStringLiteral("/"), -1, -1);
+    QString skinId = skinDir.section(QLatin1Char('/'), -1, -1);
     QString titleName, tabName, skinName;
     QString titleAuthor, tabAuthor, skinAuthor;
     QString titleIcon, tabIcon;
@@ -253,7 +253,7 @@ void AppearanceSettings::installSkin(const QUrl& skinUrl)
 
     KIO::ListJob* job = KIO::listRecursive(skinArchiveUrl, KIO::HideProgressInfo, false);
     connect(job, &KIO::ListJob::entries, [=](KIO::Job* /* job */, const KIO::UDSEntryList& list) {
-        if (list.count() == 0) return;
+        if (list.isEmpty()) return;
 
         QListIterator<KIO::UDSEntry> i(list);
         while (i.hasNext())
@@ -460,13 +460,13 @@ QSet<QString> AppearanceSettings::extractKnsSkinIds(const QStringList& fileList)
             QString relativeName = QString(file).remove(m_knsSkinDir, Qt::CaseInsensitive);
 
             // Get everything before the first slash - that should be our skins ID.
-            QString skinId = relativeName.section(QStringLiteral("/"), 0, 0, QString::SectionSkipEmpty);
+            QString skinId = relativeName.section(QLatin1Char('/'), 0, 0, QString::SectionSkipEmpty);
 
             // Skip all other entries in the file list if we found what we were searching for.
             if (!skinId.isEmpty())
             {
                 // First remove all remaining slashes (as there could be leading or trailing ones).
-                skinId = skinId.replace(QStringLiteral("/"), QString());
+                skinId.remove(QStringLiteral("/"));
 
                 skinIdList.insert(skinId);
             }

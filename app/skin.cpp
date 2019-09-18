@@ -83,7 +83,7 @@ bool Skin::load(const QString& name, bool kns)
                                                        titleDir + titleBarFocusButton.readEntry("over_image", ""),
                                                        titleDir + titleBarFocusButton.readEntry("down_image", ""));
 
-    m_titleBarFocusButtonAnchor = titleBarFocusButton.readEntry("anchor", "") == QStringLiteral("left") ? Qt::AnchorLeft : Qt::AnchorRight;
+    m_titleBarFocusButtonAnchor = titleBarFocusButton.readEntry("anchor", "") == QLatin1String("left") ? Qt::AnchorLeft : Qt::AnchorRight;
 
 
     KConfigGroup titleBarMenuButton = titleConfig.group("ConfigButton");
@@ -95,7 +95,7 @@ bool Skin::load(const QString& name, bool kns)
                                                         titleDir + titleBarMenuButton.readEntry("over_image", ""),
                                                         titleDir + titleBarMenuButton.readEntry("down_image", ""));
 
-    m_titleBarMenuButtonAnchor = titleBarMenuButton.readEntry("anchor", "") == QStringLiteral("left") ? Qt::AnchorLeft : Qt::AnchorRight;
+    m_titleBarMenuButtonAnchor = titleBarMenuButton.readEntry("anchor", "") == QLatin1String("left") ? Qt::AnchorLeft : Qt::AnchorRight;
 
 
     KConfigGroup titleBarQuitButton = titleConfig.group("QuitButton");
@@ -107,7 +107,7 @@ bool Skin::load(const QString& name, bool kns)
                                                       titleDir + titleBarQuitButton.readEntry("over_image", ""),
                                                       titleDir + titleBarQuitButton.readEntry("down_image", ""));
 
-    m_titleBarQuitButtonAnchor = titleBarQuitButton.readEntry("anchor", "") == QStringLiteral("left") ? Qt::AnchorLeft : Qt::AnchorRight;
+    m_titleBarQuitButtonAnchor = titleBarQuitButton.readEntry("anchor", "") == QLatin1String("left") ? Qt::AnchorLeft : Qt::AnchorRight;
 
 
     KConfigGroup titleBarText = titleConfig.group("Text");

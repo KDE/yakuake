@@ -201,7 +201,7 @@ const QString SessionStack::sessionIdList()
     while (i.hasNext())
         idList << QString::number(i.next());
 
-    return idList.join(QStringLiteral(","));
+    return idList.join(QLatin1Char(','));
 }
 
 const QString SessionStack::terminalIdList()
@@ -217,7 +217,7 @@ const QString SessionStack::terminalIdList()
         idList << it.value()->terminalIdList();
     }
 
-    return idList.join(QStringLiteral(","));
+    return idList.join(QLatin1Char(','));
 }
 
 const QString SessionStack::terminalIdsForSessionId(int sessionId)

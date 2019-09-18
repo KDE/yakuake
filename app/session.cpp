@@ -403,7 +403,7 @@ void Session::cleanup()
 
     m_baseSplitter->recursiveCleanup();
 
-    if (m_terminals.count() == 0)
+    if (m_terminals.isEmpty())
         m_baseSplitter->deleteLater();
 }
 
@@ -424,7 +424,7 @@ const QString Session::terminalIdList()
     while (i.hasNext())
         idList << QString::number(i.next());
 
-    return idList.join(QStringLiteral(","));
+    return idList.join(QLatin1Char(','));
 }
 
 bool Session::hasTerminal(int terminalId)
