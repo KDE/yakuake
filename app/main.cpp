@@ -30,6 +30,7 @@
 
 int main (int argc, char *argv[])
 {
+    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     QApplication app(argc, argv);
     app.setQuitOnLastWindowClosed(false);
 
