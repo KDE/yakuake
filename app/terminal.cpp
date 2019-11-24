@@ -156,7 +156,7 @@ void Terminal::displayKPartLoadError()
     m_terminalWidget->installEventFilter(this);
 
     QLabel* label = new QLabel(widget);
-    label->setMargin(10);
+    label->setContentsMargins(10, 10, 10, 10);
     label->setWordWrap(false);
     label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     label->setTextInteractionFlags(Qt::TextSelectableByMouse);
@@ -166,7 +166,7 @@ void Terminal::displayKPartLoadError()
                                  "required to use Yakuake."));
 
     QLabel* icon = new QLabel(widget);
-    icon->setMargin(10);
+    icon->setContentsMargins(10, 10, 10, 10);
     icon->setPixmap(QIcon::fromTheme(QStringLiteral("dialog-warning")).pixmap(QSize(48, 48)));
     icon->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
@@ -174,7 +174,7 @@ void Terminal::displayKPartLoadError()
     layout->addWidget(icon);
     layout->addWidget(label);
     layout->setSpacing(0);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->setStretchFactor(icon, 1);
     layout->setStretchFactor(label,5);
 }

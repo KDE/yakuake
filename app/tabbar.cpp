@@ -558,7 +558,7 @@ int TabBar::tabAt(int x)
 
 void TabBar::wheelEvent(QWheelEvent* event)
 {
-    if (event->delta() < 0)
+    if (event->angleDelta().y() < 0)
         selectNextTab();
     else
         selectPreviousTab();
