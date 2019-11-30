@@ -1163,7 +1163,7 @@ void MainWindow::toggleWindowState()
         {
             sharedPreOpenWindow();
             if (KWindowEffects::isEffectAvailable(KWindowEffects::Slide)) {
-                KWindowEffects::slideWindow(this, KWindowEffects::TopEdge);
+                KWindowEffects::slideWindow(winId(), KWindowEffects::TopEdge);
             }
 
             show();
