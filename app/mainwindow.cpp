@@ -129,7 +129,9 @@ MainWindow::MainWindow(QWidget* parent)
     connect(&m_mousePoller, SIGNAL(timeout()), this, SLOT(pollMouse()));
 
     connect(KWindowSystem::self(), SIGNAL(workAreaChanged()), this, SLOT(applyWindowGeometry()));
-    connect(QApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(updateScreenMenu()));
+    connect(QApplication::desktop(), SIGNAL(screenAdded(int)), this, SLOT(updateScreenMenu()));
+    connect(QApplication::desktop(), SIGNAL(screenRemoved(int)), this, SLOT(updateScreenMenu()));
+    connect(QApplication::desktop(), SIGNAL(primaryScreenChanged(int)), this, SLOT(updateScreenMenu()));
 
     applySettings();
 
@@ -665,13 +667,18 @@ void MainWindow::updateScreenMenu()
     action->setCheckable(true);
     action->setData(0);
     action->setChecked(Settings::screen() == 0);
+    
+    action = m_screenMenu->addAction(xi18nc("@item:inmenu", "Primary screen"));
+    action->setCheckable(true);
+    action->setData(1);
+    action->setChecked(Settings::screen() == 1);
 
     for (int i = 1; i <= QGuiApplication::screens().count(); i++)
     {
         action = m_screenMenu->addAction(xi18nc("@item:inmenu", "Screen %1", i));
         action->setCheckable(true);
         action->setData(i);
-        action->setChecked(i == Settings::screen());
+        action->setChecked(i+2 == Settings::screen());
     }
 
     action = m_screenMenu->menuAction();
@@ -1428,8 +1435,10 @@ int MainWindow::getScreen()
 {
     if (!Settings::screen())
         return QApplication::desktop()->screenNumber(QCursor::pos());
+    if (Settings::screen() == 1)
+        return QApplication::desktop()->primaryScreen();
     else
-        return Settings::screen() - 1;
+        return Settings::screen() - 2;
 }
 
 QRect MainWindow::getDesktopGeometry()

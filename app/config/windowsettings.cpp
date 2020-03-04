@@ -30,8 +30,8 @@ WindowSettings::WindowSettings(QWidget* parent) : QWidget(parent)
 {
     setupUi(this);
 
-    for (int i = 2; i <= QGuiApplication::screens().count(); i++)
-        kcfg_Screen->insertItem(i, xi18nc("@item:inlistbox", "Screen %1", i));
+    for (int i = 3; i <= QGuiApplication::screens().count()+1; i++)
+        kcfg_Screen->insertItem(i, xi18nc("@item:inlistbox", "Screen %1", i-1));
 
     if (QGuiApplication::screens().count() > 1)
     {
