@@ -41,7 +41,7 @@ class Session : public QObject
         enum SessionType { Single, TwoHorizontal, TwoVertical, Quad };
         enum GrowthDirection { Up, Right, Down, Left };
 
-        explicit Session(SessionType type = Single, QWidget* parent = 0);
+        explicit Session(const QString& workingDir, SessionType type = Single, QWidget* parent = 0);
          ~Session();
 
         int id() { return m_sessionId; }
@@ -120,9 +120,10 @@ class Session : public QObject
     private:
         void setupSession(SessionType type);
 
-        Terminal* addTerminal(QWidget* parent);
+        Terminal* addTerminal(QWidget* parent, QString workingDir = QString());
         int split(Terminal* terminal, Qt::Orientation orientation);
 
+        QString m_workingDir;
         static int m_availableSessionId;
         int m_sessionId;
 

@@ -29,7 +29,8 @@
 
 class QKeyEvent;
 
-class TerminalInterface;
+// Requires V2 to access profileProperty().
+class TerminalInterfaceV2;
 
 
 class Terminal : public QObject
@@ -37,7 +38,7 @@ class Terminal : public QObject
     Q_OBJECT
 
     public:
-        explicit Terminal(QWidget* parent = 0);
+        explicit Terminal(const QString& workingDir, QWidget* parent = 0);
          ~Terminal();
 
         bool eventFilter(QObject* watched, QEvent* event) override;
@@ -64,6 +65,8 @@ class Terminal : public QObject
 
         bool monitorSilenceEnabled() { return m_monitorSilenceEnabled; }
         void setMonitorSilenceEnabled(bool enabled);
+
+        QString currentWorkingDirectory() const;
 
         void deletePart();
 
@@ -94,7 +97,7 @@ class Terminal : public QObject
         int m_terminalId;
 
         KParts::Part* m_part;
-        TerminalInterface* m_terminalInterface;
+        TerminalInterfaceV2* m_terminalInterface;
         QWidget* m_partWidget;
         QPointer<QWidget> m_terminalWidget;
         QWidget* m_parentSplitter;

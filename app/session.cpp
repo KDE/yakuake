@@ -26,8 +26,9 @@
 
 int Session::m_availableSessionId = 0;
 
-Session::Session(SessionType type, QWidget* parent) : QObject(parent)
+Session::Session(const QString& workingDir, SessionType type, QWidget* parent) : QObject(parent)
 {
+    m_workingDir = workingDir;
     m_sessionId = m_availableSessionId;
     m_availableSessionId++;
 
@@ -154,9 +155,14 @@ void Session::setupSession(SessionType type)
     }
 }
 
-Terminal* Session::addTerminal(QWidget* parent)
+Terminal* Session::addTerminal(QWidget* parent, QString workingDir)
 {
-    Terminal* terminal = new Terminal(parent);
+    if (workingDir.isEmpty()) {
+        // fallback to session's default working dir
+        workingDir = m_workingDir;
+    }
+
+    Terminal* terminal = new Terminal(workingDir, parent);
     connect(terminal, SIGNAL(activated(int)), this, SLOT(setActiveTerminal(int)));
     connect(terminal, SIGNAL(manuallyActivated(Terminal*)), this, SIGNAL(terminalManuallyActivated(Terminal*)));
     connect(terminal, SIGNAL(titleChanged(int,QString)), this, SLOT(setTitle(int,QString)));
@@ -284,7 +290,7 @@ int Session::split(Terminal* terminal, Qt::Orientation orientation)
         if (splitter->orientation() != orientation)
             splitter->setOrientation(orientation);
 
-        terminal = addTerminal(splitter);
+        terminal = addTerminal(splitter, terminal->currentWorkingDirectory());
 
         QList<int> newSplitterSizes;
         newSplitterSizes << (splitterWidth / 2) << (splitterWidth / 2);
@@ -310,7 +316,7 @@ int Session::split(Terminal* terminal, Qt::Orientation orientation)
 
         terminal->setSplitter(newSplitter);
 
-        terminal = addTerminal(newSplitter);
+        terminal = addTerminal(newSplitter, terminal->currentWorkingDirectory());
 
         splitter->setSizes(splitterSizes);
         QList<int> newSplitterSizes;

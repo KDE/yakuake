@@ -41,7 +41,7 @@
 
 int Terminal::m_availableTerminalId = 0;
 
-Terminal::Terminal(QWidget* parent) : QObject(parent)
+Terminal::Terminal(const QString& workingDir, QWidget* parent) : QObject(parent)
 {
     m_terminalId = m_availableTerminalId;
     m_availableTerminalId++;
@@ -84,7 +84,12 @@ Terminal::Terminal(QWidget* parent) : QObject(parent)
 
         disableOffendingPartActions();
 
-        m_terminalInterface = qobject_cast<TerminalInterface*>(m_part);
+        m_terminalInterface = qobject_cast<TerminalInterfaceV2*>(m_part);
+
+        bool startInWorkingDir = m_terminalInterface->profileProperty(QStringLiteral("StartInCurrentSessionDir")).toBool();
+        if (startInWorkingDir && !workingDir.isEmpty()) {
+            m_terminalInterface->showShellInDir(workingDir);
+        }
     }
     else
         displayKPartLoadError();
@@ -298,4 +303,9 @@ void Terminal::activityDetected()
 void Terminal::silenceDetected()
 {
     emit silenceDetected(this);
+}
+
+QString Terminal::currentWorkingDirectory() const
+{
+    return m_terminalInterface->currentWorkingDirectory();
 }

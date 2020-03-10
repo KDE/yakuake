@@ -51,7 +51,11 @@ SessionStack::~SessionStack()
 
 int SessionStack::addSessionImpl(Session::SessionType type)
 {
-    Session* session = new Session(type, this);
+    Session* currentSession  = m_sessions.value(activeSessionId());
+    Terminal* currentTerminal = currentSession ? currentSession->getTerminal(currentSession->activeTerminalId()) : NULL;
+    QString workingDir = currentTerminal ? currentTerminal->currentWorkingDirectory() : QString();
+
+    Session* session = new Session(workingDir, type, this);
     connect(session, SIGNAL(titleChanged(int,QString)), this, SIGNAL(titleChanged(int,QString)));
     connect(session, SIGNAL(terminalManuallyActivated(Terminal*)), this, SLOT(handleManualTerminalActivation(Terminal*)));
     connect(session, SIGNAL(keyboardInputBlocked(Terminal*)), m_visualEventOverlay, SLOT(indicateKeyboardInputBlocked(Terminal*)));
