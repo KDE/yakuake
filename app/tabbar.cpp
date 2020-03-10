@@ -808,6 +808,7 @@ void TabBar::interactiveRenameDone()
     m_renamingSessionId = -1;
 
     setTabTitleInteractive(sessionId, m_lineEdit->text().trimmed());
+    emit tabSelected(sessionId); // put focus back on the console
 }
 
 void TabBar::selectTab(int sessionId)
