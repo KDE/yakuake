@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
+  Copyright (C) 2020 by Ryan McCoskrie <work@ryanmccoskrie.me>
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License as
@@ -43,11 +44,14 @@ TitleBar::TitleBar(MainWindow* mainWindow) : QWidget(mainWindow)
     m_mainWindow = mainWindow;
     m_skin = mainWindow->skin();
 
+    setCursor(Qt::SizeVerCursor);
+
     m_focusButton = new QPushButton(this);
     m_focusButton->setFocusPolicy(Qt::NoFocus);
     m_focusButton->setCheckable(true);
     m_focusButton->setToolTip(xi18nc("@info:tooltip", "Keep window open when it loses focus"));
     m_focusButton->setWhatsThis(xi18nc("@info:whatsthis", "If this is checked, the window will stay open when it loses focus."));
+    m_focusButton->setCursor(Qt::ArrowCursor);
     connect(m_focusButton, SIGNAL(toggled(bool)), mainWindow, SLOT(setKeepOpen(bool)));
 
     m_menuButton = new QPushButton(this);
@@ -55,11 +59,13 @@ TitleBar::TitleBar(MainWindow* mainWindow) : QWidget(mainWindow)
     m_menuButton->setMenu(mainWindow->menu());
     m_menuButton->setToolTip(xi18nc("@info:tooltip", "Open Menu"));
     m_menuButton->setWhatsThis(xi18nc("@info:whatsthis", "Opens the main menu."));
+    m_menuButton->setCursor(Qt::ArrowCursor);
 
     m_quitButton = new QPushButton(this);
     m_quitButton->setFocusPolicy(Qt::NoFocus);
     m_quitButton->setToolTip(xi18nc("@info:tooltip Quits the application", "Quit"));
     m_quitButton->setWhatsThis(xi18nc("@info:whatsthis", "Quits the application."));
+    m_quitButton->setCursor(Qt::ArrowCursor);
     connect(m_quitButton, SIGNAL(clicked()), mainWindow, SLOT(close()));
 }
 
@@ -136,6 +142,29 @@ void TitleBar::paintEvent(QPaintEvent*)
         painter.drawText(m_skin->titleBarTextPosition(), title);
 
     painter.end();
+}
+
+void TitleBar::mouseMoveEvent(QMouseEvent* event)
+{
+    if(event->buttons() == Qt::LeftButton) {
+        //Dynamic cast needed to use getDesktopGeometry()
+        MainWindow* window = dynamic_cast<MainWindow*>( parent() );
+
+        int maxHeight = window->getDesktopGeometry().height();
+        int newHeight = event->globalY() / (maxHeight / 100);
+
+        //Correct newHeight if mouse is dragged too far
+        if(newHeight > 100) {
+            newHeight = 100;
+        }
+        else if(newHeight < 10) {
+            newHeight = 10;
+        }
+
+        window->setWindowHeight(newHeight);
+    } else {
+        QWidget::mouseMoveEvent(event);
+    }
 }
 
 void TitleBar::updateMask()

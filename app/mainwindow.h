@@ -54,6 +54,8 @@ class MainWindow : public KMainWindow
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.yakuake")
 
+    friend class TitleBar;
+
     public:
         explicit MainWindow(QWidget* parent = 0);
         ~MainWindow();

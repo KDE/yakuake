@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
+  Copyright (C) 2020 by Ryan McCoskrie <work@ryanmccoskrie.me>
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License as
@@ -24,6 +25,7 @@
 
 
 #include <QWidget>
+#include <QMouseEvent>
 
 
 class MainWindow;
@@ -55,6 +57,7 @@ class TitleBar : public QWidget
     protected:
         void resizeEvent(QResizeEvent*) override;
         void paintEvent(QPaintEvent*) override;
+        void mouseMoveEvent(QMouseEvent*) override;
 
 
     private:

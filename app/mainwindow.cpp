@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
   Copyright (C) 2009 by Juan Carlos Torres <carlosdgtorres@gmail.com>
+  Copyright (C) 2020 by Ryan McCoskrie <work@ryanmccoskrie.me>
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License as
