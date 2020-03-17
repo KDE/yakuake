@@ -843,13 +843,13 @@ void MainWindow::applySkin()
 
 void MainWindow::applyWindowProperties()
 {
-    if (Settings::keepOpen() && !Settings::keepAbove())
-    {
-        KWindowSystem::clearState(winId(), NET::KeepAbove);
+    if (Settings::keepOpen())
         KWindowSystem::setState(winId(), NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
-    }
+
+    if (Settings::keepAbove())
+        KWindowSystem::setState(winId(), NET::KeepAbove);
     else
-        KWindowSystem::setState(winId(), NET::KeepAbove | NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
+        KWindowSystem::clearState(winId(), NET::KeepAbove);
 
     KWindowSystem::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
     KWindowEffects::enableBlurBehind(winId(), Settings::blur());
