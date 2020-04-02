@@ -93,7 +93,7 @@ class MainWindow : public KMainWindow
         void paintEvent(QPaintEvent*) override;
         void moveEvent(QMoveEvent*) override;
         void changeEvent(QEvent* event) override;
-        void closeEvent(QCloseEvent *event) override;
+        void closeEvent(QCloseEvent* event) override;
         bool event(QEvent* event) override;
 
         virtual bool queryClose() override;
