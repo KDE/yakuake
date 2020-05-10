@@ -146,7 +146,7 @@ Comment[sv]=Yakuake har startats
 Comment[tr]=Yakuake başlatıldı
 Comment[uk]=Yakuake запущено
 Comment[x-test]=xxYakuake has startedxx
-Comment[zh_CN]=Yakuake 已启动
+Comment[zh_CN]=Yakuake 已经启动
 Comment[zh_TW]=Yakuake 已啟動
 Action=Popup
 
@@ -241,7 +241,7 @@ Comment[sv]=Tystnad funnen i en bevakad terminal eller session
 Comment[tr]=İzlenen uçbirimde ya da oturumda sessizlik belirlendi
 Comment[uk]=У сеансі або терміналі, за яким ведеться спостереження виявлено бездіяльність
 Comment[x-test]=xxSilence detected in a monitored terminal or sessionxx
-Comment[zh_CN]=在监视的终端或会话中探测到静默
+Comment[zh_CN]=在监视的终端或会话中检测到静默
 Comment[zh_TW]=在一個監控中的終端機或工作階段偵測到沉默狀態
 Action=Popup
 
@@ -291,7 +291,7 @@ Name[sv]=Aktivitet funnen
 Name[tr]=Etkinlik belirlendi
 Name[uk]=Виявлено діяльність
 Name[x-test]=xxActivity detectedxx
-Name[zh_CN]=探测到活动
+Name[zh_CN]=检测到活动
 Name[zh_TW]=偵測到活動
 Comment=Activity detected in a monitored terminal or session
 Comment[ar]=اكتُشف نشاط في جلسةٍ أو طرفيّةٍ مُراقبة
