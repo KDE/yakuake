@@ -1480,15 +1480,28 @@ void MainWindow::setFullScreen(bool state)
 
 int MainWindow::getScreen()
 {
-    if (!Settings::screen())
-        return QApplication::desktop()->screenNumber(QCursor::pos());
-    else
+    if (!Settings::screen() || Settings::screen() > QGuiApplication::screens().length()) {
+        // Right after unplugging an external monitor and the Yakuake window was on
+        // that monitor, QGuiApplication::screenAt() can return nullptr so we fallback on
+        // the first monitor.
+        QScreen *screen = QGuiApplication::screenAt(QCursor::pos());
+        return screen ? QGuiApplication::screens().indexOf(screen) : 0;
+    } else {
         return Settings::screen() - 1;
+    }
+}
+
+QRect MainWindow::getScreenGeometry()
+{
+    QScreen *screen = QGuiApplication::screens().at(getScreen());
+    QRect screenGeometry = screen->geometry();
+    screenGeometry.moveTo(screenGeometry.topLeft() / screen->devicePixelRatio());
+    return screenGeometry;
 }
 
 QRect MainWindow::getDesktopGeometry()
 {
-    QRect screenGeometry = QApplication::desktop()->screenGeometry(getScreen());
+    QRect screenGeometry = getScreenGeometry();
 
     QAction* action = actionCollection()->action(QStringLiteral("view-full-screen"));
 

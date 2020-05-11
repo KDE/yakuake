@@ -175,6 +175,7 @@ class MainWindow : public KMainWindow
         void updateMask();
 
         int getScreen();
+        QRect getScreenGeometry();
         QRect getDesktopGeometry();
 
         // get a better value from plasmashell through dbus in wayland case
