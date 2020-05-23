@@ -1106,6 +1106,11 @@ bool MainWindow::event(QEvent* event)
     return KMainWindow::event(event);
 }
 
+bool MainWindow::focusNextPrevChild(bool)
+{
+    return false;
+}
+
 void MainWindow::toggleWindowState()
 {
     bool visible = isVisible();
