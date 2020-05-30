@@ -1473,7 +1473,8 @@ QRect MainWindow::getDesktopGeometry()
 
             if (KWindowSystem::hasWId(windowId))
             {
-                KWindowInfo windowInfo = KWindowInfo(windowId, NET::WMDesktop, NET::WM2ExtendedStrut);
+                KWindowInfo windowInfo = KWindowInfo(windowId, NET::WMDesktop | NET::WMGeometry,
+                        NET::WM2ExtendedStrut);
 
                 // If windowInfo is valid and the window is located at the same (current)
                 // desktop with the yakuake window...
@@ -1485,19 +1486,23 @@ QRect MainWindow::getDesktopGeometry()
                     QRect topStrut(strut.top_start, 0, strut.top_end - strut.top_start, strut.top_width);
                     QRect bottomStrut(strut.bottom_start, screenGeometry.bottom() - strut.bottom_width,
                                       strut.bottom_end - strut.bottom_start, strut.bottom_width);
-                    QRect leftStrut(0, strut.left_width, strut.left_start, strut.left_end - strut.left_start);
+                    QRect leftStrut(0, strut.left_start, strut.left_width, strut.left_end - strut.left_start);
                     QRect rightStrut(screenGeometry.right() - strut.right_width, strut.right_start,
-                                     strut.right_end - strut.right_start, strut.right_width);
+                                     strut.right_width, strut.right_end - strut.right_start);
 
                     // If the window has no strut, no need to bother further.
                     if (topStrut.isEmpty() && bottomStrut.isEmpty() && leftStrut.isEmpty() && rightStrut.isEmpty())
                         continue;
 
-                    // If any of the strut intersects with our screen geometry, it will be correctly handled
-                    // by workArea().
-                    if (topStrut.intersects(screenGeometry) || bottomStrut.intersects(screenGeometry) ||
+                    // If any of the strut and the window itself intersects with our screen geometry,
+                    // it will be correctly handled by workArea(). If the window doesn't intersect
+                    // with our screen geometry it's most likely a plasma panel and can/should be
+                    // ignored
+                    if ((topStrut.intersects(screenGeometry) || bottomStrut.intersects(screenGeometry) ||
                         leftStrut.intersects(screenGeometry) || rightStrut.intersects(screenGeometry))
-                        continue;
+                            && windowInfo.geometry().intersects(screenGeometry)) {
+                            continue;
+                    }
 
                     // This window has a strut on the same desktop as us but which does not cover our screen
                     // geometry. It should be ignored, otherwise the returned work area will wrongly include
