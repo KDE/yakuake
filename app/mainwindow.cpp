@@ -450,10 +450,18 @@ void MainWindow::setupActions()
 
     for (uint i = 1; i <= 10; ++i)
     {
-        action = actionCollection()->addAction(QString(QStringLiteral("switch-to-session-%1")).arg(i));
+        action = actionCollection()->addAction(QStringLiteral("switch-to-session-%1").arg(i));
         action->setText(xi18nc("@action", "Switch to Session %1", i));
-        action->setData(i);
+        action->setData(i - 1);
         connect(action, SIGNAL(triggered()), this, SLOT(handleSwitchToAction()));
+
+        if (i < 10) {
+            // add default shortcut bindings for the first 9 sessions
+            actionCollection()->setDefaultShortcut(action, QStringLiteral("Alt+%1").arg(i));
+        } else {
+            // add default shortcut bindings for the 10th session
+            actionCollection()->setDefaultShortcut(action, Qt::ALT + Qt::Key_0);
+        }
     }
 
     m_actionCollection->associateWidget(this);
@@ -616,7 +624,7 @@ void MainWindow::handleSwitchToAction()
     QAction* action = qobject_cast<QAction*>(QObject::sender());
 
     if (action && !action->data().isNull())
-        m_sessionStack->raiseSession(m_tabBar->sessionAtTab(action->data().toInt()-1));
+        m_sessionStack->raiseSession(m_tabBar->sessionAtTab(action->data().toInt()));
 }
 
 void MainWindow::setupMenu()
