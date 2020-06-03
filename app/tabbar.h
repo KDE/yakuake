@@ -78,6 +78,7 @@ class TabBar : public QWidget
         void requestRemoveTerminalHighlight();
         void tabContextMenuClosed();
         void lastTabClosed();
+        void tabTitleEdited(int sessionId, QString title);
 
 
     protected:

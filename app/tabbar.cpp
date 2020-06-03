@@ -904,6 +904,7 @@ void TabBar::setTabTitle(int sessionId, const QString& newTitle)
     if (!newTitle.isEmpty())
         m_tabTitles[sessionId] = newTitle;
 
+    emit tabTitleEdited(sessionId, newTitle);
     update();
 }
 
@@ -920,6 +921,7 @@ void TabBar::setTabTitleInteractive(int sessionId, const QString& newTitle)
     else
         m_tabTitlesSetInteractive.remove(sessionId);
 
+    emit tabTitleEdited(sessionId, newTitle);
     update();
 }
 
