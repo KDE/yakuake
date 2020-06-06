@@ -55,7 +55,10 @@
 #include <QWhatsThis>
 #include <QWindow>
 #include <QDBusConnection>
+#include <QDBusInterface>
+#include <QDBusPendingReply>
 #include <QPlatformSurfaceEvent>
+#include <QScreen>
 
 #if HAVE_X11
 #include <QX11Info>
@@ -1113,6 +1116,23 @@ bool MainWindow::focusNextPrevChild(bool)
 
 void MainWindow::toggleWindowState()
 {
+    if (m_isWayland) {
+        QDBusInterface strutManager(QStringLiteral("org.kde.plasmashell"), QStringLiteral("/StrutManager"), QStringLiteral("org.kde.PlasmaShell.StrutManager"));
+        QDBusPendingCall async = strutManager.asyncCall(QStringLiteral("availableScreenRect"), QGuiApplication::screens().at(getScreen())->name());
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
+        QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [=]() {
+            QDBusPendingReply<QRect> reply = *watcher;
+            m_availableScreenRect = reply.isValid() ? reply.value() : QRect();
+            _toggleWindowState();
+            watcher->deleteLater();
+        });
+    } else {
+        _toggleWindowState();
+    }
+}
+
+void MainWindow::_toggleWindowState()
+{
     bool visible = isVisible();
 
     if (visible && KWindowSystem::activeWindow() != winId() && Settings::keepOpen())
@@ -1456,8 +1476,9 @@ QRect MainWindow::getDesktopGeometry()
         return screenGeometry;
 
     if (m_isWayland) {
-        // on Wayland it's not possible to get the work area
-        return screenGeometry;
+        // on Wayland it's not possible to get the work area from KWindowSystem
+        // but plasmashell provides this through dbus
+        return m_availableScreenRect.isValid() ? m_availableScreenRect : screenGeometry;
     }
 
     if (QGuiApplication::screens().count() > 1)

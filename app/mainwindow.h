@@ -175,6 +175,10 @@ class MainWindow : public KMainWindow
         int getScreen();
         QRect getDesktopGeometry();
 
+        // get a better value from plasmashell through dbus in wayland case
+        QRect m_availableScreenRect;
+        void _toggleWindowState();
+
         void showStartupPopup();
 
         void updateUseTranslucency();
