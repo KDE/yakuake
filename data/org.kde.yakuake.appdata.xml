@@ -27,7 +27,7 @@
   <name xml:lang="lt">Yakuake</name>
   <name xml:lang="nl">Yakuake</name>
   <name xml:lang="nn">Yakuake</name>
-  <name xml:lang="pa">ਯਾਕੁਕੀ</name>
+  <name xml:lang="pa">ਯਾਕੁਕੇ</name>
   <name xml:lang="pl">Yakuake</name>
   <name xml:lang="pt">Yakuake</name>
   <name xml:lang="pt-BR">Yakuake</name>
@@ -107,6 +107,7 @@
     <p xml:lang="lt">Yakuake yra nusileidžiantis terminalo emuliatorius paremtas KDE Konsole technologija.</p>
     <p xml:lang="nl">Yakuake is een uitvouwbare terminalemulator, gebaseerd op de technologie van KDE Konsole.</p>
     <p xml:lang="nn">Rullegardinbasert terminalemulator basert på KDE Konsole-teknologien.</p>
+    <p xml:lang="pa">ਯਾਕੁਕੇ ਕੇਡੀਈ ਕਨਸੋਲ ਤਕਨਾਲੋਜੀ ਅਧਾਰਿਤ ਲਟਕਦਾ ਟਰਮੀਨਲ ਏਮੂਲੇਟਰ ਹੈ।</p>
     <p xml:lang="pl">Yakuake jest rozwijanym emulatorem terminala opartym na technologii KDE Konsole.</p>
     <p xml:lang="pt">O Yakuake é um emulador de terminal acoplável que se baseia na tecnologia do Konsole para o KDE.</p>
     <p xml:lang="pt-BR">Yakuake é um emulador de terminal baseado na tecnologia do Konsole do KDE.</p>
