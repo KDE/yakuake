@@ -1120,9 +1120,12 @@ bool MainWindow::focusNextPrevChild(bool)
 void MainWindow::toggleWindowState()
 {
     if (m_isWayland) {
-        QDBusInterface strutManager(QStringLiteral("org.kde.plasmashell"), QStringLiteral("/StrutManager"), QStringLiteral("org.kde.PlasmaShell.StrutManager"));
-        QDBusPendingCall async = strutManager.asyncCall(QStringLiteral("availableScreenRect"), QGuiApplication::screens().at(getScreen())->name());
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
+        auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.plasmashell"), QStringLiteral("/StrutManager"),
+                                                      QStringLiteral("org.kde.PlasmaShell.StrutManager"), QStringLiteral("availableScreenRect"));
+        message.setArguments({QGuiApplication::screens().at(getScreen())->name()});
+        QDBusPendingCall call = QDBusConnection::sessionBus().asyncCall(message);
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+
         QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [=]() {
             QDBusPendingReply<QRect> reply = *watcher;
             m_availableScreenRect = reply.isValid() ? reply.value() : QRect();
