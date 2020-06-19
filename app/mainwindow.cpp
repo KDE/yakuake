@@ -47,6 +47,7 @@
 #include <KWindowSystem>
 #include <KWindowEffects>
 #include <KLocalizedString>
+#include <KStatusNotifierItem>
 
 #include <QApplication>
 #include <QDesktopWidget>
@@ -90,6 +91,8 @@ MainWindow::MainWindow(QWidget* parent)
     m_sessionStack = new SessionStack(this);
     m_titleBar = new TitleBar(this);
     m_tabBar = new TabBar(this);
+    m_notifierItem = new KStatusNotifierItem(this);
+
 
     m_firstRunDialog = NULL;
     m_isFullscreen = false;
@@ -142,6 +145,16 @@ MainWindow::MainWindow(QWidget* parent)
 
     m_sessionStack->addSession();
 
+    m_notifierItem->setStandardActionsEnabled(false);
+    m_notifierItem->setIconByName(QStringLiteral("yakuake"));
+    m_notifierItem->setStatus(KStatusNotifierItem::Active);
+    m_notifierItem->setContextMenu(m_menu);
+
+    // Prevent the default implementation of showing
+    // and instead run toggleWindowState
+    m_notifierItem->setAssociatedWidget(nullptr);
+    connect(m_notifierItem, &KStatusNotifierItem::activateRequested, this, &MainWindow::toggleWindowState);
+
     if (Settings::firstRun())
     {
         QMetaObject::invokeMethod(this, "toggleWindowState", Qt::QueuedConnection);
@@ -149,7 +162,6 @@ MainWindow::MainWindow(QWidget* parent)
     }
     else
     {
-        showStartupPopup();
         if (Settings::pollMouse()) toggleMousePoll(true);
     }
 
@@ -269,6 +281,10 @@ void MainWindow::setupActions()
     KGlobalAccel::self()->setGlobalShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_F11));
 #endif
     connect(action, SIGNAL(triggered()), this, SLOT(toggleWindowState()));
+    connect(action, SIGNAL(changed()), this, SLOT(updateTrayTooltip()));
+    connect(KGlobalAccel::self(), SIGNAL(globalShortcutChanged(QAction*, const QKeySequence&)),
+            this, SLOT(updateTrayTooltip()));
+    updateTrayTooltip();
 
     action = actionCollection()->addAction(QStringLiteral("keep-open"));
     action->setText(xi18nc("@action", "Keep window open when it loses focus"));
@@ -1550,21 +1566,6 @@ void MainWindow::whatsThis()
     QWhatsThis::enterWhatsThisMode();
 }
 
-void MainWindow::showStartupPopup()
-{
-    QAction* action = static_cast<QAction*>(actionCollection()->action(QStringLiteral("toggle-window-state")));
-
-    const QList<QKeySequence> &shortcuts = KGlobalAccel::self()->shortcut(action);
-
-    if (shortcuts.isEmpty())
-        return;
-
-    QString shortcut(shortcuts.first().toString(QKeySequence::NativeText));
-    QString message(xi18nc("@info", "Application successfully started.<nl/>" "Press <shortcut>%1</shortcut> to use it ...", shortcut));
-
-    KNotification::event(QLatin1String("startup"), message, QPixmap(), this);
-}
-
 void MainWindow::showFirstRunDialog()
 {
     if (!m_firstRunDialog)
@@ -1601,4 +1602,16 @@ void MainWindow::firstRunDialogOk()
 void MainWindow::updateUseTranslucency()
 {
     m_useTranslucency = (Settings::translucency() && KWindowSystem::compositingActive());
+}
+
+void MainWindow::updateTrayTooltip()
+{
+    auto* action = actionCollection()->action(QStringLiteral("toggle-window-state"));
+    const QList<QKeySequence> &shortcuts = KGlobalAccel::self()->shortcut(action);
+    if (!shortcuts.isEmpty()) {
+        const QString shortcut(shortcuts.first().toString(QKeySequence::NativeText));
+        m_notifierItem->setToolTip(QStringLiteral("yakuake"),
+                QStringLiteral("Yakuake"), xi18nc("@info", "Press <shortcut>%1</shortcut> to open", shortcut));
+    }
+
 }

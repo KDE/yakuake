@@ -39,6 +39,7 @@ class TitleBar;
 
 class KHelpMenu;
 class KActionCollection;
+class KStatusNotifierItem;
 
 #if HAVE_KWAYLAND
 namespace KWayland {
@@ -142,6 +143,7 @@ class MainWindow : public KMainWindow
         void configureKeys();
         void configureNotifications();
         void configureApp();
+        void updateTrayTooltip();
 
         void showFirstRunDialog();
         void firstRunDialogFinished();
@@ -179,8 +181,6 @@ class MainWindow : public KMainWindow
         QRect m_availableScreenRect;
         void _toggleWindowState();
 
-        void showStartupPopup();
-
         void updateUseTranslucency();
         bool m_useTranslucency;
         bool m_isFullscreen;
@@ -200,6 +200,7 @@ class MainWindow : public KMainWindow
         QMenu* m_windowHeightMenu;
 
         FirstRunDialog* m_firstRunDialog;
+        KStatusNotifierItem *m_notifierItem;
 
         QTimer m_animationTimer;
         QTimer m_mousePoller;
