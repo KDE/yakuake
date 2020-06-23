@@ -51,20 +51,20 @@ Terminal::Terminal(const QString& workingDir, QWidget* parent) : QObject(parent)
     m_monitorActivityEnabled = false;
     m_monitorSilenceEnabled = false;
 
-    m_part = NULL;
-    m_terminalInterface = NULL;
-    m_partWidget = NULL;
-    m_terminalWidget = NULL;
+    m_part = nullptr;
+    m_terminalInterface = nullptr;
+    m_partWidget = nullptr;
+    m_terminalWidget = nullptr;
     m_parentSplitter = parent;
 
-    KPluginFactory* factory = 0;
+    KPluginFactory* factory = nullptr;
     KService::Ptr service = KService::serviceByDesktopName(QStringLiteral("konsolepart"));
     if( service )
     {
         factory = KPluginLoader(service->library()).factory();
     }
 
-    m_part = factory ? (factory->create<KParts::Part>(parent)) : 0;
+    m_part = factory ? (factory->create<KParts::Part>(parent)) : nullptr;
 
     if (m_part)
     {
@@ -196,7 +196,7 @@ void Terminal::disableOffendingPartActions()
 
     if (actionCollection)
     {
-        QAction* action = 0;
+        QAction* action = nullptr;
 
         action = actionCollection->action(QStringLiteral("next-view"));
         if (action) action->setEnabled(false);

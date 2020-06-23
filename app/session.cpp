@@ -415,7 +415,7 @@ void Session::cleanup()
 
 void Session::prepareShutdown()
 {
-    m_baseSplitter = NULL;
+    m_baseSplitter = nullptr;
 
     deleteLater();
 }
@@ -440,7 +440,7 @@ bool Session::hasTerminal(int terminalId)
 
 Terminal* Session::getTerminal(int terminalId)
 {
-    if (!m_terminals.contains(terminalId)) return 0;
+    if (!m_terminals.contains(terminalId)) return nullptr;
 
     return m_terminals.value(terminalId);
 }

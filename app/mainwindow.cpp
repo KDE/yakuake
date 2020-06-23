@@ -94,7 +94,7 @@ MainWindow::MainWindow(QWidget* parent)
     m_notifierItem = new KStatusNotifierItem(this);
 
 
-    m_firstRunDialog = NULL;
+    m_firstRunDialog = nullptr;
     m_isFullscreen = false;
 
 #if HAVE_X11
@@ -105,8 +105,8 @@ MainWindow::MainWindow(QWidget* parent)
 #endif
     m_isWayland = KWindowSystem::isPlatformWayland();
 #if HAVE_KWAYLAND
-    m_plasmaShell = Q_NULLPTR;
-    m_plasmaShellSurface = Q_NULLPTR;
+    m_plasmaShell = nullptr;
+    m_plasmaShellSurface = nullptr;
     initWayland();
 #endif
 
@@ -651,13 +651,13 @@ void MainWindow::handleSwitchToAction()
 
 void MainWindow::setupMenu()
 {
-    m_menu->insertSection(0, xi18nc("@title:menu", "Help"));
+    m_menu->insertSection(nullptr, xi18nc("@title:menu", "Help"));
     m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::WhatsThis))));
     m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::ReportBug))));
     m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::AboutApp))));
     m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::AboutKDE))));
 
-    m_menu->insertSection(0, xi18nc("@title:menu", "Quick Options"));
+    m_menu->insertSection(nullptr, xi18nc("@title:menu", "Quick Options"));
     m_menu->addAction(actionCollection()->action(QStringLiteral("view-full-screen")));
     m_menu->addAction(actionCollection()->action(QStringLiteral("keep-open")));
 
@@ -676,7 +676,7 @@ void MainWindow::setupMenu()
     m_windowHeightMenu->setTitle(xi18nc("@title:menu", "Height"));
     m_menu->addMenu(m_windowHeightMenu);
 
-    m_menu->insertSection(0, xi18nc("@title:menu", "Settings"));
+    m_menu->insertSection(nullptr, xi18nc("@title:menu", "Settings"));
     m_menu->addAction(actionCollection()->action(QStringLiteral("manage-profiles")));
     m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::KeyBindings))));
     m_menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))));
@@ -717,7 +717,7 @@ void MainWindow::updateWindowSizeMenus()
 
 void MainWindow::updateWindowWidthMenu()
 {
-    QAction* action = 0;
+    QAction* action = nullptr;
 
     if (m_windowWidthMenu->isEmpty())
     {
@@ -744,7 +744,7 @@ void MainWindow::updateWindowWidthMenu()
 
 void MainWindow::updateWindowHeightMenu()
 {
-    QAction* action = 0;
+    QAction* action = nullptr;
 
     if (m_windowHeightMenu->isEmpty())
     {
@@ -1072,7 +1072,7 @@ void MainWindow::wmActiveWindowChanged()
         return;
     }
 
-    KWindowInfo info(KWindowSystem::activeWindow(), 0, NET::WM2TransientFor);
+    KWindowInfo info(KWindowSystem::activeWindow(), {}, NET::WM2TransientFor);
 
     if (info.valid() && info.transientFor() == winId()) {
         return;
@@ -1239,7 +1239,7 @@ void MainWindow::kwinAssistToggleWindowState(bool visible)
     int count;
     Atom* list = XListProperties(display, DefaultRootWindow(display), &count);
 
-    if (list != NULL)
+    if (list != nullptr)
     {
         gotEffect = (std::find(list, list + count, atom) != list + count);
 
@@ -1420,7 +1420,7 @@ void MainWindow::sharedAfterHideWindow()
 
 #if HAVE_KWAYLAND
     delete m_plasmaShellSurface;
-    m_plasmaShellSurface = Q_NULLPTR;
+    m_plasmaShellSurface = nullptr;
 #endif
 
     emit windowClosed();

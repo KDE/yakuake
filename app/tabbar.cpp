@@ -61,7 +61,7 @@ TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
     m_mousePressed = false;
     m_mousePressedIndex = -1;
 
-    m_dropIndicator = 0;
+    m_dropIndicator = nullptr;
 
     m_mainWindow = mainWindow;
 

@@ -52,7 +52,7 @@ SessionStack::~SessionStack()
 int SessionStack::addSessionImpl(Session::SessionType type)
 {
     Session* currentSession  = m_sessions.value(activeSessionId());
-    Terminal* currentTerminal = currentSession ? currentSession->getTerminal(currentSession->activeTerminalId()) : NULL;
+    Terminal* currentTerminal = currentSession ? currentSession->getTerminal(currentSession->activeTerminalId()) : nullptr;
     QString workingDir = currentTerminal ? currentTerminal->currentWorkingDirectory() : QString();
 
     Session* session = new Session(workingDir, type, this);
@@ -604,7 +604,7 @@ bool SessionStack::requiresVisualEventOverlay()
 
 void SessionStack::handleTerminalHighlightRequest(int terminalId)
 {
-    Terminal* terminal = 0;
+    Terminal* terminal = nullptr;
 
     QHashIterator<int, Session*> it(m_sessions);
 
