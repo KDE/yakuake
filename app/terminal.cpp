@@ -29,6 +29,7 @@
 #include <KPluginFactory>
 #include <KPluginLoader>
 #include <KService>
+#include <KXMLGUIFactory>
 
 #include <QAction>
 #include <QApplication>
@@ -89,6 +90,16 @@ Terminal::Terminal(const QString& workingDir, QWidget* parent) : QObject(parent)
         bool startInWorkingDir = m_terminalInterface->profileProperty(QStringLiteral("StartInCurrentSessionDir")).toBool();
         if (startInWorkingDir && !workingDir.isEmpty()) {
             m_terminalInterface->showShellInDir(workingDir);
+        }
+
+        // Remove shortcut from close action because it conflicts with the shortcut from out own close action
+        // https://bugs.kde.org/show_bug.cgi?id=319172
+        const auto childClients = m_part->childClients();
+        for (const auto childClient : childClients) {
+            QAction *closeSessionAction = childClient->actionCollection()->action(QStringLiteral("close-session"));
+            if (closeSessionAction) {
+                closeSessionAction->setShortcut(QKeySequence());
+            }
         }
     }
     else
