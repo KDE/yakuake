@@ -1480,6 +1480,11 @@ void MainWindow::setFullScreen(bool state)
 
 int MainWindow::getScreen()
 {
+    // If the configured screen is unplugged return another one
+    if (Settings::screen() >= QGuiApplication::screens().count()) {
+        return QGuiApplication::screens().count() - 1;
+    }
+
     if (!Settings::screen())
         return QApplication::desktop()->screenNumber(QCursor::pos());
     else
