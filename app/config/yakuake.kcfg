@@ -66,6 +66,11 @@
       <whatsthis context="@info:whatsthis">Whether to update tab titles along with the title bar.</whatsthis>
       <default>false</default>
     </entry>
+    <entry name="ShowSystrayIcon" type="Bool">
+      <label context="@label">Show a system tray icon</label>
+      <whatsthis context="@info:whatsthis">Whether to show a system tray icon.</whatsthis>
+      <default>true</default>
+    </entry>
   </group>
   <group name="Behavior">
     <entry name="FocusFollowsMouse" type="Bool">

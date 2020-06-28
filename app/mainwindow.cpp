@@ -91,7 +91,7 @@ MainWindow::MainWindow(QWidget* parent)
     m_sessionStack = new SessionStack(this);
     m_titleBar = new TitleBar(this);
     m_tabBar = new TabBar(this);
-    m_notifierItem = new KStatusNotifierItem(this);
+    m_notifierItem = nullptr;
 
 
     m_firstRunDialog = nullptr;
@@ -144,16 +144,6 @@ MainWindow::MainWindow(QWidget* parent)
     applySettings();
 
     m_sessionStack->addSession();
-
-    m_notifierItem->setStandardActionsEnabled(false);
-    m_notifierItem->setIconByName(QStringLiteral("yakuake"));
-    m_notifierItem->setStatus(KStatusNotifierItem::Active);
-    m_notifierItem->setContextMenu(m_menu);
-
-    // Prevent the default implementation of showing
-    // and instead run toggleWindowState
-    m_notifierItem->setAssociatedWidget(nullptr);
-    connect(m_notifierItem, &KStatusNotifierItem::activateRequested, this, &MainWindow::toggleWindowState);
 
     if (Settings::firstRun())
     {
@@ -834,6 +824,28 @@ void MainWindow::applySettings()
     m_animationTimer.setInterval(Settings::frames() ? 10 : 0);
 
     m_tabBar->setVisible(Settings::showTabBar());
+
+    if (!Settings::showSystrayIcon() && m_notifierItem) {
+        delete m_notifierItem;
+        m_notifierItem = nullptr;
+
+        // Removing the notifier item deletes the menu
+        // add a new one
+        m_menu = new QMenu(this);
+        setupMenu();
+    } else if (Settings::showSystrayIcon() && !m_notifierItem) {
+        m_notifierItem = new KStatusNotifierItem(this);
+        m_notifierItem->setStandardActionsEnabled(false);
+        m_notifierItem->setIconByName(QStringLiteral("yakuake"));
+        m_notifierItem->setStatus(KStatusNotifierItem::Active);
+        m_notifierItem->setContextMenu(m_menu);
+
+        // Prevent the default implementation of showing
+        // and instead run toggleWindowState
+        m_notifierItem->setAssociatedWidget(nullptr);
+        connect(m_notifierItem, &KStatusNotifierItem::activateRequested, this, &MainWindow::toggleWindowState);
+        updateTrayTooltip();
+    }
 
     setKeepOpen(Settings::keepOpen());
 
@@ -1617,6 +1629,10 @@ void MainWindow::updateUseTranslucency()
 
 void MainWindow::updateTrayTooltip()
 {
+    if (!m_notifierItem) {
+        return;
+    }
+
     auto* action = actionCollection()->action(QStringLiteral("toggle-window-state"));
     const QList<QKeySequence> &shortcuts = KGlobalAccel::self()->shortcut(action);
     if (!shortcuts.isEmpty()) {
