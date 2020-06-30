@@ -864,6 +864,7 @@ void MainWindow::applySettings()
         // add a new one
         m_menu = new QMenu(this);
         setupMenu();
+        m_titleBar->updateMenu();
     } else if (Settings::showSystrayIcon() && !m_notifierItem) {
         m_notifierItem = new KStatusNotifierItem(this);
         m_notifierItem->setStandardActionsEnabled(false);

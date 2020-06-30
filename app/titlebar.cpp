@@ -185,6 +185,11 @@ void TitleBar::updateMask()
     setMask(mask);
 }
 
+void TitleBar::updateMenu()
+{
+    m_menuButton->setMenu(m_mainWindow->menu());
+}
+
 void TitleBar::setFocusButtonState(bool checked)
 {
     m_focusButton->setChecked(checked);

@@ -44,6 +44,7 @@ class TitleBar : public QWidget
 
         void applySkin();
         void updateMask();
+        void updateMenu();
 
         QString title();
 
