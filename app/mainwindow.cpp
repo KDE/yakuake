@@ -761,7 +761,38 @@ void MainWindow::updateWindowHeightMenu()
 
 void MainWindow::configureKeys()
 {
-    KShortcutsDialog::configure(actionCollection());
+    KShortcutsDialog dialog(KShortcutsEditor::AllActions, KShortcutsEditor::LetterShortcutsAllowed, this);
+    dialog.addCollection(actionCollection());
+
+    const auto collections = m_sessionStack->getPartActionCollections();
+
+    if (collections.size() >= 1) {
+        dialog.addCollection(collections.at(0), QStringLiteral("Konsolepart"));
+    }
+
+    if (!dialog.configure()) {
+        return;
+    }
+
+    if (collections.size() >= 1) {
+
+        // We need to update all the other collections
+        // rootCollection is the collection which got updatet by the dialog
+        const auto rootCollection = collections.at(0);
+
+        // For all the other collections
+        for (auto i = 1; i < collections.size(); ++i) {
+
+            // Update all the action they share with rootCollection
+            const auto rootActions = rootCollection->actions();
+            for (const auto* action : rootActions) {
+                if (auto* destaction = collections.at(i)->action(action->objectName())) {
+                    destaction->setShortcuts(action->shortcuts());
+                }
+            }
+
+        }
+    }
 }
 
 void MainWindow::configureNotifications()

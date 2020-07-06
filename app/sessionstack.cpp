@@ -673,3 +673,30 @@ bool SessionStack::queryClose(int sessionId, QueryCloseType type)
 
     return true;
 }
+
+
+QList<KActionCollection*> SessionStack::getPartActionCollections()
+{
+    QList<KActionCollection*> actionCollections;
+
+    const auto sessions = m_sessions.values();
+    for (auto* session : sessions) {
+
+        const auto terminalIds = session->terminalIdList().split(QStringLiteral(","));
+
+        for (const auto& terminalID : terminalIds) {
+
+            auto *terminal = session->getTerminal(terminalID.toInt());
+            if (terminal) {
+                auto* collection = terminal->actionCollection();
+                if (collection) {
+                    actionCollections.append(collection);
+                }
+            }
+
+        }
+
+    }
+
+    return actionCollections;
+}

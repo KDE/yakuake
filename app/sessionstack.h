@@ -34,6 +34,7 @@
 
 class Session;
 class VisualEventOverlay;
+class KActionCollection;
 
 class SessionStack : public QStackedWidget
 {
@@ -52,6 +53,7 @@ class SessionStack : public QStackedWidget
 
         bool requiresVisualEventOverlay();
 
+        QList<KActionCollection*> getPartActionCollections();
 
     public Q_SLOTS:
         int addSessionImpl(Session::SessionType type = Session::Single);

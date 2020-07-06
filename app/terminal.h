@@ -70,6 +70,7 @@ class Terminal : public QObject
 
         void deletePart();
 
+        KActionCollection* actionCollection();
 
     Q_SIGNALS:
         void titleChanged(int terminalId, const QString& title);
@@ -79,7 +80,6 @@ class Terminal : public QObject
         void activityDetected(Terminal* terminal);
         void silenceDetected(Terminal* terminal);
         void destroyed(int terminalId);
-
 
     private Q_SLOTS:
         void setTitle(const QString& title);

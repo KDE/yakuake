@@ -30,6 +30,7 @@
 #include <KPluginLoader>
 #include <KService>
 #include <KXMLGUIFactory>
+#include <KXMLGUIBuilder>
 
 #include <QAction>
 #include <QApplication>
@@ -81,6 +82,20 @@ Terminal::Terminal(const QString& workingDir, QWidget* parent) : QObject(parent)
         {
             m_terminalWidget->setFocusPolicy(Qt::WheelFocus);
             m_terminalWidget->installEventFilter(this);
+
+            if (!m_part->factory() && m_partWidget) {
+                if (!m_part->clientBuilder()) {
+                    m_part->setClientBuilder(new KXMLGUIBuilder(m_partWidget));
+                }
+
+                auto factory = new KXMLGUIFactory(m_part->clientBuilder(), this);
+                factory->addClient(m_part);
+
+                // Prevents the KXMLGui warning about removing the client
+                connect(m_partWidget, &QObject::destroyed, this, [factory, this] {
+                            factory->removeClient(m_part);
+                        });
+            }
         }
 
         disableOffendingPartActions();
@@ -319,4 +334,18 @@ void Terminal::silenceDetected()
 QString Terminal::currentWorkingDirectory() const
 {
     return m_terminalInterface->currentWorkingDirectory();
+}
+
+KActionCollection* Terminal::actionCollection()
+{
+    if (m_part->factory()) {
+        const auto guiClients = m_part->childClients();
+        for (auto* client : guiClients) {
+            if (client->actionCollection()->associatedWidgets().contains(m_terminalWidget)) {
+                return client->actionCollection();
+            }
+        }
+    }
+
+    return nullptr;
 }
