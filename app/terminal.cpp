@@ -102,6 +102,11 @@ Terminal::Terminal(const QString& workingDir, QWidget* parent) : QObject(parent)
 
         m_terminalInterface = qobject_cast<TerminalInterfaceV2*>(m_part);
 
+        if (!m_terminalInterface) {
+            qFatal("Version of Konsole is outdated. Konsole didn't return a valid TerminalInterfaceV2.");
+            return;
+        }
+
         bool startInWorkingDir = m_terminalInterface->profileProperty(QStringLiteral("StartInCurrentSessionDir")).toBool();
         if (startInWorkingDir && !workingDir.isEmpty()) {
             m_terminalInterface->showShellInDir(workingDir);
