@@ -1136,14 +1136,13 @@ void MainWindow::wmActiveWindowChanged()
 
 void MainWindow::changeEvent(QEvent* event)
 {
-    if (event->type() == QEvent::WindowStateChange)
-    {
-        if ((windowState() & Qt::WindowMaximized))
-        {
+    if (event->type() == QEvent::WindowStateChange && !m_isFullscreen) {
+        if (windowState().testFlag(Qt::WindowMaximized)) {
             // Don't alter settings to new size so unmaximizing restores previous geometry.
             setWindowGeometry(100, 100, Settings::position());
             setWindowState(Qt::WindowMaximized);
-        } else {
+        }
+        else {
             setWindowGeometry(Settings::width(), Settings::height(), Settings::position());
         }
     }
