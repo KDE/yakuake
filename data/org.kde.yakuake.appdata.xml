@@ -31,6 +31,7 @@
   <name xml:lang="pl">Yakuake</name>
   <name xml:lang="pt">Yakuake</name>
   <name xml:lang="pt-BR">Yakuake</name>
+  <name xml:lang="ro">Yakuake</name>
   <name xml:lang="ru">Yakuake</name>
   <name xml:lang="sk">Yakuake</name>
   <name xml:lang="sl">Yakuake</name>
@@ -71,6 +72,7 @@
   <summary xml:lang="pl">Rozwijany terminal</summary>
   <summary xml:lang="pt">Terminal Acoplável</summary>
   <summary xml:lang="pt-BR">Terminal suspenso</summary>
+  <summary xml:lang="ro">Terminal derulant</summary>
   <summary xml:lang="ru">Выпадающий терминал</summary>
   <summary xml:lang="sk">Rozbaľovací terminál</summary>
   <summary xml:lang="sl">Roletni terminal</summary>
@@ -113,6 +115,7 @@
     <p xml:lang="pl">Yakuake jest rozwijanym emulatorem terminala opartym na technologii KDE Konsole.</p>
     <p xml:lang="pt">O Yakuake é um emulador de terminal acoplável que se baseia na tecnologia do Konsole para o KDE.</p>
     <p xml:lang="pt-BR">Yakuake é um emulador de terminal baseado na tecnologia do Konsole do KDE.</p>
+    <p xml:lang="ro">Yakuake e un emulator de terminal bazat pe tehnologia Konsole din KDE.</p>
     <p xml:lang="ru">Yakuake — выпадающий эмулятор терминала, основанный на библиотеке приложения Konsole от KDE.</p>
     <p xml:lang="sk">Yakuake je drop-down emulátor terminálu založený na KDE technológii Konsole.</p>
     <p xml:lang="sl">Yakuake je roletni terminal na osnovi tehnologije KDE Konsole.</p>
@@ -154,6 +157,7 @@
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Funcionalidades:</p>
+    <p xml:lang="ro">Caracteristici:</p>
     <p xml:lang="ru">Возможности:</p>
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sl">Zmožnosti:</p>
@@ -192,6 +196,7 @@
       <li xml:lang="pl">Płynnie rozwija się z góry ekranu</li>
       <li xml:lang="pt">Desenrola-se suavemente a partir do topo do seu ecrã</li>
       <li xml:lang="pt-BR">Desenrola-se suavemente a partir do topo da sua tela</li>
+      <li xml:lang="ro">Se derulează lin în jos din partea de sus a ecranului</li>
       <li xml:lang="ru">Плавное появление из верхней части экрана;</li>
       <li xml:lang="sk">Plynulé rolovanie dolu z vrchu obrazovky</li>
       <li xml:lang="sl">Z vrha zaslona se gladko pomakne navzdol</li>
@@ -230,6 +235,7 @@
       <li xml:lang="pl">Interfejs z kartami</li>
       <li xml:lang="pt">Interface por páginas</li>
       <li xml:lang="pt-BR">Interface por abas</li>
+      <li xml:lang="ro">Interfață cu file</li>
       <li xml:lang="ru">Поддержка вкладок;</li>
       <li xml:lang="sk">Kartové rozhranie</li>
       <li xml:lang="sl">Vmesnik z zavihki</li>
@@ -266,6 +272,7 @@
       <li xml:lang="pl">Ustawialny rozmiar i szybkość animacji</li>
       <li xml:lang="pt">Dimensões e velocidade de animação configuráveis</li>
       <li xml:lang="pt-BR">Dimensões e velocidade de animação configuráveis</li>
+      <li xml:lang="ro">Dimensiuni și viteză de animație configurabile</li>
       <li xml:lang="ru">Настраиваемые размеры и скорость анимации;</li>
       <li xml:lang="sk">Nastaviteľné rozmery a rýchlosť animácií</li>
       <li xml:lang="sl">Nastavljive dimenzije in hitrost animacije</li>
@@ -302,6 +309,7 @@
       <li xml:lang="pl">Możliwość używania skórek</li>
       <li xml:lang="pt">Visual personalizável</li>
       <li xml:lang="pt-BR">Visual personalizável</li>
+      <li xml:lang="ro">Susține tematici personalizate</li>
       <li xml:lang="ru">Поддержка стилей оформления;</li>
       <li xml:lang="sk">Skinovateľné</li>
       <li xml:lang="sl">Se da preoblačiti</li>
@@ -338,6 +346,7 @@
       <li xml:lang="pl">Zaawansowany interfejs D-Bus</li>
       <li xml:lang="pt">Interface de D-Bus sofisticada</li>
       <li xml:lang="pt-BR">Interface D-Bus sofisticada</li>
+      <li xml:lang="ro">Interfață D-Bus sofisticată</li>
       <li xml:lang="ru">Поддержка интерфейса D-Bus.</li>
       <li xml:lang="sk">Sofistikované rozhranie </li>
       <li xml:lang="sl">Napreden vmesnik z D-busom</li>
