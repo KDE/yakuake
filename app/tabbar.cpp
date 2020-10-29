@@ -808,6 +808,8 @@ void TabBar::interactiveRenameDone()
     m_renamingSessionId = -1;
 
     setTabTitleInteractive(sessionId, m_lineEdit->text().trimmed());
+	m_tabTitlesSetInteractive.remove(sessionId);
+
 }
 
 void TabBar::selectTab(int sessionId)
