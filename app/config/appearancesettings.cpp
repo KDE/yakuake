@@ -272,8 +272,8 @@ bool AppearanceSettings::validateSkin(const QString& skinId, bool kns)
 {
     QString dir = kns ? QStringLiteral("kns_skins/") : QStringLiteral("skins/");
 
-    QString titlePath = QStandardPaths::locate(QStandardPaths::DataLocation, dir + skinId + QStringLiteral("/title.skin"));
-    QString tabsPath = QStandardPaths::locate(QStandardPaths::DataLocation, dir + skinId + QStringLiteral("/tabs.skin"));
+    QString titlePath = QStandardPaths::locate(QStandardPaths::AppDataLocation, dir + skinId + QStringLiteral("/title.skin"));
+    QString tabsPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, dir + skinId + QStringLiteral("/tabs.skin"));
 
     return !titlePath.isEmpty() && !tabsPath.isEmpty();
 }

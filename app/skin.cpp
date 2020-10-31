@@ -42,8 +42,8 @@ bool Skin::load(const QString& name, bool kns)
 {
     QString dir = kns ? QStringLiteral("kns_skins/") : QStringLiteral("skins/");
 
-    QString titlePath = QStandardPaths::locate(QStandardPaths::DataLocation, dir + name + QStringLiteral("/title.skin"));
-    QString tabPath = QStandardPaths::locate(QStandardPaths::DataLocation, dir + name + QStringLiteral("/tabs.skin"));
+    QString titlePath = QStandardPaths::locate(QStandardPaths::AppDataLocation, dir + name + QStringLiteral("/title.skin"));
+    QString tabPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, dir + name + QStringLiteral("/tabs.skin"));
 
     if (!QFile::exists(titlePath) || !QFile::exists(tabPath))
         return false;
