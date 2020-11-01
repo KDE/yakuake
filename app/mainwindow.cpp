@@ -842,14 +842,14 @@ void MainWindow::applySettings()
     if (Settings::dynamicTabTitles())
     {
         connect(m_sessionStack, SIGNAL(titleChanged(int,QString)),
-            m_tabBar, SLOT(setTabTitle(int,QString)));
+            m_tabBar, SLOT(setTabTitleAutomated(int,QString)));
 
         m_sessionStack->emitTitles();
     }
     else
     {
         disconnect(m_sessionStack, SIGNAL(titleChanged(int,QString)),
-            m_tabBar, SLOT(setTabTitle(int,QString)));
+            m_tabBar, SLOT(setTabTitleAutomated(int,QString)));
     }
 
     m_animationTimer.setInterval(Settings::frames() ? 10 : 0);
