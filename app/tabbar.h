@@ -44,6 +44,7 @@ class TabBar : public QWidget
     Q_CLASSINFO("D-Bus Interface", "org.kde.yakuake")
 
     public:
+        enum InteractiveType {NonInteractive=0, Interactive=1};
         explicit TabBar(MainWindow* mainWindow);
         ~TabBar();
 
@@ -64,7 +65,8 @@ class TabBar : public QWidget
         void moveTabRight(int sessionId = -1);
 
         Q_SCRIPTABLE QString tabTitle(int sessionId);
-        Q_SCRIPTABLE void setTabTitle(int sessionId, const QString& newTitle);
+        Q_SCRIPTABLE void setTabTitle(int sessionId, const QString& newTitle, InteractiveType interactive=Interactive);
+        void setTabTitleAutomated(int sessionId, const QString& newTitle);
 
         Q_SCRIPTABLE int sessionAtTab(int index);
 
@@ -96,8 +98,6 @@ class TabBar : public QWidget
         void mouseDoubleClickEvent(QMouseEvent*) override;
         void contextMenuEvent(QContextMenuEvent*) override;
         void leaveEvent(QEvent*) override;
-
-        void setTabTitleInteractive(int sessionId, const QString& newTitle);
 
 
     private Q_SLOTS:

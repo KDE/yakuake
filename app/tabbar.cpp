@@ -807,7 +807,7 @@ void TabBar::interactiveRenameDone()
 
     m_renamingSessionId = -1;
 
-    setTabTitleInteractive(sessionId, m_lineEdit->text().trimmed());
+    setTabTitle(sessionId, m_lineEdit->text().trimmed());
 }
 
 void TabBar::selectTab(int sessionId)
@@ -895,34 +895,28 @@ QString TabBar::tabTitle(int sessionId)
         return QString();
 }
 
-void TabBar::setTabTitle(int sessionId, const QString& newTitle)
+void TabBar::setTabTitle(int sessionId, const QString& newTitle, InteractiveType interactive)
 {
     if (sessionId == -1) return;
     if (!m_tabTitles.contains(sessionId)) return;
-    if (m_tabTitlesSetInteractive.value(sessionId, false)) return;
-
-    if (!newTitle.isEmpty())
-        m_tabTitles[sessionId] = newTitle;
-
-    emit tabTitleEdited(sessionId, newTitle);
-    update();
-}
-
-void TabBar::setTabTitleInteractive(int sessionId, const QString& newTitle)
-{
-    if (sessionId == -1) return;
-    if (!m_tabTitles.contains(sessionId)) return;
+    if (!interactive && m_tabTitlesSetInteractive.value(sessionId, false)) return;
+    if (interactive)
+        m_tabTitlesSetInteractive[sessionId] = interactive;
 
     if (!newTitle.isEmpty())
     {
         m_tabTitles[sessionId] = newTitle;
-        m_tabTitlesSetInteractive[sessionId] = true;
     }
     else
         m_tabTitlesSetInteractive.remove(sessionId);
 
     emit tabTitleEdited(sessionId, newTitle);
     update();
+}
+
+void TabBar::setTabTitleAutomated(int sessionId, const QString& newTitle)
+{
+    setTabTitle(sessionId, newTitle, NonInteractive);
 }
 
 int TabBar::sessionAtTab(int index)
