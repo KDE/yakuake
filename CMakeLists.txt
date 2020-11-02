@@ -8,8 +8,9 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 
 cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
 set (QT_MIN_VERSION "5.14.0")
+set (KF5_MIN_VERSION "5.60")
 
-find_package(ECM 1.2.0 REQUIRED NO_MODULE)
+find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 include(KDEInstallDirs)
@@ -24,7 +25,7 @@ option(REMOVE_SENDTEXT_RUNCOMMAND_DBUS_METHODS "yakuake: remove runCommand dbus 
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets Svg)
 
-find_package(KF5 5.60 REQUIRED
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     Archive
     Config
     CoreAddons
