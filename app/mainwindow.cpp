@@ -607,7 +607,15 @@ void MainWindow::handleTerminalActivity(Terminal *terminal)
 
         QString message(xi18nc("@info", "Activity detected in monitored terminal in session \"%1\".", m_tabBar->tabTitle(session->id())));
 
-        KNotification::event(QLatin1String("activity"), message, QPixmap(), terminal->partWidget(), KNotification::CloseWhenWidgetActivated);
+#if QT_VERSION_MAJOR == 5
+        KNotification *n = new KNotification(QLatin1String("activity"), KNotification::CloseWhenWidgetActivated);
+        n->setWidget(terminal->partWidget());
+#else
+        KNotification *n = new KNotification(QLatin1String("activity"), KNotification::CloseWhenWindowActivated);
+        n->setWindow(terminal->partWidget()->window()->windowHandle());
+#endif
+        n->setText(message);
+        n->sendEvent();
     }
 }
 
@@ -618,7 +626,15 @@ void MainWindow::handleTerminalSilence(Terminal *terminal)
     if (session) {
         QString message(xi18nc("@info", "Silence detected in monitored terminal in session \"%1\".", m_tabBar->tabTitle(session->id())));
 
-        KNotification::event(QLatin1String("silence"), message, QPixmap(), terminal->partWidget(), KNotification::CloseWhenWidgetActivated);
+#if QT_VERSION_MAJOR == 5
+        KNotification *n = new KNotification(QLatin1String("silence"), KNotification::CloseWhenWidgetActivated);
+        n->setWidget(terminal->partWidget());
+#else
+        KNotification *n = new KNotification(QLatin1String("silence"), KNotification::CloseWhenWindowActivated);
+        n->setWindow(terminal->partWidget()->window()->windowHandle());
+#endif
+        n->setText(message);
+        n->sendEvent();
     }
 }
 
