@@ -197,7 +197,7 @@ void TabBar::updateToggleKeyboardInputMenu(int sessionId)
 
     SessionStack* sessionStack = m_mainWindow->sessionStack();
 
-    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QLatin1Char(','), QString::SkipEmptyParts);
+    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QLatin1Char(','), Qt::SkipEmptyParts);
 
     m_toggleKeyboardInputMenu->clear();
 
@@ -245,7 +245,7 @@ void TabBar::updateToggleMonitorActivityMenu(int sessionId)
 
     SessionStack* sessionStack = m_mainWindow->sessionStack();
 
-    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QLatin1Char(','), QString::SkipEmptyParts);
+    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QLatin1Char(','), Qt::SkipEmptyParts);
 
     m_toggleMonitorActivityMenu->clear();
 
@@ -293,7 +293,7 @@ void TabBar::updateToggleMonitorSilenceMenu(int sessionId)
 
     SessionStack* sessionStack = m_mainWindow->sessionStack();
 
-    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QLatin1Char(','), QString::SkipEmptyParts);
+    QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QLatin1Char(','), Qt::SkipEmptyParts);
 
     m_toggleMonitorSilenceMenu->clear();
 
