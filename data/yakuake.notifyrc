@@ -57,7 +57,7 @@ Comment[zh_TW]=Yakuake
 [Event/silence]
 Name=Silence detected
 Name[ar]=اكتُشف سكون
-Name[ast]=Silenciu deteutáu
+Name[ast]=Silenciu detectáu
 Name[bs]=Tišina prepoznata
 Name[ca]=S'ha detectat silenci
 Name[ca@valencia]=S'ha detectat silenci
@@ -154,7 +154,7 @@ Action=Popup
 [Event/activity]
 Name=Activity detected
 Name[ar]=اكتُشف نشاط
-Name[ast]=Actividá deteutada
+Name[ast]=Actividá detectada
 Name[bs]=Aktivnost detektovana
 Name[ca]=S'ha detectat activitat
 Name[ca@valencia]=S'ha detectat activitat
