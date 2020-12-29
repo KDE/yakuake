@@ -485,28 +485,25 @@ void AppearanceSettings::getNewSkins()
     // regardless whether the dialog's result is Accepted or Rejected)!
     dialog->exec();
 
-    if (dialog.isNull())
-    {
+    if (dialog.isNull()) {
         return;
     }
+    const auto installedEntries = dialog->installedEntries();
+    const auto changedEntries = dialog->changedEntries();
 
-    if (!dialog->installedEntries().empty())
-    {
+    if (!installedEntries.empty()) {
         quint32 invalidEntryCount = 0;
         QString invalidSkinText;
 
-        foreach (const KNS3::Entry &entry3, dialog->installedEntries())
-        {
+        for (const KNS3::Entry &entry3 : installedEntries) {
             KNSCore::EntryInternal entry = KNSCore::EntryInternal::fromEntry(entry3);
             bool isValid = true;
             const QSet<QString>& skinIdList = extractKnsSkinIds(entry.installedFiles());
 
             // Validate all skin IDs as each archive can contain multiple skins.
-            foreach (const QString& skinId, skinIdList)
-            {
+            for (const QString& skinId : skinIdList) {
                 // Validate the current skin.
-                if (!validateSkin(skinId, true))
-                {
+                if (!validateSkin(skinId, true)) {
                     isValid = false;
                 }
             }
