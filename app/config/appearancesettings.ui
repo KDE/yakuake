@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>582</width>
-    <height>470</height>
+    <height>480</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -36,6 +36,13 @@
         </property>
         <property name="text">
          <string comment="@option:check">Highlight terminals when moving focus between them</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="kcfg_HideSkinBorders">
+        <property name="text">
+         <string>Hide borders</string>
         </property>
        </widget>
       </item>

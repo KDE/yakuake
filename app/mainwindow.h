@@ -138,6 +138,8 @@ class MainWindow : public KMainWindow
 
         void handleSwitchToAction();
 
+        void handleToggleTitlebar();
+
         void whatsThis();
 
         void configureKeys();

@@ -56,6 +56,11 @@
       <whatsthis context="@info:whatsthis">Whether to keep the application window above other windows on the screen.</whatsthis>
       <default>true</default>
     </entry>
+    <entry name="ShowTitleBar" type="Bool">
+       <label context="@label">Show title bar</label>
+      <whatsthis context="@info:whatsthis">Whether to show the title bar in the application window.</whatsthis>
+      <default>true</default>
+    </entry>
     <entry name="ShowTabBar" type="Bool">
        <label context="@label">Show tab bar</label>
       <whatsthis context="@info:whatsthis">Whether to show the tab bar in the application window.</whatsthis>
@@ -125,6 +130,11 @@
     <entry name="TerminalHighlightOnManualActivation" type="Bool">
       <label context="@label">Highlight newly focused terminals</label>
       <whatsthis context="@info:whatsthis">Whether to briefly display a colored overlay above the newly focused terminal when moving focus between multiple terminals in a session, as well as over the currently focused terminal when switching to a session with multiple terminals.</whatsthis>
+      <default>false</default>
+    </entry>
+    <entry name="HideSkinBorders" type="Bool">
+      <label context="@label">Hide the borders defined by the skin</label>
+      <whatsthis context="@info:whatsthis">Skins can define borders around the terminal including the tabbar. This option, when turned on, will overwrite the border settings defined by the skin and hide all borders.</whatsthis>
       <default>false</default>
     </entry>
     <entry name="TerminalHighlightOpacity" type="Double">

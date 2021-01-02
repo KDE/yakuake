@@ -23,6 +23,7 @@
 #include "settings.h"
 
 #include <KLocalizedString>
+#include <KMessageBox>
 
 #include <QDesktopWidget>
 
@@ -38,6 +39,8 @@ WindowSettings::WindowSettings(QWidget* parent) : QWidget(parent)
         screenLabel->setEnabled(true);
         kcfg_Screen->setEnabled(true);
     }
+
+    connect(kcfg_ShowTitleBar, SIGNAL(stateChanged(int)), this, SLOT(interceptHideTitleBar(int)));
 
     connect(kcfg_Width, SIGNAL(valueChanged(int)), this, SLOT(updateWidthSlider(int)));
     connect(widthSlider, SIGNAL(valueChanged(int)), this, SLOT(updateWidthSpinBox(int)));
@@ -94,4 +97,34 @@ void WindowSettings::updateFramesSpinBox(int speed)
 void WindowSettings::updatePosition(int position)
 {
     emit updateWindowGeometry(kcfg_Width->value(), kcfg_Height->value(), position);
+}
+
+void WindowSettings::interceptHideTitleBar(int state)
+{
+    if (state == 0) {
+
+        if (Settings::showTitleBar()) { // If the title bar is hidden don't ask if toggling is ok
+
+            const char* message = "You are about to hide the title bar. This will keep you "
+                                  "from accessing the settings menu via the mouse. To show "
+                                  "the title bar again press the keyboard shortcut (default "
+                                  "Ctrl+Shift+m) or access the settings menu via keyborad "
+                                  "shortcut (defult: Ctrl+Shift+,).";
+
+            const int result = KMessageBox::warningContinueCancel(
+                this,
+                xi18nc("@info", message),
+                xi18nc("@title:window", "Hiding Title Bar"),
+                KStandardGuiItem::cont(),
+                KStandardGuiItem::cancel(),
+                QStringLiteral("hinding_title_bar")
+            );
+
+            if (result == KMessageBox::ButtonCode::Cancel) {
+                kcfg_ShowTitleBar->setCheckState(Qt::CheckState::Checked);
+            }
+        }
+
+    }
+
 }

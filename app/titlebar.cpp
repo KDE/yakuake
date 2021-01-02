@@ -73,9 +73,21 @@ TitleBar::~TitleBar()
 {
 }
 
+void TitleBar::setVisible(bool visible)
+{
+    m_visible = visible;
+    if (m_visible) {
+        resize(width(), m_skin->titleBarBackgroundImage().height());
+    } else {
+        resize(width(), 0);
+    }
+
+    QWidget::setVisible(m_visible);
+}
+
 void TitleBar::applySkin()
 {
-    resize(width(), m_skin->titleBarBackgroundImage().height());
+    resize(width(), m_visible ? m_skin->titleBarBackgroundImage().height() : 0);
 
     m_focusButton->setStyleSheet(m_skin->titleBarFocusButtonStyleSheet());
     m_menuButton->setStyleSheet(m_skin->titleBarMenuButtonStyleSheet());

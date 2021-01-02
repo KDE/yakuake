@@ -1,1 +1,133 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 30"><defs><linearGradient y2="12.318" x2="48.41" y1="32.21" x1="48.35" gradientTransform="matrix(.41317 0 0 1.49415 558.94 564.94)" gradientUnits="userSpaceOnUse" id="3" xlink:href="#2"/><linearGradient id="2"><stop stop-color="#515a63"/><stop offset="1" stop-color="#474f57"/></linearGradient><linearGradient y2="12.318" x2="48.41" y1="32.21" x1="48.35" gradientTransform="matrix(.41317 0 0 1.29493 538.94 567.36)" gradientUnits="userSpaceOnUse" id="0" xlink:href="#2"/><linearGradient xlink:href="#2" id="1" x1="613.12" x2="583.12" gradientUnits="userSpaceOnUse"/></defs><g transform="translate(-553.72-583.12)"><g color="#000"><path fill="url(#0)" d="m553.72 583.12h10v26h-10z"/><rect width="30" height="30" x="583.12" y="-583.72" rx="4" transform="matrix(0 1-1 0 0 0)" fill="url(#1)"/><path fill="url(#3)" d="m573.72 583.12h10v30h-10z"/></g><path transform="matrix(0 1-1 0 0 0)" fill="#3daee9" d="m583.12-583.72h2v30h-2z"/><g transform="matrix(1.125 0 0 1.125 556.35-573.41)" fill="#f2f2f2"><path d="m3 3v1 11 1 3h1 2 8 4 1v-15-1h-16m1 1h14v14h-4-8-2v-2-1-11" transform="translate(0 1030.36)"/><path transform="matrix(.7071.70711.7071-.70711 0 0)" d="m740.39-731.9h3.243v1h-3.243z"/><path transform="matrix(.7071-.70711.7071.70711 0 0)" d="m-734.44 742.92h3.243v1h-3.243z"/><path d="m8.794 1042.86l.207-.207.207.207-.207.207z" fill-rule="evenodd"/><path d="m10 1044.36h4v1h-4z"/></g></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="left.svg"
+   id="svg36"
+   version="1.1"
+   viewBox="0 0 30 30">
+  <metadata
+     id="metadata40">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="g34"
+     inkscape:window-maximized="1"
+     inkscape:window-y="0"
+     inkscape:window-x="0"
+     inkscape:cy="14.52372"
+     inkscape:cx="7.019745"
+     inkscape:zoom="23.833333"
+     showgrid="false"
+     id="namedview38"
+     inkscape:window-height="1080"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <defs
+     id="defs10">
+    <linearGradient
+       xlink:href="#2"
+       id="3"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(.41317 0 0 1.49415 558.94 564.94)"
+       x1="48.35"
+       y1="32.21"
+       x2="48.41"
+       y2="12.318" />
+    <linearGradient
+       id="2">
+      <stop
+         id="stop3"
+         stop-color="#515a63" />
+      <stop
+         id="stop5"
+         stop-color="#474f57"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#2"
+       id="0"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(.41317 0 0 1.29493 538.94 567.36)"
+       x1="48.35"
+       y1="32.21"
+       x2="48.41"
+       y2="12.318" />
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       x2="583.12"
+       x1="613.12"
+       id="1"
+       xlink:href="#2" />
+  </defs>
+  <g
+     id="g34"
+     transform="translate(-553.72-583.12)">
+    <g
+       id="g18"
+       color="#000">
+      <path
+         id="path12"
+         d="m553.72 583.12h10v26h-10z"
+         fill="url(#0)" />
+      <rect
+         id="rect14"
+         fill="url(#1)"
+         transform="matrix(0 1-1 0 0 0)"
+         rx="4"
+         y="-583.72"
+         x="583.12"
+         height="30"
+         width="30" />
+      <path
+         id="path16"
+         d="m573.72 583.12h10v30h-10z"
+         fill="url(#3)" />
+    </g>
+    <g
+       id="g32"
+       fill="#f2f2f2"
+       transform="matrix(1.125 0 0 1.125 556.35-573.41)">
+      <path
+         id="path22"
+         transform="translate(0 1030.36)"
+         d="m3 3v1 11 1 3h1 2 8 4 1v-15-1h-16m1 1h14v14h-4-8-2v-2-1-11" />
+      <path
+         id="path24"
+         d="m740.39-731.9h3.243v1h-3.243z"
+         transform="matrix(.7071.70711.7071-.70711 0 0)" />
+      <path
+         id="path26"
+         d="m-734.44 742.92h3.243v1h-3.243z"
+         transform="matrix(.7071-.70711.7071.70711 0 0)" />
+      <path
+         id="path28"
+         fill-rule="evenodd"
+         d="m8.794 1042.86l.207-.207.207.207-.207.207z" />
+      <path
+         id="path30"
+         d="m10 1044.36h4v1h-4z" />
+    </g>
+  </g>
+</svg>

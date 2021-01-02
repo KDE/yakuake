@@ -42,6 +42,7 @@ class TitleBar : public QWidget
         explicit TitleBar(MainWindow* mainWindow);
         ~TitleBar();
 
+        void setVisible(bool visible) override;
         void applySkin();
         void updateMask();
         void updateMenu();
@@ -66,6 +67,7 @@ class TitleBar : public QWidget
 
         MainWindow* m_mainWindow;
         Skin* m_skin;
+        bool m_visible = false;
 
         QPushButton* m_focusButton;
         QPushButton* m_menuButton;

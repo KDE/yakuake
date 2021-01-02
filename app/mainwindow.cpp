@@ -460,6 +460,12 @@ void MainWindow::setupActions()
     connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
     m_contextDependentActions << action;
 
+    action = actionCollection()->addAction(QStringLiteral("toggle-titlebar"));
+    action->setText(xi18nc("@action", "Toggle Titlebar"));
+    actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_M));
+    action->setCheckable(true);
+    connect(action, SIGNAL(triggered()), this, SLOT(handleToggleTitlebar()));
+
     for (uint i = 1; i <= 10; ++i)
     {
         action = actionCollection()->addAction(QStringLiteral("switch-to-session-%1").arg(i));
@@ -637,6 +643,42 @@ void MainWindow::handleSwitchToAction()
 
     if (action && !action->data().isNull())
         m_sessionStack->raiseSession(m_tabBar->sessionAtTab(action->data().toInt()));
+}
+
+void MainWindow::handleToggleTitlebar()
+{
+    auto toggleFunc = [this](){
+            bool showTitleBar = !Settings::showTitleBar();
+            m_titleBar->setVisible(showTitleBar);
+            Settings::setShowTitleBar(showTitleBar);
+            Settings::self()->save();
+            applyWindowGeometry();
+        };
+
+    if (Settings::showTitleBar()) { // If the title bar is hidden don't ask if toggling is ok
+
+         const char* message = "You are about to hide the title bar. This will keep you "
+                                  "from accessing the settings menu via the mouse. To show "
+                                  "the title bar again press the keyboard shortcut (default "
+                                  "Ctrl+Shift+m) or access the settings menu via keyborad "
+                                  "shortcut (defult: Ctrl+Shift+,).";
+
+        const int result = KMessageBox::warningContinueCancel(
+            this,
+            xi18nc("@info", message),
+            xi18nc("@title:window", "Hiding Title Bar"),
+            KStandardGuiItem::cont(),
+            KStandardGuiItem::cancel(),
+            QStringLiteral("hinding_title_bar")
+        );
+
+        if (result == KMessageBox::ButtonCode::Continue) {
+            toggleFunc();
+        }
+    } else {
+        toggleFunc();
+    }
+
 }
 
 void MainWindow::setupMenu()
@@ -855,6 +897,7 @@ void MainWindow::applySettings()
     m_animationTimer.setInterval(Settings::frames() ? 10 : 0);
 
     m_tabBar->setVisible(Settings::showTabBar());
+    m_titleBar->setVisible(Settings::showTitleBar());
 
     if (!Settings::showSystrayIcon() && m_notifierItem) {
         delete m_notifierItem;
@@ -878,6 +921,8 @@ void MainWindow::applySettings()
         connect(m_notifierItem, &KStatusNotifierItem::activateRequested, this, &MainWindow::toggleWindowState);
         updateTrayTooltip();
     }
+
+    repaint(); // used to repaint skin borders if Settings::hideSkinBorders has been changed
 
     setKeepOpen(Settings::keepOpen());
 
@@ -972,6 +1017,8 @@ void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition)
     else
         m_animationStepSize = maxHeight;
 
+    auto borderWidth = Settings::hideSkinBorders() ? 0 : m_skin->borderWidth();
+
     if (Settings::showTabBar())
     {
         if (m_skin->tabBarCompact())
@@ -982,13 +1029,13 @@ void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition)
         else
         {
             maxHeight -= m_tabBar->height();
-            m_tabBar->setGeometry(m_skin->borderWidth(), maxHeight,
-                width() - 2 * m_skin->borderWidth(), m_tabBar->height());
+            m_tabBar->setGeometry(borderWidth, maxHeight - borderWidth,
+                width() - 2 * borderWidth, m_tabBar->height());
         }
     }
 
-    m_sessionStack->setGeometry(m_skin->borderWidth(), 0,
-        width() - 2 * m_skin->borderWidth(), maxHeight);
+    m_sessionStack->setGeometry(borderWidth, 0,
+        width() - 2 * borderWidth, maxHeight - borderWidth);
 
     updateMask();
 }
@@ -1077,12 +1124,18 @@ void MainWindow::paintEvent(QPaintEvent* event)
     else
         painter.fillRect(rect(), Settings::backgroundColor());
 
-    QRect leftBorder(0, 0, m_skin->borderWidth(), height() - m_titleBar->height());
-    painter.fillRect(leftBorder, m_skin->borderColor());
+    if (!Settings::hideSkinBorders()) {
+        const QRect leftBorder(0, 0, m_skin->borderWidth(), height() - m_titleBar->height());
+        painter.fillRect(leftBorder, m_skin->borderColor());
 
-    QRect rightBorder(width() - m_skin->borderWidth(), 0, m_skin->borderWidth(),
-        height() - m_titleBar->height());
-    painter.fillRect(rightBorder, m_skin->borderColor());
+        const QRect rightBorder(width() - m_skin->borderWidth(), 0, m_skin->borderWidth(),
+            height() - m_titleBar->height());
+        painter.fillRect(rightBorder, m_skin->borderColor());
+
+        const QRect bottomBorder(0, height() - m_skin->borderWidth() - m_titleBar->height(), width(), m_skin->borderWidth());
+        painter.fillRect(bottomBorder, m_skin->borderColor());
+
+    }
 
     KMainWindow::paintEvent(event);
 }

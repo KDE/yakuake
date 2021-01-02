@@ -6,27 +6,70 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>289</width>
-    <height>441</height>
+    <width>357</width>
+    <height>469</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
     <number>0</number>
    </property>
-   <property name="margin">
+   <property name="leftMargin">
     <number>0</number>
    </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QGroupBox" name="groupBox_0">
+     <property name="title">
+      <string>Title Bar</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QCheckBox" name="kcfg_ShowTitleBar">
+        <property name="text">
+         <string>Show title bar</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+        <property name="tristate">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
    <item>
     <widget class="QGroupBox" name="groupBox_1">
      <property name="title">
       <string comment="@title:group">Tab Bar</string>
      </property>
      <layout class="QGridLayout">
-      <item row="0" column="0" colspan="2">
-       <widget class="QCheckBox" name="kcfg_ShowTabBar">
+      <item row="1" column="1">
+       <widget class="QCheckBox" name="kcfg_DynamicTabTitles">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="whatsThis">
+         <string comment="@info:whatsthis">If this option is enabled, the information about the active terminal's contents that is normally shown in the title bar will also be shown on the tab bar. You can modify the format of the information in the terminal profile.</string>
+        </property>
         <property name="text">
-         <string comment="@option:check">Show the tab bar</string>
+         <string comment="@option:check">Show title bar contents in tab labels</string>
         </property>
        </widget>
       </item>
@@ -46,22 +89,10 @@
         </property>
        </spacer>
       </item>
-      <item row="1" column="1">
-       <widget class="QCheckBox" name="kcfg_DynamicTabTitles">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="whatsThis">
-         <string comment="@info:whatsthis">If this option is enabled, the information about the active terminal's contents that is normally shown in the title bar will also be shown on the tab bar. You can modify the format of the information in the terminal profile.</string>
-        </property>
+      <item row="0" column="0" colspan="2">
+       <widget class="QCheckBox" name="kcfg_ShowTabBar">
         <property name="text">
-         <string comment="@option:check">Show title bar contents in tab labels</string>
+         <string comment="@option:check">Show the tab bar</string>
         </property>
        </widget>
       </item>
