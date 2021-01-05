@@ -31,7 +31,6 @@
 #include <KTar>
 
 #include <knewstuff_version.h>
-#include <downloadmanager.h>
 #if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 78, 0)
 #include <downloaddialog.h>
 #else
@@ -73,7 +72,6 @@ AppearanceSettings::AppearanceSettings(QWidget* parent) : QWidget(parent)
     ghnsButton->setIcon(QIcon::fromTheme(QStringLiteral("get-hot-new-stuff")));
 
     m_knsConfigFileName = QLatin1String("yakuake.knsrc");
-    m_knsDownloadManager = new KNSCore::DownloadManager(m_knsConfigFileName);
 
     connect(ghnsButton, &QPushButton::clicked, this, &AppearanceSettings::getNewSkins);
 
@@ -394,31 +392,12 @@ void AppearanceSettings::updateRemoveSkinButton()
         return;
     }
 
-    QString skinDir;
-
-    QVariant value = skinList->currentIndex().data(SkinDir);
-    if (value.isValid())
-        skinDir = value.toString();
-
-    value = skinList->currentIndex().data(SkinInstalledWithKns);
-    bool isKnsSkin = value.toBool();
-
-    // We don't allow the user to remove the default skin
-    // or any skin which was installed through KNS3.
-    if (skinDir.isEmpty() || isKnsSkin)
-    {
-        removeButton->setEnabled(false);
-        return;
+    const QString skinDir = skinList->currentIndex().data(SkinDir).toString();
+    bool enabled = false;
+    if (!skinDir.isEmpty()) {
+        enabled == QFileInfo(skinDir + QStringLiteral("/title.skin")).isWritable();
     }
-
-    QFile titleSkin(skinDir + QStringLiteral("/title.skin"));
-
-    if (!titleSkin.open(QIODevice::ReadWrite))
-        removeButton->setEnabled(false);
-    else
-        removeButton->setEnabled(true);
-
-    titleSkin.close();
+    removeButton->setEnabled(enabled);
 }
 
 void AppearanceSettings::removeSelectedSkin()
@@ -534,7 +513,18 @@ void AppearanceSettings::getNewSkins()
             invalidSkinText += QString(QStringLiteral("<li>%1</li>")).arg(entry.name());
 
             // Then remove the skin.
-            m_knsDownloadManager->uninstallEntry(entry);
+            const QStringList files = entry.installedFiles();
+            for (const QString &file : files) {
+                QFileInfo info(QString(file).remove(QStringLiteral("/*")));
+                if (!info.exists()) {
+                    continue;
+                }
+                if (info.isDir()) {
+                    QDir(info.absoluteFilePath()).removeRecursively();
+                } else {
+                    QFile::remove(info.absoluteFilePath());
+                }
+            }
         }
     }
 

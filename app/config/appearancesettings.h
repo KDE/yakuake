@@ -35,12 +35,6 @@ class SkinListDelegate;
 class QStandardItem;
 class QStandardItemModel;
 
-namespace KNSCore
-{
-    class DownloadManager;
-}
-
-
 class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
 {
     Q_OBJECT
@@ -135,7 +129,6 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
         QStringList m_installSkinFileList;
 
         QString m_knsConfigFileName;
-        KNSCore::DownloadManager* m_knsDownloadManager;
 };
 
 #endif
