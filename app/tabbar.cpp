@@ -19,41 +19,40 @@
   along with this program. If not, see https://www.gnu.org/licenses/.
 */
 
-
 #include "tabbar.h"
 #include "mainwindow.h"
-#include "skin.h"
 #include "session.h"
 #include "sessionstack.h"
 #include "settings.h"
+#include "skin.h"
 
 #include <KActionCollection>
 #include <KLocalizedString>
 
 #include <QApplication>
 #include <QBitmap>
+#include <QDBusConnection>
 #include <QFontDatabase>
 #include <QLineEdit>
 #include <QMenu>
 #include <QPainter>
 #include <QPushButton>
-#include <QDBusConnection>
 #include <QToolButton>
-#include <QWheelEvent>
 #include <QWhatsThis>
+#include <QWheelEvent>
 
-#include <QMimeData>
 #include <QDrag>
 #include <QLabel>
+#include <QMimeData>
 
-
-TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
+TabBar::TabBar(MainWindow *mainWindow)
+    : QWidget(mainWindow)
 {
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/yakuake/tabs"), this, QDBusConnection::ExportScriptableSlots);
 
     setWhatsThis(xi18nc("@info:whatsthis",
-                       "<title>Tab Bar</title>"
-                       "<para>The tab bar allows you to switch between sessions. You can double-click a tab to edit its label.</para>"));
+                        "<title>Tab Bar</title>"
+                        "<para>The tab bar allows you to switch between sessions. You can double-click a tab to edit its label.</para>"));
 
     m_selectedSessionId = -1;
     m_renamingSessionId = -1;
@@ -69,7 +68,7 @@ TabBar::TabBar(MainWindow* mainWindow) : QWidget(mainWindow)
     connect(m_skin, SIGNAL(iconChanged()), this, SLOT(repaint()));
 
     m_tabContextMenu = new QMenu(this);
-    connect(m_tabContextMenu, SIGNAL(hovered(QAction*)), this, SLOT(contextMenuActionHovered(QAction*)));
+    connect(m_tabContextMenu, SIGNAL(hovered(QAction *)), this, SLOT(contextMenuActionHovered(QAction *)));
 
     m_toggleKeyboardInputMenu = new QMenu(xi18nc("@title:menu", "Disable Keyboard Input"), this);
     m_toggleMonitorActivityMenu = new QMenu(xi18nc("@title:menu", "Monitor for Activity"), this);
@@ -122,8 +121,7 @@ void TabBar::applySkin()
 
 void TabBar::readyTabContextMenu()
 {
-    if (m_tabContextMenu->isEmpty())
-    {
+    if (m_tabContextMenu->isEmpty()) {
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("split-left-right")));
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("split-top-bottom")));
         m_tabContextMenu->addSeparator();
@@ -144,8 +142,7 @@ void TabBar::readyTabContextMenu()
 
 void TabBar::readySessionMenu()
 {
-    if (m_sessionMenu->isEmpty())
-    {
+    if (m_sessionMenu->isEmpty()) {
         m_sessionMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("new-session")));
         m_sessionMenu->addSeparator();
         m_sessionMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("new-session-two-horizontal")));
@@ -156,7 +153,8 @@ void TabBar::readySessionMenu()
 
 void TabBar::updateMoveActions(int index)
 {
-    if (index == -1) return;
+    if (index == -1)
+        return;
 
     m_mainWindow->actionCollection()->action(QStringLiteral("move-session-left"))->setEnabled(false);
     m_mainWindow->actionCollection()->action(QStringLiteral("move-session-right"))->setEnabled(false);
@@ -170,12 +168,13 @@ void TabBar::updateMoveActions(int index)
 
 void TabBar::updateToggleActions(int sessionId)
 {
-    if (sessionId == -1) return;
+    if (sessionId == -1)
+        return;
 
-    KActionCollection* actionCollection = m_mainWindow->actionCollection();
-    SessionStack* sessionStack = m_mainWindow->sessionStack();
+    KActionCollection *actionCollection = m_mainWindow->actionCollection();
+    SessionStack *sessionStack = m_mainWindow->sessionStack();
 
-    QAction* toggleAction = actionCollection->action(QStringLiteral("toggle-session-prevent-closing"));
+    QAction *toggleAction = actionCollection->action(QStringLiteral("toggle-session-prevent-closing"));
     toggleAction->setChecked(!sessionStack->isSessionClosable(sessionId));
 
     toggleAction = actionCollection->action(QStringLiteral("toggle-session-keyboard-input"));
@@ -190,25 +189,23 @@ void TabBar::updateToggleActions(int sessionId)
 
 void TabBar::updateToggleKeyboardInputMenu(int sessionId)
 {
-    if (!m_tabs.contains(sessionId)) return;
+    if (!m_tabs.contains(sessionId))
+        return;
 
-    QAction* toggleKeyboardInputAction = m_mainWindow->actionCollection()->action(QStringLiteral("toggle-session-keyboard-input"));
-    QAction* anchor = m_toggleKeyboardInputMenu->menuAction();
+    QAction *toggleKeyboardInputAction = m_mainWindow->actionCollection()->action(QStringLiteral("toggle-session-keyboard-input"));
+    QAction *anchor = m_toggleKeyboardInputMenu->menuAction();
 
-    SessionStack* sessionStack = m_mainWindow->sessionStack();
+    SessionStack *sessionStack = m_mainWindow->sessionStack();
 
     QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QLatin1Char(','), Qt::SkipEmptyParts);
 
     m_toggleKeyboardInputMenu->clear();
 
-    if (terminalIds.count() <= 1)
-    {
+    if (terminalIds.count() <= 1) {
         toggleKeyboardInputAction->setText(xi18nc("@action", "Disable Keyboard Input"));
         m_tabContextMenu->insertAction(anchor, toggleKeyboardInputAction);
         m_toggleKeyboardInputMenu->menuAction()->setVisible(false);
-    }
-    else
-    {
+    } else {
         toggleKeyboardInputAction->setText(xi18nc("@action", "For This Session"));
         m_toggleKeyboardInputMenu->menuAction()->setVisible(true);
 
@@ -221,13 +218,12 @@ void TabBar::updateToggleKeyboardInputMenu(int sessionId)
 
         QStringListIterator i(terminalIds);
 
-        while (i.hasNext())
-        {
+        while (i.hasNext()) {
             int terminalId = i.next().toInt();
 
             ++count;
 
-            QAction* action = m_toggleKeyboardInputMenu->addAction(xi18nc("@action", "For Terminal %1", count));
+            QAction *action = m_toggleKeyboardInputMenu->addAction(xi18nc("@action", "For Terminal %1", count));
             action->setCheckable(true);
             action->setChecked(!sessionStack->isTerminalKeyboardInputEnabled(terminalId));
             action->setData(terminalId);
@@ -238,25 +234,23 @@ void TabBar::updateToggleKeyboardInputMenu(int sessionId)
 
 void TabBar::updateToggleMonitorActivityMenu(int sessionId)
 {
-    if (!m_tabs.contains(sessionId)) return;
+    if (!m_tabs.contains(sessionId))
+        return;
 
-    QAction* toggleMonitorActivityAction = m_mainWindow->actionCollection()->action(QStringLiteral("toggle-session-monitor-activity"));
-    QAction* anchor = m_toggleMonitorActivityMenu->menuAction();
+    QAction *toggleMonitorActivityAction = m_mainWindow->actionCollection()->action(QStringLiteral("toggle-session-monitor-activity"));
+    QAction *anchor = m_toggleMonitorActivityMenu->menuAction();
 
-    SessionStack* sessionStack = m_mainWindow->sessionStack();
+    SessionStack *sessionStack = m_mainWindow->sessionStack();
 
     QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QLatin1Char(','), Qt::SkipEmptyParts);
 
     m_toggleMonitorActivityMenu->clear();
 
-    if (terminalIds.count() <= 1)
-    {
+    if (terminalIds.count() <= 1) {
         toggleMonitorActivityAction->setText(xi18nc("@action", "Monitor for Activity"));
         m_tabContextMenu->insertAction(anchor, toggleMonitorActivityAction);
         m_toggleMonitorActivityMenu->menuAction()->setVisible(false);
-    }
-    else
-    {
+    } else {
         toggleMonitorActivityAction->setText(xi18nc("@action", "In This Session"));
         m_toggleMonitorActivityMenu->menuAction()->setVisible(true);
 
@@ -269,13 +263,12 @@ void TabBar::updateToggleMonitorActivityMenu(int sessionId)
 
         QStringListIterator i(terminalIds);
 
-        while (i.hasNext())
-        {
+        while (i.hasNext()) {
             int terminalId = i.next().toInt();
 
             ++count;
 
-            QAction* action = m_toggleMonitorActivityMenu->addAction(xi18nc("@action", "In Terminal %1", count));
+            QAction *action = m_toggleMonitorActivityMenu->addAction(xi18nc("@action", "In Terminal %1", count));
             action->setCheckable(true);
             action->setChecked(sessionStack->isTerminalMonitorActivityEnabled(terminalId));
             action->setData(terminalId);
@@ -286,25 +279,23 @@ void TabBar::updateToggleMonitorActivityMenu(int sessionId)
 
 void TabBar::updateToggleMonitorSilenceMenu(int sessionId)
 {
-    if (!m_tabs.contains(sessionId)) return;
+    if (!m_tabs.contains(sessionId))
+        return;
 
-    QAction* toggleMonitorSilenceAction = m_mainWindow->actionCollection()->action(QStringLiteral("toggle-session-monitor-silence"));
-    QAction* anchor = m_toggleMonitorSilenceMenu->menuAction();
+    QAction *toggleMonitorSilenceAction = m_mainWindow->actionCollection()->action(QStringLiteral("toggle-session-monitor-silence"));
+    QAction *anchor = m_toggleMonitorSilenceMenu->menuAction();
 
-    SessionStack* sessionStack = m_mainWindow->sessionStack();
+    SessionStack *sessionStack = m_mainWindow->sessionStack();
 
     QStringList terminalIds = sessionStack->terminalIdsForSessionId(sessionId).split(QLatin1Char(','), Qt::SkipEmptyParts);
 
     m_toggleMonitorSilenceMenu->clear();
 
-    if (terminalIds.count() <= 1)
-    {
+    if (terminalIds.count() <= 1) {
         toggleMonitorSilenceAction->setText(xi18nc("@action", "Monitor for Silence"));
         m_tabContextMenu->insertAction(anchor, toggleMonitorSilenceAction);
         m_toggleMonitorSilenceMenu->menuAction()->setVisible(false);
-    }
-    else
-    {
+    } else {
         toggleMonitorSilenceAction->setText(xi18nc("@action", "In This Session"));
         m_toggleMonitorSilenceMenu->menuAction()->setVisible(true);
 
@@ -317,13 +308,12 @@ void TabBar::updateToggleMonitorSilenceMenu(int sessionId)
 
         QStringListIterator i(terminalIds);
 
-        while (i.hasNext())
-        {
+        while (i.hasNext()) {
             int terminalId = i.next().toInt();
 
             ++count;
 
-            QAction* action = m_toggleMonitorSilenceMenu->addAction(xi18nc("@action", "In Terminal %1", count));
+            QAction *action = m_toggleMonitorSilenceMenu->addAction(xi18nc("@action", "In Terminal %1", count));
             action->setCheckable(true);
             action->setChecked(sessionStack->isTerminalMonitorSilenceEnabled(terminalId));
             action->setData(terminalId);
@@ -332,30 +322,29 @@ void TabBar::updateToggleMonitorSilenceMenu(int sessionId)
     }
 }
 
-void TabBar::contextMenuActionHovered(QAction* action)
+void TabBar::contextMenuActionHovered(QAction *action)
 {
     bool ok = false;
 
-    if (!action->data().isNull())
-    {
+    if (!action->data().isNull()) {
         int terminalId = action->data().toInt(&ok);
 
-        if (ok) emit requestTerminalHighlight(terminalId);
-    }
-    else if (!ok)
+        if (ok)
+            emit requestTerminalHighlight(terminalId);
+    } else if (!ok)
         emit requestRemoveTerminalHighlight();
 }
 
-void TabBar::contextMenuEvent(QContextMenuEvent* event)
+void TabBar::contextMenuEvent(QContextMenuEvent *event)
 {
-    if (event->x() < 0) return;
+    if (event->x() < 0)
+        return;
 
     int index = tabAt(event->x());
 
     if (index == -1)
         m_sessionMenu->exec(QCursor::pos());
-    else
-    {
+    else {
         readyTabContextMenu();
 
         updateMoveActions(index);
@@ -368,12 +357,11 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
 
         m_mainWindow->setContextDependentActionsQuiet(true);
 
-        QAction* action = m_tabContextMenu->exec(QCursor::pos());
+        QAction *action = m_tabContextMenu->exec(QCursor::pos());
 
         emit tabContextMenuClosed();
 
-        if (action)
-        {
+        if (action) {
             if (action->isCheckable())
                 m_mainWindow->handleContextDependentToggleAction(action->isChecked(), action, sessionId);
             else
@@ -392,7 +380,7 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
     QWidget::contextMenuEvent(event);
 }
 
-void TabBar::resizeEvent(QResizeEvent* event)
+void TabBar::resizeEvent(QResizeEvent *event)
 {
     moveNewTabButton();
     m_closeTabButton->move(width() - m_skin->tabBarCloseTabButtonPosition().x(), m_skin->tabBarCloseTabButtonPosition().y());
@@ -408,7 +396,7 @@ void TabBar::moveNewTabButton()
     m_newTabButton->move(newTabButtonX, m_skin->tabBarNewTabButtonPosition().y());
 }
 
-void TabBar::paintEvent(QPaintEvent*)
+void TabBar::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
     painter.setPen(m_skin->tabBarTextColor());
@@ -420,23 +408,21 @@ void TabBar::paintEvent(QPaintEvent*)
     QRect tabsClipRect(x, y, m_closeTabButton->x() - x, height() - y);
     painter.setClipRect(tabsClipRect);
 
-    for (int index = 0; index < m_tabs.count(); ++index)
-    {
+    for (int index = 0; index < m_tabs.count(); ++index) {
         x = drawTab(x, y, index, painter);
         m_tabWidths << x;
     }
 
-    const QPixmap& backgroundImage = m_skin->tabBarBackgroundImage();
-    const QPixmap& leftCornerImage = m_skin->tabBarLeftCornerImage();
-    const QPixmap& rightCornerImage = m_skin->tabBarRightCornerImage();
+    const QPixmap &backgroundImage = m_skin->tabBarBackgroundImage();
+    const QPixmap &leftCornerImage = m_skin->tabBarLeftCornerImage();
+    const QPixmap &rightCornerImage = m_skin->tabBarRightCornerImage();
 
     x = x > tabsClipRect.right() ? tabsClipRect.right() + 1 : x;
 
     QRegion backgroundClipRegion(rect());
     backgroundClipRegion = backgroundClipRegion.subtracted(m_newTabButton->geometry());
     backgroundClipRegion = backgroundClipRegion.subtracted(m_closeTabButton->geometry());
-    QRect tabsRect(m_skin->tabBarPosition().x(), y, x - m_skin->tabBarPosition().x(),
-        height() - m_skin->tabBarPosition().y());
+    QRect tabsRect(m_skin->tabBarPosition().x(), y, x - m_skin->tabBarPosition().x(), height() - m_skin->tabBarPosition().y());
     backgroundClipRegion = backgroundClipRegion.subtracted(tabsRect);
     painter.setClipRegion(backgroundClipRegion);
 
@@ -459,7 +445,7 @@ void TabBar::paintEvent(QPaintEvent*)
     }
 }
 
-int TabBar::drawTab(int x, int y, int index, QPainter& painter)
+int TabBar::drawTab(int x, int y, int index, QPainter &painter)
 {
     QString title;
     int sessionId;
@@ -471,24 +457,21 @@ int TabBar::drawTab(int x, int y, int index, QPainter& painter)
     selected = (sessionId == m_selectedSessionId);
     title = m_tabTitles[sessionId];
 
-    if (selected)
-    {
+    if (selected) {
         painter.drawPixmap(x, y, m_skin->tabBarSelectedLeftCornerImage());
         x += m_skin->tabBarSelectedLeftCornerImage().width();
-    }
-    else if (!m_skin->tabBarUnselectedLeftCornerImage().isNull())
-    {
+    } else if (!m_skin->tabBarUnselectedLeftCornerImage().isNull()) {
         painter.drawPixmap(x, y, m_skin->tabBarUnselectedLeftCornerImage());
         x += m_skin->tabBarUnselectedLeftCornerImage().width();
-    }
-    else if (index != m_tabs.indexOf(m_selectedSessionId) + 1)
-    {
+    } else if (index != m_tabs.indexOf(m_selectedSessionId) + 1) {
         painter.drawPixmap(x, y, m_skin->tabBarSeparatorImage());
         x += m_skin->tabBarSeparatorImage().width();
     }
 
-    if (selected) font.setBold(m_skin->tabBarSelectedTextBold());
-    else font.setBold(false);
+    if (selected)
+        font.setBold(m_skin->tabBarSelectedTextBold());
+    else
+        font.setBold(false);
 
     painter.setFont(font);
 
@@ -496,18 +479,19 @@ int TabBar::drawTab(int x, int y, int index, QPainter& painter)
     textWidth = fontMetrics.width(title) + 10;
 
     // Draw the Prevent Closing image in the tab button.
-    if (m_mainWindow->sessionStack()->isSessionClosable(sessionId) == false)
-    {
+    if (m_mainWindow->sessionStack()->isSessionClosable(sessionId) == false) {
         if (selected)
-            painter.drawTiledPixmap(x, y,
-                    m_skin->tabBarPreventClosingImagePosition().x() +
-                    m_skin->tabBarPreventClosingImage().width(), height(),
-                    m_skin->tabBarSelectedBackgroundImage());
+            painter.drawTiledPixmap(x,
+                                    y,
+                                    m_skin->tabBarPreventClosingImagePosition().x() + m_skin->tabBarPreventClosingImage().width(),
+                                    height(),
+                                    m_skin->tabBarSelectedBackgroundImage());
         else
-            painter.drawTiledPixmap(x, y,
-                    m_skin->tabBarPreventClosingImagePosition().x() +
-                    m_skin->tabBarPreventClosingImage().width(), height(),
-                    m_skin->tabBarUnselectedBackgroundImage());
+            painter.drawTiledPixmap(x,
+                                    y,
+                                    m_skin->tabBarPreventClosingImagePosition().x() + m_skin->tabBarPreventClosingImage().width(),
+                                    height(),
+                                    m_skin->tabBarUnselectedBackgroundImage());
 
         painter.drawPixmap(x + m_skin->tabBarPreventClosingImagePosition().x(),
                            m_skin->tabBarPreventClosingImagePosition().y(),
@@ -526,18 +510,13 @@ int TabBar::drawTab(int x, int y, int index, QPainter& painter)
 
     x += textWidth;
 
-    if (selected)
-    {
+    if (selected) {
         painter.drawPixmap(x, m_skin->tabBarPosition().y(), m_skin->tabBarSelectedRightCornerImage());
         x += m_skin->tabBarSelectedRightCornerImage().width();
-    }
-    else if (!m_skin->tabBarUnselectedRightCornerImage().isNull())
-    {
+    } else if (!m_skin->tabBarUnselectedRightCornerImage().isNull()) {
         painter.drawPixmap(x, m_skin->tabBarPosition().y(), m_skin->tabBarUnselectedRightCornerImage());
         x += m_skin->tabBarUnselectedRightCornerImage().width();
-    }
-    else if (index != m_tabs.indexOf(m_selectedSessionId) - 1)
-    {
+    } else if (index != m_tabs.indexOf(m_selectedSessionId) - 1) {
         painter.drawPixmap(x, m_skin->tabBarPosition().y(), m_skin->tabBarSeparatorImage());
         x += m_skin->tabBarSeparatorImage().width();
     }
@@ -547,16 +526,15 @@ int TabBar::drawTab(int x, int y, int index, QPainter& painter)
 
 int TabBar::tabAt(int x)
 {
-    for (int index = 0; index < m_tabWidths.count(); ++index)
-    {
-        if (x >  m_skin->tabBarPosition().x() && x < m_tabWidths.at(index))
+    for (int index = 0; index < m_tabWidths.count(); ++index) {
+        if (x > m_skin->tabBarPosition().x() && x < m_tabWidths.at(index))
             return index;
     }
 
     return -1;
 }
 
-void TabBar::wheelEvent(QWheelEvent* event)
+void TabBar::wheelEvent(QWheelEvent *event)
 {
     if (event->angleDelta().y() < 0)
         selectNextTab();
@@ -564,7 +542,7 @@ void TabBar::wheelEvent(QWheelEvent* event)
         selectPreviousTab();
 }
 
-void TabBar::keyPressEvent(QKeyEvent* event)
+void TabBar::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape && m_lineEdit->isVisible())
         m_lineEdit->hide();
@@ -572,21 +550,22 @@ void TabBar::keyPressEvent(QKeyEvent* event)
     QWidget::keyPressEvent(event);
 }
 
-void TabBar::mousePressEvent(QMouseEvent* event)
+void TabBar::mousePressEvent(QMouseEvent *event)
 {
-    if (QWhatsThis::inWhatsThisMode()) return;
+    if (QWhatsThis::inWhatsThisMode())
+        return;
 
-    if (event->x() < m_skin->tabBarPosition().x()) return;
+    if (event->x() < m_skin->tabBarPosition().x())
+        return;
 
     int index = tabAt(event->x());
 
-    if (index == -1) return;
+    if (index == -1)
+        return;
 
-    if (event->button() == Qt::LeftButton || event->button() == Qt::MidButton)
-    {
+    if (event->button() == Qt::LeftButton || event->button() == Qt::MidButton) {
         m_startPos = event->pos();
-        if (index != m_tabs.indexOf(m_selectedSessionId) || event->button() == Qt::MidButton)
-        {
+        if (index != m_tabs.indexOf(m_selectedSessionId) || event->button() == Qt::MidButton) {
             m_mousePressed = true;
             m_mousePressedIndex = index;
         }
@@ -596,16 +575,17 @@ void TabBar::mousePressEvent(QMouseEvent* event)
     QWidget::mousePressEvent(event);
 }
 
-void TabBar::mouseReleaseEvent(QMouseEvent* event)
+void TabBar::mouseReleaseEvent(QMouseEvent *event)
 {
-    if (QWhatsThis::inWhatsThisMode()) return;
+    if (QWhatsThis::inWhatsThisMode())
+        return;
 
-    if (event->x() < m_skin->tabBarPosition().x()) return;
+    if (event->x() < m_skin->tabBarPosition().x())
+        return;
 
     int index = tabAt(event->x());
 
-    if (m_mousePressed && m_mousePressedIndex == index)
-    {
+    if (m_mousePressed && m_mousePressedIndex == index) {
         if (event->button() == Qt::LeftButton && index != m_tabs.indexOf(m_selectedSessionId))
             emit tabSelected(m_tabs.at(index));
 
@@ -621,14 +601,12 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
     QWidget::mouseReleaseEvent(event);
 }
 
-void TabBar::mouseMoveEvent(QMouseEvent* event)
+void TabBar::mouseMoveEvent(QMouseEvent *event)
 {
-    if (!m_startPos.isNull() && ((event->buttons() & Qt::LeftButton) || (event->buttons() & Qt::MidButton)))
-    {
+    if (!m_startPos.isNull() && ((event->buttons() & Qt::LeftButton) || (event->buttons() & Qt::MidButton))) {
         int distance = (event->pos() - m_startPos).manhattanLength();
 
-        if (distance >= QApplication::startDragDistance())
-        {
+        if (distance >= QApplication::startDragDistance()) {
             int index = tabAt(m_startPos.x());
 
             if (index >= 0 && !m_lineEdit->isVisible())
@@ -639,17 +617,14 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
     QWidget::mouseMoveEvent(event);
 }
 
-void TabBar::dragEnterEvent(QDragEnterEvent* event)
+void TabBar::dragEnterEvent(QDragEnterEvent *event)
 {
-    TabBar* eventSource = qobject_cast<TabBar*>(event->source());
+    TabBar *eventSource = qobject_cast<TabBar *>(event->source());
 
-    if (eventSource)
-    {
+    if (eventSource) {
         event->setDropAction(Qt::MoveAction);
         event->acceptProposedAction();
-    }
-    else
-    {
+    } else {
         drawDropIndicator(-1);
         event->ignore();
     }
@@ -657,12 +632,11 @@ void TabBar::dragEnterEvent(QDragEnterEvent* event)
     return;
 }
 
-void TabBar::dragMoveEvent(QDragMoveEvent* event)
+void TabBar::dragMoveEvent(QDragMoveEvent *event)
 {
-    TabBar* eventSource = qobject_cast<TabBar*>(event->source());
+    TabBar *eventSource = qobject_cast<TabBar *>(event->source());
 
-    if (eventSource && event->pos().x() > m_skin->tabBarPosition().x() && event->pos().x() < m_closeTabButton->x())
-    {
+    if (eventSource && event->pos().x() > m_skin->tabBarPosition().x() && event->pos().x() < m_closeTabButton->x()) {
         int index = dropIndex(event->pos());
 
         if (index == -1)
@@ -672,9 +646,7 @@ void TabBar::dragMoveEvent(QDragMoveEvent* event)
 
         event->setDropAction(Qt::MoveAction);
         event->accept();
-    }
-    else
-    {
+    } else {
         drawDropIndicator(-1);
         event->ignore();
     }
@@ -682,7 +654,7 @@ void TabBar::dragMoveEvent(QDragMoveEvent* event)
     return;
 }
 
-void TabBar::dragLeaveEvent(QDragLeaveEvent* event)
+void TabBar::dragLeaveEvent(QDragLeaveEvent *event)
 {
     drawDropIndicator(-1);
     event->ignore();
@@ -690,7 +662,7 @@ void TabBar::dragLeaveEvent(QDragLeaveEvent* event)
     return;
 }
 
-void TabBar::dropEvent(QDropEvent* event)
+void TabBar::dropEvent(QDropEvent *event)
 {
     drawDropIndicator(-1);
 
@@ -698,8 +670,7 @@ void TabBar::dropEvent(QDropEvent* event)
 
     if (isSameTab(event) || x < m_skin->tabBarPosition().x() || x > m_closeTabButton->x())
         event->ignore();
-    else
-    {
+    else {
         int targetIndex = dropIndex(event->pos());
         int sourceSessionId = event->mimeData()->text().toInt();
         int sourceIndex = m_tabs.indexOf(sourceSessionId);
@@ -720,18 +691,19 @@ void TabBar::dropEvent(QDropEvent* event)
     return;
 }
 
-void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
+void TabBar::mouseDoubleClickEvent(QMouseEvent *event)
 {
-    if (QWhatsThis::inWhatsThisMode()) return;
+    if (QWhatsThis::inWhatsThisMode())
+        return;
 
     m_lineEdit->hide();
 
-    if (event->x() < 0) return;
+    if (event->x() < 0)
+        return;
 
     int index = tabAt(event->x());
 
-    if (event->button() == Qt::LeftButton)
-    {
+    if (event->button() == Qt::LeftButton) {
         if (event->x() <= m_tabWidths.last())
             interactiveRename(m_tabs.at(index));
         else if (event->x() > m_tabWidths.last())
@@ -741,7 +713,7 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
     QWidget::mouseDoubleClickEvent(event);
 }
 
-void TabBar::leaveEvent(QEvent* event)
+void TabBar::leaveEvent(QEvent *event)
 {
     m_mousePressed = false;
     drawDropIndicator(-1);
@@ -750,7 +722,7 @@ void TabBar::leaveEvent(QEvent* event)
     QWidget::leaveEvent(event);
 }
 
-void TabBar::addTab(int sessionId, const QString& title)
+void TabBar::addTab(int sessionId, const QString &title)
 {
     m_tabs.append(sessionId);
 
@@ -764,9 +736,12 @@ void TabBar::addTab(int sessionId, const QString& title)
 
 void TabBar::removeTab(int sessionId)
 {
-    if (sessionId == -1) sessionId = m_selectedSessionId;
-    if (sessionId == -1) return;
-    if (!m_tabs.contains(sessionId)) return;
+    if (sessionId == -1)
+        sessionId = m_selectedSessionId;
+    if (sessionId == -1)
+        return;
+    if (!m_tabs.contains(sessionId))
+        return;
 
     int index = m_tabs.indexOf(sessionId);
 
@@ -784,8 +759,10 @@ void TabBar::removeTab(int sessionId)
 
 void TabBar::interactiveRename(int sessionId)
 {
-    if (sessionId == -1) return;
-    if (!m_tabs.contains(sessionId)) return;
+    if (sessionId == -1)
+        return;
+    if (!m_tabs.contains(sessionId))
+        return;
 
     m_renamingSessionId = sessionId;
 
@@ -795,7 +772,7 @@ void TabBar::interactiveRename(int sessionId)
     int width = m_tabWidths.at(index) - x;
 
     m_lineEdit->setText(m_tabTitles[sessionId]);
-    m_lineEdit->setGeometry(x-1, y-1, width+3, height()+2);
+    m_lineEdit->setGeometry(x - 1, y - 1, width + 3, height() + 2);
     m_lineEdit->selectAll();
     m_lineEdit->setFocus();
     m_lineEdit->show();
@@ -812,7 +789,8 @@ void TabBar::interactiveRenameDone()
 
 void TabBar::selectTab(int sessionId)
 {
-    if (!m_tabs.contains(sessionId)) return;
+    if (!m_tabs.contains(sessionId))
+        return;
 
     m_selectedSessionId = sessionId;
 
@@ -854,11 +832,13 @@ void TabBar::selectPreviousTab()
 
 void TabBar::moveTabLeft(int sessionId)
 {
-    if (sessionId == -1) sessionId = m_selectedSessionId;
+    if (sessionId == -1)
+        sessionId = m_selectedSessionId;
 
     int index = m_tabs.indexOf(sessionId);
 
-    if (index < 1) return;
+    if (index < 1)
+        return;
 
     m_tabs.swap(index, index - 1);
 
@@ -869,11 +849,13 @@ void TabBar::moveTabLeft(int sessionId)
 
 void TabBar::moveTabRight(int sessionId)
 {
-    if (sessionId == -1) sessionId = m_selectedSessionId;
+    if (sessionId == -1)
+        sessionId = m_selectedSessionId;
 
     int index = m_tabs.indexOf(sessionId);
 
-    if (index == -1 || index == m_tabs.count() - 1) return;
+    if (index == -1 || index == m_tabs.count() - 1)
+        return;
 
     m_tabs.swap(index, index + 1);
 
@@ -895,26 +877,27 @@ QString TabBar::tabTitle(int sessionId)
         return QString();
 }
 
-void TabBar::setTabTitle(int sessionId, const QString& newTitle, InteractiveType interactive)
+void TabBar::setTabTitle(int sessionId, const QString &newTitle, InteractiveType interactive)
 {
-    if (sessionId == -1) return;
-    if (!m_tabTitles.contains(sessionId)) return;
-    if (!interactive && m_tabTitlesSetInteractive.value(sessionId, false)) return;
+    if (sessionId == -1)
+        return;
+    if (!m_tabTitles.contains(sessionId))
+        return;
+    if (!interactive && m_tabTitlesSetInteractive.value(sessionId, false))
+        return;
     if (interactive)
         m_tabTitlesSetInteractive[sessionId] = interactive;
 
-    if (!newTitle.isEmpty())
-    {
+    if (!newTitle.isEmpty()) {
         m_tabTitles[sessionId] = newTitle;
-    }
-    else
+    } else
         m_tabTitlesSetInteractive.remove(sessionId);
 
     emit tabTitleEdited(sessionId, newTitle);
     update();
 }
 
-void TabBar::setTabTitleAutomated(int sessionId, const QString& newTitle)
+void TabBar::setTabTitleAutomated(int sessionId, const QString &newTitle)
 {
     setTabTitle(sessionId, newTitle, NonInteractive);
 }
@@ -934,43 +917,35 @@ QString TabBar::standardTabTitle()
     bool nameOk;
     int count = 0;
 
-    do
-    {
+    do {
         nameOk = true;
 
         QHashIterator<int, QString> it(m_tabTitles);
 
-        while (it.hasNext())
-        {
+        while (it.hasNext()) {
             it.next();
 
-            if (newTitle == it.value())
-            {
+            if (newTitle == it.value()) {
                 nameOk = false;
                 break;
             }
         }
 
-        if (!nameOk)
-        {
+        if (!nameOk) {
             count++;
             newTitle = makeTabTitle(count);
         }
-    }
-    while (!nameOk);
+    } while (!nameOk);
 
     return newTitle;
 }
 
 QString TabBar::makeTabTitle(int id)
 {
-    if (id == 0)
-    {
+    if (id == 0) {
         return xi18nc("@title:tab", "Shell");
-    }
-    else
-    {
-        return xi18nc("@title:tab", "Shell No. %1", id+1);
+    } else {
+        return xi18nc("@title:tab", "Shell No. %1", id + 1);
     }
 }
 
@@ -1000,10 +975,10 @@ void TabBar::startDrag(int index)
     drawTab(0, 0, index, painter);
     painter.end();
 
-    QMimeData* mimeData = new QMimeData;
+    QMimeData *mimeData = new QMimeData;
     mimeData->setText(QVariant(sessionId).toString());
 
-    QDrag* drag = new QDrag(this);
+    QDrag *drag = new QDrag(this);
     drag->setMimeData(mimeData);
     drag->setPixmap(tab);
     drag->exec(Qt::MoveAction);
@@ -1015,8 +990,7 @@ void TabBar::drawDropIndicator(int index, bool disabled)
 {
     const int arrowSize = 16;
 
-    if (!m_dropIndicator)
-    {
+    if (!m_dropIndicator) {
         m_dropIndicator = new QLabel(parentWidget());
         m_dropIndicator->resize(arrowSize, arrowSize);
     }
@@ -1024,8 +998,7 @@ void TabBar::drawDropIndicator(int index, bool disabled)
     QIcon::Mode drawMode = disabled ? QIcon::Disabled : QIcon::Normal;
     m_dropIndicator->setPixmap(QIcon::fromTheme(QStringLiteral("arrow-down")).pixmap(arrowSize, arrowSize, drawMode));
 
-    if (index < 0)
-    {
+    if (index < 0) {
         m_dropIndicator->hide();
         return;
     }
@@ -1048,9 +1021,9 @@ void TabBar::drawDropIndicator(int index, bool disabled)
     else
         pos = m_dropRect.topRight();
 
-    pos.rx() -= arrowSize/2;
+    pos.rx() -= arrowSize / 2;
 
-    m_dropIndicator->move(mapTo(parentWidget(),pos));
+    m_dropIndicator->move(mapTo(parentWidget(), pos));
     m_dropIndicator->show();
 
     return;
@@ -1067,7 +1040,7 @@ int TabBar::dropIndex(const QPoint pos)
     int y = m_skin->tabBarPosition().y();
     m_dropRect = QRect(x, y - height(), tabWidth, height() - y);
 
-    if ((pos.x()-m_dropRect.left()) > (m_dropRect.width()/2))
+    if ((pos.x() - m_dropRect.left()) > (m_dropRect.width() / 2))
         ++index;
 
     if (index == m_tabs.count())
@@ -1076,15 +1049,15 @@ int TabBar::dropIndex(const QPoint pos)
     return index;
 }
 
-bool TabBar::isSameTab(const QDropEvent* event)
+bool TabBar::isSameTab(const QDropEvent *event)
 {
     int index = dropIndex(event->pos());
     int sourceSessionId = event->mimeData()->text().toInt();
     int sourceIndex = m_tabs.indexOf(sourceSessionId);
 
-    bool isLastTab = (sourceIndex == m_tabs.count()-1) && (index == -1);
+    bool isLastTab = (sourceIndex == m_tabs.count() - 1) && (index == -1);
 
-    if ((sourceIndex == index) || (sourceIndex == index-1) || isLastTab)
+    if ((sourceIndex == index) || (sourceIndex == index - 1) || isLastTab)
         return true;
     else
         return false;

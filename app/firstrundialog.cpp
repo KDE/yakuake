@@ -18,7 +18,6 @@
   along with this program. If not, see https://www.gnu.org/licenses/.
 */
 
-
 #include "firstrundialog.h"
 #include "mainwindow.h"
 #include "ui_firstrundialog.h"
@@ -26,24 +25,25 @@
 #include <KActionCollection>
 #include <KGlobalAccel>
 #include <KLocalizedString>
-#include <QPushButton>
 #include <QDialogButtonBox>
+#include <QPushButton>
 
-FirstRunDialog::FirstRunDialog(MainWindow* mainWindow) : QDialog(mainWindow)
+FirstRunDialog::FirstRunDialog(MainWindow *mainWindow)
+    : QDialog(mainWindow)
 {
     m_mainWindow = mainWindow;
 
     setWindowTitle(xi18nc("@title:window", "First Run"));
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
-    QWidget* widget = new QWidget(this);
+    QWidget *widget = new QWidget(this);
     mainLayout->addWidget(widget);
     mainLayout->addWidget(buttonBox);
 
@@ -55,8 +55,7 @@ FirstRunDialog::FirstRunDialog(MainWindow* mainWindow) : QDialog(mainWindow)
 
     initKeyButton();
 
-    connect(m_ui->keyButton, SIGNAL(keySequenceChanged(QKeySequence)),
-        this, SLOT(validateKeySequence(QKeySequence)));
+    connect(m_ui->keyButton, SIGNAL(keySequenceChanged(QKeySequence)), this, SLOT(validateKeySequence(QKeySequence)));
 }
 
 FirstRunDialog::~FirstRunDialog()
@@ -69,7 +68,7 @@ void FirstRunDialog::initKeyButton()
 
     m_ui->keyButton->blockSignals(true);
 
-    QAction* action = static_cast<QAction*>(m_mainWindow->actionCollection()->action(QStringLiteral("toggle-window-state")));
+    QAction *action = static_cast<QAction *>(m_mainWindow->actionCollection()->action(QStringLiteral("toggle-window-state")));
 
     m_keySequence = KGlobalAccel::self()->shortcut(action).first();
 
@@ -78,21 +77,17 @@ void FirstRunDialog::initKeyButton()
     m_ui->keyButton->blockSignals(false);
 }
 
-void FirstRunDialog::validateKeySequence(const QKeySequence& keySequence)
+void FirstRunDialog::validateKeySequence(const QKeySequence &keySequence)
 {
-    if (!KGlobalAccel::isGlobalShortcutAvailable(keySequence))
-    {
-        bool steal = KGlobalAccel::promptStealShortcutSystemwide(this,
-            KGlobalAccel::getGlobalShortcutsByKey(keySequence), keySequence);
+    if (!KGlobalAccel::isGlobalShortcutAvailable(keySequence)) {
+        bool steal = KGlobalAccel::promptStealShortcutSystemwide(this, KGlobalAccel::getGlobalShortcutsByKey(keySequence), keySequence);
 
         if (!steal)
             initKeyButton();
-        else
-        {
+        else {
             KGlobalAccel::stealShortcutSystemwide(keySequence);
             m_keySequence = m_ui->keyButton->keySequence();
         }
-    }
-    else
+    } else
         m_keySequence = m_ui->keyButton->keySequence();
 }

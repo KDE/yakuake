@@ -18,7 +18,6 @@
   along with this program. If not, see https://www.gnu.org/licenses/.
 */
 
-
 #include "skin.h"
 
 #include <KConfig>
@@ -27,7 +26,6 @@
 
 #include <QFileInfo>
 #include <QIcon>
-
 
 Skin::Skin()
 {
@@ -38,7 +36,7 @@ Skin::~Skin()
 {
 }
 
-bool Skin::load(const QString& name, bool kns)
+bool Skin::load(const QString &name, bool kns)
 {
     QString dir = kns ? QStringLiteral("kns_skins/") : QStringLiteral("skins/");
 
@@ -48,8 +46,7 @@ bool Skin::load(const QString& name, bool kns)
     if (!QFile::exists(titlePath) || !QFile::exists(tabPath))
         return false;
 
-    connect(KIconLoader::global(), SIGNAL(iconChanged(int)), this, SLOT(systemIconsChanged(int)),
-            Qt::UniqueConnection);
+    connect(KIconLoader::global(), SIGNAL(iconChanged(int)), this, SLOT(systemIconsChanged(int)), Qt::UniqueConnection);
 
     QString titleDir(QFileInfo(titlePath).absolutePath());
     QString tabDir(QFileInfo(tabPath).absolutePath());
@@ -57,22 +54,17 @@ bool Skin::load(const QString& name, bool kns)
     KConfig titleConfig(titlePath, KConfig::SimpleConfig);
     KConfig tabConfig(tabPath, KConfig::SimpleConfig);
 
-
     KConfigGroup border = titleConfig.group("Border");
 
-    m_borderColor = QColor(border.readEntry("red", 0),
-                           border.readEntry("green", 0),
-                           border.readEntry("blue", 0));
+    m_borderColor = QColor(border.readEntry("red", 0), border.readEntry("green", 0), border.readEntry("blue", 0));
 
     m_borderWidth = border.readEntry("width", 1);
-
 
     KConfigGroup titleBarBackground = titleConfig.group("Background");
 
     m_titleBarBackgroundImage.load(titleDir + titleBarBackground.readEntry("back_image", ""));
     m_titleBarLeftCornerImage.load(titleDir + titleBarBackground.readEntry("left_corner", ""));
     m_titleBarRightCornerImage.load(titleDir + titleBarBackground.readEntry("right_corner", ""));
-
 
     KConfigGroup titleBarFocusButton = titleConfig.group("FocusButton");
 
@@ -85,18 +77,16 @@ bool Skin::load(const QString& name, bool kns)
 
     m_titleBarFocusButtonAnchor = titleBarFocusButton.readEntry("anchor", "") == QLatin1String("left") ? Qt::AnchorLeft : Qt::AnchorRight;
 
-
     KConfigGroup titleBarMenuButton = titleConfig.group("ConfigButton");
 
     m_titleBarMenuButtonPosition.setX(titleBarMenuButton.readEntry("x", 0));
     m_titleBarMenuButtonPosition.setY(titleBarMenuButton.readEntry("y", 0));
 
     m_titleBarMenuButtonStyleSheet = buttonStyleSheet(titleDir + titleBarMenuButton.readEntry("up_image", ""),
-                                                        titleDir + titleBarMenuButton.readEntry("over_image", ""),
-                                                        titleDir + titleBarMenuButton.readEntry("down_image", ""));
+                                                      titleDir + titleBarMenuButton.readEntry("over_image", ""),
+                                                      titleDir + titleBarMenuButton.readEntry("down_image", ""));
 
     m_titleBarMenuButtonAnchor = titleBarMenuButton.readEntry("anchor", "") == QLatin1String("left") ? Qt::AnchorLeft : Qt::AnchorRight;
-
 
     KConfigGroup titleBarQuitButton = titleConfig.group("QuitButton");
 
@@ -109,7 +99,6 @@ bool Skin::load(const QString& name, bool kns)
 
     m_titleBarQuitButtonAnchor = titleBarQuitButton.readEntry("anchor", "") == QLatin1String("left") ? Qt::AnchorLeft : Qt::AnchorRight;
 
-
     KConfigGroup titleBarText = titleConfig.group("Text");
 
     m_titleBarText = titleBarText.readEntry("text", "");
@@ -117,22 +106,17 @@ bool Skin::load(const QString& name, bool kns)
     m_titleBarTextPosition.setX(titleBarText.readEntry("x", 0));
     m_titleBarTextPosition.setY(titleBarText.readEntry("y", 0));
 
-    m_titleBarTextColor = QColor(titleBarText.readEntry("red", 0),
-                                 titleBarText.readEntry("green", 0),
-                                 titleBarText.readEntry("blue", 0));
+    m_titleBarTextColor = QColor(titleBarText.readEntry("red", 0), titleBarText.readEntry("green", 0), titleBarText.readEntry("blue", 0));
 
     m_titleBarTextBold = titleBarText.readEntry("bold", true);
     m_titleBarTextCentered = titleBarText.readEntry("centered", false);
-
 
     KConfigGroup tabBar = tabConfig.group("Tabs");
 
     m_tabBarPosition.setX(tabBar.readEntry("x", 0));
     m_tabBarPosition.setY(tabBar.readEntry("y", 0));
 
-    m_tabBarTextColor = QColor(tabBar.readEntry("red", 0),
-                               tabBar.readEntry("green", 0),
-                               tabBar.readEntry("blue", 0));
+    m_tabBarTextColor = QColor(tabBar.readEntry("red", 0), tabBar.readEntry("green", 0), tabBar.readEntry("blue", 0));
 
     m_tabBarSeparatorImage.load(tabDir + tabBar.readEntry("separator_image", ""));
     m_tabBarUnselectedBackgroundImage.load(tabDir + tabBar.readEntry("unselected_background", ""));
@@ -155,7 +139,6 @@ bool Skin::load(const QString& name, bool kns)
     m_tabBarLeftCornerImage.load(tabDir + tabBarBackground.readEntry("left_corner", ""));
     m_tabBarRightCornerImage.load(tabDir + tabBarBackground.readEntry("right_corner", ""));
 
-
     KConfigGroup tabBarNewTabButton = tabConfig.group("PlusButton");
 
     m_tabBarNewTabButtonPosition.setX(tabBarNewTabButton.readEntry("x", 0));
@@ -167,7 +150,6 @@ bool Skin::load(const QString& name, bool kns)
 
     m_tabBarNewTabButtonIsAtEndOfTabs = tabBarNewTabButton.readEntry("at_end_of_tabs", false);
 
-
     KConfigGroup tabBarCloseTabButton = tabConfig.group("MinusButton");
 
     m_tabBarCloseTabButtonPosition.setX(tabBarCloseTabButton.readEntry("x", 0));
@@ -177,15 +159,11 @@ bool Skin::load(const QString& name, bool kns)
                                                         tabDir + tabBarCloseTabButton.readEntry("over_image", ""),
                                                         tabDir + tabBarCloseTabButton.readEntry("down_image", ""));
 
-    if (m_tabBarCompact)
-    {
-        if (m_tabBarNewTabButtonIsAtEndOfTabs)
-        {
+    if (m_tabBarCompact) {
+        if (m_tabBarNewTabButtonIsAtEndOfTabs) {
             m_tabBarLeft = m_tabBarPosition.x();
             m_tabBarPosition.setX(0);
-        }
-        else
-        {
+        } else {
             if (m_tabBarNewTabButtonPosition.x() < m_tabBarPosition.x())
                 m_tabBarLeft = m_tabBarNewTabButtonPosition.x();
             else
@@ -206,7 +184,7 @@ bool Skin::load(const QString& name, bool kns)
     return true;
 }
 
-const QString Skin::buttonStyleSheet(const QString& up, const QString& over, const QString& down)
+const QString Skin::buttonStyleSheet(const QString &up, const QString &over, const QString &down)
 {
     QString styleSheet;
 
@@ -216,31 +194,29 @@ const QString Skin::buttonStyleSheet(const QString& up, const QString& over, con
     QString w(QString::number(buttonImage.width()));
     QString h(QString::number(buttonImage.height()));
 
-    QString sizeBit(QStringLiteral("min-width:") + w + QStringLiteral("; min-height:") + h
-        + QStringLiteral("; max-width:") + w + QStringLiteral("; max-height:") + h + QStringLiteral(";"));
+    QString sizeBit(QStringLiteral("min-width:") + w + QStringLiteral("; min-height:") + h + QStringLiteral("; max-width:") + w
+                    + QStringLiteral("; max-height:") + h + QStringLiteral(";"));
 
-    styleSheet.append(QStringLiteral("QPushButton {") + borderBit + QStringLiteral("image:url(")
-        + up + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
-    styleSheet.append(QStringLiteral("QPushButton::hover {") + borderBit + QStringLiteral("image:url(")
-        + over + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
-    styleSheet.append(QStringLiteral("QPushButton::pressed {") + borderBit + QStringLiteral("image:url(")
-        + down + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
-    styleSheet.append(QStringLiteral("QPushButton::checked {") + borderBit + QStringLiteral("image:url(")
-        + down + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
-    styleSheet.append(QStringLiteral("QPushButton::open {") + borderBit + QStringLiteral("image:url(")
-        + down + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QPushButton {") + borderBit + QStringLiteral("image:url(") + up + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QPushButton::hover {") + borderBit + QStringLiteral("image:url(") + over + QStringLiteral(");") + sizeBit
+                      + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QPushButton::pressed {") + borderBit + QStringLiteral("image:url(") + down + QStringLiteral(");") + sizeBit
+                      + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QPushButton::checked {") + borderBit + QStringLiteral("image:url(") + down + QStringLiteral(");") + sizeBit
+                      + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QPushButton::open {") + borderBit + QStringLiteral("image:url(") + down + QStringLiteral(");") + sizeBit
+                      + QStringLiteral("}"));
     styleSheet.append(QStringLiteral("QPushButton::menu-indicator { left: ") + w + QStringLiteral(" }"));
 
-    styleSheet.append(QStringLiteral("QToolButton {") + borderBit + QStringLiteral("image:url(")
-        + up + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
-    styleSheet.append(QStringLiteral("QToolButton::hover {") + borderBit + QStringLiteral("image:url(")
-        + over + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
-    styleSheet.append(QStringLiteral("QToolButton::pressed {") + borderBit + QStringLiteral("image:url(")
-        + down + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
-    styleSheet.append(QStringLiteral("QToolButton::checked {") + borderBit + QStringLiteral("image:url(")
-        + down + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
-    styleSheet.append(QStringLiteral("QToolButton::open {") + borderBit + QStringLiteral("image:url(")
-        + down + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QToolButton {") + borderBit + QStringLiteral("image:url(") + up + QStringLiteral(");") + sizeBit + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QToolButton::hover {") + borderBit + QStringLiteral("image:url(") + over + QStringLiteral(");") + sizeBit
+                      + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QToolButton::pressed {") + borderBit + QStringLiteral("image:url(") + down + QStringLiteral(");") + sizeBit
+                      + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QToolButton::checked {") + borderBit + QStringLiteral("image:url(") + down + QStringLiteral(");") + sizeBit
+                      + QStringLiteral("}"));
+    styleSheet.append(QStringLiteral("QToolButton::open {") + borderBit + QStringLiteral("image:url(") + down + QStringLiteral(");") + sizeBit
+                      + QStringLiteral("}"));
     styleSheet.append(QStringLiteral("QToolButton::menu-indicator { left: ") + w + QStringLiteral(" }"));
 
     return styleSheet;
@@ -258,19 +234,14 @@ void Skin::updateTabBarPreventClosingImageCache()
 {
     // Get the target image size from the tabBar height, acquired from
     // background image, minus (2 * y position) of the lock icon.
-    int m_IconSize = m_tabBarBackgroundImage.height() -
-        (2 * m_tabBarPreventClosingImagePosition.y());
+    int m_IconSize = m_tabBarBackgroundImage.height() - (2 * m_tabBarPreventClosingImagePosition.y());
 
     // Get the system lock icon in a generous size.
     m_tabBarPreventClosingImageCached = QIcon::fromTheme(QStringLiteral("object-locked.png")).pixmap(48, 48);
 
     // Resize the image if it's too tall.
-    if (m_IconSize <  m_tabBarPreventClosingImageCached.height())
-    {
-        m_tabBarPreventClosingImageCached =
-            m_tabBarPreventClosingImageCached.scaled(m_IconSize,
-            m_IconSize, Qt::KeepAspectRatio,
-            Qt::SmoothTransformation);
+    if (m_IconSize < m_tabBarPreventClosingImageCached.height()) {
+        m_tabBarPreventClosingImageCached = m_tabBarPreventClosingImageCached.scaled(m_IconSize, m_IconSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     }
 }
 
@@ -278,8 +249,7 @@ void Skin::systemIconsChanged(int group)
 {
     Q_UNUSED(group);
 
-    if (m_tabBarPreventClosingImage.isNull())
-    {
+    if (m_tabBarPreventClosingImage.isNull()) {
         updateTabBarPreventClosingImageCache();
 
         emit iconChanged();

@@ -18,7 +18,6 @@
   along with this program. If not, see https://www.gnu.org/licenses/.
 */
 
-
 #include "visualeventoverlay.h"
 #include "sessionstack.h"
 #include "settings.h"
@@ -29,9 +28,8 @@
 #include <QPainter>
 #include <QTimer>
 
-
-EventRect::EventRect(const QPoint& topLeft, const QPoint& bottomRight, EventType type,
-    EventFlags flags) : QRect(topLeft, bottomRight)
+EventRect::EventRect(const QPoint &topLeft, const QPoint &bottomRight, EventType type, EventFlags flags)
+    : QRect(topLeft, bottomRight)
 {
     m_eventType = type;
 
@@ -44,7 +42,7 @@ EventRect::~EventRect()
 {
 }
 
-bool EventRect::operator==(const EventRect& eventRect) const
+bool EventRect::operator==(const EventRect &eventRect) const
 {
     if (m_eventType == eventRect.eventType() && eventRect.testFlag(EventRect::Singleton))
         return true;
@@ -55,7 +53,7 @@ bool EventRect::operator==(const EventRect& eventRect) const
     return ::operator==(*this, eventRect);
 }
 
-bool EventRect::operator<(const EventRect& eventRect) const
+bool EventRect::operator<(const EventRect &eventRect) const
 {
     if (!testFlag(EventRect::Exclusive) && eventRect.testFlag(EventRect::Exclusive))
         return false;
@@ -67,7 +65,8 @@ bool EventRect::operator<(const EventRect& eventRect) const
     return false;
 }
 
-VisualEventOverlay::VisualEventOverlay(SessionStack* parent) : QWidget(parent)
+VisualEventOverlay::VisualEventOverlay(SessionStack *parent)
+    : QWidget(parent)
 {
     m_sessionStack = parent;
 
@@ -91,15 +90,17 @@ VisualEventOverlay::~VisualEventOverlay()
 {
 }
 
-void VisualEventOverlay::highlightTerminal(Terminal* terminal, bool persistent)
+void VisualEventOverlay::highlightTerminal(Terminal *terminal, bool persistent)
 {
     if (!persistent && Settings::terminalHighlightDuration() == 0)
         return;
 
-    if (isHidden()) show();
+    if (isHidden())
+        show();
 
     EventRect::EventFlags flags = EventRect::Singleton | EventRect::Exclusive;
-    if (persistent) flags |= EventRect::Persistent;
+    if (persistent)
+        flags |= EventRect::Persistent;
 
     terminalEvent(terminal, EventRect::TerminalHighlight, flags);
 
@@ -109,12 +110,12 @@ void VisualEventOverlay::highlightTerminal(Terminal* terminal, bool persistent)
 
 void VisualEventOverlay::removeTerminalHighlight()
 {
-    if (!m_eventRects.count()) return;
+    if (!m_eventRects.count())
+        return;
 
     QMutableListIterator<EventRect> i(m_eventRects);
 
-    while (i.hasNext())
-    {
+    while (i.hasNext()) {
         if (i.next().eventType() == EventRect::TerminalHighlight)
             i.remove();
     }
@@ -125,7 +126,7 @@ void VisualEventOverlay::removeTerminalHighlight()
         hide();
 }
 
-void VisualEventOverlay::indicateKeyboardInputBlocked(Terminal* terminal)
+void VisualEventOverlay::indicateKeyboardInputBlocked(Terminal *terminal)
 {
     if (Settings::keyboardInputBlockIndicatorDuration() == 0)
         return;
@@ -135,10 +136,10 @@ void VisualEventOverlay::indicateKeyboardInputBlocked(Terminal* terminal)
     scheduleCleanup(Settings::keyboardInputBlockIndicatorDuration());
 }
 
-void VisualEventOverlay::terminalEvent(Terminal* terminal, EventRect::EventType type, EventRect::EventFlags flags)
+void VisualEventOverlay::terminalEvent(Terminal *terminal, EventRect::EventType type, EventRect::EventFlags flags)
 {
     QRect partRect(terminal->partWidget()->rect());
-    const QWidget* partWidget = terminal->partWidget();
+    const QWidget *partWidget = terminal->partWidget();
 
     QPoint topLeft(partWidget->mapTo(parentWidget(), partRect.topLeft()));
     QPoint bottomRight(partWidget->mapTo(parentWidget(), partRect.bottomRight()));
@@ -153,9 +154,10 @@ void VisualEventOverlay::terminalEvent(Terminal* terminal, EventRect::EventType 
     update();
 }
 
-void VisualEventOverlay::paintEvent(QPaintEvent*)
+void VisualEventOverlay::paintEvent(QPaintEvent *)
 {
-    if (!m_eventRects.count()) return;
+    if (!m_eventRects.count())
+        return;
 
     QPainter painter(this);
 
@@ -164,16 +166,13 @@ void VisualEventOverlay::paintEvent(QPaintEvent*)
 
     QListIterator<EventRect> i(m_eventRects);
 
-    while (i.hasNext())
-    {
-        const EventRect& eventRect = i.next();
+    while (i.hasNext()) {
+        const EventRect &eventRect = i.next();
 
         painted = false;
 
         if (eventRect.eventType() == EventRect::TerminalHighlight
-            && (eventRect.timeStamp().msecsTo(m_time) <= Settings::terminalHighlightDuration()
-            || eventRect.testFlag(EventRect::Persistent)))
-        {
+            && (eventRect.timeStamp().msecsTo(m_time) <= Settings::terminalHighlightDuration() || eventRect.testFlag(EventRect::Persistent))) {
             KStatefulBrush terminalHighlightBrush(KColorScheme::View, KColorScheme::HoverColor);
 
             painter.setOpacity(Settings::terminalHighlightOpacity());
@@ -181,10 +180,8 @@ void VisualEventOverlay::paintEvent(QPaintEvent*)
             painter.fillRect(eventRect, terminalHighlightBrush.brush(this));
 
             painted = true;
-        }
-        else if (eventRect.eventType() == EventRect::KeyboardInputBlocked
-            && eventRect.timeStamp().msecsTo(m_time) <= Settings::keyboardInputBlockIndicatorDuration())
-        {
+        } else if (eventRect.eventType() == EventRect::KeyboardInputBlocked
+                   && eventRect.timeStamp().msecsTo(m_time) <= Settings::keyboardInputBlockIndicatorDuration()) {
             painter.setOpacity(Settings::keyboardInputBlockIndicatorOpacity());
 
             painter.fillRect(eventRect, Settings::keyboardInputBlockIndicatorColor());
@@ -192,8 +189,7 @@ void VisualEventOverlay::paintEvent(QPaintEvent*)
             painted = true;
         }
 
-        if (painted && i.hasNext() && eventRect.testFlag(EventRect::Exclusive))
-        {
+        if (painted && i.hasNext() && eventRect.testFlag(EventRect::Exclusive)) {
             if (!painter.hasClipping())
                 painter.setClipRect(rect());
 
@@ -202,14 +198,14 @@ void VisualEventOverlay::paintEvent(QPaintEvent*)
     }
 }
 
-void VisualEventOverlay::showEvent(QShowEvent*)
+void VisualEventOverlay::showEvent(QShowEvent *)
 {
     resize(parentWidget()->rect().size());
 
     raise();
 }
 
-void VisualEventOverlay::hideEvent(QHideEvent*)
+void VisualEventOverlay::hideEvent(QHideEvent *)
 {
     m_cleanupTimer->stop();
 
@@ -220,8 +216,7 @@ void VisualEventOverlay::scheduleCleanup(int in)
 {
     int left = m_cleanupTimerCeiling - m_cleanupTimerStarted.elapsed();
 
-    if (in > left)
-    {
+    if (in > left) {
         m_cleanupTimerCeiling = in;
         m_cleanupTimerStarted.start();
         m_cleanupTimer->start(in);
@@ -230,25 +225,19 @@ void VisualEventOverlay::scheduleCleanup(int in)
 
 void VisualEventOverlay::cleanupOverlay()
 {
-    if (m_eventRects.count())
-    {
+    if (m_eventRects.count()) {
         m_time.start();
 
         QMutableListIterator<EventRect> i(m_eventRects);
 
-        while (i.hasNext())
-        {
-            const EventRect& eventRect = i.next();
+        while (i.hasNext()) {
+            const EventRect &eventRect = i.next();
 
-            if (eventRect.eventType() == EventRect::TerminalHighlight
-                && eventRect.timeStamp().msecsTo(m_time) >= Settings::terminalHighlightDuration()
-                && !eventRect.testFlag(EventRect::Persistent))
-            {
+            if (eventRect.eventType() == EventRect::TerminalHighlight && eventRect.timeStamp().msecsTo(m_time) >= Settings::terminalHighlightDuration()
+                && !eventRect.testFlag(EventRect::Persistent)) {
                 i.remove();
-            }
-            else if (eventRect.eventType() == EventRect::KeyboardInputBlocked
-                && eventRect.timeStamp().msecsTo(m_time) >= Settings::keyboardInputBlockIndicatorDuration())
-            {
+            } else if (eventRect.eventType() == EventRect::KeyboardInputBlocked
+                       && eventRect.timeStamp().msecsTo(m_time) >= Settings::keyboardInputBlockIndicatorDuration()) {
                 i.remove();
             }
         }

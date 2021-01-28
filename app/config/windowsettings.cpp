@@ -18,7 +18,6 @@
   along with this program. If not, see https://www.gnu.org/licenses/.
 */
 
-
 #include "windowsettings.h"
 #include "settings.h"
 
@@ -27,15 +26,15 @@
 
 #include <QDesktopWidget>
 
-WindowSettings::WindowSettings(QWidget* parent) : QWidget(parent)
+WindowSettings::WindowSettings(QWidget *parent)
+    : QWidget(parent)
 {
     setupUi(this);
 
     for (int i = 2; i <= QGuiApplication::screens().count(); i++)
         kcfg_Screen->insertItem(i, xi18nc("@item:inlistbox", "Screen %1", i));
 
-    if (QGuiApplication::screens().count() > 1)
-    {
+    if (QGuiApplication::screens().count() > 1) {
         screenLabel->setEnabled(true);
         kcfg_Screen->setEnabled(true);
     }
@@ -62,36 +61,36 @@ WindowSettings::~WindowSettings()
 
 void WindowSettings::updateWidthSlider(int width)
 {
-    widthSlider->setValue(width/10);
+    widthSlider->setValue(width / 10);
 
     emit updateWindowGeometry(width, kcfg_Height->value(), kcfg_Position->value());
 }
 
 void WindowSettings::updateWidthSpinBox(int width)
 {
-    kcfg_Width->setValue(width*10);
+    kcfg_Width->setValue(width * 10);
 }
 
 void WindowSettings::updateHeightSlider(int height)
 {
-    heightSlider->setValue(height/10);
+    heightSlider->setValue(height / 10);
 
     emit updateWindowGeometry(kcfg_Width->value(), height, kcfg_Position->value());
 }
 
 void WindowSettings::updateHeightSpinBox(int height)
 {
-    kcfg_Height->setValue(height*10);
+    kcfg_Height->setValue(height * 10);
 }
 
 void WindowSettings::updateFramesSlider(int speed)
 {
-    kcfg_Frames->setValue(speed/10);
+    kcfg_Frames->setValue(speed / 10);
 }
 
 void WindowSettings::updateFramesSpinBox(int speed)
 {
-    framesSpinBox->setValue(speed*10);
+    framesSpinBox->setValue(speed * 10);
 }
 
 void WindowSettings::updatePosition(int position)
@@ -102,29 +101,25 @@ void WindowSettings::updatePosition(int position)
 void WindowSettings::interceptHideTitleBar(int state)
 {
     if (state == 0) {
-
         if (Settings::showTitleBar()) { // If the title bar is hidden don't ask if toggling is ok
 
-            const char* message = "You are about to hide the title bar. This will keep you "
-                                  "from accessing the settings menu via the mouse. To show "
-                                  "the title bar again press the keyboard shortcut (default "
-                                  "Ctrl+Shift+m) or access the settings menu via keyborad "
-                                  "shortcut (defult: Ctrl+Shift+,).";
+            const char *message =
+                "You are about to hide the title bar. This will keep you "
+                "from accessing the settings menu via the mouse. To show "
+                "the title bar again press the keyboard shortcut (default "
+                "Ctrl+Shift+m) or access the settings menu via keyborad "
+                "shortcut (defult: Ctrl+Shift+,).";
 
-            const int result = KMessageBox::warningContinueCancel(
-                this,
-                xi18nc("@info", message),
-                xi18nc("@title:window", "Hiding Title Bar"),
-                KStandardGuiItem::cont(),
-                KStandardGuiItem::cancel(),
-                QStringLiteral("hinding_title_bar")
-            );
+            const int result = KMessageBox::warningContinueCancel(this,
+                                                                  xi18nc("@info", message),
+                                                                  xi18nc("@title:window", "Hiding Title Bar"),
+                                                                  KStandardGuiItem::cont(),
+                                                                  KStandardGuiItem::cancel(),
+                                                                  QStringLiteral("hinding_title_bar"));
 
             if (result == KMessageBox::ButtonCode::Cancel) {
                 kcfg_ShowTitleBar->setCheckState(Qt::CheckState::Checked);
             }
         }
-
     }
-
 }

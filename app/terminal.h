@@ -18,7 +18,6 @@
   along with this program. If not, see https://www.gnu.org/licenses/.
 */
 
-
 #ifndef TERMINAL_H
 #define TERMINAL_H
 
@@ -26,88 +25,115 @@
 
 #include <QPointer>
 
-
 class QKeyEvent;
 
 // Requires V2 to access profileProperty().
 class TerminalInterfaceV2;
 
-
 class Terminal : public QObject
 {
     Q_OBJECT
 
-    public:
-        explicit Terminal(const QString& workingDir, QWidget* parent = 0);
-         ~Terminal();
+public:
+    explicit Terminal(const QString &workingDir, QWidget *parent = 0);
+    ~Terminal();
 
-        bool eventFilter(QObject* watched, QEvent* event) override;
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
-        int id() { return m_terminalId; }
-        const QString title() { return m_title; }
+    int id()
+    {
+        return m_terminalId;
+    }
+    const QString title()
+    {
+        return m_title;
+    }
 
-        QWidget* partWidget() { return m_partWidget; }
-        QWidget* terminalWidget() { return m_terminalWidget; }
+    QWidget *partWidget()
+    {
+        return m_partWidget;
+    }
+    QWidget *terminalWidget()
+    {
+        return m_terminalWidget;
+    }
 
-        QWidget* splitter() { return m_parentSplitter; }
-        void setSplitter(QWidget* splitter) { m_parentSplitter = splitter; }
+    QWidget *splitter()
+    {
+        return m_parentSplitter;
+    }
+    void setSplitter(QWidget *splitter)
+    {
+        m_parentSplitter = splitter;
+    }
 
-        void runCommand(const QString& command);
+    void runCommand(const QString &command);
 
-        void manageProfiles();
-        void editProfile();
+    void manageProfiles();
+    void editProfile();
 
-        bool keyboardInputEnabled() { return m_keyboardInputEnabled; }
-        void setKeyboardInputEnabled(bool enabled) { m_keyboardInputEnabled = enabled; }
+    bool keyboardInputEnabled()
+    {
+        return m_keyboardInputEnabled;
+    }
+    void setKeyboardInputEnabled(bool enabled)
+    {
+        m_keyboardInputEnabled = enabled;
+    }
 
-        bool monitorActivityEnabled() { return m_monitorActivityEnabled; }
-        void setMonitorActivityEnabled(bool enabled);
+    bool monitorActivityEnabled()
+    {
+        return m_monitorActivityEnabled;
+    }
+    void setMonitorActivityEnabled(bool enabled);
 
-        bool monitorSilenceEnabled() { return m_monitorSilenceEnabled; }
-        void setMonitorSilenceEnabled(bool enabled);
+    bool monitorSilenceEnabled()
+    {
+        return m_monitorSilenceEnabled;
+    }
+    void setMonitorSilenceEnabled(bool enabled);
 
-        QString currentWorkingDirectory() const;
+    QString currentWorkingDirectory() const;
 
-        void deletePart();
+    void deletePart();
 
-        KActionCollection* actionCollection();
+    KActionCollection *actionCollection();
 
-    Q_SIGNALS:
-        void titleChanged(int terminalId, const QString& title);
-        void activated(int terminalId);
-        void manuallyActivated(Terminal* terminal);
-        void keyboardInputBlocked(Terminal* terminal);
-        void activityDetected(Terminal* terminal);
-        void silenceDetected(Terminal* terminal);
-        void destroyed(int terminalId);
+Q_SIGNALS:
+    void titleChanged(int terminalId, const QString &title);
+    void activated(int terminalId);
+    void manuallyActivated(Terminal *terminal);
+    void keyboardInputBlocked(Terminal *terminal);
+    void activityDetected(Terminal *terminal);
+    void silenceDetected(Terminal *terminal);
+    void destroyed(int terminalId);
 
-    private Q_SLOTS:
-        void setTitle(const QString& title);
-        void overrideShortcut(QKeyEvent* event, bool& override);
-        void silenceDetected();
-        void activityDetected();
+private Q_SLOTS:
+    void setTitle(const QString &title);
+    void overrideShortcut(QKeyEvent *event, bool &override);
+    void silenceDetected();
+    void activityDetected();
 
+private:
+    void disableOffendingPartActions();
 
-    private:
-        void disableOffendingPartActions();
+    void displayKPartLoadError();
 
-        void displayKPartLoadError();
+    static int m_availableTerminalId;
+    int m_terminalId;
 
-        static int m_availableTerminalId;
-        int m_terminalId;
+    KParts::Part *m_part;
+    TerminalInterfaceV2 *m_terminalInterface;
+    QWidget *m_partWidget;
+    QPointer<QWidget> m_terminalWidget;
+    QWidget *m_parentSplitter;
 
-        KParts::Part* m_part;
-        TerminalInterfaceV2* m_terminalInterface;
-        QWidget* m_partWidget;
-        QPointer<QWidget> m_terminalWidget;
-        QWidget* m_parentSplitter;
+    QString m_title;
 
-        QString m_title;
+    bool m_keyboardInputEnabled;
 
-        bool m_keyboardInputEnabled;
-
-        bool m_monitorActivityEnabled;
-        bool m_monitorSilenceEnabled;
+    bool m_monitorActivityEnabled;
+    bool m_monitorSilenceEnabled;
 };
 
 #endif

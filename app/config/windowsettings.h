@@ -18,10 +18,8 @@
   along with this program. If not, see https://www.gnu.org/licenses/.
 */
 
-
 #ifndef WINDOWSETTINGS_H
 #define WINDOWSETTINGS_H
-
 
 #include "ui_windowsettings.h"
 
@@ -29,30 +27,27 @@ class WindowSettings : public QWidget, private Ui::WindowSettings
 {
     Q_OBJECT
 
-    public:
-        explicit WindowSettings(QWidget* parent = 0);
-         ~WindowSettings();
+public:
+    explicit WindowSettings(QWidget *parent = 0);
+    ~WindowSettings();
 
-    private:
+private:
+Q_SIGNALS:
+    void updateWindowGeometry(int width, int height, int position);
 
-    Q_SIGNALS:
-        void updateWindowGeometry(int width, int height, int position);
+private Q_SLOTS:
+    void updateWidthSlider(int width);
+    void updateWidthSpinBox(int width);
 
+    void updateHeightSlider(int height);
+    void updateHeightSpinBox(int height);
 
-    private Q_SLOTS:
-        void updateWidthSlider(int width);
-        void updateWidthSpinBox(int width);
+    void updateFramesSlider(int height);
+    void updateFramesSpinBox(int height);
 
-        void updateHeightSlider(int height);
-        void updateHeightSpinBox(int height);
+    void updatePosition(int position);
 
-        void updateFramesSlider(int height);
-        void updateFramesSpinBox(int height);
-
-        void updatePosition(int position);
-
-        void interceptHideTitleBar(int state);
-
+    void interceptHideTitleBar(int state);
 };
 
 #endif

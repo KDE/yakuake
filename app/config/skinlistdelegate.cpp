@@ -18,7 +18,6 @@
   along with this program. If not, see https://www.gnu.org/licenses/.
 */
 
-
 #include "skinlistdelegate.h"
 #include "appearancesettings.h"
 
@@ -28,13 +27,12 @@
 #include <QModelIndex>
 #include <QPainter>
 
-
 #define MARGIN 3
 #define ICON 32
 #define KNS_ICON_SIZE (ICON / 2)
 
-
-SkinListDelegate::SkinListDelegate(QObject* parent) : QAbstractItemDelegate(parent)
+SkinListDelegate::SkinListDelegate(QObject *parent)
+    : QAbstractItemDelegate(parent)
 {
 }
 
@@ -42,7 +40,7 @@ SkinListDelegate::~SkinListDelegate()
 {
 }
 
-void SkinListDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex &index) const
+void SkinListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
 
@@ -55,21 +53,20 @@ void SkinListDelegate::paint(QPainter* painter, const QStyleOptionViewItem& opti
     painter->restore();
 }
 
-void SkinListDelegate::paintBackground(QPainter* painter, const QStyleOptionViewItem& option) const
+void SkinListDelegate::paintBackground(QPainter *painter, const QStyleOptionViewItem &option) const
 {
     QStyleOptionViewItem opt = option;
-    QStyle* style = opt.widget ? opt.widget->style() : QApplication::style();
+    QStyle *style = opt.widget ? opt.widget->style() : QApplication::style();
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, opt.widget);
 }
 
-void SkinListDelegate::paintIcon(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex &index) const
+void SkinListDelegate::paintIcon(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     QVariant value;
 
     value = index.data(AppearanceSettings::SkinIcon);
 
-    if (value.isValid() && value.type() == QVariant::Icon)
-    {
+    if (value.isValid() && value.type() == QVariant::Icon) {
         int x = option.rect.x() + MARGIN;
         int y = option.rect.y() + (option.rect.height() / 2) - (ICON / 2);
 
@@ -80,7 +77,7 @@ void SkinListDelegate::paintIcon(QPainter* painter, const QStyleOptionViewItem& 
     }
 }
 
-void SkinListDelegate::paintText(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex &index) const
+void SkinListDelegate::paintText(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     QFont font = option.font;
     int initialY = option.rect.y();
@@ -96,8 +93,7 @@ void SkinListDelegate::paintText(QPainter* painter, const QStyleOptionViewItem& 
 
     value = index.data(AppearanceSettings::SkinName);
 
-    if (value.isValid())
-    {
+    if (value.isValid()) {
         font.setBold(true);
         painter->setFont(font);
         QFontMetrics fontMetrics(font);
@@ -105,8 +101,7 @@ void SkinListDelegate::paintText(QPainter* painter, const QStyleOptionViewItem& 
         QRect textRect = fontMetrics.boundingRect(value.toString());
         textWidth = textRect.width();
 
-        if (option.direction == Qt::RightToLeft)
-        {
+        if (option.direction == Qt::RightToLeft) {
             if (width < textWidth)
                 x = option.rect.x() + MARGIN;
             else
@@ -119,8 +114,7 @@ void SkinListDelegate::paintText(QPainter* painter, const QStyleOptionViewItem& 
 
         value = index.data(AppearanceSettings::SkinInstalledWithKns);
 
-        if (value.isValid() && value.toBool())
-        {
+        if (value.isValid() && value.toBool()) {
             QIcon ghnsIcon(QStringLiteral("get-hot-new-stuff"));
             int knsIconX = x;
             int iconSize = qMin(textRect.height(), KNS_ICON_SIZE);
@@ -141,8 +135,7 @@ void SkinListDelegate::paintText(QPainter* painter, const QStyleOptionViewItem& 
 
     value = index.data(AppearanceSettings::SkinAuthor);
 
-    if (value.isValid())
-    {
+    if (value.isValid()) {
         QString skinAuthor = xi18nc("@item:intext", "by %1", value.toString());
 
         font.setBold(false);
@@ -151,8 +144,7 @@ void SkinListDelegate::paintText(QPainter* painter, const QStyleOptionViewItem& 
 
         QRect textRect = fontMetrics.boundingRect(skinAuthor);
 
-        if (option.direction == Qt::RightToLeft)
-        {
+        if (option.direction == Qt::RightToLeft) {
             if (width < textRect.width())
                 x = option.rect.x() + MARGIN;
             else
@@ -165,7 +157,7 @@ void SkinListDelegate::paintText(QPainter* painter, const QStyleOptionViewItem& 
     }
 }
 
-QSize SkinListDelegate::sizeHint(const QStyleOptionViewItem&option, const QModelIndex& index) const
+QSize SkinListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     QFont font = option.font;
     QRect name, author;
@@ -175,8 +167,7 @@ QSize SkinListDelegate::sizeHint(const QStyleOptionViewItem&option, const QModel
 
     value = index.data(AppearanceSettings::SkinName);
 
-    if (value.isValid())
-    {
+    if (value.isValid()) {
         font.setBold(true);
         QFontMetrics fontMetrics(font);
         name = fontMetrics.boundingRect(value.toString());
@@ -184,8 +175,7 @@ QSize SkinListDelegate::sizeHint(const QStyleOptionViewItem&option, const QModel
 
     value = index.data(Qt::UserRole + 1);
 
-    if (value.isValid())
-    {
+    if (value.isValid()) {
         QString skinAuthor = xi18nc("@item:intext", "by %1", value.toString());
 
         font.setBold(false);
@@ -196,7 +186,7 @@ QSize SkinListDelegate::sizeHint(const QStyleOptionViewItem&option, const QModel
     width = qMax(name.width(), author.width());
     QRect textRect(0, 0, width, name.height() + author.height());
 
-    width = ICON + (3 * MARGIN) + textRect.width() + MARGIN;;
+    width = ICON + (3 * MARGIN) + textRect.width() + MARGIN;
     height = qMax(ICON + (2 * MARGIN), textRect.height() + (2 * MARGIN));
 
     return QSize(width, height);
