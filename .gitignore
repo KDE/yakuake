@@ -1,1 +1,5 @@
 *.kdev4
+/build
+/.clang-format
+cmake-build-debug*
+.idea
