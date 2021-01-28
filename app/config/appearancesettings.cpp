@@ -60,12 +60,12 @@ AppearanceSettings::AppearanceSettings(QWidget* parent) : QWidget(parent)
     skinList->setModel(m_skins);
     skinList->setItemDelegate(m_skinListDelegate);
 
-    connect(skinList->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
-        this, SLOT(updateSkinSetting()));
-    connect(skinList->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
-        this, SLOT(updateRemoveSkinButton()));
+    connect(skinList->selectionModel(), &QItemSelectionModel::currentChanged,
+        this, &AppearanceSettings::updateSkinSetting);
+    connect(skinList->selectionModel(), &QItemSelectionModel::currentChanged,
+        this, &AppearanceSettings::updateRemoveSkinButton);
     connect(installButton, SIGNAL(clicked()), this, SLOT(installSkin()));
-    connect(removeButton, SIGNAL(clicked()), this, SLOT(removeSelectedSkin()));
+    connect(removeButton, &QAbstractButton::clicked, this, &AppearanceSettings::removeSelectedSkin);
 
     installButton->setIcon(QIcon::fromTheme(QStringLiteral("folder")));
     removeButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete")));
