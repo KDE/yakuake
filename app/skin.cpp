@@ -252,6 +252,6 @@ void Skin::systemIconsChanged(int group)
     if (m_tabBarPreventClosingImage.isNull()) {
         updateTabBarPreventClosingImageCache();
 
-        emit iconChanged();
+        Q_EMIT iconChanged();
     }
 }

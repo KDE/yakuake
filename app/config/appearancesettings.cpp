@@ -338,7 +338,7 @@ void AppearanceSettings::installSkinArchive()
             populateSkinList();
 
             if (Settings::skin() == m_installSkinId)
-                emit settingsChanged();
+                Q_EMIT settingsChanged();
 
             cleanupAfterInstall();
         } else {
@@ -406,7 +406,7 @@ void AppearanceSettings::removeSelectedSkin()
                 Settings::setSkin(QStringLiteral("default"));
                 Settings::setSkinInstalledWithKns(false);
                 Settings::self()->save();
-                emit settingsChanged();
+                Q_EMIT settingsChanged();
             }
 
             resetSelection();

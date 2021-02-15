@@ -46,7 +46,7 @@ Session::~Session()
     if (m_baseSplitter)
         delete m_baseSplitter;
 
-    emit destroyed(m_sessionId);
+    Q_EMIT destroyed(m_sessionId);
 }
 
 void Session::setupSession(SessionType type)
@@ -380,8 +380,8 @@ void Session::setTitle(int terminalId, const QString &title)
     if (terminalId == m_activeTerminalId) {
         m_title = title;
 
-        emit titleChanged(m_title);
-        emit titleChanged(m_sessionId, m_title);
+        Q_EMIT titleChanged(m_title);
+        Q_EMIT titleChanged(m_sessionId, m_title);
     }
 }
 

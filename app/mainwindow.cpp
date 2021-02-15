@@ -1436,7 +1436,7 @@ void MainWindow::sharedAfterOpenWindow()
     initWaylandSurface();
 #endif
 
-    emit windowOpened();
+    Q_EMIT windowOpened();
 }
 
 void MainWindow::sharedPreHideWindow()
@@ -1454,7 +1454,7 @@ void MainWindow::sharedAfterHideWindow()
     m_plasmaShellSurface = nullptr;
 #endif
 
-    emit windowClosed();
+    Q_EMIT windowClosed();
 }
 
 void MainWindow::activate()

@@ -63,7 +63,7 @@ void WindowSettings::updateWidthSlider(int width)
 {
     widthSlider->setValue(width / 10);
 
-    emit updateWindowGeometry(width, kcfg_Height->value(), kcfg_Position->value());
+    Q_EMIT updateWindowGeometry(width, kcfg_Height->value(), kcfg_Position->value());
 }
 
 void WindowSettings::updateWidthSpinBox(int width)
@@ -75,7 +75,7 @@ void WindowSettings::updateHeightSlider(int height)
 {
     heightSlider->setValue(height / 10);
 
-    emit updateWindowGeometry(kcfg_Width->value(), height, kcfg_Position->value());
+    Q_EMIT updateWindowGeometry(kcfg_Width->value(), height, kcfg_Position->value());
 }
 
 void WindowSettings::updateHeightSpinBox(int height)
@@ -95,7 +95,7 @@ void WindowSettings::updateFramesSpinBox(int speed)
 
 void WindowSettings::updatePosition(int position)
 {
-    emit updateWindowGeometry(kcfg_Width->value(), kcfg_Height->value(), position);
+    Q_EMIT updateWindowGeometry(kcfg_Width->value(), kcfg_Height->value(), position);
 }
 
 void WindowSettings::interceptHideTitleBar(int state)

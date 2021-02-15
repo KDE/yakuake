@@ -71,9 +71,9 @@ int SessionStack::addSessionImpl(Session::SessionType type)
     m_sessions.insert(session->id(), session);
 
     if (Settings::dynamicTabTitles())
-        emit sessionAdded(session->id(), session->title());
+        Q_EMIT sessionAdded(session->id(), session->title());
     else
-        emit sessionAdded(session->id(), QString());
+        Q_EMIT sessionAdded(session->id(), QString());
 
     return session->id();
 }
@@ -135,9 +135,9 @@ void SessionStack::raiseSession(int sessionId)
     connect(this, SIGNAL(manageProfiles()), session, SLOT(manageProfiles()));
     connect(session, SIGNAL(titleChanged(QString)), this, SIGNAL(activeTitleChanged(QString)));
 
-    emit sessionRaised(sessionId);
+    Q_EMIT sessionRaised(sessionId);
 
-    emit activeTitleChanged(session->title());
+    Q_EMIT activeTitleChanged(session->title());
 }
 
 void SessionStack::removeSession(int sessionId)
@@ -191,7 +191,7 @@ void SessionStack::cleanup(int sessionId)
 
     m_sessions.remove(sessionId);
 
-    emit sessionRemoved(sessionId);
+    Q_EMIT sessionRemoved(sessionId);
 }
 
 int SessionStack::activeTerminalId()
@@ -662,7 +662,7 @@ void SessionStack::emitTitles()
         title = it.value()->title();
 
         if (!title.isEmpty())
-            emit titleChanged(it.value()->id(), title);
+            Q_EMIT titleChanged(it.value()->id(), title);
     }
 }
 

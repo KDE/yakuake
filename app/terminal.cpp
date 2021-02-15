@@ -123,7 +123,7 @@ Terminal::Terminal(const QString &workingDir, QWidget *parent)
 
 Terminal::~Terminal()
 {
-    emit destroyed(m_terminalId);
+    Q_EMIT destroyed(m_terminalId);
 }
 
 void Terminal::deletePart()
@@ -137,12 +137,12 @@ void Terminal::deletePart()
 bool Terminal::eventFilter(QObject * /* watched */, QEvent *event)
 {
     if (event->type() == QEvent::FocusIn) {
-        emit activated(m_terminalId);
+        Q_EMIT activated(m_terminalId);
 
         QFocusEvent *focusEvent = static_cast<QFocusEvent *>(event);
 
         if (focusEvent->reason() == Qt::MouseFocusReason || focusEvent->reason() == Qt::OtherFocusReason || focusEvent->reason() == Qt::BacktabFocusReason)
-            emit manuallyActivated(this);
+            Q_EMIT manuallyActivated(this);
     } else if (event->type() == QEvent::MouseMove) {
         if (Settings::focusFollowsMouse() && m_terminalWidget && !m_terminalWidget->hasFocus())
             m_terminalWidget->setFocus();
@@ -153,7 +153,7 @@ bool Terminal::eventFilter(QObject * /* watched */, QEvent *event)
             QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
 
             if (keyEvent->modifiers() == Qt::NoModifier)
-                emit keyboardInputBlocked(this);
+                Q_EMIT keyboardInputBlocked(this);
 
             return true;
         } else if (event->type() == QEvent::KeyRelease)
@@ -256,7 +256,7 @@ void Terminal::setTitle(const QString &title)
 {
     m_title = title;
 
-    emit titleChanged(m_terminalId, m_title);
+    Q_EMIT titleChanged(m_terminalId, m_title);
 }
 
 void Terminal::runCommand(const QString &command)
@@ -311,12 +311,12 @@ void Terminal::setMonitorSilenceEnabled(bool enabled)
 
 void Terminal::activityDetected()
 {
-    emit activityDetected(this);
+    Q_EMIT activityDetected(this);
 }
 
 void Terminal::silenceDetected()
 {
-    emit silenceDetected(this);
+    Q_EMIT silenceDetected(this);
 }
 
 QString Terminal::currentWorkingDirectory() const

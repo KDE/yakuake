@@ -330,9 +330,9 @@ void TabBar::contextMenuActionHovered(QAction *action)
         int terminalId = action->data().toInt(&ok);
 
         if (ok)
-            emit requestTerminalHighlight(terminalId);
+            Q_EMIT requestTerminalHighlight(terminalId);
     } else if (!ok)
-        emit requestRemoveTerminalHighlight();
+        Q_EMIT requestRemoveTerminalHighlight();
 }
 
 void TabBar::contextMenuEvent(QContextMenuEvent *event)
@@ -359,7 +359,7 @@ void TabBar::contextMenuEvent(QContextMenuEvent *event)
 
         QAction *action = m_tabContextMenu->exec(QCursor::pos());
 
-        emit tabContextMenuClosed();
+        Q_EMIT tabContextMenuClosed();
 
         if (action) {
             if (action->isCheckable())
@@ -587,10 +587,10 @@ void TabBar::mouseReleaseEvent(QMouseEvent *event)
 
     if (m_mousePressed && m_mousePressedIndex == index) {
         if (event->button() == Qt::LeftButton && index != m_tabs.indexOf(m_selectedSessionId))
-            emit tabSelected(m_tabs.at(index));
+            Q_EMIT tabSelected(m_tabs.at(index));
 
         if (event->button() == Qt::MidButton)
-            emit tabClosed(m_tabs.at(index));
+            Q_EMIT tabClosed(m_tabs.at(index));
     }
 
     m_mousePressed = false;
@@ -683,7 +683,7 @@ void TabBar::dropEvent(QDropEvent *event)
             --targetIndex;
 
         m_tabs.move(sourceIndex, targetIndex);
-        emit tabSelected(m_tabs.at(targetIndex));
+        Q_EMIT tabSelected(m_tabs.at(targetIndex));
 
         event->accept();
     }
@@ -707,7 +707,7 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent *event)
         if (event->x() <= m_tabWidths.last())
             interactiveRename(m_tabs.at(index));
         else if (event->x() > m_tabWidths.last())
-            emit newTabRequested();
+            Q_EMIT newTabRequested();
     }
 
     QWidget::mouseDoubleClickEvent(event);
@@ -731,7 +731,7 @@ void TabBar::addTab(int sessionId, const QString &title)
     else
         m_tabTitles.insert(sessionId, title);
 
-    emit tabSelected(sessionId);
+    Q_EMIT tabSelected(sessionId);
 }
 
 void TabBar::removeTab(int sessionId)
@@ -752,9 +752,9 @@ void TabBar::removeTab(int sessionId)
     m_tabTitles.remove(sessionId);
 
     if (m_tabs.isEmpty())
-        emit lastTabClosed();
+        Q_EMIT lastTabClosed();
     else
-        emit tabSelected(m_tabs.last());
+        Q_EMIT tabSelected(m_tabs.last());
 }
 
 void TabBar::interactiveRename(int sessionId)
@@ -812,7 +812,7 @@ void TabBar::selectNextTab()
     else
         newSelectedSessionId = m_tabs.at(index + 1);
 
-    emit tabSelected(newSelectedSessionId);
+    Q_EMIT tabSelected(newSelectedSessionId);
 }
 
 void TabBar::selectPreviousTab()
@@ -827,7 +827,7 @@ void TabBar::selectPreviousTab()
     else
         newSelectedSessionId = m_tabs.at(index - 1);
 
-    emit tabSelected(newSelectedSessionId);
+    Q_EMIT tabSelected(newSelectedSessionId);
 }
 
 void TabBar::moveTabLeft(int sessionId)
@@ -866,7 +866,7 @@ void TabBar::moveTabRight(int sessionId)
 
 void TabBar::closeTabButtonClicked()
 {
-    emit tabClosed(m_selectedSessionId);
+    Q_EMIT tabClosed(m_selectedSessionId);
 }
 
 QString TabBar::tabTitle(int sessionId)
@@ -893,7 +893,7 @@ void TabBar::setTabTitle(int sessionId, const QString &newTitle, InteractiveType
     } else
         m_tabTitlesSetInteractive.remove(sessionId);
 
-    emit tabTitleEdited(sessionId, newTitle);
+    Q_EMIT tabTitleEdited(sessionId, newTitle);
     update();
 }
 
