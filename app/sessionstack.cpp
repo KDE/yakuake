@@ -190,7 +190,7 @@ int SessionStack::activeTerminalId()
 
 const QString SessionStack::sessionIdList()
 {
-    QList<int> keyList = m_sessions.uniqueKeys();
+    QList<int> keyList = m_sessions.keys();
     QStringList idList;
 
     QListIterator<int> i(keyList);

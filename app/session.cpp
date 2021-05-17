@@ -401,7 +401,7 @@ void Session::prepareShutdown()
 
 const QString Session::terminalIdList()
 {
-    QList<int> keyList = m_terminals.uniqueKeys();
+    QList<int> keyList = m_terminals.keys();
     QStringList idList;
 
     QListIterator<int> i(keyList);
