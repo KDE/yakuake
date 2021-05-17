@@ -7,6 +7,7 @@
 #ifndef VISUALEVENTOVERLAY_H
 #define VISUALEVENTOVERLAY_H
 
+#include <QElapsedTimer>
 #include <QRect>
 #include <QTime>
 #include <QWidget>
@@ -39,7 +40,7 @@ public:
     {
         return m_eventType;
     }
-    const QTime &timeStamp() const
+    const QElapsedTimer &timeStamp() const
     {
         return m_timeStamp;
     }
@@ -64,7 +65,7 @@ private:
     EventType m_eventType;
     EventFlags m_eventFlags;
 
-    QTime m_timeStamp;
+    QElapsedTimer m_timeStamp;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(EventRect::EventFlags)
@@ -99,10 +100,10 @@ private:
     QList<EventRect> m_eventRects;
 
     QTimer *m_cleanupTimer;
-    QTime m_cleanupTimerStarted;
+    QElapsedTimer m_cleanupTimerStarted;
     int m_cleanupTimerCeiling;
 
-    QTime m_time;
+    QElapsedTimer m_time;
 
     SessionStack *m_sessionStack;
 };
