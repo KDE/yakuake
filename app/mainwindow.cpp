@@ -928,7 +928,7 @@ void MainWindow::applyWindowProperties()
         KWindowSystem::setState(winId(), NET::KeepAbove | NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
 
     KWindowSystem::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
-    KWindowEffects::enableBlurBehind(winId(), Settings::blur());
+    KWindowEffects::enableBlurBehind(windowHandle(), Settings::blur());
 }
 
 void MainWindow::applyWindowGeometry()
@@ -1232,7 +1232,7 @@ void MainWindow::_toggleWindowState()
         } else {
             sharedPreOpenWindow();
             if (KWindowEffects::isEffectAvailable(KWindowEffects::Slide)) {
-                KWindowEffects::slideWindow(winId(), KWindowEffects::TopEdge);
+                KWindowEffects::slideWindow(windowHandle(), KWindowEffects::TopEdge);
             }
 
             show();
