@@ -944,7 +944,6 @@ void TabBar::startDrag(int index)
 
     int x = index ? m_tabWidths.at(index - 1) : m_skin->tabBarPosition().x();
     int tabWidth = m_tabWidths.at(index) - x;
-    QString title = tabTitle(sessionId);
 
     QPixmap tab(tabWidth, height());
     QColor fillColor(Settings::backgroundColor());
