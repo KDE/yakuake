@@ -155,7 +155,7 @@ void Terminal::displayKPartLoadError()
     QColor warningColor = colorScheme.background(KColorScheme::NeutralBackground).color();
     QColor warningColorLight = KColorScheme::shade(warningColor, KColorScheme::LightShade, 0.1);
     QString gradient = QStringLiteral("qlineargradient(x1:0, y1:0, x2:0, y2:1,stop: 0 %1, stop: 0.6 %1, stop: 1.0 %2)");
-    gradient = gradient.arg(warningColor.name()).arg(warningColorLight.name());
+    gradient = gradient.arg(warningColor.name(), warningColorLight.name());
     QString styleSheet = QStringLiteral("QLabel { background: %1; }");
 
     QWidget *widget = new QWidget(m_parentSplitter);
