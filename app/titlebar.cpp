@@ -133,8 +133,8 @@ void TitleBar::paintEvent(QPaintEvent *)
 
     const QString title = this->title();
     if (m_skin->titleBarTextCentered()
-        && width()
-            > m_skin->titleBarTextPosition().x() + painter.fontMetrics().width(title) + m_focusButton->width() + m_quitButton->width() + m_menuButton->width())
+        && width() > m_skin->titleBarTextPosition().x() + painter.fontMetrics().horizontalAdvance(title) + m_focusButton->width() + m_quitButton->width()
+                + m_menuButton->width())
         painter.drawText(0, 0, width(), height(), Qt::AlignCenter, title);
     else
         painter.drawText(m_skin->titleBarTextPosition(), title);

@@ -462,7 +462,7 @@ int TabBar::drawTab(int x, int y, int index, QPainter &painter)
     painter.setFont(font);
 
     QFontMetrics fontMetrics(font);
-    textWidth = fontMetrics.width(title) + 10;
+    textWidth = fontMetrics.horizontalAdvance(title) + 10;
 
     // Draw the Prevent Closing image in the tab button.
     if (m_mainWindow->sessionStack()->isSessionClosable(sessionId) == false) {
@@ -826,7 +826,7 @@ void TabBar::moveTabLeft(int sessionId)
     if (index < 1)
         return;
 
-    m_tabs.swap(index, index - 1);
+    m_tabs.swapItemsAt(index, index - 1);
 
     repaint();
 
@@ -843,7 +843,7 @@ void TabBar::moveTabRight(int sessionId)
     if (index == -1 || index == m_tabs.count() - 1)
         return;
 
-    m_tabs.swap(index, index + 1);
+    m_tabs.swapItemsAt(index, index + 1);
 
     repaint();
 
@@ -955,7 +955,7 @@ void TabBar::startDrag(int index)
     tab.fill(fillColor);
 
     QPainter painter(&tab);
-    painter.initFrom(this);
+    painter.begin(this);
     painter.setPen(m_skin->tabBarTextColor());
 
     drawTab(0, 0, index, painter);
