@@ -243,7 +243,7 @@ void AppearanceSettings::installSkin(const QUrl &skinUrl)
             m_installSkinFileList.append(i.next().stringValue(KIO::UDSEntry::UDS_NAME));
     });
 
-    connect(job, &KIO::ListJob::result, [=](KJob *job) {
+    connect(job, &KIO::ListJob::result, this, [=](KJob *job) {
         if (!job->error())
             checkForExistingSkin();
         else
@@ -302,7 +302,7 @@ void AppearanceSettings::checkForExistingSkin()
 void AppearanceSettings::removeSkin(const QString &skinDir, std::function<void()> successCallback)
 {
     KIO::DeleteJob *job = KIO::del(QUrl::fromLocalFile(skinDir), KIO::HideProgressInfo);
-    connect(job, &KIO::DeleteJob::result, [=](KJob *deleteJob) {
+    connect(job, &KIO::DeleteJob::result, this, [=](KJob *deleteJob) {
         if (deleteJob->error()) {
             KMessageBox::error(parentWidget(), deleteJob->errorString(), xi18nc("@title:Window", "Could Not Delete Skin"));
         } else if (successCallback) {
@@ -363,7 +363,7 @@ void AppearanceSettings::updateRemoveSkinButton()
     const QString skinDir = skinList->currentIndex().data(SkinDir).toString();
     bool enabled = false;
     if (!skinDir.isEmpty()) {
-        enabled == QFileInfo(skinDir + QStringLiteral("/title.skin")).isWritable();
+        enabled = QFileInfo(skinDir + QStringLiteral("/title.skin")).isWritable();
     }
     removeButton->setEnabled(enabled);
 }

@@ -343,7 +343,7 @@ int Session::tryGrowTerminal(int terminalId, GrowthDirection direction, uint pix
                 currentSizes[affected] -= pixels;
                 splitter->setSizes(currentSizes);
 
-                return splitter->sizes()[currentPos] - oldSize;
+                return splitter->sizes().at(currentPos) - oldSize;
             }
         }
         // Try with a higher level.
