@@ -61,7 +61,7 @@
 #endif
 
 MainWindow::MainWindow(QWidget *parent)
-    : KMainWindow(parent, Qt::CustomizeWindowHint | Qt::FramelessWindowHint)
+    : KMainWindow(parent, Qt::CustomizeWindowHint | Qt::FramelessWindowHint | Qt::Tool)
 {
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/yakuake/window"), this, QDBusConnection::ExportScriptableSlots);
 
@@ -1145,25 +1145,6 @@ void MainWindow::changeEvent(QEvent *event)
     }
 
     KMainWindow::changeEvent(event);
-}
-
-bool MainWindow::event(QEvent *event)
-{
-    if (event->type() == QEvent::Expose) {
-        // FIXME TODO: We can remove this once we depend on Qt 5.6.1+.
-        // See: https://bugreports.qt.io/browse/QTBUG-26978
-        applyWindowProperties();
-#if (QT_VERSION > QT_VERSION_CHECK(5, 5, 0))
-    } else if (event->type() == QEvent::PlatformSurface) {
-        const QPlatformSurfaceEvent *pSEvent = static_cast<QPlatformSurfaceEvent *>(event);
-
-        if (pSEvent->surfaceEventType() == QPlatformSurfaceEvent::SurfaceCreated) {
-            applyWindowProperties();
-        }
-#endif
-    }
-
-    return KMainWindow::event(event);
 }
 
 bool MainWindow::focusNextPrevChild(bool)

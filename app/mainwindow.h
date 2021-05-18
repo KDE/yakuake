@@ -93,7 +93,6 @@ protected:
     void moveEvent(QMoveEvent *) override;
     void changeEvent(QEvent *event) override;
     void closeEvent(QCloseEvent *event) override;
-    bool event(QEvent *event) override;
     bool focusNextPrevChild(bool) override;
 
     virtual bool queryClose() override;
