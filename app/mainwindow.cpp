@@ -381,13 +381,13 @@ void MainWindow::setupActions()
     action = actionCollection()->addAction(QStringLiteral("previous-terminal"));
     action->setText(xi18nc("@action", "Previous Terminal"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("go-previous")));
-    actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Up));
+    actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Tab));
     connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(previousTerminal()));
 
     action = actionCollection()->addAction(QStringLiteral("next-terminal"));
     action->setText(xi18nc("@action", "Next Terminal"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("go-next")));
-    actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Down));
+    actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_Tab));
     connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(nextTerminal()));
 
     action = actionCollection()->addAction(QStringLiteral("close-active-terminal"));
