@@ -260,6 +260,7 @@
       <li xml:lang="zh-CN">标签式界面</li>
       <li xml:lang="zh-TW">分頁介面</li>
       <li>Configurable dimensions and animation speed</li>
+      <li xml:lang="ar">أبعاد وسرعة حركات قابلة للضّبط</li>
       <li xml:lang="ast">Dimensiones y velocidá d'animaciones configurables</li>
       <li xml:lang="ca">Les dimensions i la velocitat de l'animació es poden configurar</li>
       <li xml:lang="ca-valencia">Les dimensions i la velocitat de l'animació es poden configurar</li>
@@ -299,6 +300,7 @@
       <li xml:lang="zh-CN">可配置位置和动画速度</li>
       <li xml:lang="zh-TW">設定動畫速度與大小</li>
       <li>Skinnable</li>
+      <li xml:lang="ar">قابل للتّخصيص</li>
       <li xml:lang="ast">L'aspeutu ye personalizable</li>
       <li xml:lang="ca">Es pot canviar l'aparença</li>
       <li xml:lang="ca-valencia">Es pot canviar l'aparença</li>
@@ -338,6 +340,7 @@
       <li xml:lang="zh-CN">可更换主题</li>
       <li xml:lang="zh-TW">Skinnable</li>
       <li>Sophisticated D-Bus interface</li>
+      <li xml:lang="ar">واجهة D-Bus متطوّرة</li>
       <li xml:lang="ast">Interfaz de D-Bus sofisticada</li>
       <li xml:lang="ca">Interfície de D-Bus sofisticada</li>
       <li xml:lang="ca-valencia">Interfície de D-Bus sofisticada</li>
