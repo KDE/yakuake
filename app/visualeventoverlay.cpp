@@ -163,7 +163,7 @@ void VisualEventOverlay::paintEvent(QPaintEvent *)
 
             painter.setOpacity(Settings::terminalHighlightOpacity());
 
-            painter.fillRect(eventRect, terminalHighlightBrush.brush(this));
+            painter.fillRect(eventRect, terminalHighlightBrush.brush(palette()));
 
             painted = true;
         } else if (eventRect.eventType() == EventRect::KeyboardInputBlocked
