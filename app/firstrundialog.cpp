@@ -46,6 +46,7 @@ FirstRunDialog::FirstRunDialog(MainWindow *mainWindow)
 
 FirstRunDialog::~FirstRunDialog()
 {
+    delete m_ui;
 }
 
 void FirstRunDialog::initKeyButton()
