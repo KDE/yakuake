@@ -1,6 +1,8 @@
 configure_file(config-yakuake.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-yakuake.h)
 
-set(yakuake_SRCS
+add_executable(yakuake)
+
+target_sources(yakuake PRIVATE
     main.cpp
     mainwindow.cpp
     skin.cpp
@@ -17,19 +19,18 @@ set(yakuake_SRCS
     config/skinlistdelegate.cpp
 )
 
-ki18n_wrap_ui(yakuake_SRCS
+ki18n_wrap_ui(yakuake
     firstrundialog.ui
     config/windowsettings.ui
     config/behaviorsettings.ui
     config/appearancesettings.ui
 )
 
-kconfig_add_kcfg_files(yakuake_SRCS config/settings.kcfgc)
+kconfig_add_kcfg_files(yakuake config/settings.kcfgc)
 
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../data/icons/*-apps-yakuake.png")
 ecm_add_app_icon(yakuake_SRCS ICONS ${ICONS_SRCS})
 
-add_executable(yakuake ${yakuake_SRCS})
 
 target_link_libraries(yakuake
     Qt5::Widgets
