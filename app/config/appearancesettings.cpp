@@ -16,11 +16,7 @@
 #include <KTar>
 
 #include <knewstuff_version.h>
-#if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 78, 0)
-#include <downloaddialog.h>
-#else
 #include <QtQuickDialogWrapper>
-#endif
 
 #include <QDir>
 #include <QDirIterator>
@@ -428,21 +424,8 @@ QSet<QString> AppearanceSettings::extractKnsSkinIds(const QStringList &fileList)
 
 void AppearanceSettings::getNewSkins()
 {
-#if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 78, 0)
-    QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog(m_knsConfigFileName, this);
-    // Show the KNS dialog. NOTE: We are NOT supposed to check the dialog's result,
-    // because the actions are asynchronous (items are installed or uninstalled,
-    // regardless whether the dialog's result is Accepted or Rejected)!
-    dialog->exec();
-
-    if (dialog.isNull()) {
-        return;
-    }
-    const KNS3::Entry::List changedEntries = dialog->changedEntries();
-#else
     QPointer<KNS3::QtQuickDialogWrapper> dialog = new KNS3::QtQuickDialogWrapper(m_knsConfigFileName, this);
     const QList<KNSCore::EntryInternal> changedEntries = dialog->exec();
-#endif
 
     quint32 invalidEntryCount = 0;
     QString invalidSkinText;
@@ -450,11 +433,7 @@ void AppearanceSettings::getNewSkins()
         if (_entry.status() != KNS3::Entry::Installed) {
             continue;
         }
-#if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 78, 0)
-        const KNSCore::EntryInternal entry = KNSCore::EntryInternal::fromEntry(_entry);
-#else
         const KNSCore::EntryInternal &entry = _entry;
-#endif
         bool isValid = true;
         const QSet<QString> &skinIdList = extractKnsSkinIds(entry.installedFiles());
 
