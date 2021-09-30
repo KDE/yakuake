@@ -172,6 +172,7 @@ void MainWindow::initWayland()
 void MainWindow::initWaylandSurface()
 {
     if (m_plasmaShellSurface) {
+        m_plasmaShellSurface->setPosition(pos());
         return;
     }
     if (!m_plasmaShell) {
