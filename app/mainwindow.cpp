@@ -1121,14 +1121,8 @@ void MainWindow::wmActiveWindowChanged()
         return;
     }
 
-    if (m_isX11) {
-        if (!Settings::keepOpen() && isVisible() && KWindowSystem::activeWindow() != winId()) {
-            toggleWindowState();
-        }
-    } else {
-        if (!Settings::keepOpen() && hasFocus()) {
-            toggleWindowState();
-        }
+    if (!Settings::keepOpen() && isVisible() && !isActiveWindow()) {
+        toggleWindowState();
     }
 }
 
@@ -1395,7 +1389,7 @@ void MainWindow::sharedAfterOpenWindow()
     if (!Settings::firstRun())
         KWindowSystem::forceActiveWindow(winId());
 
-    connect(KWindowSystem::self(), &KWindowSystem::activeWindowChanged, this, &MainWindow::wmActiveWindowChanged);
+    connect(qGuiApp, &QGuiApplication::focusWindowChanged, this, &MainWindow::wmActiveWindowChanged);
 
     applyWindowProperties();
 
@@ -1408,7 +1402,7 @@ void MainWindow::sharedAfterOpenWindow()
 
 void MainWindow::sharedPreHideWindow()
 {
-    disconnect(KWindowSystem::self(), &KWindowSystem::activeWindowChanged, this, &MainWindow::wmActiveWindowChanged);
+    disconnect(qGuiApp, &QGuiApplication::focusWindowChanged, this, &MainWindow::wmActiveWindowChanged);
 }
 
 void MainWindow::sharedAfterHideWindow()
