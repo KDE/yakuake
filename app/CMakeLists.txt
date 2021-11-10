@@ -3,20 +3,33 @@ configure_file(config-yakuake.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-yakuake
 add_executable(yakuake)
 
 target_sources(yakuake PRIVATE
+    config/appearancesettings.cpp
+    config/appearancesettings.h
+    config/skinlistdelegate.cpp
+    config/skinlistdelegate.h
+    config/windowsettings.cpp
+    config/windowsettings.h
+    firstrundialog.cpp
+    firstrundialog.h
     main.cpp
     mainwindow.cpp
-    skin.cpp
-    titlebar.cpp
-    tabbar.cpp
-    sessionstack.cpp
+    mainwindow.h
     session.cpp
-    terminal.cpp
+    session.h
+    sessionstack.cpp
+    sessionstack.h
+    skin.cpp
+    skin.h
     splitter.cpp
-    firstrundialog.cpp
+    splitter.h
+    tabbar.cpp
+    tabbar.h
+    terminal.cpp
+    terminal.h
+    titlebar.cpp
+    titlebar.h
     visualeventoverlay.cpp
-    config/windowsettings.cpp
-    config/appearancesettings.cpp
-    config/skinlistdelegate.cpp
+    visualeventoverlay.h
 )
 
 ki18n_wrap_ui(yakuake
