@@ -15,6 +15,7 @@
 #include <KService>
 #include <KXMLGUIBuilder>
 #include <KXMLGUIFactory>
+#include <kcoreaddons_version.h>
 #include <kde_terminal_interface.h>
 
 #include <QAction>
@@ -47,7 +48,11 @@ Terminal::Terminal(const QString &workingDir, QWidget *parent)
     KPluginFactory *factory = nullptr;
     KService::Ptr service = KService::serviceByDesktopName(QStringLiteral("konsolepart"));
     if (service) {
+#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(5, 86, 0)
+        factory = KPluginFactory::loadFactory(KPluginMetaData(service->library())).plugin;
+#else
         factory = KPluginLoader(service->library()).factory();
+#endif
     }
 
     m_part = factory ? (factory->create<KParts::Part>(parent)) : nullptr;
