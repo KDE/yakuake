@@ -88,7 +88,7 @@ void AppearanceSettings::populateSkinList()
     allSkinLocations << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("/yakuake/skins/"), QStandardPaths::LocateDirectory);
     allSkinLocations << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("/yakuake/kns_skins/"), QStandardPaths::LocateDirectory);
 
-    Q_FOREACH (const QString &skinLocation, allSkinLocations) {
+    for (const QString &skinLocation : std::as_const(allSkinLocations)) {
         populateSkinList(skinLocation);
     }
 
@@ -261,11 +261,11 @@ void AppearanceSettings::checkForExistingSkin()
 {
     m_installSkinId = m_installSkinFileList.at(0);
 
-    QModelIndexList skins = m_skins->match(m_skins->index(0, 0), SkinId, m_installSkinId, 1, Qt::MatchExactly | Qt::MatchWrap);
+    const QModelIndexList skins = m_skins->match(m_skins->index(0, 0), SkinId, m_installSkinId, 1, Qt::MatchExactly | Qt::MatchWrap);
 
     int exists = skins.count();
 
-    foreach (const QModelIndex &skin, skins) {
+    for (const QModelIndex &skin : skins) {
         if (m_skins->item(skin.row())->data(SkinInstalledWithKns).toBool())
             --exists;
     }
@@ -400,7 +400,7 @@ QSet<QString> AppearanceSettings::extractKnsSkinIds(const QStringList &fileList)
 {
     QSet<QString> skinIdList;
 
-    foreach (const QString &file, fileList) {
+    for (const QString &file : fileList) {
         // We only care about files/directories which are subdirectories of our KNS skins dir.
         if (file.startsWith(m_knsSkinDir, Qt::CaseInsensitive)) {
             // Get the relative filename (this removes the KNS install dir from the filename).
