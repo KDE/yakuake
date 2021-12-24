@@ -25,7 +25,7 @@ class SessionStack : public QStackedWidget
     Q_CLASSINFO("D-Bus Interface", "org.kde.yakuake")
 
 public:
-    explicit SessionStack(QWidget *parent = 0);
+    explicit SessionStack(QWidget *parent = nullptr);
     ~SessionStack();
 
     void closeActiveTerminal(int sessionId = -1);

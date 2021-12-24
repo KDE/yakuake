@@ -75,7 +75,7 @@ class VisualEventOverlay : public QWidget
     Q_OBJECT
 
 public:
-    explicit VisualEventOverlay(SessionStack *parent = 0);
+    explicit VisualEventOverlay(SessionStack *parent = nullptr);
     ~VisualEventOverlay();
 
 public Q_SLOTS:

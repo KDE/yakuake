@@ -44,7 +44,7 @@ class MainWindow : public KMainWindow
     friend class TitleBar;
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
     KActionCollection *actionCollection()
@@ -75,8 +75,8 @@ public:
 public Q_SLOTS:
     Q_SCRIPTABLE void toggleWindowState();
 
-    void handleContextDependentAction(QAction *action = 0, int sessionId = -1);
-    void handleContextDependentToggleAction(bool checked, QAction *action = 0, int sessionId = -1);
+    void handleContextDependentAction(QAction *action = nullptr, int sessionId = -1);
+    void handleContextDependentToggleAction(bool checked, QAction *action = nullptr, int sessionId = -1);
     void handleToggleTerminalKeyboardInput(bool checked);
     void handleToggleTerminalMonitorActivity(bool checked);
     void handleToggleTerminalMonitorSilence(bool checked);

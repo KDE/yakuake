@@ -14,7 +14,7 @@ class WindowSettings : public QWidget, private Ui::WindowSettings
     Q_OBJECT
 
 public:
-    explicit WindowSettings(QWidget *parent = 0);
+    explicit WindowSettings(QWidget *parent = nullptr);
     ~WindowSettings();
 
 private:

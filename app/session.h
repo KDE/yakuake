@@ -33,7 +33,7 @@ public:
         Left,
     };
 
-    explicit Session(const QString &workingDir, SessionType type = Single, QWidget *parent = 0);
+    explicit Session(const QString &workingDir, SessionType type = Single, QWidget *parent = nullptr);
     ~Session();
 
     int id()

@@ -21,7 +21,7 @@ class Terminal : public QObject
     Q_OBJECT
 
 public:
-    explicit Terminal(const QString &workingDir, QWidget *parent = 0);
+    explicit Terminal(const QString &workingDir, QWidget *parent = nullptr);
     ~Terminal();
 
     bool eventFilter(QObject *watched, QEvent *event) override;

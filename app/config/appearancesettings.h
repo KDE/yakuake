@@ -23,7 +23,7 @@ class AppearanceSettings : public QWidget, private Ui::AppearanceSettings
     Q_OBJECT
 
 public:
-    explicit AppearanceSettings(QWidget *parent = 0);
+    explicit AppearanceSettings(QWidget *parent = nullptr);
     ~AppearanceSettings();
 
     enum DataRole {
