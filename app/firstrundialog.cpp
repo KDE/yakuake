@@ -67,7 +67,7 @@ void FirstRunDialog::initKeyButton()
 void FirstRunDialog::validateKeySequence(const QKeySequence &keySequence)
 {
     if (!KGlobalAccel::isGlobalShortcutAvailable(keySequence)) {
-        bool steal = KGlobalAccel::promptStealShortcutSystemwide(this, KGlobalAccel::getGlobalShortcutsByKey(keySequence), keySequence);
+        bool steal = KGlobalAccel::promptStealShortcutSystemwide(this, KGlobalAccel::globalShortcutsByKey(keySequence), keySequence);
 
         if (!steal)
             initKeyButton();
