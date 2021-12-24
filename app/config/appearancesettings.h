@@ -89,7 +89,7 @@ private:
 
     void populateSkinList(const QString &installationDirectory);
     void checkForExistingSkin();
-    void removeSkin(const QString &skinDir, std::function<void()> successCallback = 0);
+    void removeSkin(const QString &skinDir, std::function<void()> successCallback = nullptr);
     void installSkin(const QUrl &skinUrl);
     void failInstall(const QString &error);
     void cleanupAfterInstall();
