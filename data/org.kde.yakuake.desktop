@@ -174,3 +174,4 @@ Comment[zh_TW]=下拉式終端模擬器，基於 KDE Konsole 的技術。
 X-DBUS-StartupType=Unique
 X-KDE-StartupNotify=false
 X-DBUS-ServiceName=org.kde.yakuake
+DBusActivatable=true
