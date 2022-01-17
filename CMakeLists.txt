@@ -22,6 +22,7 @@ include(ECMAddAppIcon)
 include(FeatureSummary)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
+include(ECMGenerateDBusServiceFile)
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055900)
@@ -60,12 +61,6 @@ if(NOT APPLE)
   find_package(KF5Wayland ${KF5_MIN_VERSION} CONFIG)
   set(HAVE_KWAYLAND ${KF5Wayland_FOUND})
 endif(NOT APPLE)
-
-configure_file(org.kde.yakuake.service.in
-	       ${CMAKE_CURRENT_BINARY_DIR}/org.kde.yakuake.service)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.yakuake.service
-	DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
 
 add_subdirectory(app)
 add_subdirectory(data)
