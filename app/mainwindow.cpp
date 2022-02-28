@@ -1228,14 +1228,24 @@ void MainWindow::_toggleWindowState()
             sharedAfterHideWindow();
         } else {
             sharedPreOpenWindow();
-            if (KWindowEffects::isEffectAvailable(KWindowEffects::Slide)) {
-                KWindowEffects::slideWindow(windowHandle(), KWindowEffects::TopEdge);
+            if (!m_isWayland) {
+                slideWindow();
             }
 
             show();
+            if (m_isWayland) {
+                slideWindow();
+            }
 
             sharedAfterOpenWindow();
         }
+    }
+}
+
+void MainWindow::slideWindow()
+{
+    if (KWindowEffects::isEffectAvailable(KWindowEffects::Slide)) {
+        KWindowEffects::slideWindow(windowHandle(), KWindowEffects::TopEdge);
     }
 }
 

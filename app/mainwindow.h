@@ -179,6 +179,8 @@ private:
     QRect m_availableScreenRect;
     void _toggleWindowState();
 
+    void slideWindow();
+
     void updateUseTranslucency();
     bool m_useTranslucency;
     bool m_isFullscreen;
