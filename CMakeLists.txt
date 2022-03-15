@@ -30,7 +30,7 @@ add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055900)
 ### Security concerns about sendText and runCommand dbus methods being public
 option(REMOVE_SENDTEXT_RUNCOMMAND_DBUS_METHODS "yakuake: remove runCommand dbus methods" OFF)
 
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets Svg)
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets Svg)
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     Archive
@@ -55,7 +55,11 @@ if(NOT APPLE)
   set(HAVE_X11 ${X11_FOUND})
 
   if(X11_FOUND)
-    find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED X11Extras)
+      if (QT_MAJOR_VERSION EQUAL "5")
+          find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED X11Extras)
+      else()
+          find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
+      endif()
   endif(X11_FOUND)
 
   find_package(KF5Wayland ${KF5_MIN_VERSION} CONFIG)

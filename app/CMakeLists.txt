@@ -46,7 +46,7 @@ ecm_add_app_icon(yakuake_SRCS ICONS ${ICONS_SRCS})
 
 
 target_link_libraries(yakuake
-    Qt5::Widgets
+    Qt::Widgets
     KF5::Archive
     KF5::ConfigGui
     KF5::CoreAddons
@@ -64,7 +64,11 @@ target_link_libraries(yakuake
     KF5::WindowSystem)
 
 if(X11_FOUND)
-  target_link_libraries(yakuake Qt5::X11Extras ${X11_X11_LIB})
+    if (TARGET Qt5::X11Extras)
+        target_link_libraries(yakuake Qt5::X11Extras)
+    elseif (TARGET Qt6::Gui)
+        target_link_libraries(yakuake Qt6::GuiPrivate) # qtx11extras_p.h in knotificationrestrictions
+    endif()
 endif(X11_FOUND)
 
 if(KF5Wayland_FOUND)

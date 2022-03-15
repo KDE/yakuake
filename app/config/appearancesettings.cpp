@@ -15,7 +15,6 @@
 #include <KMessageBox>
 #include <KTar>
 
-#include <knewstuff_version.h>
 #include <QtQuickDialogWrapper>
 
 #include <QDir>
