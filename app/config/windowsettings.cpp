@@ -93,8 +93,8 @@ void WindowSettings::interceptHideTitleBar(int state)
                 "You are about to hide the title bar. This will keep you "
                 "from accessing the settings menu via the mouse. To show "
                 "the title bar again press the keyboard shortcut (default "
-                "Ctrl+Shift+m) or access the settings menu via keyborad "
-                "shortcut (defult: Ctrl+Shift+,).";
+                "Ctrl+Shift+m) or access the settings menu via keyboard "
+                "shortcut (default: Ctrl+Shift+,).";
 
             const int result = KMessageBox::warningContinueCancel(this,
                                                                   xi18nc("@info", message),
