@@ -84,7 +84,7 @@
   <summary xml:lang="sr-ijekavian">Падајући терминал</summary>
   <summary xml:lang="sr-ijekavianlatin">Padajući terminal</summary>
   <summary xml:lang="sv">Rullgardinsterminal</summary>
-  <summary xml:lang="tr">Açılır Uçbirim</summary>
+  <summary xml:lang="tr">Yukarıdan Aşağı Açılır Uçbirim</summary>
   <summary xml:lang="uk">Спадний термінал</summary>
   <summary xml:lang="x-test">xxDrop-down Terminalxx</summary>
   <summary xml:lang="zh-CN">拉幕式终端</summary>
@@ -129,7 +129,7 @@
     <p xml:lang="sr-ijekavian">Јакуаке је падајући емулатор терминала над технологијом КДЕ‑ове Конзоле.</p>
     <p xml:lang="sr-ijekavianlatin">Yakuake je padajući emulator terminala nad tehnologijom KDE‑ove Konsole.</p>
     <p xml:lang="sv">Yakuake är en nerfällbar terminalemulator baserad på teknologi från KDE:s Terminal.</p>
-    <p xml:lang="tr">Yakuake KDE Konsole teknolojisi üzerine kurulu, yukarıdan aşağı açılabilen bir uç birim öykünücüsüdür.</p>
+    <p xml:lang="tr">Yakuake KDE Konsole teknolojisi üzerine kurulu, yukarıdan aşağı açılabilen bir uçbirim öykünücüsüdür.</p>
     <p xml:lang="uk">Yakuake — спадний замінник термінала, заснований на технології KDE Konsole.</p>
     <p xml:lang="x-test">xxYakuake is a drop-down terminal emulator based on KDE Konsole technology.xx</p>
     <p xml:lang="zh-CN">Yakuake 是一个基于 KDE Konsole 技术的拉幕式终端仿真器。</p>
@@ -334,7 +334,7 @@
       <li xml:lang="sr-ijekavian">подршка за маске</li>
       <li xml:lang="sr-ijekavianlatin">podrška za maske</li>
       <li xml:lang="sv">Kan använda skal</li>
-      <li xml:lang="tr">Katlanabilir</li>
+      <li xml:lang="tr">Temalanabilir</li>
       <li xml:lang="uk">Можливість використання різних обрамлень («шкірок»).</li>
       <li xml:lang="x-test">xxSkinnablexx</li>
       <li xml:lang="zh-CN">可更换主题</li>
