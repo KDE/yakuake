@@ -38,6 +38,7 @@
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusPendingReply>
+#include <QDBusReply>
 #include <QDesktopWidget>
 #include <QMenu>
 #include <QPainter>
@@ -1485,6 +1486,19 @@ void MainWindow::setFullScreen(bool state)
 int MainWindow::getScreen()
 {
     if (!Settings::screen() || Settings::screen() > QGuiApplication::screens().length()) {
+        auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.KWin"),
+                                                      QStringLiteral("/KWin"),
+                                                      QStringLiteral("org.kde.KWin"),
+                                                      QStringLiteral("activeOutputName"));
+        QDBusReply<QString> reply = QDBusConnection::sessionBus().call(message);
+
+        if (reply.isValid()) {
+            const auto screens = QGuiApplication::screens();
+            for (int i = 0; i < screens.size(); ++i) {
+                if (screens[i]->name() == reply.value())
+                    return i;
+            }
+        }
         // Right after unplugging an external monitor and the Yakuake window was on
         // that monitor, QGuiApplication::screenAt() can return nullptr so we fallback on
         // the first monitor.
