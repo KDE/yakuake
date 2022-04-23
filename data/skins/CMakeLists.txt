@@ -1,4 +1,4 @@
-install(FILES README DESTINATION ${DATA_INSTALL_DIR}/yakuake/skins)
+install(FILES README DESTINATION ${KDE_INSTALL_DATADIR}/yakuake/skins)
 
 add_subdirectory(default)
 add_subdirectory(legacy)

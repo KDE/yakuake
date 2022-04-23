@@ -2,7 +2,7 @@ install(FILES
     title.skin
     tabs.skin
     icon.svg
-    DESTINATION ${DATA_INSTALL_DIR}/yakuake/skins/default)
+    DESTINATION ${KDE_INSTALL_DATADIR}/yakuake/skins/default)
 
 install(FILES
     tabs/add_down.svg
@@ -20,7 +20,7 @@ install(FILES
     tabs/unselected_back.svg
     tabs/unselected_left.svg
     tabs/unselected_right.svg
-    DESTINATION ${DATA_INSTALL_DIR}/yakuake/skins/default/tabs)
+    DESTINATION ${KDE_INSTALL_DATADIR}/yakuake/skins/default/tabs)
 
 install(FILES
     title/back.svg
@@ -33,4 +33,4 @@ install(FILES
     title/quit_down.svg
     title/quit_up.svg
     title/right.svg
-    DESTINATION ${DATA_INSTALL_DIR}/yakuake/skins/default/title)
+    DESTINATION ${KDE_INSTALL_DATADIR}/yakuake/skins/default/title)

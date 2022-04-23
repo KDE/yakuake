@@ -75,6 +75,6 @@ if(KF5Wayland_FOUND)
   target_link_libraries(yakuake KF5::WaylandClient)
 endif()
 
-install(TARGETS yakuake ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS yakuake ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES yakuake.knsrc DESTINATION ${KDE_INSTALL_KNSRCDIR})
