@@ -11,7 +11,6 @@
 #include <KColorScheme>
 #include <KLocalizedString>
 #include <KPluginFactory>
-#include <KPluginLoader>
 #include <KService>
 #include <KXMLGUIBuilder>
 #include <KXMLGUIFactory>
