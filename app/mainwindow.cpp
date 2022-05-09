@@ -1090,8 +1090,10 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
 void MainWindow::moveEvent(QMoveEvent *event)
 {
-    if (Settings::screen() && QApplication::desktop()->screenNumber(this) != getScreen()) {
-        Settings::setScreen(QApplication::desktop()->screenNumber(this) + 1);
+    int widgetCurrentScreen = QApplication::desktop()->screenNumber(this);
+
+    if (Settings::screen() && widgetCurrentScreen != -1 && widgetCurrentScreen != getScreen()) {
+        Settings::setScreen(widgetCurrentScreen + 1);
 
         updateScreenMenu();
 
