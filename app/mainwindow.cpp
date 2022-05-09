@@ -120,6 +120,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_sessionStack, SIGNAL(sessionRemoved(int)), m_tabBar, SLOT(removeTab(int)));
     connect(m_sessionStack, SIGNAL(activeTitleChanged(QString)), m_titleBar, SLOT(setTitle(QString)));
     connect(m_sessionStack, SIGNAL(activeTitleChanged(QString)), this, SLOT(setWindowTitle(QString)));
+    connect(m_sessionStack, &SessionStack::wantsBlurChanged, this, &MainWindow::applyWindowProperties);
 
     connect(&m_mousePoller, SIGNAL(timeout()), this, SLOT(pollMouse()));
 
@@ -934,7 +935,7 @@ void MainWindow::applyWindowProperties()
         KWindowSystem::setState(winId(), NET::KeepAbove | NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
 
     KWindowSystem::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
-    KWindowEffects::enableBlurBehind(windowHandle(), Settings::blur());
+    KWindowEffects::enableBlurBehind(windowHandle(), m_sessionStack->wantsBlur());
 }
 
 void MainWindow::applyWindowGeometry()

@@ -95,11 +95,6 @@
     </entry>
   </group>
   <group name="Appearance">
-    <entry name="Blur" type="Bool">
-      <label context="@label">Blur</label>
-      <whatsthis context="@info:whatsthis">The KWin compositor's blur effects.</whatsthis>
-      <default>false</default>
-    </entry>
     <entry name="Skin" type="String">
       <label context="@label">Skin</label>
       <whatsthis context="@info:whatsthis">The skin to be used by the application window.</whatsthis>

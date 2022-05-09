@@ -85,6 +85,11 @@ public:
 
     KActionCollection *actionCollection();
 
+    bool wantsBlur() const
+    {
+        return m_wantsBlur;
+    }
+
 Q_SIGNALS:
     void titleChanged(int terminalId, const QString &title);
     void activated(int terminalId);
@@ -120,6 +125,7 @@ private:
 
     bool m_monitorActivityEnabled;
     bool m_monitorSilenceEnabled;
+    bool m_wantsBlur = false;
 };
 
 #endif

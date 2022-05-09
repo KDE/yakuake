@@ -38,6 +38,8 @@ public:
 
     QList<KActionCollection *> getPartActionCollections();
 
+    bool wantsBlur() const;
+
 public Q_SLOTS:
     int addSessionImpl(Session::SessionType type = Session::Single);
     Q_SCRIPTABLE int addSession();
@@ -122,6 +124,8 @@ Q_SIGNALS:
     void manageProfiles();
 
     void removeTerminalHighlight();
+
+    void wantsBlurChanged();
 
 protected:
     virtual void showEvent(QShowEvent *event) override;

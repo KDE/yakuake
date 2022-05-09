@@ -16,6 +16,8 @@
 
 #include <QDBusConnection>
 
+#include <algorithm>
+
 static bool show_disallow_certain_dbus_methods_message = true;
 
 SessionStack::SessionStack(QWidget *parent)
@@ -49,10 +51,13 @@ int SessionStack::addSessionImpl(Session::SessionType type)
     connect(parentWidget(), SIGNAL(windowClosed()), session, SLOT(reconnectMonitorActivitySignals()));
     // clang-format on
     connect(session, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
+    connect(session, &Session::wantsBlurChanged, this, &SessionStack::wantsBlurChanged);
 
     addWidget(session->widget());
 
     m_sessions.insert(session->id(), session);
+
+    Q_EMIT wantsBlurChanged();
 
     if (Settings::dynamicTabTitles())
         Q_EMIT sessionAdded(session->id(), session->title());
@@ -175,6 +180,7 @@ void SessionStack::cleanup(int sessionId)
 
     m_sessions.remove(sessionId);
 
+    Q_EMIT wantsBlurChanged();
     Q_EMIT sessionRemoved(sessionId);
 }
 
@@ -755,4 +761,11 @@ QList<KActionCollection *> SessionStack::getPartActionCollections()
     }
 
     return actionCollections;
+}
+
+bool SessionStack::wantsBlur() const
+{
+    return std::any_of(m_sessions.cbegin(), m_sessions.cend(), [](Session *session) {
+        return session->wantsBlur();
+    });
 }

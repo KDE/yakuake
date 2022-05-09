@@ -93,6 +93,8 @@ Terminal::Terminal(const QString &workingDir, QWidget *parent)
             m_terminalInterface->showShellInDir(workingDir);
         }
 
+        QMetaObject::invokeMethod(m_part, "isBlurEnabled", Qt::DirectConnection, Q_RETURN_ARG(bool, m_wantsBlur));
+
         // Remove shortcut from close action because it conflicts with the shortcut from out own close action
         // https://bugs.kde.org/show_bug.cgi?id=319172
         const auto childClients = m_part->childClients();

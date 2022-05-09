@@ -91,6 +91,8 @@ public:
     bool hasTerminalsWithMonitorSilenceEnabled();
     bool hasTerminalsWithMonitorSilenceDisabled();
 
+    bool wantsBlur() const;
+
 public Q_SLOTS:
     void closeTerminal(int terminalId = -1);
 
@@ -117,6 +119,7 @@ Q_SIGNALS:
     void activityDetected(Terminal *terminal);
     void silenceDetected(Terminal *terminal);
     void destroyed(int sessionId);
+    void wantsBlurChanged();
 
 private Q_SLOTS:
     void setActiveTerminal(int terminalId);

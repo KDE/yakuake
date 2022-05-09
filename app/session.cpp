@@ -8,6 +8,8 @@
 #include "session.h"
 #include "terminal.h"
 
+#include <algorithm>
+
 int Session::m_availableSessionId = 0;
 
 Session::Session(const QString &workingDir, SessionType type, QWidget *parent)
@@ -148,6 +150,8 @@ Terminal *Session::addTerminal(QWidget *parent, QString workingDir)
     connect(terminal, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
 
     m_terminals.insert(terminal->id(), terminal);
+
+    Q_EMIT wantsBlurChanged();
 
     QWidget *terminalWidget = terminal->terminalWidget();
     if (terminalWidget)
@@ -377,6 +381,7 @@ void Session::cleanup(int terminalId)
         focusPreviousTerminal();
 
     m_terminals.remove(terminalId);
+    Q_EMIT wantsBlurChanged();
 
     cleanup();
 }
@@ -648,4 +653,11 @@ bool Session::hasTerminalsWithMonitorSilenceEnabled()
             return true;
 
     return false;
+}
+
+bool Session::wantsBlur() const
+{
+    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](Terminal *term) {
+        return term->wantsBlur();
+    });
 }
