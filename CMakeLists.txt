@@ -69,6 +69,8 @@ endif(NOT APPLE)
 add_subdirectory(app)
 add_subdirectory(data)
 
+ki18n_install(po)
+
 # add clang-format target for all our real source files
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
