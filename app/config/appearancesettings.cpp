@@ -13,9 +13,8 @@
 #include <KJobUiDelegate>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KNS3/QtQuickDialogWrapper>
 #include <KTar>
-
-#include <QtQuickDialogWrapper>
 
 #include <QDir>
 #include <QDirIterator>
