@@ -13,8 +13,14 @@
 #include <KJobUiDelegate>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KNS3/QtQuickDialogWrapper>
 #include <KTar>
+
+#include <knewstuff_version.h>
+#if KNEWSTUFF_VERSION >= QT_VERSION_CHECK(5, 95, 0)
+#include <KNS3/QtQuickDialogWrapper>
+#else
+#include <QtQuickDialogWrapper>
+#endif
 
 #include <QDir>
 #include <QDirIterator>
