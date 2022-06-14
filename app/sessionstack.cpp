@@ -10,8 +10,6 @@
 #include "terminal.h"
 #include "visualeventoverlay.h"
 
-#include <config-yakuake.h>
-
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KNotification>
