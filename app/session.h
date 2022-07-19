@@ -142,7 +142,7 @@ private:
     Splitter *m_baseSplitter;
 
     int m_activeTerminalId;
-    QMap<int, Terminal *> m_terminals;
+    std::map<int, Terminal *> m_terminals;
 
     QString m_title;
 

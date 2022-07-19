@@ -179,17 +179,17 @@ void Session::focusPreviousTerminal()
     if (!m_terminals.contains(m_activeTerminalId))
         return;
 
-    QMap<int, Terminal *>::iterator currentTerminal = m_terminals.find(m_activeTerminalId);
+    std::map<int, Terminal *>::iterator currentTerminal = m_terminals.find(m_activeTerminalId);
 
-    QMap<int, Terminal *>::iterator previousTerminal;
+    std::map<int, Terminal *>::iterator previousTerminal;
 
     if (currentTerminal == m_terminals.begin()) {
-        previousTerminal = m_terminals.end() - 1;
+        previousTerminal = std::prev(m_terminals.end());
     } else {
-        previousTerminal = currentTerminal - 1;
+        previousTerminal = std::prev(currentTerminal);
     }
 
-    QWidget *terminalWidget = previousTerminal.value()->terminalWidget();
+    QWidget *terminalWidget = previousTerminal->second->terminalWidget();
     if (terminalWidget) {
         terminalWidget->setFocus();
     }
@@ -202,15 +202,15 @@ void Session::focusNextTerminal()
     if (!m_terminals.contains(m_activeTerminalId))
         return;
 
-    auto currentTerminal = m_terminals.find(m_activeTerminalId);
+    std::map<int, Terminal *>::iterator currentTerminal = m_terminals.find(m_activeTerminalId);
 
-    QMap<int, Terminal *>::iterator nextTerminal = currentTerminal + 1;
+    std::map<int, Terminal *>::iterator nextTerminal = std::next(currentTerminal);
 
     if (nextTerminal == m_terminals.end()) {
         nextTerminal = m_terminals.begin();
     }
 
-    QWidget *terminalWidget = nextTerminal.value()->terminalWidget();
+    QWidget *terminalWidget = nextTerminal->second->terminalWidget();
     if (terminalWidget) {
         terminalWidget->setFocus();
     }
@@ -362,7 +362,8 @@ void Session::cleanup(int terminalId)
     if (m_activeTerminalId == terminalId && m_terminals.size() > 1)
         focusPreviousTerminal();
 
-    m_terminals.remove(terminalId);
+    m_terminals.erase(terminalId);
+    Q_EMIT wantsBlurChanged();
 
     cleanup();
 }
@@ -374,7 +375,7 @@ void Session::cleanup()
 
     m_baseSplitter->recursiveCleanup();
 
-    if (m_terminals.isEmpty())
+    if (m_terminals.empty())
         m_baseSplitter->deleteLater();
 }
 
@@ -387,13 +388,10 @@ void Session::prepareShutdown()
 
 const QString Session::terminalIdList()
 {
-    QList<int> keyList = m_terminals.keys();
     QStringList idList;
-
-    QListIterator<int> i(keyList);
-
-    while (i.hasNext())
-        idList << QString::number(i.next());
+    for (auto [id, terminal] : m_terminals) {
+        idList << QString::number(id);
+    }
 
     return idList.join(QLatin1Char(','));
 }
@@ -440,19 +438,20 @@ void Session::editProfile()
     if (!m_terminals.contains(m_activeTerminalId))
         return;
 
-    m_terminals.value(m_activeTerminalId)->editProfile();
+    m_terminals[m_activeTerminalId]->editProfile();
 }
 
 bool Session::keyboardInputEnabled()
 {
-    return std::all_of(m_terminals.cbegin(), m_terminals.cend(), [](Terminal *terminal) {
+    return std::all_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto [id, terminal] = it;
         return terminal->keyboardInputEnabled();
     });
 }
 
 void Session::setKeyboardInputEnabled(bool enabled)
 {
-    for (Terminal *terminal : std::as_const(m_terminals)) {
+    for (auto [id, terminal] : m_terminals) {
         terminal->setKeyboardInputEnabled(enabled);
     }
 }
@@ -475,30 +474,32 @@ void Session::setKeyboardInputEnabled(int terminalId, bool enabled)
 
 bool Session::hasTerminalsWithKeyboardInputEnabled()
 {
-    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](Terminal *terminal) {
+    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto [id, terminal] = it;
         return terminal->keyboardInputEnabled();
     });
 }
 
 bool Session::hasTerminalsWithKeyboardInputDisabled()
 {
-    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](Terminal *terminal) {
+    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto [id, terminal] = it;
         return !terminal->keyboardInputEnabled();
     });
 }
 
 bool Session::monitorActivityEnabled()
 {
-    return std::all_of(m_terminals.cbegin(), m_terminals.cend(), [](Terminal *terminal) {
+    return std::all_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto [id, terminal] = it;
         return terminal->monitorActivityEnabled();
     });
 }
 
 void Session::setMonitorActivityEnabled(bool enabled)
 {
-    const auto keys = m_terminals.keys();
-    for (int terminalId : keys) {
-        setMonitorActivityEnabled(terminalId, enabled);
+    for (auto [id, terminal] : m_terminals) {
+        setMonitorActivityEnabled(id, enabled);
     }
 }
 
@@ -524,21 +525,23 @@ void Session::setMonitorActivityEnabled(int terminalId, bool enabled)
 
 bool Session::hasTerminalsWithMonitorActivityEnabled()
 {
-    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](Terminal *terminal) {
+    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto [id, terminal] = it;
         return terminal->monitorActivityEnabled();
     });
 }
 
 bool Session::hasTerminalsWithMonitorActivityDisabled()
 {
-    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](Terminal *terminal) {
+    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto [id, terminal] = it;
         return !terminal->monitorActivityEnabled();
     });
 }
 
 void Session::reconnectMonitorActivitySignals()
 {
-    for (Terminal *terminal : std::as_const(m_terminals)) {
+    for (auto [id, terminal] : m_terminals) {
         // clang-format off
         connect(terminal, SIGNAL(activityDetected(Terminal*)), this, SIGNAL(activityDetected(Terminal*)), Qt::UniqueConnection);
         // clang-format on
@@ -547,14 +550,15 @@ void Session::reconnectMonitorActivitySignals()
 
 bool Session::monitorSilenceEnabled()
 {
-    return std::all_of(m_terminals.cbegin(), m_terminals.cend(), [](Terminal *terminal) {
+    return std::all_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto [id, terminal] = it;
         return terminal->monitorSilenceEnabled();
     });
 }
 
 void Session::setMonitorSilenceEnabled(bool enabled)
 {
-    for (Terminal *terminal : std::as_const(m_terminals)) {
+    for (auto [id, terminal] : m_terminals) {
         terminal->setMonitorSilenceEnabled(enabled);
     }
 }
@@ -577,21 +581,24 @@ void Session::setMonitorSilenceEnabled(int terminalId, bool enabled)
 
 bool Session::hasTerminalsWithMonitorSilenceDisabled()
 {
-    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](Terminal *terminal) {
+    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto [id, terminal] = it;
         return !terminal->monitorSilenceEnabled();
     });
 }
 
 bool Session::hasTerminalsWithMonitorSilenceEnabled()
 {
-    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](Terminal *terminal) {
+    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto [id, terminal] = it;
         return terminal->monitorSilenceEnabled();
     });
 }
 
 bool Session::wantsBlur() const
 {
-    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](Terminal *term) {
-        return term->wantsBlur();
+    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto [id, terminal] = it;
+        return terminal->wantsBlur();
     });
 }
