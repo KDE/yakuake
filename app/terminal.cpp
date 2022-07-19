@@ -27,7 +27,7 @@
 int Terminal::m_availableTerminalId = 0;
 
 Terminal::Terminal(const QString &workingDir, QWidget *parent)
-    : QObject(parent)
+    : QObject(nullptr)
 {
     m_terminalId = m_availableTerminalId;
     m_availableTerminalId++;
@@ -39,12 +39,18 @@ Terminal::Terminal(const QString &workingDir, QWidget *parent)
         factory = KPluginFactory::loadFactory(KPluginMetaData(service->library())).plugin;
     }
 
-    m_part = factory ? (factory->create<KParts::Part>(parent)) : nullptr;
+    m_part = factory ? (factory->create<KParts::Part>(parent, nullptr)) : nullptr;
 
     if (m_part) {
         connect(m_part, SIGNAL(setWindowCaption(QString)), this, SLOT(setTitle(QString)));
         connect(m_part, SIGNAL(overrideShortcut(QKeyEvent *, bool &)), this, SLOT(overrideShortcut(QKeyEvent *, bool &)));
-        connect(m_part, SIGNAL(destroyed()), this, SLOT(deleteLater()));
+        connect(m_part, &KParts::Part::destroyed, this, [this] {
+            m_part = nullptr;
+
+            if (!m_destroying) {
+                Q_EMIT closeRequested(m_terminalId);
+            }
+        });
 
         m_partWidget = m_part->widget();
 
@@ -100,15 +106,13 @@ Terminal::Terminal(const QString &workingDir, QWidget *parent)
 
 Terminal::~Terminal()
 {
-    Q_EMIT destroyed(m_terminalId);
-}
-
-void Terminal::deletePart()
-{
-    if (m_part)
-        m_part->deleteLater();
-    else
-        deleteLater();
+    m_destroying = true;
+    // The ownership of m_part is a mess
+    // When the terminal exits, e.g. the user pressed Ctrl+D, the part deletes itself
+    // When we close a terminal we need to delete the part ourselves
+    if (m_part) {
+        delete m_part;
+    }
 }
 
 bool Terminal::eventFilter(QObject * /* watched */, QEvent *event)
