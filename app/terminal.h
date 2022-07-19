@@ -113,18 +113,18 @@ private:
     static int m_availableTerminalId;
     int m_terminalId;
 
-    KParts::Part *m_part;
-    TerminalInterfaceV2 *m_terminalInterface;
-    QWidget *m_partWidget;
-    QPointer<QWidget> m_terminalWidget;
+    KParts::Part *m_part = nullptr;
+    TerminalInterfaceV2 *m_terminalInterface = nullptr;
+    QWidget *m_partWidget = nullptr;
+    QPointer<QWidget> m_terminalWidget = nullptr;
     QWidget *m_parentSplitter;
 
     QString m_title;
 
-    bool m_keyboardInputEnabled;
+    bool m_keyboardInputEnabled = true;
 
-    bool m_monitorActivityEnabled;
-    bool m_monitorSilenceEnabled;
+    bool m_monitorActivityEnabled = false;
+    bool m_monitorSilenceEnabled = false;
     bool m_wantsBlur = false;
 };
 

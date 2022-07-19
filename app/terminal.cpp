@@ -31,16 +31,6 @@ Terminal::Terminal(const QString &workingDir, QWidget *parent)
 {
     m_terminalId = m_availableTerminalId;
     m_availableTerminalId++;
-
-    m_keyboardInputEnabled = true;
-
-    m_monitorActivityEnabled = false;
-    m_monitorSilenceEnabled = false;
-
-    m_part = nullptr;
-    m_terminalInterface = nullptr;
-    m_partWidget = nullptr;
-    m_terminalWidget = nullptr;
     m_parentSplitter = parent;
 
     KPluginFactory *factory = nullptr;
