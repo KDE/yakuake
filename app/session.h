@@ -56,7 +56,7 @@ public:
     const QString terminalIdList();
     int terminalCount()
     {
-        return m_terminals.count();
+        return m_terminals.size();
     }
     bool hasTerminal(int terminalId);
     Terminal *getTerminal(int terminalId);

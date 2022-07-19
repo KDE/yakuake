@@ -149,7 +149,7 @@ Terminal *Session::addTerminal(QWidget *parent, QString workingDir)
     connect(terminal, SIGNAL(silenceDetected(Terminal *)), this, SIGNAL(silenceDetected(Terminal *)));
     connect(terminal, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
 
-    m_terminals.insert(terminal->id(), terminal);
+    m_terminals[terminal->id()] = terminal;
 
     Q_EMIT wantsBlurChanged();
 
@@ -169,7 +169,7 @@ void Session::closeTerminal(int terminalId)
     if (!m_terminals.contains(terminalId))
         return;
 
-    m_terminals.value(terminalId)->deletePart();
+    m_terminals[terminalId]->deletePart();
 }
 
 void Session::focusPreviousTerminal()
@@ -225,7 +225,7 @@ int Session::splitLeftRight(int terminalId)
     if (!m_terminals.contains(terminalId))
         return -1;
 
-    Terminal *terminal = m_terminals.value(terminalId);
+    Terminal *terminal = m_terminals[terminalId];
 
     if (terminal)
         return split(terminal, Qt::Horizontal);
@@ -242,7 +242,7 @@ int Session::splitTopBottom(int terminalId)
     if (!m_terminals.contains(terminalId))
         return -1;
 
-    Terminal *terminal = m_terminals.value(terminalId);
+    Terminal *terminal = m_terminals[terminalId];
 
     if (terminal)
         return split(terminal, Qt::Vertical);
@@ -344,7 +344,7 @@ void Session::setActiveTerminal(int terminalId)
 {
     m_activeTerminalId = terminalId;
 
-    setTitle(m_activeTerminalId, m_terminals.value(m_activeTerminalId)->title());
+    setTitle(m_activeTerminalId, m_terminals[m_activeTerminalId]->title());
 }
 
 void Session::setTitle(int terminalId, const QString &title)
@@ -359,7 +359,7 @@ void Session::setTitle(int terminalId, const QString &title)
 
 void Session::cleanup(int terminalId)
 {
-    if (m_activeTerminalId == terminalId && m_terminals.count() > 1)
+    if (m_activeTerminalId == terminalId && m_terminals.size() > 1)
         focusPreviousTerminal();
 
     m_terminals.remove(terminalId);
@@ -408,7 +408,7 @@ Terminal *Session::getTerminal(int terminalId)
     if (!m_terminals.contains(terminalId))
         return nullptr;
 
-    return m_terminals.value(terminalId);
+    return m_terminals[terminalId];
 }
 
 void Session::runCommand(const QString &command, int terminalId)
@@ -420,7 +420,7 @@ void Session::runCommand(const QString &command, int terminalId)
     if (!m_terminals.contains(terminalId))
         return;
 
-    m_terminals.value(terminalId)->runCommand(command);
+    m_terminals[terminalId]->runCommand(command);
 }
 
 void Session::manageProfiles()
@@ -430,7 +430,7 @@ void Session::manageProfiles()
     if (!m_terminals.contains(m_activeTerminalId))
         return;
 
-    m_terminals.value(m_activeTerminalId)->manageProfiles();
+    m_terminals[m_activeTerminalId]->manageProfiles();
 }
 
 void Session::editProfile()
@@ -462,7 +462,7 @@ bool Session::keyboardInputEnabled(int terminalId)
     if (!m_terminals.contains(terminalId))
         return false;
 
-    return m_terminals.value(terminalId)->keyboardInputEnabled();
+    return m_terminals[terminalId]->keyboardInputEnabled();
 }
 
 void Session::setKeyboardInputEnabled(int terminalId, bool enabled)
@@ -470,7 +470,7 @@ void Session::setKeyboardInputEnabled(int terminalId, bool enabled)
     if (!m_terminals.contains(terminalId))
         return;
 
-    m_terminals.value(terminalId)->setKeyboardInputEnabled(enabled);
+    m_terminals[terminalId]->setKeyboardInputEnabled(enabled);
 }
 
 bool Session::hasTerminalsWithKeyboardInputEnabled()
@@ -507,7 +507,7 @@ bool Session::monitorActivityEnabled(int terminalId)
     if (!m_terminals.contains(terminalId))
         return false;
 
-    return m_terminals.value(terminalId)->monitorActivityEnabled();
+    return m_terminals[terminalId]->monitorActivityEnabled();
 }
 
 void Session::setMonitorActivityEnabled(int terminalId, bool enabled)
@@ -515,7 +515,7 @@ void Session::setMonitorActivityEnabled(int terminalId, bool enabled)
     if (!m_terminals.contains(terminalId))
         return;
 
-    Terminal *terminal = m_terminals.value(terminalId);
+    Terminal *terminal = m_terminals[terminalId];
 
     connect(terminal, SIGNAL(activityDetected(Terminal *)), this, SIGNAL(activityDetected(Terminal *)), Qt::UniqueConnection);
 
@@ -564,7 +564,7 @@ bool Session::monitorSilenceEnabled(int terminalId)
     if (!m_terminals.contains(terminalId))
         return false;
 
-    return m_terminals.value(terminalId)->monitorSilenceEnabled();
+    return m_terminals[terminalId]->monitorSilenceEnabled();
 }
 
 void Session::setMonitorSilenceEnabled(int terminalId, bool enabled)
@@ -572,7 +572,7 @@ void Session::setMonitorSilenceEnabled(int terminalId, bool enabled)
     if (!m_terminals.contains(terminalId))
         return;
 
-    m_terminals.value(terminalId)->setMonitorSilenceEnabled(enabled);
+    m_terminals[terminalId]->setMonitorSilenceEnabled(enabled);
 }
 
 bool Session::hasTerminalsWithMonitorSilenceDisabled()
