@@ -179,28 +179,19 @@ void Session::focusPreviousTerminal()
     if (!m_terminals.contains(m_activeTerminalId))
         return;
 
-    QMapIterator<int, Terminal *> it(m_terminals);
+    QMap<int, Terminal *>::iterator currentTerminal = m_terminals.find(m_activeTerminalId);
 
-    it.toBack();
+    QMap<int, Terminal *>::iterator previousTerminal;
 
-    while (it.hasPrevious()) {
-        it.previous();
+    if (currentTerminal == m_terminals.begin()) {
+        previousTerminal = m_terminals.end() - 1;
+    } else {
+        previousTerminal = currentTerminal - 1;
+    }
 
-        if (it.key() == m_activeTerminalId) {
-            if (it.hasPrevious()) {
-                QWidget *terminalWidget = it.peekPrevious().value()->terminalWidget();
-                if (terminalWidget)
-                    terminalWidget->setFocus();
-            } else {
-                it.toBack();
-
-                QWidget *terminalWidget = it.peekPrevious().value()->terminalWidget();
-                if (terminalWidget)
-                    terminalWidget->setFocus();
-            }
-
-            break;
-        }
+    QWidget *terminalWidget = previousTerminal.value()->terminalWidget();
+    if (terminalWidget) {
+        terminalWidget->setFocus();
     }
 }
 
@@ -211,26 +202,17 @@ void Session::focusNextTerminal()
     if (!m_terminals.contains(m_activeTerminalId))
         return;
 
-    QMapIterator<int, Terminal *> it(m_terminals);
+    auto currentTerminal = m_terminals.find(m_activeTerminalId);
 
-    while (it.hasNext()) {
-        it.next();
+    QMap<int, Terminal *>::iterator nextTerminal = currentTerminal + 1;
 
-        if (it.key() == m_activeTerminalId) {
-            if (it.hasNext()) {
-                QWidget *terminalWidget = it.peekNext().value()->terminalWidget();
-                if (terminalWidget)
-                    terminalWidget->setFocus();
-            } else {
-                it.toFront();
+    if (nextTerminal == m_terminals.end()) {
+        nextTerminal = m_terminals.begin();
+    }
 
-                QWidget *terminalWidget = it.peekNext().value()->terminalWidget();
-                if (terminalWidget)
-                    terminalWidget->setFocus();
-            }
-
-            break;
-        }
+    QWidget *terminalWidget = nextTerminal.value()->terminalWidget();
+    if (terminalWidget) {
+        terminalWidget->setFocus();
     }
 }
 
