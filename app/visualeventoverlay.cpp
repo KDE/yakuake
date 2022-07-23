@@ -200,7 +200,7 @@ void VisualEventOverlay::hideEvent(QHideEvent *)
 
 void VisualEventOverlay::scheduleCleanup(int in)
 {
-    int left = m_cleanupTimerCeiling - m_cleanupTimerStarted.elapsed();
+    int left = (m_cleanupTimerStarted.isValid())? m_cleanupTimerCeiling - m_cleanupTimerStarted.elapsed() : 0;
 
     if (in > left) {
         m_cleanupTimerCeiling = in;
