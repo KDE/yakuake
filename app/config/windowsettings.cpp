@@ -10,8 +10,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include <QDesktopWidget>
-
 WindowSettings::WindowSettings(QWidget *parent)
     : QWidget(parent)
 {
