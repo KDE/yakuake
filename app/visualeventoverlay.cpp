@@ -40,7 +40,7 @@ bool EventRect::operator==(const EventRect &eventRect) const
     if (m_eventType != eventRect.eventType())
         return false;
 
-    return ::operator==(*this, eventRect);
+    return x() == eventRect.x() && y() == eventRect.y() && width() == eventRect.width() && height() == eventRect.height();
 }
 
 bool EventRect::operator<(const EventRect &eventRect) const
