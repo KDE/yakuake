@@ -39,7 +39,6 @@
 #include <QDBusInterface>
 #include <QDBusPendingReply>
 #include <QDBusReply>
-#include <QDesktopWidget>
 #include <QMenu>
 #include <QPainter>
 #include <QPlatformSurfaceEvent>
@@ -125,7 +124,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&m_mousePoller, SIGNAL(timeout()), this, SLOT(pollMouse()));
 
     connect(KWindowSystem::self(), SIGNAL(workAreaChanged()), this, SLOT(applyWindowGeometry()));
-    connect(QApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(updateScreenMenu()));
+    connect(qApp, &QGuiApplication::screenAdded, this, &MainWindow::updateScreenMenu);
+    connect(qApp, &QGuiApplication::screenRemoved, this, &MainWindow::updateScreenMenu);
 
     applySettings();
 
@@ -1096,10 +1096,13 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
 void MainWindow::moveEvent(QMoveEvent *event)
 {
-    int widgetCurrentScreen = QApplication::desktop()->screenNumber(this);
+    const QList<QScreen *> screens = qApp->screens();
+    const QScreen *widgetScreen = QGuiApplication::screenAt(pos());
+    auto it = std::find(screens.begin(), screens.end(), widgetScreen);
+    const int currentScreenNumber = std::distance(screens.begin(), it);
 
-    if (Settings::screen() && widgetCurrentScreen != -1 && widgetCurrentScreen != getScreen()) {
-        Settings::setScreen(widgetCurrentScreen + 1);
+    if (Settings::screen() && currentScreenNumber != -1 && currentScreenNumber != getScreen()) {
+        Settings::setScreen(currentScreenNumber + 1);
 
         updateScreenMenu();
 
