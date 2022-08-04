@@ -66,7 +66,7 @@
 #endif
 
 MainWindow::MainWindow(QWidget *parent)
-    : KMainWindow(parent, Qt::CustomizeWindowHint | Qt::FramelessWindowHint | Qt::Tool)
+    : KMainWindow(parent, Qt::CustomizeWindowHint | Qt::FramelessWindowHint)
 {
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/yakuake/window"), this, QDBusConnection::ExportScriptableSlots);
 
