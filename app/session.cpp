@@ -381,7 +381,6 @@ void Session::cleanup(int terminalId)
         focusPreviousTerminal();
 
     m_terminals.remove(terminalId);
-    Q_EMIT wantsBlurChanged();
 
     cleanup();
 }
