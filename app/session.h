@@ -10,7 +10,6 @@
 
 #include "splitter.h"
 
-#include <QMap>
 #include <QObject>
 
 class Terminal;

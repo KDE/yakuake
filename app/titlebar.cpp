@@ -11,10 +11,8 @@
 
 #include <KLocalizedString>
 #include <QFontDatabase>
-#include <QMenu>
 #include <QPushButton>
 
-#include <QApplication>
 #include <QBitmap>
 #include <QPainter>
 

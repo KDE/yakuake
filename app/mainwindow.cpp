@@ -36,15 +36,12 @@
 
 #include <QApplication>
 #include <QDBusConnection>
-#include <QDBusInterface>
 #include <QDBusPendingReply>
 #include <QDBusReply>
 #include <QMenu>
 #include <QPainter>
-#include <QPlatformSurfaceEvent>
 #include <QScreen>
 #include <QWhatsThis>
-#include <QWindow>
 
 #if HAVE_X11
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)

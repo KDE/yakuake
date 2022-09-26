@@ -16,7 +16,6 @@
 #include <KLocalizedString>
 
 #include <QApplication>
-#include <QBitmap>
 #include <QDBusConnection>
 #include <QFontDatabase>
 #include <QLineEdit>
