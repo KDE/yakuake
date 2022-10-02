@@ -1,0 +1,1737 @@
+# Translations of yakuake to Korean.
+# Copyright (C) 2008 This_file_is_part_of_KDE
+# This file is distributed under the same license as the extragear-utils package.
+# Shinjo Park <kde@peremen.name>, 2008, 2009, 2010, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: yakuake\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-27 00:49+0000\n"
+"PO-Revision-Date: 2022-05-07 00:54+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#: app/config/appearancesettings.cpp:153
+#, kde-kuit-format
+msgctxt "@item:inlistbox Unknown skin author"
+msgid "Unknown"
+msgstr "알 수 없음"
+
+#: app/config/appearancesettings.cpp:198
+#, kde-format
+msgctxt "@title:window"
+msgid "Select the skin archive to install"
+msgstr "설치할 스킨 압축 파일 선택"
+
+#: app/config/appearancesettings.cpp:244
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Unable to list the skin archive contents."
+msgstr "스킨 압축 파일 내용을 표시할 수 없습니다."
+
+#: app/config/appearancesettings.cpp:276
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"This skin appears to be already installed and you lack the required "
+"permissions to overwrite it."
+msgstr "이 스킨이 설치되어 있으며 덮어쓸 권한이 없습니다."
+
+#: app/config/appearancesettings.cpp:281
+#, kde-kuit-format
+msgctxt "@info"
+msgid "This skin appears to be already installed. Do you want to overwrite it?"
+msgstr "이 스킨이 존재합니다. 덮어쓰시겠습니까?"
+
+#: app/config/appearancesettings.cpp:282
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Skin Already Exists"
+msgstr "스킨이 이미 존재함"
+
+#: app/config/appearancesettings.cpp:283
+#, kde-kuit-format
+msgctxt "@action:button"
+msgid "Reinstall Skin"
+msgstr "스킨 재설치"
+
+#: app/config/appearancesettings.cpp:301
+#, kde-kuit-format
+msgctxt "@title:Window"
+msgid "Could Not Delete Skin"
+msgstr "스킨을 삭제할 수 없음"
+
+#: app/config/appearancesettings.cpp:326
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Unable to locate required files in the skin archive.<nl/><nl/>The archive "
+"appears to be invalid."
+msgstr ""
+"스킨 압축 파일에 필요한 파일이 없습니다.<nl/><nl/>압축 파일이 올바르지 않은 "
+"것 같습니다."
+
+#: app/config/appearancesettings.cpp:329
+#, kde-kuit-format
+msgctxt "@info"
+msgid "The skin archive file could not be opened."
+msgstr "스킨 압축 파일을 열 수 없습니다."
+
+#: app/config/appearancesettings.cpp:334
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Cannot Install Skin"
+msgstr "스킨을 설치할 수 없음"
+
+#: app/config/appearancesettings.cpp:378
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Do you want to remove \"%1\" by %2?"
+msgstr "\"%1\"(만든 이 %2)을(를) 삭제하시겠습니까?"
+
+#: app/config/appearancesettings.cpp:379
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Remove Skin"
+msgstr "스킨 삭제"
+
+#: app/config/appearancesettings.cpp:477
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The following skin is missing required files. Thus it was removed:<ul>%2</ul>"
+msgid_plural ""
+"The following skins are missing required files. Thus they were removed:<ul>"
+"%2</ul>"
+msgstr[0] "다음 스킨에는 필요한 파일이 없어서 삭제되었습니다: <ul>%2</ul>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
+#: app/config/appearancesettings.ui:29 app/config/behaviorsettings.ui:20
+#, kde-format
+msgctxt "@title:group Group box label"
+msgid "General"
+msgstr "일반"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
+#: app/config/appearancesettings.ui:35
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Enabling this option will make Yakuake briefly display a colored overlay "
+"above the newly focused terminal when moving focus between multiple "
+"terminals in a session, as well as over the currently focused terminal when "
+"switching to a session with multiple terminals."
+msgstr ""
+"이 옵션을 사용하면 Yakuake에서 세션 안에 있는 여러 터미널 사이에 초점을 전환"
+"할 때 새로 초점이 맞은 터미널 위에 색이 있는 오버레이를 잠깐 동안 표시하며, "
+"터미널이 여러 개 있는 세션으로 전환할 때 현재 초점이 맞춰진 터미널 위에도 표"
+"시합니다."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
+#: app/config/appearancesettings.ui:38
+#, kde-format
+msgctxt "@option:check"
+msgid "Highlight terminals when moving focus between them"
+msgstr "초점을 옮길 때 터미널 강조하기"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_HideSkinBorders)
+#: app/config/appearancesettings.ui:45
+#, kde-format
+msgid "Hide borders"
+msgstr "경계선 숨기기"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: app/config/appearancesettings.ui:55
+#, kde-format
+msgctxt "@title:group"
+msgid "Window Background"
+msgstr "창 배경"
+
+#. i18n: ectx: property (text), widget (QLabel, backgroundColorLabel)
+#: app/config/appearancesettings.ui:63
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Background color:"
+msgstr "배경색:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_Translucency)
+#: app/config/appearancesettings.ui:92
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Translucency requires support by the selected skin as well as your desktop "
+"environment. The default skin supports translucency."
+msgstr ""
+"투명도를 지원하려면 선택한 스킨과 데스크톱 환경이 둘 다 지원해야 합니다. 기"
+"본 스킨은 투명도를 지원합니다."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Translucency)
+#: app/config/appearancesettings.ui:95
+#, kde-format
+msgctxt "@option:check"
+msgid "Use skin translucency if supported"
+msgstr "사용할 수 있으면 스킨 투명도 사용하기"
+
+#. i18n: ectx: property (text), widget (QLabel, backgroundColorOpacityLabel)
+#: app/config/appearancesettings.ui:126
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Background color opacity:"
+msgstr "배경색 불투명도:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_BackgroundColorOpacity)
+#: app/config/appearancesettings.ui:136
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"When using translucency, the background color will be filled in using the "
+"given opacity before the skin elements are painted on top of the background. "
+"This allows influencing the opacity and color tint of translucent areas of "
+"the skin."
+msgstr ""
+"불투명도를 사용할 때 모든 스킨 구성 요소를 칠하기 전 배경색을 주어진 불투명도"
+"로 칠합니다. 이는 스킨의 색조와 투명도를 결정합니다."
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Width)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Height)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_BackgroundColorOpacity)
+#: app/config/appearancesettings.ui:139 app/config/windowsettings.ui:146
+#: app/config/windowsettings.ui:200
+#, no-c-format, kde-format
+msgctxt "@label Spinbox unit suffix"
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: app/config/appearancesettings.ui:170
+#, kde-format
+msgctxt "@title:group"
+msgid "Skin"
+msgstr "스킨"
+
+#. i18n: ectx: property (text), widget (QPushButton, ghnsButton)
+#: app/config/appearancesettings.ui:176
+#, kde-format
+msgctxt "@action:button"
+msgid "Get New Skins..."
+msgstr "새 스킨 가져오기..."
+
+#. i18n: ectx: property (text), widget (QPushButton, removeButton)
+#: app/config/appearancesettings.ui:186
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove Skin"
+msgstr "스킨 삭제"
+
+#. i18n: ectx: property (text), widget (QPushButton, installButton)
+#: app/config/appearancesettings.ui:196
+#, kde-format
+msgctxt "@action:button"
+msgid "Install Skin..."
+msgstr "스킨 설치..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FocusFollowsMouse)
+#: app/config/behaviorsettings.ui:26
+#, kde-format
+msgctxt "@option:check"
+msgid "Focus terminals when the mouse pointer is moved over them"
+msgstr "마우스 포인터가 위에 있을 때 터미널에 초점 맞추기"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ToggleToFocus)
+#: app/config/behaviorsettings.ui:42
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If this option is enabled, the shortcut normally used to open and retract "
+"the window will give it focus, rather than close it, if it has previously "
+"lost focus. Unless the window is set to show on all virtual desktops, this "
+"may cause the window manager to switch to the virtual desktop it currently "
+"resides on."
+msgstr ""
+"이 옵션을 사용하면 터미널이 초점을 잃었을 때 열기/접기 동작에 사용되는 단축키"
+"를 사용하여 창을 닫는 대신 초점을 맞춥니다. 창이 모든 가상 데스크톱에 보이도"
+"록 설정해 두지 않은 이상, 창 관리자가 터미널이 있는 가상 데스크톱으로 전환될 "
+"수도 있습니다."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToggleToFocus)
+#: app/config/behaviorsettings.ui:45
+#, kde-format
+msgctxt "@option:check"
+msgid "Use Open/Retract action to focus window"
+msgstr "열기/접기 동작을 사용하여 창에 초점 맞추기"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepAbove)
+#: app/config/behaviorsettings.ui:61
+#, kde-format
+msgctxt "@option:check"
+msgid "Keep window above other windows"
+msgstr "항상 위에 표시"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_OpenAfterStart)
+#: app/config/behaviorsettings.ui:84
+#, kde-format
+msgctxt "@option:check"
+msgid "Open window after program start"
+msgstr "프로그램이 시작된 후 창 열기"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_PollMouse)
+#: app/config/behaviorsettings.ui:91
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If this option is enabled, the window will automatically open when the mouse "
+"pointer is moved to the same edge of the screen that it would open on when "
+"using the shortcut."
+msgstr ""
+"이 옵션을 사용하면 화면 가장자리 중 창이 열리는 방향에 마우스 커서를 올려 두"
+"었을 때 자동으로 창이 열립니다."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PollMouse)
+#: app/config/behaviorsettings.ui:94
+#, kde-format
+msgctxt "@option:check"
+msgid "Open window when the mouse pointer touches the screen edge"
+msgstr "마우스 포인터가 화면 가장자리에 있을 때 창 열기"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RememberFullscreen)
+#: app/config/behaviorsettings.ui:101
+#, kde-format
+msgid "Remember and restore window fullscreen state"
+msgstr "창의 전체 화면 상태를 기억하고 복원"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowSystrayIcon)
+#: app/config/behaviorsettings.ui:108
+#, kde-format
+msgid "Show system tray icon"
+msgstr "시스템 트레이 아이콘 표시"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpen)
+#: app/config/behaviorsettings.ui:118
+#, kde-format
+msgctxt "@option:check"
+msgid "Keep window open when it loses focus"
+msgstr "초점을 잃어도 창 열어 두기"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpenAfterLastSessionCloses)
+#: app/config/behaviorsettings.ui:141
+#, kde-format
+msgctxt "@option:check"
+msgid "Keep window open after the last session is closed"
+msgstr "마지막 세션을 닫을 때 창 열어 두기"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: app/config/behaviorsettings.ui:151
+#, kde-format
+msgctxt "@title:group"
+msgid "Dialogs"
+msgstr "대화 상자"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ConfirmQuit)
+#: app/config/behaviorsettings.ui:157
+#, kde-format
+msgctxt "@option:check"
+msgid "Confirm quit when more than one session is open"
+msgstr "하나 이상의 세션이 열려 있을 때 종료 확인하기"
+
+#: app/config/skinlistdelegate.cpp:125 app/config/skinlistdelegate.cpp:165
+#, kde-kuit-format
+msgctxt "@item:intext"
+msgid "by %1"
+msgstr "만든 이: %1"
+
+#: app/config/windowsettings.cpp:19
+#, kde-kuit-format
+msgctxt "@item:inlistbox"
+msgid "Screen %1"
+msgstr "화면 %1"
+
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:656
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Hiding Title Bar"
+msgstr "제목 표시줄 숨기기"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_0)
+#: app/config/windowsettings.ui:32
+#, kde-format
+msgid "Title Bar"
+msgstr "제목 표시줄"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTitleBar)
+#: app/config/windowsettings.ui:38
+#, kde-format
+msgid "Show title bar"
+msgstr "제목 표시줄 표시"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
+#: app/config/windowsettings.ui:54
+#, kde-format
+msgctxt "@title:group"
+msgid "Tab Bar"
+msgstr "탭 표시줄"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_DynamicTabTitles)
+#: app/config/windowsettings.ui:69
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If this option is enabled, the information about the active terminal's "
+"contents that is normally shown in the title bar will also be shown on the "
+"tab bar. You can modify the format of the information in the terminal "
+"profile."
+msgstr ""
+"이 옵션을 사용하면 활성화된 터미널에서 제목 표시줄에 보여 줄 내용을 탭 표시줄"
+"에도 보여 줍니다. 터미널 프로필에서 내용의 형식을 바꿀 수 있습니다."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_DynamicTabTitles)
+#: app/config/windowsettings.ui:72
+#, kde-format
+msgctxt "@option:check"
+msgid "Show title bar contents in tab labels"
+msgstr "탭 이름표에 제목 표시줄 내용 표시"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTabBar)
+#: app/config/windowsettings.ui:95
+#, kde-format
+msgctxt "@option:check"
+msgid "Show the tab bar"
+msgstr "탭 표시줄 표시"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: app/config/windowsettings.ui:105
+#, kde-format
+msgctxt "@title:group"
+msgid "Size and Animation"
+msgstr "크기와 애니메이션"
+
+#. i18n: ectx: property (text), widget (QLabel, widthLabel)
+#: app/config/windowsettings.ui:111
+#, kde-format
+msgctxt "@label:slider"
+msgid "Width:"
+msgstr "너비:"
+
+#. i18n: ectx: property (text), widget (QLabel, heightLabel)
+#: app/config/windowsettings.ui:165
+#, kde-format
+msgctxt "@label:slider"
+msgid "Height:"
+msgstr "높이:"
+
+#. i18n: ectx: property (text), widget (QLabel, durationLabel)
+#: app/config/windowsettings.ui:219
+#, kde-format
+msgctxt "@label:slider"
+msgid "Duration:"
+msgstr "지속 시간:"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, framesSpinBox)
+#: app/config/windowsettings.ui:251
+#, kde-format
+msgctxt "@label Spinbox unit suffix"
+msgid "ms"
+msgstr "밀리초"
+
+#. i18n: ectx: property (prefix), widget (QSpinBox, framesSpinBox)
+#: app/config/windowsettings.ui:254
+#, kde-format
+msgctxt "@label Spinbox unit prefix"
+msgid "~"
+msgstr "~"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_UseWMAssist)
+#: app/config/windowsettings.ui:270
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If this option is enabled, Yakuake will ask the window manager to perform "
+"the window open/retract animation. If the window manager is unable to "
+"provide the requested service, Yakuake will fall back to an animation "
+"strategy of progressively adjusting the window mask."
+msgstr ""
+"이 옵션을 사용하면 Yakuake가 창 관리자에게 창 열기/닫기 애니메이션을 수행하도"
+"록 합니다. 창 관리자에서 필요한 서비스를 수행하지 못한 경우 Yakuake는 창 마스"
+"크를 조정하는 애니메이션으로 전환합니다."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseWMAssist)
+#: app/config/windowsettings.ui:273
+#, kde-format
+msgctxt "@option:check"
+msgid "Ask the window manager to perform the animation"
+msgstr "창 관리자가 애니메이션을 수행하도록 함"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: app/config/windowsettings.ui:283
+#, kde-format
+msgctxt "@title:group"
+msgid "Position"
+msgstr "위치"
+
+#. i18n: ectx: property (text), widget (QLabel, leftLabel)
+#: app/config/windowsettings.ui:291
+#, kde-format
+msgctxt "@item:inrange Direction to move the window in"
+msgid "Left"
+msgstr "왼쪽"
+
+#. i18n: ectx: property (text), widget (QLabel, rightLabel)
+#: app/config/windowsettings.ui:323
+#, kde-format
+msgctxt "@item:inrange Direction to move the window in"
+msgid "Right"
+msgstr "오른쪽"
+
+#. i18n: ectx: property (text), widget (QLabel, screenLabel)
+#: app/config/windowsettings.ui:337
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Open on screen:"
+msgstr "다음 화면에서 열기:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Screen)
+#: app/config/windowsettings.ui:348
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "At mouse location"
+msgstr "마우스 위치에"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Screen)
+#: app/config/windowsettings.ui:353
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Screen 1"
+msgstr "화면 1"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowOnAllDesktops)
+#: app/config/windowsettings.ui:376
+#, kde-format
+msgctxt "@option:check"
+msgid "Show on all desktops"
+msgstr "모든 바탕 화면에 표시"
+
+#. i18n: ectx: label, entry (Screen), group (Window)
+#: app/config/yakuake.kcfg:9
+#, kde-format
+msgctxt "@label"
+msgid "Screen to use"
+msgstr "사용할 화면"
+
+#. i18n: ectx: whatsthis, entry (Screen), group (Window)
+#: app/config/yakuake.kcfg:10
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"The screen on which the application window will appear. 0 is understood to "
+"be the screen the mouse pointer is on."
+msgstr ""
+"프로그램 창을 표시할 화면입니다. 0번은 현재 마우스 포인터가 있는 화면입니다."
+
+#. i18n: ectx: label, entry (Width), group (Window)
+#: app/config/yakuake.kcfg:14
+#, kde-format
+msgctxt "@label"
+msgid "Window width"
+msgstr "창 너비"
+
+#. i18n: ectx: whatsthis, entry (Width), group (Window)
+#: app/config/yakuake.kcfg:15
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Width of the application window as a percentage of the screen."
+msgstr "화면의 배율 단위의 프로그램 창 너비입니다."
+
+#. i18n: ectx: label, entry (Height), group (Window)
+#: app/config/yakuake.kcfg:21
+#, kde-format
+msgctxt "@label"
+msgid "Window height"
+msgstr "창 높이"
+
+#. i18n: ectx: whatsthis, entry (Height), group (Window)
+#: app/config/yakuake.kcfg:22
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Height of the application window as a percentage of the screen."
+msgstr "화면의 배율 단위의 프로그램 창 높이입니다."
+
+#. i18n: ectx: label, entry (Position), group (Window)
+#: app/config/yakuake.kcfg:28
+#, kde-format
+msgctxt "@label"
+msgid "Window position"
+msgstr "창 위치"
+
+#. i18n: ectx: whatsthis, entry (Position), group (Window)
+#: app/config/yakuake.kcfg:29
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Center point of the application window, as a percentage, measured from the "
+"left-hand edge of the screen."
+msgstr "화면의 왼쪽 끝에서 퍼센트 단위로 잰 프로그램의 중심점 위치입니다."
+
+#. i18n: ectx: label, entry (ShowOnAllDesktops), group (Window)
+#: app/config/yakuake.kcfg:35
+#, kde-format
+msgctxt "@label"
+msgid "Show window on all desktops"
+msgstr "모든 바탕 화면에 창 표시"
+
+#. i18n: ectx: whatsthis, entry (ShowOnAllDesktops), group (Window)
+#: app/config/yakuake.kcfg:36
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to show the window on all desktops."
+msgstr "모든 바탕 화면에 창을 표시할지 여부입니다."
+
+#. i18n: ectx: label, entry (KeepOpen), group (Window)
+#: app/config/yakuake.kcfg:40
+#, kde-format
+msgctxt "@label"
+msgid "Keep window open"
+msgstr "창 열어 두기"
+
+#. i18n: ectx: whatsthis, entry (KeepOpen), group (Window)
+#: app/config/yakuake.kcfg:41
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to keep the application window open when it loses focus."
+msgstr "초점을 잃었을 때 프로그램 창을 열어둘 지 여부입니다."
+
+#. i18n: ectx: label, entry (KeepOpenAfterLastSessionCloses), group (Window)
+#: app/config/yakuake.kcfg:45
+#, kde-format
+msgctxt "@label"
+msgid "Keep window open after last session closes"
+msgstr "마지막 세션을 닫을 때 창 열어 두기"
+
+#. i18n: ectx: whatsthis, entry (KeepOpenAfterLastSessionCloses), group (Window)
+#: app/config/yakuake.kcfg:46
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to keep the application window open after the last session is closed."
+msgstr "마지막 세션을 닫았을 때 프로그램 창을 열어둘 지 여부입니다."
+
+#. i18n: ectx: label, entry (ToggleToFocus), group (Window)
+#: app/config/yakuake.kcfg:50
+#, kde-format
+msgctxt "@label"
+msgid "Use open/retract shortcut to focus window"
+msgstr "열기/접기 단축키를 사용하여 창에 초점 맞추기"
+
+#. i18n: ectx: whatsthis, entry (ToggleToFocus), group (Window)
+#: app/config/yakuake.kcfg:51
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether the open/retract keyboard shortcut can be used to focus the "
+"application window when it is already open."
+msgstr ""
+"열기/접기 키보드 단축키를 눌렀을 때 프로그램의 창이 열려 있다면 초점을 맞출 "
+"지 여부입니다."
+
+#. i18n: ectx: label, entry (KeepAbove), group (Window)
+#: app/config/yakuake.kcfg:55
+#, kde-format
+msgctxt "@label"
+msgid "Keep window on top"
+msgstr "항상 위에 창 두기"
+
+#. i18n: ectx: whatsthis, entry (KeepAbove), group (Window)
+#: app/config/yakuake.kcfg:56
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to keep the application window above other windows on the screen."
+msgstr "화면의 다른 창 위에 프로그램 창을 올려둘 지 여부입니다."
+
+#. i18n: ectx: label, entry (ShowTitleBar), group (Window)
+#: app/config/yakuake.kcfg:60
+#, kde-format
+msgctxt "@label"
+msgid "Show title bar"
+msgstr "제목 표시줄 표시"
+
+#. i18n: ectx: whatsthis, entry (ShowTitleBar), group (Window)
+#: app/config/yakuake.kcfg:61
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to show the title bar in the application window."
+msgstr "프로그램 창에 제목 표시줄을 표시할지 여부입니다."
+
+#. i18n: ectx: label, entry (ShowTabBar), group (Window)
+#: app/config/yakuake.kcfg:65
+#, kde-format
+msgctxt "@label"
+msgid "Show tab bar"
+msgstr "탭 표시줄 표시"
+
+#. i18n: ectx: whatsthis, entry (ShowTabBar), group (Window)
+#: app/config/yakuake.kcfg:66
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to show the tab bar in the application window."
+msgstr "프로그램 창에 탭 표시줄을 표시할지 여부입니다."
+
+#. i18n: ectx: label, entry (DynamicTabTitles), group (Window)
+#: app/config/yakuake.kcfg:70
+#, kde-format
+msgctxt "@label"
+msgid "Dynamic tab titles"
+msgstr "동적 탭 제목"
+
+#. i18n: ectx: whatsthis, entry (DynamicTabTitles), group (Window)
+#: app/config/yakuake.kcfg:71
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to update tab titles along with the title bar."
+msgstr "탭 제목을 제목 표시줄과 같이 업데이트할지 여부입니다."
+
+#. i18n: ectx: label, entry (ShowSystrayIcon), group (Window)
+#: app/config/yakuake.kcfg:75
+#, kde-format
+msgctxt "@label"
+msgid "Show a system tray icon"
+msgstr "시스템 트레이 아이콘 표시"
+
+#. i18n: ectx: whatsthis, entry (ShowSystrayIcon), group (Window)
+#: app/config/yakuake.kcfg:76
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to show a system tray icon."
+msgstr "시스템 트레이 아이콘을 표시할지 여부입니다."
+
+#. i18n: ectx: label, entry (FocusFollowsMouse), group (Behavior)
+#: app/config/yakuake.kcfg:82
+#, kde-format
+msgctxt "@label"
+msgid "Focus follows mouse"
+msgstr "마우스를 따라서 초점 맞추기"
+
+#. i18n: ectx: whatsthis, entry (FocusFollowsMouse), group (Behavior)
+#: app/config/yakuake.kcfg:83
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether an individual terminal in a session will be given focus when the "
+"mouse pointer is moved above it."
+msgstr ""
+"마우스 포인터가 지나갈 때 세션의 각각 터미널에 초점을 맞출 지 여부입니다."
+
+#. i18n: ectx: label, entry (OpenAfterStart), group (Behavior)
+#: app/config/yakuake.kcfg:87
+#, kde-format
+msgctxt "@label"
+msgid "Open after start"
+msgstr "시작한 다음 열기"
+
+#. i18n: ectx: whatsthis, entry (OpenAfterStart), group (Behavior)
+#: app/config/yakuake.kcfg:88
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether the application window should be opened after program start."
+msgstr "프로그램이 시작한 다음 창을 열 지 여부입니다."
+
+#. i18n: ectx: label, entry (RememberFullscreen), group (Behavior)
+#: app/config/yakuake.kcfg:92
+#, kde-format
+msgctxt "@label"
+msgid "Remember window fullscreen state"
+msgstr "창의 전체 화면 상태 기억"
+
+#. i18n: ectx: whatsthis, entry (RememberFullscreen), group (Behavior)
+#: app/config/yakuake.kcfg:93
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether the window will be shown fullscreen again when it has been "
+"previously."
+msgstr ""
+"이전에 창을 전체 화면으로 표시했을 때 다시 전체 화면으로 표시할지 여부입니다."
+
+#. i18n: ectx: label, entry (Skin), group (Appearance)
+#: app/config/yakuake.kcfg:99
+#, kde-format
+msgctxt "@label"
+msgid "Skin"
+msgstr "스킨"
+
+#. i18n: ectx: whatsthis, entry (Skin), group (Appearance)
+#: app/config/yakuake.kcfg:100
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The skin to be used by the application window."
+msgstr "프로그램 창에 사용할 스킨입니다."
+
+#. i18n: ectx: label, entry (SkinInstalledWithKns), group (Appearance)
+#: app/config/yakuake.kcfg:104
+#, kde-format
+msgctxt "@label"
+msgid "Skin installed by KNS"
+msgstr "KNS에서 설치한 스킨"
+
+#. i18n: ectx: whatsthis, entry (SkinInstalledWithKns), group (Appearance)
+#: app/config/yakuake.kcfg:105
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether the currently active skin was installed via KNS."
+msgstr "현재 스킨을 KNS로 설치했는지 여부입니다."
+
+#. i18n: ectx: label, entry (Translucency), group (Appearance)
+#: app/config/yakuake.kcfg:109
+#, kde-format
+msgctxt "@label"
+msgid "Use translucent background"
+msgstr "투명한 배경 사용하기"
+
+#. i18n: ectx: whatsthis, entry (Translucency), group (Appearance)
+#: app/config/yakuake.kcfg:110
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to make use of XComposite ARGB translucency."
+msgstr "XComposite ARGB 투명도를 사용할지 여부입니다."
+
+#. i18n: ectx: label, entry (BackgroundColor), group (Appearance)
+#: app/config/yakuake.kcfg:114
+#, kde-format
+msgctxt "@label"
+msgid "Window background color"
+msgstr "창 배경색"
+
+#. i18n: ectx: whatsthis, entry (BackgroundColor), group (Appearance)
+#: app/config/yakuake.kcfg:115
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Background color painted below skin elements."
+msgstr "스킨 요소 밑에 칠해지는 배경색입니다."
+
+#. i18n: ectx: label, entry (BackgroundColorOpacity), group (Appearance)
+#: app/config/yakuake.kcfg:119
+#, kde-format
+msgctxt "@label"
+msgid "Background color opacity"
+msgstr "배경색 불투명도"
+
+#. i18n: ectx: whatsthis, entry (BackgroundColorOpacity), group (Appearance)
+#: app/config/yakuake.kcfg:120
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The opacity of the background color fill when using translucency."
+msgstr "불투명도를 사용할 때 배경색의 불투명도입니다."
+
+#. i18n: ectx: label, entry (TerminalHighlightOnManualActivation), group (Appearance)
+#: app/config/yakuake.kcfg:126
+#, kde-format
+msgctxt "@label"
+msgid "Highlight newly focused terminals"
+msgstr "새로 초점이 맞은 터미널 강조하기"
+
+#. i18n: ectx: whatsthis, entry (TerminalHighlightOnManualActivation), group (Appearance)
+#: app/config/yakuake.kcfg:127
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to briefly display a colored overlay above the newly focused "
+"terminal when moving focus between multiple terminals in a session, as well "
+"as over the currently focused terminal when switching to a session with "
+"multiple terminals."
+msgstr ""
+"Yakuake에서 세션 안에 있는 여러 터미널 사이에 초점을 전환할 때 새로 초점이 맞"
+"은 터미널 위에 색이 있는 오버레이를 잠깐 동안 표시하거나, 터미널이 여러 개 있"
+"는 세션으로 전환할 때 현재 초점이 맞춰진 터미널 위에도 표시할지 여부입니다."
+
+#. i18n: ectx: label, entry (HideSkinBorders), group (Appearance)
+#: app/config/yakuake.kcfg:131
+#, kde-format
+msgctxt "@label"
+msgid "Hide the borders defined by the skin"
+msgstr "스킨에서 지정한 경계선 숨기기"
+
+#. i18n: ectx: whatsthis, entry (HideSkinBorders), group (Appearance)
+#: app/config/yakuake.kcfg:132
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Skins can define borders around the terminal including the tabbar. This "
+"option, when turned on, will overwrite the border settings defined by the "
+"skin and hide all borders."
+msgstr ""
+"스킨에서 탭 표시줄을 포함한 터미널 경계선을 정의할 수 있습니다. 이 옵션을 사"
+"용하면 스킨에서 지정한 경계선 설정을 무시하고 모든 경계선을 숨깁니다."
+
+#. i18n: ectx: label, entry (TerminalHighlightOpacity), group (Appearance)
+#: app/config/yakuake.kcfg:136
+#, kde-format
+msgctxt "@label"
+msgid "Terminal highlight opacity"
+msgstr "터미널 강조 불투명도"
+
+#. i18n: ectx: whatsthis, entry (TerminalHighlightOpacity), group (Appearance)
+#: app/config/yakuake.kcfg:137
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The opacity of the colored overlay used to highlight a terminal."
+msgstr "터미널을 강조하는 데 사용할 색상 오버레이의 불투명도입니다."
+
+#. i18n: ectx: label, entry (TerminalHighlightDuration), group (Appearance)
+#: app/config/yakuake.kcfg:143
+#, kde-format
+msgctxt "@label"
+msgid "Terminal highlight duration"
+msgstr "터미널 강조 시간"
+
+#. i18n: ectx: whatsthis, entry (TerminalHighlightDuration), group (Appearance)
+#: app/config/yakuake.kcfg:144
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The duration of the terminal highlight overlay."
+msgstr "터미널 강조 오버레이를 표시할 시간입니다."
+
+#. i18n: ectx: label, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
+#: app/config/yakuake.kcfg:150
+#, kde-format
+msgctxt "@label"
+msgid "Keyboard input block indicator color"
+msgstr "키보드 입력 블록 표시기 색상"
+
+#. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
+#: app/config/yakuake.kcfg:151
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The color of the keyboard input block indicator overlay."
+msgstr "키보드 입력 블록 표시기 오버레이 색상입니다."
+
+#. i18n: ectx: label, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
+#: app/config/yakuake.kcfg:155
+#, kde-format
+msgctxt "@label"
+msgid "Keyboard input block indicator opacity"
+msgstr "키보드 입력 블록 표시기 불투명도"
+
+#. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
+#: app/config/yakuake.kcfg:156
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The opacity of the keyboard input block indicator overlay."
+msgstr "키보드 입력 블록 표시기 불투명도입니다."
+
+#. i18n: ectx: label, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
+#: app/config/yakuake.kcfg:162
+#, kde-format
+msgctxt "@label"
+msgid "Keyboard input block indicator duration"
+msgstr "키보드 입력 블록 표시기 표시 시간"
+
+#. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
+#: app/config/yakuake.kcfg:163
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The duration of the keyboard input block indicator overlay."
+msgstr "키보드 입력 블록 표시기 표시 시간입니다."
+
+#. i18n: ectx: label, entry (UseWMAssist), group (Animation)
+#: app/config/yakuake.kcfg:171
+#, kde-format
+msgctxt "@label"
+msgid "Attempt to use the window manager to animate the window"
+msgstr "창 관리자를 사용하여 창 애니메이션 사용하기"
+
+#. i18n: ectx: whatsthis, entry (UseWMAssist), group (Animation)
+#: app/config/yakuake.kcfg:172
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to try and let the window manager perform the window open/retract "
+"animation. Yakuake will fall back to an animation strategy of progressively "
+"adjusting the window mask if the window manager is unable to provide the "
+"requested service."
+msgstr ""
+"Yakuake가 창 관리자에게 창 열기/닫기 애니메이션을 수행하도록 할지 여부입니"
+"다. 창 관리자에서 필요한 서비스를 수행하지 못한 경우 Yakuake는 창 마스크를 조"
+"정하는 애니메이션으로 전환합니다."
+
+#. i18n: ectx: label, entry (Frames), group (Animation)
+#: app/config/yakuake.kcfg:176
+#, kde-format
+msgctxt "@label"
+msgid "Animation frames"
+msgstr "애니메이션 프레임"
+
+#. i18n: ectx: whatsthis, entry (Frames), group (Animation)
+#: app/config/yakuake.kcfg:177
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"The number of frames of the open/retract animation. One frame is taken to be "
+"10 miliseconds."
+msgstr "열기/접기 동작에 사용할 프레임 수입니다. 1프레임은 약 10밀리초입니다."
+
+#. i18n: ectx: label, entry (PollMouse), group (AutoOpen)
+#: app/config/yakuake.kcfg:185
+#, kde-format
+msgctxt "@label"
+msgid "Auto-open window"
+msgstr "자동으로 창 열기"
+
+#. i18n: ectx: whatsthis, entry (PollMouse), group (AutoOpen)
+#: app/config/yakuake.kcfg:186
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to automatically open the application window when the mouse pointer "
+"is found at the edge of the screen."
+msgstr ""
+"마우스 포인터가 화면 가장자리에 갔을 때 자동으로 창을 열 지 여부입니다."
+
+#. i18n: ectx: label, entry (PollInterval), group (AutoOpen)
+#: app/config/yakuake.kcfg:190
+#, kde-format
+msgctxt "@label"
+msgid "Mouse pointer poll interval"
+msgstr "마우스 포인터 폴링 주기"
+
+#. i18n: ectx: whatsthis, entry (PollInterval), group (AutoOpen)
+#: app/config/yakuake.kcfg:191
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"The interval during which the mouse pointer position will be checked to "
+"determine whether or not it is at the same edge of the screen as the window."
+msgstr "화면의 가장자리에 마우스 커서가 가 있는가 여부를 검사하는 주기입니다."
+
+#. i18n: ectx: label, entry (FirstRun), group (Dialogs)
+#: app/config/yakuake.kcfg:197
+#, kde-format
+msgctxt "@label"
+msgid "Application first run"
+msgstr "프로그램 첫 실행"
+
+#. i18n: ectx: whatsthis, entry (FirstRun), group (Dialogs)
+#: app/config/yakuake.kcfg:198
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether this is the first time the application is run."
+msgstr "프로그램이 처음으로 실행되는지 여부입니다."
+
+#. i18n: ectx: label, entry (ConfirmQuit), group (Dialogs)
+#: app/config/yakuake.kcfg:202
+#, kde-format
+msgctxt "@label"
+msgid "Confirm quit with multiple sessions"
+msgstr "세션이 여러 개 열려 있을 때 종료 확인하기"
+
+#. i18n: ectx: whatsthis, entry (ConfirmQuit), group (Dialogs)
+#: app/config/yakuake.kcfg:203
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to prompt the user before quitting the application when multiple "
+"sessions are open."
+msgstr "세션이 여러 개 열려 있을 때 종료를 확인할지 여부입니다."
+
+#: app/firstrundialog.cpp:22
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "First Run"
+msgstr "첫 실행"
+
+#. i18n: ectx: property (text), widget (KTitleWidget, titleWidget)
+#: app/firstrundialog.ui:46
+#, kde-format
+msgctxt "@title"
+msgid "Welcome to Yakuake"
+msgstr "Yakuake에 오신 것을 환영합니다"
+
+#. i18n: ectx: property (text), widget (QLabel, introLabel)
+#: app/firstrundialog.ui:53
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Before starting to use the application, you might want to change the "
+"keyboard shortcut used to open and retract the Yakuake window:"
+msgstr ""
+"프로그램을 시작하기 전에 Yakuake 창을 펴고 접는 단축키를 바꿀 수 있습니다:"
+
+#. i18n: ectx: property (text), widget (QLabel, outroLabel)
+#: app/firstrundialog.ui:130
+#, kde-format
+msgctxt "@info"
+msgid "You can change the shortcut later at any time via the menu."
+msgstr "언제든지 메뉴를 통해서 단축키를 바꿀 수 있습니다."
+
+#: app/main.cpp:28
+#, kde-kuit-format
+msgctxt "@title"
+msgid "<application>Yakuake</application>"
+msgstr "<application>Yakuake</application>"
+
+#: app/main.cpp:30
+#, kde-kuit-format
+msgctxt "@title"
+msgid "A drop-down terminal emulator based on KDE Konsole technology."
+msgstr "KDE Konsole을 기반으로 한 드롭다운 터미널 에뮬레이터입니다."
+
+#: app/main.cpp:32
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "(c) 2008-2018 The Yakuake Team"
+msgstr "(c) 2008-2018 The Yakuake Team"
+
+#: app/main.cpp:39
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Eike Hein"
+msgstr "Eike Hein"
+
+#: app/main.cpp:39
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Maintainer, Lead Developer"
+msgstr "관리자, 주 개발자"
+
+#: app/main.cpp:40
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Francois Chazal"
+msgstr "Francois Chazal"
+
+#: app/main.cpp:40
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Project Founder, Legacy skin (Inactive)"
+msgstr "프로젝트 창시자, 기본 스킨 (비활성화됨)"
+
+#: app/main.cpp:41
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Daniel 'suslik' D."
+msgstr "Daniel 'suslik' D."
+
+#: app/main.cpp:41
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Plastik skin"
+msgstr "Plastik 스킨"
+
+#: app/main.cpp:42
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Juan Carlos Torres"
+msgstr "Juan Carlos Torres"
+
+#: app/main.cpp:43
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Tab bar drag and drop support, Prevent Closing toggle"
+msgstr "탭 표시줄 드래그 앤 드롭 지원, 닫기 방지 켬/끔"
+
+#: app/main.cpp:45
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Gustavo Ribeiro Croscato"
+msgstr "Gustavo Ribeiro Croscato"
+
+#: app/main.cpp:46
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Icon on tabs with Prevent Closing enabled"
+msgstr "실수로 닫는 것을 방지하는 탭의 아이콘"
+
+#: app/main.cpp:48
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Danilo Cesar Lemes de Paula"
+msgstr "Danilo Cesar Lemes de Paula"
+
+#: app/main.cpp:49
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Actions to grow terminals"
+msgstr "터미널을 키우는 동작"
+
+#: app/main.cpp:52
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "박신조"
+
+#: app/main.cpp:52
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde@peremen.name"
+
+#: app/mainwindow.cpp:197
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Are you sure you want to quit?"
+msgstr "정말 종료하시겠습니까?"
+
+#: app/mainwindow.cpp:204
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<warning>There are multiple open sessions, <emphasis>some of which you have "
+"locked to prevent closing them accidentally.</emphasis> These will be killed "
+"if you continue.</warning>"
+msgstr ""
+"<warning>세션 여러 개를 열었으며, <emphasis>일부 세션은 종료를 막으려고 잠겨 "
+"있습니다.</emphasis> 계속 진행하면 종료합니다.</warning>"
+
+#: app/mainwindow.cpp:207
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<warning>There are multiple open sessions. These will be killed if you "
+"continue.</warning>"
+msgstr ""
+"<warning>세션 여러 개를 열었습니다. 계속 진행하면 강제로 종료합니다.</"
+"warning>"
+
+#: app/mainwindow.cpp:210
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<warning>There are one or more open sessions that you have locked to prevent "
+"closing them accidentally. These will be killed if you continue.</warning>"
+msgstr ""
+"<warning>실수로 종료하는 것을 막으려고 잠겨 있는 하나 이상의 세션이 있습니"
+"다. 계속 진행하면 종료합니다.</warning>"
+
+#: app/mainwindow.cpp:216
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Really Quit?"
+msgstr "정말 종료하시겠습니까?"
+
+#: app/mainwindow.cpp:248
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Open/Retract Yakuake"
+msgstr "Yakuake 펴기/접기"
+
+#: app/mainwindow.cpp:261
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Keep window open when it loses focus"
+msgstr "초점을 잃어도 창 열어 두기"
+
+#: app/mainwindow.cpp:266
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Manage Profiles..."
+msgstr "프로필 관리..."
+
+#: app/mainwindow.cpp:271
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Edit Current Profile..."
+msgstr "현재 프로필 편집..."
+
+#: app/mainwindow.cpp:277
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Increase Window Width"
+msgstr "창 너비 증가"
+
+#: app/mainwindow.cpp:282
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Decrease Window Width"
+msgstr "창 너비 감소"
+
+#: app/mainwindow.cpp:287
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Increase Window Height"
+msgstr "창 높이 증가"
+
+#: app/mainwindow.cpp:292
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Decrease Window Height"
+msgstr "창 높이 감소"
+
+#: app/mainwindow.cpp:297
+#, kde-kuit-format
+msgctxt "@action"
+msgid "New Session"
+msgstr "새 세션"
+
+#: app/mainwindow.cpp:303
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Two Terminals, Horizontally"
+msgstr "터미널 두 개, 수평"
+
+#: app/mainwindow.cpp:308
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Two Terminals, Vertically"
+msgstr "터미널 두 개, 수직"
+
+#: app/mainwindow.cpp:313
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Four Terminals, Grid"
+msgstr "터미널 네 개, 격자"
+
+#: app/mainwindow.cpp:318
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Close Session"
+msgstr "세션 닫기"
+
+#: app/mainwindow.cpp:325
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Previous Session"
+msgstr "이전 세션"
+
+#: app/mainwindow.cpp:331
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Next Session"
+msgstr "다음 세션"
+
+#: app/mainwindow.cpp:337
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Move Session Left"
+msgstr "세션 왼쪽으로 이동"
+
+#: app/mainwindow.cpp:344
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Move Session Right"
+msgstr "세션 오른쪽으로 이동"
+
+#: app/mainwindow.cpp:351
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Grow Terminal to the Right"
+msgstr "터미널을 오른쪽으로 키우기"
+
+#: app/mainwindow.cpp:358
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Grow Terminal to the Left"
+msgstr "터미널을 왼쪽으로 키우기"
+
+#: app/mainwindow.cpp:365
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Grow Terminal to the Top"
+msgstr "터미널을 위로 키우기"
+
+#: app/mainwindow.cpp:372
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Grow Terminal to the Bottom"
+msgstr "터미널을 아래로 키우기"
+
+#: app/mainwindow.cpp:379
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Rename Session..."
+msgstr "세션 이름 바꾸기..."
+
+#: app/mainwindow.cpp:386
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Previous Terminal"
+msgstr "이전 터미널"
+
+#: app/mainwindow.cpp:392
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Next Terminal"
+msgstr "다음 터미널"
+
+#: app/mainwindow.cpp:398
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Close Active Terminal"
+msgstr "활성화된 터미널 닫기"
+
+#: app/mainwindow.cpp:405
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Split Left/Right"
+msgstr "왼쪽/오른쪽 나누기"
+
+#: app/mainwindow.cpp:412
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Split Top/Bottom"
+msgstr "위/아래 나누기"
+
+#: app/mainwindow.cpp:419
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Prevent Closing"
+msgstr "종료 막기"
+
+#: app/mainwindow.cpp:425 app/tabbar.cpp:190
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Disable Keyboard Input"
+msgstr "키보드 입력 끄기"
+
+#: app/mainwindow.cpp:431 app/tabbar.cpp:235
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Monitor for Activity"
+msgstr "활동 사항 감시"
+
+#: app/mainwindow.cpp:438 app/tabbar.cpp:280
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Monitor for Silence"
+msgstr "침묵 감시"
+
+#: app/mainwindow.cpp:445
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Toggle Titlebar"
+msgstr "제목 표시줄 전환"
+
+#: app/mainwindow.cpp:452
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Switch to Session %1"
+msgstr "세션 %1(으)로 전환"
+
+#: app/mainwindow.cpp:604
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Activity detected in monitored terminal in session \"%1\"."
+msgstr "세션 \"%1\"에서 주시하는 터미널에 활동이 감지되었습니다."
+
+#: app/mainwindow.cpp:615
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Silence detected in monitored terminal in session \"%1\"."
+msgstr "세션 \"%1\"에서 주시하는 터미널에 침묵이 감지되었습니다."
+
+#: app/mainwindow.cpp:671
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Help"
+msgstr "도움말"
+
+#: app/mainwindow.cpp:677
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Quick Options"
+msgstr "빠른 옵션"
+
+#: app/mainwindow.cpp:683
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Screen"
+msgstr "화면"
+
+#: app/mainwindow.cpp:688
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Width"
+msgstr "너비"
+
+#: app/mainwindow.cpp:693
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Height"
+msgstr "높이"
+
+#: app/mainwindow.cpp:696
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Settings"
+msgstr "설정"
+
+#: app/mainwindow.cpp:712
+#, kde-kuit-format
+msgctxt "@item:inmenu"
+msgid "At mouse location"
+msgstr "마우스 위치에"
+
+#: app/mainwindow.cpp:718
+#, kde-kuit-format
+msgctxt "@item:inmenu"
+msgid "Screen %1"
+msgstr "화면 %1"
+
+#: app/mainwindow.cpp:827
+#, kde-kuit-format
+msgctxt "@title Preferences page name"
+msgid "Window"
+msgstr "창"
+
+#: app/mainwindow.cpp:833
+#, kde-kuit-format
+msgctxt "@title Preferences page name"
+msgid "Behavior"
+msgstr "행동"
+
+#: app/mainwindow.cpp:836
+#, kde-kuit-format
+msgctxt "@title Preferences page name"
+msgid "Appearance"
+msgstr "모양"
+
+#: app/mainwindow.cpp:915
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<application>Yakuake</application> was unable to load a skin. It is likely "
+"that it was installed incorrectly.<nl/><nl/>The application will now quit."
+msgstr ""
+"<application>Yakuake</application>에서 스킨을 불러올 수 없었습니다. 잘못 설치"
+"되었을 수 있습니다.<nl/><nl/>프로그램을 종료합니다."
+
+#: app/mainwindow.cpp:917
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Cannot Load Skin"
+msgstr "스킨을 불러올 수 없음"
+
+#: app/mainwindow.cpp:1647
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Press <shortcut>%1</shortcut> to open"
+msgstr "<shortcut>%1</shortcut> 키를 눌러 열기"
+
+#: app/sessionstack.cpp:257
+#, kde-format
+msgid ""
+"The D-Bus method runCommand was just used.  There are security concerns "
+"about allowing these methods to be public.  If desired, these methods can be "
+"changed to internal use only by re-compiling Yakuake. <p>This warning will "
+"only show once for this Yakuake instance.</p>"
+msgstr ""
+"D-Bus 메서드 runCommand를 사용했습니다 이 메서드를 공개하는 것에 대한 보안 문"
+"제가 제기되었습니다. 필요한 경우 Yakuake를 다시 컴파일하여 이 메서드를 내부에"
+"서만 사용할 수 있도록 변경할 수 있습니다.<p>이 경고는 Yakuake 인스턴스에서 "
+"한 번만 표시됩니다.</p>"
+
+#: app/sessionstack.cpp:723
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<warning>You have locked this session to prevent accidental closing of "
+"terminals.</warning>"
+msgstr "<warning>터미널 종료를 막으려고 세션을 잠갔습니다.</warning>"
+
+#: app/sessionstack.cpp:727
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Are you sure you want to close this session?"
+msgstr "이 세션을 닫으시겠습니까?"
+
+#: app/sessionstack.cpp:729
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Are you sure you want to close this terminal?"
+msgstr "이 터미널을 닫으시겠습니까?"
+
+#: app/sessionstack.cpp:733
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Really Close?"
+msgstr "정말 종료하시겠습니까?"
+
+#: app/tabbar.cpp:39
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Tab Bar</title><para>The tab bar allows you to switch between "
+"sessions. You can double-click a tab to edit its label.</para>"
+msgstr ""
+"<title>탭 표시줄</title><para>탭 표시줄을 사용하여 세션 사이를 전환할 수 있습"
+"니다. 탭을 두 번 클릭하면 이름을 바꿀 수 있습니다.</para>"
+
+#: app/tabbar.cpp:58
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Disable Keyboard Input"
+msgstr "키보드 입력 끄기"
+
+#: app/tabbar.cpp:59
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Monitor for Activity"
+msgstr "활동 사항 감시"
+
+#: app/tabbar.cpp:60
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Monitor for Silence"
+msgstr "침묵 감시"
+
+#: app/tabbar.cpp:69
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "New Session"
+msgstr "새 세션"
+
+#: app/tabbar.cpp:70
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid "Adds a new session. Press and hold to select session type from menu."
+msgstr ""
+"새 세션을 추가합니다. 누르고 있으면 메뉴에서 세션 종류를 결정할 수 있습니다."
+
+#: app/tabbar.cpp:75
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Close Session"
+msgstr "세션 닫기"
+
+#: app/tabbar.cpp:76
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid "Closes the active session."
+msgstr "활성화된 세션을 닫습니다."
+
+#: app/tabbar.cpp:194
+#, kde-kuit-format
+msgctxt "@action"
+msgid "For This Session"
+msgstr "이 세션"
+
+#: app/tabbar.cpp:211
+#, kde-kuit-format
+msgctxt "@action"
+msgid "For Terminal %1"
+msgstr "터미널 %1"
+
+#: app/tabbar.cpp:239 app/tabbar.cpp:284
+#, kde-kuit-format
+msgctxt "@action"
+msgid "In This Session"
+msgstr "이 세션에"
+
+#: app/tabbar.cpp:256 app/tabbar.cpp:301
+#, kde-kuit-format
+msgctxt "@action"
+msgid "In Terminal %1"
+msgstr "터미널 %1에"
+
+#: app/tabbar.cpp:931
+#, kde-kuit-format
+msgctxt "@title:tab"
+msgid "Shell"
+msgstr "셸"
+
+#: app/tabbar.cpp:933
+#, kde-kuit-format
+msgctxt "@title:tab"
+msgid "Shell No. %1"
+msgstr "셸 %1"
+
+#: app/terminal.cpp:169
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<application>Yakuake</application> was unable to load the "
+"<application>Konsole</application> component.<nl/> A <application>Konsole</"
+"application> installation is required to use Yakuake."
+msgstr ""
+"<application>Yakuake</application>에서 <application>Konsole</application> 구"
+"성 요소를 불러올 수 없었습니다.<nl/>Yakuake를 실행하려면 "
+"<application>Konsole</application> 프로그램이 필요합니다."
+
+#: app/titlebar.cpp:23
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Title Bar</title><para>The title bar displays the session title if "
+"available.</para>"
+msgstr ""
+"<title>제목 표시줄</title><para>제목 표시줄은 세션의 제목을 표시합니다.</"
+"para>"
+
+#: app/titlebar.cpp:36
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Keep window open when it loses focus"
+msgstr "초점을 잃어도 창 열어 두기"
+
+#: app/titlebar.cpp:37
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid "If this is checked, the window will stay open when it loses focus."
+msgstr "선택하면 초점을 잃어도 창이 열려 있습니다."
+
+#: app/titlebar.cpp:44
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Open Menu"
+msgstr "메뉴 열기"
+
+#: app/titlebar.cpp:45
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid "Opens the main menu."
+msgstr "주 메뉴를 엽니다."
+
+#: app/titlebar.cpp:50
+#, kde-kuit-format
+msgctxt "@info:tooltip Quits the application"
+msgid "Quit"
+msgstr "끝내기"
+
+#: app/titlebar.cpp:51
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid "Quits the application."
+msgstr "프로그램을 종료합니다."
+
+#~ msgctxt "@label"
+#~ msgid "Blur"
+#~ msgstr "흐리게"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "The KWin compositor's blur effects."
+#~ msgstr "KWin 컴포지터의 흐림 효과입니다."
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Application successfully started.<nl/>Press <shortcut>%1</shortcut> to "
+#~ "use it ..."
+#~ msgstr ""
+#~ "프로그램을 시작했습니다!<nl/><shortcut>%1</shortcut> 키를 눌러서 사용하십"
+#~ "시오..."
+
+#~ msgctxt "@title:window"
+#~ msgid "Failed to Download Skin"
+#~ msgstr "스킨을 다운로드할 수 없음"
+
+#~ msgctxt "@info"
+#~ msgid "The installer was given a directory, not a file."
+#~ msgstr "인스톨러에 파일이 아닌 디렉터리를 주었습니다."
+
+#~ msgctxt "@info"
+#~ msgid "Could not remove skin \"%1\"."
+#~ msgstr "스킨 \"%1\"을(를) 삭제할 수 없습니다."
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Screen <numid>%1</numid>"
+#~ msgstr "화면 <numid>%1</numid>"
+
+#~ msgctxt "@info:shell"
+#~ msgid "Yakuake is already running, toggling window ..."
+#~ msgstr "Yakuake가 이미 실행 중이므로 창을 전환합니다..."
+
+#~ msgctxt "@item:inmenu"
+#~ msgid "Screen <numid>%1</numid>"
+#~ msgstr "화면 <numid>%1</numid>"

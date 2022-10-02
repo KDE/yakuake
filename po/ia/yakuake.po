@@ -1,0 +1,1755 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# giovanni <g.sora@tiscali.it>, 2017, 2019, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-27 00:49+0000\n"
+"PO-Revision-Date: 2021-12-02 22:48+0100\n"
+"Last-Translator: giovanni <g.sora@tiscali.it>\n"
+"Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
+"Language: ia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.11.90\n"
+
+#: app/config/appearancesettings.cpp:153
+#, kde-kuit-format
+msgctxt "@item:inlistbox Unknown skin author"
+msgid "Unknown"
+msgstr "Incognite"
+
+#: app/config/appearancesettings.cpp:198
+#, kde-format
+msgctxt "@title:window"
+msgid "Select the skin archive to install"
+msgstr "Selige le archivo de skin (apparentia) de installar"
+
+#: app/config/appearancesettings.cpp:244
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Unable to list the skin archive contents."
+msgstr "Incapace a listar le archivo de contentos de skin (apparentia)."
+
+#: app/config/appearancesettings.cpp:276
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"This skin appears to be already installed and you lack the required "
+"permissions to overwrite it."
+msgstr ""
+"Iste skin (apparentia) sembla esser ja installate e tu  manca le "
+"permissiones requirite per superscriber lo."
+
+#: app/config/appearancesettings.cpp:281
+#, kde-kuit-format
+msgctxt "@info"
+msgid "This skin appears to be already installed. Do you want to overwrite it?"
+msgstr ""
+"Iste skin (apparentia) sembla esser ja installate. Tu vole superscriber lo?"
+
+#: app/config/appearancesettings.cpp:282
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Skin Already Exists"
+msgstr "Skin (apparentia) ja existe"
+
+#: app/config/appearancesettings.cpp:283
+#, kde-kuit-format
+msgctxt "@action:button"
+msgid "Reinstall Skin"
+msgstr "Reinstalla Skin (apparentia)"
+
+#: app/config/appearancesettings.cpp:301
+#, kde-kuit-format
+msgctxt "@title:Window"
+msgid "Could Not Delete Skin"
+msgstr "Non poteva deler skin (apparentia)"
+
+#: app/config/appearancesettings.cpp:326
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Unable to locate required files in the skin archive.<nl/><nl/>The archive "
+"appears to be invalid."
+msgstr ""
+"Incapace a locar file requirite in le archivo de skin.<nl/><nl/>Le archivo "
+"sembla esser invalide."
+
+#: app/config/appearancesettings.cpp:329
+#, kde-kuit-format
+msgctxt "@info"
+msgid "The skin archive file could not be opened."
+msgstr "Le file de archivo de skin (apparentia) non poteva esser aperite."
+
+#: app/config/appearancesettings.cpp:334
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Cannot Install Skin"
+msgstr "Non pote installar skin (apparentia)"
+
+#: app/config/appearancesettings.cpp:378
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Do you want to remove \"%1\" by %2?"
+msgstr "Tu vole remover \"%1\" per %2?"
+
+#: app/config/appearancesettings.cpp:379
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Remove Skin"
+msgstr "Remove Skin"
+
+#: app/config/appearancesettings.cpp:477
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The following skin is missing required files. Thus it was removed:<ul>%2</ul>"
+msgid_plural ""
+"The following skins are missing required files. Thus they were removed:<ul>"
+"%2</ul>"
+msgstr[0] ""
+"Le sequente skin es mancante del files requirite. Assi il esseva removite:"
+"<ul>%2</ul>"
+msgstr[1] ""
+"Le sequente skins es mancante del files requirite. Assi illos esseva "
+"removite:<ul>%2</ul>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
+#: app/config/appearancesettings.ui:29 app/config/behaviorsettings.ui:20
+#, kde-format
+msgctxt "@title:group Group box label"
+msgid "General"
+msgstr "General"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
+#: app/config/appearancesettings.ui:35
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Enabling this option will make Yakuake briefly display a colored overlay "
+"above the newly focused terminal when moving focus between multiple "
+"terminals in a session, as well as over the currently focused terminal when "
+"switching to a session with multiple terminals."
+msgstr ""
+"Habilitar iste option facera que Yakuake brevemente monstrara un copertura "
+"colorate sur le terminal recentemente focalisate quando on move foco inter "
+"multiple terminales  in un session, assi como sur le terminal currentemente "
+"focalisate quando commutante a un session con terminales multiple."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
+#: app/config/appearancesettings.ui:38
+#, kde-format
+msgctxt "@option:check"
+msgid "Highlight terminals when moving focus between them"
+msgstr "Evidentia terminales quando on move foco inter illos"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_HideSkinBorders)
+#: app/config/appearancesettings.ui:45
+#, kde-format
+msgid "Hide borders"
+msgstr "Cela margines"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: app/config/appearancesettings.ui:55
+#, kde-format
+msgctxt "@title:group"
+msgid "Window Background"
+msgstr "Fundo de Fenestra"
+
+#. i18n: ectx: property (text), widget (QLabel, backgroundColorLabel)
+#: app/config/appearancesettings.ui:63
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Background color:"
+msgstr "Color de fundo:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_Translucency)
+#: app/config/appearancesettings.ui:92
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Translucency requires support by the selected skin as well as your desktop "
+"environment. The default skin supports translucency."
+msgstr ""
+"Translucentia require supporto per le skin requirite assi como tu ambiente "
+"de scrptorio. Le skin predefinite supporta translucentia. "
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Translucency)
+#: app/config/appearancesettings.ui:95
+#, kde-format
+msgctxt "@option:check"
+msgid "Use skin translucency if supported"
+msgstr "Usa translucentia de skin si supportate"
+
+#. i18n: ectx: property (text), widget (QLabel, backgroundColorOpacityLabel)
+#: app/config/appearancesettings.ui:126
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Background color opacity:"
+msgstr "Opacitate de color de fundo:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_BackgroundColorOpacity)
+#: app/config/appearancesettings.ui:136
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"When using translucency, the background color will be filled in using the "
+"given opacity before the skin elements are painted on top of the background. "
+"This allows influencing the opacity and color tint of translucent areas of "
+"the skin."
+msgstr ""
+"Quando on usa translucentia, le color de fundo essera reimplite usante le "
+"date opacitate ante que le elementos de skin es pingite supra le fundo. Isto "
+"permitte influentiar le opacitate e le tinta de color de areas translucente "
+"del skin."
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Width)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Height)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_BackgroundColorOpacity)
+#: app/config/appearancesettings.ui:139 app/config/windowsettings.ui:146
+#: app/config/windowsettings.ui:200
+#, no-c-format, kde-format
+msgctxt "@label Spinbox unit suffix"
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: app/config/appearancesettings.ui:170
+#, kde-format
+msgctxt "@title:group"
+msgid "Skin"
+msgstr "Skin (apparentia)"
+
+#. i18n: ectx: property (text), widget (QPushButton, ghnsButton)
+#: app/config/appearancesettings.ui:176
+#, kde-format
+msgctxt "@action:button"
+msgid "Get New Skins..."
+msgstr "Obtene nove Skins..."
+
+#. i18n: ectx: property (text), widget (QPushButton, removeButton)
+#: app/config/appearancesettings.ui:186
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove Skin"
+msgstr "Remove Skin (Apparentia)"
+
+#. i18n: ectx: property (text), widget (QPushButton, installButton)
+#: app/config/appearancesettings.ui:196
+#, kde-format
+msgctxt "@action:button"
+msgid "Install Skin..."
+msgstr "Installa Skin (apparentia)..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FocusFollowsMouse)
+#: app/config/behaviorsettings.ui:26
+#, kde-format
+msgctxt "@option:check"
+msgid "Focus terminals when the mouse pointer is moved over them"
+msgstr ""
+"Activa le foco sur terminales quando le punctator de mus es movite sur illos"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ToggleToFocus)
+#: app/config/behaviorsettings.ui:42
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If this option is enabled, the shortcut normally used to open and retract "
+"the window will give it focus, rather than close it, if it has previously "
+"lost focus. Unless the window is set to show on all virtual desktops, this "
+"may cause the window manager to switch to the virtual desktop it currently "
+"resides on."
+msgstr ""
+"Si iste option es habilitate, le via breve normalmente usate a aperir e "
+"retraher le fenestra dara le foco a illo, plus que clauder lo, si il ha "
+"perdite previemente foco.  A minus que le fenestra es fixate a monstrar sur "
+"omne scriptorios virtual, isto poterea causar que le gerente de fenestra "
+"passara al scriptorio virtual sur qual reside currentemente."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToggleToFocus)
+#: app/config/behaviorsettings.ui:45
+#, kde-format
+msgctxt "@option:check"
+msgid "Use Open/Retract action to focus window"
+msgstr "Usa action de Aperir/Retraher pro focalisar fenestra"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepAbove)
+#: app/config/behaviorsettings.ui:61
+#, kde-format
+msgctxt "@option:check"
+msgid "Keep window above other windows"
+msgstr "Mantene fenestra sur altere fenestras."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_OpenAfterStart)
+#: app/config/behaviorsettings.ui:84
+#, kde-format
+msgctxt "@option:check"
+msgid "Open window after program start"
+msgstr "Aperi fenestra post que le programma starta"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_PollMouse)
+#: app/config/behaviorsettings.ui:91
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If this option is enabled, the window will automatically open when the mouse "
+"pointer is moved to the same edge of the screen that it would open on when "
+"using the shortcut."
+msgstr ""
+"Si iste option es habilitata, le fenestra aperira automaticamente quando le "
+"punctator de mus es movite al mesme margine del schermo que il aperirea "
+"quando on usa le via breve."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PollMouse)
+#: app/config/behaviorsettings.ui:94
+#, kde-format
+msgctxt "@option:check"
+msgid "Open window when the mouse pointer touches the screen edge"
+msgstr "Aperi fenestra quando le punctator de mus tocca le orlo de schermo"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RememberFullscreen)
+#: app/config/behaviorsettings.ui:101
+#, kde-format
+msgid "Remember and restore window fullscreen state"
+msgstr "Memora e  restaura stato de schermo plen de fenestra"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowSystrayIcon)
+#: app/config/behaviorsettings.ui:108
+#, kde-format
+msgid "Show system tray icon"
+msgstr "Monstra icone de tabuliero de systema"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpen)
+#: app/config/behaviorsettings.ui:118
+#, kde-format
+msgctxt "@option:check"
+msgid "Keep window open when it loses focus"
+msgstr "Mantene fenestra aperite quando il perde le foco"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpenAfterLastSessionCloses)
+#: app/config/behaviorsettings.ui:141
+#, kde-format
+msgctxt "@option:check"
+msgid "Keep window open after the last session is closed"
+msgstr "Mantene fenestra aperite post que le ultime session es claudite"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: app/config/behaviorsettings.ui:151
+#, kde-format
+msgctxt "@title:group"
+msgid "Dialogs"
+msgstr "Dialogos"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ConfirmQuit)
+#: app/config/behaviorsettings.ui:157
+#, kde-format
+msgctxt "@option:check"
+msgid "Confirm quit when more than one session is open"
+msgstr "Confirma quitar quando plus que un session es aperite"
+
+#: app/config/skinlistdelegate.cpp:125 app/config/skinlistdelegate.cpp:165
+#, kde-kuit-format
+msgctxt "@item:intext"
+msgid "by %1"
+msgstr "per %1"
+
+#: app/config/windowsettings.cpp:19
+#, kde-kuit-format
+msgctxt "@item:inlistbox"
+msgid "Screen %1"
+msgstr "Schermo  %1"
+
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:656
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Hiding Title Bar"
+msgstr "Celar Barra de Titulo"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_0)
+#: app/config/windowsettings.ui:32
+#, kde-format
+msgid "Title Bar"
+msgstr "Barra de Titulo"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTitleBar)
+#: app/config/windowsettings.ui:38
+#, kde-format
+msgid "Show title bar"
+msgstr "Monstra le barra de titulo"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
+#: app/config/windowsettings.ui:54
+#, kde-format
+msgctxt "@title:group"
+msgid "Tab Bar"
+msgstr "Barra de Scheda"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_DynamicTabTitles)
+#: app/config/windowsettings.ui:69
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If this option is enabled, the information about the active terminal's "
+"contents that is normally shown in the title bar will also be shown on the "
+"tab bar. You can modify the format of the information in the terminal "
+"profile."
+msgstr ""
+"Si iste option es habilitate,le information re le contentos del terminal "
+"active que es monstrate normalmente in le barra de titulo anque essara "
+"monstrate sur le barra de scheda. Tu pote modificar le formato del "
+"information in le profilo de terminal."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_DynamicTabTitles)
+#: app/config/windowsettings.ui:72
+#, kde-format
+msgctxt "@option:check"
+msgid "Show title bar contents in tab labels"
+msgstr "Monstra contentos de barra de titulo in etiquettas de scheda"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTabBar)
+#: app/config/windowsettings.ui:95
+#, kde-format
+msgctxt "@option:check"
+msgid "Show the tab bar"
+msgstr "Monstra le barra de scheda"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: app/config/windowsettings.ui:105
+#, kde-format
+msgctxt "@title:group"
+msgid "Size and Animation"
+msgstr "Grandor e Animation"
+
+#. i18n: ectx: property (text), widget (QLabel, widthLabel)
+#: app/config/windowsettings.ui:111
+#, kde-format
+msgctxt "@label:slider"
+msgid "Width:"
+msgstr "Largessa:"
+
+#. i18n: ectx: property (text), widget (QLabel, heightLabel)
+#: app/config/windowsettings.ui:165
+#, kde-format
+msgctxt "@label:slider"
+msgid "Height:"
+msgstr "Altessa:"
+
+#. i18n: ectx: property (text), widget (QLabel, durationLabel)
+#: app/config/windowsettings.ui:219
+#, kde-format
+msgctxt "@label:slider"
+msgid "Duration:"
+msgstr "Duration:"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, framesSpinBox)
+#: app/config/windowsettings.ui:251
+#, kde-format
+msgctxt "@label Spinbox unit suffix"
+msgid "ms"
+msgstr "ms"
+
+#. i18n: ectx: property (prefix), widget (QSpinBox, framesSpinBox)
+#: app/config/windowsettings.ui:254
+#, kde-format
+msgctxt "@label Spinbox unit prefix"
+msgid "~"
+msgstr "~"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_UseWMAssist)
+#: app/config/windowsettings.ui:270
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If this option is enabled, Yakuake will ask the window manager to perform "
+"the window open/retract animation. If the window manager is unable to "
+"provide the requested service, Yakuake will fall back to an animation "
+"strategy of progressively adjusting the window mask."
+msgstr ""
+"Si iste option es habilitate, Yakuake demandera al gerente de fenestra de "
+"executar le animation de aperir/retraher fenestra. Si le gerente de fenestra "
+"es incapace a fornir le servicio requirite, Yakuake retornara a un strategia "
+"de animation de adaptar progressivemente le mascara de fenestra. "
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseWMAssist)
+#: app/config/windowsettings.ui:273
+#, kde-format
+msgctxt "@option:check"
+msgid "Ask the window manager to perform the animation"
+msgstr "Demanda al gerente de fenestra de executar le animation"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: app/config/windowsettings.ui:283
+#, kde-format
+msgctxt "@title:group"
+msgid "Position"
+msgstr "Position"
+
+#. i18n: ectx: property (text), widget (QLabel, leftLabel)
+#: app/config/windowsettings.ui:291
+#, kde-format
+msgctxt "@item:inrange Direction to move the window in"
+msgid "Left"
+msgstr "Sinistra"
+
+#. i18n: ectx: property (text), widget (QLabel, rightLabel)
+#: app/config/windowsettings.ui:323
+#, kde-format
+msgctxt "@item:inrange Direction to move the window in"
+msgid "Right"
+msgstr "Dextera"
+
+#. i18n: ectx: property (text), widget (QLabel, screenLabel)
+#: app/config/windowsettings.ui:337
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Open on screen:"
+msgstr "Aperi sur schermo:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Screen)
+#: app/config/windowsettings.ui:348
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "At mouse location"
+msgstr "A location de mus"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Screen)
+#: app/config/windowsettings.ui:353
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Screen 1"
+msgstr "Schermo 1"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowOnAllDesktops)
+#: app/config/windowsettings.ui:376
+#, kde-format
+msgctxt "@option:check"
+msgid "Show on all desktops"
+msgstr "Monstra sur omne scriptorios"
+
+#. i18n: ectx: label, entry (Screen), group (Window)
+#: app/config/yakuake.kcfg:9
+#, kde-format
+msgctxt "@label"
+msgid "Screen to use"
+msgstr "Schermo a usar"
+
+#. i18n: ectx: whatsthis, entry (Screen), group (Window)
+#: app/config/yakuake.kcfg:10
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"The screen on which the application window will appear. 0 is understood to "
+"be the screen the mouse pointer is on."
+msgstr ""
+"Le schermo sur le qual le fenestra de application apparera. 0 es intendite a "
+"esser le schermo ubi es le punctator de mus."
+
+#. i18n: ectx: label, entry (Width), group (Window)
+#: app/config/yakuake.kcfg:14
+#, kde-format
+msgctxt "@label"
+msgid "Window width"
+msgstr "Largessa de fenestra"
+
+#. i18n: ectx: whatsthis, entry (Width), group (Window)
+#: app/config/yakuake.kcfg:15
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Width of the application window as a percentage of the screen."
+msgstr "Largessa del fenestra de application como un percentage del schermo."
+
+#. i18n: ectx: label, entry (Height), group (Window)
+#: app/config/yakuake.kcfg:21
+#, kde-format
+msgctxt "@label"
+msgid "Window height"
+msgstr "Altessa de fenestra"
+
+#. i18n: ectx: whatsthis, entry (Height), group (Window)
+#: app/config/yakuake.kcfg:22
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Height of the application window as a percentage of the screen."
+msgstr "Altessa del fenestra de application como un percentage del schermo."
+
+#. i18n: ectx: label, entry (Position), group (Window)
+#: app/config/yakuake.kcfg:28
+#, kde-format
+msgctxt "@label"
+msgid "Window position"
+msgstr "Position de fenestra"
+
+#. i18n: ectx: whatsthis, entry (Position), group (Window)
+#: app/config/yakuake.kcfg:29
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Center point of the application window, as a percentage, measured from the "
+"left-hand edge of the screen."
+msgstr ""
+"Puncto central del fenestra de application, como un percentage, mesurate ab "
+"le limite de sinistra del schermo."
+
+#. i18n: ectx: label, entry (ShowOnAllDesktops), group (Window)
+#: app/config/yakuake.kcfg:35
+#, kde-format
+msgctxt "@label"
+msgid "Show window on all desktops"
+msgstr "Monstra fenestra sur omne scriptorios"
+
+#. i18n: ectx: whatsthis, entry (ShowOnAllDesktops), group (Window)
+#: app/config/yakuake.kcfg:36
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to show the window on all desktops."
+msgstr "Si monstrar le fenestra sur omne scriptorios."
+
+#. i18n: ectx: label, entry (KeepOpen), group (Window)
+#: app/config/yakuake.kcfg:40
+#, kde-format
+msgctxt "@label"
+msgid "Keep window open"
+msgstr "Mantene fenestra aperite"
+
+#. i18n: ectx: whatsthis, entry (KeepOpen), group (Window)
+#: app/config/yakuake.kcfg:41
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to keep the application window open when it loses focus."
+msgstr "Si mantener le fenestra de application aperite quando il perde foco."
+
+#. i18n: ectx: label, entry (KeepOpenAfterLastSessionCloses), group (Window)
+#: app/config/yakuake.kcfg:45
+#, kde-format
+msgctxt "@label"
+msgid "Keep window open after last session closes"
+msgstr "Mantene fenestra aperite post que ultime session claude"
+
+#. i18n: ectx: whatsthis, entry (KeepOpenAfterLastSessionCloses), group (Window)
+#: app/config/yakuake.kcfg:46
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to keep the application window open after the last session is closed."
+msgstr ""
+"Si mantene le fenestra de applicatin aperite post que le ultime session es "
+"claudite."
+
+#. i18n: ectx: label, entry (ToggleToFocus), group (Window)
+#: app/config/yakuake.kcfg:50
+#, kde-format
+msgctxt "@label"
+msgid "Use open/retract shortcut to focus window"
+msgstr "Usa via breve de Aperir/Retraher pro focalisar fenestra"
+
+#. i18n: ectx: whatsthis, entry (ToggleToFocus), group (Window)
+#: app/config/yakuake.kcfg:51
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether the open/retract keyboard shortcut can be used to focus the "
+"application window when it is already open."
+msgstr ""
+"Si le via breve de claviero de aperir/retraher pote esser usate a focalisar "
+"le fenestra de application quando ja il es ja aperite. "
+
+#. i18n: ectx: label, entry (KeepAbove), group (Window)
+#: app/config/yakuake.kcfg:55
+#, kde-format
+msgctxt "@label"
+msgid "Keep window on top"
+msgstr "Mantene fenestra in alto"
+
+#. i18n: ectx: whatsthis, entry (KeepAbove), group (Window)
+#: app/config/yakuake.kcfg:56
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to keep the application window above other windows on the screen."
+msgstr ""
+"Si mantene le fenestra de application super altere fenestras sur le schermo."
+
+#. i18n: ectx: label, entry (ShowTitleBar), group (Window)
+#: app/config/yakuake.kcfg:60
+#, kde-format
+msgctxt "@label"
+msgid "Show title bar"
+msgstr "Monstra le barra de titulo"
+
+#. i18n: ectx: whatsthis, entry (ShowTitleBar), group (Window)
+#: app/config/yakuake.kcfg:61
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to show the title bar in the application window."
+msgstr "Si monstrar le barra de titulo in le fenestra de application."
+
+#. i18n: ectx: label, entry (ShowTabBar), group (Window)
+#: app/config/yakuake.kcfg:65
+#, kde-format
+msgctxt "@label"
+msgid "Show tab bar"
+msgstr "Monstra barra de scheda"
+
+#. i18n: ectx: whatsthis, entry (ShowTabBar), group (Window)
+#: app/config/yakuake.kcfg:66
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to show the tab bar in the application window."
+msgstr "Si monstra le barra de scheda in le fenestra de application."
+
+#. i18n: ectx: label, entry (DynamicTabTitles), group (Window)
+#: app/config/yakuake.kcfg:70
+#, kde-format
+msgctxt "@label"
+msgid "Dynamic tab titles"
+msgstr "Titulos de scheda dynamic"
+
+#. i18n: ectx: whatsthis, entry (DynamicTabTitles), group (Window)
+#: app/config/yakuake.kcfg:71
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to update tab titles along with the title bar."
+msgstr "Si actualisa titulos de scheda insimul al barra de titulo."
+
+#. i18n: ectx: label, entry (ShowSystrayIcon), group (Window)
+#: app/config/yakuake.kcfg:75
+#, kde-format
+msgctxt "@label"
+msgid "Show a system tray icon"
+msgstr "Monstra un icone de tabuliero de systema"
+
+#. i18n: ectx: whatsthis, entry (ShowSystrayIcon), group (Window)
+#: app/config/yakuake.kcfg:76
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to show a system tray icon."
+msgstr "Si monstra un icone de tabuliero de systema."
+
+#. i18n: ectx: label, entry (FocusFollowsMouse), group (Behavior)
+#: app/config/yakuake.kcfg:82
+#, kde-format
+msgctxt "@label"
+msgid "Focus follows mouse"
+msgstr "Foco seque mus"
+
+#. i18n: ectx: whatsthis, entry (FocusFollowsMouse), group (Behavior)
+#: app/config/yakuake.kcfg:83
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether an individual terminal in a session will be given focus when the "
+"mouse pointer is moved above it."
+msgstr ""
+"Si a un terminal individual in un session essera date foco quando le "
+"punctator de mus es movite sur illo. "
+
+#. i18n: ectx: label, entry (OpenAfterStart), group (Behavior)
+#: app/config/yakuake.kcfg:87
+#, kde-format
+msgctxt "@label"
+msgid "Open after start"
+msgstr "Aperi post initiar"
+
+#. i18n: ectx: whatsthis, entry (OpenAfterStart), group (Behavior)
+#: app/config/yakuake.kcfg:88
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether the application window should be opened after program start."
+msgstr ""
+"Si le fenestra de application deberea esser aperite post que le programma "
+"starta."
+
+#. i18n: ectx: label, entry (RememberFullscreen), group (Behavior)
+#: app/config/yakuake.kcfg:92
+#, kde-format
+msgctxt "@label"
+msgid "Remember window fullscreen state"
+msgstr "Memora stato de schermo plen de fenestra"
+
+#. i18n: ectx: whatsthis, entry (RememberFullscreen), group (Behavior)
+#: app/config/yakuake.kcfg:93
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether the window will be shown fullscreen again when it has been "
+"previously."
+msgstr ""
+"Si le fenestra essera monstrate a schermo plen novemente quando illo ja lo "
+"ha essite previemente."
+
+#. i18n: ectx: label, entry (Skin), group (Appearance)
+#: app/config/yakuake.kcfg:99
+#, kde-format
+msgctxt "@label"
+msgid "Skin"
+msgstr "Skin (apparentia)"
+
+#. i18n: ectx: whatsthis, entry (Skin), group (Appearance)
+#: app/config/yakuake.kcfg:100
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The skin to be used by the application window."
+msgstr ""
+"Le skin (apparentia) que debe esser usate per le fenestra de application."
+
+#. i18n: ectx: label, entry (SkinInstalledWithKns), group (Appearance)
+#: app/config/yakuake.kcfg:104
+#, kde-format
+msgctxt "@label"
+msgid "Skin installed by KNS"
+msgstr "Skin installate per KNS"
+
+#. i18n: ectx: whatsthis, entry (SkinInstalledWithKns), group (Appearance)
+#: app/config/yakuake.kcfg:105
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether the currently active skin was installed via KNS."
+msgstr "Si le skin currentemente active esseva installate via KNS."
+
+#. i18n: ectx: label, entry (Translucency), group (Appearance)
+#: app/config/yakuake.kcfg:109
+#, kde-format
+msgctxt "@label"
+msgid "Use translucent background"
+msgstr "Usa fundo translucente"
+
+#. i18n: ectx: whatsthis, entry (Translucency), group (Appearance)
+#: app/config/yakuake.kcfg:110
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to make use of XComposite ARGB translucency."
+msgstr "Si facer uso de translucentia de XComposite ARGB."
+
+#. i18n: ectx: label, entry (BackgroundColor), group (Appearance)
+#: app/config/yakuake.kcfg:114
+#, kde-format
+msgctxt "@label"
+msgid "Window background color"
+msgstr "Color de fundo de fenestra"
+
+#. i18n: ectx: whatsthis, entry (BackgroundColor), group (Appearance)
+#: app/config/yakuake.kcfg:115
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Background color painted below skin elements."
+msgstr "Color de fundo pingite infra elementos de skin."
+
+#. i18n: ectx: label, entry (BackgroundColorOpacity), group (Appearance)
+#: app/config/yakuake.kcfg:119
+#, kde-format
+msgctxt "@label"
+msgid "Background color opacity"
+msgstr "Opacitate de color de fundo"
+
+#. i18n: ectx: whatsthis, entry (BackgroundColorOpacity), group (Appearance)
+#: app/config/yakuake.kcfg:120
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The opacity of the background color fill when using translucency."
+msgstr ""
+"Le opacitate del reimpler de color de fundo quando on usa translucentia."
+
+#. i18n: ectx: label, entry (TerminalHighlightOnManualActivation), group (Appearance)
+#: app/config/yakuake.kcfg:126
+#, kde-format
+msgctxt "@label"
+msgid "Highlight newly focused terminals"
+msgstr "Evidentia terminales focalisate recentemente"
+
+#. i18n: ectx: whatsthis, entry (TerminalHighlightOnManualActivation), group (Appearance)
+#: app/config/yakuake.kcfg:127
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to briefly display a colored overlay above the newly focused "
+"terminal when moving focus between multiple terminals in a session, as well "
+"as over the currently focused terminal when switching to a session with "
+"multiple terminals."
+msgstr ""
+"Si monstrar brevemente un copertura colorate sur le terminal recentemente "
+"focalisate quando on move foco inter multiple terminales  in un session, "
+"assi como sur le terminal currentemente focalisate quando commutante a un "
+"session con terminales multiple."
+
+#. i18n: ectx: label, entry (HideSkinBorders), group (Appearance)
+#: app/config/yakuake.kcfg:131
+#, kde-format
+msgctxt "@label"
+msgid "Hide the borders defined by the skin"
+msgstr "Cela margines definite per le skin"
+
+#. i18n: ectx: whatsthis, entry (HideSkinBorders), group (Appearance)
+#: app/config/yakuake.kcfg:132
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Skins can define borders around the terminal including the tabbar. This "
+"option, when turned on, will overwrite the border settings defined by the "
+"skin and hide all borders."
+msgstr ""
+"Skins pote definer margines circa le terminal includente le barra de scheda. "
+"Iste option, quando activate, superscribera le preferentias de margine "
+"definite per le skin e celara omne le margines."
+
+#. i18n: ectx: label, entry (TerminalHighlightOpacity), group (Appearance)
+#: app/config/yakuake.kcfg:136
+#, kde-format
+msgctxt "@label"
+msgid "Terminal highlight opacity"
+msgstr "Opacitate de evidentia de terminal"
+
+#. i18n: ectx: whatsthis, entry (TerminalHighlightOpacity), group (Appearance)
+#: app/config/yakuake.kcfg:137
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The opacity of the colored overlay used to highlight a terminal."
+msgstr "Le opacitate del copertura colorate usate a evidentiar un terminal."
+
+#. i18n: ectx: label, entry (TerminalHighlightDuration), group (Appearance)
+#: app/config/yakuake.kcfg:143
+#, kde-format
+msgctxt "@label"
+msgid "Terminal highlight duration"
+msgstr "Duration de evidentia de terminal"
+
+#. i18n: ectx: whatsthis, entry (TerminalHighlightDuration), group (Appearance)
+#: app/config/yakuake.kcfg:144
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The duration of the terminal highlight overlay."
+msgstr "Le duration del copertura de evidentiar de terminal."
+
+#. i18n: ectx: label, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
+#: app/config/yakuake.kcfg:150
+#, kde-format
+msgctxt "@label"
+msgid "Keyboard input block indicator color"
+msgstr "Color de indicator de bloco de entrata de claviero"
+
+#. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
+#: app/config/yakuake.kcfg:151
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The color of the keyboard input block indicator overlay."
+msgstr "Le color del copertura de indicator de bloco de entrata de claviero."
+
+#. i18n: ectx: label, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
+#: app/config/yakuake.kcfg:155
+#, kde-format
+msgctxt "@label"
+msgid "Keyboard input block indicator opacity"
+msgstr "Opacitate de indicator de bloco de entrata de claviero"
+
+#. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
+#: app/config/yakuake.kcfg:156
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The opacity of the keyboard input block indicator overlay."
+msgstr ""
+"Le opacitate del copertura de indicator de bloco de entrata de claviero."
+
+#. i18n: ectx: label, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
+#: app/config/yakuake.kcfg:162
+#, kde-format
+msgctxt "@label"
+msgid "Keyboard input block indicator duration"
+msgstr "Duration de indicator de bloco de entrata de claviero"
+
+#. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
+#: app/config/yakuake.kcfg:163
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The duration of the keyboard input block indicator overlay."
+msgstr ""
+"Le duration del copertura de indicator de bloco de entrata de claviero."
+
+#. i18n: ectx: label, entry (UseWMAssist), group (Animation)
+#: app/config/yakuake.kcfg:171
+#, kde-format
+msgctxt "@label"
+msgid "Attempt to use the window manager to animate the window"
+msgstr "Tentativa a usar le gerente de fenestra pro animar le fenestra"
+
+#. i18n: ectx: whatsthis, entry (UseWMAssist), group (Animation)
+#: app/config/yakuake.kcfg:172
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to try and let the window manager perform the window open/retract "
+"animation. Yakuake will fall back to an animation strategy of progressively "
+"adjusting the window mask if the window manager is unable to provide the "
+"requested service."
+msgstr ""
+"Si essayar e lassar que le gerente de fenestra executa le animaton de aperir/"
+"retraher de fenestra. Yakuake retornara a un strategia de adaptar "
+"progressivemente le mascara de fenestra si le gerente de fenestra es "
+"incapace a fornir le servicio requirite."
+
+#. i18n: ectx: label, entry (Frames), group (Animation)
+#: app/config/yakuake.kcfg:176
+#, kde-format
+msgctxt "@label"
+msgid "Animation frames"
+msgstr "Photogrammas de animation"
+
+#. i18n: ectx: whatsthis, entry (Frames), group (Animation)
+#: app/config/yakuake.kcfg:177
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"The number of frames of the open/retract animation. One frame is taken to be "
+"10 miliseconds."
+msgstr ""
+"Le numero de photogrammas del animation de aperir/retraher. Un photogramma "
+"es prendite a esser 10 millisecundas."
+
+#. i18n: ectx: label, entry (PollMouse), group (AutoOpen)
+#: app/config/yakuake.kcfg:185
+#, kde-format
+msgctxt "@label"
+msgid "Auto-open window"
+msgstr "Auto-aperi fenestra"
+
+#. i18n: ectx: whatsthis, entry (PollMouse), group (AutoOpen)
+#: app/config/yakuake.kcfg:186
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to automatically open the application window when the mouse pointer "
+"is found at the edge of the screen."
+msgstr ""
+"Si aperir automaticamente le fenestra de application quando le punctator de "
+"mus es trovate al limite del schermo."
+
+#. i18n: ectx: label, entry (PollInterval), group (AutoOpen)
+#: app/config/yakuake.kcfg:190
+#, kde-format
+msgctxt "@label"
+msgid "Mouse pointer poll interval"
+msgstr "Intervallo de interrogation de punctator de mus"
+
+#. i18n: ectx: whatsthis, entry (PollInterval), group (AutoOpen)
+#: app/config/yakuake.kcfg:191
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"The interval during which the mouse pointer position will be checked to "
+"determine whether or not it is at the same edge of the screen as the window."
+msgstr ""
+"Le intervallo durante le qual le position del punctator de mus essera "
+"verificate per determinar si o no il es al mesme margine del schermo como "
+"del fenestra."
+
+#. i18n: ectx: label, entry (FirstRun), group (Dialogs)
+#: app/config/yakuake.kcfg:197
+#, kde-format
+msgctxt "@label"
+msgid "Application first run"
+msgstr "Prime execution de application"
+
+#. i18n: ectx: whatsthis, entry (FirstRun), group (Dialogs)
+#: app/config/yakuake.kcfg:198
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether this is the first time the application is run."
+msgstr "Si iste es le prime tempore que le application es executate."
+
+#. i18n: ectx: label, entry (ConfirmQuit), group (Dialogs)
+#: app/config/yakuake.kcfg:202
+#, kde-format
+msgctxt "@label"
+msgid "Confirm quit with multiple sessions"
+msgstr "Confirma quitar con sessiones multiple"
+
+#. i18n: ectx: whatsthis, entry (ConfirmQuit), group (Dialogs)
+#: app/config/yakuake.kcfg:203
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to prompt the user before quitting the application when multiple "
+"sessions are open."
+msgstr ""
+"Si demandar al usator ante abandonar le application quando sessiones "
+"multiple es aperite."
+
+#: app/firstrundialog.cpp:22
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "First Run"
+msgstr "Prime execution"
+
+#. i18n: ectx: property (text), widget (KTitleWidget, titleWidget)
+#: app/firstrundialog.ui:46
+#, kde-format
+msgctxt "@title"
+msgid "Welcome to Yakuake"
+msgstr "Benvenite a Yakuake"
+
+#. i18n: ectx: property (text), widget (QLabel, introLabel)
+#: app/firstrundialog.ui:53
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Before starting to use the application, you might want to change the "
+"keyboard shortcut used to open and retract the Yakuake window:"
+msgstr ""
+"Ante initiar a usar le application, tu poterea voler cambiar le via breve de "
+"claviero usate a aperir e retraher le fenestra de Yakuake:"
+
+#. i18n: ectx: property (text), widget (QLabel, outroLabel)
+#: app/firstrundialog.ui:130
+#, kde-format
+msgctxt "@info"
+msgid "You can change the shortcut later at any time via the menu."
+msgstr "Tu pote cambiar el via breve plus tarde in ulle tempore via le menu."
+
+#: app/main.cpp:28
+#, kde-kuit-format
+msgctxt "@title"
+msgid "<application>Yakuake</application>"
+msgstr "<application>Yakuake</application>"
+
+#: app/main.cpp:30
+#, kde-kuit-format
+msgctxt "@title"
+msgid "A drop-down terminal emulator based on KDE Konsole technology."
+msgstr ""
+"Un emulator de terminal disrolante basate sur le technologia de KDE Konsole."
+
+#: app/main.cpp:32
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "(c) 2008-2018 The Yakuake Team"
+msgstr "(c) 2008-2018 Le equipa de Yakuake"
+
+#: app/main.cpp:39
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Eike Hein"
+msgstr "Eike Hein"
+
+#: app/main.cpp:39
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Maintainer, Lead Developer"
+msgstr "Mantenitor, Disveloppator Principal"
+
+#: app/main.cpp:40
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Francois Chazal"
+msgstr "Francois Chazal"
+
+#: app/main.cpp:40
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Project Founder, Legacy skin (Inactive)"
+msgstr "Fundator de projecto, Skin obsolescente (Inactive)"
+
+#: app/main.cpp:41
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Daniel 'suslik' D."
+msgstr "Daniel 'suslik' D."
+
+#: app/main.cpp:41
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Plastik skin"
+msgstr "Skin Plastik"
+
+#: app/main.cpp:42
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Juan Carlos Torres"
+msgstr "Juan Carlos Torres"
+
+#: app/main.cpp:43
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Tab bar drag and drop support, Prevent Closing toggle"
+msgstr ""
+"Supporto de traher e poner de barra de scheda. Preveni commutar clausura"
+
+#: app/main.cpp:45
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Gustavo Ribeiro Croscato"
+msgstr "Gustavo Ribeiro Croscato"
+
+#: app/main.cpp:46
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Icon on tabs with Prevent Closing enabled"
+msgstr "Icone sur schedas con habilitate de Preveni Clausura"
+
+#: app/main.cpp:48
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Danilo Cesar Lemes de Paula"
+msgstr "Danilo Cesar Lemes de Paula"
+
+#: app/main.cpp:49
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Actions to grow terminals"
+msgstr "Actiones a accrescer terminales"
+
+#: app/main.cpp:52
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Giovanni Sora"
+
+#: app/main.cpp:52
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "g.sora@tiscali.it"
+
+#: app/mainwindow.cpp:197
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Are you sure you want to quit?"
+msgstr "Tu es secur que tu vole quitar ?"
+
+#: app/mainwindow.cpp:204
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<warning>There are multiple open sessions, <emphasis>some of which you have "
+"locked to prevent closing them accidentally.</emphasis> These will be killed "
+"if you continue.</warning>"
+msgstr ""
+"<warning>Il ha multiple sessiones aperite, <emphasis>alcun del qual tu ha "
+"blocate per prevenir clauder los accidentalmente.</emphasis> Istes essera "
+"terminate si tu continua.</warning>"
+
+#: app/mainwindow.cpp:207
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<warning>There are multiple open sessions. These will be killed if you "
+"continue.</warning>"
+msgstr ""
+"<warning>Il ha multiple sessiones aperite. Istes essara terminate si tu "
+"continua.</warning>"
+
+#: app/mainwindow.cpp:210
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<warning>There are one or more open sessions that you have locked to prevent "
+"closing them accidentally. These will be killed if you continue.</warning>"
+msgstr ""
+"<warning>Il ha un o plus sessiones aperite que tu ha blocate per prevenir "
+"clauder los accidentalmente.  Istes essara terminate si tu continua.</"
+"warning>"
+
+#: app/mainwindow.cpp:216
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Really Quit?"
+msgstr "Vermente abandona?"
+
+#: app/mainwindow.cpp:248
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Open/Retract Yakuake"
+msgstr "Aperi/Retrahe Yakuake"
+
+#: app/mainwindow.cpp:261
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Keep window open when it loses focus"
+msgstr "Mantene fenestra aperite quando il perde le foco"
+
+#: app/mainwindow.cpp:266
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Manage Profiles..."
+msgstr "Gere profilos..."
+
+#: app/mainwindow.cpp:271
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Edit Current Profile..."
+msgstr "Modifica profilo currente..."
+
+#: app/mainwindow.cpp:277
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Increase Window Width"
+msgstr "Augmenta largessa de fenestra"
+
+#: app/mainwindow.cpp:282
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Decrease Window Width"
+msgstr "Diminue largessa de fenestra"
+
+#: app/mainwindow.cpp:287
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Increase Window Height"
+msgstr "Augmenta altessa de fenestra"
+
+#: app/mainwindow.cpp:292
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Decrease Window Height"
+msgstr "Diminue altessa de fenestra"
+
+#: app/mainwindow.cpp:297
+#, kde-kuit-format
+msgctxt "@action"
+msgid "New Session"
+msgstr "Nove session"
+
+#: app/mainwindow.cpp:303
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Two Terminals, Horizontally"
+msgstr "Duo terminales, Horizontalmente"
+
+#: app/mainwindow.cpp:308
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Two Terminals, Vertically"
+msgstr "Duo Terminales, Verticalmente"
+
+#: app/mainwindow.cpp:313
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Four Terminals, Grid"
+msgstr "Quatro terminales, Grillia"
+
+#: app/mainwindow.cpp:318
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Close Session"
+msgstr "Claude Session"
+
+#: app/mainwindow.cpp:325
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Previous Session"
+msgstr "Previe session"
+
+#: app/mainwindow.cpp:331
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Next Session"
+msgstr "Proxime session"
+
+#: app/mainwindow.cpp:337
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Move Session Left"
+msgstr "Move session a sinistra"
+
+#: app/mainwindow.cpp:344
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Move Session Right"
+msgstr "Move session a dextera"
+
+#: app/mainwindow.cpp:351
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Grow Terminal to the Right"
+msgstr "Cresce terminal a dextere"
+
+#: app/mainwindow.cpp:358
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Grow Terminal to the Left"
+msgstr "Cresce terminal a sinistre"
+
+#: app/mainwindow.cpp:365
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Grow Terminal to the Top"
+msgstr "Cresce Terminal al Alto"
+
+#: app/mainwindow.cpp:372
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Grow Terminal to the Bottom"
+msgstr "Cresce Terminal al Basso"
+
+#: app/mainwindow.cpp:379
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Rename Session..."
+msgstr "Renomina session..."
+
+#: app/mainwindow.cpp:386
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Previous Terminal"
+msgstr "Previe terminal"
+
+#: app/mainwindow.cpp:392
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Next Terminal"
+msgstr "Proxime terminal"
+
+#: app/mainwindow.cpp:398
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Close Active Terminal"
+msgstr "Claude terminal active"
+
+#: app/mainwindow.cpp:405
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Split Left/Right"
+msgstr "Scinde Sinistra/Dextera"
+
+#: app/mainwindow.cpp:412
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Split Top/Bottom"
+msgstr "Scinde Alto/ a Basso"
+
+#: app/mainwindow.cpp:419
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Prevent Closing"
+msgstr "Preveni clauder"
+
+#: app/mainwindow.cpp:425 app/tabbar.cpp:190
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Disable Keyboard Input"
+msgstr "Dishabilita entrata de claviero"
+
+#: app/mainwindow.cpp:431 app/tabbar.cpp:235
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Monitor for Activity"
+msgstr "Monitor pro Activitate"
+
+#: app/mainwindow.cpp:438 app/tabbar.cpp:280
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Monitor for Silence"
+msgstr "Monitor pro Silentio"
+
+#: app/mainwindow.cpp:445
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Toggle Titlebar"
+msgstr "Commuta barra de titulo"
+
+#: app/mainwindow.cpp:452
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Switch to Session %1"
+msgstr "Passa a session %1"
+
+#: app/mainwindow.cpp:604
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Activity detected in monitored terminal in session \"%1\"."
+msgstr "Activitate relevate in session de terminal  monitorate \"%1\"."
+
+#: app/mainwindow.cpp:615
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Silence detected in monitored terminal in session \"%1\"."
+msgstr "Silentio relevate in terminal monitorate in session \"%1\"."
+
+#: app/mainwindow.cpp:671
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Help"
+msgstr "Adjuta"
+
+#: app/mainwindow.cpp:677
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Quick Options"
+msgstr "Optiones rapide"
+
+#: app/mainwindow.cpp:683
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Screen"
+msgstr "Schermo"
+
+#: app/mainwindow.cpp:688
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Width"
+msgstr "Largessa"
+
+#: app/mainwindow.cpp:693
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Height"
+msgstr "Altessa"
+
+#: app/mainwindow.cpp:696
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Settings"
+msgstr "Preferentias"
+
+#: app/mainwindow.cpp:712
+#, kde-kuit-format
+msgctxt "@item:inmenu"
+msgid "At mouse location"
+msgstr "A location de mus"
+
+#: app/mainwindow.cpp:718
+#, kde-kuit-format
+msgctxt "@item:inmenu"
+msgid "Screen %1"
+msgstr "Schermo  %1"
+
+#: app/mainwindow.cpp:827
+#, kde-kuit-format
+msgctxt "@title Preferences page name"
+msgid "Window"
+msgstr "Fenestra"
+
+#: app/mainwindow.cpp:833
+#, kde-kuit-format
+msgctxt "@title Preferences page name"
+msgid "Behavior"
+msgstr "Comportamento"
+
+#: app/mainwindow.cpp:836
+#, kde-kuit-format
+msgctxt "@title Preferences page name"
+msgid "Appearance"
+msgstr "Apparentia"
+
+#: app/mainwindow.cpp:915
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<application>Yakuake</application> was unable to load a skin. It is likely "
+"that it was installed incorrectly.<nl/><nl/>The application will now quit."
+msgstr ""
+"<application>Yakuake</application> esseva incpace a cargar un skin. Il es "
+"probabilemente que il esseva installate incorrectemente.<nl/><nl/>Le "
+"application nunc quitara."
+
+#: app/mainwindow.cpp:917
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Cannot Load Skin"
+msgstr "Non pote cargar skin (apparentia)"
+
+#: app/mainwindow.cpp:1647
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Press <shortcut>%1</shortcut> to open"
+msgstr "Pressa <shortcut>%1</shortcut> per aperir"
+
+#: app/sessionstack.cpp:257
+#, kde-format
+msgid ""
+"The D-Bus method runCommand was just used.  There are security concerns "
+"about allowing these methods to be public.  If desired, these methods can be "
+"changed to internal use only by re-compiling Yakuake. <p>This warning will "
+"only show once for this Yakuake instance.</p>"
+msgstr ""
+"Le methodo de D-Bus runCommand esseva a pena usate. Il ha anxietates de "
+"securitate re pemitter que iste methodos es public. Si desirate, iste "
+"methodos pote esser modificate per uso interne solmente per recompilar "
+"Yakuake.<p>Iste aviso essara monstrate solmente un vice per iste instantia "
+"de Yakuke.</p>"
+
+#: app/sessionstack.cpp:723
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<warning>You have locked this session to prevent accidental closing of "
+"terminals.</warning>"
+msgstr ""
+"<warning>Tu ha blocate iste session per prevenir clausura accidental de "
+"terminales.</warning>"
+
+#: app/sessionstack.cpp:727
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Are you sure you want to close this session?"
+msgstr "Tu es secur que tu vole clauder iste session?"
+
+#: app/sessionstack.cpp:729
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Are you sure you want to close this terminal?"
+msgstr "Tu es secur que tu vole clauder iste terminal?"
+
+#: app/sessionstack.cpp:733
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Really Close?"
+msgstr "Vermente claude?"
+
+#: app/tabbar.cpp:39
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Tab Bar</title><para>The tab bar allows you to switch between "
+"sessions. You can double-click a tab to edit its label.</para>"
+msgstr ""
+"<title>Barra de Scheda</title><para>Le barra de scheda te permitte commutar "
+"inter sessiones.  Tu pote duple pulsar un scheda per editar su etiquetta.</"
+"para>"
+
+#: app/tabbar.cpp:58
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Disable Keyboard Input"
+msgstr "Dishabilita entrata de claviero"
+
+#: app/tabbar.cpp:59
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Monitor for Activity"
+msgstr "Monitor pro Activitate"
+
+#: app/tabbar.cpp:60
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Monitor for Silence"
+msgstr "Monitor pro Silentio"
+
+#: app/tabbar.cpp:69
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "New Session"
+msgstr "Nove session"
+
+#: app/tabbar.cpp:70
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid "Adds a new session. Press and hold to select session type from menu."
+msgstr ""
+"Adde un nove session. Pressa e mantene pro seliger typo de session ab menu."
+
+#: app/tabbar.cpp:75
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Close Session"
+msgstr "Claude Session"
+
+#: app/tabbar.cpp:76
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid "Closes the active session."
+msgstr "Claude le session active."
+
+#: app/tabbar.cpp:194
+#, kde-kuit-format
+msgctxt "@action"
+msgid "For This Session"
+msgstr "Per iste session"
+
+#: app/tabbar.cpp:211
+#, kde-kuit-format
+msgctxt "@action"
+msgid "For Terminal %1"
+msgstr "Per terminal %1"
+
+#: app/tabbar.cpp:239 app/tabbar.cpp:284
+#, kde-kuit-format
+msgctxt "@action"
+msgid "In This Session"
+msgstr "In iste session"
+
+#: app/tabbar.cpp:256 app/tabbar.cpp:301
+#, kde-kuit-format
+msgctxt "@action"
+msgid "In Terminal %1"
+msgstr "In Terminal %1"
+
+#: app/tabbar.cpp:931
+#, kde-kuit-format
+msgctxt "@title:tab"
+msgid "Shell"
+msgstr "Shell"
+
+#: app/tabbar.cpp:933
+#, kde-kuit-format
+msgctxt "@title:tab"
+msgid "Shell No. %1"
+msgstr "Shell No. %1"
+
+#: app/terminal.cpp:169
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<application>Yakuake</application> was unable to load the "
+"<application>Konsole</application> component.<nl/> A <application>Konsole</"
+"application> installation is required to use Yakuake."
+msgstr ""
+"<application>Yakuake</application> esseva incapace a cargar le componente "
+"de  <application>Konsole</application>.<nl/> Un installation de  "
+"<application>Konsole</application>  es requirite per usar Yakuake."
+
+#: app/titlebar.cpp:23
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Title Bar</title><para>The title bar displays the session title if "
+"available.</para>"
+msgstr ""
+"<title>Barra de Titulo</title><para>Le barra de titulo monstra le titulo de "
+"session si disponibile.</para>"
+
+#: app/titlebar.cpp:36
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Keep window open when it loses focus"
+msgstr "Mantene fenestra aperite quando il perde le foco"
+
+#: app/titlebar.cpp:37
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid "If this is checked, the window will stay open when it loses focus."
+msgstr "Si isto es marcate, le fenestra remanera aperite quando il perde foco."
+
+#: app/titlebar.cpp:44
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Open Menu"
+msgstr "Aperi menu"
+
+#: app/titlebar.cpp:45
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid "Opens the main menu."
+msgstr "Aperi le menu principal"
+
+#: app/titlebar.cpp:50
+#, kde-kuit-format
+msgctxt "@info:tooltip Quits the application"
+msgid "Quit"
+msgstr "Quita"
+
+#: app/titlebar.cpp:51
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid "Quits the application."
+msgstr "Quita le application."
+
+#~ msgctxt "@label"
+#~ msgid "Blur"
+#~ msgstr "Obscura (Blur)"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "The KWin compositor's blur effects."
+#~ msgstr "Le effectos de obscurar (blur)del compositor de KWin."
