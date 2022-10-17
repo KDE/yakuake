@@ -31,7 +31,7 @@ msgstr "Desconegut"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
-msgstr "Seleccioneu l'arxiu d'aparença que cal instal·lar"
+msgstr "Seleccioneu l'arxiu d'aparença que s'ha d'instal·lar"
 
 #: app/config/appearancesettings.cpp:244
 #, kde-kuit-format
@@ -540,7 +540,7 @@ msgstr "Mostra a tots els escriptoris"
 #, kde-format
 msgctxt "@label"
 msgid "Screen to use"
-msgstr "Pantalla que s'utilitzarà"
+msgstr "Pantalla que s'ha d'utilitzar"
 
 #. i18n: ectx: whatsthis, entry (Screen), group (Window)
 #: app/config/yakuake.kcfg:10
