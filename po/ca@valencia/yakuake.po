@@ -1393,7 +1393,7 @@ msgstr "Fes créixer el terminal cap a baix"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
-msgstr "Canvia el nom sessió..."
+msgstr "Canvia el nom de la sessió..."
 
 #: app/mainwindow.cpp:386
 #, kde-kuit-format
