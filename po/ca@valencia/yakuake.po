@@ -1610,8 +1610,8 @@ msgid ""
 "sessions. You can double-click a tab to edit its label.</para>"
 msgstr ""
 "<title>Barra de pestanyes</title><para>La barra de pestanyes permet canviar "
-"entre les sessions. Podeu fer doble clic sobre una pestanya per a editar la "
-"seua etiqueta.</para>"
+"entre les sessions. Podeu fer doble clic damunt d'una pestanya per a editar "
+"la seua etiqueta.</para>"
 
 #: app/tabbar.cpp:58
 #, kde-kuit-format
