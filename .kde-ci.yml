@@ -21,3 +21,6 @@ Dependencies:
     'frameworks/kwidgetsaddons': '@stable'
     'frameworks/kwindowsystem': '@stable'
     'frameworks/kwayland': '@stable'
+
+Options:
+  require-passing-tests-on: [ '@all' ]
