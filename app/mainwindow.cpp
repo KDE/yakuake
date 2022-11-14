@@ -737,7 +737,7 @@ void MainWindow::updateWindowWidthMenu()
 
     if (m_windowWidthMenu->isEmpty()) {
         for (int i = 10; i <= 100; i += 10) {
-            action = m_windowWidthMenu->addAction(QString::number(i) + QStringLiteral("%"));
+            action = m_windowWidthMenu->addAction(i18n("%1%", i));
             action->setCheckable(true);
             action->setData(i);
             action->setChecked(i == Settings::width());
@@ -759,7 +759,7 @@ void MainWindow::updateWindowHeightMenu()
 
     if (m_windowHeightMenu->isEmpty()) {
         for (int i = 10; i <= 100; i += 10) {
-            action = m_windowHeightMenu->addAction(QString::number(i) + QStringLiteral("%"));
+            action = m_windowHeightMenu->addAction(i18n("%1%", i));
             action->setCheckable(true);
             action->setData(i);
             action->setChecked(i == Settings::height());
