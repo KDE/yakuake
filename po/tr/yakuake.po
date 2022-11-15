@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: extragear-utils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-27 00:49+0000\n"
-"PO-Revision-Date: 2022-05-02 14:25+0300\n"
+"PO-Revision-Date: 2022-11-14 23:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.04.0\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #: app/config/appearancesettings.cpp:153
 #, kde-kuit-format
@@ -336,7 +336,7 @@ msgstr "Sistem tepsisi simgesini göster"
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window open when it loses focus"
-msgstr "Odaklama kaybedildiğinde pencereyi açık tut"
+msgstr "Odak kaybedildiğinde pencereyi açık tut"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpenAfterLastSessionCloses)
 #: app/config/behaviorsettings.ui:141
@@ -1205,7 +1205,8 @@ msgstr "Uçbirimleri genişletmek için eylemler"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Serdar Soytetir, Muhammet Kara, H. İbrahim Güngör, Ayhan YALÇINSOY"
+msgstr ""
+"Serdar Soytetir, Muhammet Kara, H. İbrahim Güngör, Ayhan YALÇINSOY, Emir SARI"
 
 #: app/main.cpp:52
 #, kde-format
@@ -1213,7 +1214,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "tulliana@gmail.com, muhammet.k@gmail.com, ibrahim@pardus.org.tr, "
-"ayhanyalcinsoy@gmail.com"
+"ayhanyalcinsoy@gmail.com, emir_sari@icloud.com"
 
 #: app/mainwindow.cpp:197
 #, kde-kuit-format
@@ -1270,7 +1271,7 @@ msgstr "Yakuake Uygulamasını Aç/Geri Çek"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
-msgstr "Odaklama kaybedildiğinde pencereyi açık tut"
+msgstr "Odak Kaybedildiğinde Pencereyi Açık Tut"
 
 #: app/mainwindow.cpp:266
 #, kde-kuit-format
@@ -1535,7 +1536,7 @@ msgstr "Davranış"
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
-msgstr "Görünüm"
+msgstr "Görünüş"
 
 #: app/mainwindow.cpp:915
 #, kde-kuit-format
