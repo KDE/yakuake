@@ -927,11 +927,19 @@ void MainWindow::applySkin()
 
 void MainWindow::applyWindowProperties()
 {
-    if (Settings::keepOpen() && !Settings::keepAbove()) {
-        KWindowSystem::clearState(winId(), NET::KeepAbove);
-        KWindowSystem::setState(winId(), NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
-    } else
-        KWindowSystem::setState(winId(), NET::KeepAbove | NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
+    if (m_isX11) {
+        if (Settings::keepOpen() && !Settings::keepAbove()) {
+            KWindowSystem::clearState(winId(), NET::KeepAbove);
+            KWindowSystem::setState(winId(), NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
+        } else
+            KWindowSystem::setState(winId(), NET::KeepAbove | NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
+    }
+
+    if (m_isWayland && m_plasmaShellSurface) {
+        m_plasmaShellSurface->setSkipTaskbar(true);
+        m_plasmaShellSurface->setSkipSwitcher(true);
+        winId(); // must call this at least once, otherwise enableBlurBehind() segfaults when it calls winId(), not sure why
+    }
 
     KX11Extras::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
     KWindowEffects::enableBlurBehind(windowHandle(), m_sessionStack->wantsBlur());
