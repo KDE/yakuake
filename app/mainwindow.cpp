@@ -186,6 +186,8 @@ void MainWindow::initWaylandSurface()
     if (auto surface = KWayland::Client::Surface::fromWindow(windowHandle())) {
         m_plasmaShellSurface = m_plasmaShell->createSurface(surface, this);
         m_plasmaShellSurface->setPosition(pos());
+        m_plasmaShellSurface->setSkipTaskbar(true);
+        m_plasmaShellSurface->setSkipSwitcher(true);
     }
 }
 
