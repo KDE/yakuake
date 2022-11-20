@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:49+0000\n"
+"POT-Creation-Date: 2022-11-20 00:50+0000\n"
 "PO-Revision-Date: 2009-02-21 12:26+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -1470,6 +1470,11 @@ msgstr "मुसुवा संकेतक जगह पर"
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "स्क्रीन १"
+
+#: app/mainwindow.cpp:740 app/mainwindow.cpp:762
+#, kde-format
+msgid "%1%"
+msgstr ""
 
 #: app/mainwindow.cpp:827
 #, kde-kuit-format

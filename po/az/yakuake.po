@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:49+0000\n"
+"POT-Creation-Date: 2022-11-20 00:50+0000\n"
 "PO-Revision-Date: 2022-06-26 12:45+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -1510,6 +1510,11 @@ msgstr "Siçan göstəricisi yerində"
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Ekran %1"
+
+#: app/mainwindow.cpp:740 app/mainwindow.cpp:762
+#, kde-format
+msgid "%1%"
+msgstr ""
 
 #: app/mainwindow.cpp:827
 #, kde-kuit-format

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:49+0000\n"
+"POT-Creation-Date: 2022-11-20 00:50+0000\n"
 "PO-Revision-Date: 2022-04-21 17:02+0200\n"
 "Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1521,6 +1521,11 @@ msgstr "A la posició del ratolí"
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Pantalla %1"
+
+#: app/mainwindow.cpp:740 app/mainwindow.cpp:762
+#, kde-format
+msgid "%1%"
+msgstr ""
 
 #: app/mainwindow.cpp:827
 #, kde-kuit-format

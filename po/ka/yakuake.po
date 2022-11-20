@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:49+0000\n"
+"POT-Creation-Date: 2022-11-20 00:50+0000\n"
 "PO-Revision-Date: 2022-09-17 05:58+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1430,6 +1430,11 @@ msgstr ""
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "%1-ე ეკრანი"
+
+#: app/mainwindow.cpp:740 app/mainwindow.cpp:762
+#, kde-format
+msgid "%1%"
+msgstr ""
 
 #: app/mainwindow.cpp:827
 #, kde-kuit-format
