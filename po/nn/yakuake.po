@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:49+0000\n"
+"POT-Creation-Date: 2022-11-20 00:50+0000\n"
 "PO-Revision-Date: 2021-01-04 20:54+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -112,8 +112,8 @@ msgctxt "@info"
 msgid ""
 "The following skin is missing required files. Thus it was removed:<ul>%2</ul>"
 msgid_plural ""
-"The following skins are missing required files. Thus they were removed:<ul>"
-"%2</ul>"
+"The following skins are missing required files. Thus they were removed:"
+"<ul>%2</ul>"
 msgstr[0] ""
 "Dette temaet mangla nødvendige filer og vart derfor fjerna: <ul>%2</ul>"
 msgstr[1] ""
@@ -1495,6 +1495,11 @@ msgstr "Ved museplassering"
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Skjerm %1"
+
+#: app/mainwindow.cpp:740 app/mainwindow.cpp:762
+#, kde-format
+msgid "%1%"
+msgstr ""
 
 #: app/mainwindow.cpp:827
 #, kde-kuit-format

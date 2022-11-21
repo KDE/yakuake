@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: extragear-utils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-20 00:50+0000\n"
-"PO-Revision-Date: 2022-11-14 23:00+0300\n"
+"PO-Revision-Date: 2022-11-20 10:54+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -36,7 +36,7 @@ msgstr "Bilinmiyor"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
-msgstr "Kurulacak tema arşivini seçin"
+msgstr "Kurulacak tema arşivini seç"
 
 #: app/config/appearancesettings.cpp:244
 #, kde-kuit-format
@@ -104,7 +104,7 @@ msgstr "Tema Kurulamıyor"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
-msgstr "\"%1\" / %2 i kaldırmak istiyor musunuz?"
+msgstr "%2 tarafından yapılan %1 temasını kaldırmak istiyor musunuz?"
 
 #: app/config/appearancesettings.cpp:379
 #, kde-kuit-format
@@ -143,11 +143,10 @@ msgid ""
 "terminals in a session, as well as over the currently focused terminal when "
 "switching to a session with multiple terminals."
 msgstr ""
-"Bu seçeneği etkinleştirirseniz Yakuake, bir oturuma birden fazla terminal "
-"arasında odaklanmanın yanı sıra, birden fazla terminalle bir oturuma geçiş "
-"yaparken o anda odaklanmış olan terminalin üzerinde odağı hareket "
-"ettirirken, yeni odaklanan terminalin üzerinde renkli bir kaplamayı kısaca "
-"gösterecektir."
+"Bu seçeneği etkinleştirirseniz Yakuake, bir oturuma birden fazla uçbirim "
+"arasında odaklanmanın yanı sıra, birden fazla uçbirimle bir oturuma geçiş "
+"yaparken o anda odaklanmış olan uçbirimin üzerinde odağı hareket ettirirken, "
+"yeni odaklanan uçbirimin üzerinde renkli bir kaplamayı kısaca gösterecektir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
 #: app/config/appearancesettings.ui:38
@@ -184,9 +183,9 @@ msgid ""
 "Translucency requires support by the selected skin as well as your desktop "
 "environment. The default skin supports translucency."
 msgstr ""
-"Şeffaflık, masaüstü ortamınızın desteğini gerektirdiği kadar, seçilen "
-"temanın da desteklemesini gerektirir. Öntanımlı tema, şeffaflığı "
-"desteklemektedir."
+"Yarısaydamlık, masaüstü ortamınızın desteğini gerektirdiği kadar, seçilen "
+"temanın da desteklemesini gerektirir. Öntanımlı tema, yarısaydamlığı "
+"destekler."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Translucency)
 #: app/config/appearancesettings.ui:95
@@ -363,7 +362,7 @@ msgstr "Birden çok oturumu kapatırken onay iste"
 #, kde-kuit-format
 msgctxt "@item:intext"
 msgid "by %1"
-msgstr "/ %1"
+msgstr "%1 tarafından"
 
 #: app/config/windowsettings.cpp:19
 #, kde-kuit-format
@@ -634,7 +633,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Keep window open after last session closes"
-msgstr "Son oturum kapantıktan sonra pencreyi açık tut"
+msgstr "Son oturum kapatıldıktan sonra pencereyi açık tut"
 
 #. i18n: ectx: whatsthis, entry (KeepOpenAfterLastSessionCloses), group (Window)
 #: app/config/yakuake.kcfg:46
@@ -808,14 +807,14 @@ msgstr "Temanın uygulama penceresi tarafından kullanılıp kullanılmayacağı
 #, kde-format
 msgctxt "@label"
 msgid "Skin installed by KNS"
-msgstr "Tema KNS tarafından kur"
+msgstr "Tema, KNS tarafından kurulmuştur"
 
 #. i18n: ectx: whatsthis, entry (SkinInstalledWithKns), group (Appearance)
 #: app/config/yakuake.kcfg:105
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether the currently active skin was installed via KNS."
-msgstr "Mevcut temanın KNS ile kurulup kurulmadığı."
+msgstr "Geçerli temanın KNS ile kurulup kurulmadığı."
 
 #. i18n: ectx: label, entry (Translucency), group (Appearance)
 #: app/config/yakuake.kcfg:109
@@ -877,8 +876,8 @@ msgid ""
 "multiple terminals."
 msgstr ""
 "Kısaca, bir oturumda birden çok uçbirim arasında geçiş yapıldığında, "
-"odaklanılmış yeni uç birimin altı renklendirilir. Aynı birden çok terminal "
-"ile oturum değiştirken mevcut odaklanmış terminalde olduğu gibi."
+"odaklanılmış yeni uç birimin altı renklendirilir. Aynı birden çok uçbirim "
+"ile oturum değiştirirken geçerli odaklanmış uçbirimde olduğu gibi."
 
 #. i18n: ectx: label, entry (HideSkinBorders), group (Appearance)
 #: app/config/yakuake.kcfg:131
@@ -905,14 +904,14 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Terminal highlight opacity"
-msgstr "Uçbirim vurgulama opaklığı"
+msgstr "Uçbirim vurgulama matlığı"
 
 #. i18n: ectx: whatsthis, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:137
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the colored overlay used to highlight a terminal."
-msgstr "Bir uçbirimi vurgulamak için kullanılan renkli üstyazımın opaklığı."
+msgstr "Bir uçbirimi vurgulamak için kullanılan renkli kaplamanın matlığı."
 
 #. i18n: ectx: label, entry (TerminalHighlightDuration), group (Appearance)
 #: app/config/yakuake.kcfg:143
@@ -926,49 +925,49 @@ msgstr "Uçbirim vurgulama süresi"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The duration of the terminal highlight overlay."
-msgstr "Uçbirim vurgulama üstyazımının süresi."
+msgstr "Uçbirim vurgulama kaplamasının süresi."
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
 #: app/config/yakuake.kcfg:150
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator color"
-msgstr "Klavye girdi bloğu belirteçi rengi"
+msgstr "Klavye girdi bloku belirteci rengi"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
 #: app/config/yakuake.kcfg:151
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The color of the keyboard input block indicator overlay."
-msgstr "Klavye girdi bloğu belirteçinin rengi."
+msgstr "Klavye girdi bloku belirtecinin rengi."
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:155
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator opacity"
-msgstr "Klavye girdi bloğu belirteçinin opaklığı"
+msgstr "Klavye girdi bloku belirtecinin matlığı"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:156
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the keyboard input block indicator overlay."
-msgstr "Klavye girdi bloğu belirteçinin opaklığı."
+msgstr "Klavye girdi bloku belirtecinin matlığı."
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
 #: app/config/yakuake.kcfg:162
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator duration"
-msgstr "Klavye girdi bloğu belirteçi süresi"
+msgstr "Klavye girdi bloku belirteci süresi"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
 #: app/config/yakuake.kcfg:163
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The duration of the keyboard input block indicator overlay."
-msgstr "Klavye girdi bloğu belirteçinin süresi."
+msgstr "Klavye girdi bloku belirtecinin süresi."
 
 #. i18n: ectx: label, entry (UseWMAssist), group (Animation)
 #: app/config/yakuake.kcfg:171
@@ -997,7 +996,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Animation frames"
-msgstr "Canlandırma çerçeveleri"
+msgstr "Canlandırma kareleri"
 
 #. i18n: ectx: whatsthis, entry (Frames), group (Animation)
 #: app/config/yakuake.kcfg:177
@@ -1007,8 +1006,8 @@ msgid ""
 "The number of frames of the open/retract animation. One frame is taken to be "
 "10 miliseconds."
 msgstr ""
-"Aç / geri çek eyleminin canlandırma süresi için kullanılacak çerçeve sayısı. "
-"Her çerçeve 10 milisaniye zaman alır."
+"Aç/Geri çek eyleminin canlandırma süresi için kullanılacak kare sayısı. Her "
+"kare, 10 milisaniye zaman alır."
 
 #. i18n: ectx: label, entry (PollMouse), group (AutoOpen)
 #: app/config/yakuake.kcfg:185
@@ -1232,7 +1231,7 @@ msgid ""
 msgstr ""
 "<warning>Birden fazla oturum açık. <emphasis>Bunlardan bazıları yanlışlıkla "
 "kapatılmasını önlemek için sizin tarafından kilitlenmiş.</emphasis> Eğer "
-"devam ederseniz bunlar kapatılacak.</warning>"
+"sürdürürseniz bunlar kapatılacak.</warning>"
 
 #: app/mainwindow.cpp:207
 #, kde-kuit-format
@@ -1241,7 +1240,7 @@ msgid ""
 "<warning>There are multiple open sessions. These will be killed if you "
 "continue.</warning>"
 msgstr ""
-"<warning>Birden fazla oturum açık. Eğer devam ederseniz bunlar kapatılacak.</"
+"<warning>Birden fazla oturum açık. Eğer sürdürürseniz bunlar kapatılacak.</"
 "warning>"
 
 #: app/mainwindow.cpp:210
@@ -1251,8 +1250,8 @@ msgid ""
 "<warning>There are one or more open sessions that you have locked to prevent "
 "closing them accidentally. These will be killed if you continue.</warning>"
 msgstr ""
-"<warning>Yanlışlıkla kapatılmasını engellemek için kilitlediğiniz bir ya da "
-"daha fazla oturum bulunuyor. Eğer devam ederseniz bu oturumlar "
+"<warning>Yanlışlıkla kapatılmasını engellemek için kilitlediğiniz bir veya "
+"daha fazla oturum bulunuyor. Eğer sürdürürseniz bu oturumlar "
 "sonlandırılacaktır.</warning>"
 
 #: app/mainwindow.cpp:216
@@ -1289,7 +1288,7 @@ msgstr "Geçerli Profili Düzenle..."
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
-msgstr "Pencere Genişliğini Arttır"
+msgstr "Pencere Genişliğini Artır"
 
 #: app/mainwindow.cpp:282
 #, kde-kuit-format
@@ -1301,7 +1300,7 @@ msgstr "Pencere Genişliğini Azalt"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
-msgstr "Pencere Yüksekliğini Arttır"
+msgstr "Pencere Yüksekliğini Artır"
 
 #: app/mainwindow.cpp:292
 #, kde-kuit-format
@@ -1523,7 +1522,7 @@ msgstr "Ekran %1"
 #: app/mainwindow.cpp:740 app/mainwindow.cpp:762
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%​%1"
 
 #: app/mainwindow.cpp:827
 #, kde-kuit-format

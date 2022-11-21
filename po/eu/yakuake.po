@@ -1,16 +1,16 @@
 # Translation for yakuake.po to Euskara/Basque (eu).
 # Copyright (C) 2019-2020, This file is copyright:
 # This file is distributed under the same license as the yakuake package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@euskalnet.net>.
+# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2019, 2020, 2021.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2019, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-20 00:50+0000\n"
-"PO-Revision-Date: 2021-01-06 19:07+0100\n"
+"PO-Revision-Date: 2022-11-20 19:21+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #: app/config/appearancesettings.cpp:153
 #, kde-kuit-format
@@ -1512,7 +1512,7 @@ msgstr "%1 pantaila"
 #: app/mainwindow.cpp:740 app/mainwindow.cpp:762
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%%1"
 
 #: app/mainwindow.cpp:827
 #, kde-kuit-format

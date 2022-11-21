@@ -5,7 +5,7 @@
 # Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
 # Enrique Matias Sanchez (Quique) <cronopios@gmail.com>, 2008.
 # Israel Garcia Garcia <israelgarcia86@gmail.com>, 2010, 2011.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2011, 2012, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2011, 2012, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
 # Ricardo Varas Santana <ricardoivaras@gmail.com>, 2012, 2013.
 # Sofia Priego <spriego@darksylvania.net>, 2015, 2016, 2017, %Y.
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-20 00:50+0000\n"
-"PO-Revision-Date: 2021-01-03 11:05+0100\n"
+"PO-Revision-Date: 2022-11-21 00:23+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.11.80\n"
 
 #: app/config/appearancesettings.cpp:153
 #, kde-kuit-format
@@ -1540,7 +1540,7 @@ msgstr "Pantalla %1"
 #: app/mainwindow.cpp:740 app/mainwindow.cpp:762
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: app/mainwindow.cpp:827
 #, kde-kuit-format
