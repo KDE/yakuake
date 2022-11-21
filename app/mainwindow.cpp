@@ -940,7 +940,6 @@ void MainWindow::applyWindowProperties()
     if (m_isWayland && m_plasmaShellSurface) {
         m_plasmaShellSurface->setSkipTaskbar(true);
         m_plasmaShellSurface->setSkipSwitcher(true);
-        winId(); // must call this at least once, otherwise enableBlurBehind() segfaults when it calls winId(), not sure why
     }
 
     KX11Extras::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
