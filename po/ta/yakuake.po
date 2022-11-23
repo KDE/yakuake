@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-27 00:49+0000\n"
-"PO-Revision-Date: 2022-06-30 21:49+0530\n"
+"PO-Revision-Date: 2022-11-22 21:41+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #: app/config/appearancesettings.cpp:153
 #, kde-kuit-format
@@ -1041,19 +1041,19 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title"
 msgid "A drop-down terminal emulator based on KDE Konsole technology."
-msgstr ""
+msgstr "கே.டீ.யீ. கான்சோலை அடிப்படையாக‍க் கொண்ட கீழிறங்கு முனையக் கருவி"
 
 #: app/main.cpp:32
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "(c) 2008-2018 The Yakuake Team"
-msgstr ""
+msgstr "(c) 2008-2018, யக்குவேக் அணி"
 
 #: app/main.cpp:39
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Eike Hein"
-msgstr ""
+msgstr "எய்கே ஹைன்"
 
 #: app/main.cpp:39
 #, kde-kuit-format
