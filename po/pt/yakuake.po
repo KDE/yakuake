@@ -1508,7 +1508,7 @@ msgstr "Ecrã %1"
 #: app/mainwindow.cpp:740 app/mainwindow.cpp:762
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: app/mainwindow.cpp:827
 #, kde-kuit-format
