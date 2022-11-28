@@ -1401,7 +1401,7 @@ void MainWindow::sharedPreOpenWindow()
     if (Settings::pollMouse())
         toggleMousePoll(false);
     if (!Settings::rememberFullscreen())
-        setFullScreen(false);
+        KToggleFullScreenAction::setFullScreen(this, false);
 }
 
 void MainWindow::sharedAfterOpenWindow()
