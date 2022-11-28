@@ -1400,8 +1400,8 @@ void MainWindow::sharedPreOpenWindow()
 
     if (Settings::pollMouse())
         toggleMousePoll(false);
-    if (Settings::rememberFullscreen())
-        setFullScreen(m_isFullscreen);
+    if (!Settings::rememberFullscreen())
+        setFullScreen(false);
 }
 
 void MainWindow::sharedAfterOpenWindow()
