@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: extragear-utils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-20 00:50+0000\n"
-"PO-Revision-Date: 2022-11-20 10:54+0300\n"
+"PO-Revision-Date: 2022-12-13 19:54+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: app/config/appearancesettings.cpp:153
 #, kde-kuit-format
@@ -1562,7 +1562,7 @@ msgstr "Tema Yüklenemiyor"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
-msgstr "Açmak için <shortcut>%1</shortcut> üzerine basın"
+msgstr "Açmak için <shortcut>%1</shortcut> düğmesine bas"
 
 #: app/sessionstack.cpp:257
 #, kde-format
