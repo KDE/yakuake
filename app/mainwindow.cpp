@@ -186,8 +186,6 @@ void MainWindow::initWaylandSurface()
     if (auto surface = KWayland::Client::Surface::fromWindow(windowHandle())) {
         m_plasmaShellSurface = m_plasmaShell->createSurface(surface, this);
         m_plasmaShellSurface->setPosition(pos());
-        m_plasmaShellSurface->setSkipTaskbar(true);
-        m_plasmaShellSurface->setSkipSwitcher(true);
     }
 }
 
@@ -929,18 +927,11 @@ void MainWindow::applySkin()
 
 void MainWindow::applyWindowProperties()
 {
-    if (m_isX11) {
-        if (Settings::keepOpen() && !Settings::keepAbove()) {
-            KWindowSystem::clearState(winId(), NET::KeepAbove);
-            KWindowSystem::setState(winId(), NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
-        } else
-            KWindowSystem::setState(winId(), NET::KeepAbove | NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
-    }
-
-    if (m_isWayland && m_plasmaShellSurface) {
-        m_plasmaShellSurface->setSkipTaskbar(true);
-        m_plasmaShellSurface->setSkipSwitcher(true);
-    }
+    if (Settings::keepOpen() && !Settings::keepAbove()) {
+        KWindowSystem::clearState(winId(), NET::KeepAbove);
+        KWindowSystem::setState(winId(), NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
+    } else
+        KWindowSystem::setState(winId(), NET::KeepAbove | NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
 
     KX11Extras::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
     KWindowEffects::enableBlurBehind(windowHandle(), m_sessionStack->wantsBlur());
@@ -1135,10 +1126,9 @@ void MainWindow::wmActiveWindowChanged()
         return;
     }
 
-    const QWindow *focusWindow = QGuiApplication::focusWindow();
+    KWindowInfo info(KX11Extras::activeWindow(), {}, NET::WM2TransientFor);
 
-    // Don't retract when opening one of our config windows
-    if (focusWindow && focusWindow->transientParent() == windowHandle()) {
+    if (info.valid() && info.transientFor() == winId()) {
         return;
     }
 
