@@ -1135,9 +1135,10 @@ void MainWindow::wmActiveWindowChanged()
         return;
     }
 
-    KWindowInfo info(KX11Extras::activeWindow(), {}, NET::WM2TransientFor);
+    const QWindow *focusWindow = QGuiApplication::focusWindow();
 
-    if (info.valid() && info.transientFor() == winId()) {
+    // Don't retract when opening one of our config windows
+    if (focusWindow && focusWindow->transientParent() == windowHandle()) {
         return;
     }
 
