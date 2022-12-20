@@ -42,6 +42,7 @@
 #include <QPainter>
 #include <QScreen>
 #include <QWhatsThis>
+#include <QWindow>
 
 #if HAVE_X11
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
