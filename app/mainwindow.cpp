@@ -33,6 +33,7 @@
 #include <KToggleFullScreenAction>
 #include <KWindowEffects>
 #include <KWindowSystem>
+#include <KX11Extras>
 
 #include <QApplication>
 #include <QDBusConnection>
@@ -842,8 +843,8 @@ void MainWindow::configureApp()
 
     connect(settingsDialog, &QDialog::finished, [=]() {
         m_toggleLock = true;
-        KWindowSystem::activateWindow(winId());
-        KWindowSystem::forceActiveWindow(winId());
+        KWindowSystem::activateWindow(windowHandle());
+        KX11Extras::forceActiveWindow(winId());
     });
 
     settingsDialog->show();
@@ -932,7 +933,7 @@ void MainWindow::applyWindowProperties()
     } else
         KWindowSystem::setState(winId(), NET::KeepAbove | NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
 
-    KWindowSystem::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
+    KX11Extras::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
     KWindowEffects::enableBlurBehind(windowHandle(), m_sessionStack->wantsBlur());
 }
 
@@ -1125,7 +1126,7 @@ void MainWindow::wmActiveWindowChanged()
         return;
     }
 
-    KWindowInfo info(KWindowSystem::activeWindow(), {}, NET::WM2TransientFor);
+    KWindowInfo info(KX11Extras::activeWindow(), {}, NET::WM2TransientFor);
 
     if (info.valid() && info.transientFor() == winId()) {
         return;
@@ -1184,7 +1185,7 @@ void MainWindow::_toggleWindowState()
 {
     bool visible = isVisible();
 
-    if (visible && KWindowSystem::activeWindow() != winId() && Settings::keepOpen()) {
+    if (visible && !isActiveWindow() && Settings::keepOpen()) {
         // Window is open but doesn't have focus; it's set to stay open
         // regardless of focus loss.
 
@@ -1195,11 +1196,11 @@ void MainWindow::_toggleWindowState()
             // will also cause the window manager to switch to the virtual
             // desktop the window resides on.
 
-            KWindowSystem::activateWindow(winId());
-            KWindowSystem::forceActiveWindow(winId());
+            KWindowSystem::activateWindow(windowHandle());
+            KX11Extras::forceActiveWindow(winId());
 
             return;
-        } else if (!Settings::showOnAllDesktops() && KWindowInfo(winId(), NET::WMDesktop).desktop() != KWindowSystem::currentDesktop()) {
+        } else if (!Settings::showOnAllDesktops() && KWindowInfo(winId(), NET::WMDesktop).desktop() != KX11Extras::currentDesktop()) {
             // The open/restrict action isn't set to focus the window, but
             // the window is currently on another virtual desktop (the option
             // to show it on all of them is disabled), so closing it doesn't
@@ -1209,10 +1210,10 @@ void MainWindow::_toggleWindowState()
             // switch to the virtual desktop the window currently resides on,
             // so move the window to the current desktop before doing so.
 
-            KWindowSystem::setOnDesktop(winId(), KWindowSystem::currentDesktop());
+            KX11Extras::setOnDesktop(winId(), KX11Extras::currentDesktop());
 
-            KWindowSystem::activateWindow(winId());
-            KWindowSystem::forceActiveWindow(winId());
+            KWindowSystem::activateWindow(windowHandle());
+            KX11Extras::forceActiveWindow(winId());
 
             return;
         }
@@ -1222,7 +1223,7 @@ void MainWindow::_toggleWindowState()
     if (!Settings::useWMAssist() && m_kwinAssistPropSet)
         kwinAssistPropCleanup();
 
-    if (m_isX11 && Settings::useWMAssist() && KWindowSystem::compositingActive())
+    if (m_isX11 && Settings::useWMAssist() && KX11Extras::compositingActive())
         kwinAssistToggleWindowState(visible);
     else
 #endif
@@ -1409,7 +1410,7 @@ void MainWindow::sharedPreOpenWindow()
 void MainWindow::sharedAfterOpenWindow()
 {
     if (!Settings::firstRun())
-        KWindowSystem::forceActiveWindow(winId());
+        KX11Extras::forceActiveWindow(winId());
 
     connect(qGuiApp, &QGuiApplication::focusWindowChanged, this, &MainWindow::wmActiveWindowChanged);
 
@@ -1442,7 +1443,7 @@ void MainWindow::sharedAfterHideWindow()
 
 void MainWindow::activate()
 {
-    KWindowSystem::activateWindow(winId());
+    KWindowSystem::activateWindow(windowHandle());
 }
 
 void MainWindow::toggleMousePoll(bool poll)
@@ -1541,7 +1542,7 @@ QRect MainWindow::getDesktopGeometry()
     }
 
     if (QGuiApplication::screens().count() > 1) {
-        const QList<WId> allWindows = KWindowSystem::windows();
+        const QList<WId> allWindows = KX11Extras::windows();
         QList<WId> offScreenWindows;
 
         QListIterator<WId> i(allWindows);
@@ -1549,7 +1550,7 @@ QRect MainWindow::getDesktopGeometry()
         while (i.hasNext()) {
             WId windowId = i.next();
 
-            if (KWindowSystem::hasWId(windowId)) {
+            if (KX11Extras::hasWId(windowId)) {
                 KWindowInfo windowInfo = KWindowInfo(windowId, NET::WMDesktop | NET::WMGeometry, NET::WM2ExtendedStrut);
 
                 // If windowInfo is valid and the window is located at the same (current)
@@ -1588,10 +1589,14 @@ QRect MainWindow::getDesktopGeometry()
             }
         }
 
-        return KWindowSystem::workArea(offScreenWindows).intersected(screenGeometry);
+        return KX11Extras::workArea(offScreenWindows).intersected(screenGeometry);
     }
 
-    return KWindowSystem::workArea();
+#if HAVE_X11
+    return KX11Extras::workArea();
+#else
+    return QRect();
+#endif
 }
 
 void MainWindow::whatsThis()
@@ -1618,7 +1623,7 @@ void MainWindow::firstRunDialogFinished()
 
     m_firstRunDialog->deleteLater();
 
-    KWindowSystem::forceActiveWindow(winId());
+    KX11Extras::forceActiveWindow(winId());
 }
 
 void MainWindow::firstRunDialogOk()
@@ -1632,7 +1637,7 @@ void MainWindow::firstRunDialogOk()
 
 void MainWindow::updateUseTranslucency()
 {
-    m_useTranslucency = (Settings::translucency() && KWindowSystem::compositingActive());
+    m_useTranslucency = (Settings::translucency() && (m_isX11 ? KX11Extras::compositingActive() : true));
 }
 
 void MainWindow::updateTrayTooltip()
