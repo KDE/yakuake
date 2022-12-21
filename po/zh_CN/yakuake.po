@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-20 00:50+0000\n"
+"POT-Creation-Date: 2022-12-21 00:50+0000\n"
 "PO-Revision-Date: 2022-12-13 12:22\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -342,7 +342,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "屏幕 %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:656
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:660
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1149,13 +1149,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-china@kde.org, amesists@gmail.com"
 
-#: app/mainwindow.cpp:197
+#: app/mainwindow.cpp:201
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
 msgstr "您确定要退出吗？"
 
-#: app/mainwindow.cpp:204
+#: app/mainwindow.cpp:208
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1166,7 +1166,7 @@ msgstr ""
 "<warning>已打开多个会话，<emphasis>您曾锁定其中一部分以防意外关闭。</"
 "emphasis>如果您继续的话他们将关闭。</warning>"
 
-#: app/mainwindow.cpp:207
+#: app/mainwindow.cpp:211
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1174,7 +1174,7 @@ msgid ""
 "continue.</warning>"
 msgstr "<warning>已打开多个会话，如果您继续的话他们将关闭。</warning>"
 
-#: app/mainwindow.cpp:210
+#: app/mainwindow.cpp:214
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1184,294 +1184,294 @@ msgstr ""
 "<warning>您曾锁定一个或多个会话以防意外关闭。如果您继续的话他们将关闭。</"
 "warning>"
 
-#: app/mainwindow.cpp:216
+#: app/mainwindow.cpp:220
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
 msgstr "真的退出吗？"
 
-#: app/mainwindow.cpp:248
+#: app/mainwindow.cpp:252
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
 msgstr "打开/缩回 Yakuake"
 
-#: app/mainwindow.cpp:261
+#: app/mainwindow.cpp:265
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
 msgstr "当窗口失去焦点的时候保持窗口打开"
 
-#: app/mainwindow.cpp:266
+#: app/mainwindow.cpp:270
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
 msgstr "管理配置文件..."
 
-#: app/mainwindow.cpp:271
+#: app/mainwindow.cpp:275
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr "编辑当前配置文件..."
 
-#: app/mainwindow.cpp:277
+#: app/mainwindow.cpp:281
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "增加窗口宽度"
 
-#: app/mainwindow.cpp:282
+#: app/mainwindow.cpp:286
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "减少窗口宽度"
 
-#: app/mainwindow.cpp:287
+#: app/mainwindow.cpp:291
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "增加窗口高度"
 
-#: app/mainwindow.cpp:292
+#: app/mainwindow.cpp:296
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "降低窗口高度"
 
-#: app/mainwindow.cpp:297
+#: app/mainwindow.cpp:301
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "新建会话"
 
-#: app/mainwindow.cpp:303
+#: app/mainwindow.cpp:307
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr "两个终端，水平排列"
 
-#: app/mainwindow.cpp:308
+#: app/mainwindow.cpp:312
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr "两个终端，垂直排列"
 
-#: app/mainwindow.cpp:313
+#: app/mainwindow.cpp:317
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr "四个终端，网格排列"
 
-#: app/mainwindow.cpp:318
+#: app/mainwindow.cpp:322
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "关闭会话"
 
-#: app/mainwindow.cpp:325
+#: app/mainwindow.cpp:329
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
 msgstr "上一个会话"
 
-#: app/mainwindow.cpp:331
+#: app/mainwindow.cpp:335
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
 msgstr "下一个会话"
 
-#: app/mainwindow.cpp:337
+#: app/mainwindow.cpp:341
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
 msgstr "左移会话"
 
-#: app/mainwindow.cpp:344
+#: app/mainwindow.cpp:348
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
 msgstr "右移会话"
 
-#: app/mainwindow.cpp:351
+#: app/mainwindow.cpp:355
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr "向右扩展终端"
 
-#: app/mainwindow.cpp:358
+#: app/mainwindow.cpp:362
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr "向左扩展终端"
 
-#: app/mainwindow.cpp:365
+#: app/mainwindow.cpp:369
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr "向上扩展终端"
 
-#: app/mainwindow.cpp:372
+#: app/mainwindow.cpp:376
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr "向下扩展终端"
 
-#: app/mainwindow.cpp:379
+#: app/mainwindow.cpp:383
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
 msgstr "重命名会话..."
 
-#: app/mainwindow.cpp:386
+#: app/mainwindow.cpp:390
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr "上一个终端"
 
-#: app/mainwindow.cpp:392
+#: app/mainwindow.cpp:396
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr "下一个终端"
 
-#: app/mainwindow.cpp:398
+#: app/mainwindow.cpp:402
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr "关闭活动终端"
 
-#: app/mainwindow.cpp:405
+#: app/mainwindow.cpp:409
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "水平拆分"
 
-#: app/mainwindow.cpp:412
+#: app/mainwindow.cpp:416
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "垂直拆分"
 
-#: app/mainwindow.cpp:419
+#: app/mainwindow.cpp:423
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "防止关闭"
 
-#: app/mainwindow.cpp:425 app/tabbar.cpp:190
+#: app/mainwindow.cpp:429 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "禁用键盘输入"
 
-#: app/mainwindow.cpp:431 app/tabbar.cpp:235
+#: app/mainwindow.cpp:435 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "监视活动"
 
-#: app/mainwindow.cpp:438 app/tabbar.cpp:280
+#: app/mainwindow.cpp:442 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "监视静默"
 
-#: app/mainwindow.cpp:445
+#: app/mainwindow.cpp:449
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr "切换标题栏"
 
-#: app/mainwindow.cpp:452
+#: app/mainwindow.cpp:456
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "切换到第 %1 个会话"
 
-#: app/mainwindow.cpp:604
+#: app/mainwindow.cpp:608
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "在监视的终端或会话“%1”中探测到活动。"
 
-#: app/mainwindow.cpp:615
+#: app/mainwindow.cpp:619
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "在监视的终端或会话“%1”中探测到静默。"
 
-#: app/mainwindow.cpp:671
+#: app/mainwindow.cpp:675
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "帮助"
 
-#: app/mainwindow.cpp:677
+#: app/mainwindow.cpp:681
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "快速选项"
 
-#: app/mainwindow.cpp:683
+#: app/mainwindow.cpp:687
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "屏幕"
 
-#: app/mainwindow.cpp:688
+#: app/mainwindow.cpp:692
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "宽度"
 
-#: app/mainwindow.cpp:693
+#: app/mainwindow.cpp:697
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "高度"
 
-#: app/mainwindow.cpp:696
+#: app/mainwindow.cpp:700
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "设置"
 
-#: app/mainwindow.cpp:712
+#: app/mainwindow.cpp:716
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "在鼠标位置"
 
-#: app/mainwindow.cpp:718
+#: app/mainwindow.cpp:722
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "屏幕 %1"
 
-#: app/mainwindow.cpp:740 app/mainwindow.cpp:762
+#: app/mainwindow.cpp:744 app/mainwindow.cpp:766
 #, kde-format
 msgid "%1%"
 msgstr ""
 
-#: app/mainwindow.cpp:827
+#: app/mainwindow.cpp:831
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "窗口"
 
-#: app/mainwindow.cpp:833
+#: app/mainwindow.cpp:837
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "行为"
 
-#: app/mainwindow.cpp:836
+#: app/mainwindow.cpp:840
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "外观"
 
-#: app/mainwindow.cpp:915
+#: app/mainwindow.cpp:919
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1481,13 +1481,13 @@ msgstr ""
 "<application>Yakuake</application> 无法加载皮肤。它们似乎安装错误。<nl/><nl/>"
 "程序现在将退出。"
 
-#: app/mainwindow.cpp:917
+#: app/mainwindow.cpp:921
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "无法加载皮肤"
 
-#: app/mainwindow.cpp:1647
+#: app/mainwindow.cpp:1663
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
