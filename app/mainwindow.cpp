@@ -932,9 +932,9 @@ void MainWindow::applyWindowProperties()
     if (m_isX11) {
         if (Settings::keepOpen() && !Settings::keepAbove()) {
             KWindowSystem::clearState(winId(), NET::KeepAbove);
-            KWindowSystem::setState(winId(), NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
+            KWindowSystem::setState(winId(), NET::SkipTaskbar | NET::SkipPager);
         } else
-            KWindowSystem::setState(winId(), NET::KeepAbove | NET::Sticky | NET::SkipTaskbar | NET::SkipPager);
+            KWindowSystem::setState(winId(), NET::KeepAbove | NET::SkipTaskbar | NET::SkipPager);
     }
 
     if (m_isWayland && m_plasmaShellSurface) {
