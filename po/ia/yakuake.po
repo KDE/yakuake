@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# giovanni <g.sora@tiscali.it>, 2017, 2019, 2020, 2021.
+# giovanni <g.sora@tiscali.it>, 2017, 2019, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-21 00:50+0000\n"
-"PO-Revision-Date: 2021-12-02 22:48+0100\n"
+"PO-Revision-Date: 2022-12-21 12:33+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.11.90\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: app/config/appearancesettings.cpp:153
 #, kde-kuit-format
@@ -1518,7 +1518,7 @@ msgstr "Schermo  %1"
 #: app/mainwindow.cpp:744 app/mainwindow.cpp:766
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: app/mainwindow.cpp:831
 #, kde-kuit-format
