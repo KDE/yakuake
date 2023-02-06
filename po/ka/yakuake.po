@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-21 02:35+0000\n"
-"PO-Revision-Date: 2022-09-17 05:58+0200\n"
+"PO-Revision-Date: 2023-02-05 09:31+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: app/config/appearancesettings.cpp:153
 #, kde-kuit-format
@@ -28,13 +28,13 @@ msgstr "უცნობი"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
-msgstr ""
+msgstr "აირჩიეთ დასაყენებელი გარეგნობის არქივი"
 
 #: app/config/appearancesettings.cpp:244
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
-msgstr ""
+msgstr "გარეგნობის არქივის შემცველობის სიის გამოტანის შეცდომა."
 
 #: app/config/appearancesettings.cpp:276
 #, kde-kuit-format
@@ -43,30 +43,33 @@ msgid ""
 "This skin appears to be already installed and you lack the required "
 "permissions to overwrite it."
 msgstr ""
+"როგორც ჩანს, ეს გარეგნობა უკვე დაყენებულია და თქვენ მის თავზე გადასაწერად "
+"საკმარისი წვდომები არ გაგაჩნიათ."
 
 #: app/config/appearancesettings.cpp:281
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
 msgstr ""
+"როგორც ჩანს, ეს გარეგნობა უკვე დაყენებულია. გნებავთ, თავზე გადააწეროთ მას?"
 
 #: app/config/appearancesettings.cpp:282
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
-msgstr ""
+msgstr "გარეგნობა უკვე დაყენებულია"
 
 #: app/config/appearancesettings.cpp:283
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
-msgstr ""
+msgstr "გარეგნობის თავიდან დასაყენებლად"
 
 #: app/config/appearancesettings.cpp:301
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
-msgstr ""
+msgstr "გარეგნობის წაშლის შეცდომა"
 
 #: app/config/appearancesettings.cpp:326
 #, kde-kuit-format
@@ -80,25 +83,25 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
-msgstr ""
+msgstr "გარეგნობის არქივის ფაილის გახსნის შეცდომა."
 
 #: app/config/appearancesettings.cpp:334
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
-msgstr ""
+msgstr "გარეგნობის დაყენების შეცდომა"
 
 #: app/config/appearancesettings.cpp:378
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
-msgstr ""
+msgstr "ნამდვილად გსურთ, წაშალოთ \"%1' (ავტორი: %2) ?"
 
 #: app/config/appearancesettings.cpp:379
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
-msgstr ""
+msgstr "გარეგნობის წაშლა"
 
 #: app/config/appearancesettings.cpp:477
 #, kde-kuit-format
@@ -108,8 +111,8 @@ msgid ""
 msgid_plural ""
 "The following skins are missing required files. Thus they were removed:<ul>"
 "%2</ul>"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ამ გარეგნობას საჭირო ფაილები აკლია. ამიტომ ის წაიშლება:<ul>%2</ul>"
+msgstr[1] "ამ გარეგნობას საჭირო ფაილები აკლია. ამიტომ ის წაიშლება:<ul>%2</ul>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: app/config/appearancesettings.ui:29 app/config/behaviorsettings.ui:20
@@ -177,7 +180,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Background color opacity:"
-msgstr ""
+msgstr "ფონის ფერის გაუმჭვირვალობა:"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_BackgroundColorOpacity)
 #: app/config/appearancesettings.ui:136
@@ -205,28 +208,28 @@ msgstr "%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Skin"
-msgstr ""
+msgstr "გარეგნობა"
 
 #. i18n: ectx: property (text), widget (QPushButton, ghnsButton)
 #: app/config/appearancesettings.ui:176
 #, kde-format
 msgctxt "@action:button"
 msgid "Get New Skins..."
-msgstr ""
+msgstr "ახალი გარეგნობების მიღება..."
 
 #. i18n: ectx: property (text), widget (QPushButton, removeButton)
 #: app/config/appearancesettings.ui:186
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Skin"
-msgstr ""
+msgstr "გარეგნობის წაშლა"
 
 #. i18n: ectx: property (text), widget (QPushButton, installButton)
 #: app/config/appearancesettings.ui:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Install Skin..."
-msgstr ""
+msgstr "გარეგნობის დაყენება..."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FocusFollowsMouse)
 #: app/config/behaviorsettings.ui:26
@@ -259,14 +262,14 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window above other windows"
-msgstr ""
+msgstr "დანარჩენი ფანჯრების ზემოთ ქონა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_OpenAfterStart)
 #: app/config/behaviorsettings.ui:84
 #, kde-format
 msgctxt "@option:check"
 msgid "Open window after program start"
-msgstr ""
+msgstr "პროგრამის გაშვების შემდეგ ფანჯრის გახსნა"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_PollMouse)
 #: app/config/behaviorsettings.ui:91
@@ -290,6 +293,7 @@ msgstr ""
 #, kde-format
 msgid "Remember and restore window fullscreen state"
 msgstr ""
+"ფანჯრის მთელ ეკრანზე გაშლილობის მდგომარეობის დამახსოვრება და მისი აღდგენა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowSystrayIcon)
 #: app/config/behaviorsettings.ui:108
@@ -302,14 +306,14 @@ msgstr "სისტემის კუთხეში ხატულის ჩ
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window open when it loses focus"
-msgstr ""
+msgstr "ფანჯრის ღიად დატოვება მას შემდეგაც კი, რაც ის ფოკუსს დაკარგავს"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpenAfterLastSessionCloses)
 #: app/config/behaviorsettings.ui:141
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window open after the last session is closed"
-msgstr ""
+msgstr "ბოლო სესიის დახურვის შემდეგ ფანჯრის გახსნილ მდგომარეობაში შენარჩუნება"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/behaviorsettings.ui:151
@@ -323,7 +327,7 @@ msgstr "დიალოგები"
 #, kde-format
 msgctxt "@option:check"
 msgid "Confirm quit when more than one session is open"
-msgstr ""
+msgstr "გასვლის დადასტურება, თუ ღიაა ერთზე მეტი სესია"
 
 #: app/config/skinlistdelegate.cpp:125 app/config/skinlistdelegate.cpp:165
 #, kde-kuit-format
@@ -568,7 +572,7 @@ msgstr "ფანჯრის ყველა სამუშაო მაგი
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the window on all desktops."
-msgstr ""
+msgstr "ფანჯრის ყველა სამუშაო მაგიდაზე ჩვენება."
 
 #. i18n: ectx: label, entry (KeepOpen), group (Window)
 #: app/config/yakuake.kcfg:40
@@ -589,7 +593,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Keep window open after last session closes"
-msgstr ""
+msgstr "სესიის დახურვის შემდეგ ფანჯრის გახსნილ მდგომარეობაში შენარჩუნება"
 
 #. i18n: ectx: whatsthis, entry (KeepOpenAfterLastSessionCloses), group (Window)
 #: app/config/yakuake.kcfg:46
@@ -684,14 +688,14 @@ msgstr "სისტემის კუთხეში ხატულის ჩ
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show a system tray icon."
-msgstr ""
+msgstr "სისტემის კუთხეში ხატულის ჩვენება."
 
 #. i18n: ectx: label, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:82
 #, kde-format
 msgctxt "@label"
 msgid "Focus follows mouse"
-msgstr ""
+msgstr "ფოკუსი მიყვება თაგუნას"
 
 #. i18n: ectx: whatsthis, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:83
@@ -721,7 +725,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Remember window fullscreen state"
-msgstr ""
+msgstr "ფანჯრის მთელ ეკრანზე გაშლილობის მდგომარეობის დამახსოვრება"
 
 #. i18n: ectx: whatsthis, entry (RememberFullscreen), group (Behavior)
 #: app/config/yakuake.kcfg:93
@@ -737,7 +741,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Skin"
-msgstr ""
+msgstr "გარეგნობა"
 
 #. i18n: ectx: whatsthis, entry (Skin), group (Appearance)
 #: app/config/yakuake.kcfg:100
@@ -751,14 +755,14 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Skin installed by KNS"
-msgstr ""
+msgstr "გარეგნობა KNS-ის მიერაა დაყენებული"
 
 #. i18n: ectx: whatsthis, entry (SkinInstalledWithKns), group (Appearance)
 #: app/config/yakuake.kcfg:105
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether the currently active skin was installed via KNS."
-msgstr ""
+msgstr "არის თუ არა ამჟამად დაყენებული გარეგნობა KNS-ის მიერ დაყენებული."
 
 #. i18n: ectx: label, entry (Translucency), group (Appearance)
 #: app/config/yakuake.kcfg:109
@@ -842,7 +846,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Terminal highlight opacity"
-msgstr ""
+msgstr "ტერმინალის გამოკვეთის გაუმჭვირვალობა"
 
 #. i18n: ectx: whatsthis, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:137
@@ -856,7 +860,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Terminal highlight duration"
-msgstr ""
+msgstr "ტერმინალის გამოკვეთის ხანგრძლივობა"
 
 #. i18n: ectx: whatsthis, entry (TerminalHighlightDuration), group (Appearance)
 #: app/config/yakuake.kcfg:144
@@ -930,7 +934,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Animation frames"
-msgstr ""
+msgstr "ანიმაციის კადრები"
 
 #. i18n: ectx: whatsthis, entry (Frames), group (Animation)
 #: app/config/yakuake.kcfg:177
@@ -946,7 +950,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Auto-open window"
-msgstr ""
+msgstr "ფანჯრის ავტომატური გახსნა"
 
 #. i18n: ectx: whatsthis, entry (PollMouse), group (AutoOpen)
 #: app/config/yakuake.kcfg:186
@@ -1086,13 +1090,13 @@ msgstr "Daniel 'suslik' D."
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Plastik skin"
-msgstr ""
+msgstr "გარეგნობა Plastik"
 
 #: app/main.cpp:42
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Juan Carlos Torres"
-msgstr ""
+msgstr "Juan Carlos Torres"
 
 #: app/main.cpp:43
 #, kde-kuit-format
@@ -1104,7 +1108,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Gustavo Ribeiro Croscato"
-msgstr ""
+msgstr "Gustavo Ribeiro Croscato"
 
 #: app/main.cpp:46
 #, kde-kuit-format
@@ -1116,13 +1120,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Danilo Cesar Lemes de Paula"
-msgstr ""
+msgstr "Danilo Cesar Lemes de Paula"
 
 #: app/main.cpp:49
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Actions to grow terminals"
-msgstr ""
+msgstr "ტერმინალის გაზრდის ქმედება"
 
 #: app/main.cpp:52
 #, kde-format
@@ -1171,55 +1175,55 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
-msgstr ""
+msgstr "მართლა გავიდე?"
 
 #: app/mainwindow.cpp:249
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
-msgstr ""
+msgstr "Yakuake-ის გახსნა/აკეცვა"
 
 #: app/mainwindow.cpp:262
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
-msgstr ""
+msgstr "ფანჯრის ღიად დატოვება მას შემდეგაც კი, რაც ის ფოკუსს დაკარგავს"
 
 #: app/mainwindow.cpp:267
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
-msgstr ""
+msgstr "პროფილების მართვა..."
 
 #: app/mainwindow.cpp:272
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
-msgstr ""
+msgstr "მიმდინარე პროფილის რედაქტირება..."
 
 #: app/mainwindow.cpp:278
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
-msgstr ""
+msgstr "ფანჯრის სიგანის გაზრდა"
 
 #: app/mainwindow.cpp:283
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
-msgstr ""
+msgstr "ფანჯრის სიგანის შემცირება"
 
 #: app/mainwindow.cpp:288
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
-msgstr ""
+msgstr "ფანჯრის სიმაღლის გაზრდა"
 
 #: app/mainwindow.cpp:293
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
-msgstr ""
+msgstr "ფანჯრის სიმაღლის შემცირება"
 
 #: app/mainwindow.cpp:298
 #, kde-kuit-format
@@ -1231,19 +1235,19 @@ msgstr "ახალი სესია"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
-msgstr ""
+msgstr "ორი ტერმინალი, ჰორიზონტალურად"
 
 #: app/mainwindow.cpp:309
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
-msgstr ""
+msgstr "ორი ტერმინალი, ვერტინალურად"
 
 #: app/mainwindow.cpp:314
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
-msgstr ""
+msgstr "ოთხი ტერმინალი, ბადე"
 
 #: app/mainwindow.cpp:319
 #, kde-kuit-format
@@ -1255,121 +1259,121 @@ msgstr "სესიის დახურვა"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
-msgstr ""
+msgstr "წინა სესია"
 
 #: app/mainwindow.cpp:332
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
-msgstr ""
+msgstr "შემდეგი სესია"
 
 #: app/mainwindow.cpp:338
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
-msgstr ""
+msgstr "სესიის მარცხნივ გაწევა"
 
 #: app/mainwindow.cpp:345
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
-msgstr ""
+msgstr "სესიის მარჯვნივ გაწევა"
 
 #: app/mainwindow.cpp:352
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
-msgstr ""
+msgstr "ტერმინალის მარჯვნივ გადიდება"
 
 #: app/mainwindow.cpp:359
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
-msgstr ""
+msgstr "ტერმინალის მარცხნივ გადიდება"
 
 #: app/mainwindow.cpp:366
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
-msgstr ""
+msgstr "ტერმინალის ზემოთ გადიდება"
 
 #: app/mainwindow.cpp:373
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
-msgstr ""
+msgstr "ტერმინალის ქვემოთ გადიდება"
 
 #: app/mainwindow.cpp:380
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
-msgstr ""
+msgstr "სესიის სახელის გადარქმევა..."
 
 #: app/mainwindow.cpp:387
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
-msgstr ""
+msgstr "წინა ტერმინალი"
 
 #: app/mainwindow.cpp:393
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
-msgstr ""
+msgstr "შემდეგი ტერმინალი"
 
 #: app/mainwindow.cpp:399
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
-msgstr ""
+msgstr "აქტიური ტერმინალის დახურვა"
 
 #: app/mainwindow.cpp:406
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
-msgstr ""
+msgstr "ხედის მარჯვენა/მარცხენაზე გაყოფა"
 
 #: app/mainwindow.cpp:413
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
-msgstr ""
+msgstr "ხედის ზედა/ქვედაზე გაყოფა"
 
 #: app/mainwindow.cpp:420
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
-msgstr ""
+msgstr "დახურვის თავიდან აცილება"
 
 #: app/mainwindow.cpp:426 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
-msgstr ""
+msgstr "კლავიატურის გამორთვა"
 
 #: app/mainwindow.cpp:432 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
-msgstr ""
+msgstr "აქტივობის მონიტორინგი"
 
 #: app/mainwindow.cpp:439 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
-msgstr ""
+msgstr "სიჩუმის მონიტორინგი"
 
 #: app/mainwindow.cpp:446
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
-msgstr ""
+msgstr "ქუდის ზოლის გადართვა"
 
 #: app/mainwindow.cpp:453
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
-msgstr ""
+msgstr "%1-ე სესიაზე გადართვა"
 
 #: app/mainwindow.cpp:605
 #, kde-kuit-format
@@ -1393,7 +1397,7 @@ msgstr "დახმარება"
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
-msgstr ""
+msgstr "სწრაფი მორგება"
 
 #: app/mainwindow.cpp:684
 #, kde-kuit-format
@@ -1423,7 +1427,7 @@ msgstr "პარამეტრები"
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
-msgstr ""
+msgstr "თაგუნას მდებარეობის ადგილას"
 
 #: app/mainwindow.cpp:719
 #, kde-kuit-format
@@ -1461,13 +1465,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
-msgstr ""
+msgstr "გარეგნობის ჩატვირთვის შეცდომა"
 
 #: app/mainwindow.cpp:1648
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
-msgstr ""
+msgstr "გასახსნელად დააწექით <shortcut>%1</shortcut>"
 
 #: app/sessionstack.cpp:257
 #, kde-format
@@ -1490,13 +1494,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
-msgstr ""
+msgstr "ნამდვილად გსურთ ამ სესიის დახურვა?"
 
 #: app/sessionstack.cpp:729
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
-msgstr ""
+msgstr "ნამდვილად გსურთ ამ ტერმინალის დახურვა?"
 
 #: app/sessionstack.cpp:733
 #, kde-kuit-format
@@ -1516,19 +1520,19 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Disable Keyboard Input"
-msgstr ""
+msgstr "კლავიატურის გამორთვა"
 
 #: app/tabbar.cpp:59
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Monitor for Activity"
-msgstr ""
+msgstr "აქტივობის მონიტორინგი"
 
 #: app/tabbar.cpp:60
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Monitor for Silence"
-msgstr ""
+msgstr "სიჩუმის მონიტორინგი"
 
 #: app/tabbar.cpp:69
 #, kde-kuit-format
@@ -1552,31 +1556,31 @@ msgstr "სესიის დახურვა"
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Closes the active session."
-msgstr ""
+msgstr "აქტიური სესიის დახურვა."
 
 #: app/tabbar.cpp:194
 #, kde-kuit-format
 msgctxt "@action"
 msgid "For This Session"
-msgstr ""
+msgstr "ამ სესიისთვის"
 
 #: app/tabbar.cpp:211
 #, kde-kuit-format
 msgctxt "@action"
 msgid "For Terminal %1"
-msgstr ""
+msgstr "ტერმინალისთვის %1"
 
 #: app/tabbar.cpp:239 app/tabbar.cpp:284
 #, kde-kuit-format
 msgctxt "@action"
 msgid "In This Session"
-msgstr ""
+msgstr "ამ სესიაში"
 
 #: app/tabbar.cpp:256 app/tabbar.cpp:301
 #, kde-kuit-format
 msgctxt "@action"
 msgid "In Terminal %1"
-msgstr ""
+msgstr "ტერმინალში %1"
 
 #: app/tabbar.cpp:931
 #, kde-kuit-format
@@ -1588,7 +1592,7 @@ msgstr "გარსი"
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell No. %1"
-msgstr ""
+msgstr "გარემო #%1"
 
 #: app/terminal.cpp:169
 #, kde-kuit-format
@@ -1611,13 +1615,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Keep window open when it loses focus"
-msgstr ""
+msgstr "ფანჯრის ღიად დატოვება მას შემდეგაც კი, რაც ის ფოკუსს დაკარგავს"
 
 #: app/titlebar.cpp:37
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "If this is checked, the window will stay open when it loses focus."
-msgstr ""
+msgstr "თუ ჩართულია, ფანჯარა მას შემდეგ, რაც ის ფოკუსს დაკარგავს, ღია დარჩება."
 
 #: app/titlebar.cpp:44
 #, kde-kuit-format
@@ -1629,7 +1633,7 @@ msgstr "მენიუს გახსნა"
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Opens the main menu."
-msgstr ""
+msgstr "მთავარი მენიუს გახსნა."
 
 #: app/titlebar.cpp:50
 #, kde-kuit-format
@@ -1641,4 +1645,4 @@ msgstr "გამოსვლა"
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Quits the application."
-msgstr ""
+msgstr "აპლიკაციიდან გასვლა."
