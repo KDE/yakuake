@@ -251,11 +251,7 @@ void MainWindow::setupActions()
     action = actionCollection()->addAction(QStringLiteral("toggle-window-state"));
     action->setText(xi18nc("@action", "Open/Retract Yakuake"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("yakuake")));
-#ifndef Q_OS_WIN /* PORT */
     KGlobalAccel::self()->setGlobalShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_F12));
-#else
-    KGlobalAccel::self()->setGlobalShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_F11));
-#endif
     connect(action, SIGNAL(triggered()), this, SLOT(toggleWindowState()));
     connect(action, SIGNAL(changed()), this, SLOT(updateTrayTooltip()));
     connect(KGlobalAccel::self(), SIGNAL(globalShortcutChanged(QAction *, const QKeySequence &)), this, SLOT(updateTrayTooltip()));
