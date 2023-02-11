@@ -250,9 +250,9 @@ void MainWindow::setupActions()
     action = actionCollection()->addAction(QStringLiteral("toggle-window-state"));
     action->setText(xi18nc("@action", "Open/Retract Yakuake"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("yakuake")));
-    KGlobalAccel::self()->setGlobalShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_F12));
+    // KGlobalAccel::self()->setGlobalShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_F12));
     connect(action, SIGNAL(triggered()), this, SLOT(toggleWindowState()));
-    connect(action, SIGNAL(changed()), this, SLOT(updateTrayTooltip()));
+    // connect(action, SIGNAL(changed()), this, SLOT(updateTrayTooltip()));
     connect(KGlobalAccel::self(), SIGNAL(globalShortcutChanged(QAction *, const QKeySequence &)), this, SLOT(updateTrayTooltip()));
     updateTrayTooltip();
 
@@ -1214,6 +1214,7 @@ void MainWindow::_toggleWindowState()
             // will also cause the window manager to switch to the virtual
             // desktop the window resides on.
 
+            KWindowSystem::updateStartupId(windowHandle());
             KWindowSystem::activateWindow(windowHandle());
             KX11Extras::forceActiveWindow(winId());
 
@@ -1649,9 +1650,9 @@ void MainWindow::firstRunDialogFinished()
 
 void MainWindow::firstRunDialogOk()
 {
-    QAction *action = static_cast<QAction *>(actionCollection()->action(QStringLiteral("toggle-window-state")));
+    // QAction *action = static_cast<QAction *>(actionCollection()->action(QStringLiteral("toggle-window-state")));
 
-    KGlobalAccel::self()->setShortcut(action, QList<QKeySequence>() << m_firstRunDialog->keySequence(), KGlobalAccel::NoAutoloading);
+    // KGlobalAccel::self()->setShortcut(action, QList<QKeySequence>() << m_firstRunDialog->keySequence(), KGlobalAccel::NoAutoloading);
 
     actionCollection()->writeSettings();
 }
@@ -1667,8 +1668,7 @@ void MainWindow::updateTrayTooltip()
         return;
     }
 
-    auto *action = actionCollection()->action(QStringLiteral("toggle-window-state"));
-    const QList<QKeySequence> &shortcuts = KGlobalAccel::self()->shortcut(action);
+    const QList<QKeySequence> &shortcuts = KGlobalAccel::self()->globalShortcut(QStringLiteral("org.kde.yakuake.desktop"), QStringLiteral("_launch"));
     if (!shortcuts.isEmpty()) {
         const QString shortcut(shortcuts.first().toString(QKeySequence::NativeText));
         m_notifierItem->setToolTip(QStringLiteral("yakuake"), QStringLiteral("Yakuake"), xi18nc("@info", "Press <shortcut>%1</shortcut> to open", shortcut));

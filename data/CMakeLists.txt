@@ -8,5 +8,6 @@ ecm_generate_dbus_service_file(
 )
 
 install(FILES org.kde.yakuake.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES org.kde.yakuake.desktop DESTINATION ${KDE_INSTALL_DATADIR}/kglobalaccel)
 install(FILES org.kde.yakuake.appdata.xml DESTINATION  ${KDE_INSTALL_METAINFODIR})
 install(FILES yakuake.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})

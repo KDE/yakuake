@@ -184,3 +184,5 @@ X-DBUS-StartupType=Unique
 StartupNotify=false
 X-DBUS-ServiceName=org.kde.yakuake
 DBusActivatable=true
+X-KDE-Shortcuts=F12
+X-KDE-Migrate-Shortcut=yakuake,toggle-window-state
