@@ -47,21 +47,21 @@ ecm_add_app_icon(yakuake_SRCS ICONS ${ICONS_SRCS})
 
 target_link_libraries(yakuake
     Qt::Widgets
-    KF5::Archive
-    KF5::ConfigGui
-    KF5::CoreAddons
-    KF5::Crash
-    KF5::DBusAddons
-    KF5::GlobalAccel
-    KF5::I18n
-    KF5::IconThemes
-    KF5::KIOCore
-    KF5::NewStuff
-    KF5::Notifications
-    KF5::NotifyConfig
-    KF5::Parts
-    KF5::WidgetsAddons
-    KF5::WindowSystem)
+    KF${KF_MAJOR_VERSION}::Archive
+    KF${KF_MAJOR_VERSION}::ConfigGui
+    KF${KF_MAJOR_VERSION}::CoreAddons
+    KF${KF_MAJOR_VERSION}::Crash
+    KF${KF_MAJOR_VERSION}::DBusAddons
+    KF${KF_MAJOR_VERSION}::GlobalAccel
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::IconThemes
+    KF${KF_MAJOR_VERSION}::KIOCore
+    KF${KF_MAJOR_VERSION}::NewStuff
+    KF${KF_MAJOR_VERSION}::Notifications
+    KF${KF_MAJOR_VERSION}::NotifyConfig
+    KF${KF_MAJOR_VERSION}::Parts
+    KF${KF_MAJOR_VERSION}::WidgetsAddons
+    KF${KF_MAJOR_VERSION}::WindowSystem)
 
 if(HAVE_X11)
     if (TARGET Qt5::X11Extras)
@@ -71,8 +71,8 @@ if(HAVE_X11)
     endif()
 endif()
 
-if(KF5Wayland_FOUND)
-  target_link_libraries(yakuake KF5::WaylandClient)
+if(KF${KF_MAJOR_VERSION}Wayland_FOUND)
+  target_link_libraries(yakuake KF${KF_MAJOR_VERSION}::WaylandClient)
 endif()
 
 install(TARGETS yakuake ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

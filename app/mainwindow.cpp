@@ -324,13 +324,13 @@ void MainWindow::setupActions()
     action = actionCollection()->addAction(QStringLiteral("previous-session"));
     action->setText(xi18nc("@action", "Previous Session"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("go-previous")));
-    actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::SHIFT + Qt::Key_Left));
+    actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::SHIFT | Qt::Key_Left));
     connect(action, SIGNAL(triggered()), m_tabBar, SLOT(selectPreviousTab()));
 
     action = actionCollection()->addAction(QStringLiteral("next-session"));
     action->setText(xi18nc("@action", "Next Session"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("go-next")));
-    actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::SHIFT + Qt::Key_Right));
+    actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::SHIFT | Qt::Key_Right));
     connect(action, SIGNAL(triggered()), m_tabBar, SLOT(selectNextTab()));
 
     action = actionCollection()->addAction(QStringLiteral("move-session-left"));

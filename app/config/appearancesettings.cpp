@@ -425,14 +425,26 @@ void AppearanceSettings::getNewSkins()
     QPointer<KNS3::QtQuickDialogWrapper> dialog = new KNS3::QtQuickDialogWrapper(m_knsConfigFileName, this);
     dialog->open();
     connect(dialog, &KNS3::QtQuickDialogWrapper::closed, this, [this, dialog] {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         const QList<KNSCore::EntryInternal> changedEntries = dialog->changedEntries();
+#else
+            const QList<KNSCore::Entry> changedEntries = dialog->changedEntries();
+#endif
         quint32 invalidEntryCount = 0;
         QString invalidSkinText;
         for (const auto &_entry : changedEntries) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             if (_entry.status() != KNS3::Entry::Installed) {
+#else
+                if (_entry.status() != KNSCore::Entry::Installed) {
+#endif
                 continue;
             }
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             const KNSCore::EntryInternal &entry = _entry;
+#else
+                const KNSCore::Entry &entry = _entry;
+#endif
             bool isValid = true;
             const QSet<QString> &skinIdList = extractKnsSkinIds(entry.installedFiles());
 

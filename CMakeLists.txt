@@ -9,11 +9,11 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 project(yakuake VERSION ${RELEASE_SERVICE_VERSION})
 
 set (QT_MIN_VERSION "5.15.2")
-set (KF5_MIN_VERSION "5.91")
+set (KF${KF_MAJOR_VERSION}_MIN_VERSION "5.91")
 set (CMAKE_CXX_STANDARD 20)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF${KF_MAJOR_VERSION}_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 include(KDEInstallDirs)
@@ -25,6 +25,13 @@ include(FeatureSummary)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
+if (QT_MAJOR_VERSION STREQUAL "6")
+    set(QT_REQUIRED_VERSION "6.4.0")
+    set(KF_MIN_VERSION "5.240.0")
+    set(KF_MAJOR_VERSION "6")
+else()
+    set(KF_MAJOR_VERSION "5")
+endif()
 include(ECMGenerateDBusServiceFile)
 
 ecm_set_disabled_deprecation_versions(QT 5.15.2
@@ -36,7 +43,7 @@ option(REMOVE_SENDTEXT_RUNCOMMAND_DBUS_METHODS "yakuake: remove runCommand dbus 
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets Svg)
 
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
+find_package(KF${KF_MAJOR_VERSION} ${KF${KF_MAJOR_VERSION}_MIN_VERSION} REQUIRED
     Archive
     Config
     CoreAddons
@@ -68,8 +75,8 @@ if(NOT APPLE)
         endif()
     endif()
 
-    find_package(KF5Wayland ${KF5_MIN_VERSION} CONFIG)
-    set(HAVE_KWAYLAND ${KF5Wayland_FOUND})
+    find_package(KF${KF_MAJOR_VERSION}Wayland ${KF${KF_MAJOR_VERSION}_MIN_VERSION} CONFIG)
+    set(HAVE_KWAYLAND ${KF${KF_MAJOR_VERSION}Wayland_FOUND})
 endif()
 
 add_subdirectory(app)
