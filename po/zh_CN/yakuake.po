@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-21 02:35+0000\n"
-"PO-Revision-Date: 2023-02-07 11:05\n"
+"PO-Revision-Date: 2023-02-15 11:07\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -27,13 +27,13 @@ msgstr "未知"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
-msgstr "选择要安装的皮肤归档"
+msgstr "选择要安装的皮肤压缩包"
 
 #: app/config/appearancesettings.cpp:244
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
-msgstr "无法列出皮肤归档内容。"
+msgstr "无法列出该皮肤压缩包的内容。"
 
 #: app/config/appearancesettings.cpp:276
 #, kde-kuit-format
@@ -73,13 +73,13 @@ msgctxt "@info"
 msgid ""
 "Unable to locate required files in the skin archive.<nl/><nl/>The archive "
 "appears to be invalid."
-msgstr "无法在皮肤归档中定位文件。<nl/><nl/>归档似乎无效。"
+msgstr "无法在皮肤压缩包中定位文件。<nl/><nl/>该压缩包可能是无效文件。"
 
 #: app/config/appearancesettings.cpp:329
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
-msgstr "无法打开皮肤归档文件。"
+msgstr "无法打开皮肤压缩包文件。"
 
 #: app/config/appearancesettings.cpp:334
 #, kde-kuit-format
