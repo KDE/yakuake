@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-12 01:02+0000\n"
+"POT-Creation-Date: 2023-02-17 01:02+0000\n"
 "PO-Revision-Date: 2023-02-15 11:05\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -99,7 +99,7 @@ msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "移除皮肤"
 
-#: app/config/appearancesettings.cpp:477
+#: app/config/appearancesettings.cpp:489
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

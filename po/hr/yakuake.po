@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-12 01:02+0000\n"
+"POT-Creation-Date: 2023-02-17 01:02+0000\n"
 "PO-Revision-Date: 2011-05-27 14:02+0200\n"
 "Last-Translator: Marko Dimjašević <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -110,7 +110,7 @@ msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "Ukloni temu"
 
-#: app/config/appearancesettings.cpp:477
+#: app/config/appearancesettings.cpp:489
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

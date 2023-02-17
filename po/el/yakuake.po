@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-12 01:02+0000\n"
+"POT-Creation-Date: 2023-02-17 01:02+0000\n"
 "PO-Revision-Date: 2021-07-09 11:09+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -110,7 +110,7 @@ msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "Αφαίρεση θέματος"
 
-#: app/config/appearancesettings.cpp:477
+#: app/config/appearancesettings.cpp:489
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

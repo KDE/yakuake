@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-12 01:02+0000\n"
-"PO-Revision-Date: 2023-01-14 23:43+0400\n"
+"POT-Creation-Date: 2023-02-17 01:02+0000\n"
+"PO-Revision-Date: 2023-02-17 01:07+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: app/config/appearancesettings.cpp:153
 #, kde-kuit-format
@@ -105,7 +105,7 @@ msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "Xarici görünüşü ləğv edin"
 
-#: app/config/appearancesettings.cpp:477
+#: app/config/appearancesettings.cpp:489
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1054,7 +1054,7 @@ msgstr "Tətbiqin birinci açılışı"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether this is the first time the application is run."
-msgstr "Tətəbiq ilk dəfə açılıb-açılmaması"
+msgstr "Tətbiq ilk dəfə açılıb-açılmaması"
 
 #. i18n: ectx: label, entry (ConfirmQuit), group (Dialogs)
 #: app/config/yakuake.kcfg:202
