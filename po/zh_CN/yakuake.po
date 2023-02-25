@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-21 02:35+0000\n"
-"PO-Revision-Date: 2023-02-15 11:07\n"
+"PO-Revision-Date: 2023-02-24 12:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -27,13 +27,13 @@ msgstr "未知"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
-msgstr "选择要安装的皮肤压缩包"
+msgstr "选择要安装的皮肤包"
 
 #: app/config/appearancesettings.cpp:244
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
-msgstr "无法列出该皮肤压缩包的内容。"
+msgstr "无法列出该皮肤包的内容。"
 
 #: app/config/appearancesettings.cpp:276
 #, kde-kuit-format
@@ -41,19 +41,19 @@ msgctxt "@info"
 msgid ""
 "This skin appears to be already installed and you lack the required "
 "permissions to overwrite it."
-msgstr "此皮肤似乎已安装，但您没有覆盖它的所需权限。"
+msgstr "此皮肤似乎已经安装，而您没有覆盖它的权限。"
 
 #: app/config/appearancesettings.cpp:281
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
-msgstr "此皮肤似乎已安装。您想要覆盖它吗？"
+msgstr "此皮肤似乎已经安装。您想要覆盖它吗？"
 
 #: app/config/appearancesettings.cpp:282
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
-msgstr "皮肤已存在"
+msgstr "皮肤已经存在"
 
 #: app/config/appearancesettings.cpp:283
 #, kde-kuit-format
