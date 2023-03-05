@@ -1054,7 +1054,7 @@ msgstr "<application>ياكواكي</application>"
 #, kde-kuit-format
 msgctxt "@title"
 msgid "A drop-down terminal emulator based on KDE Konsole technology."
-msgstr "محاكي طرفيّة منسدل مبنيّ على تقنيّة «طرفيّة كدي»."
+msgstr "محاكي طرفيّة منسدل مبنيّ على تقنيّة «طرفيّة كِيدِي»."
 
 #: app/main.cpp:32
 #, kde-kuit-format
