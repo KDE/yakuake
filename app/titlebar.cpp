@@ -129,13 +129,13 @@ void TitleBar::paintEvent(QPaintEvent *)
     font.setBold(m_skin->titleBarTextBold());
     painter.setFont(font);
 
-    const QString title = this->title();
+    const QString titleAsString = this->title();
     if (m_skin->titleBarTextCentered()
-        && width() > m_skin->titleBarTextPosition().x() + painter.fontMetrics().horizontalAdvance(title) + m_focusButton->width() + m_quitButton->width()
-                + m_menuButton->width())
-        painter.drawText(0, 0, width(), height(), Qt::AlignCenter, title);
+        && width() > m_skin->titleBarTextPosition().x() + painter.fontMetrics().horizontalAdvance(titleAsString) + m_focusButton->width()
+                + m_quitButton->width() + m_menuButton->width())
+        painter.drawText(0, 0, width(), height(), Qt::AlignCenter, titleAsString);
     else
-        painter.drawText(m_skin->titleBarTextPosition(), title);
+        painter.drawText(m_skin->titleBarTextPosition(), titleAsString);
 
     painter.end();
 }
