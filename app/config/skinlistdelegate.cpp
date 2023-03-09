@@ -69,7 +69,6 @@ void SkinListDelegate::paintText(QPainter *painter, const QStyleOptionViewItem &
     int initialY = option.rect.y();
     int x = option.rect.x() + ICON + (3 * MARGIN);
     int y = initialY;
-    int textWidth = 0;
     int width = option.rect.width() - ICON - (3 * MARGIN);
 
     if (option.state & QStyle::State_Selected)
@@ -85,7 +84,7 @@ void SkinListDelegate::paintText(QPainter *painter, const QStyleOptionViewItem &
         QFontMetrics fontMetrics(font);
 
         QRect textRect = fontMetrics.boundingRect(value.toString());
-        textWidth = textRect.width();
+        int textWidth = textRect.width();
 
         if (option.direction == Qt::RightToLeft) {
             if (width < textWidth)
