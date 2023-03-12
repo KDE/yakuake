@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-17 01:02+0000\n"
-"PO-Revision-Date: 2023-02-24 12:44\n"
+"PO-Revision-Date: 2023-03-11 04:55\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/yakuake/yakuake.pot\n"
-"X-Crowdin-File-ID: 10640\n"
+"X-Crowdin-File: /kf5-stable/messages/yakuake/yakuake.pot\n"
+"X-Crowdin-File-ID: 10802\n"
 
 #: app/config/appearancesettings.cpp:153
 #, kde-kuit-format
@@ -1451,7 +1451,7 @@ msgstr "屏幕 %1"
 #: app/mainwindow.cpp:740 app/mainwindow.cpp:762
 #, kde-format
 msgid "%1%"
-msgstr "%1%"
+msgstr ""
 
 #: app/mainwindow.cpp:827
 #, kde-kuit-format
