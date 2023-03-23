@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-17 01:02+0000\n"
+"POT-Creation-Date: 2023-03-23 00:50+0000\n"
 "PO-Revision-Date: 2023-03-11 04:53\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -330,7 +330,7 @@ msgctxt "@option:check"
 msgid "Confirm quit when more than one session is open"
 msgstr "多个会话打开时确认退出"
 
-#: app/config/skinlistdelegate.cpp:125 app/config/skinlistdelegate.cpp:165
+#: app/config/skinlistdelegate.cpp:124 app/config/skinlistdelegate.cpp:164
 #, kde-kuit-format
 msgctxt "@item:intext"
 msgid "by %1"

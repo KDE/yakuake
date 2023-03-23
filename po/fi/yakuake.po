@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-17 01:02+0000\n"
+"POT-Creation-Date: 2023-03-23 00:50+0000\n"
 "PO-Revision-Date: 2022-02-05 17:53+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -354,7 +354,7 @@ msgctxt "@option:check"
 msgid "Confirm quit when more than one session is open"
 msgstr "Vahvista lopetus, kun useampia istuntoja on auki"
 
-#: app/config/skinlistdelegate.cpp:125 app/config/skinlistdelegate.cpp:165
+#: app/config/skinlistdelegate.cpp:124 app/config/skinlistdelegate.cpp:164
 #, kde-kuit-format
 msgctxt "@item:intext"
 msgid "by %1"

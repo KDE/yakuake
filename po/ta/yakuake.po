@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-17 01:02+0000\n"
+"POT-Creation-Date: 2023-03-23 00:50+0000\n"
 "PO-Revision-Date: 2022-11-22 21:41+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -324,7 +324,7 @@ msgctxt "@option:check"
 msgid "Confirm quit when more than one session is open"
 msgstr "பல அமர்வுகள் திறக்கப்பட்டிருந்தால் வெளியேறுவதை உறுதிப்படுத்து"
 
-#: app/config/skinlistdelegate.cpp:125 app/config/skinlistdelegate.cpp:165
+#: app/config/skinlistdelegate.cpp:124 app/config/skinlistdelegate.cpp:164
 #, kde-kuit-format
 msgctxt "@item:intext"
 msgid "by %1"

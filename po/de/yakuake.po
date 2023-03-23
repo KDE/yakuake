@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-17 01:02+0000\n"
+"POT-Creation-Date: 2023-03-23 00:50+0000\n"
 "PO-Revision-Date: 2023-03-12 17:20+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -351,7 +351,7 @@ msgctxt "@option:check"
 msgid "Confirm quit when more than one session is open"
 msgstr "Beenden bestätigen, wenn mehr als eine Sitzung geöffnet ist"
 
-#: app/config/skinlistdelegate.cpp:125 app/config/skinlistdelegate.cpp:165
+#: app/config/skinlistdelegate.cpp:124 app/config/skinlistdelegate.cpp:164
 #, kde-kuit-format
 msgctxt "@item:intext"
 msgid "by %1"

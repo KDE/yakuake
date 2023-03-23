@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-17 01:02+0000\n"
+"POT-Creation-Date: 2023-03-23 00:50+0000\n"
 "PO-Revision-Date: 2020-03-13 22:03+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -332,7 +332,7 @@ msgctxt "@option:check"
 msgid "Confirm quit when more than one session is open"
 msgstr "當有一個以上的工作階段存在時，確認是否真的要離開"
 
-#: app/config/skinlistdelegate.cpp:125 app/config/skinlistdelegate.cpp:165
+#: app/config/skinlistdelegate.cpp:124 app/config/skinlistdelegate.cpp:164
 #, kde-kuit-format
 msgctxt "@item:intext"
 msgid "by %1"
