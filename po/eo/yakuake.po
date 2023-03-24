@@ -1,4 +1,5 @@
 # Translation of yakuake into esperanto.
+# Copyright (C) 2009 Free Software Foundation, Inc.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
 #
 msgid ""
@@ -6,8 +7,8 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-23 00:50+0000\n"
-"PO-Revision-Date: 2009-11-15 12:06+0100\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-03-23 21:50+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -1380,11 +1381,10 @@ msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr ""
 
 #: app/mainwindow.cpp:671
-#, fuzzy, kde-kuit-format
-#| msgid "&Help"
+#, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
-msgstr "&Helpo"
+msgstr "Helpo"
 
 #: app/mainwindow.cpp:677
 #, kde-kuit-format
@@ -1411,11 +1411,10 @@ msgid "Height"
 msgstr ""
 
 #: app/mainwindow.cpp:696
-#, fuzzy, kde-kuit-format
-#| msgid "&Settings"
+#, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
-msgstr "&Agordo"
+msgstr "Agordo"
 
 #: app/mainwindow.cpp:712
 #, kde-kuit-format
@@ -1626,22 +1625,22 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Open Menu"
-msgstr ""
+msgstr "Malfermi Menuon"
 
 #: app/titlebar.cpp:45
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Opens the main menu."
-msgstr ""
+msgstr "Malfermas la ĉefmenuon."
 
 #: app/titlebar.cpp:50
 #, kde-kuit-format
 msgctxt "@info:tooltip Quits the application"
 msgid "Quit"
-msgstr ""
+msgstr "Forlasi"
 
 #: app/titlebar.cpp:51
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Quits the application."
-msgstr ""
+msgstr "Ĉesigas la aplikaĵon."
