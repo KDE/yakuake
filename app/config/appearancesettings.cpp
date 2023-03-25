@@ -13,8 +13,13 @@
 #include <KJobUiDelegate>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KNS3/QtQuickDialogWrapper>
 #include <KTar>
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#include <KNS3/QtQuickDialogWrapper>
+#else
+#include <KNSWidgets/QtQuickDialogWrapper>
+#endif
 
 #include <QDir>
 #include <QDirIterator>
@@ -24,6 +29,10 @@
 #include <QStandardItemModel>
 
 #include <unistd.h>
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+namespace KNS3 = KNSWidgets;
+#endif
 
 AppearanceSettings::AppearanceSettings(QWidget *parent)
     : QWidget(parent)
