@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-23 00:50+0000\n"
+"POT-Creation-Date: 2023-03-26 00:51+0000\n"
 "PO-Revision-Date: 2014-10-20 20:23+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: bs <bs@kde.org>\n"
@@ -20,13 +20,13 @@ msgstr ""
 "X-Generator: Launchpad (build 17341)\n"
 "X-Launchpad-Export-Date: 2015-02-15 06:25+0000\n"
 
-#: app/config/appearancesettings.cpp:153
+#: app/config/appearancesettings.cpp:162
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
 msgstr "Nepoznat"
 
-#: app/config/appearancesettings.cpp:198
+#: app/config/appearancesettings.cpp:207
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Unable to list the skin archive contents."
@@ -34,13 +34,13 @@ msgctxt "@title:window"
 msgid "Select the skin archive to install"
 msgstr "Nemoguće izlistati listu maski u arhivi."
 
-#: app/config/appearancesettings.cpp:244
+#: app/config/appearancesettings.cpp:253
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
 msgstr "Nemoguće izlistati listu maski u arhivi."
 
-#: app/config/appearancesettings.cpp:276
+#: app/config/appearancesettings.cpp:285
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -49,31 +49,31 @@ msgid ""
 msgstr ""
 "Maska je već instalirana i nemate potrebnu dozvolu da je ponovo instalirate."
 
-#: app/config/appearancesettings.cpp:281
+#: app/config/appearancesettings.cpp:290
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
 msgstr "Maska je već instaliran. Da li želite da je ponovo instalirate?"
 
-#: app/config/appearancesettings.cpp:282
+#: app/config/appearancesettings.cpp:291
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
 msgstr "Maska već postoji"
 
-#: app/config/appearancesettings.cpp:283
+#: app/config/appearancesettings.cpp:292
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
 msgstr "Ponovo instaliraj masku"
 
-#: app/config/appearancesettings.cpp:301
+#: app/config/appearancesettings.cpp:310
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
 msgstr "Nemoguće izbrisati masku"
 
-#: app/config/appearancesettings.cpp:326
+#: app/config/appearancesettings.cpp:335
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -82,31 +82,31 @@ msgid ""
 msgstr ""
 "Nemoguće  locirati fajlove  u  arhivi maski. <nl/><nl/> Arhiva je neispravna."
 
-#: app/config/appearancesettings.cpp:329
+#: app/config/appearancesettings.cpp:338
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
 msgstr "Fajl iz arhive maski se ne može otvoriti."
 
-#: app/config/appearancesettings.cpp:334
+#: app/config/appearancesettings.cpp:343
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
 msgstr "Nemoguće instalirati masku"
 
-#: app/config/appearancesettings.cpp:378
+#: app/config/appearancesettings.cpp:387
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
 msgstr "Da li želite ukloniti  \"%1\" sa %2?"
 
-#: app/config/appearancesettings.cpp:379
+#: app/config/appearancesettings.cpp:388
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "Ukloni masku"
 
-#: app/config/appearancesettings.cpp:489
+#: app/config/appearancesettings.cpp:498
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-23 00:50+0000\n"
+"POT-Creation-Date: 2023-03-26 00:51+0000\n"
 "PO-Revision-Date: 2010-02-25 23:25+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -19,13 +19,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 1.0\n"
 
-#: app/config/appearancesettings.cpp:153
+#: app/config/appearancesettings.cpp:162
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
-#: app/config/appearancesettings.cpp:198
+#: app/config/appearancesettings.cpp:207
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Unable to list the skin archive contents."
@@ -33,13 +33,13 @@ msgctxt "@title:window"
 msgid "Select the skin archive to install"
 msgstr "ไม่สามารถเรียกรายการเนื้อหาภายในแฟ้มจัดเก็บชุดตกแต่งได้"
 
-#: app/config/appearancesettings.cpp:244
+#: app/config/appearancesettings.cpp:253
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
 msgstr "ไม่สามารถเรียกรายการเนื้อหาภายในแฟ้มจัดเก็บชุดตกแต่งได้"
 
-#: app/config/appearancesettings.cpp:276
+#: app/config/appearancesettings.cpp:285
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -50,31 +50,31 @@ msgid ""
 "permissions to overwrite it."
 msgstr "ชุดตกแต่งนี้ถูกติดตั้งไว้อยู่แล้ว คุณต้องการจะเขียนทับมันหรือไม่ ?"
 
-#: app/config/appearancesettings.cpp:281
+#: app/config/appearancesettings.cpp:290
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
 msgstr "ชุดตกแต่งนี้ถูกติดตั้งไว้อยู่แล้ว คุณต้องการจะเขียนทับมันหรือไม่ ?"
 
-#: app/config/appearancesettings.cpp:282
+#: app/config/appearancesettings.cpp:291
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
 msgstr "มีชุดตกแต่งอยู่แล้ว"
 
-#: app/config/appearancesettings.cpp:283
+#: app/config/appearancesettings.cpp:292
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
 msgstr "ติดตั้งชุดตกแต่งอีกครั้ง"
 
-#: app/config/appearancesettings.cpp:301
+#: app/config/appearancesettings.cpp:310
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
 msgstr "ไม่สามารถลบชุดตกแต่งได้"
 
-#: app/config/appearancesettings.cpp:326
+#: app/config/appearancesettings.cpp:335
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -82,31 +82,31 @@ msgid ""
 "appears to be invalid."
 msgstr ""
 
-#: app/config/appearancesettings.cpp:329
+#: app/config/appearancesettings.cpp:338
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
 msgstr "ไม่สามารถเปิดแฟ้มจัดเก็บชุดตกแต่งได้"
 
-#: app/config/appearancesettings.cpp:334
+#: app/config/appearancesettings.cpp:343
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
 msgstr "ไม่สามารถติดตั้งชุดตกแต่งได้"
 
-#: app/config/appearancesettings.cpp:378
+#: app/config/appearancesettings.cpp:387
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
 msgstr "คุณต้องการจะลบชุดตกแต่ง \"%1\" โดย %2 จริงหรือไม่ ?"
 
-#: app/config/appearancesettings.cpp:379
+#: app/config/appearancesettings.cpp:388
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "ลบชุดตกแต่ง"
 
-#: app/config/appearancesettings.cpp:489
+#: app/config/appearancesettings.cpp:498
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

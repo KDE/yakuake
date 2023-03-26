@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-23 00:50+0000\n"
+"POT-Creation-Date: 2023-03-26 00:51+0000\n"
 "PO-Revision-Date: 2012-07-11 11:30+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -20,13 +20,13 @@ msgstr ""
 "X-Generator: WordForge 0.8 RC1\n"
 "X-Language: km-KH\n"
 
-#: app/config/appearancesettings.cpp:153
+#: app/config/appearancesettings.cpp:162
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
 msgstr "មិន​ស្គាល់"
 
-#: app/config/appearancesettings.cpp:198
+#: app/config/appearancesettings.cpp:207
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Unable to list the skin archive contents."
@@ -34,13 +34,13 @@ msgctxt "@title:window"
 msgid "Select the skin archive to install"
 msgstr "មិន​អាច​រាយ​បញ្ជី​មាតិកា​ប័ណ្ណសារ​ស្បែក​បាន​ទេ ។"
 
-#: app/config/appearancesettings.cpp:244
+#: app/config/appearancesettings.cpp:253
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
 msgstr "មិន​អាច​រាយ​បញ្ជី​មាតិកា​ប័ណ្ណសារ​ស្បែក​បាន​ទេ ។"
 
-#: app/config/appearancesettings.cpp:276
+#: app/config/appearancesettings.cpp:285
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -49,31 +49,31 @@ msgid ""
 msgstr ""
 "ស្បែក​​លេច​ឡើង​នេះ​ ត្រូវ​បាន​ដំឡើង​រួច​ហើយ ហើយ​អ្នក​បាត់​សិទ្ធិ​ដែល​បាន​ទាមទារ​ ដើម្បី​សរសេរ​ជាន់​លើ​វា ។"
 
-#: app/config/appearancesettings.cpp:281
+#: app/config/appearancesettings.cpp:290
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
 msgstr "ស្បែក​លេចឡើង​នេះ ត្រូវ​បាន​ដំឡើង​រួចហើយ ។ តើ​អ្នក​ចង់​សរសេរ​ជាន់​លើ​វា​ឬ ?"
 
-#: app/config/appearancesettings.cpp:282
+#: app/config/appearancesettings.cpp:291
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
 msgstr "មាន​ស្បែក​រួចហើយ"
 
-#: app/config/appearancesettings.cpp:283
+#: app/config/appearancesettings.cpp:292
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
 msgstr "ដំឡើង​ស្បែក​ឡើងវិញ"
 
-#: app/config/appearancesettings.cpp:301
+#: app/config/appearancesettings.cpp:310
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
 msgstr "មិន​អាច​លុប​ស្បែក​បាន​ទេ"
 
-#: app/config/appearancesettings.cpp:326
+#: app/config/appearancesettings.cpp:335
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -83,31 +83,31 @@ msgstr ""
 "មិន​អាច​រក​​ឃើញ​ទីតាំង​ឯកសារ​ដែល​ទាមទារ​នៅ​ក្នុង​ប័ណ្ណសារ​ស្បែក​ឡើយ ។<nl/><nl/>ប័ណ្ណសារ​លេចឡើង​មិន​"
 "ត្រឹមត្រូវ ។"
 
-#: app/config/appearancesettings.cpp:329
+#: app/config/appearancesettings.cpp:338
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
 msgstr "មិន​អាច​បើក​ឯកសារ​ប័ណ្ណសារ​ស្បែក​​បាន​ទេ ។"
 
-#: app/config/appearancesettings.cpp:334
+#: app/config/appearancesettings.cpp:343
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
 msgstr "មិន​អាច​ដំឡើង​ស្បែក​បាន​ទេ"
 
-#: app/config/appearancesettings.cpp:378
+#: app/config/appearancesettings.cpp:387
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
 msgstr "តើ​អ្នក​ចង់​យក \"%1\" ចេញ​ដោយ %2 ?"
 
-#: app/config/appearancesettings.cpp:379
+#: app/config/appearancesettings.cpp:388
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "យក​ស្បែក​ចេញ"
 
-#: app/config/appearancesettings.cpp:489
+#: app/config/appearancesettings.cpp:498
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

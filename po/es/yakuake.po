@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-23 00:50+0000\n"
+"POT-Creation-Date: 2023-03-26 00:51+0000\n"
 "PO-Revision-Date: 2022-11-21 00:23+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -23,26 +23,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.11.80\n"
 
-#: app/config/appearancesettings.cpp:153
+#: app/config/appearancesettings.cpp:162
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: app/config/appearancesettings.cpp:198
+#: app/config/appearancesettings.cpp:207
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
 msgstr "Seleccione el archivo de piel a instalar"
 
-#: app/config/appearancesettings.cpp:244
+#: app/config/appearancesettings.cpp:253
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
 msgstr ""
 "Incapaz de mostrar la lista de contenido del archivo comprimido de la piel."
 
-#: app/config/appearancesettings.cpp:276
+#: app/config/appearancesettings.cpp:285
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -52,31 +52,31 @@ msgstr ""
 "Esta piel parece estar ya instalada y no tiene los permisos necesarios para "
 "sobrescribirla."
 
-#: app/config/appearancesettings.cpp:281
+#: app/config/appearancesettings.cpp:290
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
 msgstr "La piel parece estar ya instalada. ¿Desea sobrescribirla?"
 
-#: app/config/appearancesettings.cpp:282
+#: app/config/appearancesettings.cpp:291
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
 msgstr "Piel ya existente"
 
-#: app/config/appearancesettings.cpp:283
+#: app/config/appearancesettings.cpp:292
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
 msgstr "Reinstalar piel"
 
-#: app/config/appearancesettings.cpp:301
+#: app/config/appearancesettings.cpp:310
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
 msgstr "No se puede borrar la piel"
 
-#: app/config/appearancesettings.cpp:326
+#: app/config/appearancesettings.cpp:335
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -86,31 +86,31 @@ msgstr ""
 "Incapaz de localizar los archivos requeridos en el archivo comprimido de la "
 "piel.<nl/><nl/> El archivo comprimido aparece como inválido."
 
-#: app/config/appearancesettings.cpp:329
+#: app/config/appearancesettings.cpp:338
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
 msgstr "El archivo comprimido de la piel no puede ser abierto."
 
-#: app/config/appearancesettings.cpp:334
+#: app/config/appearancesettings.cpp:343
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
 msgstr "No se puede instalar la piel"
 
-#: app/config/appearancesettings.cpp:378
+#: app/config/appearancesettings.cpp:387
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
 msgstr "¿Desea eliminar «%1» por %2?"
 
-#: app/config/appearancesettings.cpp:379
+#: app/config/appearancesettings.cpp:388
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "Eliminar piel"
 
-#: app/config/appearancesettings.cpp:489
+#: app/config/appearancesettings.cpp:498
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-23 00:50+0000\n"
+"POT-Creation-Date: 2023-03-26 00:51+0000\n"
 "PO-Revision-Date: 2022-02-08 20:30+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -20,25 +20,25 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.04.2\n"
 
-#: app/config/appearancesettings.cpp:153
+#: app/config/appearancesettings.cpp:162
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
 msgstr "Ukendt"
 
-#: app/config/appearancesettings.cpp:198
+#: app/config/appearancesettings.cpp:207
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
 msgstr "Vælg det temaarkiv som skal installeres"
 
-#: app/config/appearancesettings.cpp:244
+#: app/config/appearancesettings.cpp:253
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
 msgstr "Kan ikke lave liste over tema-arkivets indhold."
 
-#: app/config/appearancesettings.cpp:276
+#: app/config/appearancesettings.cpp:285
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -48,31 +48,31 @@ msgstr ""
 "Temaet lader til allerede at være installeret og du mangler de nødvendige "
 "rettigheder til at overskrive det."
 
-#: app/config/appearancesettings.cpp:281
+#: app/config/appearancesettings.cpp:290
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
 msgstr "Temaet lader til allerede at være installeret. Vil du overskrive det?"
 
-#: app/config/appearancesettings.cpp:282
+#: app/config/appearancesettings.cpp:291
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
 msgstr "Temaet findes allerede"
 
-#: app/config/appearancesettings.cpp:283
+#: app/config/appearancesettings.cpp:292
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
 msgstr "Geninstallér tema"
 
-#: app/config/appearancesettings.cpp:301
+#: app/config/appearancesettings.cpp:310
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
 msgstr "Kunne ikke slette tema"
 
-#: app/config/appearancesettings.cpp:326
+#: app/config/appearancesettings.cpp:335
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -82,31 +82,31 @@ msgstr ""
 "Kan ikke finde påkrævede filer i tema-arkivet.<nl/><nl/>Arkivet lader til at "
 "være ugyldigt."
 
-#: app/config/appearancesettings.cpp:329
+#: app/config/appearancesettings.cpp:338
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
 msgstr "Tema-arkivfilen kunne ikke åbnes."
 
-#: app/config/appearancesettings.cpp:334
+#: app/config/appearancesettings.cpp:343
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
 msgstr "Kan ikke installere tema"
 
-#: app/config/appearancesettings.cpp:378
+#: app/config/appearancesettings.cpp:387
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
 msgstr "Vil du fjerne \"%1\" ved at %2?"
 
-#: app/config/appearancesettings.cpp:379
+#: app/config/appearancesettings.cpp:388
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "Fjern tema"
 
-#: app/config/appearancesettings.cpp:489
+#: app/config/appearancesettings.cpp:498
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
