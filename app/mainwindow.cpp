@@ -881,7 +881,11 @@ void MainWindow::applySettings()
 
         // Prevent the default implementation of showing
         // and instead run toggleWindowState
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         m_notifierItem->setAssociatedWidget(nullptr);
+#else
+        m_notifierItem->setAssociatedWindow(nullptr);
+#endif
         connect(m_notifierItem, &KStatusNotifierItem::activateRequested, this, &MainWindow::toggleWindowState);
         updateTrayTooltip();
     }
