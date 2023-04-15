@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-26 00:51+0000\n"
+"POT-Creation-Date: 2023-04-15 00:52+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -1476,7 +1476,7 @@ msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "كۆرۈنۈشى"
 
-#: app/mainwindow.cpp:915
+#: app/mainwindow.cpp:919
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1484,13 +1484,13 @@ msgid ""
 "that it was installed incorrectly.<nl/><nl/>The application will now quit."
 msgstr ""
 
-#: app/mainwindow.cpp:917
+#: app/mainwindow.cpp:921
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr ""
 
-#: app/mainwindow.cpp:1659
+#: app/mainwindow.cpp:1663
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"

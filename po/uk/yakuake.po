@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-26 00:51+0000\n"
+"POT-Creation-Date: 2023-04-15 00:52+0000\n"
 "PO-Revision-Date: 2022-11-20 08:42+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -1547,7 +1547,7 @@ msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Вигляд"
 
-#: app/mainwindow.cpp:915
+#: app/mainwindow.cpp:919
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1558,13 +1558,13 @@ msgstr ""
 "за все його було некоректно встановлено.<nl/><nl/>Тепер програма аварійно "
 "завершить роботу."
 
-#: app/mainwindow.cpp:917
+#: app/mainwindow.cpp:921
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Не вдалося завантажити оболонку"
 
-#: app/mainwindow.cpp:1659
+#: app/mainwindow.cpp:1663
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"

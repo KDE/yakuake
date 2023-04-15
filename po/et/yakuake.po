@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-26 00:51+0000\n"
+"POT-Creation-Date: 2023-04-15 00:52+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -1516,7 +1516,7 @@ msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Välimus"
 
-#: app/mainwindow.cpp:915
+#: app/mainwindow.cpp:919
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1526,13 +1526,13 @@ msgstr ""
 "<application>Yakuake</application> ei suutnud nahka laadida. Tõenäoliselt on "
 "see vääralt paigaldatud.<nl/><nl/>Rakendus lõpetab nüüd töö."
 
-#: app/mainwindow.cpp:917
+#: app/mainwindow.cpp:921
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Naha laadiamine nurjus"
 
-#: app/mainwindow.cpp:1659
+#: app/mainwindow.cpp:1663
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"

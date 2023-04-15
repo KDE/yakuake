@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-26 00:51+0000\n"
+"POT-Creation-Date: 2023-04-15 00:52+0000\n"
 "PO-Revision-Date: 2020-03-13 22:03+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -1474,7 +1474,7 @@ msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "外觀"
 
-#: app/mainwindow.cpp:915
+#: app/mainwindow.cpp:919
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1484,13 +1484,13 @@ msgstr ""
 "<application>Yakuake</application> 無法載入外觀。有可能是因為安裝不正確。<nl/"
 "><nl/>應用程式將離開。"
 
-#: app/mainwindow.cpp:917
+#: app/mainwindow.cpp:921
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "無法載入外觀"
 
-#: app/mainwindow.cpp:1659
+#: app/mainwindow.cpp:1663
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
