@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-26 00:51+0000\n"
+"POT-Creation-Date: 2023-04-15 00:52+0000\n"
 "PO-Revision-Date: 2023-01-15 12:23+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -1519,7 +1519,7 @@ msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Utsjånad"
 
-#: app/mainwindow.cpp:915
+#: app/mainwindow.cpp:919
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1529,13 +1529,13 @@ msgstr ""
 "<application>Yakuake</application> klarte ikkje lasta temaet. Truleg er det "
 "ikkje rett installert.<nl/><nl/>Programmet vert no avslutta."
 
-#: app/mainwindow.cpp:917
+#: app/mainwindow.cpp:921
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Klarte ikkje lasta tema"
 
-#: app/mainwindow.cpp:1659
+#: app/mainwindow.cpp:1663
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
