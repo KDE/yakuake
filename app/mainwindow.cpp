@@ -933,10 +933,12 @@ void MainWindow::applyWindowProperties()
             KWindowSystem::setState(winId(), NET::KeepAbove | NET::SkipTaskbar | NET::SkipPager);
     }
 
+#if HAVE_KWAYLAND
     if (m_isWayland && m_plasmaShellSurface) {
         m_plasmaShellSurface->setSkipTaskbar(true);
         m_plasmaShellSurface->setSkipSwitcher(true);
     }
+#endif
 
     KX11Extras::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
     KWindowEffects::enableBlurBehind(windowHandle(), m_sessionStack->wantsBlur());
