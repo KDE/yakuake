@@ -4,14 +4,14 @@
 # mvillarino <mvillarino@users.sourceforge.net>, 2008, 2009.
 # Xabier Villar <xabier.villar@gmail.com>, 2011, 2012, 2013.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2016, 2017.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-30 04:17+0000\n"
-"PO-Revision-Date: 2020-01-12 12:52+0100\n"
+"PO-Revision-Date: 2023-04-30 11:06+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.08.3\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #: app/config/appearancesettings.cpp:153
 #, kde-kuit-format
@@ -155,7 +155,7 @@ msgstr "Realzar as terminais cando se mova o foco entre elas"
 #: app/config/appearancesettings.ui:45
 #, kde-format
 msgid "Hide borders"
-msgstr ""
+msgstr "Agochar os bordos"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/appearancesettings.ui:55
@@ -206,10 +206,9 @@ msgid ""
 "This allows influencing the opacity and color tint of translucent areas of "
 "the skin."
 msgstr ""
-"Se utiliza transparencias, a cor de fondo preencherase empregando a "
-"opacidade dada antes de que os elementos do tema se pinten sobre o fondo. "
-"Isto permite influír na opacidade e no ton da cor das áreas transparentes do "
-"tema."
+"Se utiliza transparencias, a cor de fondo encherase empregando a opacidade "
+"dada antes de que os elementos do tema se pinten sobre o fondo. Isto permite "
+"influír na opacidade e no ton da cor das áreas transparentes do tema."
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Width)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Height)
@@ -323,7 +322,7 @@ msgstr "Lembrar e restaurar o estado de pantalla completa da xanela"
 #: app/config/behaviorsettings.ui:108
 #, kde-format
 msgid "Show system tray icon"
-msgstr ""
+msgstr "Mostrar a icona na zona de notificacións"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpen)
 #: app/config/behaviorsettings.ui:118
@@ -369,23 +368,19 @@ msgstr "Pantalla %1"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
-msgstr ""
+msgstr "Agochar a barra de título"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_0)
 #: app/config/windowsettings.ui:32
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Tab Bar"
+#, kde-format
 msgid "Title Bar"
-msgstr "Barra de separadores"
+msgstr "Barra de título"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTitleBar)
 #: app/config/windowsettings.ui:38
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Show tab bar"
+#, kde-format
 msgid "Show title bar"
-msgstr "Mostrar a barra de separadores"
+msgstr "Mostrar a barra do título"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: app/config/windowsettings.ui:54
@@ -682,21 +677,17 @@ msgstr ""
 
 #. i18n: ectx: label, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:60
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Show tab bar"
+#, kde-format
 msgctxt "@label"
 msgid "Show title bar"
-msgstr "Mostrar a barra de separadores"
+msgstr "Mostrar a barra do título"
 
 #. i18n: ectx: whatsthis, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:61
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Whether to show the tab bar in the application window."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the title bar in the application window."
-msgstr "Indica se mostrar a barra de separadores na xanela da aplicación."
+msgstr "Indica se mostrar a barra do título na xanela da aplicación."
 
 #. i18n: ectx: label, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:65
@@ -732,16 +723,14 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Show a system tray icon"
-msgstr ""
+msgstr "Mostrar a icona na zona de notificacións."
 
 #. i18n: ectx: whatsthis, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:76
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Whether to show the tab bar in the application window."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show a system tray icon."
-msgstr "Indica se mostrar a barra de separadores na xanela da aplicación."
+msgstr "Se mostrar unha icona na zona de notificacións."
 
 #. i18n: ectx: label, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:82
@@ -890,7 +879,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Hide the borders defined by the skin"
-msgstr ""
+msgstr "Agochar os bordos que define a aparencia"
 
 #. i18n: ectx: whatsthis, entry (HideSkinBorders), group (Appearance)
 #: app/config/yakuake.kcfg:132
@@ -901,6 +890,9 @@ msgid ""
 "option, when turned on, will overwrite the border settings defined by the "
 "skin and hide all borders."
 msgstr ""
+"As aparencias poden definir bordos arredor do terminal, incluída a barra de "
+"separadores. Esta opción, ao activala, ignorará a configuración de bordos da "
+"aparencia e agochará todos os bordos."
 
 #. i18n: ectx: label, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:136
@@ -1451,7 +1443,7 @@ msgstr "Monitor de silencio"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
-msgstr ""
+msgstr "Conmutar a barra do título"
 
 #: app/mainwindow.cpp:452
 #, kde-kuit-format
@@ -1522,7 +1514,7 @@ msgstr "Pantalla %1"
 #: app/mainwindow.cpp:740 app/mainwindow.cpp:762
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: app/mainwindow.cpp:827
 #, kde-kuit-format
@@ -1562,7 +1554,7 @@ msgstr "Non se pode cargar a Aparencia"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
-msgstr ""
+msgstr "Prema <shortcut>%1</shortcut> para abrir"
 
 # skip-rule: PT-2010-dual_command
 #: app/sessionstack.cpp:257
