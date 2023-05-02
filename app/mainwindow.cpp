@@ -1502,7 +1502,7 @@ void MainWindow::setFullScreen(bool state)
 
 int MainWindow::getScreen()
 {
-    if (!Settings::screen() || Settings::screen() > QGuiApplication::screens().length()) {
+    if (Settings::screen() <= 0 || Settings::screen() > QGuiApplication::screens().length()) {
         auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.KWin"),
                                                       QStringLiteral("/KWin"),
                                                       QStringLiteral("org.kde.KWin"),
