@@ -76,16 +76,13 @@ target_link_libraries(yakuake
     KF6::ColorScheme
     Wayland::Client
     Qt::WaylandClient
+    LayerShellQt::Interface
 )
 
 if(HAVE_X11)
     if(TARGET Qt6::Gui)
         target_link_libraries(yakuake Qt6::GuiPrivate XCB::RANDR XCB::UTIL) # qtx11extras_p.h
     endif()
-endif()
-
-if(KWayland_FOUND)
-  target_link_libraries(yakuake Plasma::KWaylandClient)
 endif()
 
 install(TARGETS yakuake ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
