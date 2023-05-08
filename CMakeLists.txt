@@ -75,8 +75,8 @@ if(NOT APPLE)
         endif()
     endif()
 
-    find_package(KF${KF_MAJOR_VERSION}Wayland ${KF_MIN_VERSION} CONFIG)
-    set(HAVE_KWAYLAND KF${KF_MAJOR_VERSION}Wayland_FOUND)
+    find_package(LayerShellQt CONFIG)
+    set(HAVE_LAYERSHELL LayerShellQt_FOUND})
 endif()
 
 add_subdirectory(app)

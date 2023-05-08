@@ -56,11 +56,8 @@
 #include <fixx11h.h>
 #endif
 
-#if HAVE_KWAYLAND
-#include <KWayland/Client/connection_thread.h>
-#include <KWayland/Client/plasmashell.h>
-#include <KWayland/Client/registry.h>
-#include <KWayland/Client/surface.h>
+#if HAVE_LAYERSHELL
+#include <LayerShellQt/Window>
 #endif
 
 MainWindow::MainWindow(QWidget *parent)
@@ -90,11 +87,6 @@ MainWindow::MainWindow(QWidget *parent)
     m_isX11 = false;
 #endif
     m_isWayland = KWindowSystem::isPlatformWayland();
-#if HAVE_KWAYLAND
-    m_plasmaShell = nullptr;
-    m_plasmaShellSurface = nullptr;
-    initWayland();
-#endif
 
     m_toggleLock = false;
 
@@ -152,50 +144,6 @@ MainWindow::~MainWindow()
 
     delete m_skin;
 }
-
-#if HAVE_KWAYLAND
-void MainWindow::initWayland()
-{
-    if (!m_isWayland) {
-        return;
-    }
-
-    using namespace KWayland::Client;
-    auto connection = ConnectionThread::fromApplication(this);
-    if (!connection) {
-        return;
-    }
-    Registry *registry = new Registry(this);
-    registry->create(connection);
-    QObject::connect(registry, &Registry::interfacesAnnounced, this, [registry, this] {
-        const auto interface = registry->interface(Registry::Interface::PlasmaShell);
-        if (interface.name != 0) {
-            m_plasmaShell = registry->createPlasmaShell(interface.name, interface.version, this);
-        }
-    });
-
-    registry->setup();
-    connection->roundtrip();
-}
-
-void MainWindow::initWaylandSurface()
-{
-    if (m_plasmaShellSurface) {
-        m_plasmaShellSurface->setPosition(pos());
-        return;
-    }
-    if (!m_plasmaShell) {
-        return;
-    }
-    if (auto surface = KWayland::Client::Surface::fromWindow(windowHandle())) {
-        m_plasmaShellSurface = m_plasmaShell->createSurface(surface, this);
-        m_plasmaShellSurface->setPosition(pos());
-        m_plasmaShellSurface->setSkipTaskbar(true);
-        m_plasmaShellSurface->setSkipSwitcher(true);
-    }
-}
-
-#endif
 
 bool MainWindow::queryClose()
 {
@@ -682,17 +630,17 @@ void MainWindow::setupMenu()
     m_menu->addAction(actionCollection()->action(QStringLiteral("view-full-screen")));
     m_menu->addAction(actionCollection()->action(QStringLiteral("keep-open")));
 
-    m_screenMenu = new QMenu(this);
+    m_screenMenu = new QMenu(m_menu);
     connect(m_screenMenu, SIGNAL(triggered(QAction *)), this, SLOT(setScreen(QAction *)));
     m_screenMenu->setTitle(xi18nc("@title:menu", "Screen"));
     m_menu->addMenu(m_screenMenu);
 
-    m_windowWidthMenu = new QMenu(this);
+    m_windowWidthMenu = new QMenu(m_menu);
     connect(m_windowWidthMenu, SIGNAL(triggered(QAction *)), this, SLOT(setWindowWidth(QAction *)));
     m_windowWidthMenu->setTitle(xi18nc("@title:menu", "Width"));
     m_menu->addMenu(m_windowWidthMenu);
 
-    m_windowHeightMenu = new QMenu(this);
+    m_windowHeightMenu = new QMenu(m_menu);
     connect(m_windowHeightMenu, SIGNAL(triggered(QAction *)), this, SLOT(setWindowHeight(QAction *)));
     m_windowHeightMenu->setTitle(xi18nc("@title:menu", "Height"));
     m_menu->addMenu(m_windowHeightMenu);
@@ -937,19 +885,15 @@ void MainWindow::applyWindowProperties()
         if (Settings::keepOpen() && !Settings::keepAbove()) {
             KWindowSystem::clearState(winId(), NET::KeepAbove);
             KWindowSystem::setState(winId(), NET::SkipTaskbar | NET::SkipPager);
-        } else
+        } else {
             KWindowSystem::setState(winId(), NET::KeepAbove | NET::SkipTaskbar | NET::SkipPager);
-    }
+        }
 
-#if HAVE_KWAYLAND
-    if (m_isWayland && m_plasmaShellSurface) {
-        m_plasmaShellSurface->setSkipTaskbar(true);
-        m_plasmaShellSurface->setSkipSwitcher(true);
+        KX11Extras::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
     }
-#endif
-
-    KX11Extras::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
-    KWindowEffects::enableBlurBehind(windowHandle(), m_sessionStack->wantsBlur());
+    if (windowHandle()) {
+        KWindowEffects::enableBlurBehind(windowHandle(), m_sessionStack->wantsBlur());
+    }
 }
 
 void MainWindow::applyWindowGeometry()
@@ -971,6 +915,30 @@ void MainWindow::applyWindowGeometry()
 
 void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition)
 {
+    if (m_isWayland && windowHandle()) {
+        auto layerWindow = LayerShellQt::Window::get(this->windowHandle());
+        auto screen = qGuiApp->screens().value(getScreen(), nullptr);
+        windowHandle()->setScreen(screen);
+        LayerShellQt::Window::Anchors anchors = LayerShellQt::Window::AnchorTop;
+        QMargins margins;
+        if (newPosition < 50) {
+            anchors |= LayerShellQt::Window::AnchorLeft;
+            const int remainingSpace = screen->geometry().width() * (100 - newWidth) / 100;
+            margins.setLeft(remainingSpace * newPosition / 100);
+
+        } else if (Settings::position() > 50) {
+            anchors |= LayerShellQt::Window::AnchorRight;
+            const int remainingSpace = screen->geometry().width() * (100 - newWidth) / 100;
+            margins.setRight(remainingSpace * (100 - newPosition) / 100);
+        }
+        layerWindow->setAnchors(anchors);
+        layerWindow->setMargins(margins);
+        layerWindow->setLayer(LayerShellQt::Window::LayerTop);
+        layerWindow->setKeyboardInteractivity(LayerShellQt::Window::KeyboardInteractivityOnDemand);
+        layerWindow->setScreenConfiguration(LayerShellQt::Window::ScreenFromQWindow);
+        update();
+    }
+
     QRect workArea = getDesktopGeometry();
 
     int maxHeight = workArea.height() * newHeight / 100;
@@ -978,9 +946,6 @@ void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition)
     int targetWidth = workArea.width() * newWidth / 100;
 
     setGeometry(workArea.x() + workArea.width() * newPosition * (100 - newWidth) / 10000, workArea.y(), targetWidth, maxHeight);
-#if HAVE_KWAYLAND
-    initWaylandSurface();
-#endif
 
     maxHeight -= m_titleBar->height();
     m_titleBar->setGeometry(0, maxHeight, targetWidth, m_titleBar->height());
@@ -1174,30 +1139,6 @@ bool MainWindow::focusNextPrevChild(bool)
 }
 
 void MainWindow::toggleWindowState()
-{
-    if (m_isWayland) {
-        auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.plasmashell"),
-                                                      QStringLiteral("/StrutManager"),
-                                                      QStringLiteral("org.kde.PlasmaShell.StrutManager"),
-                                                      QStringLiteral("availableScreenRect"));
-        message.setArguments({QGuiApplication::screens().at(getScreen())->name()});
-        QDBusPendingCall call = QDBusConnection::sessionBus().asyncCall(message);
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-
-        QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [=, this]() {
-            QDBusPendingReply<QRect> reply = *watcher;
-            m_availableScreenRect = reply.isValid() ? reply.value() : QRect();
-            setWindowGeometry(Settings::width(), Settings::height(), Settings::position());
-            watcher->deleteLater();
-        });
-
-        _toggleWindowState();
-    } else {
-        _toggleWindowState();
-    }
-}
-
-void MainWindow::_toggleWindowState()
 {
     bool visible = isVisible();
 
@@ -1432,10 +1373,6 @@ void MainWindow::sharedAfterOpenWindow()
 
     applyWindowProperties();
 
-#if HAVE_KWAYLAND
-    initWaylandSurface();
-#endif
-
     Q_EMIT windowOpened();
 }
 
@@ -1448,11 +1385,6 @@ void MainWindow::sharedAfterHideWindow()
 {
     if (Settings::pollMouse())
         toggleMousePoll(true);
-
-#if HAVE_KWAYLAND
-    delete m_plasmaShellSurface;
-    m_plasmaShellSurface = nullptr;
-#endif
 
     Q_EMIT windowClosed();
 }
@@ -1554,7 +1486,7 @@ QRect MainWindow::getDesktopGeometry()
     if (m_isWayland) {
         // on Wayland it's not possible to get the work area from KWindowSystem
         // but plasmashell provides this through dbus
-        return m_availableScreenRect.isValid() ? m_availableScreenRect : screenGeometry;
+        return screenGeometry;
     }
 
     if (QGuiApplication::screens().count() > 1) {

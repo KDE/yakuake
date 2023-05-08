@@ -61,7 +61,9 @@ target_link_libraries(yakuake
     KF${KF_MAJOR_VERSION}::NotifyConfig
     KF${KF_MAJOR_VERSION}::Parts
     KF${KF_MAJOR_VERSION}::WidgetsAddons
-    KF${KF_MAJOR_VERSION}::WindowSystem)
+    KF${KF_MAJOR_VERSION}::WindowSystem
+    LayerShellQt::Interface
+)
 
 if(HAVE_X11)
     if (TARGET Qt5::X11Extras)
@@ -71,9 +73,6 @@ if(HAVE_X11)
     endif()
 endif()
 
-if(KF${KF_MAJOR_VERSION}Wayland_FOUND)
-  target_link_libraries(yakuake KF${KF_MAJOR_VERSION}::WaylandClient)
-endif()
 
 install(TARGETS yakuake ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 

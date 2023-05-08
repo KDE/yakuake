@@ -25,17 +25,6 @@ class KHelpMenu;
 class KActionCollection;
 class KStatusNotifierItem;
 
-#if HAVE_KWAYLAND
-namespace KWayland
-{
-namespace Client
-{
-class PlasmaShell;
-class PlasmaShellSurface;
-}
-}
-#endif
-
 class MainWindow : public KMainWindow
 {
     Q_OBJECT
@@ -175,10 +164,6 @@ private:
     QRect getScreenGeometry();
     QRect getDesktopGeometry();
 
-    // get a better value from plasmashell through dbus in wayland case
-    QRect m_availableScreenRect;
-    void _toggleWindowState();
-
     void slideWindow();
 
     void updateUseTranslucency();
@@ -211,13 +196,6 @@ private:
 
     bool m_isX11;
     bool m_isWayland;
-
-#if HAVE_KWAYLAND
-    void initWayland();
-    void initWaylandSurface();
-    KWayland::Client::PlasmaShell *m_plasmaShell;
-    KWayland::Client::PlasmaShellSurface *m_plasmaShellSurface;
-#endif
 };
 
 #endif
