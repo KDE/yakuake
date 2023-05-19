@@ -18,7 +18,7 @@
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <KNS3/QtQuickDialogWrapper>
 #else
-#include <KNSWidgets/QtQuickDialogWrapper>
+#include <KNSWidgets/Dialog>
 #endif
 
 #include <QDir>
@@ -29,10 +29,6 @@
 #include <QStandardItemModel>
 
 #include <unistd.h>
-
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-namespace KNS3 = KNSWidgets;
-#endif
 
 AppearanceSettings::AppearanceSettings(QWidget *parent)
     : QWidget(parent)
@@ -431,13 +427,23 @@ QSet<QString> AppearanceSettings::extractKnsSkinIds(const QStringList &fileList)
 
 void AppearanceSettings::getNewSkins()
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QPointer<KNS3::QtQuickDialogWrapper> dialog = new KNS3::QtQuickDialogWrapper(m_knsConfigFileName, this);
+#else
+    QPointer<KNSWidgets::Dialog> dialog = new KNSWidgets::Dialog(m_knsConfigFileName, this);
+#endif
     dialog->open();
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(dialog, &KNS3::QtQuickDialogWrapper::closed, this, [this, dialog] {
+#else
+    connect(dialog, &KNSWidgets::Dialog::finished, this, [this, dialog] {
+#endif
+
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         const QList<KNSCore::EntryInternal> changedEntries = dialog->changedEntries();
 #else
-            const QList<KNSCore::Entry> changedEntries = dialog->changedEntries();
+        const QList<KNSCore::Entry> changedEntries = dialog->changedEntries();
 #endif
         quint32 invalidEntryCount = 0;
         QString invalidSkinText;
@@ -445,14 +451,14 @@ void AppearanceSettings::getNewSkins()
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             if (_entry.status() != KNS3::Entry::Installed) {
 #else
-                if (_entry.status() != KNSCore::Entry::Installed) {
+            if (_entry.status() != KNSCore::Entry::Installed) {
 #endif
                 continue;
             }
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             const KNSCore::EntryInternal &entry = _entry;
 #else
-                const KNSCore::Entry &entry = _entry;
+            const KNSCore::Entry &entry = _entry;
 #endif
             bool isValid = true;
             const QSet<QString> &skinIdList = extractKnsSkinIds(entry.installedFiles());
