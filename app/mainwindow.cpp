@@ -839,7 +839,7 @@ void MainWindow::configureApp()
     settingsDialog->button(QDialogButtonBox::Help)->hide();
     settingsDialog->button(QDialogButtonBox::Cancel)->setFocus();
 
-    connect(settingsDialog, &QDialog::finished, [=]() {
+    connect(settingsDialog, &QDialog::finished, [=, this]() {
         m_toggleLock = true;
         KWindowSystem::activateWindow(windowHandle());
         KX11Extras::forceActiveWindow(winId());
@@ -1180,7 +1180,7 @@ void MainWindow::toggleWindowState()
         QDBusPendingCall call = QDBusConnection::sessionBus().asyncCall(message);
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
 
-        QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [=]() {
+        QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [=, this]() {
             QDBusPendingReply<QRect> reply = *watcher;
             m_availableScreenRect = reply.isValid() ? reply.value() : QRect();
             setWindowGeometry(Settings::width(), Settings::height(), Settings::position());

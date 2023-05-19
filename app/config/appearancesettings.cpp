@@ -217,7 +217,7 @@ void AppearanceSettings::installSkin()
     m_installSkinFile.open();
 
     KIO::CopyJob *job = KIO::copy(skinUrl, QUrl::fromLocalFile(m_installSkinFile.fileName()), KIO::JobFlag::HideProgressInfo | KIO::JobFlag::Overwrite);
-    connect(job, &KIO::CopyJob::result, [=](KJob *job) {
+    connect(job, &KIO::CopyJob::result, [=, this](KJob *job) {
         if (job->error()) {
             job->uiDelegate()->showErrorMessage();
             job->kill();
@@ -237,7 +237,7 @@ void AppearanceSettings::installSkin(const QUrl &skinUrl)
     skinArchiveUrl.setScheme(QStringLiteral("tar"));
 
     KIO::ListJob *job = KIO::listRecursive(skinArchiveUrl, KIO::HideProgressInfo, false);
-    connect(job, &KIO::ListJob::entries, [=](KIO::Job * /* job */, const KIO::UDSEntryList &list) {
+    connect(job, &KIO::ListJob::entries, [=, this](KIO::Job * /* job */, const KIO::UDSEntryList &list) {
         if (list.isEmpty())
             return;
 
@@ -246,7 +246,7 @@ void AppearanceSettings::installSkin(const QUrl &skinUrl)
             m_installSkinFileList.append(i.next().stringValue(KIO::UDSEntry::UDS_NAME));
     });
 
-    connect(job, &KIO::ListJob::result, this, [=](KJob *job) {
+    connect(job, &KIO::ListJob::result, this, [=, this](KJob *job) {
         if (!job->error())
             checkForExistingSkin();
         else
@@ -292,7 +292,7 @@ void AppearanceSettings::checkForExistingSkin()
                                                             KGuiItem(xi18nc("@action:button", "Reinstall Skin")));
 
             if (remove == KMessageBox::Continue)
-                removeSkin(skinDir, [=]() {
+                removeSkin(skinDir, [this]() {
                     installSkinArchive();
                 });
             else
@@ -305,7 +305,7 @@ void AppearanceSettings::checkForExistingSkin()
 void AppearanceSettings::removeSkin(const QString &skinDir, std::function<void()> successCallback)
 {
     KIO::DeleteJob *job = KIO::del(QUrl::fromLocalFile(skinDir), KIO::HideProgressInfo);
-    connect(job, &KIO::DeleteJob::result, this, [=](KJob *deleteJob) {
+    connect(job, &KIO::DeleteJob::result, this, [=, this](KJob *deleteJob) {
         if (deleteJob->error()) {
             KMessageBox::error(parentWidget(), deleteJob->errorString(), xi18nc("@title:Window", "Could Not Delete Skin"));
         } else if (successCallback) {
@@ -389,7 +389,7 @@ void AppearanceSettings::removeSelectedSkin()
                                                     KStandardGuiItem::del());
 
     if (remove == KMessageBox::Continue)
-        removeSkin(skinDir, [=]() {
+        removeSkin(skinDir, [=, this]() {
             QString skinId = skinList->currentIndex().data(SkinId).toString();
             if (skinId == Settings::skin()) {
                 Settings::setSkin(QStringLiteral("default"));
