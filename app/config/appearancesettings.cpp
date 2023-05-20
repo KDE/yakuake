@@ -15,12 +15,6 @@
 #include <KMessageBox>
 #include <KTar>
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <KNS3/QtQuickDialogWrapper>
-#else
-#include <KNSWidgets/QtQuickDialogWrapper>
-#endif
-
 #include <QDir>
 #include <QDirIterator>
 #include <QFile>
@@ -29,10 +23,6 @@
 #include <QStandardItemModel>
 
 #include <unistd.h>
-
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-namespace KNS3 = KNSWidgets;
-#endif
 
 AppearanceSettings::AppearanceSettings(QWidget *parent)
     : QWidget(parent)
@@ -56,11 +46,9 @@ AppearanceSettings::AppearanceSettings(QWidget *parent)
 
     installButton->setIcon(QIcon::fromTheme(QStringLiteral("folder")));
     removeButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete")));
-    ghnsButton->setIcon(QIcon::fromTheme(QStringLiteral("get-hot-new-stuff")));
+    ghnsButton->setConfigFile(QStringLiteral("yakuake.knsrc"));
 
-    m_knsConfigFileName = QLatin1String("yakuake.knsrc");
-
-    connect(ghnsButton, &QPushButton::clicked, this, &AppearanceSettings::getNewSkins);
+    connect(ghnsButton, &KNSWidgets::Button::dialogFinished, this, &AppearanceSettings::knsDialogFinished);
 
     m_selectedSkinId = Settings::skin();
 
@@ -429,87 +417,72 @@ QSet<QString> AppearanceSettings::extractKnsSkinIds(const QStringList &fileList)
     return skinIdList;
 }
 
-void AppearanceSettings::getNewSkins()
+void AppearanceSettings::knsDialogFinished(const QList<KNSCore::Entry> &changedEntries)
 {
-    QPointer<KNS3::QtQuickDialogWrapper> dialog = new KNS3::QtQuickDialogWrapper(m_knsConfigFileName, this);
-    dialog->open();
-    connect(dialog, &KNS3::QtQuickDialogWrapper::closed, this, [this, dialog] {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        const QList<KNSCore::EntryInternal> changedEntries = dialog->changedEntries();
+    quint32 invalidEntryCount = 0;
+    QString invalidSkinText;
+    for (const auto &entry : changedEntries) {
+#if QT_VERSION_MAJOR < 6
+        auto Installed = KNS3::Entry::Installed;
 #else
-            const QList<KNSCore::Entry> changedEntries = dialog->changedEntries();
+        auto Installed = KNSCore::Entry::Installed;
 #endif
-        quint32 invalidEntryCount = 0;
-        QString invalidSkinText;
-        for (const auto &_entry : changedEntries) {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            if (_entry.status() != KNS3::Entry::Installed) {
-#else
-                if (_entry.status() != KNSCore::Entry::Installed) {
-#endif
-                continue;
-            }
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            const KNSCore::EntryInternal &entry = _entry;
-#else
-                const KNSCore::Entry &entry = _entry;
-#endif
-            bool isValid = true;
-            const QSet<QString> &skinIdList = extractKnsSkinIds(entry.installedFiles());
+        if (entry.status() != Installed) {
+            continue;
+        }
+        bool isValid = true;
+        const QSet<QString> &skinIdList = extractKnsSkinIds(entry.installedFiles());
 
-            // Validate all skin IDs as each archive can contain multiple skins.
-            for (const QString &skinId : skinIdList) {
-                // Validate the current skin.
-                if (!validateSkin(skinId, true)) {
-                    isValid = false;
+        // Validate all skin IDs as each archive can contain multiple skins.
+        for (const QString &skinId : skinIdList) {
+            // Validate the current skin.
+            if (!validateSkin(skinId, true)) {
+                isValid = false;
+            }
+        }
+
+        // We'll add an error message for the whole KNS entry if
+        // the current skin is marked as invalid.
+        // We should not do this per skin as the user does not know that
+        // there are more skins inside one archive.
+        if (!isValid) {
+            invalidEntryCount++;
+
+            // The user needs to know the name of the skin which
+            // was removed.
+            invalidSkinText += QString(QStringLiteral("<li>%1</li>")).arg(entry.name());
+
+            // Then remove the skin.
+            const QStringList files = entry.installedFiles();
+            for (const QString &file : files) {
+                QFileInfo info(QString(file).remove(QStringLiteral("/*")));
+                if (!info.exists()) {
+                    continue;
                 }
-            }
-
-            // We'll add an error message for the whole KNS entry if
-            // the current skin is marked as invalid.
-            // We should not do this per skin as the user does not know that
-            // there are more skins inside one archive.
-            if (!isValid) {
-                invalidEntryCount++;
-
-                // The user needs to know the name of the skin which
-                // was removed.
-                invalidSkinText += QString(QStringLiteral("<li>%1</li>")).arg(entry.name());
-
-                // Then remove the skin.
-                const QStringList files = entry.installedFiles();
-                for (const QString &file : files) {
-                    QFileInfo info(QString(file).remove(QStringLiteral("/*")));
-                    if (!info.exists()) {
-                        continue;
-                    }
-                    if (info.isDir()) {
-                        QDir(info.absoluteFilePath()).removeRecursively();
-                    } else {
-                        QFile::remove(info.absoluteFilePath());
-                    }
+                if (info.isDir()) {
+                    QDir(info.absoluteFilePath()).removeRecursively();
+                } else {
+                    QFile::remove(info.absoluteFilePath());
                 }
             }
         }
+    }
 
-        // Are there any invalid entries?
-        if (invalidEntryCount > 0) {
-            failInstall(xi18ncp("@info",
-                                "The following skin is missing required files. Thus it was removed:<ul>%2</ul>",
-                                "The following skins are missing required files. Thus they were removed:<ul>%2</ul>",
-                                invalidEntryCount,
-                                invalidSkinText));
-        }
+    // Are there any invalid entries?
+    if (invalidEntryCount > 0) {
+        failInstall(xi18ncp("@info",
+                            "The following skin is missing required files. Thus it was removed:<ul>%2</ul>",
+                            "The following skins are missing required files. Thus they were removed:<ul>%2</ul>",
+                            invalidEntryCount,
+                            invalidSkinText));
+    }
 
-        if (!changedEntries.isEmpty()) {
-            // Reset the selection in case the currently selected
-            // skin was removed.
-            resetSelection();
+    if (!changedEntries.isEmpty()) {
+        // Reset the selection in case the currently selected
+        // skin was removed.
+        resetSelection();
 
-            // Re-populate the list of skins if the user changed something.
-            populateSkinList();
-        }
-
-        dialog->deleteLater();
-    });
+        // Re-populate the list of skins if the user changed something.
+        populateSkinList();
+    }
 }

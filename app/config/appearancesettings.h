@@ -76,10 +76,7 @@ private Q_SLOTS:
      */
     QSet<QString> extractKnsSkinIds(const QStringList &fileList);
 
-    /**
-     * Shows the KNS3 dialog where the user can download new skins.
-     */
-    void getNewSkins();
+    void knsDialogFinished(const QList<KNSCore::Entry> &changedEntries);
 
     void updateRemoveSkinButton();
     void removeSelectedSkin();

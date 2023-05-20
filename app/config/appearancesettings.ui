@@ -171,7 +171,7 @@
      </property>
      <layout class="QGridLayout">
       <item row="2" column="0" colspan="2">
-       <widget class="QPushButton" name="ghnsButton">
+       <widget class="KNSWidgets::Button" name="ghnsButton">
         <property name="text">
          <string comment="@action:button">Get New Skins...</string>
         </property>
@@ -260,6 +260,13 @@
   <tabstop>kcfg_Skin</tabstop>
   <tabstop>kcfg_SkinInstalledWithKns</tabstop>
  </tabstops>
+ <customwidgets>
+  <customwidget>
+   <class>KNSWidgets::Button</class>
+   <extends>QPushButton</extends>
+   <header>KNSWidgets/Button</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>
