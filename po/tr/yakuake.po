@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: extragear-utils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-30 04:17+0000\n"
-"PO-Revision-Date: 2023-02-20 17:30+0300\n"
+"PO-Revision-Date: 2023-05-24 01:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #: app/config/appearancesettings.cpp:153
 #, kde-kuit-format
@@ -986,10 +986,10 @@ msgid ""
 "adjusting the window mask if the window manager is unable to provide the "
 "requested service."
 msgstr ""
-"Denemek için pencere yöneticisini pencere açma/kapama canlandırması "
-"yapmasına izin ver. Eğer pencere yöneticisi istenilen servisi "
-"sağlayamıyorsa, Yakuake pencerenin ayarlamasının canlandırmasını hızlıca "
-"geri alacktır."
+"Pencere yöneticisinin pencere açma/geri çekme canlandırması "
+"gerçekleştirmesine izin verilip verilmeyeceği. Yakuake, pencere yöneticisi "
+"istenen hizmeti sağlayamazsa pencere maskesini kademeli olarak ayarlayan bir "
+"canlandırma stratejisine geri dönecektir."
 
 #. i18n: ectx: label, entry (Frames), group (Animation)
 #: app/config/yakuake.kcfg:176
