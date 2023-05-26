@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-20 00:49+0000\n"
+"POT-Creation-Date: 2023-05-26 00:49+0000\n"
 "PO-Revision-Date: 2021-07-09 11:09+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -23,25 +23,25 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.04.2\n"
 
-#: app/config/appearancesettings.cpp:162
+#: app/config/appearancesettings.cpp:150
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
 msgstr "Άγνωστο"
 
-#: app/config/appearancesettings.cpp:207
+#: app/config/appearancesettings.cpp:195
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
 msgstr "Επιλογή της αρχειοθήκης θέματος προς εγκατάσταση"
 
-#: app/config/appearancesettings.cpp:253
+#: app/config/appearancesettings.cpp:241
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
 msgstr "Αδυναμία εμφάνισης του περιεχομένου της αρχειοθήκης του θέματος."
 
-#: app/config/appearancesettings.cpp:285
+#: app/config/appearancesettings.cpp:273
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -51,32 +51,32 @@ msgstr ""
 "Αυτο το θέμα φαίνεται πως είναι ήδη εγκατεστημένο και δεν έχετε τις "
 "απαραίτητες άδειες για να το αντικαταστήσετε."
 
-#: app/config/appearancesettings.cpp:290
+#: app/config/appearancesettings.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
 msgstr ""
 "Το θέμα φαίνεται πως είναι ήδη εγκατεστημένο. Θέλετε να το αντικαταστήσετε;"
 
-#: app/config/appearancesettings.cpp:291
+#: app/config/appearancesettings.cpp:279
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
 msgstr "Το θέμα υπάρχει ήδη"
 
-#: app/config/appearancesettings.cpp:292
+#: app/config/appearancesettings.cpp:280
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
 msgstr "Επανεγκατάσταση του θέματος"
 
-#: app/config/appearancesettings.cpp:310
+#: app/config/appearancesettings.cpp:298
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
 msgstr "Αδυναμία διαγραφής του θέματος"
 
-#: app/config/appearancesettings.cpp:335
+#: app/config/appearancesettings.cpp:323
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -86,31 +86,31 @@ msgstr ""
 "Αδύνατος ο εντοπισμός των απαραίτητων αρχείων στην αρχειοθήκη του θέματος."
 "<nl/><nl/>Η αρχειοθήκη δεν είναι έγκυρη."
 
-#: app/config/appearancesettings.cpp:338
+#: app/config/appearancesettings.cpp:326
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
 msgstr "Η αρχειοθήκη του θέματος δεν μπορεί να ανοιχτεί."
 
-#: app/config/appearancesettings.cpp:343
+#: app/config/appearancesettings.cpp:331
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
 msgstr "Αδυναμία εγκατάστασης του θέματος"
 
-#: app/config/appearancesettings.cpp:387
+#: app/config/appearancesettings.cpp:375
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
 msgstr "Θέλετε πραγματικά να αφαιρέσετε \"%1\" από \"%2\" ;"
 
-#: app/config/appearancesettings.cpp:388
+#: app/config/appearancesettings.cpp:376
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "Αφαίρεση θέματος"
 
-#: app/config/appearancesettings.cpp:498
+#: app/config/appearancesettings.cpp:474
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -233,7 +233,7 @@ msgctxt "@title:group"
 msgid "Skin"
 msgstr "Θέμα"
 
-#. i18n: ectx: property (text), widget (QPushButton, ghnsButton)
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, ghnsButton)
 #: app/config/appearancesettings.ui:176
 #, kde-format
 msgctxt "@action:button"

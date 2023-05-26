@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-20 00:49+0000\n"
+"POT-Creation-Date: 2023-05-26 00:49+0000\n"
 "PO-Revision-Date: 2020-03-13 22:03+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -19,25 +19,25 @@ msgstr ""
 "X-Generator: Lokalize 19.12.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: app/config/appearancesettings.cpp:162
+#: app/config/appearancesettings.cpp:150
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
 msgstr "未知"
 
-#: app/config/appearancesettings.cpp:207
+#: app/config/appearancesettings.cpp:195
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
 msgstr "選擇要安裝的外觀封存"
 
-#: app/config/appearancesettings.cpp:253
+#: app/config/appearancesettings.cpp:241
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
 msgstr "無法列出外觀檔內容。"
 
-#: app/config/appearancesettings.cpp:285
+#: app/config/appearancesettings.cpp:273
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -45,31 +45,31 @@ msgid ""
 "permissions to overwrite it."
 msgstr "此外觀似乎已安裝，而您沒有足夠的權限可以覆寫它。"
 
-#: app/config/appearancesettings.cpp:290
+#: app/config/appearancesettings.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
 msgstr "此外觀似乎已安裝。您要覆寫它嗎？"
 
-#: app/config/appearancesettings.cpp:291
+#: app/config/appearancesettings.cpp:279
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
 msgstr "外觀檔已存在"
 
-#: app/config/appearancesettings.cpp:292
+#: app/config/appearancesettings.cpp:280
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
 msgstr "重新安裝外觀"
 
-#: app/config/appearancesettings.cpp:310
+#: app/config/appearancesettings.cpp:298
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
 msgstr "無法刪除外觀"
 
-#: app/config/appearancesettings.cpp:335
+#: app/config/appearancesettings.cpp:323
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -77,31 +77,31 @@ msgid ""
 "appears to be invalid."
 msgstr "無法找到外觀所需要的檔案。<nl/><nl/>此外觀檔似乎是不正確的。"
 
-#: app/config/appearancesettings.cpp:338
+#: app/config/appearancesettings.cpp:326
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
 msgstr "無法開啟外觀檔。"
 
-#: app/config/appearancesettings.cpp:343
+#: app/config/appearancesettings.cpp:331
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
 msgstr "無法安裝外觀"
 
-#: app/config/appearancesettings.cpp:387
+#: app/config/appearancesettings.cpp:375
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
 msgstr "您確定要移除由 %2 所做的 %1 嗎？"
 
-#: app/config/appearancesettings.cpp:388
+#: app/config/appearancesettings.cpp:376
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "移除外觀"
 
-#: app/config/appearancesettings.cpp:498
+#: app/config/appearancesettings.cpp:474
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -210,7 +210,7 @@ msgctxt "@title:group"
 msgid "Skin"
 msgstr "外觀"
 
-#. i18n: ectx: property (text), widget (QPushButton, ghnsButton)
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, ghnsButton)
 #: app/config/appearancesettings.ui:176
 #, kde-format
 msgctxt "@action:button"

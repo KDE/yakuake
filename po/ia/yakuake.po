@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-20 00:49+0000\n"
+"POT-Creation-Date: 2023-05-26 00:49+0000\n"
 "PO-Revision-Date: 2022-12-21 12:33+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -17,25 +17,25 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: app/config/appearancesettings.cpp:162
+#: app/config/appearancesettings.cpp:150
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
 msgstr "Incognite"
 
-#: app/config/appearancesettings.cpp:207
+#: app/config/appearancesettings.cpp:195
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
 msgstr "Selige le archivo de skin (apparentia) de installar"
 
-#: app/config/appearancesettings.cpp:253
+#: app/config/appearancesettings.cpp:241
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
 msgstr "Incapace a listar le archivo de contentos de skin (apparentia)."
 
-#: app/config/appearancesettings.cpp:285
+#: app/config/appearancesettings.cpp:273
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -45,32 +45,32 @@ msgstr ""
 "Iste skin (apparentia) sembla esser ja installate e tu  manca le "
 "permissiones requirite per superscriber lo."
 
-#: app/config/appearancesettings.cpp:290
+#: app/config/appearancesettings.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
 msgstr ""
 "Iste skin (apparentia) sembla esser ja installate. Tu vole superscriber lo?"
 
-#: app/config/appearancesettings.cpp:291
+#: app/config/appearancesettings.cpp:279
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
 msgstr "Skin (apparentia) ja existe"
 
-#: app/config/appearancesettings.cpp:292
+#: app/config/appearancesettings.cpp:280
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
 msgstr "Reinstalla Skin (apparentia)"
 
-#: app/config/appearancesettings.cpp:310
+#: app/config/appearancesettings.cpp:298
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
 msgstr "Non poteva deler skin (apparentia)"
 
-#: app/config/appearancesettings.cpp:335
+#: app/config/appearancesettings.cpp:323
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -80,31 +80,31 @@ msgstr ""
 "Incapace a locar file requirite in le archivo de skin.<nl/><nl/>Le archivo "
 "sembla esser invalide."
 
-#: app/config/appearancesettings.cpp:338
+#: app/config/appearancesettings.cpp:326
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
 msgstr "Le file de archivo de skin (apparentia) non poteva esser aperite."
 
-#: app/config/appearancesettings.cpp:343
+#: app/config/appearancesettings.cpp:331
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
 msgstr "Non pote installar skin (apparentia)"
 
-#: app/config/appearancesettings.cpp:387
+#: app/config/appearancesettings.cpp:375
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
 msgstr "Tu vole remover \"%1\" per %2?"
 
-#: app/config/appearancesettings.cpp:388
+#: app/config/appearancesettings.cpp:376
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "Remove Skin"
 
-#: app/config/appearancesettings.cpp:498
+#: app/config/appearancesettings.cpp:474
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -225,7 +225,7 @@ msgctxt "@title:group"
 msgid "Skin"
 msgstr "Skin (apparentia)"
 
-#. i18n: ectx: property (text), widget (QPushButton, ghnsButton)
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, ghnsButton)
 #: app/config/appearancesettings.ui:176
 #, kde-format
 msgctxt "@action:button"
