@@ -10,8 +10,7 @@
 #include <KActionCollection>
 #include <KColorScheme>
 #include <KLocalizedString>
-#include <KPluginFactory>
-#include <KService>
+#include <KParts/PartLoader>
 #include <KXMLGUIBuilder>
 #include <KXMLGUIFactory>
 #include <kde_terminal_interface.h>
@@ -33,13 +32,13 @@ Terminal::Terminal(const QString &workingDir, QWidget *parent)
     m_availableTerminalId++;
     m_parentSplitter = parent;
 
-    KPluginFactory *factory = nullptr;
-    KService::Ptr service = KService::serviceByDesktopName(QStringLiteral("konsolepart"));
-    if (service) {
-        factory = KPluginFactory::loadFactory(KPluginMetaData(service->library())).plugin;
-    }
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    KPluginMetaData part(QStringLiteral("konsolepart"));
+#else
+    KPluginMetaData part(QStringLiteral("kf6/parts/konsolepart"));
+#endif
 
-    m_part = factory ? (factory->create<KParts::Part>(parent, nullptr)) : nullptr;
+    m_part = KParts::PartLoader::instantiatePart<KParts::Part>(part, parent).plugin;
 
     if (m_part) {
         connect(m_part, SIGNAL(setWindowCaption(QString)), this, SLOT(setTitle(QString)));
