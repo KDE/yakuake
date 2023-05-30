@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:49+0000\n"
+"POT-Creation-Date: 2023-05-30 00:50+0000\n"
 "PO-Revision-Date: 2022-02-08 20:30+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -1686,7 +1686,7 @@ msgctxt "@title:tab"
 msgid "Shell No. %1"
 msgstr "Skal nr. %1"
 
-#: app/terminal.cpp:169
+#: app/terminal.cpp:168
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

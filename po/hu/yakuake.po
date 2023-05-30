@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:49+0000\n"
+"POT-Creation-Date: 2023-05-30 00:50+0000\n"
 "PO-Revision-Date: 2021-01-03 13:11+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1673,7 +1673,7 @@ msgctxt "@title:tab"
 msgid "Shell No. %1"
 msgstr "%1. parancsértelmező"
 
-#: app/terminal.cpp:169
+#: app/terminal.cpp:168
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

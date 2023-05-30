@@ -9,13 +9,13 @@
 # Johnny Jazeix <jazeix@gmail.com>, 2016.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2019.
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021, 2022.
+# Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
 #
-# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:49+0000\n"
+"POT-Creation-Date: 2023-05-30 00:50+0000\n"
 "PO-Revision-Date: 2023-01-08 12:40+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -1721,7 +1721,7 @@ msgctxt "@title:tab"
 msgid "Shell No. %1"
 msgstr "Console %1"
 
-#: app/terminal.cpp:169
+#: app/terminal.cpp:168
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
