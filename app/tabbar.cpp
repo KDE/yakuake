@@ -738,8 +738,10 @@ void TabBar::removeTab(int sessionId)
 
     if (m_tabs.isEmpty())
         Q_EMIT lastTabClosed();
-    else
+    else if (sessionId == m_selectedSessionId)
         Q_EMIT tabSelected(m_tabs.last());
+    else
+        Q_EMIT tabSelected(m_selectedSessionId);
 }
 
 void TabBar::interactiveRename(int sessionId)
