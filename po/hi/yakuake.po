@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-30 00:50+0000\n"
+"POT-Creation-Date: 2023-06-04 00:51+0000\n"
 "PO-Revision-Date: 2021-08-21 16:25+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -1664,7 +1664,7 @@ msgctxt "@action"
 msgid "In Terminal %1"
 msgstr "चार टर्मिनल, ग्रिड"
 
-#: app/tabbar.cpp:931
+#: app/tabbar.cpp:933
 #, fuzzy, kde-kuit-format
 #| msgctxt "@title:tab"
 #| msgid "Shell"
@@ -1673,7 +1673,7 @@ msgctxt "@title:tab"
 msgid "Shell"
 msgstr "शेल"
 
-#: app/tabbar.cpp:933
+#: app/tabbar.cpp:935
 #, fuzzy, kde-kuit-format
 #| msgctxt "@item:inmenu"
 #| msgid "Screen <numid>%1</numid>"
