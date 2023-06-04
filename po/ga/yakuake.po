@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extragear-utils/yakuake.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 04:17+0000\n"
+"POT-Creation-Date: 2023-06-04 02:53+0000\n"
 "PO-Revision-Date: 2008-01-09 12:59-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -1688,13 +1688,13 @@ msgctxt "@action"
 msgid "In Terminal %1"
 msgstr "I dTeirminéal %1"
 
-#: app/tabbar.cpp:931
+#: app/tabbar.cpp:933
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell"
 msgstr "Blaosc"
 
-#: app/tabbar.cpp:933
+#: app/tabbar.cpp:935
 #, fuzzy, kde-kuit-format
 #| msgctxt "@title:tab"
 #| msgid "Shell No. <numid>%1</numid>"

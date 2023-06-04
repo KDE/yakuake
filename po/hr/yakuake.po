@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 04:17+0000\n"
+"POT-Creation-Date: 2023-06-04 02:53+0000\n"
 "PO-Revision-Date: 2011-05-27 14:02+0200\n"
 "Last-Translator: Marko Dimjašević <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -1652,13 +1652,13 @@ msgctxt "@action"
 msgid "In Terminal %1"
 msgstr "Za terminal %1"
 
-#: app/tabbar.cpp:931
+#: app/tabbar.cpp:933
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell"
 msgstr "Ljuska"
 
-#: app/tabbar.cpp:933
+#: app/tabbar.cpp:935
 #, fuzzy, kde-kuit-format
 #| msgctxt "@title:tab"
 #| msgid "Shell No. <numid>%1</numid>"

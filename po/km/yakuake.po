@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 04:17+0000\n"
+"POT-Creation-Date: 2023-06-04 02:53+0000\n"
 "PO-Revision-Date: 2012-07-11 11:30+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -1658,13 +1658,13 @@ msgctxt "@action"
 msgid "In Terminal %1"
 msgstr "នៅ​ស្ថានីយ %1"
 
-#: app/tabbar.cpp:931
+#: app/tabbar.cpp:933
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell"
 msgstr "សែល"
 
-#: app/tabbar.cpp:933
+#: app/tabbar.cpp:935
 #, fuzzy, kde-kuit-format
 #| msgctxt "@title:tab"
 #| msgid "Shell No. <numid>%1</numid>"

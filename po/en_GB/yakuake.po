@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 04:17+0000\n"
+"POT-Creation-Date: 2023-06-04 02:53+0000\n"
 "PO-Revision-Date: 2023-05-02 19:59+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -1667,13 +1667,13 @@ msgctxt "@action"
 msgid "In Terminal %1"
 msgstr "In Terminal %1"
 
-#: app/tabbar.cpp:931
+#: app/tabbar.cpp:933
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell"
 msgstr "Shell"
 
-#: app/tabbar.cpp:933
+#: app/tabbar.cpp:935
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell No. %1"
