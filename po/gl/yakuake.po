@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-04 00:51+0000\n"
-"PO-Revision-Date: 2023-04-30 11:06+0200\n"
+"PO-Revision-Date: 2023-06-05 15:29+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: app/config/appearancesettings.cpp:150
 #, kde-kuit-format
@@ -1030,7 +1030,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Mouse pointer poll interval"
-msgstr "Intervalo de consulta do rato do rato"
+msgstr "Intervalo de consulta do rato"
 
 #. i18n: ectx: whatsthis, entry (PollInterval), group (AutoOpen)
 #: app/config/yakuake.kcfg:191
