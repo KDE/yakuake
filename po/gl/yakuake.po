@@ -139,7 +139,7 @@ msgid ""
 "terminals in a session, as well as over the currently focused terminal when "
 "switching to a session with multiple terminals."
 msgstr ""
-"Se se activa esta opción, Yakuake mostrará brevemente unha capa colorada "
+"Se se activa esta opción, Yakuake amosará brevemente unha capa colorada "
 "sobre a terminal recentemente focalizada cando se mova o foco entre "
 "múltiples terminais nunha sesión, así como sobre a terminal co foco ao "
 "cambiar a unha sesión con múltiples terminais."
@@ -206,8 +206,8 @@ msgid ""
 "This allows influencing the opacity and color tint of translucent areas of "
 "the skin."
 msgstr ""
-"Se utiliza transparencias, a cor de fondo encherase empregando a opacidade "
-"dada antes de que os elementos do tema se pinten sobre o fondo. Isto permite "
+"Se utiliza transparencias, a cor de fondo encherase usando a opacidade dada "
+"antes de que os elementos do tema se pinten sobre o fondo. Isto permite "
 "influír na opacidade e no ton da cor das áreas transparentes do tema."
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Width)
@@ -268,7 +268,7 @@ msgid ""
 msgstr ""
 "Se activa esta opción, o atallo que normalmente é usado para abrir e retraer "
 "a xanela focalizaraa no canto de pechala, se anteriormente perdese o foco. A "
-"non ser que esta xanela estea configurada para mostrarse en todos os "
+"non ser que esta xanela estea configurada para amosarse en todos os "
 "escritorios, isto pode provocar que o xestor de xanelas cambie de escritorio "
 "virtual."
 
@@ -322,7 +322,7 @@ msgstr "Lembrar e restaurar o estado de pantalla completa da xanela"
 #: app/config/behaviorsettings.ui:108
 #, kde-format
 msgid "Show system tray icon"
-msgstr "Mostrar a icona na zona de notificacións"
+msgstr "Amosar a icona na zona de notificacións"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpen)
 #: app/config/behaviorsettings.ui:118
@@ -380,7 +380,7 @@ msgstr "Barra de título"
 #: app/config/windowsettings.ui:38
 #, kde-format
 msgid "Show title bar"
-msgstr "Mostrar a barra do título"
+msgstr "Amosar a barra do título"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: app/config/windowsettings.ui:54
@@ -400,7 +400,7 @@ msgid ""
 "profile."
 msgstr ""
 "Se escolle esta opción, a información sobre o contido da terminal activa que "
-"normalmente é mostrada na barra de título tamén ha mostrarse na barra de "
+"normalmente é amosada na barra de título tamén ha amosarse na barra de "
 "separadores. Pode modificar o formato desta información no perfil da "
 "terminal."
 
@@ -409,14 +409,14 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Show title bar contents in tab labels"
-msgstr "Mostrar os contidos da barra do título nos separadores das sesións"
+msgstr "Amosar os contidos da barra do título nos separadores das sesións"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTabBar)
 #: app/config/windowsettings.ui:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Show the tab bar"
-msgstr "Mostrar a barra de separadores"
+msgstr "Amosar a barra de separadores"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/windowsettings.ui:105
@@ -472,8 +472,8 @@ msgid ""
 msgstr ""
 "Se activa esta opción, Yakuake solicitaralle ao xestor de xanelas que se "
 "encargue da animación de apertura/retracción. Se o xestor de xanelas non "
-"pode fornecer o servizo requirido, Yakuake empregará a estratexia de "
-"animación de axustar progresivamente a máscara da xanela."
+"pode fornecer o servizo requirido, Yakuake usará a estratexia de animación "
+"de axustar progresivamente a máscara da xanela."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseWMAssist)
 #: app/config/windowsettings.ui:273
@@ -529,7 +529,7 @@ msgstr "Pantalla 1"
 #, kde-format
 msgctxt "@option:check"
 msgid "Show on all desktops"
-msgstr "Mostrar en todos os escritorios"
+msgstr "Amosar en todos os escritorios"
 
 #. i18n: ectx: label, entry (Screen), group (Window)
 #: app/config/yakuake.kcfg:9
@@ -600,14 +600,14 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Show window on all desktops"
-msgstr "Mostrar a xanela en todos os escritorios"
+msgstr "Amosar a xanela en todos os escritorios"
 
 #. i18n: ectx: whatsthis, entry (ShowOnAllDesktops), group (Window)
 #: app/config/yakuake.kcfg:36
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the window on all desktops."
-msgstr "Indica se mostrar a xanela en todos os escritorios."
+msgstr "Indica se amosar a xanela en todos os escritorios."
 
 #. i18n: ectx: label, entry (KeepOpen), group (Window)
 #: app/config/yakuake.kcfg:40
@@ -680,28 +680,28 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Show title bar"
-msgstr "Mostrar a barra do título"
+msgstr "Amosar a barra do título"
 
 #. i18n: ectx: whatsthis, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:61
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the title bar in the application window."
-msgstr "Indica se mostrar a barra do título na xanela da aplicación."
+msgstr "Indica se amosar a barra do título na xanela da aplicación."
 
 #. i18n: ectx: label, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:65
 #, kde-format
 msgctxt "@label"
 msgid "Show tab bar"
-msgstr "Mostrar a barra de separadores"
+msgstr "Amosar a barra de separadores"
 
 #. i18n: ectx: whatsthis, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:66
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the tab bar in the application window."
-msgstr "Indica se mostrar a barra de separadores na xanela da aplicación."
+msgstr "Indica se amosar a barra de separadores na xanela da aplicación."
 
 #. i18n: ectx: label, entry (DynamicTabTitles), group (Window)
 #: app/config/yakuake.kcfg:70
@@ -723,14 +723,14 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Show a system tray icon"
-msgstr "Mostrar a icona na zona de notificacións."
+msgstr "Amosar a icona na zona de notificacións."
 
 #. i18n: ectx: whatsthis, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:76
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show a system tray icon."
-msgstr "Se mostrar unha icona na zona de notificacións."
+msgstr "Se amosar unha icona na zona de notificacións."
 
 #. i18n: ectx: label, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:82
@@ -780,7 +780,7 @@ msgid ""
 "Whether the window will be shown fullscreen again when it has been "
 "previously."
 msgstr ""
-"Se a xanela se mostrará a pantalla completa de novo se o estaba previamente."
+"Se a xanela se amosará a pantalla completa de novo se o estaba previamente."
 
 #. i18n: ectx: label, entry (Skin), group (Appearance)
 #: app/config/yakuake.kcfg:99
@@ -869,7 +869,7 @@ msgid ""
 "as over the currently focused terminal when switching to a session with "
 "multiple terminals."
 msgstr ""
-"Se se debe mostrar brevemente un sobreposto coloreado sobre as terminais que "
+"Se se debe amosar brevemente un sobreposto coloreado sobre as terminais que "
 "reciben o foco cando se move o foco entre múltiplas terminais nunha sesión, "
 "así como sobre a terminal que ten o foco ao cambiar a unha sesión con "
 "múltiplas terminais."
@@ -985,9 +985,9 @@ msgid ""
 "requested service."
 msgstr ""
 "Se debe intentar e permitir ao xestor de xanelas efectuar a animación de "
-"apertura/retracción da xanela. Yakuake empregará de maneira predeterminada "
-"unha estratexia de animación de axustar progresivamente a máscara da xanela "
-"se o xestor de xanelas non pode fornecer o servizo requirido."
+"apertura/retracción da xanela. Yakuake usará de maneira predeterminada unha "
+"estratexia de animación de axustar progresivamente a máscara da xanela se o "
+"xestor de xanelas non pode fornecer o servizo requirido."
 
 #. i18n: ectx: label, entry (Frames), group (Animation)
 #: app/config/yakuake.kcfg:176
@@ -1567,9 +1567,9 @@ msgid ""
 msgstr ""
 "Acaba de usarse o método de D-Bus «runCommand» (executar unha orde). "
 "Permitir que este método sexa público supón un posíbel problema de "
-"seguranza. É posíbel reconstruír Yakuake para cambiar este método para que "
-"só poida usarse internamente. <p>Este aviso só se mostrará unha vez para "
-"esta instancia de Yakuake.</p>"
+"seguridade. É posíbel reconstruír Yakuake para cambiar este método para que "
+"só poida usarse internamente. <p>Este aviso só se amosará unha vez para esta "
+"instancia de Yakuake.</p>"
 
 #: app/sessionstack.cpp:723
 #, kde-kuit-format
