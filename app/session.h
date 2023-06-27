@@ -131,7 +131,7 @@ private Q_SLOTS:
 private:
     void setupSession(SessionType type);
 
-    Terminal *addTerminal(QWidget *parent, QString workingDir = QString());
+    Terminal *addTerminal(QSplitter *parent, QString workingDir = QString());
     int split(Terminal *terminal, Qt::Orientation orientation);
 
     QString m_workingDir;

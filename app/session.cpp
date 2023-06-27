@@ -134,7 +134,7 @@ void Session::setupSession(SessionType type)
     }
 }
 
-Terminal *Session::addTerminal(QWidget *parent, QString workingDir)
+Terminal *Session::addTerminal(QSplitter *parent, QString workingDir)
 {
     if (workingDir.isEmpty()) {
         // fallback to session's default working dir
@@ -158,6 +158,8 @@ Terminal *Session::addTerminal(QWidget *parent, QString workingDir)
     QWidget *terminalWidget = term->terminalWidget();
     if (terminalWidget)
         terminalWidget->setFocus();
+
+    parent->addWidget(term->partWidget());
 
     return term;
 }
