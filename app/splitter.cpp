@@ -34,3 +34,5 @@ void Splitter::recursiveCleanup()
         }
     }
 }
+
+#include "moc_splitter.cpp"

@@ -78,3 +78,5 @@ void FirstRunDialog::validateKeySequence(const QKeySequence &keySequence)
     } else
         m_keySequence = m_ui->keyButton->keySequence();
 }
+
+#include "moc_firstrundialog.cpp"

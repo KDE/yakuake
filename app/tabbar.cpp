@@ -1048,3 +1048,5 @@ bool TabBar::isSameTab(const QDropEvent *event)
     else
         return false;
 }
+
+#include "moc_tabbar.cpp"

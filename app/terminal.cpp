@@ -317,3 +317,5 @@ KActionCollection *Terminal::actionCollection()
 
     return nullptr;
 }
+
+#include "moc_terminal.cpp"

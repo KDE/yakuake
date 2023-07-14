@@ -1665,3 +1665,5 @@ void MainWindow::updateTrayTooltip()
         m_notifierItem->setToolTip(QStringLiteral("yakuake"), QStringLiteral("Yakuake"), xi18nc("@info", "Press <shortcut>%1</shortcut> to open", shortcut));
     }
 }
+
+#include "moc_mainwindow.cpp"

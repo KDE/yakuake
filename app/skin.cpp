@@ -241,3 +241,5 @@ void Skin::systemIconsChanged(int group)
         Q_EMIT iconChanged();
     }
 }
+
+#include "moc_skin.cpp"

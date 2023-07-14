@@ -486,3 +486,5 @@ void AppearanceSettings::knsDialogFinished(const QList<KNSCore::Entry> &changedE
         populateSkinList();
     }
 }
+
+#include "moc_appearancesettings.cpp"

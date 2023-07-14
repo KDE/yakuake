@@ -107,3 +107,5 @@ void WindowSettings::interceptHideTitleBar(int state)
         }
     }
 }
+
+#include "moc_windowsettings.cpp"

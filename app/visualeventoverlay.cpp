@@ -238,3 +238,5 @@ void VisualEventOverlay::cleanupOverlay()
     else
         hide();
 }
+
+#include "moc_visualeventoverlay.cpp"

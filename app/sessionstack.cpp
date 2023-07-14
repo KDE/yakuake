@@ -769,3 +769,5 @@ bool SessionStack::wantsBlur() const
         return session->wantsBlur();
     });
 }
+
+#include "moc_sessionstack.cpp"

@@ -205,3 +205,5 @@ void TitleBar::setTitle(const QString &title)
 
     repaint();
 }
+
+#include "moc_titlebar.cpp"

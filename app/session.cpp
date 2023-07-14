@@ -606,3 +606,5 @@ bool Session::wantsBlur() const
         return terminal->wantsBlur();
     });
 }
+
+#include "moc_session.cpp"
