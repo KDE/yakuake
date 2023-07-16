@@ -122,7 +122,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(&m_mousePoller, SIGNAL(timeout()), this, SLOT(pollMouse()));
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(KWindowSystem::self(), SIGNAL(workAreaChanged()), this, SLOT(applyWindowGeometry()));
+#else
+    connect(KX11Extras::self(), &KX11Extras::workAreaChanged, this, &MainWindow::applyWindowGeometry);
+#endif
     connect(qApp, &QGuiApplication::screenAdded, this, &MainWindow::updateScreenMenu);
     connect(qApp, &QGuiApplication::screenRemoved, this, &MainWindow::updateScreenMenu);
 
