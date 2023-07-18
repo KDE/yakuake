@@ -14,7 +14,6 @@
   <name xml:lang="de">Yakuake</name>
   <name xml:lang="el">Yakuake</name>
   <name xml:lang="en-GB">Yakuake</name>
-  <name xml:lang="eo">Yakuake</name>
   <name xml:lang="es">Yakuake</name>
   <name xml:lang="et">Yakuake</name>
   <name xml:lang="eu">Yakuake</name>
@@ -59,7 +58,6 @@
   <summary xml:lang="de">Aufklapp-Terminal</summary>
   <summary xml:lang="el">Τερματικό καθοδικής κύλισης</summary>
   <summary xml:lang="en-GB">Drop-down Terminal</summary>
-  <summary xml:lang="eo">Falmenua Terminalo</summary>
   <summary xml:lang="es">Terminal desplegable</summary>
   <summary xml:lang="et">Lahtikeritav terminal</summary>
   <summary xml:lang="eu">Goitik-behera zabaltzen den terminala</summary>
@@ -106,7 +104,6 @@
     <p xml:lang="de">Yakuake ist ein Aufklapp-Terminalemulator basierend auf der KDE-Konsole.</p>
     <p xml:lang="el">Το Yakuake είναι ένας εξομοιωτής τερματικού καθοδικής κύλισης με βάση την τεχνολογία του KDE Konsole.</p>
     <p xml:lang="en-GB">Yakuake is a drop-down terminal emulator based on KDE Konsole technology.</p>
-    <p xml:lang="eo">Yakuake estas falmenua terminalimitilo bazita sur teknologio de KDE-Konsole.</p>
     <p xml:lang="es">Yakuake en un emulador de terminal desplegable basado en la tecnología de Konsole de KDE.</p>
     <p xml:lang="et">Yakuake on KDE Konsooli tehnoloogial põhinev lahtikeritav terminaliemulaator.</p>
     <p xml:lang="eu">Yakuake KDE Konsole teknologian oinarritzen den goitik-behera zabaltzen den terminal emulatzaile bat da.</p>
@@ -151,7 +148,6 @@
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="el">Λειτουργίες:</p>
     <p xml:lang="en-GB">Features:</p>
-    <p xml:lang="eo">Trajtoj:</p>
     <p xml:lang="es">Funcionalidades:</p>
     <p xml:lang="et">Omadused:</p>
     <p xml:lang="eu">Eginbideak:</p>
@@ -195,7 +191,6 @@
       <li xml:lang="de">Rollt geschmeidig von der oberen Kante des Bildschirms herab</li>
       <li xml:lang="el">Ομαλή καθοδική κύλιση από την κορυφή της οθόνης σας</li>
       <li xml:lang="en-GB">Smoothly rolls down from the top of your screen</li>
-      <li xml:lang="eo">Glate rulas malsupren de la supro de via ekrano</li>
       <li xml:lang="es">Se despliega suavemente desde la parte superior de la pantalla</li>
       <li xml:lang="et">Sujuv lahtikerimine ekraani ülaservast</li>
       <li xml:lang="eu">Zure pantaila goitik leunki beherantz biraka agertzen da</li>
@@ -237,7 +232,6 @@
       <li xml:lang="de">Bedienungsoberfläche mit Unterfenstern</li>
       <li xml:lang="el">Περιβάλλον χρήσης με καρτέλες</li>
       <li xml:lang="en-GB">Tabbed interface</li>
-      <li xml:lang="eo">Langeta interfaco</li>
       <li xml:lang="es">Interfaz con pestañas</li>
       <li xml:lang="et">Kaartidega liides</li>
       <li xml:lang="eu">Fitxa bidezko interfazea</li>
@@ -280,7 +274,6 @@
       <li xml:lang="de">Benutzerdefinierte Abmessungen und Animationsgeschwindigkeit</li>
       <li xml:lang="el">Διαμορφώσιμες διαστάσεις και ταχύτητα με εφέ κίνησης</li>
       <li xml:lang="en-GB">Configurable dimensions and animation speed</li>
-      <li xml:lang="eo">Agordeblaj dimensioj kaj rapideco de animacio</li>
       <li xml:lang="es">Se pueden configurar las dimensiones y la velocidad de animación</li>
       <li xml:lang="et">Seadistatavad mõõtmed ja animatsiooni kiirus</li>
       <li xml:lang="eu">Dimentsioak eta animazio-abiadura konfiguragarriak </li>
@@ -322,7 +315,6 @@
       <li xml:lang="de">Anpassung der Oberfläche über Skin/Design</li>
       <li xml:lang="el">Διαμορφώσιμα θέματα</li>
       <li xml:lang="en-GB">Skinnable</li>
-      <li xml:lang="eo">Haŭtigebla</li>
       <li xml:lang="es">Admite el uso de pieles</li>
       <li xml:lang="et">Nahkade kasutamine</li>
       <li xml:lang="eu">«Azal» aldagarriak onartzen ditu</li>
@@ -364,7 +356,6 @@
       <li xml:lang="de">Hoch entwickelte D-Bus-Schnittstelle</li>
       <li xml:lang="el">Εκλεπτυσμένη D-Bus διεπαφή</li>
       <li xml:lang="en-GB">Sophisticated D-Bus interface</li>
-      <li xml:lang="eo">Altnivela D-Bus-interfaco</li>
       <li xml:lang="es">Interfaz D-Bus sofisticado</li>
       <li xml:lang="et">Võimas D-Busi liides</li>
       <li xml:lang="eu">D-Bus interfaze sofistikatua</li>
