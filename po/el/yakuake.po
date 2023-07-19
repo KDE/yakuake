@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-04 00:51+0000\n"
+"POT-Creation-Date: 2023-07-19 00:54+0000\n"
 "PO-Revision-Date: 2021-07-09 11:09+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -376,7 +376,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "Οθόνη %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:656
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:660
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1237,13 +1237,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "manolis@koppermind.homelinux.org, sstavra@gmail.com"
 
-#: app/mainwindow.cpp:201
+#: app/mainwindow.cpp:205
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
 msgstr "Είστε σίγουροι ότι θέλετε να κλείσετε;"
 
-#: app/mainwindow.cpp:208
+#: app/mainwindow.cpp:212
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1255,7 +1255,7 @@ msgstr ""
 "έχετε κλειδώσει για την  αποτροπή ακούσιου κλεισίματος.</emphasis> Θα "
 "τερματιστούν αν συνεχίσετε.</warning>"
 
-#: app/mainwindow.cpp:211
+#: app/mainwindow.cpp:215
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1265,7 +1265,7 @@ msgstr ""
 "<warning>Έχετε ανοιχτές πολλές συνεδρίες. Αυτές θα τερματιστούν αν "
 "συνεχίσετε.</warning>"
 
-#: app/mainwindow.cpp:214
+#: app/mainwindow.cpp:218
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1275,294 +1275,294 @@ msgstr ""
 "<warning>Υπάρχουν μία ή περισσότερες συνεδρίες που έχετε κλειδώσει για την "
 "αποτροπή ακούσιου κλεισίματος. Θα τερματιστούν αν συνεχίσετε.</warning>"
 
-#: app/mainwindow.cpp:220
+#: app/mainwindow.cpp:224
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
 msgstr "Έξοδος πραγματικά;"
 
-#: app/mainwindow.cpp:252
+#: app/mainwindow.cpp:256
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
 msgstr "Άνοιγμα/ανάκληση του Yakuake"
 
-#: app/mainwindow.cpp:261
+#: app/mainwindow.cpp:265
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
 msgstr "Διατήρηση ανοιχτού παραθύρου κατά την απώλεια εστίασης"
 
-#: app/mainwindow.cpp:266
+#: app/mainwindow.cpp:270
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
 msgstr "Διαχείριση προφίλ..."
 
-#: app/mainwindow.cpp:271
+#: app/mainwindow.cpp:275
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr "Επεξεργασία τρέχοντος προφίλ..."
 
-#: app/mainwindow.cpp:277
+#: app/mainwindow.cpp:281
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "Αύξηση πλάτους παραθύρου"
 
-#: app/mainwindow.cpp:282
+#: app/mainwindow.cpp:286
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "Μείωση πλάτους παραθύρου"
 
-#: app/mainwindow.cpp:287
+#: app/mainwindow.cpp:291
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "Αύξηση ύψους παραθύρου"
 
-#: app/mainwindow.cpp:292
+#: app/mainwindow.cpp:296
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "Μείωση ύψους παραθύρου"
 
-#: app/mainwindow.cpp:297
+#: app/mainwindow.cpp:301
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "Νέα συνεδρία"
 
-#: app/mainwindow.cpp:303
+#: app/mainwindow.cpp:307
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr "Δύο τερματικά, οριζόντια"
 
-#: app/mainwindow.cpp:308
+#: app/mainwindow.cpp:312
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr "Δύο τερματικά, κατακόρυφα"
 
-#: app/mainwindow.cpp:313
+#: app/mainwindow.cpp:317
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr "Τέσσερα τερματικά, κάνναβος"
 
-#: app/mainwindow.cpp:318
+#: app/mainwindow.cpp:322
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "Κλείσιμο συνεδρίας"
 
-#: app/mainwindow.cpp:325
+#: app/mainwindow.cpp:329
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
 msgstr "Προηγούμενη συνεδρία"
 
-#: app/mainwindow.cpp:331
+#: app/mainwindow.cpp:335
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
 msgstr "Επόμενη συνεδρία"
 
-#: app/mainwindow.cpp:337
+#: app/mainwindow.cpp:341
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
 msgstr "Μετακίνηση συνεδρίας αριστερά"
 
-#: app/mainwindow.cpp:344
+#: app/mainwindow.cpp:348
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
 msgstr "Μετακίνηση συνεδρίας δεξιά"
 
-#: app/mainwindow.cpp:351
+#: app/mainwindow.cpp:355
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr "Ανάπτυξη τερματικού προς τα δεξιά"
 
-#: app/mainwindow.cpp:358
+#: app/mainwindow.cpp:362
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr "Ανάπτυξη τερματικού προς τα αριστερά"
 
-#: app/mainwindow.cpp:365
+#: app/mainwindow.cpp:369
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr "Ανάπτυξη τερματικού προς την κορυφή"
 
-#: app/mainwindow.cpp:372
+#: app/mainwindow.cpp:376
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr "Ανάπτυξη τερματικού προς τη βάση"
 
-#: app/mainwindow.cpp:379
+#: app/mainwindow.cpp:383
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
 msgstr "Μετονομασία συνεδρίας..."
 
-#: app/mainwindow.cpp:386
+#: app/mainwindow.cpp:390
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr "Προηγούμενο τερματικό"
 
-#: app/mainwindow.cpp:392
+#: app/mainwindow.cpp:396
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr "Επόμενο τερματικό"
 
-#: app/mainwindow.cpp:398
+#: app/mainwindow.cpp:402
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr "Κλείσιμο ενεργού τερματικού"
 
-#: app/mainwindow.cpp:405
+#: app/mainwindow.cpp:409
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "Διαίρεση αριστερά/δεξιά"
 
-#: app/mainwindow.cpp:412
+#: app/mainwindow.cpp:416
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "Διαίρεση πάνω/κάτω"
 
-#: app/mainwindow.cpp:419
+#: app/mainwindow.cpp:423
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "Αποτροπή κλεισίματος"
 
-#: app/mainwindow.cpp:425 app/tabbar.cpp:190
+#: app/mainwindow.cpp:429 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "Απενεργοποίηση της εισόδου του πληκτρολογίου"
 
-#: app/mainwindow.cpp:431 app/tabbar.cpp:235
+#: app/mainwindow.cpp:435 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "Παρακολούθηση για δραστηριότητα"
 
-#: app/mainwindow.cpp:438 app/tabbar.cpp:280
+#: app/mainwindow.cpp:442 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "Παρακολούθηση για αδράνεια"
 
-#: app/mainwindow.cpp:445
+#: app/mainwindow.cpp:449
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr "Εναλλαγή γραμμής τίτλου"
 
-#: app/mainwindow.cpp:452
+#: app/mainwindow.cpp:456
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "Εναλλαγή στη συνεδρία %1"
 
-#: app/mainwindow.cpp:604
+#: app/mainwindow.cpp:608
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "Ανιχνεύθηκε δραστηριότητα σε ελεγχόμενο τερματικό στη συνεδρία «%1»."
 
-#: app/mainwindow.cpp:615
+#: app/mainwindow.cpp:619
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "Ανιχνεύθηκε αδράνεια σε ελεγχόμενο τερματικό στη συνεδρία «%1»."
 
-#: app/mainwindow.cpp:671
+#: app/mainwindow.cpp:675
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Βοήθεια"
 
-#: app/mainwindow.cpp:677
+#: app/mainwindow.cpp:681
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Γρήγορες επιλογές"
 
-#: app/mainwindow.cpp:683
+#: app/mainwindow.cpp:687
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Οθόνη"
 
-#: app/mainwindow.cpp:688
+#: app/mainwindow.cpp:692
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Πλάτος"
 
-#: app/mainwindow.cpp:693
+#: app/mainwindow.cpp:697
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Ύψος"
 
-#: app/mainwindow.cpp:696
+#: app/mainwindow.cpp:700
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
-#: app/mainwindow.cpp:712
+#: app/mainwindow.cpp:716
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "Στη θέση ποντικιού"
 
-#: app/mainwindow.cpp:718
+#: app/mainwindow.cpp:722
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Οθόνη %1"
 
-#: app/mainwindow.cpp:740 app/mainwindow.cpp:762
+#: app/mainwindow.cpp:744 app/mainwindow.cpp:766
 #, kde-format
 msgid "%1%"
 msgstr ""
 
-#: app/mainwindow.cpp:827
+#: app/mainwindow.cpp:831
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Παράθυρο"
 
-#: app/mainwindow.cpp:833
+#: app/mainwindow.cpp:837
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Συμπεριφορά"
 
-#: app/mainwindow.cpp:836
+#: app/mainwindow.cpp:840
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Εμφάνιση"
 
-#: app/mainwindow.cpp:919
+#: app/mainwindow.cpp:923
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1573,13 +1573,13 @@ msgstr ""
 "Πιθανότατα αυτό δεν είναι σωστά εγκατεστημένο.<nl/><nl/>Η εφαρμογή θα "
 "τερματίσει τώρα."
 
-#: app/mainwindow.cpp:921
+#: app/mainwindow.cpp:925
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Αδυναμία φόρτωσης θέματος"
 
-#: app/mainwindow.cpp:1665
+#: app/mainwindow.cpp:1669
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"

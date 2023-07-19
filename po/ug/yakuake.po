@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-04 00:51+0000\n"
+"POT-Creation-Date: 2023-07-19 00:54+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -339,7 +339,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "ئېكران"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:656
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:660
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1138,13 +1138,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
 
-#: app/mainwindow.cpp:201
+#: app/mainwindow.cpp:205
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
 msgstr ""
 
-#: app/mainwindow.cpp:208
+#: app/mainwindow.cpp:212
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1153,7 +1153,7 @@ msgid ""
 "if you continue.</warning>"
 msgstr ""
 
-#: app/mainwindow.cpp:211
+#: app/mainwindow.cpp:215
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1161,7 +1161,7 @@ msgid ""
 "continue.</warning>"
 msgstr ""
 
-#: app/mainwindow.cpp:214
+#: app/mainwindow.cpp:218
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1169,37 +1169,37 @@ msgid ""
 "closing them accidentally. These will be killed if you continue.</warning>"
 msgstr ""
 
-#: app/mainwindow.cpp:220
+#: app/mainwindow.cpp:224
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
 msgstr ""
 
-#: app/mainwindow.cpp:252
+#: app/mainwindow.cpp:256
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
 msgstr ""
 
-#: app/mainwindow.cpp:261
+#: app/mainwindow.cpp:265
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
 msgstr "فوكۇسى يۆتكەلسىمۇ كۆزنەك ئوچۇق پېتى تۇرسۇن"
 
-#: app/mainwindow.cpp:266
+#: app/mainwindow.cpp:270
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
 msgstr "سەپلەكلەرنى باشقۇرۇش…"
 
-#: app/mainwindow.cpp:271
+#: app/mainwindow.cpp:275
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr ""
 
-#: app/mainwindow.cpp:277
+#: app/mainwindow.cpp:281
 #, fuzzy, kde-kuit-format
 #| msgctxt "@label"
 #| msgid "Window width"
@@ -1207,7 +1207,7 @@ msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "كۆزنەك كەڭلىكى"
 
-#: app/mainwindow.cpp:282
+#: app/mainwindow.cpp:286
 #, fuzzy, kde-kuit-format
 #| msgctxt "@label"
 #| msgid "Window width"
@@ -1215,7 +1215,7 @@ msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "كۆزنەك كەڭلىكى"
 
-#: app/mainwindow.cpp:287
+#: app/mainwindow.cpp:291
 #, fuzzy, kde-kuit-format
 #| msgctxt "@label"
 #| msgid "Window height"
@@ -1223,7 +1223,7 @@ msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "كۆزنەك ئېگىزلىكى"
 
-#: app/mainwindow.cpp:292
+#: app/mainwindow.cpp:296
 #, fuzzy, kde-kuit-format
 #| msgctxt "@label"
 #| msgid "Window height"
@@ -1231,37 +1231,37 @@ msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "كۆزنەك ئېگىزلىكى"
 
-#: app/mainwindow.cpp:297
+#: app/mainwindow.cpp:301
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "يېڭى ئەڭگىمە"
 
-#: app/mainwindow.cpp:303
+#: app/mainwindow.cpp:307
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr ""
 
-#: app/mainwindow.cpp:308
+#: app/mainwindow.cpp:312
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr ""
 
-#: app/mainwindow.cpp:313
+#: app/mainwindow.cpp:317
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr ""
 
-#: app/mainwindow.cpp:318
+#: app/mainwindow.cpp:322
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "ئەڭگىمە يېپىش"
 
-#: app/mainwindow.cpp:325
+#: app/mainwindow.cpp:329
 #, fuzzy, kde-kuit-format
 #| msgctxt "@action"
 #| msgid "Close Session"
@@ -1269,7 +1269,7 @@ msgctxt "@action"
 msgid "Previous Session"
 msgstr "ئەڭگىمە يېپىش"
 
-#: app/mainwindow.cpp:331
+#: app/mainwindow.cpp:335
 #, fuzzy, kde-kuit-format
 #| msgctxt "@action"
 #| msgid "New Session"
@@ -1277,7 +1277,7 @@ msgctxt "@action"
 msgid "Next Session"
 msgstr "يېڭى ئەڭگىمە"
 
-#: app/mainwindow.cpp:337
+#: app/mainwindow.cpp:341
 #, fuzzy, kde-kuit-format
 #| msgctxt "@action"
 #| msgid "Close Session"
@@ -1285,7 +1285,7 @@ msgctxt "@action"
 msgid "Move Session Left"
 msgstr "ئەڭگىمە يېپىش"
 
-#: app/mainwindow.cpp:344
+#: app/mainwindow.cpp:348
 #, fuzzy, kde-kuit-format
 #| msgctxt "@action"
 #| msgid "Close Session"
@@ -1293,31 +1293,31 @@ msgctxt "@action"
 msgid "Move Session Right"
 msgstr "ئەڭگىمە يېپىش"
 
-#: app/mainwindow.cpp:351
+#: app/mainwindow.cpp:355
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr ""
 
-#: app/mainwindow.cpp:358
+#: app/mainwindow.cpp:362
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr ""
 
-#: app/mainwindow.cpp:365
+#: app/mainwindow.cpp:369
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr ""
 
-#: app/mainwindow.cpp:372
+#: app/mainwindow.cpp:376
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr ""
 
-#: app/mainwindow.cpp:379
+#: app/mainwindow.cpp:383
 #, fuzzy, kde-kuit-format
 #| msgctxt "@action"
 #| msgid "New Session"
@@ -1325,127 +1325,127 @@ msgctxt "@action"
 msgid "Rename Session..."
 msgstr "يېڭى ئەڭگىمە"
 
-#: app/mainwindow.cpp:386
+#: app/mainwindow.cpp:390
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr ""
 
-#: app/mainwindow.cpp:392
+#: app/mainwindow.cpp:396
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr ""
 
-#: app/mainwindow.cpp:398
+#: app/mainwindow.cpp:402
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr ""
 
-#: app/mainwindow.cpp:405
+#: app/mainwindow.cpp:409
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr ""
 
-#: app/mainwindow.cpp:412
+#: app/mainwindow.cpp:416
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr ""
 
-#: app/mainwindow.cpp:419
+#: app/mainwindow.cpp:423
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr ""
 
-#: app/mainwindow.cpp:425 app/tabbar.cpp:190
+#: app/mainwindow.cpp:429 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr ""
 
-#: app/mainwindow.cpp:431 app/tabbar.cpp:235
+#: app/mainwindow.cpp:435 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr ""
 
-#: app/mainwindow.cpp:438 app/tabbar.cpp:280
+#: app/mainwindow.cpp:442 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr ""
 
-#: app/mainwindow.cpp:445
+#: app/mainwindow.cpp:449
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr ""
 
-#: app/mainwindow.cpp:452
+#: app/mainwindow.cpp:456
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr ""
 
-#: app/mainwindow.cpp:604
+#: app/mainwindow.cpp:608
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr ""
 
-#: app/mainwindow.cpp:615
+#: app/mainwindow.cpp:619
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr ""
 
-#: app/mainwindow.cpp:671
+#: app/mainwindow.cpp:675
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "ياردەم"
 
-#: app/mainwindow.cpp:677
+#: app/mainwindow.cpp:681
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "تەز تاللانمىلار"
 
-#: app/mainwindow.cpp:683
+#: app/mainwindow.cpp:687
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "ئېكران"
 
-#: app/mainwindow.cpp:688
+#: app/mainwindow.cpp:692
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "كەڭلىك"
 
-#: app/mainwindow.cpp:693
+#: app/mainwindow.cpp:697
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "ئېگىزلىك"
 
-#: app/mainwindow.cpp:696
+#: app/mainwindow.cpp:700
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "تەڭشەكلەر"
 
-#: app/mainwindow.cpp:712
+#: app/mainwindow.cpp:716
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr ""
 
-#: app/mainwindow.cpp:718
+#: app/mainwindow.cpp:722
 #, fuzzy, kde-kuit-format
 #| msgctxt "@title:menu"
 #| msgid "Screen"
@@ -1453,30 +1453,30 @@ msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "ئېكران"
 
-#: app/mainwindow.cpp:740 app/mainwindow.cpp:762
+#: app/mainwindow.cpp:744 app/mainwindow.cpp:766
 #, kde-format
 msgid "%1%"
 msgstr ""
 
-#: app/mainwindow.cpp:827
+#: app/mainwindow.cpp:831
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "كۆزنەك"
 
-#: app/mainwindow.cpp:833
+#: app/mainwindow.cpp:837
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "ھەرىكەت"
 
-#: app/mainwindow.cpp:836
+#: app/mainwindow.cpp:840
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "كۆرۈنۈشى"
 
-#: app/mainwindow.cpp:919
+#: app/mainwindow.cpp:923
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1484,13 +1484,13 @@ msgid ""
 "that it was installed incorrectly.<nl/><nl/>The application will now quit."
 msgstr ""
 
-#: app/mainwindow.cpp:921
+#: app/mainwindow.cpp:925
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr ""
 
-#: app/mainwindow.cpp:1665
+#: app/mainwindow.cpp:1669
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
