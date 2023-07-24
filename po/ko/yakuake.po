@@ -1,14 +1,14 @@
 # Translations of yakuake to Korean.
 # Copyright (C) 2008 This_file_is_part_of_KDE
 # This file is distributed under the same license as the extragear-utils package.
-# Shinjo Park <kde@peremen.name>, 2008, 2009, 2010, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# Shinjo Park <kde@peremen.name>, 2008, 2009, 2010, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-04 00:51+0000\n"
-"PO-Revision-Date: 2022-05-07 00:54+0200\n"
+"PO-Revision-Date: 2023-07-23 20:21+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: app/config/appearancesettings.cpp:150
 #, kde-kuit-format
@@ -129,17 +129,17 @@ msgid ""
 "terminals in a session, as well as over the currently focused terminal when "
 "switching to a session with multiple terminals."
 msgstr ""
-"이 옵션을 사용하면 Yakuake에서 세션 안에 있는 여러 터미널 사이에 초점을 전환"
-"할 때 새로 초점이 맞은 터미널 위에 색이 있는 오버레이를 잠깐 동안 표시하며, "
-"터미널이 여러 개 있는 세션으로 전환할 때 현재 초점이 맞춰진 터미널 위에도 표"
-"시합니다."
+"이 옵션을 사용하면 Yakuake에서 세션 안에 있는 여러 터미널 사이에 포커스를 전"
+"환할 때 새로 포커스가 맞은 터미널 위에 색이 있는 오버레이를 잠깐 동안 표시하"
+"며, 터미널이 여러 개 있는 세션으로 전환할 때 현재 포커스가 맞춰진 터미널 위에"
+"도 표시합니다."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
 #: app/config/appearancesettings.ui:38
 #, kde-format
 msgctxt "@option:check"
 msgid "Highlight terminals when moving focus between them"
-msgstr "초점을 옮길 때 터미널 강조하기"
+msgstr "포커스를 옮길 때 터미널 강조하기"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_HideSkinBorders)
 #: app/config/appearancesettings.ui:45
@@ -242,7 +242,7 @@ msgstr "스킨 설치..."
 #, kde-format
 msgctxt "@option:check"
 msgid "Focus terminals when the mouse pointer is moved over them"
-msgstr "마우스 포인터가 위에 있을 때 터미널에 초점 맞추기"
+msgstr "마우스 포인터가 위에 있을 때 터미널에 포커스 맞추기"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ToggleToFocus)
 #: app/config/behaviorsettings.ui:42
@@ -255,17 +255,17 @@ msgid ""
 "may cause the window manager to switch to the virtual desktop it currently "
 "resides on."
 msgstr ""
-"이 옵션을 사용하면 터미널이 초점을 잃었을 때 열기/접기 동작에 사용되는 단축키"
-"를 사용하여 창을 닫는 대신 초점을 맞춥니다. 창이 모든 가상 데스크톱에 보이도"
-"록 설정해 두지 않은 이상, 창 관리자가 터미널이 있는 가상 데스크톱으로 전환될 "
-"수도 있습니다."
+"이 옵션을 사용하면 터미널이 포커스를 잃었을 때 열기/접기 동작에 사용되는 단축"
+"키를 사용하여 창을 닫는 대신 포커스를 맞춥니다. 창이 모든 가상 데스크톱에 보"
+"이도록 설정해 두지 않은 이상, 창 관리자가 터미널이 있는 가상 데스크톱으로 전"
+"환될 수도 있습니다."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToggleToFocus)
 #: app/config/behaviorsettings.ui:45
 #, kde-format
 msgctxt "@option:check"
 msgid "Use Open/Retract action to focus window"
-msgstr "열기/접기 동작을 사용하여 창에 초점 맞추기"
+msgstr "열기/접기 동작을 사용하여 창에 포커스 맞추기"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepAbove)
 #: app/config/behaviorsettings.ui:61
@@ -317,7 +317,7 @@ msgstr "시스템 트레이 아이콘 표시"
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window open when it loses focus"
-msgstr "초점을 잃어도 창 열어 두기"
+msgstr "포커스를 잃어도 창 열어 두기"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpenAfterLastSessionCloses)
 #: app/config/behaviorsettings.ui:141
@@ -530,8 +530,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "The screen on which the application window will appear. 0 is understood to "
 "be the screen the mouse pointer is on."
-msgstr ""
-"프로그램 창을 표시할 화면입니다. 0번은 현재 마우스 포인터가 있는 화면입니다."
+msgstr "앱 창을 표시할 화면입니다. 0번은 현재 마우스 포인터가 있는 화면입니다."
 
 #. i18n: ectx: label, entry (Width), group (Window)
 #: app/config/yakuake.kcfg:14
@@ -545,7 +544,7 @@ msgstr "창 너비"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Width of the application window as a percentage of the screen."
-msgstr "화면의 배율 단위의 프로그램 창 너비입니다."
+msgstr "화면의 배율 단위의 앱 창 너비입니다."
 
 #. i18n: ectx: label, entry (Height), group (Window)
 #: app/config/yakuake.kcfg:21
@@ -559,7 +558,7 @@ msgstr "창 높이"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Height of the application window as a percentage of the screen."
-msgstr "화면의 배율 단위의 프로그램 창 높이입니다."
+msgstr "화면의 배율 단위의 앱 창 높이입니다."
 
 #. i18n: ectx: label, entry (Position), group (Window)
 #: app/config/yakuake.kcfg:28
@@ -575,7 +574,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Center point of the application window, as a percentage, measured from the "
 "left-hand edge of the screen."
-msgstr "화면의 왼쪽 끝에서 퍼센트 단위로 잰 프로그램의 중심점 위치입니다."
+msgstr "화면의 왼쪽 끝에서 퍼센트 단위로 잰 앱의 중심점 위치입니다."
 
 #. i18n: ectx: label, entry (ShowOnAllDesktops), group (Window)
 #: app/config/yakuake.kcfg:35
@@ -603,7 +602,7 @@ msgstr "창 열어 두기"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to keep the application window open when it loses focus."
-msgstr "초점을 잃었을 때 프로그램 창을 열어둘 지 여부입니다."
+msgstr "포커스를 잃었을 때 앱 창을 열어둘지 여부입니다."
 
 #. i18n: ectx: label, entry (KeepOpenAfterLastSessionCloses), group (Window)
 #: app/config/yakuake.kcfg:45
@@ -618,14 +617,14 @@ msgstr "마지막 세션을 닫을 때 창 열어 두기"
 msgctxt "@info:whatsthis"
 msgid ""
 "Whether to keep the application window open after the last session is closed."
-msgstr "마지막 세션을 닫았을 때 프로그램 창을 열어둘 지 여부입니다."
+msgstr "마지막 세션을 닫았을 때 앱 창을 열어둘지 여부입니다."
 
 #. i18n: ectx: label, entry (ToggleToFocus), group (Window)
 #: app/config/yakuake.kcfg:50
 #, kde-format
 msgctxt "@label"
 msgid "Use open/retract shortcut to focus window"
-msgstr "열기/접기 단축키를 사용하여 창에 초점 맞추기"
+msgstr "열기/접기 단축키를 사용하여 창에 포커스 맞추기"
 
 #. i18n: ectx: whatsthis, entry (ToggleToFocus), group (Window)
 #: app/config/yakuake.kcfg:51
@@ -635,8 +634,8 @@ msgid ""
 "Whether the open/retract keyboard shortcut can be used to focus the "
 "application window when it is already open."
 msgstr ""
-"열기/접기 키보드 단축키를 눌렀을 때 프로그램의 창이 열려 있다면 초점을 맞출 "
-"지 여부입니다."
+"열기/접기 키보드 단축키를 눌렀을 때 앱의 창이 열려 있다면 포커스를 맞출 지 여"
+"부입니다."
 
 #. i18n: ectx: label, entry (KeepAbove), group (Window)
 #: app/config/yakuake.kcfg:55
@@ -651,7 +650,7 @@ msgstr "항상 위에 창 두기"
 msgctxt "@info:whatsthis"
 msgid ""
 "Whether to keep the application window above other windows on the screen."
-msgstr "화면의 다른 창 위에 프로그램 창을 올려둘 지 여부입니다."
+msgstr "화면의 다른 창 위에 앱 창을 올려둘지 여부입니다."
 
 #. i18n: ectx: label, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:60
@@ -665,7 +664,7 @@ msgstr "제목 표시줄 표시"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the title bar in the application window."
-msgstr "프로그램 창에 제목 표시줄을 표시할지 여부입니다."
+msgstr "앱 창에 제목 표시줄을 표시할지 여부입니다."
 
 #. i18n: ectx: label, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:65
@@ -679,7 +678,7 @@ msgstr "탭 표시줄 표시"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the tab bar in the application window."
-msgstr "프로그램 창에 탭 표시줄을 표시할지 여부입니다."
+msgstr "앱 창에 탭 표시줄을 표시할지 여부입니다."
 
 #. i18n: ectx: label, entry (DynamicTabTitles), group (Window)
 #: app/config/yakuake.kcfg:70
@@ -714,7 +713,7 @@ msgstr "시스템 트레이 아이콘을 표시할지 여부입니다."
 #, kde-format
 msgctxt "@label"
 msgid "Focus follows mouse"
-msgstr "마우스를 따라서 초점 맞추기"
+msgstr "마우스를 따라서 포커스 맞추기"
 
 #. i18n: ectx: whatsthis, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:83
@@ -724,7 +723,7 @@ msgid ""
 "Whether an individual terminal in a session will be given focus when the "
 "mouse pointer is moved above it."
 msgstr ""
-"마우스 포인터가 지나갈 때 세션의 각각 터미널에 초점을 맞출 지 여부입니다."
+"마우스 포인터가 지나갈 때 세션의 각각 터미널에 포커스를 맞출지 여부입니다."
 
 #. i18n: ectx: label, entry (OpenAfterStart), group (Behavior)
 #: app/config/yakuake.kcfg:87
@@ -738,7 +737,7 @@ msgstr "시작한 다음 열기"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether the application window should be opened after program start."
-msgstr "프로그램이 시작한 다음 창을 열 지 여부입니다."
+msgstr "앱을 시작한 다음 창을 열지 여부입니다."
 
 #. i18n: ectx: label, entry (RememberFullscreen), group (Behavior)
 #: app/config/yakuake.kcfg:92
@@ -769,7 +768,7 @@ msgstr "스킨"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The skin to be used by the application window."
-msgstr "프로그램 창에 사용할 스킨입니다."
+msgstr "앱 창에 사용할 스킨입니다."
 
 #. i18n: ectx: label, entry (SkinInstalledWithKns), group (Appearance)
 #: app/config/yakuake.kcfg:104
@@ -832,7 +831,7 @@ msgstr "불투명도를 사용할 때 배경색의 불투명도입니다."
 #, kde-format
 msgctxt "@label"
 msgid "Highlight newly focused terminals"
-msgstr "새로 초점이 맞은 터미널 강조하기"
+msgstr "새로 포커스가 맞은 터미널 강조하기"
 
 #. i18n: ectx: whatsthis, entry (TerminalHighlightOnManualActivation), group (Appearance)
 #: app/config/yakuake.kcfg:127
@@ -844,9 +843,10 @@ msgid ""
 "as over the currently focused terminal when switching to a session with "
 "multiple terminals."
 msgstr ""
-"Yakuake에서 세션 안에 있는 여러 터미널 사이에 초점을 전환할 때 새로 초점이 맞"
-"은 터미널 위에 색이 있는 오버레이를 잠깐 동안 표시하거나, 터미널이 여러 개 있"
-"는 세션으로 전환할 때 현재 초점이 맞춰진 터미널 위에도 표시할지 여부입니다."
+"Yakuake에서 세션 안에 있는 여러 터미널 사이에 포커스를 전환할 때 새로 포커스"
+"가 맞은 터미널 위에 색이 있는 오버레이를 잠깐 동안 표시하거나, 터미널이 여러 "
+"개 있는 세션으로 전환할 때 현재 포커스가 맞춰진 터미널 위에도 표시할지 여부입"
+"니다."
 
 #. i18n: ectx: label, entry (HideSkinBorders), group (Appearance)
 #: app/config/yakuake.kcfg:131
@@ -988,8 +988,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Whether to automatically open the application window when the mouse pointer "
 "is found at the edge of the screen."
-msgstr ""
-"마우스 포인터가 화면 가장자리에 갔을 때 자동으로 창을 열 지 여부입니다."
+msgstr "마우스 포인터가 화면 가장자리에 갔을 때 자동으로 창을 열지 여부입니다."
 
 #. i18n: ectx: label, entry (PollInterval), group (AutoOpen)
 #: app/config/yakuake.kcfg:190
@@ -1012,14 +1011,14 @@ msgstr "화면의 가장자리에 마우스 커서가 가 있는가 여부를 �
 #, kde-format
 msgctxt "@label"
 msgid "Application first run"
-msgstr "프로그램 첫 실행"
+msgstr "앱 첫 실행"
 
 #. i18n: ectx: whatsthis, entry (FirstRun), group (Dialogs)
 #: app/config/yakuake.kcfg:198
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether this is the first time the application is run."
-msgstr "프로그램이 처음으로 실행되는지 여부입니다."
+msgstr "앱이 처음으로 실행되는지 여부입니다."
 
 #. i18n: ectx: label, entry (ConfirmQuit), group (Dialogs)
 #: app/config/yakuake.kcfg:202
@@ -1057,8 +1056,7 @@ msgctxt "@info"
 msgid ""
 "Before starting to use the application, you might want to change the "
 "keyboard shortcut used to open and retract the Yakuake window:"
-msgstr ""
-"프로그램을 시작하기 전에 Yakuake 창을 펴고 접는 단축키를 바꿀 수 있습니다:"
+msgstr "앱을 시작하기 전에 Yakuake 창을 펴고 접는 단축키를 바꿀 수 있습니다."
 
 #. i18n: ectx: property (text), widget (QLabel, outroLabel)
 #: app/firstrundialog.ui:130
@@ -1107,7 +1105,7 @@ msgstr "Francois Chazal"
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Project Founder, Legacy skin (Inactive)"
-msgstr "프로젝트 창시자, 기본 스킨 (비활성화됨)"
+msgstr "프로젝트 창시자, 기본 스킨(비활성화됨)"
 
 #: app/main.cpp:41
 #, kde-kuit-format
@@ -1183,8 +1181,8 @@ msgid ""
 "locked to prevent closing them accidentally.</emphasis> These will be killed "
 "if you continue.</warning>"
 msgstr ""
-"<warning>세션 여러 개를 열었으며, <emphasis>일부 세션은 종료를 막으려고 잠겨 "
-"있습니다.</emphasis> 계속 진행하면 종료합니다.</warning>"
+"<warning>세션 여러 개를 열었으며, <emphasis>일부 세션은 종료하지 못하도록 잠"
+"겨 있습니다.</emphasis> 계속 진행하면 종료합니다.</warning>"
 
 #: app/mainwindow.cpp:211
 #, kde-kuit-format
@@ -1203,8 +1201,8 @@ msgid ""
 "<warning>There are one or more open sessions that you have locked to prevent "
 "closing them accidentally. These will be killed if you continue.</warning>"
 msgstr ""
-"<warning>실수로 종료하는 것을 막으려고 잠겨 있는 하나 이상의 세션이 있습니"
-"다. 계속 진행하면 종료합니다.</warning>"
+"<warning>실수로 종료하지 못하도록 잠겨 있는 하나 이상의 세션이 있습니다. 계"
+"속 진행하면 종료합니다.</warning>"
 
 #: app/mainwindow.cpp:220
 #, kde-kuit-format
@@ -1222,7 +1220,7 @@ msgstr "Yakuake 펴기/접기"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
-msgstr "초점을 잃어도 창 열어 두기"
+msgstr "포커스를 잃어도 창 열어 두기"
 
 #: app/mainwindow.cpp:266
 #, kde-kuit-format
@@ -1473,7 +1471,7 @@ msgstr "화면 %1"
 #: app/mainwindow.cpp:740 app/mainwindow.cpp:762
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: app/mainwindow.cpp:827
 #, kde-kuit-format
@@ -1501,7 +1499,7 @@ msgid ""
 "that it was installed incorrectly.<nl/><nl/>The application will now quit."
 msgstr ""
 "<application>Yakuake</application>에서 스킨을 불러올 수 없었습니다. 잘못 설치"
-"되었을 수 있습니다.<nl/><nl/>프로그램을 종료합니다."
+"되었을 수 있습니다.<nl/><nl/>앱을 종료합니다."
 
 #: app/mainwindow.cpp:921
 #, kde-kuit-format
@@ -1523,9 +1521,9 @@ msgid ""
 "changed to internal use only by re-compiling Yakuake. <p>This warning will "
 "only show once for this Yakuake instance.</p>"
 msgstr ""
-"D-Bus 메서드 runCommand를 사용했습니다 이 메서드를 공개하는 것에 대한 보안 문"
-"제가 제기되었습니다. 필요한 경우 Yakuake를 다시 컴파일하여 이 메서드를 내부에"
-"서만 사용할 수 있도록 변경할 수 있습니다.<p>이 경고는 Yakuake 인스턴스에서 "
+"D-Bus 메서드 runCommand를 사용했습니다. 이 메서드를 공개하는 것에 대한 보안 "
+"문제가 제기되었습니다. 필요한 경우 Yakuake를 다시 컴파일하여 이 메서드를 내부"
+"에서만 사용할 수 있도록 변경할 수 있습니다.<p>이 경고는 Yakuake 인스턴스에서 "
 "한 번만 표시됩니다.</p>"
 
 #: app/sessionstack.cpp:723
@@ -1534,7 +1532,8 @@ msgctxt "@info"
 msgid ""
 "<warning>You have locked this session to prevent accidental closing of "
 "terminals.</warning>"
-msgstr "<warning>터미널 종료를 막으려고 세션을 잠갔습니다.</warning>"
+msgstr ""
+"<warning>터미널을 실수로 종료하지 못하도록 세션을 잠갔습니다.</warning>"
 
 #: app/sessionstack.cpp:727
 #, kde-kuit-format
@@ -1653,7 +1652,7 @@ msgid ""
 msgstr ""
 "<application>Yakuake</application>에서 <application>Konsole</application> 구"
 "성 요소를 불러올 수 없었습니다.<nl/>Yakuake를 실행하려면 "
-"<application>Konsole</application> 프로그램이 필요합니다."
+"<application>Konsole</application> 앱이 필요합니다."
 
 #: app/titlebar.cpp:23
 #, kde-kuit-format
@@ -1669,13 +1668,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Keep window open when it loses focus"
-msgstr "초점을 잃어도 창 열어 두기"
+msgstr "포커스를 잃어도 창 열어 두기"
 
 #: app/titlebar.cpp:37
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "If this is checked, the window will stay open when it loses focus."
-msgstr "선택하면 초점을 잃어도 창이 열려 있습니다."
+msgstr "선택하면 포커스를 잃어도 창이 열려 있습니다."
 
 #: app/titlebar.cpp:44
 #, kde-kuit-format
@@ -1699,7 +1698,7 @@ msgstr "끝내기"
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Quits the application."
-msgstr "프로그램을 종료합니다."
+msgstr "앱을 종료합니다."
 
 #~ msgctxt "@label"
 #~ msgid "Blur"
