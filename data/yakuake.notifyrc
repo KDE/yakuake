@@ -475,5 +475,5 @@ Comment[uk]=Звучить гудок у невидимому сеансі
 Comment[x-test]=xxBell emitted within a non-visible sessionxx
 Comment[zh_CN]=不可见会话中发出的系统提示
 Comment[zh_TW]=非可見工作階段中的響鈴行為
-Sound=Oxygen-Sys-App-Message.ogg
+Sound=bell-window-system
 Action=Popup
