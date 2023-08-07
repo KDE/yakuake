@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-19 00:54+0000\n"
-"PO-Revision-Date: 2023-06-05 15:29+0200\n"
+"PO-Revision-Date: 2023-08-06 05:06+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: app/config/appearancesettings.cpp:150
 #, kde-kuit-format
@@ -149,13 +149,13 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Highlight terminals when moving focus between them"
-msgstr "Realzar as terminais cando se mova o foco entre elas"
+msgstr "Realzar as terminais cando se mova o foco entre elas."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_HideSkinBorders)
 #: app/config/appearancesettings.ui:45
 #, kde-format
 msgid "Hide borders"
-msgstr "Agochar os bordos"
+msgstr "Agochar os bordos."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/appearancesettings.ui:55
@@ -187,7 +187,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Use skin translucency if supported"
-msgstr "Usar a transparencia do tema se se permite"
+msgstr "Usar a transparencia do tema se se permite."
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundColorOpacityLabel)
 #: app/config/appearancesettings.ui:126
@@ -277,21 +277,21 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Use Open/Retract action to focus window"
-msgstr "Usar a acción Abrir/Retraer para focalizar a xanela"
+msgstr "Usar a acción Abrir/Retraer para focalizar a xanela."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepAbove)
 #: app/config/behaviorsettings.ui:61
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window above other windows"
-msgstr "Manter a xanela por riba das outras"
+msgstr "Manter a xanela por riba das outras."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_OpenAfterStart)
 #: app/config/behaviorsettings.ui:84
 #, kde-format
 msgctxt "@option:check"
 msgid "Open window after program start"
-msgstr "Abrir a xanela despois de iniciar o programa"
+msgstr "Abrir a xanela despois de iniciar o programa."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_PollMouse)
 #: app/config/behaviorsettings.ui:91
@@ -310,33 +310,33 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Open window when the mouse pointer touches the screen edge"
-msgstr "Abrir a xanela cando o rato toque o bordo da pantalla"
+msgstr "Abrir a xanela cando o rato toque o bordo da pantalla."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RememberFullscreen)
 #: app/config/behaviorsettings.ui:101
 #, kde-format
 msgid "Remember and restore window fullscreen state"
-msgstr "Lembrar e restaurar o estado de pantalla completa da xanela"
+msgstr "Lembrar e restaurar o estado de pantalla completa da xanela."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowSystrayIcon)
 #: app/config/behaviorsettings.ui:108
 #, kde-format
 msgid "Show system tray icon"
-msgstr "Amosar a icona na zona de notificacións"
+msgstr "Amosar a icona na zona de notificacións."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpen)
 #: app/config/behaviorsettings.ui:118
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window open when it loses focus"
-msgstr "Manter a xanela aberta se perde o foco"
+msgstr "Manter a xanela aberta se perde o foco."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpenAfterLastSessionCloses)
 #: app/config/behaviorsettings.ui:141
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window open after the last session is closed"
-msgstr "Manter a xanela aberta despois de pechar a última sesión"
+msgstr "Manter a xanela aberta despois de pechar a última sesión."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/behaviorsettings.ui:151
@@ -350,7 +350,7 @@ msgstr "Diálogos"
 #, kde-format
 msgctxt "@option:check"
 msgid "Confirm quit when more than one session is open"
-msgstr "Confirmar a saída cando haxa máis dunha sesión aberta"
+msgstr "Confirmar a saída cando haxa máis dunha sesión aberta."
 
 #: app/config/skinlistdelegate.cpp:124 app/config/skinlistdelegate.cpp:164
 #, kde-kuit-format
@@ -380,7 +380,7 @@ msgstr "Barra de título"
 #: app/config/windowsettings.ui:38
 #, kde-format
 msgid "Show title bar"
-msgstr "Amosar a barra do título"
+msgstr "Amosar a barra do título."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: app/config/windowsettings.ui:54
@@ -409,14 +409,14 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Show title bar contents in tab labels"
-msgstr "Amosar os contidos da barra do título nos separadores das sesións"
+msgstr "Amosar os contidos da barra do título nos separadores das sesións."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTabBar)
 #: app/config/windowsettings.ui:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Show the tab bar"
-msgstr "Amosar a barra de separadores"
+msgstr "Amosar a barra de separadores."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/windowsettings.ui:105
@@ -480,7 +480,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Ask the window manager to perform the animation"
-msgstr "Solicitar ao xestor de xanelas que realice a animación"
+msgstr "Solicitar ao xestor de xanelas que realice a animación."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: app/config/windowsettings.ui:283
@@ -529,7 +529,7 @@ msgstr "Pantalla 1"
 #, kde-format
 msgctxt "@option:check"
 msgid "Show on all desktops"
-msgstr "Amosar en todos os escritorios"
+msgstr "Amosar en todos os escritorios."
 
 #. i18n: ectx: label, entry (Screen), group (Window)
 #: app/config/yakuake.kcfg:9
@@ -1632,7 +1632,7 @@ msgstr "Monitor de silencio"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "New Session"
-msgstr "Nova sesión"
+msgstr "Nova sesión."
 
 #: app/tabbar.cpp:70
 #, kde-kuit-format
@@ -1645,7 +1645,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Close Session"
-msgstr "Pechar a sesión"
+msgstr "Pechar a sesión."
 
 #: app/tabbar.cpp:76
 #, kde-kuit-format
@@ -1715,7 +1715,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Keep window open when it loses focus"
-msgstr "Mantén a xanela aberta cando perde o foco"
+msgstr "Mantén a xanela aberta cando perde o foco."
 
 #: app/titlebar.cpp:37
 #, kde-kuit-format
@@ -1727,7 +1727,7 @@ msgstr "Se marca esta opción, a xanela quedará aberta cando perda o foco."
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Open Menu"
-msgstr "Abre o menú"
+msgstr "Abre o menú."
 
 #: app/titlebar.cpp:45
 #, kde-kuit-format
@@ -1739,7 +1739,7 @@ msgstr "Abre o menú principal."
 #, kde-kuit-format
 msgctxt "@info:tooltip Quits the application"
 msgid "Quit"
-msgstr "Saír"
+msgstr "Saír."
 
 #: app/titlebar.cpp:51
 #, kde-kuit-format
