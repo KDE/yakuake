@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-19 00:54+0000\n"
+"POT-Creation-Date: 2023-08-16 00:49+0000\n"
 "PO-Revision-Date: 2022-02-08 20:30+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -365,7 +365,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "Skærm %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:660
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:676
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1455,84 +1455,84 @@ msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "Aktivitet detekteret i den overvågede terminal eller session \"%1\"."
 
-#: app/mainwindow.cpp:619
+#: app/mainwindow.cpp:627
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "Stilhed detekteret i den overvåget terminal i session \"%1\"."
 
-#: app/mainwindow.cpp:675
+#: app/mainwindow.cpp:691
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Hjælp"
 
-#: app/mainwindow.cpp:681
+#: app/mainwindow.cpp:697
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Hurtige indstillinger"
 
-#: app/mainwindow.cpp:687
+#: app/mainwindow.cpp:703
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Skærm"
 
-#: app/mainwindow.cpp:692
+#: app/mainwindow.cpp:708
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Bredde"
 
-#: app/mainwindow.cpp:697
+#: app/mainwindow.cpp:713
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Højde"
 
-#: app/mainwindow.cpp:700
+#: app/mainwindow.cpp:716
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Indstillinger"
 
-#: app/mainwindow.cpp:716
+#: app/mainwindow.cpp:732
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "Ved musens placering"
 
-#: app/mainwindow.cpp:722
+#: app/mainwindow.cpp:738
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Skærm %1"
 
-#: app/mainwindow.cpp:744 app/mainwindow.cpp:766
+#: app/mainwindow.cpp:760 app/mainwindow.cpp:782
 #, kde-format
 msgid "%1%"
 msgstr ""
 
-#: app/mainwindow.cpp:831
+#: app/mainwindow.cpp:847
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Vindue"
 
-#: app/mainwindow.cpp:837
+#: app/mainwindow.cpp:853
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Opførsel"
 
-#: app/mainwindow.cpp:840
+#: app/mainwindow.cpp:856
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Udseende"
 
-#: app/mainwindow.cpp:923
+#: app/mainwindow.cpp:939
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1542,13 +1542,13 @@ msgstr ""
 "<application>Yakuake</application> kunne ikke indlæse et tema. Det blev "
 "sandsynligvis installeret forkert.<nl/><nl/>Programmet vil nu afslutte."
 
-#: app/mainwindow.cpp:925
+#: app/mainwindow.cpp:941
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Kan ikke indlæse tema"
 
-#: app/mainwindow.cpp:1669
+#: app/mainwindow.cpp:1685
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"

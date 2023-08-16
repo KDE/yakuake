@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-19 00:54+0000\n"
+"POT-Creation-Date: 2023-08-16 00:49+0000\n"
 "PO-Revision-Date: 2022-11-20 08:42+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -372,7 +372,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "Екран %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:660
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:676
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1468,7 +1468,7 @@ msgstr ""
 "У терміналі, за яким ведеться спостереження, у сеансі «%1» виявлено "
 "діяльність."
 
-#: app/mainwindow.cpp:619
+#: app/mainwindow.cpp:627
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
@@ -1476,78 +1476,78 @@ msgstr ""
 "У терміналі, за яким ведеться спостереження, у сеансі «%1» виявлено "
 "бездіяльність."
 
-#: app/mainwindow.cpp:675
+#: app/mainwindow.cpp:691
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Довідка"
 
-#: app/mainwindow.cpp:681
+#: app/mainwindow.cpp:697
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Швидке налаштування"
 
-#: app/mainwindow.cpp:687
+#: app/mainwindow.cpp:703
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Екран"
 
-#: app/mainwindow.cpp:692
+#: app/mainwindow.cpp:708
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Ширина"
 
-#: app/mainwindow.cpp:697
+#: app/mainwindow.cpp:713
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Висота"
 
-#: app/mainwindow.cpp:700
+#: app/mainwindow.cpp:716
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Параметри"
 
-#: app/mainwindow.cpp:716
+#: app/mainwindow.cpp:732
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "У розташуванні вказівника"
 
-#: app/mainwindow.cpp:722
+#: app/mainwindow.cpp:738
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Екран %1"
 
-#: app/mainwindow.cpp:744 app/mainwindow.cpp:766
+#: app/mainwindow.cpp:760 app/mainwindow.cpp:782
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: app/mainwindow.cpp:831
+#: app/mainwindow.cpp:847
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Вікно"
 
-#: app/mainwindow.cpp:837
+#: app/mainwindow.cpp:853
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Поведінка"
 
-#: app/mainwindow.cpp:840
+#: app/mainwindow.cpp:856
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Вигляд"
 
-#: app/mainwindow.cpp:923
+#: app/mainwindow.cpp:939
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1558,13 +1558,13 @@ msgstr ""
 "за все його було некоректно встановлено.<nl/><nl/>Тепер програма аварійно "
 "завершить роботу."
 
-#: app/mainwindow.cpp:925
+#: app/mainwindow.cpp:941
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Не вдалося завантажити оболонку"
 
-#: app/mainwindow.cpp:1669
+#: app/mainwindow.cpp:1685
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"

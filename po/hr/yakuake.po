@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-19 00:54+0000\n"
+"POT-Creation-Date: 2023-08-16 00:49+0000\n"
 "PO-Revision-Date: 2011-05-27 14:02+0200\n"
 "Last-Translator: Marko Dimjašević <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -352,7 +352,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "Zaslon 1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:660
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:676
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1428,55 +1428,55 @@ msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr ""
 
-#: app/mainwindow.cpp:619
+#: app/mainwindow.cpp:627
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr ""
 
-#: app/mainwindow.cpp:675
+#: app/mainwindow.cpp:691
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Pomoć"
 
-#: app/mainwindow.cpp:681
+#: app/mainwindow.cpp:697
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Brze opcije"
 
-#: app/mainwindow.cpp:687
+#: app/mainwindow.cpp:703
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Zaslon"
 
-#: app/mainwindow.cpp:692
+#: app/mainwindow.cpp:708
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Širina"
 
-#: app/mainwindow.cpp:697
+#: app/mainwindow.cpp:713
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Visina"
 
-#: app/mainwindow.cpp:700
+#: app/mainwindow.cpp:716
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Postavke"
 
-#: app/mainwindow.cpp:716
+#: app/mainwindow.cpp:732
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "Na lokaciji miša"
 
-#: app/mainwindow.cpp:722
+#: app/mainwindow.cpp:738
 #, fuzzy, kde-kuit-format
 #| msgctxt "@item:inlistbox"
 #| msgid "Screen 1"
@@ -1484,30 +1484,30 @@ msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Zaslon 1"
 
-#: app/mainwindow.cpp:744 app/mainwindow.cpp:766
+#: app/mainwindow.cpp:760 app/mainwindow.cpp:782
 #, kde-format
 msgid "%1%"
 msgstr ""
 
-#: app/mainwindow.cpp:831
+#: app/mainwindow.cpp:847
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Prozor"
 
-#: app/mainwindow.cpp:837
+#: app/mainwindow.cpp:853
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Ponašanje"
 
-#: app/mainwindow.cpp:840
+#: app/mainwindow.cpp:856
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Izgled"
 
-#: app/mainwindow.cpp:923
+#: app/mainwindow.cpp:939
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1517,13 +1517,13 @@ msgstr ""
 "<application>Yakuake</application> nije uspio učitati temu. Vjerojatno je "
 "neispravno instaliran.<nl/><nl/>Aplikacija će se sada završiti."
 
-#: app/mainwindow.cpp:925
+#: app/mainwindow.cpp:941
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Temu nije moguće učitati"
 
-#: app/mainwindow.cpp:1669
+#: app/mainwindow.cpp:1685
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-19 00:54+0000\n"
+"POT-Creation-Date: 2023-08-16 00:49+0000\n"
 "PO-Revision-Date: 2020-03-13 22:03+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -344,7 +344,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "螢幕 %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:660
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:676
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1397,84 +1397,84 @@ msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "在一個監控中的終端機或工作階段 \"%1\" 中偵測到有活動。"
 
-#: app/mainwindow.cpp:619
+#: app/mainwindow.cpp:627
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "在一個監控中的終端機或工作階段 \"%1\" 中偵測到無回應狀態。"
 
-#: app/mainwindow.cpp:675
+#: app/mainwindow.cpp:691
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "說明"
 
-#: app/mainwindow.cpp:681
+#: app/mainwindow.cpp:697
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "快速選項"
 
-#: app/mainwindow.cpp:687
+#: app/mainwindow.cpp:703
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "螢幕"
 
-#: app/mainwindow.cpp:692
+#: app/mainwindow.cpp:708
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "寬度"
 
-#: app/mainwindow.cpp:697
+#: app/mainwindow.cpp:713
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "高度"
 
-#: app/mainwindow.cpp:700
+#: app/mainwindow.cpp:716
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "設定"
 
-#: app/mainwindow.cpp:716
+#: app/mainwindow.cpp:732
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "於滑鼠位置"
 
-#: app/mainwindow.cpp:722
+#: app/mainwindow.cpp:738
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "螢幕 %1"
 
-#: app/mainwindow.cpp:744 app/mainwindow.cpp:766
+#: app/mainwindow.cpp:760 app/mainwindow.cpp:782
 #, kde-format
 msgid "%1%"
 msgstr ""
 
-#: app/mainwindow.cpp:831
+#: app/mainwindow.cpp:847
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "視窗"
 
-#: app/mainwindow.cpp:837
+#: app/mainwindow.cpp:853
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "行為"
 
-#: app/mainwindow.cpp:840
+#: app/mainwindow.cpp:856
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "外觀"
 
-#: app/mainwindow.cpp:923
+#: app/mainwindow.cpp:939
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1484,13 +1484,13 @@ msgstr ""
 "<application>Yakuake</application> 無法載入外觀。有可能是因為安裝不正確。<nl/"
 "><nl/>應用程式將離開。"
 
-#: app/mainwindow.cpp:925
+#: app/mainwindow.cpp:941
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "無法載入外觀"
 
-#: app/mainwindow.cpp:1669
+#: app/mainwindow.cpp:1685
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
