@@ -18,6 +18,7 @@ Dependencies:
     'frameworks/knotifications': '@latest-kf6'
     'frameworks/knotifyconfig': '@latest-kf6'
     'frameworks/kparts': '@latest-kf6'
+    'frameworks/kstatusnotifieritem': '@latest-kf6'
     'frameworks/kwidgetsaddons': '@latest-kf6'
     'frameworks/kwindowsystem': '@latest-kf6'
     'frameworks/kwayland': '@latest-kf6'
