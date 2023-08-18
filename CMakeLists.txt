@@ -61,6 +61,10 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED
     WindowSystem
 )
 
+if (QT_MAJOR_VERSION STREQUAL "6")
+    find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
+endif()
+
 if(NOT APPLE)
     option(WITHOUT_X11 "Build without X11 integration (skips finding X11)" OFF)
     if(NOT WITHOUT_X11)

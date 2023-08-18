@@ -63,6 +63,10 @@ target_link_libraries(yakuake
     KF${KF_MAJOR_VERSION}::WidgetsAddons
     KF${KF_MAJOR_VERSION}::WindowSystem)
 
+if (QT_MAJOR_VERSION STREQUAL "6")
+    target_link_libraries(yakuake KF6::StatusNotifierItem)
+endif()
+
 if(HAVE_X11)
     if (TARGET Qt5::X11Extras)
         target_link_libraries(yakuake Qt5::X11Extras)
