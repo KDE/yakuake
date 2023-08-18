@@ -71,7 +71,7 @@ if(HAVE_X11)
     if (TARGET Qt5::X11Extras)
         target_link_libraries(yakuake Qt5::X11Extras)
     elseif (TARGET Qt6::Gui)
-        target_link_libraries(yakuake Qt6::GuiPrivate) # qtx11extras_p.h in knotificationrestrictions
+        target_link_libraries(yakuake Qt6::GuiPrivate) # qtx11extras_p.h
     endif()
 endif()
 
