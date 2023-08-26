@@ -80,7 +80,7 @@ if(NOT APPLE)
     endif()
 
     find_package(KF${KF_MAJOR_VERSION}Wayland ${KF_MIN_VERSION} CONFIG)
-    set(HAVE_KWAYLAND KF${KF_MAJOR_VERSION}Wayland_FOUND)
+    set(HAVE_KWAYLAND ${KF${KF_MAJOR_VERSION}Wayland_FOUND})
 endif()
 
 add_subdirectory(app)
