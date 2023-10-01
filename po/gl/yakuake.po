@@ -37,7 +37,7 @@ msgstr "Seleccione o arquivo de tema que quere instalar"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
-msgstr "Non se poden listar os contidos do arquivo de aparencia."
+msgstr "Non é posíbel listar os contidos do arquivo de aparencia."
 
 #: app/config/appearancesettings.cpp:273
 #, kde-kuit-format
@@ -71,7 +71,7 @@ msgstr "Reinstalar unha aparencia…"
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
-msgstr "Non se puido eliminar a aparencia"
+msgstr "Non foi posíbel eliminar a aparencia"
 
 #: app/config/appearancesettings.cpp:323
 #, kde-kuit-format
@@ -80,20 +80,20 @@ msgid ""
 "Unable to locate required files in the skin archive.<nl/><nl/>The archive "
 "appears to be invalid."
 msgstr ""
-"Non se poden atopar os ficheiros requiridos no arquivo de aparencia.<nl/><nl/"
-">O arquivo parece incorrecto."
+"Non é posíbel atopar os ficheiros requiridos no arquivo de aparencia.<nl/"
+"><nl/>O arquivo parece incorrecto."
 
 #: app/config/appearancesettings.cpp:326
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
-msgstr "Non se puido abrir o ficheiro de arquivo de aparencia."
+msgstr "Non foi posíbel abrir o ficheiro de arquivo de aparencia."
 
 #: app/config/appearancesettings.cpp:331
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
-msgstr "Non se pode instalar a aparencia"
+msgstr "Non é posíbel instalar a aparencia"
 
 #: app/config/appearancesettings.cpp:375
 #, kde-kuit-format
@@ -206,7 +206,7 @@ msgid ""
 "This allows influencing the opacity and color tint of translucent areas of "
 "the skin."
 msgstr ""
-"Se utiliza transparencias, a cor de fondo encherase usando a opacidade dada "
+"Se usa transparencias, a cor de fondo encherase usando a opacidade dada "
 "antes de que os elementos do tema se pinten sobre o fondo. Isto permite "
 "influír na opacidade e no ton da cor das áreas transparentes do tema."
 
@@ -849,7 +849,7 @@ msgstr "Opacidade da cor de fondo"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the background color fill when using translucency."
-msgstr "A opacidade da cor de fondo cando se utiliza transparencia."
+msgstr "A opacidade da cor de fondo cando se usa transparencia."
 
 #. i18n: ectx: label, entry (TerminalHighlightOnManualActivation), group (Appearance)
 #: app/config/yakuake.kcfg:126
@@ -1547,7 +1547,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
-msgstr "Non se pode cargar a Aparencia"
+msgstr "Non é posíbel cargar a Aparencia"
 
 #: app/mainwindow.cpp:1665
 #, kde-kuit-format
