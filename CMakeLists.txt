@@ -8,8 +8,12 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 
 project(yakuake VERSION ${RELEASE_SERVICE_VERSION})
 
-set (QT_MIN_VERSION "5.15.2")
-set (KF_MIN_VERSION "5.91")
+# KF6 only
+set(QT_MIN_VERSION "6.5.0")
+set(KF5_DEP_VERSION "5.240.0")
+set(QT_MAJOR_VERSION "6")
+set(KF_MAJOR_VERSION "6")
+
 set (CMAKE_CXX_STANDARD 20)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -25,13 +29,6 @@ include(FeatureSummary)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
-if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_REQUIRED_VERSION "6.4.0")
-    set(KF_MIN_VERSION "5.240.0")
-    set(KF_MAJOR_VERSION "6")
-else()
-    set(KF_MAJOR_VERSION "5")
-endif()
 include(ECMGenerateDBusServiceFile)
 
 ecm_set_disabled_deprecation_versions(QT 5.15.2

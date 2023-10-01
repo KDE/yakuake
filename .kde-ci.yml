@@ -23,25 +23,5 @@ Dependencies:
     'frameworks/kwayland': '@latest-kf6'
     'frameworks/kstatusnotifieritem': '@latest-kf6'
 
-- 'on': ['Linux/Qt5', 'FreeBSD/Qt5']
-  'require':
-    'frameworks/extra-cmake-modules': '@stable'
-    'frameworks/kcoreaddons': '@stable'
-    'frameworks/kconfig': '@stable'
-    'frameworks/ki18n': '@stable'
-    'frameworks/karchive': '@stable'
-    'frameworks/kcrash': '@stable'
-    'frameworks/kdbusaddons': '@stable'
-    'frameworks/kglobalaccel': '@stable'
-    'frameworks/kiconthemes': '@stable'
-    'frameworks/kio': '@stable'
-    'frameworks/knewstuff': '@stable'
-    'frameworks/knotifications': '@stable'
-    'frameworks/knotifyconfig': '@stable'
-    'frameworks/kparts': '@stable'
-    'frameworks/kwidgetsaddons': '@stable'
-    'frameworks/kwindowsystem': '@stable'
-    'frameworks/kwayland': '@stable'
-
 Options:
   require-passing-tests-on: [ '@all' ]
