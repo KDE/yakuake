@@ -5,7 +5,7 @@
 # Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
 # Enrique Matias Sanchez (Quique) <cronopios@gmail.com>, 2008.
 # Israel Garcia Garcia <israelgarcia86@gmail.com>, 2010, 2011.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2011, 2012, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2011, 2012, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 Eloy Cuadra <ecuadra@eloihr.net>
 # Ricardo Varas Santana <ricardoivaras@gmail.com>, 2012, 2013.
 # Sofia Priego <spriego@darksylvania.net>, 2015, 2016, 2017, %Y.
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-16 00:49+0000\n"
-"PO-Revision-Date: 2022-11-21 00:23+0100\n"
+"PO-Revision-Date: 2023-10-02 22:28+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.11.80\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: app/config/appearancesettings.cpp:150
 #, kde-kuit-format
@@ -270,8 +270,8 @@ msgid ""
 "may cause the window manager to switch to the virtual desktop it currently "
 "resides on."
 msgstr ""
-"Si esta opción está activada, el acceso rápido que se usa normalmente para "
-"abrir y retraer la ventana le dará el foco en vez de cerrarla, si "
+"Si esta opción está activada, el atajo de teclado que se usa normalmente "
+"para abrir y retraer la ventana le dará el foco en vez de cerrarla, si "
 "previamente había perdido el foco. Excepto cuando la ventana se muestre en "
 "todos los escritorios virtuales, esto puede causar que el gestor de ventanas "
 "cambie al escritorio virtual donde resida la ventana."
@@ -308,7 +308,7 @@ msgid ""
 msgstr ""
 "Si esta opción está activada, la ventana se abrirá automáticamente cuando el "
 "puntero del ratón se mueva al mismo borde de la pantalla donde se abriría al "
-"usar el acceso rápido."
+"usar el atajo de teclado."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PollMouse)
 #: app/config/behaviorsettings.ui:94
@@ -655,7 +655,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Use open/retract shortcut to focus window"
-msgstr "Use el acceso rápido Abrir/Retraer para enfocar la ventana"
+msgstr "Use el atajo de teclado Abrir/Retraer para enfocar la ventana"
 
 #. i18n: ectx: whatsthis, entry (ToggleToFocus), group (Window)
 #: app/config/yakuake.kcfg:51
@@ -665,8 +665,8 @@ msgid ""
 "Whether the open/retract keyboard shortcut can be used to focus the "
 "application window when it is already open."
 msgstr ""
-"Si se puede usar el acceso rápido de teclado abrir/retraer para poner la "
-"ventana de la aplicación en primer plano cuando ya está abierta."
+"Si se puede usar el atajo de teclado abrir/retraer para poner la ventana de "
+"la aplicación en primer plano cuando ya está abierta."
 
 #. i18n: ectx: label, entry (KeepAbove), group (Window)
 #: app/config/yakuake.kcfg:55
@@ -1113,8 +1113,8 @@ msgid ""
 "Before starting to use the application, you might want to change the "
 "keyboard shortcut used to open and retract the Yakuake window:"
 msgstr ""
-"Antes de empezar a usar la aplicación, puede que desee cambiar los accesos "
-"rápidos de teclado que se usan para abrir y retraer la ventana de Yakuake:"
+"Antes de empezar a usar la aplicación, puede que desee cambiar los atajos de "
+"teclado que se usan para abrir y retraer la ventana de Yakuake:"
 
 #. i18n: ectx: property (text), widget (QLabel, outroLabel)
 #: app/firstrundialog.ui:130
@@ -1122,8 +1122,8 @@ msgstr ""
 msgctxt "@info"
 msgid "You can change the shortcut later at any time via the menu."
 msgstr ""
-"Puede cambiar el acceso rápido posteriormente en cualquier momento a través "
-"del menú."
+"Puede cambiar el atajo de teclado posteriormente en cualquier momento a "
+"través del menú."
 
 #: app/main.cpp:28
 #, kde-kuit-format
