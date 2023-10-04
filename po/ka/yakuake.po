@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-16 00:49+0000\n"
-"PO-Revision-Date: 2023-10-02 18:15+0200\n"
+"PO-Revision-Date: 2023-10-03 06:02+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -297,6 +297,9 @@ msgid ""
 "pointer is moved to the same edge of the screen that it would open on when "
 "using the shortcut."
 msgstr ""
+"თუ ეს პარამეტრი ჩართულია, ფანჯარა ავტომატურად გაიხსნება, როცა თაგუნას "
+"კურსორი ეკრანის იგივე წიბოსთან აღმოჩნდება, სადაც ფანჯარა მალსახმობით "
+"გაიხსნებოდა."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PollMouse)
 #: app/config/behaviorsettings.ui:94
@@ -393,6 +396,9 @@ msgid ""
 "tab bar. You can modify the format of the information in the terminal "
 "profile."
 msgstr ""
+"თუ ეს პარამეტრი ჩართულია, ინფორმაცია აქტიური ტერმინალის შემცველობის შესახებ, "
+"რომელიც ნორმალურად სათაური ზოლშია ნაჩვენები, ჩანართი ზოლშიც გამოჩნდება. ამ "
+"ინფორმაციის ფორმატი ტერმინალის პროფილში შეგიძლიათ, შეცვალოთ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_DynamicTabTitles)
 #: app/config/windowsettings.ui:72
@@ -460,6 +466,10 @@ msgid ""
 "provide the requested service, Yakuake will fall back to an animation "
 "strategy of progressively adjusting the window mask."
 msgstr ""
+"თუ ეს პარამეტრი ჩართულია, Yakuake ფანჯრების გახსნა/ჩაკეცვის ანიმაციის "
+"შესრულებას ფანჯრების მმართველს სთხოვს. თუ ფანჯრების მმართველს არ შეუძლია "
+"მოთხოვნილი სერვისის წარმოდგენა, Yakuake გადაერთვება ანიმაციის სტრატეგიაზე, "
+"რომელიც ფანჯრის ნიღაბს თანდათან მოირგებს."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseWMAssist)
 #: app/config/windowsettings.ui:273
@@ -642,6 +652,8 @@ msgid ""
 "Whether the open/retract keyboard shortcut can be used to focus the "
 "application window when it is already open."
 msgstr ""
+"შეიძლება თუ არა გახსნა/ჩაკეცვის კლავიატურის მალსახმობის გამოყენება ფოკუსის "
+"აპლიკაციის ფანჯარაზე გადასატანად, როცა ის უკვე ღიაა."
 
 #. i18n: ectx: label, entry (KeepAbove), group (Window)
 #: app/config/yakuake.kcfg:55
@@ -851,6 +863,9 @@ msgid ""
 "as over the currently focused terminal when switching to a session with "
 "multiple terminals."
 msgstr ""
+"გამოჩნდება თუ არა მოკლე ფერადი შეტყობინება ახლად გახსნილი ტერმინალის "
+"ზემოდან, როცა ფოკუსის სესიაში ბევრ ტერმინალს შორის გადადის და ამჟამად "
+"ფოკუსის მქონე ტერმინალზე, როცა სესიის გადართვა ბევრ ტერმინალს შორის ხდება."
 
 #. i18n: ectx: label, entry (HideSkinBorders), group (Appearance)
 #: app/config/yakuake.kcfg:131
@@ -868,6 +883,9 @@ msgid ""
 "option, when turned on, will overwrite the border settings defined by the "
 "skin and hide all borders."
 msgstr ""
+"სკინებს შეუძლიათ ტერმინალის გარშემო საზღვრები აღწერონ. ეს პარამეტრი, როცა "
+"ჩართულია, სკინის საზღვრის ყველა პარამეტრს გადაფარავს და საზღვრები დამალული "
+"იქნება."
 
 #. i18n: ectx: label, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:136
@@ -956,6 +974,10 @@ msgid ""
 "adjusting the window mask if the window manager is unable to provide the "
 "requested service."
 msgstr ""
+"უნდა ვთხოვო ფანჯრების მმართველს ფანჯრის გახსნა/ჩაკეცვის ანიმაციის შესრულება, "
+"თუ არა. Yakuake გადაერთვება ანიმაციის სტრატეგიაზე, სადაც, თუ ფანჯრების "
+"მმართველს მოთხოვნილი სერვისის მოწოდება არ შეუძლია, ფანჯრის ნიღაბს თანდათან "
+"გადაატარებს."
 
 #. i18n: ectx: label, entry (Frames), group (Animation)
 #: app/config/yakuake.kcfg:176
@@ -971,7 +993,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "The number of frames of the open/retract animation. One frame is taken to be "
 "10 miliseconds."
-msgstr ""
+msgstr "გახნა/ჩაკეცვის ანიმაციის კადრების რაოდენობა. ერთი კადრი 10 მილიწამია."
 
 #. i18n: ectx: label, entry (PollMouse), group (AutoOpen)
 #: app/config/yakuake.kcfg:185
@@ -1060,6 +1082,9 @@ msgid ""
 "Before starting to use the application, you might want to change the "
 "keyboard shortcut used to open and retract the Yakuake window:"
 msgstr ""
+"ამ აპლიკაციის გამოყენების დაწყებამდე შეიძლება გნებავდეთ, შეცვალოთ "
+"კლავიატურის მალსახმობი, რომელიც Yakuake-ის ფანჯრის გამოძახება/ჩასაკეცად "
+"გამოიყენება:"
 
 #. i18n: ectx: property (text), widget (QLabel, outroLabel)
 #: app/firstrundialog.ui:130
@@ -1188,6 +1213,9 @@ msgid ""
 "locked to prevent closing them accidentally.</emphasis> These will be killed "
 "if you continue.</warning>"
 msgstr ""
+"<warning>არსებობს ერთზე მეტი სესია, <emphasis>ზოგიერთი, რომლიდანაც, "
+"დაბლოკილია, მათი შემთხვევით დახურვის თავიდან ასაცილებლად.</emphasis> ესენი "
+"დაიხოცებიან, თუ გააგრძელებთ.</warning>"
 
 #: app/mainwindow.cpp:215
 #, kde-kuit-format
@@ -1529,6 +1557,11 @@ msgid ""
 "changed to internal use only by re-compiling Yakuake. <p>This warning will "
 "only show once for this Yakuake instance.</p>"
 msgstr ""
+"გამოყენებულია D-Bus-ის მეთოდი runCommand.  არსებობს უსაფრთხოების რისკები ამ "
+"მეთოდების საჯაროდ გამოყენებისას.  თუ გნებავთ, ეს მეთოდები, შეგიძლიათ შიდა "
+"მეთოდებით შეცვალოთ, მაგრამ, მხოლოდ Yakuake-ის თავიდან აგებით. <p>ეს "
+"გაფრთხილება თითოეული Yakuake-ის გაშვებული ასლისთვის, მხოლოდ, ერთხელ "
+"გამოჩნდება.</p>"
 
 #: app/sessionstack.cpp:723
 #, kde-kuit-format
@@ -1565,6 +1598,9 @@ msgid ""
 "<title>Tab Bar</title><para>The tab bar allows you to switch between "
 "sessions. You can double-click a tab to edit its label.</para>"
 msgstr ""
+"<title>ჩანართის პანელი</title><para>ცანართის პანელი საშუალებას გაძლევთ, "
+"სესიებს შორის გადართოთ. შეიძლიათ, ზედ ორჯერ დააწკაპუნოთ და მისი ჭდე "
+"ჩაასწოროთ.</para>"
 
 #: app/tabbar.cpp:58
 #, kde-kuit-format
