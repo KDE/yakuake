@@ -422,11 +422,7 @@ void AppearanceSettings::knsDialogFinished(const QList<KNSCore::Entry> &changedE
     quint32 invalidEntryCount = 0;
     QString invalidSkinText;
     for (const auto &entry : changedEntries) {
-#if QT_VERSION_MAJOR < 6
-        auto Installed = KNS3::Entry::Installed;
-#else
         auto Installed = KNSCore::Entry::Installed;
-#endif
         if (entry.status() != Installed) {
             continue;
         }

@@ -11,8 +11,6 @@ project(yakuake VERSION ${RELEASE_SERVICE_VERSION})
 # KF6 only
 set(QT_MIN_VERSION "6.5.0")
 set(KF5_DEP_VERSION "5.240.0")
-set(QT_MAJOR_VERSION "6")
-set(KF_MAJOR_VERSION "6")
 
 set (CMAKE_CXX_STANDARD 20)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -38,9 +36,9 @@ ecm_set_disabled_deprecation_versions(QT 5.15.2
 ### Security concerns about sendText and runCommand dbus methods being public
 option(REMOVE_SENDTEXT_RUNCOMMAND_DBUS_METHODS "yakuake: remove runCommand dbus methods" OFF)
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets Svg)
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets Svg)
 
-find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     Archive
     Config
     CoreAddons
@@ -56,26 +54,19 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED
     Parts
     WidgetsAddons
     WindowSystem
+    StatusNotifierItem
 )
-
-if (QT_MAJOR_VERSION STREQUAL "6")
-    find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
-endif()
 
 option(WITH_X11 "Build with X11 integration" ON)
 if(WITH_X11)
     set(HAVE_X11 TRUE)
-    if (QT_MAJOR_VERSION EQUAL "5")
-        find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED X11Extras)
-    else()
-        find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
-    endif()
+    find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
 else()
     set(HAVE_X11 FALSE)
 endif()
 
-find_package(KF${KF_MAJOR_VERSION}Wayland ${KF_MIN_VERSION} CONFIG)
-set(HAVE_KWAYLAND ${KF${KF_MAJOR_VERSION}Wayland_FOUND})
+find_package(KF6Wayland ${KF_MIN_VERSION} CONFIG)
+set(HAVE_KWAYLAND ${KF6Wayland_FOUND})
 
 add_subdirectory(app)
 add_subdirectory(data)

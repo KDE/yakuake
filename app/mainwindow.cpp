@@ -46,11 +46,7 @@
 #include <QWindow>
 
 #if HAVE_X11
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <QX11Info>
-#else
 #include <private/qtx11extras_p.h>
-#endif
 
 #include <X11/Xlib.h>
 #include <fixx11h.h>
@@ -122,11 +118,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(&m_mousePoller, SIGNAL(timeout()), this, SLOT(pollMouse()));
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    connect(KWindowSystem::self(), SIGNAL(workAreaChanged()), this, SLOT(applyWindowGeometry()));
-#else
     connect(KX11Extras::self(), &KX11Extras::workAreaChanged, this, &MainWindow::applyWindowGeometry);
-#endif
     connect(qApp, &QGuiApplication::screenAdded, this, &MainWindow::updateScreenMenu);
     connect(qApp, &QGuiApplication::screenRemoved, this, &MainWindow::updateScreenMenu);
 
@@ -607,13 +599,8 @@ void MainWindow::handleTerminalActivity(Terminal *terminal)
 
         QString message(xi18nc("@info", "Activity detected in monitored terminal in session \"%1\".", m_tabBar->tabTitle(session->id())));
 
-#if QT_VERSION_MAJOR == 5
-        KNotification *n = new KNotification(QLatin1String("activity"), KNotification::CloseWhenWidgetActivated);
-        n->setWidget(terminal->partWidget());
-#else
         KNotification *n = new KNotification(QLatin1String("activity"), KNotification::CloseWhenWindowActivated);
         n->setWindow(terminal->partWidget()->window()->windowHandle());
-#endif
         n->setText(message);
         n->sendEvent();
     }
@@ -626,13 +613,8 @@ void MainWindow::handleTerminalSilence(Terminal *terminal)
     if (session) {
         QString message(xi18nc("@info", "Silence detected in monitored terminal in session \"%1\".", m_tabBar->tabTitle(session->id())));
 
-#if QT_VERSION_MAJOR == 5
-        KNotification *n = new KNotification(QLatin1String("silence"), KNotification::CloseWhenWidgetActivated);
-        n->setWidget(terminal->partWidget());
-#else
         KNotification *n = new KNotification(QLatin1String("silence"), KNotification::CloseWhenWindowActivated);
         n->setWindow(terminal->partWidget()->window()->windowHandle());
-#endif
         n->setText(message);
         n->sendEvent();
     }
@@ -901,11 +883,7 @@ void MainWindow::applySettings()
 
         // Prevent the default implementation of showing
         // and instead run toggleWindowState
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        m_notifierItem->setAssociatedWidget(nullptr);
-#else
         m_notifierItem->setAssociatedWindow(nullptr);
-#endif
         connect(m_notifierItem, &KStatusNotifierItem::activateRequested, this, &MainWindow::toggleWindowState);
         updateTrayTooltip();
     }

@@ -32,11 +32,7 @@ Terminal::Terminal(const QString &workingDir, QWidget *parent)
     m_availableTerminalId++;
     m_parentSplitter = parent;
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    KPluginMetaData part(QStringLiteral("konsolepart"));
-#else
     KPluginMetaData part(QStringLiteral("kf6/parts/konsolepart"));
-#endif
 
     m_part = KParts::PartLoader::instantiatePart<KParts::Part>(part, parent).plugin;
 

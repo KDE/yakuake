@@ -47,36 +47,32 @@ ecm_add_app_icon(yakuake_SRCS ICONS ${ICONS_SRCS})
 
 target_link_libraries(yakuake
     Qt::Widgets
-    KF${KF_MAJOR_VERSION}::Archive
-    KF${KF_MAJOR_VERSION}::ConfigGui
-    KF${KF_MAJOR_VERSION}::CoreAddons
-    KF${KF_MAJOR_VERSION}::Crash
-    KF${KF_MAJOR_VERSION}::DBusAddons
-    KF${KF_MAJOR_VERSION}::GlobalAccel
-    KF${KF_MAJOR_VERSION}::I18n
-    KF${KF_MAJOR_VERSION}::IconThemes
-    KF${KF_MAJOR_VERSION}::KIOCore
-    KF${KF_MAJOR_VERSION}::NewStuffWidgets
-    KF${KF_MAJOR_VERSION}::Notifications
-    KF${KF_MAJOR_VERSION}::NotifyConfig
-    KF${KF_MAJOR_VERSION}::Parts
-    KF${KF_MAJOR_VERSION}::WidgetsAddons
-    KF${KF_MAJOR_VERSION}::WindowSystem)
-
-if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(yakuake KF6::StatusNotifierItem)
-endif()
+    KF6::Archive
+    KF6::ConfigGui
+    KF6::CoreAddons
+    KF6::Crash
+    KF6::DBusAddons
+    KF6::GlobalAccel
+    KF6::I18n
+    KF6::IconThemes
+    KF6::KIOCore
+    KF6::NewStuffWidgets
+    KF6::Notifications
+    KF6::NotifyConfig
+    KF6::Parts
+    KF6::WidgetsAddons
+    KF6::WindowSystem
+    KF6::StatusNotifierItem
+)
 
 if(HAVE_X11)
-    if (TARGET Qt5::X11Extras)
-        target_link_libraries(yakuake Qt5::X11Extras)
-    elseif (TARGET Qt6::Gui)
+    if (TARGET Qt6::Gui)
         target_link_libraries(yakuake Qt6::GuiPrivate) # qtx11extras_p.h
     endif()
 endif()
 
-if(KF${KF_MAJOR_VERSION}Wayland_FOUND)
-  target_link_libraries(yakuake KF${KF_MAJOR_VERSION}::WaylandClient)
+if(KF6Wayland_FOUND)
+  target_link_libraries(yakuake KF6::WaylandClient)
 endif()
 
 install(TARGETS yakuake ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
