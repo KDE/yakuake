@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-16 00:49+0000\n"
+"POT-Creation-Date: 2023-10-06 01:42+0000\n"
 "PO-Revision-Date: 2022-11-22 21:41+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -99,7 +99,7 @@ msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "தோற்றத்திட்டத்தை நீக்கு"
 
-#: app/config/appearancesettings.cpp:474
+#: app/config/appearancesettings.cpp:470
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -336,7 +336,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "திரை %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:676
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:658
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1031,115 +1031,115 @@ msgctxt "@info"
 msgid "You can change the shortcut later at any time via the menu."
 msgstr ""
 
-#: app/main.cpp:28
+#: app/main.cpp:25
 #, kde-kuit-format
 msgctxt "@title"
 msgid "<application>Yakuake</application>"
 msgstr ""
 
-#: app/main.cpp:30
+#: app/main.cpp:27
 #, kde-kuit-format
 msgctxt "@title"
 msgid "A drop-down terminal emulator based on KDE Konsole technology."
 msgstr "கே.டீ.யீ. கான்சோலை அடிப்படையாக‍க் கொண்ட கீழிறங்கு முனையக் கருவி"
 
-#: app/main.cpp:32
+#: app/main.cpp:29
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "(c) 2008-2018 The Yakuake Team"
 msgstr "(c) 2008-2018, யக்குவேக் அணி"
 
-#: app/main.cpp:39
+#: app/main.cpp:36
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Eike Hein"
 msgstr "எய்கே ஹைன்"
 
-#: app/main.cpp:39
+#: app/main.cpp:36
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Maintainer, Lead Developer"
 msgstr ""
 
-#: app/main.cpp:40
+#: app/main.cpp:37
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Francois Chazal"
 msgstr ""
 
-#: app/main.cpp:40
+#: app/main.cpp:37
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Project Founder, Legacy skin (Inactive)"
 msgstr ""
 
-#: app/main.cpp:41
+#: app/main.cpp:38
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Daniel 'suslik' D."
 msgstr ""
 
-#: app/main.cpp:41
+#: app/main.cpp:38
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Plastik skin"
 msgstr ""
 
-#: app/main.cpp:42
+#: app/main.cpp:39
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Juan Carlos Torres"
 msgstr ""
 
-#: app/main.cpp:43
+#: app/main.cpp:40
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Tab bar drag and drop support, Prevent Closing toggle"
 msgstr ""
 
-#: app/main.cpp:45
+#: app/main.cpp:42
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Gustavo Ribeiro Croscato"
 msgstr ""
 
-#: app/main.cpp:46
+#: app/main.cpp:43
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Icon on tabs with Prevent Closing enabled"
 msgstr ""
 
-#: app/main.cpp:48
+#: app/main.cpp:45
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Danilo Cesar Lemes de Paula"
 msgstr ""
 
-#: app/main.cpp:49
+#: app/main.cpp:46
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Actions to grow terminals"
 msgstr "முனையங்களை பெரிதாக்க உதவும் செயல்கள்"
 
-#: app/main.cpp:52
+#: app/main.cpp:49
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "கோ. கிஷோர்"
 
-#: app/main.cpp:52
+#: app/main.cpp:49
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Kde-l10n-ta@kde.org"
 
-#: app/mainwindow.cpp:205
+#: app/mainwindow.cpp:197
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
 msgstr "உறுதியாக வெளியேற வேண்டுமா?"
 
-#: app/mainwindow.cpp:212
+#: app/mainwindow.cpp:204
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1150,7 +1150,7 @@ msgstr ""
 "<warning>பல கீற்றுகள் திறந்துள்ளன. <emphasis>அவற்றில் சிலவற்றை நீங்கள் பூட்டியுள்ளீர்கள்.</"
 "emphasis> தொடர்ந்தால் அக்கீற்றுகளும் மூடப்படும்.</warning>"
 
-#: app/mainwindow.cpp:215
+#: app/mainwindow.cpp:207
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1158,7 +1158,7 @@ msgid ""
 "continue.</warning>"
 msgstr "<warning>பல கீற்றுகள் திறந்துள்ளன. தொடர்ந்தால் அக்கீற்றுகளும் மூடப்படும்.</warning>"
 
-#: app/mainwindow.cpp:218
+#: app/mainwindow.cpp:210
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1167,294 +1167,294 @@ msgid ""
 msgstr ""
 "<warning>நீங்கள் சில கீற்றுகளை பூட்டியுள்ளீர்கள். தொடர்ந்தால் அவையும் மூடப்படும்.</warning>"
 
-#: app/mainwindow.cpp:224
+#: app/mainwindow.cpp:216
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
 msgstr "உறுதியாக வெளியேற வேண்டுமா?"
 
-#: app/mainwindow.cpp:256
+#: app/mainwindow.cpp:248
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
 msgstr "யக்குவேக்கை திற/மறை"
 
-#: app/mainwindow.cpp:265
+#: app/mainwindow.cpp:257
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
 msgstr "சாளரம் குவியத்தை இழக்கும்போதும் திறந்தே வைத்திரு"
 
-#: app/mainwindow.cpp:270
+#: app/mainwindow.cpp:262
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
 msgstr "பயன்முறைகளை நிர்வகி..."
 
-#: app/mainwindow.cpp:275
+#: app/mainwindow.cpp:267
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr "தற்போதைய பயன்முறையை திருத்து…"
 
-#: app/mainwindow.cpp:281
+#: app/mainwindow.cpp:273
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "சாளரத்தின் அகலத்தை கூட்டு"
 
-#: app/mainwindow.cpp:286
+#: app/mainwindow.cpp:278
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "சாளரத்தின் அகலத்தை குறை"
 
-#: app/mainwindow.cpp:291
+#: app/mainwindow.cpp:283
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "சாளரத்தின் உயரத்தை கூட்டு"
 
-#: app/mainwindow.cpp:296
+#: app/mainwindow.cpp:288
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "சாளரத்தின் உயரத்தை குறை"
 
-#: app/mainwindow.cpp:301
+#: app/mainwindow.cpp:293
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "புதிய அமர்வு"
 
-#: app/mainwindow.cpp:307
+#: app/mainwindow.cpp:299
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr "இரண்டு முனையங்கள், கிடைமட்டமாக"
 
-#: app/mainwindow.cpp:312
+#: app/mainwindow.cpp:304
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr "இரண்டு முனையங்கள், நெடுக்காக"
 
-#: app/mainwindow.cpp:317
+#: app/mainwindow.cpp:309
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr "நான்கு முனையங்கள், கிரிடாக"
 
-#: app/mainwindow.cpp:322
+#: app/mainwindow.cpp:314
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "அமர்வை மூடு"
 
-#: app/mainwindow.cpp:329
+#: app/mainwindow.cpp:321
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
 msgstr "அடுத்த அமர்வு"
 
-#: app/mainwindow.cpp:335
+#: app/mainwindow.cpp:327
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
 msgstr "முந்தைய அமர்வு"
 
-#: app/mainwindow.cpp:341
+#: app/mainwindow.cpp:333
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
 msgstr "அமர்வை இடதுபுறமாக நகர்த்து"
 
-#: app/mainwindow.cpp:348
+#: app/mainwindow.cpp:340
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
 msgstr "அமர்வை வலதுபுறமாக நகர்த்து"
 
-#: app/mainwindow.cpp:355
+#: app/mainwindow.cpp:347
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr "முனையத்தை வலதுபுறமாக பெரிதாக்கு"
 
-#: app/mainwindow.cpp:362
+#: app/mainwindow.cpp:354
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr "முனையத்தை இடதுபுறமாக பெரிதாக்கு"
 
-#: app/mainwindow.cpp:369
+#: app/mainwindow.cpp:361
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr "முனையத்தை மேல்புறமாக பெரிதாக்கு"
 
-#: app/mainwindow.cpp:376
+#: app/mainwindow.cpp:368
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr "முனையத்தை கீழ்ப்புறமாக பெரிதாக்கு"
 
-#: app/mainwindow.cpp:383
+#: app/mainwindow.cpp:375
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
 msgstr "அமர்வுக்கு மறுபெயரிடு..."
 
-#: app/mainwindow.cpp:390
+#: app/mainwindow.cpp:382
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr "முந்தைய முனையம்"
 
-#: app/mainwindow.cpp:396
+#: app/mainwindow.cpp:388
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr "அடுத்த முனையம்"
 
-#: app/mainwindow.cpp:402
+#: app/mainwindow.cpp:394
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr "செயலிலுள்ள முனையத்தை மூடு"
 
-#: app/mainwindow.cpp:409
+#: app/mainwindow.cpp:401
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "இடது/வலது என பிரி"
 
-#: app/mainwindow.cpp:416
+#: app/mainwindow.cpp:408
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "மேல்/கீழ் என பிரி"
 
-#: app/mainwindow.cpp:423
+#: app/mainwindow.cpp:415
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "மூடுவதைத் தடு"
 
-#: app/mainwindow.cpp:429 app/tabbar.cpp:190
+#: app/mainwindow.cpp:421 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "விசைப்பலகை உள்ளீட்டை முடக்கு"
 
-#: app/mainwindow.cpp:435 app/tabbar.cpp:235
+#: app/mainwindow.cpp:427 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "செயல்பாட்டிற்காக கண்காணி"
 
-#: app/mainwindow.cpp:442 app/tabbar.cpp:280
+#: app/mainwindow.cpp:434 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "அமைதிக்காக கண்காணி"
 
-#: app/mainwindow.cpp:449
+#: app/mainwindow.cpp:441
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr "தலைப்புப்பட்டையை காட்டு/மறை"
 
-#: app/mainwindow.cpp:456
+#: app/mainwindow.cpp:448
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "அமர்வு %1-க்கு தாவு"
 
-#: app/mainwindow.cpp:608
+#: app/mainwindow.cpp:600
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "\"%1\" என்ற அமர்வில் செயல்பாடு கண்டறியப்பட்டுள்ளது."
 
-#: app/mainwindow.cpp:627
+#: app/mainwindow.cpp:614
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "\"%1\" என்ற அமர்வில் அமைதி கண்டறியப்பட்டுள்ளது."
 
-#: app/mainwindow.cpp:691
+#: app/mainwindow.cpp:673
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "உதவி"
 
-#: app/mainwindow.cpp:697
+#: app/mainwindow.cpp:679
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "விரை விருப்பங்கள்"
 
-#: app/mainwindow.cpp:703
+#: app/mainwindow.cpp:685
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "திரை"
 
-#: app/mainwindow.cpp:708
+#: app/mainwindow.cpp:690
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "அகலம்"
 
-#: app/mainwindow.cpp:713
+#: app/mainwindow.cpp:695
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "உயரம்"
 
-#: app/mainwindow.cpp:716
+#: app/mainwindow.cpp:698
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "அமைப்புகள்"
 
-#: app/mainwindow.cpp:732
+#: app/mainwindow.cpp:714
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "சுட்டிக்குறியின் இருப்பிடத்தில்"
 
-#: app/mainwindow.cpp:738
+#: app/mainwindow.cpp:720
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "திரை %1"
 
-#: app/mainwindow.cpp:760 app/mainwindow.cpp:782
+#: app/mainwindow.cpp:742 app/mainwindow.cpp:764
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: app/mainwindow.cpp:847
+#: app/mainwindow.cpp:829
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "சாளரம்"
 
-#: app/mainwindow.cpp:853
+#: app/mainwindow.cpp:835
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "நடத்தை"
 
-#: app/mainwindow.cpp:856
+#: app/mainwindow.cpp:838
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "தோற்றம்"
 
-#: app/mainwindow.cpp:939
+#: app/mainwindow.cpp:917
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1465,13 +1465,13 @@ msgstr ""
 "அத்தோற்றத்திட்டம் சரியாக நிறுவப்படாமல் இருந்திருக்கலாம்.<nl/><nl/>இச்செயலி இப்போது "
 "வெளியேறும்."
 
-#: app/mainwindow.cpp:941
+#: app/mainwindow.cpp:919
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "தோற்றத்திட்டத்தை ஏற்ற முடியவில்லை"
 
-#: app/mainwindow.cpp:1685
+#: app/mainwindow.cpp:1663
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
@@ -1599,7 +1599,7 @@ msgctxt "@title:tab"
 msgid "Shell No. %1"
 msgstr "முனைய எண் %1"
 
-#: app/terminal.cpp:168
+#: app/terminal.cpp:164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

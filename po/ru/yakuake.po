@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake-2.9.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-16 00:49+0000\n"
+"POT-Creation-Date: 2023-10-06 01:42+0000\n"
 "PO-Revision-Date: 2023-04-21 17:03+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -113,7 +113,7 @@ msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "Удалить оформление"
 
-#: app/config/appearancesettings.cpp:474
+#: app/config/appearancesettings.cpp:470
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -379,7 +379,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "Экран %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:676
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:658
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1117,116 +1117,116 @@ msgctxt "@info"
 msgid "You can change the shortcut later at any time via the menu."
 msgstr "Вы можете изменить клавишу активации через меню."
 
-#: app/main.cpp:28
+#: app/main.cpp:25
 #, kde-kuit-format
 msgctxt "@title"
 msgid "<application>Yakuake</application>"
 msgstr "<application>Yakuake</application>"
 
-#: app/main.cpp:30
+#: app/main.cpp:27
 #, kde-kuit-format
 msgctxt "@title"
 msgid "A drop-down terminal emulator based on KDE Konsole technology."
 msgstr ""
 "Эмулятор терминала в стиле Quake, основанный на технологии KDE Konsole."
 
-#: app/main.cpp:32
+#: app/main.cpp:29
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "(c) 2008-2018 The Yakuake Team"
 msgstr "© Разработчики Yakuake, 2008-2018"
 
-#: app/main.cpp:39
+#: app/main.cpp:36
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Eike Hein"
 msgstr "Eike Hein"
 
-#: app/main.cpp:39
+#: app/main.cpp:36
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Maintainer, Lead Developer"
 msgstr "Сопровождающий, Ведущий Разработчик"
 
-#: app/main.cpp:40
+#: app/main.cpp:37
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Francois Chazal"
 msgstr "Francois Chazal"
 
-#: app/main.cpp:40
+#: app/main.cpp:37
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Project Founder, Legacy skin (Inactive)"
 msgstr "Основатель проекта, старое оформление «Legacy» (Неактивен)"
 
-#: app/main.cpp:41
+#: app/main.cpp:38
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Daniel 'suslik' D."
 msgstr "Daniel «suslik» D."
 
-#: app/main.cpp:41
+#: app/main.cpp:38
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Plastik skin"
 msgstr "Оформление «Пластик»"
 
-#: app/main.cpp:42
+#: app/main.cpp:39
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Juan Carlos Torres"
 msgstr "Juan Carlos Torres"
 
-#: app/main.cpp:43
+#: app/main.cpp:40
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Tab bar drag and drop support, Prevent Closing toggle"
 msgstr "Поддержка перемещения вкладок. Возможность предотвращения закрытия."
 
-#: app/main.cpp:45
+#: app/main.cpp:42
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Gustavo Ribeiro Croscato"
 msgstr "Gustavo Ribeiro Croscato"
 
-#: app/main.cpp:46
+#: app/main.cpp:43
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Icon on tabs with Prevent Closing enabled"
 msgstr "Значок на вкладках, закрытие которых запрещено"
 
-#: app/main.cpp:48
+#: app/main.cpp:45
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Danilo Cesar Lemes de Paula"
 msgstr "Danilo Cesar Lemes de Paula"
 
-#: app/main.cpp:49
+#: app/main.cpp:46
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Actions to grow terminals"
 msgstr "Действия по изменению размера окон"
 
-#: app/main.cpp:52
+#: app/main.cpp:49
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Виталий Астафоркин,Илья Демьянов"
 
-#: app/main.cpp:52
+#: app/main.cpp:49
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "vgimly+ya@gmail.com,turbidit@gmail.com"
 
-#: app/mainwindow.cpp:205
+#: app/mainwindow.cpp:197
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
 msgstr "Выйти из программы?"
 
-#: app/mainwindow.cpp:212
+#: app/mainwindow.cpp:204
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1238,7 +1238,7 @@ msgstr ""
 "заблокированы для предотвращения их случайного закрытия.</emphasis> Если вы "
 "продолжите, эти сеансы будут закрыты.</warning>"
 
-#: app/mainwindow.cpp:215
+#: app/mainwindow.cpp:207
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1248,7 +1248,7 @@ msgstr ""
 "<warning>У вас открыто несколько сеансов. Если вы продолжите, эти сеансы "
 "будут закрыты.</warning>"
 
-#: app/mainwindow.cpp:218
+#: app/mainwindow.cpp:210
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1259,296 +1259,296 @@ msgstr ""
 "предотвращения их случайного закрытия. Если вы продолжите, эти сеансы будут "
 "закрыты.</warning>"
 
-#: app/mainwindow.cpp:224
+#: app/mainwindow.cpp:216
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
 msgstr "Хотите выйти?"
 
-#: app/mainwindow.cpp:256
+#: app/mainwindow.cpp:248
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
 msgstr "Отрыть/Свернуть Yakuake"
 
-#: app/mainwindow.cpp:265
+#: app/mainwindow.cpp:257
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
 msgstr "Держать окно открытым при потере фокуса"
 
-#: app/mainwindow.cpp:270
+#: app/mainwindow.cpp:262
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
 msgstr "Управление профилями..."
 
-#: app/mainwindow.cpp:275
+#: app/mainwindow.cpp:267
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr "Редактировать текущий профиль..."
 
-#: app/mainwindow.cpp:281
+#: app/mainwindow.cpp:273
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "Увеличить ширину окна"
 
-#: app/mainwindow.cpp:286
+#: app/mainwindow.cpp:278
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "Уменьшить ширину окна"
 
-#: app/mainwindow.cpp:291
+#: app/mainwindow.cpp:283
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "Увеличить высоту окна"
 
-#: app/mainwindow.cpp:296
+#: app/mainwindow.cpp:288
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "Уменьшить высоту окна"
 
-#: app/mainwindow.cpp:301
+#: app/mainwindow.cpp:293
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "Новый сеанс"
 
-#: app/mainwindow.cpp:307
+#: app/mainwindow.cpp:299
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr "Открыть два терминала, Горизонтально"
 
-#: app/mainwindow.cpp:312
+#: app/mainwindow.cpp:304
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr "Открыть два терминала, Вертикально"
 
-#: app/mainwindow.cpp:317
+#: app/mainwindow.cpp:309
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr "Открыть четыре терминала, Решёткой"
 
-#: app/mainwindow.cpp:322
+#: app/mainwindow.cpp:314
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "Закрыть сеанс"
 
-#: app/mainwindow.cpp:329
+#: app/mainwindow.cpp:321
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
 msgstr "Предыдущий сеанс"
 
-#: app/mainwindow.cpp:335
+#: app/mainwindow.cpp:327
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
 msgstr "Переключиться в следующий сеанс"
 
-#: app/mainwindow.cpp:341
+#: app/mainwindow.cpp:333
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
 msgstr "Переместить сеанс влево"
 
-#: app/mainwindow.cpp:348
+#: app/mainwindow.cpp:340
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
 msgstr "Переместить сеанс вправо"
 
-#: app/mainwindow.cpp:355
+#: app/mainwindow.cpp:347
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr "Увеличить ширину окна"
 
 # BUGME: This reduces the window size, why "Grow" then? --aspotashev
-#: app/mainwindow.cpp:362
+#: app/mainwindow.cpp:354
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr "Уменьшить ширину окна"
 
 # BUGME: This reduces the window size, why "Grow" then? --aspotashev
-#: app/mainwindow.cpp:369
+#: app/mainwindow.cpp:361
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr "Уменьшить высоту окна"
 
-#: app/mainwindow.cpp:376
+#: app/mainwindow.cpp:368
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr "Увеличить высоту окна"
 
-#: app/mainwindow.cpp:383
+#: app/mainwindow.cpp:375
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
 msgstr "Переименовать сеанс..."
 
-#: app/mainwindow.cpp:390
+#: app/mainwindow.cpp:382
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr "Предыдущий терминал"
 
-#: app/mainwindow.cpp:396
+#: app/mainwindow.cpp:388
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr "Следующий терминал"
 
-#: app/mainwindow.cpp:402
+#: app/mainwindow.cpp:394
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr "Закрыть активный терминал"
 
-#: app/mainwindow.cpp:409
+#: app/mainwindow.cpp:401
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "Разделить окно по вертикали"
 
-#: app/mainwindow.cpp:416
+#: app/mainwindow.cpp:408
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "Разделить окно по горизонтали"
 
-#: app/mainwindow.cpp:423
+#: app/mainwindow.cpp:415
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "Предотвращать закрытие"
 
-#: app/mainwindow.cpp:429 app/tabbar.cpp:190
+#: app/mainwindow.cpp:421 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "Отключить ввод с клавиатуры"
 
-#: app/mainwindow.cpp:435 app/tabbar.cpp:235
+#: app/mainwindow.cpp:427 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "Монитор активности"
 
-#: app/mainwindow.cpp:442 app/tabbar.cpp:280
+#: app/mainwindow.cpp:434 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "Монитор простоя"
 
-#: app/mainwindow.cpp:449
+#: app/mainwindow.cpp:441
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr "Скрыть или показать панель заголовка"
 
-#: app/mainwindow.cpp:456
+#: app/mainwindow.cpp:448
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "Переключиться на сеанс %1"
 
-#: app/mainwindow.cpp:608
+#: app/mainwindow.cpp:600
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "В отслеживаемом терминале сеанса «%1» обнаружена активность."
 
-#: app/mainwindow.cpp:627
+#: app/mainwindow.cpp:614
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "В отслеживаемом терминале сеанса «%1» обнаружено молчание."
 
-#: app/mainwindow.cpp:691
+#: app/mainwindow.cpp:673
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Справка"
 
-#: app/mainwindow.cpp:697
+#: app/mainwindow.cpp:679
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Основные параметры"
 
-#: app/mainwindow.cpp:703
+#: app/mainwindow.cpp:685
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Экран"
 
-#: app/mainwindow.cpp:708
+#: app/mainwindow.cpp:690
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Ширина"
 
-#: app/mainwindow.cpp:713
+#: app/mainwindow.cpp:695
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Высота"
 
-#: app/mainwindow.cpp:716
+#: app/mainwindow.cpp:698
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Настройка"
 
-#: app/mainwindow.cpp:732
+#: app/mainwindow.cpp:714
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "Там где мышь"
 
-#: app/mainwindow.cpp:738
+#: app/mainwindow.cpp:720
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Экран %1"
 
-#: app/mainwindow.cpp:760 app/mainwindow.cpp:782
+#: app/mainwindow.cpp:742 app/mainwindow.cpp:764
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: app/mainwindow.cpp:847
+#: app/mainwindow.cpp:829
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Окно"
 
-#: app/mainwindow.cpp:853
+#: app/mainwindow.cpp:835
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Поведение"
 
-#: app/mainwindow.cpp:856
+#: app/mainwindow.cpp:838
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Внешний вид"
 
-#: app/mainwindow.cpp:939
+#: app/mainwindow.cpp:917
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1558,13 +1558,13 @@ msgstr ""
 "<application>Yakuake</application> не удалось загрузить оформление. Возможно "
 "оформление установлена некорректно.<nl/><nl/>Приложение будет закрыто."
 
-#: app/mainwindow.cpp:941
+#: app/mainwindow.cpp:919
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Не удалось загрузить оформление"
 
-#: app/mainwindow.cpp:1685
+#: app/mainwindow.cpp:1663
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
@@ -1703,7 +1703,7 @@ msgctxt "@title:tab"
 msgid "Shell No. %1"
 msgstr "Сеанс №%1"
 
-#: app/terminal.cpp:168
+#: app/terminal.cpp:164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

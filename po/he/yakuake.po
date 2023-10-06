@@ -1,41 +1,41 @@
-# Irish translation of yakuake
-# Copyright (C) 2009 This_file_is_part_of_KDE
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the yakuake package.
-# Kevin Scannell <kscanne@gmail.com>, 2009.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: extragear-utils/yakuake.po\n"
+"Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-06 01:42+0000\n"
-"PO-Revision-Date: 2008-01-09 12:59-0500\n"
-"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
-"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
-"Language: ga\n"
+"PO-Revision-Date: 2023-10-05 11:10+0300\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
-"3 : 4\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: app/config/appearancesettings.cpp:150
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
-msgstr "Anaithnid"
+msgstr "לא ידוע"
 
 #: app/config/appearancesettings.cpp:195
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Unable to list the skin archive contents."
+#, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
-msgstr "Ní féidir inneachar na cartlainne craicinn a thaispeáint."
+msgstr "נא לבחור את הקליפה להתקנה"
 
 #: app/config/appearancesettings.cpp:241
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
-msgstr "Ní féidir inneachar na cartlainne craicinn a thaispeáint."
+msgstr "לא ניתן להציג את תוכן ארכיון הקליפה."
 
 #: app/config/appearancesettings.cpp:273
 #, kde-kuit-format
@@ -43,35 +43,31 @@ msgctxt "@info"
 msgid ""
 "This skin appears to be already installed and you lack the required "
 "permissions to overwrite it."
-msgstr ""
-"Dealraíonn sé go bhfuil an craiceann seo suiteáilte cheana agus níl cead "
-"agat scríobh air."
+msgstr "נראה שהקליפה כבר מותקנת ואין לך הרשאות לדרוס אותה."
 
 #: app/config/appearancesettings.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
-msgstr ""
-"Dealraíonn sé go bhfuil an craiceann seo suiteáilte cheana. An bhfuil fonn "
-"ort scríobh air?"
+msgstr "הקליפה כנראה כבר מותקנת. לדרוס אותה?"
 
 #: app/config/appearancesettings.cpp:279
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
-msgstr "Tá an Craiceann Ann Cheana"
+msgstr "הקליפה כבר קיימת"
 
 #: app/config/appearancesettings.cpp:280
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
-msgstr "Suiteáil an Craiceann Arís"
+msgstr "התקנת קליפה מחדש"
 
 #: app/config/appearancesettings.cpp:298
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
-msgstr "Níorbh Fhéidir an Craiceann a Scriosadh"
+msgstr "לא ניתן למחוק קליפה"
 
 #: app/config/appearancesettings.cpp:323
 #, kde-kuit-format
@@ -80,32 +76,32 @@ msgid ""
 "Unable to locate required files in the skin archive.<nl/><nl/>The archive "
 "appears to be invalid."
 msgstr ""
-"Ní féidir comhaid riachtanacha a aimsiú sa chartlann chraicinn.<nl/><nl/"
-">Cartlann neamhbhailí é de réir cosúlachta."
+"לא ניתן לאתר את הקבצים הנחוצים בארכיון הקליפה.<nl/><nl/>נראה שהארכיון לא "
+"תקין."
 
 #: app/config/appearancesettings.cpp:326
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
-msgstr "Níorbh fhéidir an chartlann chraicinn a oscailt."
+msgstr "לא ניתן לפתוח את ארכיון הקליפה."
 
 #: app/config/appearancesettings.cpp:331
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
-msgstr "Ní Féidir an Craiceann a Shuiteáil"
+msgstr "לא ניתן להתקין קליפה"
 
 #: app/config/appearancesettings.cpp:375
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
-msgstr "An bhfuil fonn ort \"%1\" le %2 a bhaint?"
+msgstr "להסיר את „%1” מאת %2?"
 
 #: app/config/appearancesettings.cpp:376
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
-msgstr "Bain Craiceann"
+msgstr "הסרת קליפה"
 
 #: app/config/appearancesettings.cpp:470
 #, kde-kuit-format
@@ -115,18 +111,17 @@ msgid ""
 msgid_plural ""
 "The following skins are missing required files. Thus they were removed:<ul>"
 "%2</ul>"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
+msgstr[0] "לקליפה הבאה חסרים קבצים חיוניים. לכן הוסרה:<ul>%2</ul>"
+msgstr[1] "לקליפות הבאה חסרים קבצים חיוניים. לכן הוסרו:<ul>%2</ul>"
+msgstr[2] "לקליפות הבאה חסרים קבצים חיוניים. לכן הוסרו:<ul>%2</ul>"
+msgstr[3] "לקליפות הבאה חסרים קבצים חיוניים. לכן הוסרו:<ul>%2</ul>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: app/config/appearancesettings.ui:29 app/config/behaviorsettings.ui:20
 #, kde-format
 msgctxt "@title:group Group box label"
 msgid "General"
-msgstr "Ginearálta"
+msgstr "כללי"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
 #: app/config/appearancesettings.ui:35
@@ -138,33 +133,36 @@ msgid ""
 "terminals in a session, as well as over the currently focused terminal when "
 "switching to a session with multiple terminals."
 msgstr ""
+"הפעלת אפשרות זו תגרום ל־Yakuake להציג שכבת צבע מעל המסופים שקיבלו מיקוד חדש "
+"בעת העברת המיקוד בין מגוון מסופים בהפעלה, כמו גם מעל המסוף שבמיקוד כרגע בעת "
+"מעבר להפעלה עם מספר מסופים."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
 #: app/config/appearancesettings.ui:38
 #, kde-format
 msgctxt "@option:check"
 msgid "Highlight terminals when moving focus between them"
-msgstr ""
+msgstr "הדגשת המסופים בהעברת המיקוד ביניהם"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_HideSkinBorders)
 #: app/config/appearancesettings.ui:45
 #, kde-format
 msgid "Hide borders"
-msgstr ""
+msgstr "הסתרת מסגרת"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/appearancesettings.ui:55
 #, kde-format
 msgctxt "@title:group"
 msgid "Window Background"
-msgstr "Cúlra na Fuinneoige"
+msgstr "רקע חלון"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundColorLabel)
 #: app/config/appearancesettings.ui:63
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Background color:"
-msgstr "Dath an chúlra:"
+msgstr "צבע רקע:"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_Translucency)
 #: app/config/appearancesettings.ui:92
@@ -174,23 +172,22 @@ msgid ""
 "Translucency requires support by the selected skin as well as your desktop "
 "environment. The default skin supports translucency."
 msgstr ""
-"Chun tréshoilseacht a úsáid, caithfidh sé a bheith tacaithe ag an gcraiceann "
-"roghnaithe agus ag an timpeallacht deisce. Tacaíonn an craiceann "
-"réamhshocraithe le tréshoilseacht."
+"שקיפות למחצה דורשת תמיכה מהקליפה הנבחרת וגם מסביבת שולחן העבודה שלך. קליפת "
+"ברירת המחדל תומכת בשקיפות למחצה."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Translucency)
 #: app/config/appearancesettings.ui:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Use skin translucency if supported"
-msgstr "Úsáid craiceann tréshoilseach más féidir"
+msgstr "להשתמש בשקיפות למחצה אם יש תמיכה"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundColorOpacityLabel)
 #: app/config/appearancesettings.ui:126
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Background color opacity:"
-msgstr "Teimhneacht dhath an chúlra:"
+msgstr "אטימות צבע רקע:"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_BackgroundColorOpacity)
 #: app/config/appearancesettings.ui:136
@@ -202,10 +199,9 @@ msgid ""
 "This allows influencing the opacity and color tint of translucent areas of "
 "the skin."
 msgstr ""
-"Nuair a úsáidtear tréshoilseacht, líontar dath an chúlra leis an teimhneacht "
-"sonraithe sula bpéinteáiltear an craiceann ar mhullach an chúlra. Sa chaoi "
-"seo, is féidir an teimhneacht agus an imir a athrú sna réigiúin "
-"thréshoilseacha den chraiceann."
+"בעת שימוש בשקיפוץ למחצה, צבע הרקע יתמלא באטימות שצוינה לפני שרכיבי הקליפה "
+"ייצבעו על גבי הרקע. מצב זה מאפשר להשפיע על האטימות ועל גוון הצבע של אזורים "
+"שקופים למחצה של הקליפה."
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Width)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Height)
@@ -222,35 +218,35 @@ msgstr "%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Skin"
-msgstr "Craiceann"
+msgstr "קליפה"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, ghnsButton)
 #: app/config/appearancesettings.ui:176
 #, kde-format
 msgctxt "@action:button"
 msgid "Get New Skins..."
-msgstr ""
+msgstr "הורדת קליפות חדשות…"
 
 #. i18n: ectx: property (text), widget (QPushButton, removeButton)
 #: app/config/appearancesettings.ui:186
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Skin"
-msgstr "Bain Craiceann"
+msgstr "הסרת קליפה"
 
 #. i18n: ectx: property (text), widget (QPushButton, installButton)
 #: app/config/appearancesettings.ui:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Install Skin..."
-msgstr "Suiteáil Craiceann..."
+msgstr "התקנת קליפה…"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FocusFollowsMouse)
 #: app/config/behaviorsettings.ui:26
 #, kde-format
 msgctxt "@option:check"
 msgid "Focus terminals when the mouse pointer is moved over them"
-msgstr "Cuir fócas i dteirminéal nuair a bhogtar an luch os a chionn"
+msgstr "להתמקד על מסופים כאשר סמן העכבר עובר ביניהם"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ToggleToFocus)
 #: app/config/behaviorsettings.ui:42
@@ -263,32 +259,31 @@ msgid ""
 "may cause the window manager to switch to the virtual desktop it currently "
 "resides on."
 msgstr ""
-"Leis an rogha seo, má bhrúnn tú an t-aicearra a úsáidtear de ghnáth chun an "
-"fhuinneog a oscailt agus a laghdú, cuirfear an fócas san fhuinneog má "
-"cailleadh an fócas roimh ré. Mura bhfuil sé socraithe go dtaispeánfar an "
-"fhuinneog ar gach deasc fhíorúil, seans go n-athróidh bainisteoir na "
-"bhfuinneog an deasc fhíorúil a bhfuil an fhuinneog uirthi."
+"אם אפשרות זו פעילה, קיצור הדרך שבדרך כלל משמש לפתיחת ונסיגת החלון יעניק לו "
+"מיקוד, במקום לסגור אותו, אם המיקוד אבד קודם לכן. אלא אם כל החלון מוגדר "
+"להופיע בכל שולחנות העבודה הווירטואליים, מצב זה עשוי לגרום למנהל החלונות "
+"לעבור לשולחן העבודה הווירטואלי בו הוא נמצא כרגע."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToggleToFocus)
 #: app/config/behaviorsettings.ui:45
 #, kde-format
 msgctxt "@option:check"
 msgid "Use Open/Retract action to focus window"
-msgstr "Úsáid an gníomh oscailte/laghdaithe chun an fócas a chur san fhuinneog"
+msgstr "להשתמש בפעולת פתיחה/נסיגה כדי להתמקד בחלון"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepAbove)
 #: app/config/behaviorsettings.ui:61
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window above other windows"
-msgstr "Coimeád an fhuinneog os cionn cinn eile"
+msgstr "לשמור על החלון מעל חלונות אחרים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_OpenAfterStart)
 #: app/config/behaviorsettings.ui:84
 #, kde-format
 msgctxt "@option:check"
 msgid "Open window after program start"
-msgstr "Oscail fuinneog nuair a thosaíonn an feidhmchlár"
+msgstr "לפתוח חלון לאחר פתיחת התוכנית"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_PollMouse)
 #: app/config/behaviorsettings.ui:91
@@ -299,102 +294,92 @@ msgid ""
 "pointer is moved to the same edge of the screen that it would open on when "
 "using the shortcut."
 msgstr ""
-"Leis an rogha seo, osclófar an fhuinneog go huathoibríoch nuair a dhéanann "
-"an pointeoir luiche teagmháil le ciumhais an scáileáin a n-osclódh air leis "
-"an aicearra."
+"אם אפשרות זו פעילה, הגדרות ייפתח אוטומטית כאשר סמן העכבר מועבר לאותו הקצה של "
+"המסך שייפתח בשימוש במקשי הקיצור."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PollMouse)
 #: app/config/behaviorsettings.ui:94
 #, kde-format
 msgctxt "@option:check"
 msgid "Open window when the mouse pointer touches the screen edge"
-msgstr ""
-"Oscail an fhuinneog nuair a dhéanann an pointeoir luiche teagmháil le "
-"ciumhais an scáileáin"
+msgstr "לפתוח את החלון כשסמן העכבר נוגע בקצה המסך"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RememberFullscreen)
 #: app/config/behaviorsettings.ui:101
 #, kde-format
 msgid "Remember and restore window fullscreen state"
-msgstr ""
+msgstr "שמירה ושחזור מצב מילוי מסך של חלון"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowSystrayIcon)
 #: app/config/behaviorsettings.ui:108
 #, kde-format
 msgid "Show system tray icon"
-msgstr ""
+msgstr "הצגת סמל במגש המערכת"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpen)
 #: app/config/behaviorsettings.ui:118
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window open when it loses focus"
-msgstr "Fág an fhuinneog ar oscailt nuair a chailleann sé an fócas"
+msgstr "לשמור על החלון פתוח לאחר איבוד מיקוד"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpenAfterLastSessionCloses)
 #: app/config/behaviorsettings.ui:141
-#, fuzzy, kde-format
-#| msgid "Keep window open after the last session is closed"
+#, kde-format
 msgctxt "@option:check"
 msgid "Keep window open after the last session is closed"
-msgstr "Fág an fhuinneog ar oscailt nuair a dhúntar an seisiún deiridh"
+msgstr "לשמור על החלון פתוח לאחר סגירת ההפעלה האחרונה"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/behaviorsettings.ui:151
 #, kde-format
 msgctxt "@title:group"
 msgid "Dialogs"
-msgstr "Dialóga"
+msgstr "חלוניות"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ConfirmQuit)
 #: app/config/behaviorsettings.ui:157
 #, kde-format
 msgctxt "@option:check"
 msgid "Confirm quit when more than one session is open"
-msgstr "Deimhnigh scor nuair atá níos mó ná seisiún amháin oscailte"
+msgstr "לאשר יציאה כאשר יותר מהפעלה אחת פתוחה"
 
 #: app/config/skinlistdelegate.cpp:124 app/config/skinlistdelegate.cpp:164
 #, kde-kuit-format
 msgctxt "@item:intext"
 msgid "by %1"
-msgstr "le %1"
+msgstr "על ידי %1"
 
 #: app/config/windowsettings.cpp:19
-#, fuzzy, kde-kuit-format
-#| msgctxt "@item:inlistbox"
-#| msgid "Screen 1"
+#, kde-kuit-format
 msgctxt "@item:inlistbox"
 msgid "Screen %1"
-msgstr "Scáileán 1"
+msgstr "מסך %1"
 
 #: app/config/windowsettings.cpp:99 app/mainwindow.cpp:658
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
-msgstr ""
+msgstr "הסתרת שורת הכותרת"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_0)
 #: app/config/windowsettings.ui:32
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Tab Bar"
+#, kde-format
 msgid "Title Bar"
-msgstr "Barra na gCluaisíní"
+msgstr "שורת כותרת"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTitleBar)
 #: app/config/windowsettings.ui:38
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Show tab bar"
+#, kde-format
 msgid "Show title bar"
-msgstr "Taispeáin barra na gcluaisíní"
+msgstr "הצגת שורת כותרת"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: app/config/windowsettings.ui:54
 #, kde-format
 msgctxt "@title:group"
 msgid "Tab Bar"
-msgstr "Barra na gCluaisíní"
+msgstr "סרגל לשוניות"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_DynamicTabTitles)
 #: app/config/windowsettings.ui:69
@@ -406,59 +391,57 @@ msgid ""
 "tab bar. You can modify the format of the information in the terminal "
 "profile."
 msgstr ""
-"Leis an rogha seo, an fhaisnéis faoi inneachar an teirminéil reatha a "
-"thaispeántar sa bharra teidil de ghnáth, taispeánfar í i mbarra na "
-"gcluaisíní freisin. Is féidir formáid na faisnéise seo a chumrú i bpróifíl "
-"an teirminéil."
+"אם אפשרות זו פעילה, המידע על תוכן המסוף הפעיל שבדרך כלל מופיע בשורת הכותרת "
+"יופיע גם בסרגל הלשוניות. אפשר לשנות את תבנית המידע בפרופיל המסוף."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_DynamicTabTitles)
 #: app/config/windowsettings.ui:72
 #, kde-format
 msgctxt "@option:check"
 msgid "Show title bar contents in tab labels"
-msgstr "Taispeáin inneachar an bharra teidil i lipéid ar chluaisíní"
+msgstr "הצגת תוכן שורת הכותרת בתוויות הלשוניות"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTabBar)
 #: app/config/windowsettings.ui:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Show the tab bar"
-msgstr "Taispeáin barra na gcluaisíní"
+msgstr "הצגת סרגל הלשוניות"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/windowsettings.ui:105
 #, kde-format
 msgctxt "@title:group"
 msgid "Size and Animation"
-msgstr "Méid agus Beochan"
+msgstr "גודל והנפשה"
 
 #. i18n: ectx: property (text), widget (QLabel, widthLabel)
 #: app/config/windowsettings.ui:111
 #, kde-format
 msgctxt "@label:slider"
 msgid "Width:"
-msgstr "Leithead:"
+msgstr "רוחב:"
 
 #. i18n: ectx: property (text), widget (QLabel, heightLabel)
 #: app/config/windowsettings.ui:165
 #, kde-format
 msgctxt "@label:slider"
 msgid "Height:"
-msgstr "Airde:"
+msgstr "גובה:"
 
 #. i18n: ectx: property (text), widget (QLabel, durationLabel)
 #: app/config/windowsettings.ui:219
 #, kde-format
 msgctxt "@label:slider"
 msgid "Duration:"
-msgstr ""
+msgstr "משך:"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, framesSpinBox)
 #: app/config/windowsettings.ui:251
 #, kde-format
 msgctxt "@label Spinbox unit suffix"
 msgid "ms"
-msgstr "ms"
+msgstr "מ״ש"
 
 #. i18n: ectx: property (prefix), widget (QSpinBox, framesSpinBox)
 #: app/config/windowsettings.ui:254
@@ -477,69 +460,72 @@ msgid ""
 "provide the requested service, Yakuake will fall back to an animation "
 "strategy of progressively adjusting the window mask."
 msgstr ""
+"אם אפשרות זו פעילה, יבקש Yakuake ממנהל החלונות לבצע הנפשת פתיחה/נסיגה. אם "
+"מנהל החלונות לא יכול לספק את השירות המבוקש, יסוג Yakuake לאסטרטגיית הנפשה "
+"שמכוונת את מסכת החלון באופן הדרגתי."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseWMAssist)
 #: app/config/windowsettings.ui:273
 #, kde-format
 msgctxt "@option:check"
 msgid "Ask the window manager to perform the animation"
-msgstr ""
+msgstr "לבקש ממנהל החלונות לבצע את ההנפשה"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: app/config/windowsettings.ui:283
 #, kde-format
 msgctxt "@title:group"
 msgid "Position"
-msgstr "Ionad"
+msgstr "מקום"
 
 #. i18n: ectx: property (text), widget (QLabel, leftLabel)
 #: app/config/windowsettings.ui:291
 #, kde-format
 msgctxt "@item:inrange Direction to move the window in"
 msgid "Left"
-msgstr "Ar Chlé"
+msgstr "שמאל"
 
 #. i18n: ectx: property (text), widget (QLabel, rightLabel)
 #: app/config/windowsettings.ui:323
 #, kde-format
 msgctxt "@item:inrange Direction to move the window in"
 msgid "Right"
-msgstr "Ar Dheis"
+msgstr "ימין"
 
 #. i18n: ectx: property (text), widget (QLabel, screenLabel)
 #: app/config/windowsettings.ui:337
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Open on screen:"
-msgstr "Oscail ar scáileán:"
+msgstr "פתיחה על המסך:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Screen)
 #: app/config/windowsettings.ui:348
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "At mouse location"
-msgstr "Ag ionad na luiche"
+msgstr "במיקום העכבר"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Screen)
 #: app/config/windowsettings.ui:353
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Screen 1"
-msgstr "Scáileán 1"
+msgstr "מסך 1"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowOnAllDesktops)
 #: app/config/windowsettings.ui:376
 #, kde-format
 msgctxt "@option:check"
 msgid "Show on all desktops"
-msgstr "Taispeáin ar gach deasc"
+msgstr "הצגה על כל שולחנות העבודה"
 
 #. i18n: ectx: label, entry (Screen), group (Window)
 #: app/config/yakuake.kcfg:9
 #, kde-format
 msgctxt "@label"
 msgid "Screen to use"
-msgstr "Scáileán le húsáid"
+msgstr "מסך לשימוש"
 
 #. i18n: ectx: whatsthis, entry (Screen), group (Window)
 #: app/config/yakuake.kcfg:10
@@ -548,44 +534,42 @@ msgctxt "@info:whatsthis"
 msgid ""
 "The screen on which the application window will appear. 0 is understood to "
 "be the screen the mouse pointer is on."
-msgstr ""
-"Scáileán a dtaispeánfar fuinneog an fheidhmchláir air. 0 = scáileán a bhfuil "
-"an pointeoir luiche air."
+msgstr "המסך בו יצוץ חלון היישום. 0 מפוענח כהמסך בו נמצא סמן העכבר."
 
 #. i18n: ectx: label, entry (Width), group (Window)
 #: app/config/yakuake.kcfg:14
 #, kde-format
 msgctxt "@label"
 msgid "Window width"
-msgstr "Leithead na fuinneoige"
+msgstr "רוחב חלון"
 
 #. i18n: ectx: whatsthis, entry (Width), group (Window)
 #: app/config/yakuake.kcfg:15
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Width of the application window as a percentage of the screen."
-msgstr "Leithead fhuinneog an fheidhmchláir, mar chéatadán den scáileán."
+msgstr "רוחב היישום כאחוז מהמסך."
 
 #. i18n: ectx: label, entry (Height), group (Window)
 #: app/config/yakuake.kcfg:21
 #, kde-format
 msgctxt "@label"
 msgid "Window height"
-msgstr "Airde na fuinneoige"
+msgstr "גובה חלון"
 
 #. i18n: ectx: whatsthis, entry (Height), group (Window)
 #: app/config/yakuake.kcfg:22
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Height of the application window as a percentage of the screen."
-msgstr "Airde fhuinneog an fheidhmchláir mar chéatadán den scáileán."
+msgstr "גובה חלון היישום כאחוז מהמסך."
 
 #. i18n: ectx: label, entry (Position), group (Window)
 #: app/config/yakuake.kcfg:28
 #, kde-format
 msgctxt "@label"
 msgid "Window position"
-msgstr "Ionad na fuinneoige"
+msgstr "מקום חלון"
 
 #. i18n: ectx: whatsthis, entry (Position), group (Window)
 #: app/config/yakuake.kcfg:29
@@ -594,65 +578,57 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Center point of the application window, as a percentage, measured from the "
 "left-hand edge of the screen."
-msgstr ""
-"Lár fhuinneog an fheidhmchláir mar chéatadán ó chiumhais an scáileáin ar "
-"chlé."
+msgstr "נקודת המרכז של חלון היישום, באחוזים, במדידה מהקצה השמאלי של המסך."
 
 #. i18n: ectx: label, entry (ShowOnAllDesktops), group (Window)
 #: app/config/yakuake.kcfg:35
 #, kde-format
 msgctxt "@label"
 msgid "Show window on all desktops"
-msgstr "Taispeáin an fhuinneog ar gach deasc"
+msgstr "הצגת חלון בכל שולחנות העבודה"
 
 #. i18n: ectx: whatsthis, entry (ShowOnAllDesktops), group (Window)
 #: app/config/yakuake.kcfg:36
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the window on all desktops."
-msgstr "Cé acu a thaispeánfar an fhuinneog ar gach deasc nó nach dtaispeánfar."
+msgstr "האם להציג את החלון בכל שולחנות העבודה."
 
 #. i18n: ectx: label, entry (KeepOpen), group (Window)
 #: app/config/yakuake.kcfg:40
 #, kde-format
 msgctxt "@label"
 msgid "Keep window open"
-msgstr "Coinnigh an fhuinneog oscailte"
+msgstr "לשמור על החלון פתוח"
 
 #. i18n: ectx: whatsthis, entry (KeepOpen), group (Window)
 #: app/config/yakuake.kcfg:41
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to keep the application window open when it loses focus."
-msgstr ""
-"Leis an rogha seo, coinneofar fuinneog an fheidhmchláir oscailte nuair a "
-"chailleann sé an fócas."
+msgstr "האם לשמור על החלון פתוח לאחר שהוא מאבד את המיקוד."
 
 #. i18n: ectx: label, entry (KeepOpenAfterLastSessionCloses), group (Window)
 #: app/config/yakuake.kcfg:45
 #, kde-format
 msgctxt "@label"
 msgid "Keep window open after last session closes"
-msgstr "Fág an fhuinneog ar oscailt nuair a dhúntar an seisiún deiridh"
+msgstr "לשמור על החלון הפתוח לאחר סגירת ההפעלה האחרונה"
 
 #. i18n: ectx: whatsthis, entry (KeepOpenAfterLastSessionCloses), group (Window)
 #: app/config/yakuake.kcfg:46
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Whether to keep the application window open when it loses focus."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Whether to keep the application window open after the last session is closed."
-msgstr ""
-"Leis an rogha seo, coinneofar fuinneog an fheidhmchláir oscailte nuair a "
-"chailleann sé an fócas."
+msgstr "האם לשמור על חלון היישום פתוח לאחר סגירת ההפעלה האחרונה."
 
 #. i18n: ectx: label, entry (ToggleToFocus), group (Window)
 #: app/config/yakuake.kcfg:50
 #, kde-format
 msgctxt "@label"
 msgid "Use open/retract shortcut to focus window"
-msgstr "Úsáid aicearra oscailte/laghdaithe chun fócas a chur san fhuinneog"
+msgstr "להשתמש במקשי הקיצור לפתיחה/הסגה כדי להתמקד על החלון"
 
 #. i18n: ectx: whatsthis, entry (ToggleToFocus), group (Window)
 #: app/config/yakuake.kcfg:51
@@ -662,15 +638,14 @@ msgid ""
 "Whether the open/retract keyboard shortcut can be used to focus the "
 "application window when it is already open."
 msgstr ""
-"Leis an rogha seo, is féidir an t-aicearra oscailte/laghdaithe a úsáid chun "
-"an fócas a chur i bhfuinneog an fheidhmchláir nuair atá sí oscailte cheana."
+"האם קיצורי המקשים לפתיחה/הסגה ישמשו להתמקדות בחלון היישום כשהוא כבר פתוח."
 
 #. i18n: ectx: label, entry (KeepAbove), group (Window)
 #: app/config/yakuake.kcfg:55
 #, kde-format
 msgctxt "@label"
 msgid "Keep window on top"
-msgstr "Coimeád an fhuinneog os cionn cinn eile"
+msgstr "להשאיר את החלון עליון"
 
 #. i18n: ectx: whatsthis, entry (KeepAbove), group (Window)
 #: app/config/yakuake.kcfg:56
@@ -678,86 +653,70 @@ msgstr "Coimeád an fhuinneog os cionn cinn eile"
 msgctxt "@info:whatsthis"
 msgid ""
 "Whether to keep the application window above other windows on the screen."
-msgstr ""
-"Úsáid an rogha seo chun fuinneog an fheidhmchláir a choinneáil os cionn na "
-"bhfuinneog eile ar an scáileán."
+msgstr "האם לשמור על חלון היישום מעל חלונות אחרים במסך."
 
 #. i18n: ectx: label, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:60
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Show tab bar"
+#, kde-format
 msgctxt "@label"
 msgid "Show title bar"
-msgstr "Taispeáin barra na gcluaisíní"
+msgstr "הצגת שורת כותרת"
 
 #. i18n: ectx: whatsthis, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:61
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Whether to show the tab bar in the application window."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the title bar in the application window."
-msgstr ""
-"Leis an rogha seo, taispeánfar barra na gcluaisíní i bhfuinneog an "
-"fheidhmchláir."
+msgstr "האם להציג את שורת הכותרת בחלון היישום."
 
 #. i18n: ectx: label, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:65
 #, kde-format
 msgctxt "@label"
 msgid "Show tab bar"
-msgstr "Taispeáin barra na gcluaisíní"
+msgstr "הצגת סרגל לשוניות"
 
 #. i18n: ectx: whatsthis, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:66
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the tab bar in the application window."
-msgstr ""
-"Leis an rogha seo, taispeánfar barra na gcluaisíní i bhfuinneog an "
-"fheidhmchláir."
+msgstr "האם להציג את סרגל הלשוניות בחלון היישום."
 
 #. i18n: ectx: label, entry (DynamicTabTitles), group (Window)
 #: app/config/yakuake.kcfg:70
 #, kde-format
 msgctxt "@label"
 msgid "Dynamic tab titles"
-msgstr "Teidil dhinimiciúla ar chluaisíní"
+msgstr "כותרות לשוניות דינמיות"
 
 #. i18n: ectx: whatsthis, entry (DynamicTabTitles), group (Window)
 #: app/config/yakuake.kcfg:71
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to update tab titles along with the title bar."
-msgstr ""
-"Úsáid an rogha seo chun teidil na gcluaisíní a nuashonrú in éineacht leis an "
-"mbarra teidil."
+msgstr "האם לעדכן את כותרות הלשוניות יחד עם סרגל הלשוניות."
 
 #. i18n: ectx: label, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:75
 #, kde-format
 msgctxt "@label"
 msgid "Show a system tray icon"
-msgstr ""
+msgstr "הצגת סמל במגש המערכת"
 
 #. i18n: ectx: whatsthis, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:76
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Whether to show the tab bar in the application window."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show a system tray icon."
-msgstr ""
-"Leis an rogha seo, taispeánfar barra na gcluaisíní i bhfuinneog an "
-"fheidhmchláir."
+msgstr "האם להציג סמל במגש המערכת."
 
 #. i18n: ectx: label, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:82
 #, kde-format
 msgctxt "@label"
 msgid "Focus follows mouse"
-msgstr "Leanann an fócas an luch"
+msgstr "מיקוד עוקב עכבר"
 
 #. i18n: ectx: whatsthis, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:83
@@ -766,31 +725,28 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Whether an individual terminal in a session will be given focus when the "
 "mouse pointer is moved above it."
-msgstr ""
-"Úsáid an rogha seo chun fócas a chur i dteirminéal ar leith nuair a bhogtar "
-"an luch os a chionn."
+msgstr "האם מסוף יחיד בהפעלה יקבל מיקוד כשסמן העכבר עובר מעליו."
 
 #. i18n: ectx: label, entry (OpenAfterStart), group (Behavior)
 #: app/config/yakuake.kcfg:87
 #, kde-format
 msgctxt "@label"
 msgid "Open after start"
-msgstr "Oscail tar éis tosaithe"
+msgstr "פתיחה לאחר התחלה"
 
 #. i18n: ectx: whatsthis, entry (OpenAfterStart), group (Behavior)
 #: app/config/yakuake.kcfg:88
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether the application window should be opened after program start."
-msgstr ""
-"Úsáid an rogha seo chun fuinneog an fheidhmchláir a oscailt ag am tosaithe."
+msgstr "האם חלון היישום אמור להיפתח לאחר הפעלת התוכנית."
 
 #. i18n: ectx: label, entry (RememberFullscreen), group (Behavior)
 #: app/config/yakuake.kcfg:92
 #, kde-format
 msgctxt "@label"
 msgid "Remember window fullscreen state"
-msgstr ""
+msgstr "לזכור מצב הגדלה למסך מלא של החלון"
 
 #. i18n: ectx: whatsthis, entry (RememberFullscreen), group (Behavior)
 #: app/config/yakuake.kcfg:93
@@ -799,84 +755,84 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Whether the window will be shown fullscreen again when it has been "
 "previously."
-msgstr ""
+msgstr "האם החלון יופיע שוב במסך מלא כאשר נסגר קודם לכן במסך מלא."
 
 #. i18n: ectx: label, entry (Skin), group (Appearance)
 #: app/config/yakuake.kcfg:99
 #, kde-format
 msgctxt "@label"
 msgid "Skin"
-msgstr "Craiceann"
+msgstr "קליפה"
 
 #. i18n: ectx: whatsthis, entry (Skin), group (Appearance)
 #: app/config/yakuake.kcfg:100
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The skin to be used by the application window."
-msgstr "An craiceann a úsáidfear ar fhuinneog an fheidhmchláir."
+msgstr "הקליפה שתעטוף את חלון היישום."
 
 #. i18n: ectx: label, entry (SkinInstalledWithKns), group (Appearance)
 #: app/config/yakuake.kcfg:104
 #, kde-format
 msgctxt "@label"
 msgid "Skin installed by KNS"
-msgstr ""
+msgstr "קליפה שהותקנה על ידי דברים חדשים ב־KDE"
 
 #. i18n: ectx: whatsthis, entry (SkinInstalledWithKns), group (Appearance)
 #: app/config/yakuake.kcfg:105
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether the currently active skin was installed via KNS."
-msgstr ""
+msgstr "האם הקליפה הנוכחית הותקנה על ידי דברים חדשים ב־KDE‏ (KNS)."
 
 #. i18n: ectx: label, entry (Translucency), group (Appearance)
 #: app/config/yakuake.kcfg:109
 #, kde-format
 msgctxt "@label"
 msgid "Use translucent background"
-msgstr "Úsáid cúlra tréshoilseach"
+msgstr "להשתמש ברקע שקוף למחצה"
 
 #. i18n: ectx: whatsthis, entry (Translucency), group (Appearance)
 #: app/config/yakuake.kcfg:110
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to make use of XComposite ARGB translucency."
-msgstr "Leis an rogha seo is féidir tréshoilseacht ARGB XComposite a shocrú."
+msgstr "האם להשתמש בשקיפות למחיצה מסוג ARGB של XComposite."
 
 #. i18n: ectx: label, entry (BackgroundColor), group (Appearance)
 #: app/config/yakuake.kcfg:114
 #, kde-format
 msgctxt "@label"
 msgid "Window background color"
-msgstr "Dath chúlra na fuinneoige"
+msgstr "צבע רקע חלון"
 
 #. i18n: ectx: whatsthis, entry (BackgroundColor), group (Appearance)
 #: app/config/yakuake.kcfg:115
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Background color painted below skin elements."
-msgstr "Péinteáil dath an chúlra faoi eilimintí an chraicinn."
+msgstr "צבע הרקע ייצבע מתחת לרכיבי הקליפה."
 
 #. i18n: ectx: label, entry (BackgroundColorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:119
 #, kde-format
 msgctxt "@label"
 msgid "Background color opacity"
-msgstr "Teimhneacht dhath an chúlra"
+msgstr "אטימות צבע רקע"
 
 #. i18n: ectx: whatsthis, entry (BackgroundColorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:120
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the background color fill when using translucency."
-msgstr "Teimhneacht dhath an chúlra agus tréshoilseacht in úsáid."
+msgstr "אטימות מילוי צבע הרקע בעת שימוש בשקיפות למחצה."
 
 #. i18n: ectx: label, entry (TerminalHighlightOnManualActivation), group (Appearance)
 #: app/config/yakuake.kcfg:126
 #, kde-format
 msgctxt "@label"
 msgid "Highlight newly focused terminals"
-msgstr ""
+msgstr "הדגשת מסופים חדשים שקיבלו מיקוד"
 
 #. i18n: ectx: whatsthis, entry (TerminalHighlightOnManualActivation), group (Appearance)
 #: app/config/yakuake.kcfg:127
@@ -888,13 +844,16 @@ msgid ""
 "as over the currently focused terminal when switching to a session with "
 "multiple terminals."
 msgstr ""
+"האם להציג שכבת צבע לזמן קצר מעל המסוף שכרגע קיבל את המיקוד בהעברת המסוף בין "
+"מספר מסופים בהפעלה, לרבות מעל המסוף שקיבל מיקוד בעת מעבר להפעלה עם מספר "
+"מסופים."
 
 #. i18n: ectx: label, entry (HideSkinBorders), group (Appearance)
 #: app/config/yakuake.kcfg:131
 #, kde-format
 msgctxt "@label"
 msgid "Hide the borders defined by the skin"
-msgstr ""
+msgstr "הסתרת המסגרת שמוגדרת על ידי הקליפה"
 
 #. i18n: ectx: whatsthis, entry (HideSkinBorders), group (Appearance)
 #: app/config/yakuake.kcfg:132
@@ -905,83 +864,85 @@ msgid ""
 "option, when turned on, will overwrite the border settings defined by the "
 "skin and hide all borders."
 msgstr ""
+"קליפות מגדירות את המסגרת מסביב למסוף כולל את סרגל הלשוניות. כאשר אפשרות זו "
+"פעילה היא תדרוס את הגדרות המסגרת שהוגדרו על ידי הקליפה ותסתיר את כל המסגרת."
 
 #. i18n: ectx: label, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:136
 #, kde-format
 msgctxt "@label"
 msgid "Terminal highlight opacity"
-msgstr ""
+msgstr "אטימות הדגשת המסוף"
 
 #. i18n: ectx: whatsthis, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:137
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the colored overlay used to highlight a terminal."
-msgstr ""
+msgstr "אטימות שכבת הצבע שמשמשת להדגשת מסוף."
 
 #. i18n: ectx: label, entry (TerminalHighlightDuration), group (Appearance)
 #: app/config/yakuake.kcfg:143
 #, kde-format
 msgctxt "@label"
 msgid "Terminal highlight duration"
-msgstr ""
+msgstr "משך הדגשת מסוף"
 
 #. i18n: ectx: whatsthis, entry (TerminalHighlightDuration), group (Appearance)
 #: app/config/yakuake.kcfg:144
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The duration of the terminal highlight overlay."
-msgstr ""
+msgstr "משך הזמן להצגת שכבת הדגשה על המסוף."
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
 #: app/config/yakuake.kcfg:150
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator color"
-msgstr ""
+msgstr "צבע מחוון חסימת פלט מקלדת"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
 #: app/config/yakuake.kcfg:151
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The color of the keyboard input block indicator overlay."
-msgstr ""
+msgstr "הצבע של שכבת חיווי חסימת קלט מקלדת."
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:155
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator opacity"
-msgstr ""
+msgstr "אטימות מחוון חסימת פלט מקלדת"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:156
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the keyboard input block indicator overlay."
-msgstr ""
+msgstr "האטימות של שכבת חיווי חסימת קלט מקלדת."
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
 #: app/config/yakuake.kcfg:162
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator duration"
-msgstr ""
+msgstr "משך הצגת מחוון חסימת פלט מקלדת"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
 #: app/config/yakuake.kcfg:163
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The duration of the keyboard input block indicator overlay."
-msgstr ""
+msgstr "משך הצגת שכבת חיווי חסימת קלט מקלדת."
 
 #. i18n: ectx: label, entry (UseWMAssist), group (Animation)
 #: app/config/yakuake.kcfg:171
 #, kde-format
 msgctxt "@label"
 msgid "Attempt to use the window manager to animate the window"
-msgstr ""
+msgstr "לנסות להשתמש במנהל החלונות כדי להנפיש את החלון"
 
 #. i18n: ectx: whatsthis, entry (UseWMAssist), group (Animation)
 #: app/config/yakuake.kcfg:172
@@ -993,13 +954,16 @@ msgid ""
 "adjusting the window mask if the window manager is unable to provide the "
 "requested service."
 msgstr ""
+"האם לנסות לאפשר למנהל החלונות לבצע את הנפשת פתיחת/הסגת החלון. Yakuake יסוג "
+"לאסטרטגיית כיוון מסכת החלון בהדרגה אם מנהל החלונות לא מצליח לספק את השירות "
+"המבוקש."
 
 #. i18n: ectx: label, entry (Frames), group (Animation)
 #: app/config/yakuake.kcfg:176
 #, kde-format
 msgctxt "@label"
 msgid "Animation frames"
-msgstr "Líon na bhfrámaí sa bheochan"
+msgstr "תמוניות הנפשה"
 
 #. i18n: ectx: whatsthis, entry (Frames), group (Animation)
 #: app/config/yakuake.kcfg:177
@@ -1008,16 +972,14 @@ msgctxt "@info:whatsthis"
 msgid ""
 "The number of frames of the open/retract animation. One frame is taken to be "
 "10 miliseconds."
-msgstr ""
-"Líon na bhfrámaí sa bheochan oscailte/laghdaithe. Is ionann fráma amháin "
-"agus 10 millisoicind."
+msgstr "מספר התמוניות של הנפשת הפתיחה/ההסגה. כל תמונית אורכת 10 מילישניות."
 
 #. i18n: ectx: label, entry (PollMouse), group (AutoOpen)
 #: app/config/yakuake.kcfg:185
 #, kde-format
 msgctxt "@label"
 msgid "Auto-open window"
-msgstr "Uathoscail an fhuinneog"
+msgstr "פתיחת חלון אוטומטית"
 
 #. i18n: ectx: whatsthis, entry (PollMouse), group (AutoOpen)
 #: app/config/yakuake.kcfg:186
@@ -1026,16 +988,14 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Whether to automatically open the application window when the mouse pointer "
 "is found at the edge of the screen."
-msgstr ""
-"Leis an rogha seo, osclófar fuinneog an fheidhmchláir go huathoibríoch nuair "
-"atá an pointeoir luiche ag ciumhais an scáileáin."
+msgstr "האם לפתוח את חלון היישום אוטומטית כשסמן העכבר מוצב בקצה המסך."
 
 #. i18n: ectx: label, entry (PollInterval), group (AutoOpen)
 #: app/config/yakuake.kcfg:190
 #, kde-format
 msgctxt "@label"
 msgid "Mouse pointer poll interval"
-msgstr "Eatramh faireacháin phointeoir na luiche"
+msgstr "הפרש בין תשאולי סמן העכבר"
 
 #. i18n: ectx: whatsthis, entry (PollInterval), group (AutoOpen)
 #: app/config/yakuake.kcfg:191
@@ -1045,29 +1005,29 @@ msgid ""
 "The interval during which the mouse pointer position will be checked to "
 "determine whether or not it is at the same edge of the screen as the window."
 msgstr ""
-"Tar éis an eatraimh seo, seiceálfar ionad na luiche le féachaint an bhfuil "
-"sí ag an gciumhais chéanna leis an bhfuinneog."
+"ההפרש בין הבדיקות לאיתור מקום סמן העכבר כדי לוודא אם הוא על אותו הקצה של "
+"המסך כמו החלון."
 
 #. i18n: ectx: label, entry (FirstRun), group (Dialogs)
 #: app/config/yakuake.kcfg:197
 #, kde-format
 msgctxt "@label"
 msgid "Application first run"
-msgstr "An chéad uair a thosaítear an feidhmchlár"
+msgstr "הרצה ראשונה של היישום"
 
 #. i18n: ectx: whatsthis, entry (FirstRun), group (Dialogs)
 #: app/config/yakuake.kcfg:198
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether this is the first time the application is run."
-msgstr "An é seo an chéad uair a thosaítear an feidhmchlár?"
+msgstr "האם זאת הפעם הראשונה שהיישום מופעל."
 
 #. i18n: ectx: label, entry (ConfirmQuit), group (Dialogs)
 #: app/config/yakuake.kcfg:202
 #, kde-format
 msgctxt "@label"
 msgid "Confirm quit with multiple sessions"
-msgstr "Deimhnigh scor nuair atá il-seisiúin ann"
+msgstr "אישור יציאה עם מספר הפעלות"
 
 #. i18n: ectx: whatsthis, entry (ConfirmQuit), group (Dialogs)
 #: app/config/yakuake.kcfg:203
@@ -1076,22 +1036,20 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Whether to prompt the user before quitting the application when multiple "
 "sessions are open."
-msgstr ""
-"Leis an rogha seo, fiafrófar den úsáideoir an bhfuil sé sásta scor cé go "
-"bhfuil níos mó ná seisiún amháin oscailte."
+msgstr "האם להודיע למשתמש בטרם יציאה מהיישום כאשר מספר הפעלות פתוחות."
 
 #: app/firstrundialog.cpp:22
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "First Run"
-msgstr "An Chéad Uair"
+msgstr "הפעלה ראשונה"
 
 #. i18n: ectx: property (text), widget (KTitleWidget, titleWidget)
 #: app/firstrundialog.ui:46
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to Yakuake"
-msgstr "Fáilte go Yakuake"
+msgstr "ברוך בואך ל־Yakuake"
 
 #. i18n: ectx: property (text), widget (QLabel, introLabel)
 #: app/firstrundialog.ui:53
@@ -1101,16 +1059,15 @@ msgid ""
 "Before starting to use the application, you might want to change the "
 "keyboard shortcut used to open and retract the Yakuake window:"
 msgstr ""
-"Sula n-úsáideann tú an feidhmchlár, ba chóir duit an t-aicearra a osclaíonn "
-"agus a laghdaíonn an fhuinneog Yakuake a athrú:"
+"לפני שנוכל להתחיל להשתמש ביישום, כדאי לשנות את קיצורי המקלדת המשמשים לפתיחת "
+"והסגת החלון של Yakuake:"
 
 #. i18n: ectx: property (text), widget (QLabel, outroLabel)
 #: app/firstrundialog.ui:130
 #, kde-format
 msgctxt "@info"
 msgid "You can change the shortcut later at any time via the menu."
-msgstr ""
-"Is féidir an t-aicearra a athrú ag am ar bith amach anseo tríd an roghchlár."
+msgstr "אפשר להחליף את מקשי הקיצור בכל עת דרך התפריט."
 
 #: app/main.cpp:25
 #, kde-kuit-format
@@ -1122,109 +1079,103 @@ msgstr "<application>Yakuake</application>"
 #, kde-kuit-format
 msgctxt "@title"
 msgid "A drop-down terminal emulator based on KDE Konsole technology."
-msgstr "Aithriseoir teirminéil anuas, bunaithe ar theicneolaíocht Konsole KDE."
+msgstr "הוא מדמה מסוף נשלף שמבוסס על הטכנולוגיה של Konsole מבית KDE."
 
 #: app/main.cpp:29
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2008-2012 The Yakuake Team"
+#, kde-kuit-format
 msgctxt "@info:credit"
 msgid "(c) 2008-2018 The Yakuake Team"
-msgstr "© 2008-2012 Foireann Yakuake"
+msgstr "(c) 2008‏-2018 צוות Yakuake"
 
 #: app/main.cpp:36
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Eike Hein"
-msgstr "Eike Hein"
+msgstr "אייק היין"
 
 #: app/main.cpp:36
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Maintainer, Lead Developer"
-msgstr "Cothaitheoir, Príomhfhorbróir"
+msgstr "מתחזק, מפתח ראשי"
 
 #: app/main.cpp:37
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Francois Chazal"
-msgstr "Francois Chazal"
+msgstr "פרנסואה שזל"
 
 #: app/main.cpp:37
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:credit"
-#| msgid "Project Founder, Default skin (Inactive)"
+#, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Project Founder, Legacy skin (Inactive)"
-msgstr "Seanfhondúir, Craiceann réamhshocraithe (Neamhghníomhach)"
+msgstr "מייסד המיזם, קליפה מיושנת (לא פעילה)"
 
 #: app/main.cpp:38
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Daniel 'suslik' D."
-msgstr "Daniel 'suslik' D."
+msgstr "דניאל ‚סוסליק’ ד."
 
 #: app/main.cpp:38
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Plastik skin"
-msgstr "Craiceann Plastik"
+msgstr "קליפת פלסטיק"
 
 #: app/main.cpp:39
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Juan Carlos Torres"
-msgstr "Juan Carlos Torres"
+msgstr "חואן קרלוס טורס"
 
 #: app/main.cpp:40
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Tab bar drag and drop support, Prevent Closing toggle"
-msgstr ""
-"Tacaíocht do bharra na gcluaisíní a tharraingt agus a scaoileadh, scoránú "
-"Cuir Cosc Ar Dhúnadh"
+msgstr "תמיכה בגרירה והשלכה של לשוניות. מתג מניעת סגירה"
 
 #: app/main.cpp:42
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Gustavo Ribeiro Croscato"
-msgstr ""
+msgstr "גוסטבו ריביירו קרוסטקו"
 
 #: app/main.cpp:43
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Icon on tabs with Prevent Closing enabled"
-msgstr ""
+msgstr "סמל על הלשוניות כשמניעת סגירה פעילה"
 
 #: app/main.cpp:45
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Danilo Cesar Lemes de Paula"
-msgstr ""
+msgstr "דנילו סזאר למס דה פאולה"
 
 #: app/main.cpp:46
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Actions to grow terminals"
-msgstr ""
+msgstr "פעולות להגדלת המסופים"
 
 #: app/main.cpp:49
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Kevin Scannell"
+msgstr "צוות התרגום של KDE ישראל"
 
 #: app/main.cpp:49
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kscanne@gmail.com"
+msgstr "kde-l10n-he@kde.org"
 
 #: app/mainwindow.cpp:197
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
-msgstr "An bhfuil tú cinnte gur mian leat scor?"
+msgstr "לצאת?"
 
 #: app/mainwindow.cpp:204
 #, kde-kuit-format
@@ -1234,9 +1185,8 @@ msgid ""
 "locked to prevent closing them accidentally.</emphasis> These will be killed "
 "if you continue.</warning>"
 msgstr ""
-"<warning>Tá níos mó ná seisiún amháin oscailte, <emphasis>agus chuir tú "
-"roinnt acu faoi ghlas ionas nach ndúnfar iad trí thimpiste.</emphasis> "
-"Marófar iad seo má leanann tú ar aghaidh.</warning>"
+"<warning>יש מספר הפעלות פתוחות, <emphasis>את חלקן נעלת כדי למנוע את סגירתן "
+"בטעות.</emphasis> אלו ייסגרו אם נבחר להמשיך.</warning>"
 
 #: app/mainwindow.cpp:207
 #, kde-kuit-format
@@ -1244,9 +1194,7 @@ msgctxt "@info"
 msgid ""
 "<warning>There are multiple open sessions. These will be killed if you "
 "continue.</warning>"
-msgstr ""
-"<warning>Tá níos mó ná seisiún amháin oscailte agat. Marófar iad seo má "
-"leanann tú ar aghaidh.</warning>"
+msgstr "<warning>יש מספר הפעלות פתוחות. הן תיסגרנה אם נבחר להמשיך.</warning>"
 
 #: app/mainwindow.cpp:210
 #, kde-kuit-format
@@ -1255,299 +1203,295 @@ msgid ""
 "<warning>There are one or more open sessions that you have locked to prevent "
 "closing them accidentally. These will be killed if you continue.</warning>"
 msgstr ""
-"<warning>Tá seisiún nó seisiúin ann a chuir tú faoi ghlas ionas nach ndúnfar "
-"iad trí thimpiste. Marófar iad seo má leanann tú ar aghaidh.</warning>"
+"<warning>נעלת יותר מהפעלה אחת כדי למנוע את סגירתה או את סגירתן בטעות. הן "
+"תיסגרנה אם נבחר להמשיך.</warning>"
 
 #: app/mainwindow.cpp:216
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
-msgstr "Scoir i nDáiríre?"
+msgstr "באמת לצאת?"
 
 #: app/mainwindow.cpp:248
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
-msgstr "Oscail/Laghdaigh Yakuake"
+msgstr "פתיחת/הסגת Yakuake"
 
 #: app/mainwindow.cpp:257
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
-msgstr "Fág an fhuinneog ar oscailt nuair a chailleann sé an fócas"
+msgstr "לשמור על החלון פתוח לאחר איבוד מיקוד"
 
 #: app/mainwindow.cpp:262
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
-msgstr "Bainistigh Próifílí..."
+msgstr "ניהול פרופילים…"
 
 #: app/mainwindow.cpp:267
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
-msgstr "Cuir an Phróifíl Reatha in Eagar..."
+msgstr "עריכת הפרופיל הנוכחי…"
 
 #: app/mainwindow.cpp:273
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
-msgstr "Méadaigh Leithead na Fuinneoige"
+msgstr "הרחבת החלון"
 
 #: app/mainwindow.cpp:278
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
-msgstr "Laghdaigh Leithead na Fuinneoige"
+msgstr "הצרת החלון"
 
 #: app/mainwindow.cpp:283
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
-msgstr "Méadaigh Airde na Fuinneoige"
+msgstr "הגבהת החלון"
 
 #: app/mainwindow.cpp:288
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
-msgstr "Laghdaigh Airde na Fuinneoige"
+msgstr "הנמכת החלון"
 
 #: app/mainwindow.cpp:293
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
-msgstr "Seisiún Nua"
+msgstr "הפעלה חדשה"
 
 #: app/mainwindow.cpp:299
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
-msgstr "Dhá Theirminéal, Go Cothrománach"
+msgstr "שני מסופים, אופקית"
 
 #: app/mainwindow.cpp:304
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
-msgstr "Dhá Theirminéal, Go hIngearach"
+msgstr "שני מסופים, אנכית"
 
 #: app/mainwindow.cpp:309
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
-msgstr "Ceithre Theirminéal, Greille"
+msgstr "ארבעה מסופים, רשת"
 
 #: app/mainwindow.cpp:314
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
-msgstr "Dún an Seisiún"
+msgstr "סגירת הפעלה"
 
 #: app/mainwindow.cpp:321
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
-msgstr "An Seisiún Roimhe Seo"
+msgstr "ההפעלה הקודמת"
 
 #: app/mainwindow.cpp:327
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
-msgstr "An Chéad Seisiún Eile"
+msgstr "ההפעלה הבאה"
 
 #: app/mainwindow.cpp:333
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
-msgstr "Bog Seisiún Faoi Chlé"
+msgstr "העברת הפעלה שמאלה"
 
 #: app/mainwindow.cpp:340
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
-msgstr "Bog Seisiún Faoi Dheis"
+msgstr "העברת הפעלה ימינה"
 
 #: app/mainwindow.cpp:347
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
-msgstr ""
+msgstr "הגדלת מסוף לימין"
 
 #: app/mainwindow.cpp:354
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
-msgstr ""
+msgstr "הגדלת מסוף לשמאל"
 
 #: app/mainwindow.cpp:361
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
-msgstr ""
+msgstr "הגדלת מסוף למעלה"
 
 #: app/mainwindow.cpp:368
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
-msgstr ""
+msgstr "הגדלת מסוף למטה"
 
 #: app/mainwindow.cpp:375
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
-msgstr "Athainmnigh an Seisiún..."
+msgstr "שינוי שם הפעלה…"
 
 #: app/mainwindow.cpp:382
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
-msgstr "An Teirminéal Roimhe Seo"
+msgstr "המסוף הקודם"
 
 #: app/mainwindow.cpp:388
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
-msgstr "An Chéad Teirminéal Eile"
+msgstr "המסוף הבא"
 
 #: app/mainwindow.cpp:394
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
-msgstr "Dún an Teirminéal Gníomhach"
+msgstr "סגירת המסוף הפעיל"
 
 #: app/mainwindow.cpp:401
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
-msgstr "Scoilt Clé/Deas"
+msgstr "פיצול שמאל/ימין"
 
 #: app/mainwindow.cpp:408
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
-msgstr "Scoilt Barr/Bun"
+msgstr "פיצול למעלה/למטה"
 
 #: app/mainwindow.cpp:415
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
-msgstr "Cuir Cosc Ar Dhúnadh"
+msgstr "מניעת סגירה"
 
 #: app/mainwindow.cpp:421 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
-msgstr "Díchumasaigh Ionchur ón Mhéarchlár"
+msgstr "השבתת קלט מקלדת"
 
 #: app/mainwindow.cpp:427 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
-msgstr ""
+msgstr "מעקב אחר פעילות"
 
 #: app/mainwindow.cpp:434 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
-msgstr ""
+msgstr "מעקב אחר שקט"
 
 #: app/mainwindow.cpp:441
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
-msgstr ""
+msgstr "החלפת הצגת שורת כותרת"
 
 #: app/mainwindow.cpp:448
-#, fuzzy, kde-kuit-format
-#| msgctxt "@action"
-#| msgid "Switch to Session <numid>%1</numid>"
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
-msgstr "Athraigh go Seisiún <numid>%1</numid>"
+msgstr "מעבר להפעלה %1"
 
 #: app/mainwindow.cpp:600
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
-msgstr ""
+msgstr "זוהתה פעילות במסוף תחת מעקב בהפעלה „%1”."
 
 #: app/mainwindow.cpp:614
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
-msgstr ""
+msgstr "זוהה שקט במסוף תחת מעקב בהפעלה „%1”."
 
 #: app/mainwindow.cpp:673
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
-msgstr "Cabhair"
+msgstr "עזרה"
 
 #: app/mainwindow.cpp:679
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
-msgstr "Roghanna Gasta"
+msgstr "אפשרויות זריזות"
 
 #: app/mainwindow.cpp:685
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
-msgstr "Scáileán"
+msgstr "מסך"
 
 #: app/mainwindow.cpp:690
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
-msgstr "Leithead"
+msgstr "רוחב"
 
 #: app/mainwindow.cpp:695
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
-msgstr "Airde"
+msgstr "גובה"
 
 #: app/mainwindow.cpp:698
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
-msgstr "Socruithe"
+msgstr "הגדרות"
 
 #: app/mainwindow.cpp:714
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
-msgstr "Ag ionad na luiche"
+msgstr "איפה שהעכבר"
 
 #: app/mainwindow.cpp:720
-#, fuzzy, kde-kuit-format
-#| msgctxt "@item:inlistbox"
-#| msgid "Screen 1"
+#, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
-msgstr "Scáileán 1"
+msgstr "מסך %1"
 
 #: app/mainwindow.cpp:742 app/mainwindow.cpp:764
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: app/mainwindow.cpp:829
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
-msgstr "Fuinneog"
+msgstr "חלון"
 
 #: app/mainwindow.cpp:835
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
-msgstr "Oibriú"
+msgstr "התנהגות"
 
 #: app/mainwindow.cpp:838
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
-msgstr "Cuma"
+msgstr "מראה"
 
 #: app/mainwindow.cpp:917
 #, kde-kuit-format
@@ -1556,21 +1500,20 @@ msgid ""
 "<application>Yakuake</application> was unable to load a skin. It is likely "
 "that it was installed incorrectly.<nl/><nl/>The application will now quit."
 msgstr ""
-"Níorbh fhéidir le <application>Yakuake</application> craiceann a luchtú. Is "
-"dócha nach raibh an craiceann suiteáilte mar is ceart.<nl/><nl/>Stopfaidh an "
-"feidhmchlár anois."
+"<application>Yakuake</application> לא הצליח לטעון קליפה. כנראה שלא הותקנה "
+"כראוי.<nl/><nl/>היישום ייסגר כעת."
 
 #: app/mainwindow.cpp:919
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
-msgstr "Ní Féidir an Craiceann a Luchtú"
+msgstr "לא ניתן לטעון קליפה"
 
 #: app/mainwindow.cpp:1663
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
-msgstr ""
+msgstr "יש ללחוץ על <shortcut>%1</shortcut> לפתיחה"
 
 #: app/sessionstack.cpp:257
 #, kde-format
@@ -1580,6 +1523,10 @@ msgid ""
 "changed to internal use only by re-compiling Yakuake. <p>This warning will "
 "only show once for this Yakuake instance.</p>"
 msgstr ""
+"נעשה כרגע שימוש במתודה runCommand ב־D-Bus. יש חששות אבטחת מידע סביב הנגשת "
+"המתודות האלה באופן ציבורי. במידת הצורך, אפשר לשנות את המתודות האלה לשימוש "
+"פנימי על ידי הידור מחדש של Yakuake. <p>אזהרה זו תופיע רק פעם אחת בעותק זה של "
+"Yakuake.</p>"
 
 #: app/sessionstack.cpp:723
 #, kde-kuit-format
@@ -1587,27 +1534,25 @@ msgctxt "@info"
 msgid ""
 "<warning>You have locked this session to prevent accidental closing of "
 "terminals.</warning>"
-msgstr ""
-"<warning>Chuir tú an seisiún seo faoi ghlas ionas nach ndúnfar teirminéil "
-"trí thimpiste.</warning>"
+msgstr "<warning>נעלת את ההפעלה הזאת למניעת סגירה של מסופים בטעות.</warning>"
 
 #: app/sessionstack.cpp:727
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
-msgstr "An bhfuil tú cinnte gur mian leat an seisiún seo a dhúnadh?"
+msgstr "לסגור את ההפעלה הזאת?"
 
 #: app/sessionstack.cpp:729
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
-msgstr "An bhfuil tú cinnte gur mian leat an teirminéal seo a dhúnadh?"
+msgstr "לסגור את המסוף הזה?"
 
 #: app/sessionstack.cpp:733
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Close?"
-msgstr "An bhfuil fonn ort dúnadh i ndáiríre?"
+msgstr "באמת לסגור?"
 
 #: app/tabbar.cpp:39
 #, kde-kuit-format
@@ -1616,91 +1561,86 @@ msgid ""
 "<title>Tab Bar</title><para>The tab bar allows you to switch between "
 "sessions. You can double-click a tab to edit its label.</para>"
 msgstr ""
-"<title>Barra na gCluaisíní</title><para>Le barra na gcluaisíní is féidir "
-"bogadh idir na seisiúin.  Déchliceáil cluaisín chun a lipéad a chur in eagar."
-"</para>"
+"<title>סרגל לשוניות</title><para>סרגל הלשוניות מאפשר לך לעבור בין הפעלות. "
+"אפשר ללחוץ על לשונית לחיצה כפולה כדי לערוך את התווית שלה.</para>"
 
 #: app/tabbar.cpp:58
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Disable Keyboard Input"
-msgstr "Díchumasaigh Ionchur ón Mhéarchlár"
+msgstr "השבתת קלט מקלדת"
 
 #: app/tabbar.cpp:59
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Monitor for Activity"
-msgstr ""
+msgstr "מעקב אחר פעילות"
 
 #: app/tabbar.cpp:60
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Monitor for Silence"
-msgstr ""
+msgstr "מעקב אחר שקט"
 
 #: app/tabbar.cpp:69
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "New Session"
-msgstr "Seisiún Nua"
+msgstr "הפעלה חדשה"
 
 #: app/tabbar.cpp:70
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Adds a new session. Press and hold to select session type from menu."
-msgstr ""
-"Cruthaigh seisiún nua. Brúigh agus coinnigh síos chun cineál an tseisiúin a "
-"roghnú ó roghchlár."
+msgstr "מוסיף הפעלה חדשה. יש ללחוץ ולהחזיק כדי לבחור סוג הפעלה מהתפריט."
 
 #: app/tabbar.cpp:75
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Close Session"
-msgstr "Dún an Seisiún"
+msgstr "סגירת הפעלה"
 
 #: app/tabbar.cpp:76
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Closes the active session."
-msgstr "Dún an seisiún gníomhach."
+msgstr "סוגר את ההפעלה הפעילה."
 
 #: app/tabbar.cpp:194
 #, kde-kuit-format
 msgctxt "@action"
 msgid "For This Session"
-msgstr "Le haghaidh an tseisiúin seo"
+msgstr "להפעלה הזאת"
 
 #: app/tabbar.cpp:211
 #, kde-kuit-format
 msgctxt "@action"
 msgid "For Terminal %1"
-msgstr "Le haghaidh teirminéil %1"
+msgstr "למסוף %1"
 
 #: app/tabbar.cpp:239 app/tabbar.cpp:284
 #, kde-kuit-format
 msgctxt "@action"
 msgid "In This Session"
-msgstr "Sa Seisiún Seo"
+msgstr "בהפעלה הזאת"
 
 #: app/tabbar.cpp:256 app/tabbar.cpp:301
 #, kde-kuit-format
 msgctxt "@action"
 msgid "In Terminal %1"
-msgstr "I dTeirminéal %1"
+msgstr "במסוף %1"
 
 #: app/tabbar.cpp:933
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell"
-msgstr "Blaosc"
+msgstr "מעטפת"
 
 #: app/tabbar.cpp:935
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:tab"
-#| msgid "Shell No. <numid>%1</numid>"
+#, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell No. %1"
-msgstr "Blaosc <numid>%1</numid>"
+msgstr "מעטפת מס׳ %1"
 
 #: app/terminal.cpp:164
 #, kde-kuit-format
@@ -1710,9 +1650,9 @@ msgid ""
 "<application>Konsole</application> component.<nl/> A <application>Konsole</"
 "application> installation is required to use Yakuake."
 msgstr ""
-"Níorbh fhéidir le <application>Yakuake</application> an chomhpháirt "
-"<application>Konsole</application> a luchtú.<nl/> Tá suiteáil "
-"<application>Konsole</application> de dhíth ort chun Yakuake a rith."
+"<application>Yakuake</application> לא הצליח לטעון את רכיב ה־"
+"<application>Konsole</application>.<nl/> נדרשת התקנת <application>Konsole</"
+"application> כדי להשתמש ב־Yakuake."
 
 #: app/titlebar.cpp:23
 #, kde-kuit-format
@@ -1721,99 +1661,41 @@ msgid ""
 "<title>Title Bar</title><para>The title bar displays the session title if "
 "available.</para>"
 msgstr ""
-"<title>Barra Teidil</title><para>Taispeántar teideal an tseisiúin sa bharra "
-"teidil más féidir.</para>"
+"<title>שורת כותרת</title><para>שורת הכותרת מציגה את כותרת ההפעלה אם יש כזאת."
+"</para>"
 
 #: app/titlebar.cpp:36
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Keep window open when it loses focus"
-msgstr "Fág an fhuinneog ar oscailt nuair a chailleann sé an fócas"
+msgstr "לשמור על החלון פתוח לאחר אובדן מיקוד"
 
 #: app/titlebar.cpp:37
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "If this is checked, the window will stay open when it loses focus."
-msgstr ""
-"Má thiceálann tú é seo, fágfar an fhuinneog ar oscailt nuair a chailleann sé "
-"an fócas."
+msgstr "אם האפשרות מסומנת החלון יישאר פתוח לאחר שאיבד את המיקוד."
 
 #: app/titlebar.cpp:44
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Open Menu"
-msgstr "Oscail Roghchlár"
+msgstr "פתיחת תפריט"
 
 #: app/titlebar.cpp:45
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Opens the main menu."
-msgstr "Oscail an príomh-roghchlár."
+msgstr "פתיחת התפריט הראשי."
 
 #: app/titlebar.cpp:50
 #, kde-kuit-format
 msgctxt "@info:tooltip Quits the application"
 msgid "Quit"
-msgstr "Scoir"
+msgstr "יציאה"
 
 #: app/titlebar.cpp:51
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Quits the application."
-msgstr "Scoir ón fheidhmchlár."
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Application successfully started.<nl/>Press <shortcut>%1</shortcut> to "
-#~ "use it ..."
-#~ msgstr ""
-#~ "Thosaigh an feidhmchlár gan fadhb.<nl/>Brúigh <shortcut>%1</shortcut> "
-#~ "chun é a úsáid..."
-
-#~ msgctxt "@title:window"
-#~ msgid "Failed to Download Skin"
-#~ msgstr "Níorbh fhéidir an Craiceann a íosluchtú"
-
-#~ msgctxt "@info"
-#~ msgid "The installer was given a directory, not a file."
-#~ msgstr "Tugadh comhadlann don suiteálaí, in ionad comhaid."
-
-#~ msgctxt "@info"
-#~ msgid "Could not remove skin \"%1\"."
-#~ msgstr "Níorbh fhéidir craiceann \"%1\" a bhaint."
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Screen <numid>%1</numid>"
-#~ msgstr "Scáileán <numid>%1</numid>"
-
-#~ msgctxt "@item:inmenu"
-#~ msgid "Screen <numid>%1</numid>"
-#~ msgstr "Scáileán <numid>%1</numid>"
-
-#~ msgctxt "@label"
-#~ msgid "Show startup notification"
-#~ msgstr "Taispeáin fógairt tosaithe"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid "Whether to show a notification popup at application startup."
-#~ msgstr ""
-#~ "Leis an rogha seo, taispeánfar preabfhuinneog fhógartha ag am tosú an "
-#~ "fheidhmchláir."
-
-#~ msgctxt "@option:check"
-#~ msgid "Show startup notification popup"
-#~ msgstr "Taispeáin fógairt tosaithe i bpreabfhuinneog"
-
-#~ msgctxt "@title:window"
-#~ msgid "<application>Yakuake</application> Notification"
-#~ msgstr "Fógairt <application>Yakuake</application>"
-
-#~ msgctxt "@label:slider"
-#~ msgid "Speed:"
-#~ msgstr "Luas:"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid "Background color used if XComposite ARGB translucency is disabled."
-#~ msgstr ""
-#~ "Dath an chúlra le húsáid má tá tréshoilseacht ARGB XComposite "
-#~ "díchumasaithe."
+msgstr "יציאה מהיישום."

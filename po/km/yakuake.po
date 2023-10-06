@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-16 00:49+0000\n"
+"POT-Creation-Date: 2023-10-06 01:42+0000\n"
 "PO-Revision-Date: 2012-07-11 11:30+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -107,7 +107,7 @@ msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "យក​ស្បែក​ចេញ"
 
-#: app/config/appearancesettings.cpp:474
+#: app/config/appearancesettings.cpp:470
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -366,7 +366,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "អេក្រង់ ១"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:676
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:658
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1091,19 +1091,19 @@ msgctxt "@info"
 msgid "You can change the shortcut later at any time via the menu."
 msgstr "អ្នក​អាច​ផ្លាស់ប្ដូរ​ផ្លូវកាត់​នៅ​ពេលក្រោយ​តាម​រយៈ​ម៉ឺនុយ ។"
 
-#: app/main.cpp:28
+#: app/main.cpp:25
 #, kde-kuit-format
 msgctxt "@title"
 msgid "<application>Yakuake</application>"
 msgstr "<application>Yakuake</application>"
 
-#: app/main.cpp:30
+#: app/main.cpp:27
 #, kde-kuit-format
 msgctxt "@title"
 msgid "A drop-down terminal emulator based on KDE Konsole technology."
 msgstr "វត្ថុ​ត្រាប់តាម​ស្ថានីយ​ទម្លាក់​ចុះ​ផ្អែក​តាម​បច្ចេកវិទ្យា KDE Konsole ។"
 
-#: app/main.cpp:32
+#: app/main.cpp:29
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:credit"
 #| msgid "(c) 2008-2011 The Yakuake Team"
@@ -1111,25 +1111,25 @@ msgctxt "@info:credit"
 msgid "(c) 2008-2018 The Yakuake Team"
 msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០០៨-២០១១ ដោយ The Yakuake Team"
 
-#: app/main.cpp:39
+#: app/main.cpp:36
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Eike Hein"
 msgstr "Eike Hein"
 
-#: app/main.cpp:39
+#: app/main.cpp:36
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Maintainer, Lead Developer"
 msgstr "អ្នក​អភិវឌ្ឍន៍​សំខាន់ អ្នក​ថែទាំ"
 
-#: app/main.cpp:40
+#: app/main.cpp:37
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Francois Chazal"
 msgstr "Francois Chazal"
 
-#: app/main.cpp:40
+#: app/main.cpp:37
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:credit"
 #| msgid "Project Founder, Default skin (Inactive)"
@@ -1137,61 +1137,61 @@ msgctxt "@info:credit"
 msgid "Project Founder, Legacy skin (Inactive)"
 msgstr "អ្នក​បង្កើត​គម្រោង ស្បែក​លំនាំដើម (អសកម្ម)"
 
-#: app/main.cpp:41
+#: app/main.cpp:38
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Daniel 'suslik' D."
 msgstr "Daniel 'suslik' D."
 
-#: app/main.cpp:41
+#: app/main.cpp:38
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Plastik skin"
 msgstr "Plastik skin"
 
-#: app/main.cpp:42
+#: app/main.cpp:39
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Juan Carlos Torres"
 msgstr "Juan Carlos Torres"
 
-#: app/main.cpp:43
+#: app/main.cpp:40
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Tab bar drag and drop support, Prevent Closing toggle"
 msgstr "គាំទ្រ​ទម្លាក់ និង​អូស​របារ​ផ្ទាំង រារាំង​ការ​បិទ/បើក"
 
-#: app/main.cpp:45
+#: app/main.cpp:42
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Gustavo Ribeiro Croscato"
 msgstr "Gustavo Ribeiro Croscato"
 
-#: app/main.cpp:46
+#: app/main.cpp:43
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Icon on tabs with Prevent Closing enabled"
 msgstr "រូបតំណាង​នៅ​លើ​ផ្ទាំង​ដែល​មាន​ភាព​រារាំង​អាច​បិទ​បាន"
 
-#: app/main.cpp:48
+#: app/main.cpp:45
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Danilo Cesar Lemes de Paula"
 msgstr "Danilo Cesar Lemes de Paula"
 
-#: app/main.cpp:49
+#: app/main.cpp:46
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Actions to grow terminals"
 msgstr "សកម្មភាព​ធ្វើ​ឲ្យ​ស្ថានីយ​កើន​ឡើង"
 
-#: app/main.cpp:52
+#: app/main.cpp:49
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "ខឹម សុខែម, ម៉ន ម៉េត, សេង សុត្ថា, ចាន់ សម្បត្តិរតនៈ, សុខ សុភា"
 
-#: app/main.cpp:52
+#: app/main.cpp:49
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -1199,13 +1199,13 @@ msgstr ""
 "khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
 "ratanak@khmeros.info,sophea@khmeros.info"
 
-#: app/mainwindow.cpp:205
+#: app/mainwindow.cpp:197
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
 msgstr "តើ​អ្នក​ចង់​បោះបង់​​ឬ ?"
 
-#: app/mainwindow.cpp:212
+#: app/mainwindow.cpp:204
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1216,7 +1216,7 @@ msgstr ""
 "<warning>មាន​សម័យ​បើក​ច្រើន <emphasis>មួយ​ចំនួន​ដែល​អ្នក​បាន​ចាក់សោ ដើម្បី​​រារាំង​ការ​បិទ​វា​ដោយ​"
 "ចៃដន្យ ។</emphasis> ទាំងនេះ​នឹង​ត្រូវ​បាន​បាត់បង់ ប្រសិនបើ​អ្នក​បន្ត ។</warning>"
 
-#: app/mainwindow.cpp:215
+#: app/mainwindow.cpp:207
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1224,7 +1224,7 @@ msgid ""
 "continue.</warning>"
 msgstr "<warning>មាន​សម័យ​បើក​ច្រើន ។ ទាំងនេះ​នឹង​ត្រូវ​បាន​បាត់បង់​ ប្រសិនបើ​អ្នក​បន្ត ។</warning>"
 
-#: app/mainwindow.cpp:218
+#: app/mainwindow.cpp:210
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1234,205 +1234,205 @@ msgstr ""
 "<warning>មាន​សម័យ​ច្រើន​ជាង​មួយ ដែល​អ្នក​បាន​ចាក់សោ ដើម្បី​រារាំង​ការ​បិទ​វា​ដោយ​ចៃដន្យ ។ ទាំង​នេះ​នឹង​"
 "ត្រូវ​បាន​បាត់បង់ ប្រសិនបើ​អ្នក​បន្ត ។</warning>"
 
-#: app/mainwindow.cpp:224
+#: app/mainwindow.cpp:216
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
 msgstr "ពិត​ជា​បោះបង់​ឬ ?"
 
-#: app/mainwindow.cpp:256
+#: app/mainwindow.cpp:248
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
 msgstr "បើក/បង្រួម Yakuake"
 
-#: app/mainwindow.cpp:265
+#: app/mainwindow.cpp:257
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
 msgstr "រក្សាទុក​បង្អួច​បើក នៅ​ពេល​វា​បាត់​ការ​ផ្ដោត"
 
-#: app/mainwindow.cpp:270
+#: app/mainwindow.cpp:262
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
 msgstr "គ្រប់គ្រង​ទម្រង..."
 
-#: app/mainwindow.cpp:275
+#: app/mainwindow.cpp:267
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr "កែសម្រួល​ទម្រង់​បច្ចុប្បន្ន..."
 
-#: app/mainwindow.cpp:281
+#: app/mainwindow.cpp:273
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "បង្កើន​ទទឹង​បង្អួច"
 
-#: app/mainwindow.cpp:286
+#: app/mainwindow.cpp:278
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "បន្ថយ​ទទឹង​បង្អួច"
 
-#: app/mainwindow.cpp:291
+#: app/mainwindow.cpp:283
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "បង្កើន​កម្ពស់​បង្អួច"
 
-#: app/mainwindow.cpp:296
+#: app/mainwindow.cpp:288
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "បន្ថយ​កម្ពស់​បង្អួច"
 
-#: app/mainwindow.cpp:301
+#: app/mainwindow.cpp:293
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "សម័យ​ថ្មី"
 
-#: app/mainwindow.cpp:307
+#: app/mainwindow.cpp:299
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr "ស្ថានីយ​ពីរ ដោយ​ផ្ដេក"
 
-#: app/mainwindow.cpp:312
+#: app/mainwindow.cpp:304
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr "ស្ថានីយ​ពីរ ដោយ​បញ្ឈរ"
 
-#: app/mainwindow.cpp:317
+#: app/mainwindow.cpp:309
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr "ស្ថានីយ​បួន ក្រឡាចត្រង្គ"
 
-#: app/mainwindow.cpp:322
+#: app/mainwindow.cpp:314
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "បិទ​សម័យ"
 
-#: app/mainwindow.cpp:329
+#: app/mainwindow.cpp:321
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
 msgstr "សម័យ​មុន"
 
-#: app/mainwindow.cpp:335
+#: app/mainwindow.cpp:327
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
 msgstr "សម័យ​បន្ទាប់"
 
-#: app/mainwindow.cpp:341
+#: app/mainwindow.cpp:333
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
 msgstr "ផ្លាស់ទី​សម័យ​ទៅ​ឆ្វេង"
 
-#: app/mainwindow.cpp:348
+#: app/mainwindow.cpp:340
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
 msgstr "ផ្លាស់ទី​សម័យ​ទៅ​ស្ដាំ"
 
-#: app/mainwindow.cpp:355
+#: app/mainwindow.cpp:347
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr "បង្កើន​ស្ថានីយ​ទៅ​ស្ដាំ"
 
-#: app/mainwindow.cpp:362
+#: app/mainwindow.cpp:354
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr "បង្កើន​ស្ថានីយ​ទៅ​ឆ្វេង"
 
-#: app/mainwindow.cpp:369
+#: app/mainwindow.cpp:361
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr "បង្កើន​ស្ថានីយ​ទៅ​​លើ"
 
-#: app/mainwindow.cpp:376
+#: app/mainwindow.cpp:368
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr "បង្កើន​ស្ថានីយ​ទៅ​ក្រោម"
 
-#: app/mainwindow.cpp:383
+#: app/mainwindow.cpp:375
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
 msgstr "ប្ដូរ​ឈ្មោះ​សម័យ..."
 
-#: app/mainwindow.cpp:390
+#: app/mainwindow.cpp:382
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr "ស្ថានីយ​មុន"
 
-#: app/mainwindow.cpp:396
+#: app/mainwindow.cpp:388
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr "ស្ថានីយ​បន្ទាប់"
 
-#: app/mainwindow.cpp:402
+#: app/mainwindow.cpp:394
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr "បិទ​ស្ថានីយ​សកម្ម"
 
-#: app/mainwindow.cpp:409
+#: app/mainwindow.cpp:401
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "ពុះ ឆ្វេង/ស្ដាំ"
 
-#: app/mainwindow.cpp:416
+#: app/mainwindow.cpp:408
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "ពុះ លើ/ក្រោម"
 
-#: app/mainwindow.cpp:423
+#: app/mainwindow.cpp:415
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "រារាំង​ការបិទ"
 
-#: app/mainwindow.cpp:429 app/tabbar.cpp:190
+#: app/mainwindow.cpp:421 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "បិទ​ព័ត៌មាន​បញ្ចូល​អំពី​ក្ដារចុច"
 
-#: app/mainwindow.cpp:435 app/tabbar.cpp:235
+#: app/mainwindow.cpp:427 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "ពិនិត្យមើល​សកម្មភាព"
 
-#: app/mainwindow.cpp:442 app/tabbar.cpp:280
+#: app/mainwindow.cpp:434 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "ពិនិត្យមើល​ភាពស្ងាត់"
 
-#: app/mainwindow.cpp:449
+#: app/mainwindow.cpp:441
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr ""
 
-#: app/mainwindow.cpp:456
+#: app/mainwindow.cpp:448
 #, fuzzy, kde-kuit-format
 #| msgctxt "@action"
 #| msgid "Switch to Session <numid>%1</numid>"
@@ -1440,61 +1440,61 @@ msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "ប្ដូរ​ទៅ​សម័យ <numid>%1</numid>"
 
-#: app/mainwindow.cpp:608
+#: app/mainwindow.cpp:600
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "សកម្មភាព​ដែល​បាន​រក​ឃើញ​នៅ​ក្នុង​ស្ថានីយ​ដែល​បាន​ត្រួតពិនិត្យ​នៅ​សម័យ \"%1\" ។"
 
-#: app/mainwindow.cpp:627
+#: app/mainwindow.cpp:614
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "ភាព​ស្ងាត់​ដែល​បាន​រក​ឃើញ​នៅ​ស្ថានីយ​ដែល​បាន​ត្រួតពិនិត្យ​នៅ​សម័យ \"%1\" ។"
 
-#: app/mainwindow.cpp:691
+#: app/mainwindow.cpp:673
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "ជំនួយ"
 
-#: app/mainwindow.cpp:697
+#: app/mainwindow.cpp:679
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "ជម្រើស​រហ័ស"
 
-#: app/mainwindow.cpp:703
+#: app/mainwindow.cpp:685
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "អេក្រង់"
 
-#: app/mainwindow.cpp:708
+#: app/mainwindow.cpp:690
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "ទទឹង​"
 
-#: app/mainwindow.cpp:713
+#: app/mainwindow.cpp:695
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "កម្ពស់"
 
-#: app/mainwindow.cpp:716
+#: app/mainwindow.cpp:698
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "ការ​កំណត់"
 
-#: app/mainwindow.cpp:732
+#: app/mainwindow.cpp:714
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "នៅ​ទីតាំង​កណ្ដុរ"
 
-#: app/mainwindow.cpp:738
+#: app/mainwindow.cpp:720
 #, fuzzy, kde-kuit-format
 #| msgctxt "@item:inlistbox"
 #| msgid "Screen 1"
@@ -1502,30 +1502,30 @@ msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "អេក្រង់ ១"
 
-#: app/mainwindow.cpp:760 app/mainwindow.cpp:782
+#: app/mainwindow.cpp:742 app/mainwindow.cpp:764
 #, kde-format
 msgid "%1%"
 msgstr ""
 
-#: app/mainwindow.cpp:847
+#: app/mainwindow.cpp:829
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "បង្អួច"
 
-#: app/mainwindow.cpp:853
+#: app/mainwindow.cpp:835
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "ឥរិយាបថ"
 
-#: app/mainwindow.cpp:856
+#: app/mainwindow.cpp:838
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "រូបរាង"
 
-#: app/mainwindow.cpp:939
+#: app/mainwindow.cpp:917
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1535,13 +1535,13 @@ msgstr ""
 "<application>Yakuake</application> មិន​អាច​ផ្ទុក​ស្បែក​បាន​​ឡើយ ។ វា​ប្រហែល​ជា​បាន​ដំឡើង​មិន​"
 "ត្រឹមត្រូវ ។<nl/><nl/>កម្មវិធី​នឹង​បោះបង់​ឥឡូវ​នេះ ។"
 
-#: app/mainwindow.cpp:941
+#: app/mainwindow.cpp:919
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "មិន​អាច​ផ្ទុក​ស្បែក​បាន​ទេ"
 
-#: app/mainwindow.cpp:1685
+#: app/mainwindow.cpp:1663
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
@@ -1672,7 +1672,7 @@ msgctxt "@title:tab"
 msgid "Shell No. %1"
 msgstr "Shell No. <numid>%1</numid>"
 
-#: app/terminal.cpp:168
+#: app/terminal.cpp:164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
