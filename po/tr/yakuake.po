@@ -10,13 +10,13 @@
 # obsoleteman <tulliana@gmail.com>, 2007-2009,2012.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: extragear-utils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-04 00:51+0000\n"
-"PO-Revision-Date: 2023-09-02 23:02+0300\n"
+"PO-Revision-Date: 2023-10-05 12:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: app/config/appearancesettings.cpp:150
 #, kde-kuit-format
@@ -272,9 +272,9 @@ msgid ""
 "may cause the window manager to switch to the virtual desktop it currently "
 "resides on."
 msgstr ""
-"Bu seçenek etkinleştirilirse, kısayol normal olarak kapatmadan ziyade daha "
-"önceden odak kaybedilmişse pencereye tekrar odaklanmak veya programı açmak "
-"için kullanılır. Pencere tüm sanal masaüstlerinde göster şeklinde "
+"Bu seçenek etkinleştirilirse kısayol normal olarak kapatmadan ziyade daha "
+"önceden odak kaybedilmişse pencereye yeniden odaklanmak veya programı açmak "
+"için kullanılır. Pencere tüm sanal masaüstlerinde göster biçiminde "
 "ayarlanmadıkça, bu durum pencere yöneticinin programın açık olduğu sanal "
 "masaüstüne geçmesine neden olabilir."
 
