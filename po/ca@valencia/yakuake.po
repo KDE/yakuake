@@ -255,7 +255,7 @@ msgstr "Instal·la l'aparença..."
 #, kde-format
 msgctxt "@option:check"
 msgid "Focus terminals when the mouse pointer is moved over them"
-msgstr "Dona focus als terminals quan el ratolí es moga sobre ells"
+msgstr "Dona focus als terminals quan el ratolí es moga sobre seu"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ToggleToFocus)
 #: app/config/behaviorsettings.ui:42
