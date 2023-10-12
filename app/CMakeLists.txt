@@ -1,4 +1,4 @@
-configure_file(config-yakuake.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-yakuake.h)
+configure_file(config-yakuake.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-yakuake.h)
 
 add_executable(yakuake)
 
