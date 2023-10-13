@@ -929,10 +929,11 @@ void MainWindow::applyWindowProperties()
 {
     if (m_isX11) {
         if (Settings::keepOpen() && !Settings::keepAbove()) {
-            KWindowSystem::clearState(winId(), NET::KeepAbove);
-            KWindowSystem::setState(winId(), NET::SkipTaskbar | NET::SkipPager);
-        } else
-            KWindowSystem::setState(winId(), NET::KeepAbove | NET::SkipTaskbar | NET::SkipPager);
+            KX11Extras::clearState(winId(), NET::KeepAbove);
+            KX11Extras::setState(winId(), NET::SkipTaskbar | NET::SkipPager);
+        } else {
+            KX11Extras::setState(winId(), NET::KeepAbove | NET::SkipTaskbar | NET::SkipPager);
+        }
     }
 
 #if HAVE_KWAYLAND
