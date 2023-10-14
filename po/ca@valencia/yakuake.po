@@ -1357,13 +1357,13 @@ msgstr "Sessió següent"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
-msgstr "Mou la sessió a l'esquerra"
+msgstr "Mou la sessió cap a l'esquerra"
 
 #: app/mainwindow.cpp:344
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
-msgstr "Mou la sessió a la dreta"
+msgstr "Mou la sessió cap a la dreta"
 
 #: app/mainwindow.cpp:351
 #, kde-kuit-format
