@@ -32,6 +32,7 @@
 #include <KStatusNotifierItem>
 #include <KToggleFullScreenAction>
 #include <KWindowEffects>
+#include <KWindowInfo>
 #include <KWindowSystem>
 #include <KX11Extras>
 
