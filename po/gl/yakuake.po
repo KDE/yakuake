@@ -1250,7 +1250,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
-msgstr "Está seguro de que quere saír?"
+msgstr "Seguro que quere saír?"
 
 #: app/mainwindow.cpp:252
 #, kde-kuit-format
@@ -1596,7 +1596,7 @@ msgstr "Seguro que quere pechar esta terminal?"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Close?"
-msgstr "Está seguro de que quere pechar?"
+msgstr "Seguro que quere pechar?"
 
 #: app/tabbar.cpp:39
 #, kde-kuit-format
