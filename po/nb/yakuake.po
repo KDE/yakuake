@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-18 01:43+0000\n"
+"POT-Creation-Date: 2023-10-20 01:40+0000\n"
 "PO-Revision-Date: 2012-12-09 14:32+0100\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -357,7 +357,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr ""
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:658
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:659
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1185,13 +1185,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "bjornst@skogkatt.homelinux.org"
 
-#: app/mainwindow.cpp:197
+#: app/mainwindow.cpp:198
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
 msgstr "Er du sikker på at du vil avslutte?"
 
-#: app/mainwindow.cpp:204
+#: app/mainwindow.cpp:205
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1203,7 +1203,7 @@ msgstr ""
 "hindre at de lukkes ved et uhell.</emphasis>. Disse vil bli drept hvis du "
 "fortsetter.</warning>"
 
-#: app/mainwindow.cpp:207
+#: app/mainwindow.cpp:208
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1213,7 +1213,7 @@ msgstr ""
 "<warning>Det er flere åpne økter. Disse vil bli drept hvis du fortsetter.</"
 "warning>"
 
-#: app/mainwindow.cpp:210
+#: app/mainwindow.cpp:211
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1223,294 +1223,294 @@ msgstr ""
 "<warning>Det er en eller flere åpne økter som du har låst for å hindre at de "
 "lukkes ved et uhell. Disse vil bli drept hvis du fortsetter.</warning>"
 
-#: app/mainwindow.cpp:216
+#: app/mainwindow.cpp:217
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
 msgstr "Er du sikker på at du vil avslutte?"
 
-#: app/mainwindow.cpp:248
+#: app/mainwindow.cpp:249
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
 msgstr "Åpne/trekk inn Yakuake"
 
-#: app/mainwindow.cpp:257
+#: app/mainwindow.cpp:258
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
 msgstr "Hold vinduet åpent når mister fokus"
 
-#: app/mainwindow.cpp:262
+#: app/mainwindow.cpp:263
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
 msgstr "Håndter profiler …"
 
-#: app/mainwindow.cpp:267
+#: app/mainwindow.cpp:268
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr "Endre gjeldende profil …"
 
-#: app/mainwindow.cpp:273
+#: app/mainwindow.cpp:274
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "Øk vindusbredden"
 
-#: app/mainwindow.cpp:278
+#: app/mainwindow.cpp:279
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "Minsk vindusbredde"
 
-#: app/mainwindow.cpp:283
+#: app/mainwindow.cpp:284
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "Øk vindushøyden"
 
-#: app/mainwindow.cpp:288
+#: app/mainwindow.cpp:289
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "Minsk vindushøyden"
 
-#: app/mainwindow.cpp:293
+#: app/mainwindow.cpp:294
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "Ny økt"
 
-#: app/mainwindow.cpp:299
+#: app/mainwindow.cpp:300
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr "To terminaler, vannrett"
 
-#: app/mainwindow.cpp:304
+#: app/mainwindow.cpp:305
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr "To terminaler. loddrett"
 
-#: app/mainwindow.cpp:309
+#: app/mainwindow.cpp:310
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr "Fire terminaler, rutenett"
 
-#: app/mainwindow.cpp:314
+#: app/mainwindow.cpp:315
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "Lukk økt"
 
-#: app/mainwindow.cpp:321
+#: app/mainwindow.cpp:322
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
 msgstr "Forrige økt"
 
-#: app/mainwindow.cpp:327
+#: app/mainwindow.cpp:328
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
 msgstr "Neste økt"
 
-#: app/mainwindow.cpp:333
+#: app/mainwindow.cpp:334
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
 msgstr "Flytt økta til venstre"
 
-#: app/mainwindow.cpp:340
+#: app/mainwindow.cpp:341
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
 msgstr "Flytt økta til høyre"
 
-#: app/mainwindow.cpp:347
+#: app/mainwindow.cpp:348
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr "La terminalen vokse mot høyre"
 
-#: app/mainwindow.cpp:354
+#: app/mainwindow.cpp:355
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr "La terminalen vokse mot venstre"
 
-#: app/mainwindow.cpp:361
+#: app/mainwindow.cpp:362
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr "La terminalen vokse oppover"
 
-#: app/mainwindow.cpp:368
+#: app/mainwindow.cpp:369
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr "La terminalen vokse nedover"
 
-#: app/mainwindow.cpp:375
+#: app/mainwindow.cpp:376
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
 msgstr "Endre navn på økt …"
 
-#: app/mainwindow.cpp:382
+#: app/mainwindow.cpp:383
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr "Forrige terminal"
 
-#: app/mainwindow.cpp:388
+#: app/mainwindow.cpp:389
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr "Neste terminal"
 
-#: app/mainwindow.cpp:394
+#: app/mainwindow.cpp:395
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr "Lukk aktiv terminal"
 
-#: app/mainwindow.cpp:401
+#: app/mainwindow.cpp:402
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "Del venstre/høyre"
 
-#: app/mainwindow.cpp:408
+#: app/mainwindow.cpp:409
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "Del topp/bunn"
 
-#: app/mainwindow.cpp:415
+#: app/mainwindow.cpp:416
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "Hindre lukking"
 
-#: app/mainwindow.cpp:421 app/tabbar.cpp:190
+#: app/mainwindow.cpp:422 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "Slå av inndata fra tastatur"
 
-#: app/mainwindow.cpp:427 app/tabbar.cpp:235
+#: app/mainwindow.cpp:428 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "Registrer aktivitet"
 
-#: app/mainwindow.cpp:434 app/tabbar.cpp:280
+#: app/mainwindow.cpp:435 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "Registrer stillhet"
 
-#: app/mainwindow.cpp:441
+#: app/mainwindow.cpp:442
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr ""
 
-#: app/mainwindow.cpp:448
+#: app/mainwindow.cpp:449
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr ""
 
-#: app/mainwindow.cpp:600
+#: app/mainwindow.cpp:601
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "Det er oppdaget aktivitet i en overvåket terminal i økt \"%1\"."
 
-#: app/mainwindow.cpp:614
+#: app/mainwindow.cpp:615
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "Det er oppdaget stillhet i en overvåket terminal i økt \"%1\"."
 
-#: app/mainwindow.cpp:673
+#: app/mainwindow.cpp:674
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Hjelp"
 
-#: app/mainwindow.cpp:679
+#: app/mainwindow.cpp:680
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Hurtigvalg"
 
-#: app/mainwindow.cpp:685
+#: app/mainwindow.cpp:686
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Skjerm"
 
-#: app/mainwindow.cpp:690
+#: app/mainwindow.cpp:691
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Bredde"
 
-#: app/mainwindow.cpp:695
+#: app/mainwindow.cpp:696
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Høyde"
 
-#: app/mainwindow.cpp:698
+#: app/mainwindow.cpp:699
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: app/mainwindow.cpp:714
+#: app/mainwindow.cpp:715
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "Der musepekeren står"
 
-#: app/mainwindow.cpp:720
+#: app/mainwindow.cpp:721
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr ""
 
-#: app/mainwindow.cpp:742 app/mainwindow.cpp:764
+#: app/mainwindow.cpp:743 app/mainwindow.cpp:765
 #, kde-format
 msgid "%1%"
 msgstr ""
 
-#: app/mainwindow.cpp:829
+#: app/mainwindow.cpp:830
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Vindu"
 
-#: app/mainwindow.cpp:835
+#: app/mainwindow.cpp:836
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Oppførsel"
 
-#: app/mainwindow.cpp:838
+#: app/mainwindow.cpp:839
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Utseende"
 
-#: app/mainwindow.cpp:917
+#: app/mainwindow.cpp:918
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1520,13 +1520,13 @@ msgstr ""
 "<application>Yakuake</application> klarte ikke laste inn et tema. Det er "
 "antakelig ikke installert riktig.<nl/><nl/>Programmet vil nå avslutte."
 
-#: app/mainwindow.cpp:919
+#: app/mainwindow.cpp:920
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Klarte ikke å laste inn tema."
 
-#: app/mainwindow.cpp:1664
+#: app/mainwindow.cpp:1665
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
