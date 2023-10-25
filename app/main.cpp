@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     app.setQuitOnLastWindowClosed(false);
 
-    KLocalizedString::setApplicationDomain("yakuake");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("yakuake"));
 
     KAboutData aboutData(QStringLiteral("yakuake"),
                          xi18nc("@title", "<application>Yakuake</application>"),
