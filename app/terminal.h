@@ -14,7 +14,7 @@
 class QKeyEvent;
 
 // Requires V2 to access profileProperty().
-class TerminalInterfaceV2;
+class TerminalInterface;
 
 class Terminal : public QObject
 {
@@ -115,7 +115,7 @@ private:
     int m_terminalId;
 
     KParts::Part *m_part = nullptr;
-    TerminalInterfaceV2 *m_terminalInterface = nullptr;
+    TerminalInterface *m_terminalInterface = nullptr;
     QWidget *m_partWidget = nullptr;
     QPointer<QWidget> m_terminalWidget = nullptr;
     QWidget *m_parentSplitter;

@@ -72,10 +72,10 @@ Terminal::Terminal(const QString &workingDir, QWidget *parent)
 
         disableOffendingPartActions();
 
-        m_terminalInterface = qobject_cast<TerminalInterfaceV2 *>(m_part);
+        m_terminalInterface = qobject_cast<TerminalInterface *>(m_part);
 
         if (!m_terminalInterface) {
-            qFatal("Version of Konsole is outdated. Konsole didn't return a valid TerminalInterfaceV2.");
+            qFatal("Version of Konsole is outdated. Konsole didn't return a valid TerminalInterface.");
             return;
         }
 
