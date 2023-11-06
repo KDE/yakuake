@@ -126,10 +126,10 @@ QStandardItem *AppearanceSettings::createSkinItem(const QString &skinDir)
     bool isKnsSkin = skinDir.startsWith(m_knsSkinDir);
 
     KConfig titleConfig(skinDir + QStringLiteral("/title.skin"), KConfig::SimpleConfig);
-    KConfigGroup titleDescription = titleConfig.group("Description");
+    KConfigGroup titleDescription = titleConfig.group(QStringLiteral("Description"));
 
     KConfig tabConfig(skinDir + QStringLiteral("/tabs.skin"), KConfig::SimpleConfig);
-    KConfigGroup tabDescription = tabConfig.group("Description");
+    KConfigGroup tabDescription = tabConfig.group(QStringLiteral("Description"));
 
     titleName = titleDescription.readEntry("Skin", "");
     titleAuthor = titleDescription.readEntry("Author", "");

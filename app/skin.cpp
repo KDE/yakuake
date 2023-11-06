@@ -40,19 +40,19 @@ bool Skin::load(const QString &name, bool kns)
     KConfig titleConfig(titlePath, KConfig::SimpleConfig);
     KConfig tabConfig(tabPath, KConfig::SimpleConfig);
 
-    KConfigGroup border = titleConfig.group("Border");
+    KConfigGroup border = titleConfig.group(QStringLiteral("Border"));
 
     m_borderColor = QColor(border.readEntry("red", 0), border.readEntry("green", 0), border.readEntry("blue", 0));
 
     m_borderWidth = border.readEntry("width", 1);
 
-    KConfigGroup titleBarBackground = titleConfig.group("Background");
+    KConfigGroup titleBarBackground = titleConfig.group(QStringLiteral("Background"));
 
     m_titleBarBackgroundImage.load(titleDir + titleBarBackground.readEntry("back_image", ""));
     m_titleBarLeftCornerImage.load(titleDir + titleBarBackground.readEntry("left_corner", ""));
     m_titleBarRightCornerImage.load(titleDir + titleBarBackground.readEntry("right_corner", ""));
 
-    KConfigGroup titleBarFocusButton = titleConfig.group("FocusButton");
+    KConfigGroup titleBarFocusButton = titleConfig.group(QStringLiteral("FocusButton"));
 
     m_titleBarFocusButtonPosition.setX(titleBarFocusButton.readEntry("x", 0));
     m_titleBarFocusButtonPosition.setY(titleBarFocusButton.readEntry("y", 0));
@@ -63,7 +63,7 @@ bool Skin::load(const QString &name, bool kns)
 
     m_titleBarFocusButtonAnchor = titleBarFocusButton.readEntry("anchor", "") == QLatin1String("left") ? Qt::AnchorLeft : Qt::AnchorRight;
 
-    KConfigGroup titleBarMenuButton = titleConfig.group("ConfigButton");
+    KConfigGroup titleBarMenuButton = titleConfig.group(QStringLiteral("ConfigButton"));
 
     m_titleBarMenuButtonPosition.setX(titleBarMenuButton.readEntry("x", 0));
     m_titleBarMenuButtonPosition.setY(titleBarMenuButton.readEntry("y", 0));
@@ -74,7 +74,7 @@ bool Skin::load(const QString &name, bool kns)
 
     m_titleBarMenuButtonAnchor = titleBarMenuButton.readEntry("anchor", "") == QLatin1String("left") ? Qt::AnchorLeft : Qt::AnchorRight;
 
-    KConfigGroup titleBarQuitButton = titleConfig.group("QuitButton");
+    KConfigGroup titleBarQuitButton = titleConfig.group(QStringLiteral("QuitButton"));
 
     m_titleBarQuitButtonPosition.setX(titleBarQuitButton.readEntry("x", 0));
     m_titleBarQuitButtonPosition.setY(titleBarQuitButton.readEntry("y", 0));
@@ -85,7 +85,7 @@ bool Skin::load(const QString &name, bool kns)
 
     m_titleBarQuitButtonAnchor = titleBarQuitButton.readEntry("anchor", "") == QLatin1String("left") ? Qt::AnchorLeft : Qt::AnchorRight;
 
-    KConfigGroup titleBarText = titleConfig.group("Text");
+    KConfigGroup titleBarText = titleConfig.group(QStringLiteral("Text"));
 
     m_titleBarText = titleBarText.readEntry("text", "");
 
@@ -97,7 +97,7 @@ bool Skin::load(const QString &name, bool kns)
     m_titleBarTextBold = titleBarText.readEntry("bold", true);
     m_titleBarTextCentered = titleBarText.readEntry("centered", false);
 
-    KConfigGroup tabBar = tabConfig.group("Tabs");
+    KConfigGroup tabBar = tabConfig.group(QStringLiteral("Tabs"));
 
     m_tabBarPosition.setX(tabBar.readEntry("x", 0));
     m_tabBarPosition.setY(tabBar.readEntry("y", 0));
@@ -119,13 +119,13 @@ bool Skin::load(const QString &name, bool kns)
 
     m_tabBarCompact = tabBar.readEntry("compact", false);
 
-    KConfigGroup tabBarBackground = tabConfig.group("Background");
+    KConfigGroup tabBarBackground = tabConfig.group(QStringLiteral("Background"));
 
     m_tabBarBackgroundImage.load(tabDir + tabBarBackground.readEntry("back_image", ""));
     m_tabBarLeftCornerImage.load(tabDir + tabBarBackground.readEntry("left_corner", ""));
     m_tabBarRightCornerImage.load(tabDir + tabBarBackground.readEntry("right_corner", ""));
 
-    KConfigGroup tabBarNewTabButton = tabConfig.group("PlusButton");
+    KConfigGroup tabBarNewTabButton = tabConfig.group(QStringLiteral("PlusButton"));
 
     m_tabBarNewTabButtonPosition.setX(tabBarNewTabButton.readEntry("x", 0));
     m_tabBarNewTabButtonPosition.setY(tabBarNewTabButton.readEntry("y", 0));
@@ -136,7 +136,7 @@ bool Skin::load(const QString &name, bool kns)
 
     m_tabBarNewTabButtonIsAtEndOfTabs = tabBarNewTabButton.readEntry("at_end_of_tabs", false);
 
-    KConfigGroup tabBarCloseTabButton = tabConfig.group("MinusButton");
+    KConfigGroup tabBarCloseTabButton = tabConfig.group(QStringLiteral("MinusButton"));
 
     m_tabBarCloseTabButtonPosition.setX(tabBarCloseTabButton.readEntry("x", 0));
     m_tabBarCloseTabButtonPosition.setY(tabBarCloseTabButton.readEntry("y", 0));
