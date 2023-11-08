@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:40+0000\n"
+"POT-Creation-Date: 2023-11-08 08:49+0000\n"
 "PO-Revision-Date: 2010-02-25 23:25+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -358,7 +358,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "หน้าจอ 1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:659
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:661
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1184,13 +1184,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "donga.nb@gmail.com"
 
-#: app/mainwindow.cpp:198
+#: app/mainwindow.cpp:200
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
 msgstr "คุณแน่ใจหรือว่าต้องการจะออกจากโปรแกรม ?"
 
-#: app/mainwindow.cpp:205
+#: app/mainwindow.cpp:207
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1202,7 +1202,7 @@ msgstr ""
 "เพื่อป้องกันการปิดพวกมันโดยไม่ได้ตั้งใจ</emphasis> "
 "ซึ่งโพรเซสของพวกมันเหล่านี้จะถูกฆ่าหากคุณเลือกทำต่อไป</warning>"
 
-#: app/mainwindow.cpp:208
+#: app/mainwindow.cpp:210
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1212,7 +1212,7 @@ msgstr ""
 "<warning>คุณได้เปิดวาระการใช้งานไว้หลายตัว ซึ่งโพรเซสของมันจะถูกฆ่าหากคุณเลือกทำต่อไป</"
 "warning>"
 
-#: app/mainwindow.cpp:211
+#: app/mainwindow.cpp:213
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1222,205 +1222,205 @@ msgstr ""
 "<warning>มีวาระการใช้งานไว้หลายตัวที่คุณได้ทำการล็อคเอาไว้ "
 "เพื่อป้องกันการปิดพวกมันโดยไม่ได้ตั้งใจ ซึ่งโพรเซสของพวกมันจะถูกฆ่าหากคุณเลือกทำต่อไป</warning>"
 
-#: app/mainwindow.cpp:217
+#: app/mainwindow.cpp:219
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
 msgstr "ต้องการออกจากโปรแกรมจริงหรือไม่ ?"
 
-#: app/mainwindow.cpp:249
+#: app/mainwindow.cpp:251
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
 msgstr "เปิดหน้าต่าง/หดหน้าต่าง Yakuake"
 
-#: app/mainwindow.cpp:258
+#: app/mainwindow.cpp:260
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
 msgstr "คงการเปิดหน้าต่างไว้เมื่อเสียโฟกัส"
 
-#: app/mainwindow.cpp:263
+#: app/mainwindow.cpp:265
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
 msgstr "จัดการโพรไฟล์..."
 
-#: app/mainwindow.cpp:268
+#: app/mainwindow.cpp:270
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr "แก้ไขโพรไฟล์ปัจจุบัน..."
 
-#: app/mainwindow.cpp:274
+#: app/mainwindow.cpp:276
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "เพิ่มความกว้างของหน้าต่าง"
 
-#: app/mainwindow.cpp:279
+#: app/mainwindow.cpp:281
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "ลดความกว้างของหน้าต่าง"
 
-#: app/mainwindow.cpp:284
+#: app/mainwindow.cpp:286
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "เพิ่มความสูงของหน้าต่าง"
 
-#: app/mainwindow.cpp:289
+#: app/mainwindow.cpp:291
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "ลดความสูงของหน้าต่าง"
 
-#: app/mainwindow.cpp:294
+#: app/mainwindow.cpp:296
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "วาระการใช้งานตัวใหม่"
 
-#: app/mainwindow.cpp:300
+#: app/mainwindow.cpp:302
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr "สองเทอร์มินัล, ทางแนวนอน"
 
-#: app/mainwindow.cpp:305
+#: app/mainwindow.cpp:307
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr "สองเทอร์มินัล, ทางแนวตั้ง"
 
-#: app/mainwindow.cpp:310
+#: app/mainwindow.cpp:312
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr "สี่เทอร์มินัล, ตาราง"
 
-#: app/mainwindow.cpp:315
+#: app/mainwindow.cpp:317
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "ปิดวาระการใช้งาน"
 
-#: app/mainwindow.cpp:322
+#: app/mainwindow.cpp:324
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
 msgstr "วาระการใช้งานก่อนหน้า"
 
-#: app/mainwindow.cpp:328
+#: app/mainwindow.cpp:330
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
 msgstr "วาระการใช้งานถัดไป"
 
-#: app/mainwindow.cpp:334
+#: app/mainwindow.cpp:336
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
 msgstr "ย้ายวาระการใช้งานไปทางซ้าย"
 
-#: app/mainwindow.cpp:341
+#: app/mainwindow.cpp:343
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
 msgstr "ย้ายวาระการใช้งานไปทางขวา"
 
-#: app/mainwindow.cpp:348
+#: app/mainwindow.cpp:350
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr ""
 
-#: app/mainwindow.cpp:355
+#: app/mainwindow.cpp:357
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr ""
 
-#: app/mainwindow.cpp:362
+#: app/mainwindow.cpp:364
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr ""
 
-#: app/mainwindow.cpp:369
+#: app/mainwindow.cpp:371
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr ""
 
-#: app/mainwindow.cpp:376
+#: app/mainwindow.cpp:378
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
 msgstr "เปลี่ยนชื่อวาระการใช้งาน..."
 
-#: app/mainwindow.cpp:383
+#: app/mainwindow.cpp:385
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr "เทอร์มินัลก่อนหน้า"
 
-#: app/mainwindow.cpp:389
+#: app/mainwindow.cpp:391
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr "เทอร์มินัลถัดไป"
 
-#: app/mainwindow.cpp:395
+#: app/mainwindow.cpp:397
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr "ปิดเทอร์มินัลที่ทำงานอยู่"
 
-#: app/mainwindow.cpp:402
+#: app/mainwindow.cpp:404
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "แยกซ้าย/ขวา"
 
-#: app/mainwindow.cpp:409
+#: app/mainwindow.cpp:411
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "แยกบน/ล่าง"
 
-#: app/mainwindow.cpp:416
+#: app/mainwindow.cpp:418
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "ป้องกันการปิด"
 
-#: app/mainwindow.cpp:422 app/tabbar.cpp:190
+#: app/mainwindow.cpp:424 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "ปิดการป้อนข้อมูลผ่านแป้นพิมพ์"
 
-#: app/mainwindow.cpp:428 app/tabbar.cpp:235
+#: app/mainwindow.cpp:430 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr ""
 
-#: app/mainwindow.cpp:435 app/tabbar.cpp:280
+#: app/mainwindow.cpp:437 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr ""
 
-#: app/mainwindow.cpp:442
+#: app/mainwindow.cpp:444
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr ""
 
-#: app/mainwindow.cpp:449
+#: app/mainwindow.cpp:451
 #, fuzzy, kde-kuit-format
 #| msgctxt "@action"
 #| msgid "Switch to Session <numid>%1</numid>"
@@ -1428,61 +1428,61 @@ msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "สลับไปยังวาระการใช้งาน <numid>%1</numid>"
 
-#: app/mainwindow.cpp:601
+#: app/mainwindow.cpp:603
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr ""
 
-#: app/mainwindow.cpp:615
+#: app/mainwindow.cpp:617
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr ""
 
-#: app/mainwindow.cpp:674
+#: app/mainwindow.cpp:676
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "ช่วยเหลือ"
 
-#: app/mainwindow.cpp:680
+#: app/mainwindow.cpp:682
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "ตัวเลือกด่วน"
 
-#: app/mainwindow.cpp:686
+#: app/mainwindow.cpp:688
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "หน้าจอ"
 
-#: app/mainwindow.cpp:691
+#: app/mainwindow.cpp:693
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "ความกว้าง"
 
-#: app/mainwindow.cpp:696
+#: app/mainwindow.cpp:698
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "ความสูง"
 
-#: app/mainwindow.cpp:699
+#: app/mainwindow.cpp:701
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "ตั้งค่า"
 
-#: app/mainwindow.cpp:715
+#: app/mainwindow.cpp:717
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "ณ ตำแหน่งเมาส์"
 
-#: app/mainwindow.cpp:721
+#: app/mainwindow.cpp:723
 #, fuzzy, kde-kuit-format
 #| msgctxt "@item:inlistbox"
 #| msgid "Screen 1"
@@ -1490,30 +1490,30 @@ msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "หน้าจอ 1"
 
-#: app/mainwindow.cpp:743 app/mainwindow.cpp:765
+#: app/mainwindow.cpp:745 app/mainwindow.cpp:767
 #, kde-format
 msgid "%1%"
 msgstr ""
 
-#: app/mainwindow.cpp:830
+#: app/mainwindow.cpp:832
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "หน้าต่าง"
 
-#: app/mainwindow.cpp:836
+#: app/mainwindow.cpp:838
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "พฤติกรรม"
 
-#: app/mainwindow.cpp:839
+#: app/mainwindow.cpp:841
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "รูปลักษณ์"
 
-#: app/mainwindow.cpp:918
+#: app/mainwindow.cpp:923
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1524,13 +1524,13 @@ msgstr ""
 "ไม่สามารถโหลดชุดตกแต่งได้ดูเหมือนว่ามันจะถูกติดตั้งอย่างไม่ถูกต้อง<nl/><nl/"
 ">จะออกจากโปรแกรมเดี๋ยวนี้"
 
-#: app/mainwindow.cpp:920
+#: app/mainwindow.cpp:925
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "ไม่สามารถโหลดชุดตกแต่งได้"
 
-#: app/mainwindow.cpp:1665
+#: app/mainwindow.cpp:1674
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
