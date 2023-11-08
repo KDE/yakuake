@@ -20,7 +20,7 @@ Dependencies:
     'frameworks/kparts': '@latest-kf6'
     'frameworks/kwidgetsaddons': '@latest-kf6'
     'frameworks/kwindowsystem': '@latest-kf6'
-    'frameworks/kwayland': '@latest-kf6'
+    'plasma/kwayland': '@latest-kf6'
 
 - 'on': ['Linux/Qt5', 'FreeBSD/Qt5']
   'require':
@@ -40,7 +40,7 @@ Dependencies:
     'frameworks/kparts': '@stable'
     'frameworks/kwidgetsaddons': '@stable'
     'frameworks/kwindowsystem': '@stable'
-    'frameworks/kwayland': '@stable'
+    'plasma/kwayland': '@stable'
 
 Options:
   require-passing-tests-on: [ '@all' ]
