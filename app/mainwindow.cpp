@@ -119,7 +119,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(&m_mousePoller, SIGNAL(timeout()), this, SLOT(pollMouse()));
 
-    connect(KX11Extras::self(), &KX11Extras::workAreaChanged, this, &MainWindow::applyWindowGeometry);
+    if (KWindowSystem::isPlatformX11()) {
+        connect(KX11Extras::self(), &KX11Extras::workAreaChanged, this, &MainWindow::applyWindowGeometry);
+    }
     connect(qApp, &QGuiApplication::screenAdded, this, &MainWindow::updateScreenMenu);
     connect(qApp, &QGuiApplication::screenRemoved, this, &MainWindow::updateScreenMenu);
 
@@ -845,7 +847,10 @@ void MainWindow::configureApp()
     connect(settingsDialog, &QDialog::finished, [=, this]() {
         m_toggleLock = true;
         KWindowSystem::activateWindow(windowHandle());
-        KX11Extras::forceActiveWindow(winId());
+
+        if (KWindowSystem::isPlatformX11()) {
+            KX11Extras::forceActiveWindow(winId());
+        }
     });
 
     settingsDialog->show();
@@ -935,6 +940,7 @@ void MainWindow::applyWindowProperties()
         } else {
             KX11Extras::setState(winId(), NET::KeepAbove | NET::SkipTaskbar | NET::SkipPager);
         }
+        KX11Extras::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
     }
 
 #if HAVE_KWAYLAND
@@ -944,7 +950,7 @@ void MainWindow::applyWindowProperties()
     }
 #endif
 
-    KX11Extras::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
+    winId(); // make sure windowHandle() is created
     KWindowEffects::enableBlurBehind(windowHandle(), m_sessionStack->wantsBlur());
 }
 
@@ -1421,8 +1427,9 @@ void MainWindow::sharedPreOpenWindow()
 
 void MainWindow::sharedAfterOpenWindow()
 {
-    if (!Settings::firstRun())
+    if (!Settings::firstRun() && KWindowSystem::isPlatformX11()) {
         KX11Extras::forceActiveWindow(winId());
+    }
 
     connect(qGuiApp, &QGuiApplication::focusWindowChanged, this, &MainWindow::wmActiveWindowChanged);
 
@@ -1635,7 +1642,9 @@ void MainWindow::firstRunDialogFinished()
 
     m_firstRunDialog->deleteLater();
 
-    KX11Extras::forceActiveWindow(winId());
+    if (KWindowSystem::isPlatformX11()) {
+        KX11Extras::forceActiveWindow(winId());
+    }
 }
 
 void MainWindow::firstRunDialogOk()
