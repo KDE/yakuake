@@ -71,8 +71,8 @@ if(HAVE_X11)
     endif()
 endif()
 
-if(KF6Wayland_FOUND)
-  target_link_libraries(yakuake KF6::WaylandClient)
+if(KWayland_FOUND)
+  target_link_libraries(yakuake Plasma::KWaylandClient)
 endif()
 
 install(TARGETS yakuake ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
