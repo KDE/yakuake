@@ -224,7 +224,7 @@ void AppearanceSettings::installSkin(const QUrl &skinUrl)
     QUrl skinArchiveUrl = QUrl(skinUrl);
     skinArchiveUrl.setScheme(QStringLiteral("tar"));
 
-    KIO::ListJob *job = KIO::listRecursive(skinArchiveUrl, KIO::HideProgressInfo, false);
+    KIO::ListJob *job = KIO::listRecursive(skinArchiveUrl, KIO::HideProgressInfo, KIO::ListJob::ListFlags{});
     connect(job, &KIO::ListJob::entries, [=, this](KIO::Job * /* job */, const KIO::UDSEntryList &list) {
         if (list.isEmpty())
             return;
