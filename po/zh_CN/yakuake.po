@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-04 00:51+0000\n"
-"PO-Revision-Date: 2023-11-19 03:44\n"
+"PO-Revision-Date: 2023-11-25 02:33\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1163,8 +1163,8 @@ msgid ""
 "locked to prevent closing them accidentally.</emphasis> These will be killed "
 "if you continue.</warning>"
 msgstr ""
-"<warning>已打开多个会话，<emphasis>您曾锁定其中一部分以防意外关闭。</"
-"emphasis>如果您继续的话他们将关闭。</warning>"
+"<warning>已打开多个会话，<emphasis>其中部分会话已被您锁定，以防止意外关闭。</"
+"emphasis>如果继续操作，这些会话将关闭。</warning>"
 
 #: app/mainwindow.cpp:211
 #, kde-kuit-format
@@ -1172,7 +1172,7 @@ msgctxt "@info"
 msgid ""
 "<warning>There are multiple open sessions. These will be killed if you "
 "continue.</warning>"
-msgstr "<warning>已打开多个会话，如果您继续的话他们将关闭。</warning>"
+msgstr "<warning>已打开多个会话。如果继续操作，这些会话将关闭。</warning>"
 
 #: app/mainwindow.cpp:214
 #, kde-kuit-format
@@ -1181,7 +1181,7 @@ msgid ""
 "<warning>There are one or more open sessions that you have locked to prevent "
 "closing them accidentally. These will be killed if you continue.</warning>"
 msgstr ""
-"<warning>您曾锁定一个或多个会话以防意外关闭。如果您继续的话他们将关闭。</"
+"<warning>您已锁定一个或多个会话以防意外关闭。如果继续操作，这些会话将关闭。</"
 "warning>"
 
 #: app/mainwindow.cpp:220
@@ -1478,8 +1478,8 @@ msgid ""
 "<application>Yakuake</application> was unable to load a skin. It is likely "
 "that it was installed incorrectly.<nl/><nl/>The application will now quit."
 msgstr ""
-"<application>Yakuake</application> 无法加载皮肤。它们似乎安装错误。<nl/><nl/>"
-"程序现在将退出。"
+"<application>Yakuake</application> 无法加载皮肤。可能是因为皮肤安装错误。<nl/"
+"><nl/>程序现在将退出。"
 
 #: app/mainwindow.cpp:921
 #, kde-kuit-format
