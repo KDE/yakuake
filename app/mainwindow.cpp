@@ -883,7 +883,7 @@ void MainWindow::applySettings()
     } else if (Settings::showSystrayIcon() && !m_notifierItem) {
         m_notifierItem = new KStatusNotifierItem(this);
         m_notifierItem->setStandardActionsEnabled(false);
-        m_notifierItem->setIconByName(QStringLiteral("yakuake"));
+        m_notifierItem->setIconByName(QStringLiteral("yakuake-symbolic"));
         m_notifierItem->setStatus(KStatusNotifierItem::Active);
         m_notifierItem->setContextMenu(m_menu);
 
