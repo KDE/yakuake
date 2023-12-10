@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-04 00:51+0000\n"
-"PO-Revision-Date: 2023-11-25 02:33\n"
+"PO-Revision-Date: 2023-12-09 09:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -365,7 +365,7 @@ msgstr "显示标题栏"
 #, kde-format
 msgctxt "@title:group"
 msgid "Tab Bar"
-msgstr "标签栏"
+msgstr "标签页栏"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_DynamicTabTitles)
 #: app/config/windowsettings.ui:69
@@ -377,22 +377,22 @@ msgid ""
 "tab bar. You can modify the format of the information in the terminal "
 "profile."
 msgstr ""
-"如果启用此项，活动终端的内容信息会出现在标题栏和标签栏上。您可以在终端配置文"
-"件里修改信息的格式。"
+"如果启用此项，活动终端的内容信息会出现在标题栏和标签页栏上。您可以在终端配置"
+"文件里修改信息的格式。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_DynamicTabTitles)
 #: app/config/windowsettings.ui:72
 #, kde-format
 msgctxt "@option:check"
 msgid "Show title bar contents in tab labels"
-msgstr "在标签上显示标题栏内容"
+msgstr "在标签页文字中显示标题栏内容"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTabBar)
 #: app/config/windowsettings.ui:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Show the tab bar"
-msgstr "显示标签栏"
+msgstr "显示标签页栏"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/windowsettings.ui:105
@@ -658,28 +658,28 @@ msgstr "是否在程序窗口中显示标题栏。"
 #, kde-format
 msgctxt "@label"
 msgid "Show tab bar"
-msgstr "显示标签栏"
+msgstr "显示标签页栏"
 
 #. i18n: ectx: whatsthis, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:66
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the tab bar in the application window."
-msgstr "在程序窗口中是否显示标签栏。"
+msgstr "在程序窗口中是否显示标签页栏。"
 
 #. i18n: ectx: label, entry (DynamicTabTitles), group (Window)
 #: app/config/yakuake.kcfg:70
 #, kde-format
 msgctxt "@label"
 msgid "Dynamic tab titles"
-msgstr "动态标签标题"
+msgstr "动态标签页标题"
 
 #. i18n: ectx: whatsthis, entry (DynamicTabTitles), group (Window)
 #: app/config/yakuake.kcfg:71
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to update tab titles along with the title bar."
-msgstr "是否和标题栏一起更新标签标题。"
+msgstr "是否和标题页栏一起更新标签页标题。"
 
 #. i18n: ectx: label, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:75
@@ -847,8 +847,8 @@ msgid ""
 "option, when turned on, will overwrite the border settings defined by the "
 "skin and hide all borders."
 msgstr ""
-"皮肤可以定义终端四周的边框样式及标签栏。开启此选项后，会覆盖掉所有皮肤定义的"
-"边框设置并隐藏所有边框。"
+"皮肤可以定义终端四周的边框样式及标签页栏。开启此选项后，会覆盖掉所有皮肤定义"
+"的边框设置并隐藏所有边框。"
 
 #. i18n: ectx: label, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:136
@@ -1111,7 +1111,7 @@ msgstr "Juan Carlos Torres"
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Tab bar drag and drop support, Prevent Closing toggle"
-msgstr "标签栏拖放支持，防止关闭"
+msgstr "标签页栏拖放支持，防止关闭"
 
 #: app/main.cpp:45
 #, kde-kuit-format
@@ -1123,7 +1123,7 @@ msgstr "Gustavo Ribeiro Croscato"
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Icon on tabs with Prevent Closing enabled"
-msgstr "启用防止关闭时标签旁的图标"
+msgstr "启用防止关闭时标签页旁的图标"
 
 #: app/main.cpp:48
 #, kde-kuit-format
@@ -1538,8 +1538,8 @@ msgid ""
 "<title>Tab Bar</title><para>The tab bar allows you to switch between "
 "sessions. You can double-click a tab to edit its label.</para>"
 msgstr ""
-"<title>标签栏</title><para>标签栏允许您在不同会话间切换。您可以双击标签栏来编"
-"辑标签。</para>"
+"<title>标签页栏</title><para>标签页栏允许您在不同会话间切换。您可以双击标签页"
+"栏来编辑标签页。</para>"
 
 #: app/tabbar.cpp:58
 #, kde-kuit-format
