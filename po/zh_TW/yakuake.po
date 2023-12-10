@@ -4,19 +4,20 @@
 # Franklin Weng <franklin@goodhorse.idv.tw>, 2010, 2011, 2012, 2013, 2015.
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2009.
 # pan93412 <pan93412@gmail.com>, 2019, 2020.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:49+0000\n"
-"PO-Revision-Date: 2020-03-13 22:03+0800\n"
-"Last-Translator: pan93412 <pan93412@gmail.com>\n"
-"Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
+"PO-Revision-Date: 2023-12-09 18:56+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 24.01.80\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: app/config/appearancesettings.cpp:150
@@ -140,7 +141,7 @@ msgstr "在終端機間移動焦點時突顯終端機"
 #: app/config/appearancesettings.ui:45
 #, kde-format
 msgid "Hide borders"
-msgstr ""
+msgstr "隱藏邊框"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/appearancesettings.ui:55
@@ -302,7 +303,7 @@ msgstr "記住並復原視窗的全螢幕狀態"
 #: app/config/behaviorsettings.ui:108
 #, kde-format
 msgid "Show system tray icon"
-msgstr ""
+msgstr "顯示系統匣圖示"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpen)
 #: app/config/behaviorsettings.ui:118
@@ -348,23 +349,19 @@ msgstr "螢幕 %1"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
-msgstr ""
+msgstr "隱藏標題列"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_0)
 #: app/config/windowsettings.ui:32
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Tab Bar"
+#, kde-format
 msgid "Title Bar"
-msgstr "分頁列"
+msgstr "標題列"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTitleBar)
 #: app/config/windowsettings.ui:38
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Show tab bar"
+#, kde-format
 msgid "Show title bar"
-msgstr "顯示分頁列"
+msgstr "顯示標題列"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: app/config/windowsettings.ui:54
@@ -643,21 +640,17 @@ msgstr "是否要保持應用程式視窗在其它視窗之上。"
 
 #. i18n: ectx: label, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:60
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Show tab bar"
+#, kde-format
 msgctxt "@label"
 msgid "Show title bar"
-msgstr "顯示分頁列"
+msgstr "顯示標題列"
 
 #. i18n: ectx: whatsthis, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:61
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Whether to show the tab bar in the application window."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the title bar in the application window."
-msgstr "是否要在應用程式視窗中顯示分頁列。"
+msgstr "是否要在應用程式視窗中顯示標題列。"
 
 #. i18n: ectx: label, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:65
@@ -692,16 +685,14 @@ msgstr "是否要跟著標題列更新分頁標題。"
 #, kde-format
 msgctxt "@label"
 msgid "Show a system tray icon"
-msgstr ""
+msgstr "顯示系統匣圖示"
 
 #. i18n: ectx: whatsthis, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:76
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Whether to show the tab bar in the application window."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show a system tray icon."
-msgstr "是否要在應用程式視窗中顯示分頁列。"
+msgstr "是否要顯示系統匣圖示。"
 
 #. i18n: ectx: label, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:82
@@ -842,7 +833,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Hide the borders defined by the skin"
-msgstr ""
+msgstr "隱藏外觀所定義的邊框"
 
 #. i18n: ectx: whatsthis, entry (HideSkinBorders), group (Appearance)
 #: app/config/yakuake.kcfg:132
@@ -1383,7 +1374,7 @@ msgstr "監視無聲息的視窗"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
-msgstr ""
+msgstr "切換標題列"
 
 #: app/mainwindow.cpp:451
 #, kde-kuit-format
@@ -1454,7 +1445,7 @@ msgstr "螢幕 %1"
 #: app/mainwindow.cpp:745 app/mainwindow.cpp:767
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: app/mainwindow.cpp:832
 #, kde-kuit-format
@@ -1494,7 +1485,7 @@ msgstr "無法載入外觀"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
-msgstr ""
+msgstr "按下 <shortcut>%1</shortcut> 來開啟"
 
 #: app/sessionstack.cpp:257
 #, kde-format
@@ -1504,6 +1495,9 @@ msgid ""
 "changed to internal use only by re-compiling Yakuake. <p>This warning will "
 "only show once for this Yakuake instance.</p>"
 msgstr ""
+"使用了 D-Bus 執行指令方法 runCommand。允許這些方法公開可能會造成安全性問題。"
+"如果需要的話，這些方法只能由重新編譯 Yakuake 來變更為內部使用。這個警告將只會"
+"在這個 Yakuake 實體中顯示一次。</p>"
 
 #: app/sessionstack.cpp:723
 #, kde-kuit-format
