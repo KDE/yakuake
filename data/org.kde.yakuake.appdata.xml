@@ -410,7 +410,7 @@
     </ul>
   </description>
   <content_rating type="oars-1.1"/>
-  <url type="homepage">https://kde.org/applications/system/org.kde.yakuake</url>
+  <url type="homepage">https://apps.kde.org/yakuake</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=yakuake</url>
   <screenshots>
     <screenshot type="default">
