@@ -10,6 +10,7 @@
 
 #include <KIO/CopyJob>
 #include <KIO/DeleteJob>
+#include <KIO/ListJob>
 #include <KJobUiDelegate>
 #include <KLocalizedString>
 #include <KMessageBox>
