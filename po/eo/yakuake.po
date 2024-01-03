@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:49+0000\n"
+"POT-Creation-Date: 2024-01-03 01:38+0000\n"
 "PO-Revision-Date: 2023-11-12 16:39+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -18,25 +18,25 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: app/config/appearancesettings.cpp:150
+#: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
 msgstr "Nekonata"
 
-#: app/config/appearancesettings.cpp:195
+#: app/config/appearancesettings.cpp:196
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
 msgstr "Elektu la haŭt-arkivon por instali"
 
-#: app/config/appearancesettings.cpp:241
+#: app/config/appearancesettings.cpp:242
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
 msgstr "Ne eblas listigi la haŭtarkivan enhavon."
 
-#: app/config/appearancesettings.cpp:273
+#: app/config/appearancesettings.cpp:274
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -46,31 +46,31 @@ msgstr ""
 "Ĉi tiu haŭto ŝajnas jam instalita kaj al vi mankas la bezonataj permesoj por "
 "anstataŭigi ĝin."
 
-#: app/config/appearancesettings.cpp:278
+#: app/config/appearancesettings.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
 msgstr "Ĉi tiu haŭto ŝajnas jam instalita. Ĉu vi volas anstataŭigi ĝin?"
 
-#: app/config/appearancesettings.cpp:279
+#: app/config/appearancesettings.cpp:280
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
 msgstr "Haŭto Jam Ekzistas"
 
-#: app/config/appearancesettings.cpp:280
+#: app/config/appearancesettings.cpp:281
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
 msgstr "Reinstali Haŭton"
 
-#: app/config/appearancesettings.cpp:298
+#: app/config/appearancesettings.cpp:299
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
 msgstr "Ne Eblis Forigi Haŭton"
 
-#: app/config/appearancesettings.cpp:323
+#: app/config/appearancesettings.cpp:324
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -80,31 +80,31 @@ msgstr ""
 "Ne eblas trovi postulatajn dosierojn en la haŭta arkivo.<nl/><nl/>La arkivo "
 "ŝajnas nevalida."
 
-#: app/config/appearancesettings.cpp:326
+#: app/config/appearancesettings.cpp:327
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
 msgstr "La haŭta arkiva dosiero ne povis esti malfermita."
 
-#: app/config/appearancesettings.cpp:331
+#: app/config/appearancesettings.cpp:332
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
 msgstr "Ne Povas Instali Haŭton"
 
-#: app/config/appearancesettings.cpp:375
+#: app/config/appearancesettings.cpp:376
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
 msgstr "Ĉu vi volas forigi \"%1\" de %2?"
 
-#: app/config/appearancesettings.cpp:376
+#: app/config/appearancesettings.cpp:377
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "Forigi Haŭton"
 
-#: app/config/appearancesettings.cpp:470
+#: app/config/appearancesettings.cpp:471
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

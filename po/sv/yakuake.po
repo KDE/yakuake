@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:49+0000\n"
+"POT-Creation-Date: 2024-01-03 01:38+0000\n"
 "PO-Revision-Date: 2023-07-31 11:25+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -19,25 +19,25 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.08.1\n"
 
-#: app/config/appearancesettings.cpp:150
+#: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
 msgstr "Okänd"
 
-#: app/config/appearancesettings.cpp:195
+#: app/config/appearancesettings.cpp:196
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
 msgstr "Välj skalarkiv att installera"
 
-#: app/config/appearancesettings.cpp:241
+#: app/config/appearancesettings.cpp:242
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
 msgstr "Kunde inte lista skalarkivets innehåll."
 
-#: app/config/appearancesettings.cpp:273
+#: app/config/appearancesettings.cpp:274
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -47,31 +47,31 @@ msgstr ""
 "Det här skalet verkar redan vara installerat, och du saknar nödvändiga "
 "rättigheter för att skriva över det."
 
-#: app/config/appearancesettings.cpp:278
+#: app/config/appearancesettings.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
 msgstr "Det här skalet verkar redan vara installerat. Vill du skriva över det?"
 
-#: app/config/appearancesettings.cpp:279
+#: app/config/appearancesettings.cpp:280
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
 msgstr "Skalet finns redan"
 
-#: app/config/appearancesettings.cpp:280
+#: app/config/appearancesettings.cpp:281
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
 msgstr "Ominstallera skal"
 
-#: app/config/appearancesettings.cpp:298
+#: app/config/appearancesettings.cpp:299
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
 msgstr "Kunde inte ta bort skal"
 
-#: app/config/appearancesettings.cpp:323
+#: app/config/appearancesettings.cpp:324
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -81,31 +81,31 @@ msgstr ""
 "Kunde inte hitta nödvändiga filer i skalarkivet.<nl/><nl/>Arkivet verkar "
 "vara felaktigt."
 
-#: app/config/appearancesettings.cpp:326
+#: app/config/appearancesettings.cpp:327
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
 msgstr "Skalarkivfilen kunde inte öppnas."
 
-#: app/config/appearancesettings.cpp:331
+#: app/config/appearancesettings.cpp:332
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
 msgstr "Kan inte installera skal"
 
-#: app/config/appearancesettings.cpp:375
+#: app/config/appearancesettings.cpp:376
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
 msgstr "Vill du ta bort \"%1\" av %2?"
 
-#: app/config/appearancesettings.cpp:376
+#: app/config/appearancesettings.cpp:377
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "Ta bort skal"
 
-#: app/config/appearancesettings.cpp:470
+#: app/config/appearancesettings.cpp:471
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

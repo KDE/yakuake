@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:49+0000\n"
+"POT-Creation-Date: 2024-01-03 01:38+0000\n"
 "PO-Revision-Date: 2023-03-12 17:20+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -18,25 +18,25 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.07.70\n"
 
-#: app/config/appearancesettings.cpp:150
+#: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: app/config/appearancesettings.cpp:195
+#: app/config/appearancesettings.cpp:196
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
 msgstr "Designarchiv zum installieren auswählen"
 
-#: app/config/appearancesettings.cpp:241
+#: app/config/appearancesettings.cpp:242
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
 msgstr "Der Inhalt des Designarchivs kann nicht angezeigt werden."
 
-#: app/config/appearancesettings.cpp:273
+#: app/config/appearancesettings.cpp:274
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -46,31 +46,31 @@ msgstr ""
 "Dieses Design ist bereits installiert und Sie besitzen nicht die nötigen "
 "Rechte, es zu überschreiben."
 
-#: app/config/appearancesettings.cpp:278
+#: app/config/appearancesettings.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
 msgstr "Dieses Design ist bereits installiert. Möchten Sie es überschreiben?"
 
-#: app/config/appearancesettings.cpp:279
+#: app/config/appearancesettings.cpp:280
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
 msgstr "Design bereits vorhanden"
 
-#: app/config/appearancesettings.cpp:280
+#: app/config/appearancesettings.cpp:281
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
 msgstr "Design neu installieren"
 
-#: app/config/appearancesettings.cpp:298
+#: app/config/appearancesettings.cpp:299
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
 msgstr "Design kann nicht entfernt werden"
 
-#: app/config/appearancesettings.cpp:323
+#: app/config/appearancesettings.cpp:324
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -80,31 +80,31 @@ msgstr ""
 "Benötigte Dateien können im Designarchiv nicht gefunden werden.<nl/><nl/>Das "
 "Archiv ist ungültig."
 
-#: app/config/appearancesettings.cpp:326
+#: app/config/appearancesettings.cpp:327
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
 msgstr "Das Designarchiv kann nicht geöffnet werden."
 
-#: app/config/appearancesettings.cpp:331
+#: app/config/appearancesettings.cpp:332
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
 msgstr "Das Design kann nicht geladen werden"
 
-#: app/config/appearancesettings.cpp:375
+#: app/config/appearancesettings.cpp:376
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
 msgstr "Möchten Sie „%1“ von %2 entfernen?"
 
-#: app/config/appearancesettings.cpp:376
+#: app/config/appearancesettings.cpp:377
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "Design entfernen"
 
-#: app/config/appearancesettings.cpp:470
+#: app/config/appearancesettings.cpp:471
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

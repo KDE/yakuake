@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:49+0000\n"
+"POT-Creation-Date: 2024-01-03 01:38+0000\n"
 "PO-Revision-Date: 2022-12-15 11:03-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -21,25 +21,25 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: app/config/appearancesettings.cpp:150
+#: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
 msgstr "Desconhecido"
 
-#: app/config/appearancesettings.cpp:195
+#: app/config/appearancesettings.cpp:196
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
 msgstr "Selecione o arquivo de aparência a instalar"
 
-#: app/config/appearancesettings.cpp:241
+#: app/config/appearancesettings.cpp:242
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
 msgstr "Não é possível listar o conteúdo do pacote de aparência."
 
-#: app/config/appearancesettings.cpp:273
+#: app/config/appearancesettings.cpp:274
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -49,31 +49,31 @@ msgstr ""
 "Esta aparência parece já estar instalada e você não tem as permissões "
 "necessárias para substituí-la."
 
-#: app/config/appearancesettings.cpp:278
+#: app/config/appearancesettings.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
 msgstr "Esta aparência parece já estar instalada. Deseja substituí-la?"
 
-#: app/config/appearancesettings.cpp:279
+#: app/config/appearancesettings.cpp:280
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
 msgstr "A aparência já existe"
 
-#: app/config/appearancesettings.cpp:280
+#: app/config/appearancesettings.cpp:281
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
 msgstr "Reinstalar a aparência"
 
-#: app/config/appearancesettings.cpp:298
+#: app/config/appearancesettings.cpp:299
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
 msgstr "Não foi possível excluir a aparência"
 
-#: app/config/appearancesettings.cpp:323
+#: app/config/appearancesettings.cpp:324
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -83,31 +83,31 @@ msgstr ""
 "Não foi possível localizar os arquivos necessários no pacote de aparência."
 "<nl/><nl/>O pacote parece ser inválido."
 
-#: app/config/appearancesettings.cpp:326
+#: app/config/appearancesettings.cpp:327
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
 msgstr "O pacote de aparência não pôde ser aberto."
 
-#: app/config/appearancesettings.cpp:331
+#: app/config/appearancesettings.cpp:332
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
 msgstr "Não é possível instalar a aparência"
 
-#: app/config/appearancesettings.cpp:375
+#: app/config/appearancesettings.cpp:376
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
 msgstr "Deseja remover \"%1\" por %2?"
 
-#: app/config/appearancesettings.cpp:376
+#: app/config/appearancesettings.cpp:377
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "Remover aparência"
 
-#: app/config/appearancesettings.cpp:470
+#: app/config/appearancesettings.cpp:471
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
