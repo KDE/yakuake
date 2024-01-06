@@ -412,6 +412,7 @@
   <content_rating type="oars-1.1"/>
   <url type="homepage">https://apps.kde.org/yakuake</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=yakuake</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=yakuake&amp;source=appdata</url>
   <screenshots>
     <screenshot type="default">
       <image>https://cdn.kde.org/screenshots/yakuake/yakuake.png</image>
@@ -421,6 +422,7 @@
   <provides>
     <binary>yakuake</binary>
   </provides>
+  <launchable type="desktop-id">org.kde.yakuake.desktop</launchable>
   <releases>
     <release version="23.08.4" date="2023-12-07"/>
     <release version="23.08.3" date="2023-11-09"/>
