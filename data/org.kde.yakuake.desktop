@@ -181,6 +181,6 @@ Comment[x-test]=xxA drop-down terminal emulator based on KDE Konsole technology.
 Comment[zh_CN]=一个基于KDE Konsole 技术的下拉式终端仿真器。
 Comment[zh_TW]=下拉式終端模擬器，基於 KDE Konsole 的技術。
 X-DBUS-StartupType=Unique
-X-KDE-StartupNotify=false
+StartupNotify=false
 X-DBUS-ServiceName=org.kde.yakuake
 DBusActivatable=true
