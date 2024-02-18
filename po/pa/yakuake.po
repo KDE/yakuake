@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-03 01:38+0000\n"
-"PO-Revision-Date: 2024-01-03 14:38-0600\n"
+"PO-Revision-Date: 2024-02-17 09:19-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
@@ -686,7 +686,7 @@ msgstr "ਕੀ ਟਾਈਟਲ ਬਾਰ ਨਾਲ ਟੈਬ ਟਾਈਟਲ ਵ
 #, kde-format
 msgctxt "@label"
 msgid "Show a system tray icon"
-msgstr ""
+msgstr "ਸਿਸਟਮ ਟਰੇ ਆਈਕਾਨ ਵੇਖਾਓ"
 
 #. i18n: ectx: whatsthis, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:76
@@ -761,7 +761,7 @@ msgstr "ਐਪਲੀਕੇਸ਼ਨ ਵਿੰਡੋ ਵਲੋਂ ਵਰਤੀ �
 #, kde-format
 msgctxt "@label"
 msgid "Skin installed by KNS"
-msgstr ""
+msgstr "ਸਕਿਨ KNS ਵਲੋਂ ਇੰਸਟਾਲ ਕੀਤੀ"
 
 #. i18n: ectx: whatsthis, entry (SkinInstalledWithKns), group (Appearance)
 #: app/config/yakuake.kcfg:105
