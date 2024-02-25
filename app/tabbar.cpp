@@ -375,7 +375,7 @@ void TabBar::resizeEvent(QResizeEvent *event)
 void TabBar::moveNewTabButton()
 {
     int newTabButtonX = m_skin->tabBarNewTabButtonPosition().x();
-    if (m_skin->tabBarNewTabButtonIsAtEndOfTabs()) {
+    if (m_skin->tabBarNewTabButtonIsAtEndOfTabs() && !m_tabWidths.isEmpty()) {
         newTabButtonX += m_tabWidths.last();
     }
     m_newTabButton->move(newTabButtonX, m_skin->tabBarNewTabButtonPosition().y());
