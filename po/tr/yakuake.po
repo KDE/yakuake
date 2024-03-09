@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 # Can Coşkuner <fethicanc@gmail.com>, 2007.
 # H. İbrahim Güngör <ibrahim@pardus.org.tr>, 2011.
 # İsmail Dönmez <ismail@pardus.org.tr>, 2006.
@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: extragear-utils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-03 01:38+0000\n"
-"PO-Revision-Date: 2023-12-27 14:10+0300\n"
+"PO-Revision-Date: 2024-03-08 19:47+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.85\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
@@ -239,7 +239,7 @@ msgstr "Tema"
 #, kde-format
 msgctxt "@action:button"
 msgid "Get New Skins..."
-msgstr "Yeni Temalar Al..."
+msgstr "Yeni Temalar Al…"
 
 #. i18n: ectx: property (text), widget (QPushButton, removeButton)
 #: app/config/appearancesettings.ui:186
@@ -253,7 +253,7 @@ msgstr "Temayı Kaldır"
 #, kde-format
 msgctxt "@action:button"
 msgid "Install Skin..."
-msgstr "Tema Kur..."
+msgstr "Tema Kur…"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FocusFollowsMouse)
 #: app/config/behaviorsettings.ui:26
@@ -1127,7 +1127,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "(c) 2008-2018 The Yakuake Team"
-msgstr "(c) 2008-2018 Yakuake Takımı"
+msgstr "(c) 2008–2018 Yakuake Takımı"
 
 #: app/main.cpp:36
 #, kde-kuit-format
@@ -1259,7 +1259,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
-msgstr "Gerçekten çıkmak istiyor musunuz?"
+msgstr "Çıkmayı gerçekten istiyor musunuz?"
 
 #: app/mainwindow.cpp:251
 #, kde-kuit-format
@@ -1277,13 +1277,13 @@ msgstr "Odak Kaybedildiğinde Pencereyi Açık Tut"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
-msgstr "Profilleri Yönet..."
+msgstr "Profilleri Yönet…"
 
 #: app/mainwindow.cpp:270
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
-msgstr "Geçerli Profili Düzenle..."
+msgstr "Geçerli Profili Düzenle…"
 
 #: app/mainwindow.cpp:276
 #, kde-kuit-format
@@ -1391,7 +1391,7 @@ msgstr "Uçbirimi Aşağıya Genişlet"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
-msgstr "Oturumu Yeniden Adlandır..."
+msgstr "Oturumu Yeniden Adlandır…"
 
 #: app/mainwindow.cpp:385
 #, kde-kuit-format
@@ -1573,9 +1573,9 @@ msgid ""
 "changed to internal use only by re-compiling Yakuake. <p>This warning will "
 "only show once for this Yakuake instance.</p>"
 msgstr ""
-"D-BUS runCommand yöntemi kullanıldı.  Bu yöntemlerin genele açık olmasıyla "
-"ilgili güvenlik endişeleri bulunmaktadır.  İstenirse, bu yöntemler Yakuake "
-"yeniden derlenerek yalnızca dahili kullanıma değiştirilebilir. <p> Bu uyarı "
+"D-BUS runCommand yöntemi kullanıldı. Bu yöntemlerin genele açık olmasıyla "
+"ilgili güvenlik endişeleri bulunmaktadır. İstenirse bu yöntemler Yakuake "
+"yeniden derlenerek yalnızca içsel kullanıma değiştirilebilir. <p> Bu uyarı "
 "bu Yakuake örneğinde bir kere gösterilecek.</p>"
 
 #: app/sessionstack.cpp:723
@@ -1604,7 +1604,7 @@ msgstr "Bu uçbirimi kapatmak istediğinizden emin misiniz?"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Close?"
-msgstr "Gerçekten kapatmak istiyor musunuz?"
+msgstr "Kapatmayı gerçekten istiyor musunuz?"
 
 #: app/tabbar.cpp:39
 #, kde-kuit-format
