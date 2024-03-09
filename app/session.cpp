@@ -155,11 +155,10 @@ Terminal *Session::addTerminal(QSplitter *parent, QString workingDir)
 
     Q_EMIT wantsBlurChanged();
 
+    parent->addWidget(term->partWidget());
     QWidget *terminalWidget = term->terminalWidget();
     if (terminalWidget)
         terminalWidget->setFocus();
-
-    parent->addWidget(term->partWidget());
 
     return term;
 }
