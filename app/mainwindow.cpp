@@ -1215,11 +1215,13 @@ void MainWindow::_toggleWindowState()
             // desktop the window resides on.
 
             KWindowSystem::activateWindow(windowHandle());
-            KX11Extras::forceActiveWindow(winId());
+            if (KWindowSystem::isPlatformX11()) {
+                KX11Extras::forceActiveWindow(winId());
+            }
 
             return;
         } else if (!Settings::showOnAllDesktops() && KWindowInfo(winId(), NET::WMDesktop).desktop() != KX11Extras::currentDesktop()) {
-            // The open/restrict action isn't set to focus the window, but
+            // The open/retract action isn't set to focus the window, but
             // the window is currently on another virtual desktop (the option
             // to show it on all of them is disabled), so closing it doesn't
             // make sense and we're opting to show it instead to avoid
@@ -1228,10 +1230,14 @@ void MainWindow::_toggleWindowState()
             // switch to the virtual desktop the window currently resides on,
             // so move the window to the current desktop before doing so.
 
-            KX11Extras::setOnDesktop(winId(), KX11Extras::currentDesktop());
+            if (KWindowSystem::isPlatformX11()) {
+                KX11Extras::setOnDesktop(winId(), KX11Extras::currentDesktop());
+            }
 
             KWindowSystem::activateWindow(windowHandle());
-            KX11Extras::forceActiveWindow(winId());
+            if (KWindowSystem::isPlatformX11()) {
+                KX11Extras::forceActiveWindow(winId());
+            }
 
             return;
         }
