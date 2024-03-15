@@ -35,68 +35,67 @@ Terminal::Terminal(const QString &workingDir, QWidget *parent)
     KPluginMetaData part(QStringLiteral("kf6/parts/konsolepart"));
 
     m_part = KParts::PartLoader::instantiatePart<KParts::Part>(part, parent).plugin;
-
-    if (m_part) {
-        connect(m_part, SIGNAL(setWindowCaption(QString)), this, SLOT(setTitle(QString)));
-        connect(m_part, SIGNAL(overrideShortcut(QKeyEvent *, bool &)), this, SLOT(overrideShortcut(QKeyEvent *, bool &)));
-        connect(m_part, &KParts::Part::destroyed, this, [this] {
-            m_part = nullptr;
-
-            if (!m_destroying) {
-                Q_EMIT closeRequested(m_terminalId);
-            }
-        });
-
-        m_partWidget = m_part->widget();
-
-        m_terminalWidget = m_part->widget()->focusWidget();
-
-        if (m_terminalWidget) {
-            m_terminalWidget->setFocusPolicy(Qt::WheelFocus);
-            m_terminalWidget->installEventFilter(this);
-
-            if (!m_part->factory() && m_partWidget) {
-                if (!m_part->clientBuilder()) {
-                    m_part->setClientBuilder(new KXMLGUIBuilder(m_partWidget));
-                }
-
-                auto factory = new KXMLGUIFactory(m_part->clientBuilder(), this);
-                factory->addClient(m_part);
-
-                // Prevents the KXMLGui warning about removing the client
-                connect(m_partWidget, &QObject::destroyed, this, [factory, this] {
-                    factory->removeClient(m_part);
-                });
-            }
-        }
-
-        disableOffendingPartActions();
-
-        m_terminalInterface = qobject_cast<TerminalInterface *>(m_part);
-
-        if (!m_terminalInterface) {
-            qFatal("Version of Konsole is outdated. Konsole didn't return a valid TerminalInterface.");
-            return;
-        }
-
-        bool startInWorkingDir = m_terminalInterface->profileProperty(QStringLiteral("StartInCurrentSessionDir")).toBool();
-        if (startInWorkingDir && !workingDir.isEmpty()) {
-            m_terminalInterface->showShellInDir(workingDir);
-        }
-
-        QMetaObject::invokeMethod(m_part, "isBlurEnabled", Qt::DirectConnection, Q_RETURN_ARG(bool, m_wantsBlur));
-
-        // Remove shortcut from close action because it conflicts with the shortcut from out own close action
-        // https://bugs.kde.org/show_bug.cgi?id=319172
-        const auto childClients = m_part->childClients();
-        for (const auto childClient : childClients) {
-            QAction *closeSessionAction = childClient->actionCollection()->action(QStringLiteral("close-session"));
-            if (closeSessionAction) {
-                closeSessionAction->setShortcut(QKeySequence());
-            }
-        }
-    } else
+    if (!m_part) {
         displayKPartLoadError();
+        return;
+    }
+
+    connect(m_part, SIGNAL(setWindowCaption(QString)), this, SLOT(setTitle(QString)));
+    connect(m_part, SIGNAL(overrideShortcut(QKeyEvent *, bool &)), this, SLOT(overrideShortcut(QKeyEvent *, bool &)));
+    connect(m_part, &KParts::Part::destroyed, this, [this] {
+        m_part = nullptr;
+
+        if (!m_destroying) {
+            Q_EMIT closeRequested(m_terminalId);
+        }
+    });
+
+    m_partWidget = m_part->widget();
+
+    m_terminalWidget = m_part->widget()->focusWidget();
+    if (m_terminalWidget) {
+        m_terminalWidget->setFocusPolicy(Qt::WheelFocus);
+        m_terminalWidget->installEventFilter(this);
+
+        if (!m_part->factory() && m_partWidget) {
+            if (!m_part->clientBuilder()) {
+                m_part->setClientBuilder(new KXMLGUIBuilder(m_partWidget));
+            }
+
+            auto factory = new KXMLGUIFactory(m_part->clientBuilder(), this);
+            factory->addClient(m_part);
+
+            // Prevents the KXMLGui warning about removing the client
+            connect(m_partWidget, &QObject::destroyed, this, [factory, this] {
+                factory->removeClient(m_part);
+            });
+        }
+    }
+
+    disableOffendingPartActions();
+
+    m_terminalInterface = qobject_cast<TerminalInterface *>(m_part);
+    if (!m_terminalInterface) {
+        qFatal("Version of Konsole is outdated. Konsole didn't return a valid TerminalInterface.");
+        return;
+    }
+
+    bool startInWorkingDir = m_terminalInterface->profileProperty(QStringLiteral("StartInCurrentSessionDir")).toBool();
+    if (startInWorkingDir && !workingDir.isEmpty()) {
+        m_terminalInterface->showShellInDir(workingDir);
+    }
+
+    QMetaObject::invokeMethod(m_part, "isBlurEnabled", Qt::DirectConnection, Q_RETURN_ARG(bool, m_wantsBlur));
+
+    // Remove shortcut from close action because it conflicts with the shortcut from out own close action
+    // https://bugs.kde.org/show_bug.cgi?id=319172
+    const auto childClients = m_part->childClients();
+    for (const auto childClient : childClients) {
+        QAction *closeSessionAction = childClient->actionCollection()->action(QStringLiteral("close-session"));
+        if (closeSessionAction) {
+            closeSessionAction->setShortcut(QKeySequence());
+        }
+    }
 }
 
 Terminal::~Terminal()
