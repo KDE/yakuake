@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-16 00:41+0000\n"
+"POT-Creation-Date: 2024-03-24 00:40+0000\n"
 "PO-Revision-Date: 2023-07-23 20:21+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1642,7 +1642,7 @@ msgctxt "@title:tab"
 msgid "Shell No. %1"
 msgstr "셸 %1"
 
-#: app/terminal.cpp:164
+#: app/terminal.cpp:163
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

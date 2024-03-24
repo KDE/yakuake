@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-16 00:41+0000\n"
+"POT-Creation-Date: 2024-03-24 00:40+0000\n"
 "PO-Revision-Date: 2024-02-05 22:06+0200\n"
 "Last-Translator: George Stefanakis <george.stefanakis@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-doc@kde.org>\n"
@@ -1719,7 +1719,7 @@ msgctxt "@title:tab"
 msgid "Shell No. %1"
 msgstr "Αρ. κελύφους %1"
 
-#: app/terminal.cpp:164
+#: app/terminal.cpp:163
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
