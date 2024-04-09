@@ -106,7 +106,7 @@ Name[sv]=Tystnad funnen
 Name[tr]=Sessizlik algılandı
 Name[uk]=Виявлено бездіяльність
 Name[x-test]=xxSilence detectedxx
-Name[zh_CN]=探测到静默
+Name[zh_CN]=检测到空闲
 Name[zh_TW]=偵測到沉默狀態
 Comment=Silence detected in a monitored terminal or session
 Comment[ar]=اكتُشف سكون في جلسةٍ أو طرفيّةٍ مُراقبة
@@ -156,7 +156,7 @@ Comment[sv]=Tystnad funnen i en bevakad terminal eller session
 Comment[tr]=İzlenen uçbirimde veya oturumda sessizlik algılandı
 Comment[uk]=У сеансі або терміналі, за яким ведеться спостереження виявлено бездіяльність
 Comment[x-test]=xxSilence detected in a monitored terminal or sessionxx
-Comment[zh_CN]=在监视的终端或会话中检测到静默
+Comment[zh_CN]=在监视的终端或会话中检测到空闲
 Comment[zh_TW]=在一個監控中的終端機或工作階段偵測到沉默狀態
 Action=Popup
 
@@ -260,7 +260,7 @@ Comment[sv]=Aktivitet funnen i en bevakad terminal eller session
 Comment[tr]=İzlenen uçbirimde veya oturumda etkinlik algılandı
 Comment[uk]=У сеансі або терміналі, за яким ведеться спостереження виявлено діяльність
 Comment[x-test]=xxActivity detected in a monitored terminal or sessionxx
-Comment[zh_CN]=在监视的终端或会话中探测到活动
+Comment[zh_CN]=在监视的终端或会话中检测到活动
 Comment[zh_TW]=在一個監控中的終端機或工作階段偵測到有活動
 Action=Popup
 
