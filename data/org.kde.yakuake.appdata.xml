@@ -51,7 +51,7 @@
   <name xml:lang="tr">Yakuake</name>
   <name xml:lang="uk">Yakuake</name>
   <name xml:lang="x-test">xxYakuakexx</name>
-  <name xml:lang="zh-CN">Yakuake</name>
+  <name xml:lang="zh-CN">Yakuake 下拉式终端</name>
   <name xml:lang="zh-TW">Yakuake</name>
   <summary>Drop-down Terminal</summary>
   <summary xml:lang="ar">طرفيّة منسدلة</summary>
@@ -97,7 +97,7 @@
   <summary xml:lang="tr">Yukarıdan Aşağı Açılır Uçbirim</summary>
   <summary xml:lang="uk">Спадний термінал</summary>
   <summary xml:lang="x-test">xxDrop-down Terminalxx</summary>
-  <summary xml:lang="zh-CN">拉幕式终端</summary>
+  <summary xml:lang="zh-CN">下拉式终端</summary>
   <summary xml:lang="zh-TW">下拉式終端機</summary>
   <description>
     <p>
@@ -145,7 +145,7 @@
     <p xml:lang="tr">Yakuake KDE Konsole teknolojisi üzerine kurulu, yukarıdan aşağı açılabilen bir uçbirim öykünücüsüdür.</p>
     <p xml:lang="uk">Yakuake — спадний замінник термінала, заснований на технології KDE Konsole.</p>
     <p xml:lang="x-test">xxYakuake is a drop-down terminal emulator based on KDE Konsole technology.xx</p>
-    <p xml:lang="zh-CN">Yakuake 是一个基于 KDE Konsole 技术的拉幕式终端仿真器。</p>
+    <p xml:lang="zh-CN">Yakuake 是一款基于 KDE Konsole 的下拉式终端仿真器。</p>
     <p xml:lang="zh-TW">Yakuake 是一套基於 KDE 的 Konsole 開發出來的下拉式終端模擬器。</p>
     <p>Features:</p>
     <p xml:lang="ar">الميزات:</p>
@@ -191,7 +191,7 @@
     <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
-    <p xml:lang="zh-CN">功能：</p>
+    <p xml:lang="zh-CN">程序功能：</p>
     <p xml:lang="zh-TW">功能：</p>
     <ul>
       <li>Smoothly rolls down from the top of your screen</li>
@@ -235,7 +235,7 @@
       <li xml:lang="tr">Ekranınızın üst bölümünden düzgünce aşağı iner</li>
       <li xml:lang="uk">Плавно розгортається з верхньої частини вашого екрана.</li>
       <li xml:lang="x-test">xxSmoothly rolls down from the top of your screenxx</li>
-      <li xml:lang="zh-CN">平滑从屏幕顶端下滑</li>
+      <li xml:lang="zh-CN">平滑地从屏幕顶端下拉显示</li>
       <li xml:lang="zh-TW">平滑地從螢幕頂端拉下來</li>
       <li>Tabbed interface</li>
       <li xml:lang="ar">واجهة ألسنة</li>
@@ -322,7 +322,7 @@
       <li xml:lang="tr">Yapılandırılabilir boyutlar ve canlandırma hızı</li>
       <li xml:lang="uk">Можливість налаштовування розмірів та швидкості анімації.</li>
       <li xml:lang="x-test">xxConfigurable dimensions and animation speedxx</li>
-      <li xml:lang="zh-CN">可配置位置和动画速度</li>
+      <li xml:lang="zh-CN">可自定义尺寸和动效速度</li>
       <li xml:lang="zh-TW">設定動畫速度與大小</li>
       <li>Skinnable</li>
       <li xml:lang="ar">قابل للتّخصيص</li>
@@ -408,7 +408,7 @@
       <li xml:lang="tr">Gelişmiş D-Bus arayüzü</li>
       <li xml:lang="uk">Продуманий інтерфейс D-Bus.</li>
       <li xml:lang="x-test">xxSophisticated D-Bus interfacexx</li>
-      <li xml:lang="zh-CN">复杂的 D-Bus 接口</li>
+      <li xml:lang="zh-CN">功能完善的 D-Bus 接口</li>
       <li xml:lang="zh-TW">複雜的 D-Bus 介面</li>
     </ul>
   </description>
