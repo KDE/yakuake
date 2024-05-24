@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-24 00:40+0000\n"
-"PO-Revision-Date: 2024-01-08 03:58+0900\n"
+"PO-Revision-Date: 2024-05-23 16:03+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.04.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: app/config/appearancesettings.cpp:151
@@ -1351,13 +1351,13 @@ msgstr "關閉作用中的終端機"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
-msgstr "分裂左/右"
+msgstr "分割左/右"
 
 #: app/mainwindow.cpp:411
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
-msgstr "分裂上/下"
+msgstr "分割上/下"
 
 #: app/mainwindow.cpp:418
 #, kde-kuit-format

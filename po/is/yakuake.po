@@ -3,25 +3,26 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Sveinn í Felli <sveinki@nett.is>, 2009, 2016.
+# SPDX-FileCopyrightText: 2024 Gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-24 00:40+0000\n"
-"PO-Revision-Date: 2016-04-08 22:57+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2024-05-12 19:48+0000\n"
+"Last-Translator: Gummi <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
 
 #: app/config/appearancesettings.cpp:151
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
 msgstr "Óþekkt"
@@ -30,13 +31,13 @@ msgstr "Óþekkt"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
-msgstr ""
+msgstr "Veldu skinnasafn til að setja upp"
 
 #: app/config/appearancesettings.cpp:242
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
-msgstr ""
+msgstr "Gat ekki talið upp innihald skinnasafns."
 
 #: app/config/appearancesettings.cpp:274
 #, kde-kuit-format
@@ -45,30 +46,32 @@ msgid ""
 "This skin appears to be already installed and you lack the required "
 "permissions to overwrite it."
 msgstr ""
+"Þetta skinn virðist nú þegar uppsett og þú ert ekki með nægar heimildir til "
+"að skrifa yfir það."
 
 #: app/config/appearancesettings.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
-msgstr ""
+msgstr "Þetta skinn virðist nú þegar uppsett. Viltu skrifa yfir það?"
 
 #: app/config/appearancesettings.cpp:280
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
-msgstr ""
+msgstr "Skinn er þegar til"
 
 #: app/config/appearancesettings.cpp:281
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
-msgstr ""
+msgstr "Setja skinn upp aftur"
 
 #: app/config/appearancesettings.cpp:299
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
-msgstr ""
+msgstr "Gat ekki eytt skinni"
 
 #: app/config/appearancesettings.cpp:324
 #, kde-kuit-format
@@ -77,27 +80,29 @@ msgid ""
 "Unable to locate required files in the skin archive.<nl/><nl/>The archive "
 "appears to be invalid."
 msgstr ""
+"Fann ekki nauðsynlegar skrár í skinnasafni.<nl/><nl/>Safnið virðist vera "
+"ógilt."
 
 #: app/config/appearancesettings.cpp:327
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
-msgstr ""
+msgstr "Tókst ekki að opna skinnasafnskrána."
 
 #: app/config/appearancesettings.cpp:332
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
-msgstr ""
+msgstr "Get ekki sett upp skinn"
 
 #: app/config/appearancesettings.cpp:376
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
-msgstr ""
+msgstr "Viltu fjarlægja \"%1\" með %2?"
 
 #: app/config/appearancesettings.cpp:377
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
 msgstr "Fjarlægja skinn"
@@ -111,11 +116,15 @@ msgid_plural ""
 "The following skins are missing required files. Thus they were removed:<ul>"
 "%2</ul>"
 msgstr[0] ""
+"Það vantar nauðsynlegar skrár í eftirfarandi skinn. Þess vegna var það "
+"fjarlægt:<ul>%2</ul>"
 msgstr[1] ""
+"Það vantar nauðsynlegar skrár í eftirfarandi skinn. Þess vegna voru þau "
+"fjarlægð:<ul>%2</ul>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: app/config/appearancesettings.ui:29 app/config/behaviorsettings.ui:20
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group Group box label"
 msgid "General"
 msgstr "Almennt"
@@ -130,30 +139,34 @@ msgid ""
 "terminals in a session, as well as over the currently focused terminal when "
 "switching to a session with multiple terminals."
 msgstr ""
+"Ef þessi valkostur er valinn birtir Yakuake litað yfirlag í stutta stund "
+"fyrir ofan skjáherminn sem var að fá fókus, þegar fókusinn er færður á milli "
+"nokkurra skjáherma í setu, og einnig yfir skjáherminum sem er með fókus "
+"þegar opnuð er seta sem inniheldur nokkra skjáherma."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
 #: app/config/appearancesettings.ui:38
 #, kde-format
 msgctxt "@option:check"
 msgid "Highlight terminals when moving focus between them"
-msgstr ""
+msgstr "Áherslulita skjáherma þegar fókus er færður á milli þeirra"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_HideSkinBorders)
 #: app/config/appearancesettings.ui:45
 #, kde-format
 msgid "Hide borders"
-msgstr ""
+msgstr "Fela ramma"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/appearancesettings.ui:55
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "Window Background"
 msgstr "Bakgrunnur glugga"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundColorLabel)
 #: app/config/appearancesettings.ui:63
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:chooser"
 msgid "Background color:"
 msgstr "Bakgrunnslitur:"
@@ -166,20 +179,22 @@ msgid ""
 "Translucency requires support by the selected skin as well as your desktop "
 "environment. The default skin supports translucency."
 msgstr ""
+"Gagnsæi krefst þess að skinnið sem er valið og skjáborðsumhverfið styðji "
+"það. Sjálfgefna skinnið styður gagnsæi."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Translucency)
 #: app/config/appearancesettings.ui:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Use skin translucency if supported"
-msgstr ""
+msgstr "Nota gagnsæi skinns ef það er stutt"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundColorOpacityLabel)
 #: app/config/appearancesettings.ui:126
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:spinbox"
 msgid "Background color opacity:"
-msgstr "Bakgrunnslitur:"
+msgstr "Gagnsæi bakgrunnslitar:"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_BackgroundColorOpacity)
 #: app/config/appearancesettings.ui:136
@@ -191,13 +206,17 @@ msgid ""
 "This allows influencing the opacity and color tint of translucent areas of "
 "the skin."
 msgstr ""
+"Þegar gagnsæi er notað verður fyllt upp í með bakgrunnslitnum með "
+"tilgreindri gagnsæisstillingu áður en skinnið er teiknað ofan á bakgrunninn. "
+"Þetta gerir kleift að hafa áhrif á gagnsæi og litastef gagnsærra svæða á "
+"skinninu."
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Width)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Height)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_BackgroundColorOpacity)
 #: app/config/appearancesettings.ui:139 app/config/windowsettings.ui:146
 #: app/config/windowsettings.ui:200
-#, fuzzy, no-c-format, kde-format
+#, no-c-format, kde-format
 msgctxt "@label Spinbox unit suffix"
 msgid "%"
 msgstr "%"
@@ -207,18 +226,18 @@ msgstr "%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Skin"
-msgstr ""
+msgstr "Skinn"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, ghnsButton)
 #: app/config/appearancesettings.ui:176
 #, kde-format
 msgctxt "@action:button"
 msgid "Get New Skins..."
-msgstr ""
+msgstr "Sækja ný skinn..."
 
 #. i18n: ectx: property (text), widget (QPushButton, removeButton)
 #: app/config/appearancesettings.ui:186
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Skin"
 msgstr "Fjarlægja skinn"
@@ -228,14 +247,14 @@ msgstr "Fjarlægja skinn"
 #, kde-format
 msgctxt "@action:button"
 msgid "Install Skin..."
-msgstr ""
+msgstr "Setja upp skinn..."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FocusFollowsMouse)
 #: app/config/behaviorsettings.ui:26
 #, kde-format
 msgctxt "@option:check"
 msgid "Focus terminals when the mouse pointer is moved over them"
-msgstr ""
+msgstr "Gefa skjáhermum fókus þegar músarbendillinn er færður yfir þá"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ToggleToFocus)
 #: app/config/behaviorsettings.ui:42
@@ -248,27 +267,32 @@ msgid ""
 "may cause the window manager to switch to the virtual desktop it currently "
 "resides on."
 msgstr ""
+"Ef kveikt er á þessum valkosti mun flýtilykillinn, sem venjulega er notaður "
+"til að opna og loka glugganum, gefa honum fókus en ekki loka honum, hafi "
+"hann áður misst fókusinn. Ef glugginn er ekki stilltur á að birtast á öllum "
+"sýndarskjáborðum gæti gluggastjórinn skipt yfir á sýndarskjáborðið þar sem "
+"glugginn er opinn."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToggleToFocus)
 #: app/config/behaviorsettings.ui:45
 #, kde-format
 msgctxt "@option:check"
 msgid "Use Open/Retract action to focus window"
-msgstr ""
+msgstr "Nota opnunar-/lokunaraðgerð til að gefa glugga fókus"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepAbove)
 #: app/config/behaviorsettings.ui:61
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window above other windows"
-msgstr ""
+msgstr "Halda glugga yfir öðrum gluggum"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_OpenAfterStart)
 #: app/config/behaviorsettings.ui:84
 #, kde-format
 msgctxt "@option:check"
 msgid "Open window after program start"
-msgstr ""
+msgstr "Opna glugga eftir að forrit er ræst"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_PollMouse)
 #: app/config/behaviorsettings.ui:91
@@ -279,43 +303,46 @@ msgid ""
 "pointer is moved to the same edge of the screen that it would open on when "
 "using the shortcut."
 msgstr ""
+"Ef þessi valkostur er virkjaður opnast glugginn sjálfkrafa þegar "
+"músarbendillinn er færður að sömu brún skjásins og glugginn myndi opnast við "
+"þegar flýtilykillinn er notaður."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PollMouse)
 #: app/config/behaviorsettings.ui:94
 #, kde-format
 msgctxt "@option:check"
 msgid "Open window when the mouse pointer touches the screen edge"
-msgstr ""
+msgstr "Opna glugga þegar músarbendillinn snertir skjábrúnina"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RememberFullscreen)
 #: app/config/behaviorsettings.ui:101
 #, kde-format
 msgid "Remember and restore window fullscreen state"
-msgstr ""
+msgstr "Muna og endurheimta skjáfyllistöðu glugga"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowSystrayIcon)
 #: app/config/behaviorsettings.ui:108
 #, kde-format
 msgid "Show system tray icon"
-msgstr ""
+msgstr "Sýna tákn í kerfisbakka"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpen)
 #: app/config/behaviorsettings.ui:118
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window open when it loses focus"
-msgstr ""
+msgstr "Halda glugga opnum þegar hann missir fókus"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpenAfterLastSessionCloses)
 #: app/config/behaviorsettings.ui:141
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window open after the last session is closed"
-msgstr ""
+msgstr "Halda glugga opnum eftir að síðustu setu er lokað"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/behaviorsettings.ui:151
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "Dialogs"
 msgstr "Svargluggar"
@@ -326,43 +353,44 @@ msgstr "Svargluggar"
 msgctxt "@option:check"
 msgid "Confirm quit when more than one session is open"
 msgstr ""
+"Birta staðfestingu um að það eigi að hætta ef fleiri en ein seta er opin"
 
 #: app/config/skinlistdelegate.cpp:124 app/config/skinlistdelegate.cpp:164
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@item:intext"
 msgid "by %1"
-msgstr "með %1"
+msgstr "eftir %1"
 
 #: app/config/windowsettings.cpp:19
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@item:inlistbox"
 msgid "Screen %1"
-msgstr "Skjár"
+msgstr "Skjár %1"
 
 #: app/config/windowsettings.cpp:99 app/mainwindow.cpp:661
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
-msgstr ""
+msgstr "Titilstika falin"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_0)
 #: app/config/windowsettings.ui:32
 #, kde-format
 msgid "Title Bar"
-msgstr ""
+msgstr "Titilstika"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTitleBar)
 #: app/config/windowsettings.ui:38
 #, kde-format
 msgid "Show title bar"
-msgstr ""
+msgstr "Sýna titilstiku"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: app/config/windowsettings.ui:54
 #, kde-format
 msgctxt "@title:group"
 msgid "Tab Bar"
-msgstr ""
+msgstr "Flipastika"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_DynamicTabTitles)
 #: app/config/windowsettings.ui:69
@@ -374,38 +402,42 @@ msgid ""
 "tab bar. You can modify the format of the information in the terminal "
 "profile."
 msgstr ""
+"Ef þessi valkostur er virkjaður verða upplýsingarnar um innihald virka "
+"skjáhermisins, sem venjulega birtast á titilstikunni, einnig birtast á "
+"flipastikunni. Þú getur breytt sniðinu fyrir upplýsingarnar í "
+"skjáhermisprófílnum."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_DynamicTabTitles)
 #: app/config/windowsettings.ui:72
 #, kde-format
 msgctxt "@option:check"
 msgid "Show title bar contents in tab labels"
-msgstr ""
+msgstr "Sýna efni titilstiku í textamerkjum flipa"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTabBar)
 #: app/config/windowsettings.ui:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Show the tab bar"
-msgstr ""
+msgstr "Sýna flipastikuna"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/windowsettings.ui:105
 #, kde-format
 msgctxt "@title:group"
 msgid "Size and Animation"
-msgstr ""
+msgstr "Stærð og hreyfiáhrif"
 
 #. i18n: ectx: property (text), widget (QLabel, widthLabel)
 #: app/config/windowsettings.ui:111
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:slider"
 msgid "Width:"
 msgstr "Breidd:"
 
 #. i18n: ectx: property (text), widget (QLabel, heightLabel)
 #: app/config/windowsettings.ui:165
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:slider"
 msgid "Height:"
 msgstr "Hæð:"
@@ -415,21 +447,21 @@ msgstr "Hæð:"
 #, kde-format
 msgctxt "@label:slider"
 msgid "Duration:"
-msgstr ""
+msgstr "Tímalengd:"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, framesSpinBox)
 #: app/config/windowsettings.ui:251
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label Spinbox unit suffix"
 msgid "ms"
-msgstr "ms"
+msgstr "msek."
 
 #. i18n: ectx: property (prefix), widget (QSpinBox, framesSpinBox)
 #: app/config/windowsettings.ui:254
 #, kde-format
 msgctxt "@label Spinbox unit prefix"
 msgid "~"
-msgstr ""
+msgstr "~"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_UseWMAssist)
 #: app/config/windowsettings.ui:270
@@ -441,62 +473,66 @@ msgid ""
 "provide the requested service, Yakuake will fall back to an animation "
 "strategy of progressively adjusting the window mask."
 msgstr ""
+"Ef þessi valkostur er virkjaður biður Yakuake gluggastjórann um að sjá um "
+"hreyfiáhrifin við lokun og opnun. Ef gluggastjórinn getur ekki veitt þá "
+"þjónustu notar Yakuake varaleið þar sem gluggamaskinn er stilltur af smám "
+"saman."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseWMAssist)
 #: app/config/windowsettings.ui:273
 #, kde-format
 msgctxt "@option:check"
 msgid "Ask the window manager to perform the animation"
-msgstr ""
+msgstr "Biðja gluggastjórann að sjá um hreyfiáhrifin"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: app/config/windowsettings.ui:283
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "Position"
 msgstr "Staða"
 
 #. i18n: ectx: property (text), widget (QLabel, leftLabel)
 #: app/config/windowsettings.ui:291
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@item:inrange Direction to move the window in"
 msgid "Left"
-msgstr "Vinstri"
+msgstr "Til vinstri"
 
 #. i18n: ectx: property (text), widget (QLabel, rightLabel)
 #: app/config/windowsettings.ui:323
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@item:inrange Direction to move the window in"
 msgid "Right"
-msgstr "Hægri"
+msgstr "Til hægri"
 
 #. i18n: ectx: property (text), widget (QLabel, screenLabel)
 #: app/config/windowsettings.ui:337
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Open on screen:"
-msgstr ""
+msgstr "Opna á skjá:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Screen)
 #: app/config/windowsettings.ui:348
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "At mouse location"
-msgstr ""
+msgstr "Þar sem músin er stödd"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Screen)
 #: app/config/windowsettings.ui:353
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "Screen 1"
-msgstr "Skjár"
+msgstr "Skjár 1"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowOnAllDesktops)
 #: app/config/windowsettings.ui:376
 #, kde-format
 msgctxt "@option:check"
 msgid "Show on all desktops"
-msgstr ""
+msgstr "Sýna á öllum skjáborðum"
 
 #. i18n: ectx: label, entry (Screen), group (Window)
 #: app/config/yakuake.kcfg:9
@@ -513,45 +549,43 @@ msgid ""
 "The screen on which the application window will appear. 0 is understood to "
 "be the screen the mouse pointer is on."
 msgstr ""
+"Skjárinn þar sem forritsglugginn birtist. 0 er túlkað sem skjárinn þar sem "
+"músarbendillinn er staddur."
 
 #. i18n: ectx: label, entry (Width), group (Window)
 #: app/config/yakuake.kcfg:14
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Window"
+#, kde-format
 msgctxt "@label"
 msgid "Window width"
-msgstr "Gluggi"
+msgstr "Breidd glugga"
 
 #. i18n: ectx: whatsthis, entry (Width), group (Window)
 #: app/config/yakuake.kcfg:15
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Width of the application window as a percentage of the screen."
-msgstr ""
+msgstr "Breidd forritsgluggans sem hlutfall af skjánum."
 
 #. i18n: ectx: label, entry (Height), group (Window)
 #: app/config/yakuake.kcfg:21
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Window"
+#, kde-format
 msgctxt "@label"
 msgid "Window height"
-msgstr "Gluggi"
+msgstr "Hæð glugga"
 
 #. i18n: ectx: whatsthis, entry (Height), group (Window)
 #: app/config/yakuake.kcfg:22
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Height of the application window as a percentage of the screen."
-msgstr ""
+msgstr "Hæð forritsgluggans sem hlutfall af skjánum."
 
 #. i18n: ectx: label, entry (Position), group (Window)
 #: app/config/yakuake.kcfg:28
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label"
 msgid "Window position"
-msgstr "Staða"
+msgstr "Staðsetning glugga"
 
 #. i18n: ectx: whatsthis, entry (Position), group (Window)
 #: app/config/yakuake.kcfg:29
@@ -561,41 +595,42 @@ msgid ""
 "Center point of the application window, as a percentage, measured from the "
 "left-hand edge of the screen."
 msgstr ""
+"Miðpunktur forritsgluggans sem prósentutala, mæld frá vinstri brún skjásins."
 
 #. i18n: ectx: label, entry (ShowOnAllDesktops), group (Window)
 #: app/config/yakuake.kcfg:35
 #, kde-format
 msgctxt "@label"
 msgid "Show window on all desktops"
-msgstr ""
+msgstr "Sýna glugga á öllum skjáborðum"
 
 #. i18n: ectx: whatsthis, entry (ShowOnAllDesktops), group (Window)
 #: app/config/yakuake.kcfg:36
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the window on all desktops."
-msgstr ""
+msgstr "Hvort sýna eigi gluggann á öllum skjáborðum."
 
 #. i18n: ectx: label, entry (KeepOpen), group (Window)
 #: app/config/yakuake.kcfg:40
 #, kde-format
 msgctxt "@label"
 msgid "Keep window open"
-msgstr ""
+msgstr "Halda glugga opnum"
 
 #. i18n: ectx: whatsthis, entry (KeepOpen), group (Window)
 #: app/config/yakuake.kcfg:41
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to keep the application window open when it loses focus."
-msgstr ""
+msgstr "Hvort halda eigi forritsglugganum opnum þegar hann missir fókus."
 
 #. i18n: ectx: label, entry (KeepOpenAfterLastSessionCloses), group (Window)
 #: app/config/yakuake.kcfg:45
 #, kde-format
 msgctxt "@label"
 msgid "Keep window open after last session closes"
-msgstr ""
+msgstr "Halda glugga opnum eftir að síðustu setu er lokað"
 
 #. i18n: ectx: whatsthis, entry (KeepOpenAfterLastSessionCloses), group (Window)
 #: app/config/yakuake.kcfg:46
@@ -604,13 +639,14 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Whether to keep the application window open after the last session is closed."
 msgstr ""
+"Hvort halda eigi forritsglugganum opnum eftir að síðustu setunni er lokað."
 
 #. i18n: ectx: label, entry (ToggleToFocus), group (Window)
 #: app/config/yakuake.kcfg:50
 #, kde-format
 msgctxt "@label"
 msgid "Use open/retract shortcut to focus window"
-msgstr ""
+msgstr "Nota flýtilykil fyrir opnun/lokun til að gefa glugga fókus"
 
 #. i18n: ectx: whatsthis, entry (ToggleToFocus), group (Window)
 #: app/config/yakuake.kcfg:51
@@ -620,13 +656,15 @@ msgid ""
 "Whether the open/retract keyboard shortcut can be used to focus the "
 "application window when it is already open."
 msgstr ""
+"Hvort hægt sé að nota flýtilykilinn fyrir opnun/lokun til að gefa glugganum "
+"fókus þegar hann er þegar opinn."
 
 #. i18n: ectx: label, entry (KeepAbove), group (Window)
 #: app/config/yakuake.kcfg:55
 #, kde-format
 msgctxt "@label"
 msgid "Keep window on top"
-msgstr ""
+msgstr "Hafa glugga efst"
 
 #. i18n: ectx: whatsthis, entry (KeepAbove), group (Window)
 #: app/config/yakuake.kcfg:56
@@ -634,70 +672,70 @@ msgstr ""
 msgctxt "@info:whatsthis"
 msgid ""
 "Whether to keep the application window above other windows on the screen."
-msgstr ""
+msgstr "Hvort forritsglugginn eigi að haldast ofan á öðrum gluggum á skjánum."
 
 #. i18n: ectx: label, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:60
 #, kde-format
 msgctxt "@label"
 msgid "Show title bar"
-msgstr ""
+msgstr "Sýna titilstiku"
 
 #. i18n: ectx: whatsthis, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:61
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the title bar in the application window."
-msgstr ""
+msgstr "Hvort sýna eigi titilstiku í forritsglugganum."
 
 #. i18n: ectx: label, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:65
 #, kde-format
 msgctxt "@label"
 msgid "Show tab bar"
-msgstr ""
+msgstr "Sýna flipastiku"
 
 #. i18n: ectx: whatsthis, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:66
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the tab bar in the application window."
-msgstr ""
+msgstr "Hvort sýna eigi flipastiku í forritsglugganum."
 
 #. i18n: ectx: label, entry (DynamicTabTitles), group (Window)
 #: app/config/yakuake.kcfg:70
 #, kde-format
 msgctxt "@label"
 msgid "Dynamic tab titles"
-msgstr ""
+msgstr "Breytilegir flipatitlar"
 
 #. i18n: ectx: whatsthis, entry (DynamicTabTitles), group (Window)
 #: app/config/yakuake.kcfg:71
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to update tab titles along with the title bar."
-msgstr ""
+msgstr "Hvort uppfæra eigi flipatitla um leið og titilstikuna."
 
 #. i18n: ectx: label, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:75
 #, kde-format
 msgctxt "@label"
 msgid "Show a system tray icon"
-msgstr ""
+msgstr "Sýna tákn í kerfisbakka"
 
 #. i18n: ectx: whatsthis, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:76
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show a system tray icon."
-msgstr ""
+msgstr "Hvort sýna eigi tákn í kerfisbakka."
 
 #. i18n: ectx: label, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:82
 #, kde-format
 msgctxt "@label"
 msgid "Focus follows mouse"
-msgstr ""
+msgstr "Fókus fylgir mús"
 
 #. i18n: ectx: whatsthis, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:83
@@ -707,27 +745,29 @@ msgid ""
 "Whether an individual terminal in a session will be given focus when the "
 "mouse pointer is moved above it."
 msgstr ""
+"Hvor skjáhermir í setu fái fókusinn þegar músarbendillinn er færður yfir "
+"hann."
 
 #. i18n: ectx: label, entry (OpenAfterStart), group (Behavior)
 #: app/config/yakuake.kcfg:87
 #, kde-format
 msgctxt "@label"
 msgid "Open after start"
-msgstr ""
+msgstr "Opna eftir ræsingu"
 
 #. i18n: ectx: whatsthis, entry (OpenAfterStart), group (Behavior)
 #: app/config/yakuake.kcfg:88
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether the application window should be opened after program start."
-msgstr ""
+msgstr "Hvort forritsglugginn eigi að opnast eftir að forritið er ræst."
 
 #. i18n: ectx: label, entry (RememberFullscreen), group (Behavior)
 #: app/config/yakuake.kcfg:92
 #, kde-format
 msgctxt "@label"
 msgid "Remember window fullscreen state"
-msgstr ""
+msgstr "Muna skjáfyllistöðu glugga"
 
 #. i18n: ectx: whatsthis, entry (RememberFullscreen), group (Behavior)
 #: app/config/yakuake.kcfg:93
@@ -736,84 +776,84 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Whether the window will be shown fullscreen again when it has been "
 "previously."
-msgstr ""
+msgstr "Hvort glugginn fylli skjáinn aftur ef hann gerði það áður."
 
 #. i18n: ectx: label, entry (Skin), group (Appearance)
 #: app/config/yakuake.kcfg:99
 #, kde-format
 msgctxt "@label"
 msgid "Skin"
-msgstr ""
+msgstr "Skinn"
 
 #. i18n: ectx: whatsthis, entry (Skin), group (Appearance)
 #: app/config/yakuake.kcfg:100
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The skin to be used by the application window."
-msgstr ""
+msgstr "Skinnið sem á að nota á forritsgluggann."
 
 #. i18n: ectx: label, entry (SkinInstalledWithKns), group (Appearance)
 #: app/config/yakuake.kcfg:104
 #, kde-format
 msgctxt "@label"
 msgid "Skin installed by KNS"
-msgstr ""
+msgstr "Skinn uppsett af KNS"
 
 #. i18n: ectx: whatsthis, entry (SkinInstalledWithKns), group (Appearance)
 #: app/config/yakuake.kcfg:105
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether the currently active skin was installed via KNS."
-msgstr ""
+msgstr "Hvort skinnið sem er virkt núna hafi verið sett upp í gegnum KNS."
 
 #. i18n: ectx: label, entry (Translucency), group (Appearance)
 #: app/config/yakuake.kcfg:109
 #, kde-format
 msgctxt "@label"
 msgid "Use translucent background"
-msgstr ""
+msgstr "Nota gagnsæjan bakgrunn"
 
 #. i18n: ectx: whatsthis, entry (Translucency), group (Appearance)
 #: app/config/yakuake.kcfg:110
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to make use of XComposite ARGB translucency."
-msgstr ""
+msgstr "Hvort á að nota XComposite ARGB gagnsæi."
 
 #. i18n: ectx: label, entry (BackgroundColor), group (Appearance)
 #: app/config/yakuake.kcfg:114
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label"
 msgid "Window background color"
-msgstr "Bakgrunnur glugga"
+msgstr "Bakgrunnslitur glugga"
 
 #. i18n: ectx: whatsthis, entry (BackgroundColor), group (Appearance)
 #: app/config/yakuake.kcfg:115
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Background color painted below skin elements."
-msgstr ""
+msgstr "Bakgrunnslitur sem er málaður undir skinneiningum."
 
 #. i18n: ectx: label, entry (BackgroundColorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:119
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label"
 msgid "Background color opacity"
-msgstr "Bakgrunnslitur:"
+msgstr "Gagnsæi bakgrunnslitar"
 
 #. i18n: ectx: whatsthis, entry (BackgroundColorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:120
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the background color fill when using translucency."
-msgstr ""
+msgstr "Gagnsæi bakgrunnslitafyllingarinnar þegar gagnsæi er notað."
 
 #. i18n: ectx: label, entry (TerminalHighlightOnManualActivation), group (Appearance)
 #: app/config/yakuake.kcfg:126
 #, kde-format
 msgctxt "@label"
 msgid "Highlight newly focused terminals"
-msgstr ""
+msgstr "Áherslulita skjáherma sem hafa nýlega fengið fókus"
 
 #. i18n: ectx: whatsthis, entry (TerminalHighlightOnManualActivation), group (Appearance)
 #: app/config/yakuake.kcfg:127
@@ -825,13 +865,17 @@ msgid ""
 "as over the currently focused terminal when switching to a session with "
 "multiple terminals."
 msgstr ""
+"Hvort það eigi að birta í stutta stund litayfirlag fyrir ofan skjáherma sem "
+"hafa nýlega fengið fókus þegar fókusinn er færður á milli skjáherma í setu, "
+"og einnig yfir skjáhermi sem er með fókusinn þá stundina þegar skipt er í "
+"setu sem inniheldur marga skjáherma."
 
 #. i18n: ectx: label, entry (HideSkinBorders), group (Appearance)
 #: app/config/yakuake.kcfg:131
 #, kde-format
 msgctxt "@label"
 msgid "Hide the borders defined by the skin"
-msgstr ""
+msgstr "Fela ramma sem skinnið skilgreinir"
 
 #. i18n: ectx: whatsthis, entry (HideSkinBorders), group (Appearance)
 #: app/config/yakuake.kcfg:132
@@ -842,13 +886,16 @@ msgid ""
 "option, when turned on, will overwrite the border settings defined by the "
 "skin and hide all borders."
 msgstr ""
+"Skinn geta skilgreint ramma utan um skjáherminn, þ.m.t. flipastikuna. Þegar "
+"kveikt er á þessum valkosti hnekkir hann rammastillingum sem skinnið "
+"skilgreinir og felur alla ramma."
 
 #. i18n: ectx: label, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:136
 #, kde-format
 msgctxt "@label"
 msgid "Terminal highlight opacity"
-msgstr ""
+msgstr "Gagnsæi áherslulitunar skjáhermis"
 
 #. i18n: ectx: whatsthis, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:137
@@ -856,55 +903,56 @@ msgstr ""
 msgctxt "@info:whatsthis"
 msgid "The opacity of the colored overlay used to highlight a terminal."
 msgstr ""
+"Gagnsæi litaða yfirlagsins sem er notað til áherslulitunar í skjáhermi."
 
 #. i18n: ectx: label, entry (TerminalHighlightDuration), group (Appearance)
 #: app/config/yakuake.kcfg:143
 #, kde-format
 msgctxt "@label"
 msgid "Terminal highlight duration"
-msgstr ""
+msgstr "Tímalengd áherslulitunar skjáhermis"
 
 #. i18n: ectx: whatsthis, entry (TerminalHighlightDuration), group (Appearance)
 #: app/config/yakuake.kcfg:144
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The duration of the terminal highlight overlay."
-msgstr ""
+msgstr "Tímalengd áherslulitaryfirlags í skjáherminum."
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
 #: app/config/yakuake.kcfg:150
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator color"
-msgstr ""
+msgstr "Litur yfirlags sem sýnir lokun á lyklaborðsinntak"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
 #: app/config/yakuake.kcfg:151
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The color of the keyboard input block indicator overlay."
-msgstr ""
+msgstr "Liturinn á yfirlaginu sem sýnir lokun á lyklaborðsinntak."
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:155
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator opacity"
-msgstr ""
+msgstr "Gagnsæi yfirlags sem sýnir lokun á lyklaborðsinntak"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:156
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the keyboard input block indicator overlay."
-msgstr ""
+msgstr "Gagnsæisstig yfirlagsins sem sýnir lokun á lyklaborðsinntak."
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
 #: app/config/yakuake.kcfg:162
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator duration"
-msgstr ""
+msgstr "Tímalengd yfirlags sem sýnir lokun á lyklaborðsinntak"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
 #: app/config/yakuake.kcfg:163
@@ -912,13 +960,14 @@ msgstr ""
 msgctxt "@info:whatsthis"
 msgid "The duration of the keyboard input block indicator overlay."
 msgstr ""
+"Tímalengdin sem yfirlagið sem sýnir lokun á lyklaborðsinntak er sýnilegt."
 
 #. i18n: ectx: label, entry (UseWMAssist), group (Animation)
 #: app/config/yakuake.kcfg:171
 #, kde-format
 msgctxt "@label"
 msgid "Attempt to use the window manager to animate the window"
-msgstr ""
+msgstr "Reyna að láta gluggastjórann sjá um hreyfiáhrifin fyrir gluggann"
 
 #. i18n: ectx: whatsthis, entry (UseWMAssist), group (Animation)
 #: app/config/yakuake.kcfg:172
@@ -930,13 +979,17 @@ msgid ""
 "adjusting the window mask if the window manager is unable to provide the "
 "requested service."
 msgstr ""
+"Hvort það eigi að reyna að láta gluggastjórann sjá um hreyfiáhrifin þegar "
+"glugginn er opnaður/lokaður. Yakuake notar til vara þá hreyfiáhrifaaðferð að "
+"stilla gluggamaskann af smám saman ef gluggastjórinn getur ekki veitt "
+"umbeðna þjónustu."
 
 #. i18n: ectx: label, entry (Frames), group (Animation)
 #: app/config/yakuake.kcfg:176
 #, kde-format
 msgctxt "@label"
 msgid "Animation frames"
-msgstr ""
+msgstr "Rammafjöldi hreyfiáhrifa"
 
 #. i18n: ectx: whatsthis, entry (Frames), group (Animation)
 #: app/config/yakuake.kcfg:177
@@ -946,13 +999,15 @@ msgid ""
 "The number of frames of the open/retract animation. One frame is taken to be "
 "10 miliseconds."
 msgstr ""
+"Fjöldi ramma í hreyfingu glugga við opnun/lokun. Einn rammi telst vera 10 "
+"millisekúndur."
 
 #. i18n: ectx: label, entry (PollMouse), group (AutoOpen)
 #: app/config/yakuake.kcfg:185
 #, kde-format
 msgctxt "@label"
 msgid "Auto-open window"
-msgstr ""
+msgstr "Opna glugga sjálfkrafa"
 
 #. i18n: ectx: whatsthis, entry (PollMouse), group (AutoOpen)
 #: app/config/yakuake.kcfg:186
@@ -962,13 +1017,15 @@ msgid ""
 "Whether to automatically open the application window when the mouse pointer "
 "is found at the edge of the screen."
 msgstr ""
+"Hvort það eigi að opna gluggann sjálfkrafa þegar músarbendillinn lendir út "
+"við brúnina á skjánum."
 
 #. i18n: ectx: label, entry (PollInterval), group (AutoOpen)
 #: app/config/yakuake.kcfg:190
 #, kde-format
 msgctxt "@label"
 msgid "Mouse pointer poll interval"
-msgstr ""
+msgstr "Millibil músarbendilskönnunar"
 
 #. i18n: ectx: whatsthis, entry (PollInterval), group (AutoOpen)
 #: app/config/yakuake.kcfg:191
@@ -978,27 +1035,29 @@ msgid ""
 "The interval during which the mouse pointer position will be checked to "
 "determine whether or not it is at the same edge of the screen as the window."
 msgstr ""
+"Millibilið á milli þess sem staða músarbendilsins er könnuð til að ákvarða "
+"hvort hann sé við sömu brún skjásins og glugginn eða ekki."
 
 #. i18n: ectx: label, entry (FirstRun), group (Dialogs)
 #: app/config/yakuake.kcfg:197
 #, kde-format
 msgctxt "@label"
 msgid "Application first run"
-msgstr ""
+msgstr "Fyrsta keyrsla forrits"
 
 #. i18n: ectx: whatsthis, entry (FirstRun), group (Dialogs)
 #: app/config/yakuake.kcfg:198
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether this is the first time the application is run."
-msgstr ""
+msgstr "Hvort þetta sé í fyrsta sinn sem forritið er keyrt."
 
 #. i18n: ectx: label, entry (ConfirmQuit), group (Dialogs)
 #: app/config/yakuake.kcfg:202
 #, kde-format
 msgctxt "@label"
 msgid "Confirm quit with multiple sessions"
-msgstr ""
+msgstr "Staðfesta lokun með margar setur"
 
 #. i18n: ectx: whatsthis, entry (ConfirmQuit), group (Dialogs)
 #: app/config/yakuake.kcfg:203
@@ -1008,9 +1067,11 @@ msgid ""
 "Whether to prompt the user before quitting the application when multiple "
 "sessions are open."
 msgstr ""
+"Hvort það eigi að spyrja notandann áður en forritnu er lokað þegar margar "
+"setur eru opnar."
 
 #: app/firstrundialog.cpp:22
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "First Run"
 msgstr "Fyrsta keyrsla"
@@ -1020,7 +1081,7 @@ msgstr "Fyrsta keyrsla"
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to Yakuake"
-msgstr ""
+msgstr "Velkomin í Yakuake"
 
 #. i18n: ectx: property (text), widget (QLabel, introLabel)
 #: app/firstrundialog.ui:53
@@ -1030,103 +1091,105 @@ msgid ""
 "Before starting to use the application, you might want to change the "
 "keyboard shortcut used to open and retract the Yakuake window:"
 msgstr ""
+"Áður en byrjað er að nota forritið gætirðu viljað breyta flýtilyklinum sem "
+"er notaður til að opna og loka Yakuake-glugganum:"
 
 #. i18n: ectx: property (text), widget (QLabel, outroLabel)
 #: app/firstrundialog.ui:130
 #, kde-format
 msgctxt "@info"
 msgid "You can change the shortcut later at any time via the menu."
-msgstr ""
+msgstr "Þú getur breytt flýtilyklinum síðar hvenær sem í valmyndinni."
 
 #: app/main.cpp:25
 #, kde-kuit-format
 msgctxt "@title"
 msgid "<application>Yakuake</application>"
-msgstr ""
+msgstr "<application>Yakuake</application>"
 
 #: app/main.cpp:27
 #, kde-kuit-format
 msgctxt "@title"
 msgid "A drop-down terminal emulator based on KDE Konsole technology."
-msgstr ""
+msgstr "Felliskjáhermir byggður á grunni KDE Konsole."
 
 #: app/main.cpp:29
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "(c) 2008-2018 The Yakuake Team"
-msgstr ""
+msgstr "(c) 2008-2018 Yakuake-hópurinn"
 
 #: app/main.cpp:36
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Eike Hein"
-msgstr ""
+msgstr "Eike Hein"
 
 #: app/main.cpp:36
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Maintainer, Lead Developer"
-msgstr ""
+msgstr "Umsjónarmaður, aðalforritari"
 
 #: app/main.cpp:37
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Francois Chazal"
-msgstr ""
+msgstr "Francois Chazal"
 
 #: app/main.cpp:37
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Project Founder, Legacy skin (Inactive)"
-msgstr ""
+msgstr "Upphafsmaður verkefnis, eldri skinn (óvirkt)"
 
 #: app/main.cpp:38
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Daniel 'suslik' D."
-msgstr ""
+msgstr "Daniel 'suslik' D."
 
 #: app/main.cpp:38
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Plastik skin"
-msgstr ""
+msgstr "Plastik-skinn"
 
 #: app/main.cpp:39
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Juan Carlos Torres"
-msgstr ""
+msgstr "Juan Carlos Torres"
 
 #: app/main.cpp:40
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Tab bar drag and drop support, Prevent Closing toggle"
-msgstr ""
+msgstr "Stuðningur við draga-og-sleppa í flipastiku, víxl fyrir lokunarvörn"
 
 #: app/main.cpp:42
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Gustavo Ribeiro Croscato"
-msgstr ""
+msgstr "Gustavo Ribeiro Croscato"
 
 #: app/main.cpp:43
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Icon on tabs with Prevent Closing enabled"
-msgstr ""
+msgstr "Tákn á flipum með virkri lokunarvörn"
 
 #: app/main.cpp:45
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Danilo Cesar Lemes de Paula"
-msgstr ""
+msgstr "Danilo Cesar Lemes de Paula"
 
 #: app/main.cpp:46
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Actions to grow terminals"
-msgstr ""
+msgstr "Aðgerðir til að stækka skjáherma"
 
 #: app/main.cpp:49
 #, kde-format
@@ -1144,7 +1207,7 @@ msgstr "sv1@fellsnet.is"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
-msgstr ""
+msgstr "Ertu viss um að þú viljir hætta?"
 
 #: app/mainwindow.cpp:207
 #, kde-kuit-format
@@ -1154,6 +1217,9 @@ msgid ""
 "locked to prevent closing them accidentally.</emphasis> These will be killed "
 "if you continue.</warning>"
 msgstr ""
+"<warning>Það eru margar setur opnar, <emphasis>þú hefur læst sumum þeirra "
+"til að koma í veg fyrir að þær lokist óvart.</emphasis> Þeim verður lokað "
+"alveg ef þú heldur áfram.</warning>"
 
 #: app/mainwindow.cpp:210
 #, kde-kuit-format
@@ -1162,6 +1228,8 @@ msgid ""
 "<warning>There are multiple open sessions. These will be killed if you "
 "continue.</warning>"
 msgstr ""
+"<warning>Það eru margar setur opnar. Þeim verður lokað alveg ef þú heldur "
+"áfram.</warning>"
 
 #: app/mainwindow.cpp:213
 #, kde-kuit-format
@@ -1170,9 +1238,12 @@ msgid ""
 "<warning>There are one or more open sessions that you have locked to prevent "
 "closing them accidentally. These will be killed if you continue.</warning>"
 msgstr ""
+"<warning>Ein eða fleiri setur eru opnar sem þú hefur læst til að koma í veg "
+"fyrir að þeim verði óvart lokað. Þeim verður lokað alveg ef þú heldur áfram."
+"</warning>"
 
 #: app/mainwindow.cpp:219
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
 msgstr "Hætta í alvöru?"
@@ -1181,60 +1252,52 @@ msgstr "Hætta í alvöru?"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
-msgstr ""
+msgstr "Opna/loka Yakuake"
 
 #: app/mainwindow.cpp:260
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
-msgstr ""
+msgstr "Halda glugga opnum þegar hann missir fókus"
 
 #: app/mainwindow.cpp:265
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
-msgstr ""
+msgstr "Umsjón prófíla..."
 
 #: app/mainwindow.cpp:270
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
-msgstr ""
+msgstr "Breyta núverandi prófíl..."
 
 #: app/mainwindow.cpp:276
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Window"
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
-msgstr "Gluggi"
+msgstr "Auka breidd glugga"
 
 #: app/mainwindow.cpp:281
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Window"
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
-msgstr "Gluggi"
+msgstr "Minnka breidd glugga"
 
 #: app/mainwindow.cpp:286
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Window"
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
-msgstr "Gluggi"
+msgstr "Auka hæð glugga"
 
 #: app/mainwindow.cpp:291
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Window"
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
-msgstr "Gluggi"
+msgstr "Minnka hæð glugga"
 
 #: app/mainwindow.cpp:296
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "Ný seta"
@@ -1243,160 +1306,160 @@ msgstr "Ný seta"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
-msgstr ""
+msgstr "Tveir skjáhermar, lárétt"
 
 #: app/mainwindow.cpp:307
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
-msgstr ""
+msgstr "Tveir skjáhermar, lóðrétt"
 
 #: app/mainwindow.cpp:312
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
-msgstr ""
+msgstr "Fjórir skjáhermar, hnitanet"
 
 #: app/mainwindow.cpp:317
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "Loka setu"
 
 #: app/mainwindow.cpp:324
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
-msgstr "Loka setu"
+msgstr "Fyrri seta"
 
 #: app/mainwindow.cpp:330
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
-msgstr "Ný seta"
+msgstr "Næsta seta"
 
 #: app/mainwindow.cpp:336
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
-msgstr "Loka setu"
+msgstr "Færa setu til vinstri"
 
 #: app/mainwindow.cpp:343
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
-msgstr "Loka setu"
+msgstr "Færa setu til hægri"
 
 #: app/mainwindow.cpp:350
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
-msgstr ""
+msgstr "Stækka skjáhermi til hægri"
 
 #: app/mainwindow.cpp:357
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
-msgstr ""
+msgstr "Stækka skjáhermi til vinstri"
 
 #: app/mainwindow.cpp:364
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
-msgstr ""
+msgstr "Stækka skjáhermi upp á við"
 
 #: app/mainwindow.cpp:371
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
-msgstr ""
+msgstr "Stækka skjáhermi niður á við"
 
 #: app/mainwindow.cpp:378
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
-msgstr "Ný seta"
+msgstr "Endurnefna setu..."
 
 #: app/mainwindow.cpp:385
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
-msgstr ""
+msgstr "Fyrri skjáhermir"
 
 #: app/mainwindow.cpp:391
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
-msgstr ""
+msgstr "Næsti skjáhermir"
 
 #: app/mainwindow.cpp:397
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
-msgstr ""
+msgstr "Loka virkum skjáhermi"
 
 #: app/mainwindow.cpp:404
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
-msgstr ""
+msgstr "Kljúfa lóðrétt"
 
 #: app/mainwindow.cpp:411
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
-msgstr ""
+msgstr "Kljúfa lárétt"
 
 #: app/mainwindow.cpp:418
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
-msgstr ""
+msgstr "Lokunarvörn"
 
 #: app/mainwindow.cpp:424 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
-msgstr ""
+msgstr "Gera lyklaborðsinntak óvirkt"
 
 #: app/mainwindow.cpp:430 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
-msgstr ""
+msgstr "Vakta eftir virkni"
 
 #: app/mainwindow.cpp:437 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
-msgstr ""
+msgstr "Vakta eftir þögn"
 
 #: app/mainwindow.cpp:444
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
-msgstr ""
+msgstr "Víxla titilstiku"
 
 #: app/mainwindow.cpp:451
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
-msgstr ""
+msgstr "Skipta í Setu %1"
 
 #: app/mainwindow.cpp:603
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
-msgstr ""
+msgstr "Aðgerð greindist í vöktuðum skjáhermi í setu \"%1\"."
 
 #: app/mainwindow.cpp:617
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
-msgstr ""
+msgstr "Þögn greindist í vöktuðum skjáhermi í setu \"%1\"."
 
 #: app/mainwindow.cpp:676
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Hjálp"
@@ -1405,22 +1468,22 @@ msgstr "Hjálp"
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
-msgstr ""
+msgstr "Flýtivalkostir"
 
 #: app/mainwindow.cpp:688
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Skjár"
 
 #: app/mainwindow.cpp:693
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Breidd"
 
 #: app/mainwindow.cpp:698
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Hæð"
@@ -1435,18 +1498,18 @@ msgstr "Stillingar"
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
-msgstr ""
+msgstr "Þar sem músin er stödd"
 
 #: app/mainwindow.cpp:723
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
-msgstr "Skjár"
+msgstr "Skjár %1"
 
 #: app/mainwindow.cpp:745 app/mainwindow.cpp:767
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: app/mainwindow.cpp:832
 #, kde-kuit-format
@@ -1473,18 +1536,20 @@ msgid ""
 "<application>Yakuake</application> was unable to load a skin. It is likely "
 "that it was installed incorrectly.<nl/><nl/>The application will now quit."
 msgstr ""
+"<application>Yakuake</application> tókst ekki að hlaða inn skinni. Það er "
+"líklega ekki rétt uppsett.<nl/><nl/>Forritið mun nú lokast."
 
 #: app/mainwindow.cpp:925
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
-msgstr ""
+msgstr "Get ekki hlaðið inn skinni"
 
 #: app/mainwindow.cpp:1680
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
-msgstr ""
+msgstr "Ýttu á <shortcut>%1</shortcut> til að opna"
 
 #: app/sessionstack.cpp:257
 #, kde-format
@@ -1494,6 +1559,10 @@ msgid ""
 "changed to internal use only by re-compiling Yakuake. <p>This warning will "
 "only show once for this Yakuake instance.</p>"
 msgstr ""
+"D-Bus-aðferðin 'runCommand' var notuð rétt í þessu. Ef þessar aðferðir eru "
+"almennt leyfðar hefur það öryggisvandamál í för með sér. Ef vill má breyta "
+"þessum aðferðum í innri notkun eingöngu með því að endurþýða Yakuake. <p> "
+"Þessi viðvörun er aðeins birt einu sinni fyrir þetta tilvik af Yakuake.</p>"
 
 #: app/sessionstack.cpp:723
 #, kde-kuit-format
@@ -1502,24 +1571,26 @@ msgid ""
 "<warning>You have locked this session to prevent accidental closing of "
 "terminals.</warning>"
 msgstr ""
+"<warning>Þú hefur læst þessari setu til að koma í veg fyrir að skjáhermar "
+"lokist fyrir slysni.</warning>"
 
 #: app/sessionstack.cpp:727
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
-msgstr ""
+msgstr "Ertu viss um að þú viljir loka þessari setu?"
 
 #: app/sessionstack.cpp:729
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
-msgstr ""
+msgstr "Ertu viss um að þú viljir loka þessum skjáhermi?"
 
 #: app/sessionstack.cpp:733
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Close?"
-msgstr "Hætta í alvöru?"
+msgstr "Loka í alvöru?"
 
 #: app/tabbar.cpp:39
 #, kde-kuit-format
@@ -1528,24 +1599,26 @@ msgid ""
 "<title>Tab Bar</title><para>The tab bar allows you to switch between "
 "sessions. You can double-click a tab to edit its label.</para>"
 msgstr ""
+"<title>Flipastika</title><para>Með flipastikunni geturðu skipt á milli seta. "
+"Þú getur tvísmellt á flipa til að breyta textamerkingu hans.</para>"
 
 #: app/tabbar.cpp:58
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Disable Keyboard Input"
-msgstr ""
+msgstr "Gera lyklaborðsinntak óvirkt"
 
 #: app/tabbar.cpp:59
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Monitor for Activity"
-msgstr ""
+msgstr "Vakta eftir virkni"
 
 #: app/tabbar.cpp:60
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Monitor for Silence"
-msgstr ""
+msgstr "Vakta eftir þögn"
 
 #: app/tabbar.cpp:69
 #, kde-kuit-format
@@ -1558,6 +1631,8 @@ msgstr "Ný seta"
 msgctxt "@info:whatsthis"
 msgid "Adds a new session. Press and hold to select session type from menu."
 msgstr ""
+"Bætir við nýrri setu. Ýttu og haltu inni til að velja gerð setunnar af "
+"valmynd."
 
 #: app/tabbar.cpp:75
 #, kde-kuit-format
@@ -1566,34 +1641,34 @@ msgid "Close Session"
 msgstr "Loka setu"
 
 #: app/tabbar.cpp:76
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Closes the active session."
-msgstr "Loka setu"
+msgstr "Lokar virku setunni"
 
 #: app/tabbar.cpp:194
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action"
 msgid "For This Session"
-msgstr "Loka setu"
+msgstr "Fyrir þessa setu"
 
 #: app/tabbar.cpp:211
 #, kde-kuit-format
 msgctxt "@action"
 msgid "For Terminal %1"
-msgstr ""
+msgstr "Fyrir skjáhermi %1"
 
 #: app/tabbar.cpp:239 app/tabbar.cpp:284
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action"
 msgid "In This Session"
-msgstr "Loka setu"
+msgstr "Í þessari setu"
 
 #: app/tabbar.cpp:256 app/tabbar.cpp:301
 #, kde-kuit-format
 msgctxt "@action"
 msgid "In Terminal %1"
-msgstr ""
+msgstr "Í skjáhermi %1"
 
 #: app/tabbar.cpp:933
 #, kde-kuit-format
@@ -1605,7 +1680,7 @@ msgstr "Skel"
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell No. %1"
-msgstr ""
+msgstr "Skel nr. %1"
 
 #: app/terminal.cpp:163
 #, kde-kuit-format
@@ -1615,6 +1690,9 @@ msgid ""
 "<application>Konsole</application> component.<nl/> A <application>Konsole</"
 "application> installation is required to use Yakuake."
 msgstr ""
+"<application>Yakuake</application> tókst ekki að hlaða "
+"inn<application>Konsole</application>-einingunni.<nl/> <application>Konsole</"
+"application> þarf að vera uppsett til að hægt sé að nota Yakuake."
 
 #: app/titlebar.cpp:23
 #, kde-kuit-format
@@ -1623,18 +1701,20 @@ msgid ""
 "<title>Title Bar</title><para>The title bar displays the session title if "
 "available.</para>"
 msgstr ""
+"<title>Titilstika</title><para>Titilstikan birtir titil setunnar ef hann er "
+"tiltækur.</para>"
 
 #: app/titlebar.cpp:36
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Keep window open when it loses focus"
-msgstr ""
+msgstr "Halda glugga opnum þegar hann missir fókus"
 
 #: app/titlebar.cpp:37
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "If this is checked, the window will stay open when it loses focus."
-msgstr ""
+msgstr "Ef hakað er hér helst glugginn opinn þegar hann missir fókus."
 
 #: app/titlebar.cpp:44
 #, kde-kuit-format
