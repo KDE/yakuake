@@ -57,6 +57,7 @@
   <summary>Drop-down Terminal</summary>
   <summary xml:lang="ar">طرفيّة منسدلة</summary>
   <summary xml:lang="az">Aşağı açılan terminal</summary>
+  <summary xml:lang="be">Выплыўны тэрмінал</summary>
   <summary xml:lang="bg">Падащ терминал</summary>
   <summary xml:lang="bs">Padajući terminal</summary>
   <summary xml:lang="ca">Terminal desplegable</summary>
@@ -153,6 +154,7 @@
     <p>Features:</p>
     <p xml:lang="ar">الميزات:</p>
     <p xml:lang="az">İmkanlar:</p>
+    <p xml:lang="be">Магчымасці:</p>
     <p xml:lang="bg">Функции:</p>
     <p xml:lang="bs">Svojstva:</p>
     <p xml:lang="ca">Característiques:</p>
