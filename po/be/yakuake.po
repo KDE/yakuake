@@ -1,15 +1,12 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-#
 # Darafei Praliaskouski <komzpa@gmail.com>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: yakuake\n"
+"Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-24 00:40+0000\n"
-"PO-Revision-Date: 2008-02-02 18:16+0200\n"
+"PO-Revision-Date: 2024-06-05 19:00\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@gmail.com>\n"
-"Language-Team: Belarusian <i18n@mova.org>\n"
+"Language-Team: Belarusian\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,24 +15,29 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
 "%100>=11 && n%100<=14 ? 2 : 3);\n"
 "X-Generator: KAider 0.1\n"
+"X-Crowdin-Project: fc57ad16a28d02dea100ceb1c60de14e\n"
+"X-Crowdin-Project-ID: 136\n"
+"X-Crowdin-Language: be\n"
+"X-Crowdin-File: /[antikruk.KDE] main/KDE6/be/messages/yakuake/yakuake.po\n"
+"X-Crowdin-File-ID: 10966\n"
 
 #: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
-msgstr ""
+msgstr "Невядома"
 
 #: app/config/appearancesettings.cpp:196
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
-msgstr ""
+msgstr "Абраць архіў абалонкі для ўсталявання"
 
 #: app/config/appearancesettings.cpp:242
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
-msgstr ""
+msgstr "Немагчыма пералічыць змесціва архіва абалонкі."
 
 #: app/config/appearancesettings.cpp:274
 #, kde-kuit-format
@@ -44,30 +46,32 @@ msgid ""
 "This skin appears to be already installed and you lack the required "
 "permissions to overwrite it."
 msgstr ""
+"Выглядае, што гэтая абалонка ўжо ўсталяваная, і ў вас не стае правоў, каб "
+"перазапісаць яе."
 
 #: app/config/appearancesettings.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
-msgstr ""
+msgstr "Выглядае, што гэтая абалонка ўжо ўсталяваная. Хочаце перазапісаць яе?"
 
 #: app/config/appearancesettings.cpp:280
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
-msgstr ""
+msgstr "Абалонка ўжо існуе"
 
 #: app/config/appearancesettings.cpp:281
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
-msgstr ""
+msgstr "Пераўсталяваць абалонку"
 
 #: app/config/appearancesettings.cpp:299
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
-msgstr ""
+msgstr "Не ўдалося выдаліць абалонку"
 
 #: app/config/appearancesettings.cpp:324
 #, kde-kuit-format
@@ -112,13 +116,14 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: app/config/appearancesettings.ui:29 app/config/behaviorsettings.ui:20
 #, kde-format
 msgctxt "@title:group Group box label"
 msgid "General"
-msgstr ""
+msgstr "Асноўныя налады"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
 #: app/config/appearancesettings.ui:35
@@ -146,21 +151,17 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/appearancesettings.ui:55
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Window background color"
+#, kde-format
 msgctxt "@title:group"
 msgid "Window Background"
-msgstr "Фонавы колер акна"
+msgstr "Фон акна"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundColorLabel)
 #: app/config/appearancesettings.ui:63
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Window background color"
+#, kde-format
 msgctxt "@label:chooser"
 msgid "Background color:"
-msgstr "Фонавы колер акна"
+msgstr "Колер фону:"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_Translucency)
 #: app/config/appearancesettings.ui:92
@@ -180,12 +181,10 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundColorOpacityLabel)
 #: app/config/appearancesettings.ui:126
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Window background color"
+#, kde-format
 msgctxt "@label:spinbox"
 msgid "Background color opacity:"
-msgstr "Фонавы колер акна"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_BackgroundColorOpacity)
 #: app/config/appearancesettings.ui:136
@@ -206,16 +205,14 @@ msgstr ""
 #, no-c-format, kde-format
 msgctxt "@label Spinbox unit suffix"
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: app/config/appearancesettings.ui:170
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Skin"
+#, kde-format
 msgctxt "@title:group"
 msgid "Skin"
-msgstr "Тэма"
+msgstr "Абалонка"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, ghnsButton)
 #: app/config/appearancesettings.ui:176
@@ -243,7 +240,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Focus terminals when the mouse pointer is moved over them"
-msgstr ""
+msgstr "Факусавацца на тэрміналах, калі курсор мышы перамяшчаецца побач з імі"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ToggleToFocus)
 #: app/config/behaviorsettings.ui:42
@@ -266,12 +263,10 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepAbove)
 #: app/config/behaviorsettings.ui:61
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Keep window on top"
+#, kde-format
 msgctxt "@option:check"
 msgid "Keep window above other windows"
-msgstr "Трымаць вакно вышэй астатніх"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_OpenAfterStart)
 #: app/config/behaviorsettings.ui:84
@@ -311,28 +306,24 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpen)
 #: app/config/behaviorsettings.ui:118
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Keep window on top"
+#, kde-format
 msgctxt "@option:check"
 msgid "Keep window open when it loses focus"
-msgstr "Трымаць вакно вышэй астатніх"
+msgstr "Пакідаць акно адкрытым пры страце фокусу"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpenAfterLastSessionCloses)
 #: app/config/behaviorsettings.ui:141
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Keep window on top"
+#, kde-format
 msgctxt "@option:check"
 msgid "Keep window open after the last session is closed"
-msgstr "Трымаць вакно вышэй астатніх"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/behaviorsettings.ui:151
 #, kde-format
 msgctxt "@title:group"
 msgid "Dialogs"
-msgstr ""
+msgstr "Дыялогі"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ConfirmQuit)
 #: app/config/behaviorsettings.ui:157
@@ -345,13 +336,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@item:intext"
 msgid "by %1"
-msgstr ""
+msgstr "ад %1"
 
 #: app/config/windowsettings.cpp:19
 #, kde-kuit-format
 msgctxt "@item:inlistbox"
 msgid "Screen %1"
-msgstr ""
+msgstr "Экран %1"
 
 #: app/config/windowsettings.cpp:99 app/mainwindow.cpp:661
 #, kde-kuit-format
@@ -363,7 +354,7 @@ msgstr ""
 #: app/config/windowsettings.ui:32
 #, kde-format
 msgid "Title Bar"
-msgstr ""
+msgstr "Панэль назвы"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTitleBar)
 #: app/config/windowsettings.ui:38
@@ -415,35 +406,35 @@ msgstr ""
 #, kde-format
 msgctxt "@label:slider"
 msgid "Width:"
-msgstr ""
+msgstr "Шырыня:"
 
 #. i18n: ectx: property (text), widget (QLabel, heightLabel)
 #: app/config/windowsettings.ui:165
 #, kde-format
 msgctxt "@label:slider"
 msgid "Height:"
-msgstr ""
+msgstr "Вышыня:"
 
 #. i18n: ectx: property (text), widget (QLabel, durationLabel)
 #: app/config/windowsettings.ui:219
 #, kde-format
 msgctxt "@label:slider"
 msgid "Duration:"
-msgstr ""
+msgstr "Працягласць:"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, framesSpinBox)
 #: app/config/windowsettings.ui:251
 #, kde-format
 msgctxt "@label Spinbox unit suffix"
 msgid "ms"
-msgstr ""
+msgstr "мс"
 
 #. i18n: ectx: property (prefix), widget (QSpinBox, framesSpinBox)
 #: app/config/windowsettings.ui:254
 #, kde-format
 msgctxt "@label Spinbox unit prefix"
 msgid "~"
-msgstr ""
+msgstr "~"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_UseWMAssist)
 #: app/config/windowsettings.ui:270
@@ -465,26 +456,24 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: app/config/windowsettings.ui:283
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Window position"
+#, kde-format
 msgctxt "@title:group"
 msgid "Position"
-msgstr "Пазіцыя акна"
+msgstr "Пазіцыя"
 
 #. i18n: ectx: property (text), widget (QLabel, leftLabel)
 #: app/config/windowsettings.ui:291
 #, kde-format
 msgctxt "@item:inrange Direction to move the window in"
 msgid "Left"
-msgstr ""
+msgstr "Злева"
 
 #. i18n: ectx: property (text), widget (QLabel, rightLabel)
 #: app/config/windowsettings.ui:323
 #, kde-format
 msgctxt "@item:inrange Direction to move the window in"
 msgid "Right"
-msgstr ""
+msgstr "Справа"
 
 #. i18n: ectx: property (text), widget (QLabel, screenLabel)
 #: app/config/windowsettings.ui:337
@@ -509,12 +498,10 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowOnAllDesktops)
 #: app/config/windowsettings.ui:376
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Keep window on top"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show on all desktops"
-msgstr "Трымаць вакно вышэй астатніх"
+msgstr "Паказваць на ўсіх працоўных сталах"
 
 #. i18n: ectx: label, entry (Screen), group (Window)
 #: app/config/yakuake.kcfg:9
@@ -578,30 +565,24 @@ msgstr ""
 
 #. i18n: ectx: label, entry (ShowOnAllDesktops), group (Window)
 #: app/config/yakuake.kcfg:35
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Keep window on top"
+#, kde-format
 msgctxt "@label"
 msgid "Show window on all desktops"
-msgstr "Трымаць вакно вышэй астатніх"
+msgstr ""
 
 #. i18n: ectx: whatsthis, entry (ShowOnAllDesktops), group (Window)
 #: app/config/yakuake.kcfg:36
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Keep window on top"
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the window on all desktops."
-msgstr "Трымаць вакно вышэй астатніх"
+msgstr ""
 
 #. i18n: ectx: label, entry (KeepOpen), group (Window)
 #: app/config/yakuake.kcfg:40
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Keep window on top"
+#, kde-format
 msgctxt "@label"
 msgid "Keep window open"
-msgstr "Трымаць вакно вышэй астатніх"
+msgstr ""
 
 #. i18n: ectx: whatsthis, entry (KeepOpen), group (Window)
 #: app/config/yakuake.kcfg:41
@@ -646,7 +627,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Keep window on top"
-msgstr "Трымаць вакно вышэй астатніх"
+msgstr "Паказваць акно вышэй астатніх"
 
 #. i18n: ectx: whatsthis, entry (KeepAbove), group (Window)
 #: app/config/yakuake.kcfg:56
@@ -665,12 +646,10 @@ msgstr ""
 
 #. i18n: ectx: whatsthis, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:61
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Keep window on top"
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the title bar in the application window."
-msgstr "Трымаць вакно вышэй астатніх"
+msgstr ""
 
 #. i18n: ectx: label, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:65
@@ -719,7 +698,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Focus follows mouse"
-msgstr ""
+msgstr "Факусавацца ўслед за мышшу"
 
 #. i18n: ectx: whatsthis, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:83
@@ -765,7 +744,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Skin"
-msgstr "Тэма"
+msgstr "Абалонка"
 
 #. i18n: ectx: whatsthis, entry (Skin), group (Appearance)
 #: app/config/yakuake.kcfg:100
@@ -793,7 +772,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Use translucent background"
-msgstr "Выкарыстоўваць празраысты фон"
+msgstr "Выкарыстоўваць празрысты фон"
 
 #. i18n: ectx: whatsthis, entry (Translucency), group (Appearance)
 #: app/config/yakuake.kcfg:110
@@ -811,21 +790,17 @@ msgstr "Фонавы колер акна"
 
 #. i18n: ectx: whatsthis, entry (BackgroundColor), group (Appearance)
 #: app/config/yakuake.kcfg:115
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Window background color"
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Background color painted below skin elements."
-msgstr "Фонавы колер акна"
+msgstr ""
 
 #. i18n: ectx: label, entry (BackgroundColorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:119
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Window background color"
+#, kde-format
 msgctxt "@label"
 msgid "Background color opacity"
-msgstr "Фонавы колер акна"
+msgstr ""
 
 #. i18n: ectx: whatsthis, entry (BackgroundColorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:120
@@ -1039,7 +1014,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "First Run"
-msgstr ""
+msgstr "Першы запуск"
 
 #. i18n: ectx: property (text), widget (KTitleWidget, titleWidget)
 #: app/firstrundialog.ui:46
@@ -1086,7 +1061,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Eike Hein"
-msgstr ""
+msgstr "Eike Hein"
 
 #: app/main.cpp:36
 #, kde-kuit-format
@@ -1158,19 +1133,21 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Дарафей Праляскоўскі"
+msgstr "Дарафей Праляскоўскі, Андрэйчанка Анастасія, Сталярчук Іван, Antikruk"
 
 #: app/main.cpp:49
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "komzpa@gmail.com"
+msgstr ""
+"komzpa@licei2.com, bashybuzuk@tut.by, ivan.telkontar@gmail.com, "
+"nashtlumach@gmail.com"
 
 #: app/mainwindow.cpp:200
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
-msgstr ""
+msgstr "Сапраўды хочаце выйсці?"
 
 #: app/mainwindow.cpp:207
 #, kde-kuit-format
@@ -1210,62 +1187,52 @@ msgid "Open/Retract Yakuake"
 msgstr ""
 
 #: app/mainwindow.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@label"
-#| msgid "Keep window on top"
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
-msgstr "Трымаць вакно вышэй астатніх"
+msgstr "Пакідаць акно адкрытым пры страце фокусу"
 
 #: app/mainwindow.cpp:265
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
-msgstr ""
+msgstr "Кіраванне профілямі..."
 
 #: app/mainwindow.cpp:270
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
-msgstr ""
+msgstr "Рэдагаваць бягучы профіль..."
 
 #: app/mainwindow.cpp:276
-#, fuzzy, kde-kuit-format
-#| msgctxt "@label"
-#| msgid "Window width"
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
-msgstr "Шырыня акна"
+msgstr ""
 
 #: app/mainwindow.cpp:281
-#, fuzzy, kde-kuit-format
-#| msgctxt "@label"
-#| msgid "Window width"
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
-msgstr "Шырыня акна"
+msgstr ""
 
 #: app/mainwindow.cpp:286
-#, fuzzy, kde-kuit-format
-#| msgctxt "@label"
-#| msgid "Window height"
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
-msgstr "Вышыня акна"
+msgstr ""
 
 #: app/mainwindow.cpp:291
-#, fuzzy, kde-kuit-format
-#| msgctxt "@label"
-#| msgid "Window height"
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
-msgstr "Вышыня акна"
+msgstr ""
 
 #: app/mainwindow.cpp:296
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
-msgstr ""
+msgstr "Новы сеанс"
 
 #: app/mainwindow.cpp:302
 #, kde-kuit-format
@@ -1427,7 +1394,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
-msgstr ""
+msgstr "Даведка"
 
 #: app/mainwindow.cpp:682
 #, kde-kuit-format
@@ -1439,25 +1406,25 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
-msgstr ""
+msgstr "Экран"
 
 #: app/mainwindow.cpp:693
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
-msgstr ""
+msgstr "Шырыня"
 
 #: app/mainwindow.cpp:698
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
-msgstr ""
+msgstr "Вышыня"
 
 #: app/mainwindow.cpp:701
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
-msgstr ""
+msgstr "Налады"
 
 #: app/mainwindow.cpp:717
 #, kde-kuit-format
@@ -1469,32 +1436,30 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
-msgstr ""
+msgstr "Экран %1"
 
 #: app/mainwindow.cpp:745 app/mainwindow.cpp:767
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: app/mainwindow.cpp:832
-#, fuzzy, kde-kuit-format
-#| msgctxt "@label"
-#| msgid "Window width"
+#, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
-msgstr "Шырыня акна"
+msgstr "Акно"
 
 #: app/mainwindow.cpp:838
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
-msgstr ""
+msgstr "Паводзіны"
 
 #: app/mainwindow.cpp:841
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
-msgstr ""
+msgstr "Выгляд"
 
 #: app/mainwindow.cpp:923
 #, kde-kuit-format
@@ -1581,7 +1546,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "New Session"
-msgstr ""
+msgstr "Новы сеанс"
 
 #: app/tabbar.cpp:70
 #, kde-kuit-format
@@ -1629,7 +1594,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell"
-msgstr ""
+msgstr "Абалонка"
 
 #: app/tabbar.cpp:935
 #, kde-kuit-format
@@ -1655,20 +1620,16 @@ msgid ""
 msgstr ""
 
 #: app/titlebar.cpp:36
-#, fuzzy, kde-kuit-format
-#| msgctxt "@label"
-#| msgid "Keep window on top"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Keep window open when it loses focus"
-msgstr "Трымаць вакно вышэй астатніх"
+msgstr "Пакідаць акно адкрытым пры страце фокусу"
 
 #: app/titlebar.cpp:37
-#, fuzzy, kde-kuit-format
-#| msgctxt "@label"
-#| msgid "Keep window on top"
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "If this is checked, the window will stay open when it loses focus."
-msgstr "Трымаць вакно вышэй астатніх"
+msgstr ""
 
 #: app/titlebar.cpp:44
 #, kde-kuit-format
@@ -1686,7 +1647,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip Quits the application"
 msgid "Quit"
-msgstr ""
+msgstr "Выйсці"
 
 #: app/titlebar.cpp:51
 #, kde-kuit-format
