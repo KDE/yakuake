@@ -10,6 +10,7 @@
   <name xml:lang="ar">ياكواكي</name>
   <name xml:lang="ast">Yakuake</name>
   <name xml:lang="az">Yakuake</name>
+  <name xml:lang="be">Yakuake</name>
   <name xml:lang="bg">Yakuake</name>
   <name xml:lang="bs">Yakuake</name>
   <name xml:lang="ca">Yakuake</name>
@@ -108,6 +109,7 @@
     </p>
     <p xml:lang="ar">«ياكواكي» هو محاكي طرفيّة منسدل مبنيّ على تقنيّة «طرفيّة كِيدِي».</p>
     <p xml:lang="az">Yakuake KDE Konsole texnologiyasına əsaslanan aşağı açılan terminal emulyatorudur.</p>
+    <p xml:lang="be">Yakuake - выплыўны эмулятар тэрмінала на аснове тэхналогіі KDE Konsole.</p>
     <p xml:lang="bg">Yakuake е падащ терминален емулатор с меню, базиран на конзолната технология на KDE.</p>
     <p xml:lang="ca">El Yakuake és un emulador de terminal desplegable basat en la tecnologia del Konsole del KDE.</p>
     <p xml:lang="ca-valencia">Yakuake és un emulador de terminal desplegable basat en la tecnologia de Konsole de KDE.</p>
@@ -203,6 +205,7 @@
       <li>Smoothly rolls down from the top of your screen</li>
       <li xml:lang="ar">ينسدل انسيابيًّا من أعلى شاشتك</li>
       <li xml:lang="az">Ekranınızın yuxarısından rəvan şəkildə sürüçərək açılır</li>
+      <li xml:lang="be">Плаўна выплывае ўніз з верхняй часткі экрана</li>
       <li xml:lang="bg">Плавно се разгъва от горния край на екрана</li>
       <li xml:lang="ca">S'estén suaument des de la part superior de la pantalla</li>
       <li xml:lang="ca-valencia">S'estén suaument des de la part superior de la pantalla</li>
@@ -247,6 +250,7 @@
       <li>Tabbed interface</li>
       <li xml:lang="ar">واجهة ألسنة</li>
       <li xml:lang="az">Vərəqli interfeys</li>
+      <li xml:lang="be">Інтэрфейс з укладкамі</li>
       <li xml:lang="bg">Наличност на раздели</li>
       <li xml:lang="ca">Interfície amb pestanyes</li>
       <li xml:lang="ca-valencia">Interfície amb pestanyes</li>
@@ -292,6 +296,7 @@
       <li>Configurable dimensions and animation speed</li>
       <li xml:lang="ar">أبعاد وسرعة حركات قابلة للضّبط</li>
       <li xml:lang="az">Tənzimlənəbilən ölçülər və animasiya sürəti</li>
+      <li xml:lang="be">Наладжвальныя памеры і хуткасць анімацыі</li>
       <li xml:lang="bg">Възможност за анимация и настройки на размера</li>
       <li xml:lang="ca">Les dimensions i la velocitat de l'animació es poden configurar</li>
       <li xml:lang="ca-valencia">Les dimensions i la velocitat de l'animació es poden configurar</li>
@@ -336,6 +341,7 @@
       <li>Skinnable</li>
       <li xml:lang="ar">قابل للتّخصيص</li>
       <li xml:lang="az">Müxtəlif örtüklü</li>
+      <li xml:lang="be">Падтрымка абалонак</li>
       <li xml:lang="bg">Смяна на облика с помощта на обложки</li>
       <li xml:lang="ca">Es pot canviar l'aparença</li>
       <li xml:lang="ca-valencia">Es pot canviar l'aparença</li>
@@ -380,6 +386,7 @@
       <li>Sophisticated D-Bus interface</li>
       <li xml:lang="ar">واجهة D-Bus متطوّرة</li>
       <li xml:lang="az">Yaxşı düşünülmüş D-Bus interfeysi</li>
+      <li xml:lang="be">Складаны інтэрфейс D-Bus</li>
       <li xml:lang="bg">Софистичен интерфейс към D-Bus</li>
       <li xml:lang="ca">Interfície de D-Bus sofisticada</li>
       <li xml:lang="ca-valencia">Interfície de D-Bus sofisticada</li>
