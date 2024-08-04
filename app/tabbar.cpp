@@ -540,10 +540,10 @@ void TabBar::mousePressEvent(QMouseEvent *event)
     if (QWhatsThis::inWhatsThisMode())
         return;
 
-    if (event->x() < m_skin->tabBarPosition().x())
+    if (event->position().x() < m_skin->tabBarPosition().x())
         return;
 
-    int index = tabAt(event->x());
+    int index = tabAt(event->position().x());
 
     if (index == -1)
         return;
@@ -565,10 +565,10 @@ void TabBar::mouseReleaseEvent(QMouseEvent *event)
     if (QWhatsThis::inWhatsThisMode())
         return;
 
-    if (event->x() < m_skin->tabBarPosition().x())
+    if (event->position().x() < m_skin->tabBarPosition().x())
         return;
 
-    int index = tabAt(event->x());
+    int index = tabAt(event->position().x());
 
     if (m_mousePressed && m_mousePressedIndex == index) {
         if (event->button() == Qt::LeftButton && index != m_tabs.indexOf(m_selectedSessionId))
@@ -621,8 +621,8 @@ void TabBar::dragMoveEvent(QDragMoveEvent *event)
 {
     TabBar *eventSource = qobject_cast<TabBar *>(event->source());
 
-    if (eventSource && event->pos().x() > m_skin->tabBarPosition().x() && event->pos().x() < m_closeTabButton->x()) {
-        int index = dropIndex(event->pos());
+    if (eventSource && event->position().toPoint().x() > m_skin->tabBarPosition().x() && event->position().toPoint().x() < m_closeTabButton->x()) {
+        int index = dropIndex(event->position().toPoint());
 
         if (index == -1)
             index = m_tabs.count();
@@ -651,12 +651,12 @@ void TabBar::dropEvent(QDropEvent *event)
 {
     drawDropIndicator(-1);
 
-    int x = event->pos().x();
+    int x = event->position().toPoint().x();
 
     if (isSameTab(event) || x < m_skin->tabBarPosition().x() || x > m_closeTabButton->x())
         event->ignore();
     else {
-        int targetIndex = dropIndex(event->pos());
+        int targetIndex = dropIndex(event->position().toPoint());
         int sourceSessionId = event->mimeData()->text().toInt();
         int sourceIndex = m_tabs.indexOf(sourceSessionId);
 
@@ -683,15 +683,15 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent *event)
 
     m_lineEdit->hide();
 
-    if (event->x() < 0)
+    if (event->position().x() < 0)
         return;
 
-    int index = tabAt(event->x());
+    int index = tabAt(event->position().x());
 
     if (event->button() == Qt::LeftButton) {
-        if (event->x() <= m_tabWidths.last())
+        if (event->position().x() <= m_tabWidths.last())
             interactiveRename(m_tabs.at(index));
-        else if (event->x() > m_tabWidths.last())
+        else if (event->position().x() > m_tabWidths.last())
             Q_EMIT newTabRequested();
     }
 
@@ -1037,7 +1037,7 @@ int TabBar::dropIndex(const QPoint pos)
 
 bool TabBar::isSameTab(const QDropEvent *event)
 {
-    int index = dropIndex(event->pos());
+    int index = dropIndex(event->position().toPoint());
     int sourceSessionId = event->mimeData()->text().toInt();
     int sourceIndex = m_tabs.indexOf(sourceSessionId);
 

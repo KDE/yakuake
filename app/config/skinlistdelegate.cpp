@@ -52,7 +52,7 @@ void SkinListDelegate::paintIcon(QPainter *painter, const QStyleOptionViewItem &
 
     value = index.data(AppearanceSettings::SkinIcon);
 
-    if (value.isValid() && value.type() == QVariant::Icon) {
+    if (value.isValid() && value.typeId() == qMetaTypeId<QIcon>()) {
         int x = option.rect.x() + MARGIN;
         int y = option.rect.y() + (option.rect.height() / 2) - (ICON / 2);
 

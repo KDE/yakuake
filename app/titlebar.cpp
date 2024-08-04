@@ -147,7 +147,7 @@ void TitleBar::mouseMoveEvent(QMouseEvent *event)
         MainWindow *window = dynamic_cast<MainWindow *>(parent());
 
         int maxHeight = window->getDesktopGeometry().height();
-        int newHeight = event->globalY() / (maxHeight / 100);
+        int newHeight = event->globalPosition().y() / (maxHeight / 100);
 
         // Correct newHeight if mouse is dragged too far
         if (newHeight > 100) {
