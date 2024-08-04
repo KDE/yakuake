@@ -29,8 +29,8 @@ include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 include(ECMGenerateDBusServiceFile)
 
-ecm_set_disabled_deprecation_versions(QT 5.15.2
-    KF 5.100.0
+ecm_set_disabled_deprecation_versions(QT 6.7.0
+    KF 6.4.0
     )
 
 ### Security concerns about sendText and runCommand dbus methods being public
