@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: extragear-utils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-24 00:40+0000\n"
-"PO-Revision-Date: 2024-06-06 11:33+0300\n"
+"PO-Revision-Date: 2024-08-06 11:35+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 24.11.70\n"
 
 #: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
@@ -105,7 +105,7 @@ msgstr "Tema Kurulamıyor"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
-msgstr "%2 tarafından yapılan %1 temasını kaldırmak istiyor musunuz?"
+msgstr "%2 tarafından yapılmış “%1” temasını kaldırmak istiyor musunuz?"
 
 #: app/config/appearancesettings.cpp:377
 #, kde-kuit-format
