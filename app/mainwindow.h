@@ -95,7 +95,7 @@ protected:
     void closeEvent(QCloseEvent *event) override;
     bool focusNextPrevChild(bool) override;
 
-    virtual bool queryClose() override;
+    bool queryClose() override;
 
 private Q_SLOTS:
     void applySettings();

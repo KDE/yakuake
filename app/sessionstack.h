@@ -128,7 +128,7 @@ Q_SIGNALS:
     void wantsBlurChanged();
 
 protected:
-    virtual void showEvent(QShowEvent *event) override;
+    void showEvent(QShowEvent *event) override;
 
 private Q_SLOTS:
     void handleManualTerminalActivation(Terminal *);
