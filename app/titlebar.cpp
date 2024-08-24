@@ -189,7 +189,7 @@ void TitleBar::setFocusButtonState(bool checked)
     m_focusButton->setChecked(checked);
 }
 
-QString TitleBar::title()
+QString TitleBar::title() const
 {
     if (!m_skin->titleBarText().isEmpty() && !m_title.isEmpty())
         return m_title + QStringLiteral(" - ") + m_skin->titleBarText();

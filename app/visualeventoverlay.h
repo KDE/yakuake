@@ -76,7 +76,7 @@ class VisualEventOverlay : public QWidget
 
 public:
     explicit VisualEventOverlay(SessionStack *parent = nullptr);
-    ~VisualEventOverlay();
+    ~VisualEventOverlay() override;
 
 public Q_SLOTS:
     void highlightTerminal(Terminal *terminal, bool persistent = false);

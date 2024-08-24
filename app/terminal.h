@@ -58,7 +58,7 @@ public:
     void manageProfiles();
     void editProfile();
 
-    bool keyboardInputEnabled()
+    bool keyboardInputEnabled() const
     {
         return m_keyboardInputEnabled;
     }
@@ -67,13 +67,13 @@ public:
         m_keyboardInputEnabled = enabled;
     }
 
-    bool monitorActivityEnabled()
+    bool monitorActivityEnabled() const
     {
         return m_monitorActivityEnabled;
     }
     void setMonitorActivityEnabled(bool enabled);
 
-    bool monitorSilenceEnabled()
+    bool monitorSilenceEnabled() const
     {
         return m_monitorSilenceEnabled;
     }

@@ -29,7 +29,7 @@ public:
     void updateMask();
     void updateMenu();
 
-    QString title();
+    QString title() const;
 
     void setFocusButtonState(bool checked);
 
