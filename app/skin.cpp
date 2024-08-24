@@ -24,18 +24,18 @@ Skin::~Skin()
 
 bool Skin::load(const QString &name, bool kns)
 {
-    QString dir = kns ? QStringLiteral("kns_skins/") : QStringLiteral("skins/");
+    const QString dir = kns ? QStringLiteral("kns_skins/") : QStringLiteral("skins/");
 
-    QString titlePath = QStandardPaths::locate(QStandardPaths::AppDataLocation, dir + name + QStringLiteral("/title.skin"));
-    QString tabPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, dir + name + QStringLiteral("/tabs.skin"));
+    const QString titlePath = QStandardPaths::locate(QStandardPaths::AppDataLocation, dir + name + QStringLiteral("/title.skin"));
+    const QString tabPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, dir + name + QStringLiteral("/tabs.skin"));
 
     if (!QFile::exists(titlePath) || !QFile::exists(tabPath))
         return false;
 
     connect(KIconLoader::global(), SIGNAL(iconChanged(int)), this, SLOT(systemIconsChanged(int)), Qt::UniqueConnection);
 
-    QString titleDir(QFileInfo(titlePath).absolutePath());
-    QString tabDir(QFileInfo(tabPath).absolutePath());
+    const QString titleDir(QFileInfo(titlePath).absolutePath());
+    const QString tabDir(QFileInfo(tabPath).absolutePath());
 
     KConfig titleConfig(titlePath, KConfig::SimpleConfig);
     KConfig tabConfig(tabPath, KConfig::SimpleConfig);
