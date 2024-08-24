@@ -18,9 +18,7 @@ Skin::Skin()
     m_borderWidth = 0;
 }
 
-Skin::~Skin()
-{
-}
+Skin::~Skin() = default;
 
 bool Skin::load(const QString &name, bool kns)
 {

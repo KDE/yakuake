@@ -13,9 +13,7 @@ Splitter::Splitter(Qt::Orientation orientation, QWidget *parent)
     setOpaqueResize(false);
 }
 
-Splitter::~Splitter()
-{
-}
+Splitter::~Splitter() = default;
 
 void Splitter::recursiveCleanup()
 {

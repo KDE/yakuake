@@ -25,9 +25,7 @@ EventRect::EventRect(const QPoint &topLeft, const QPoint &bottomRight, EventType
     m_timeStamp.start();
 }
 
-EventRect::~EventRect()
-{
-}
+EventRect::~EventRect() = default;
 
 bool EventRect::operator==(const EventRect &eventRect) const
 {
@@ -73,9 +71,7 @@ VisualEventOverlay::VisualEventOverlay(SessionStack *parent)
     hide();
 }
 
-VisualEventOverlay::~VisualEventOverlay()
-{
-}
+VisualEventOverlay::~VisualEventOverlay() = default;
 
 void VisualEventOverlay::highlightTerminal(Terminal *terminal, bool persistent)
 {

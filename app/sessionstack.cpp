@@ -31,9 +31,7 @@ SessionStack::SessionStack(QWidget *parent)
     connect(this, SIGNAL(removeTerminalHighlight()), m_visualEventOverlay, SLOT(removeTerminalHighlight()));
 }
 
-SessionStack::~SessionStack()
-{
-}
+SessionStack::~SessionStack() = default;
 
 int SessionStack::addSessionImpl(Session::SessionType type)
 {

@@ -53,9 +53,7 @@ TitleBar::TitleBar(MainWindow *mainWindow)
     connect(m_quitButton, SIGNAL(clicked()), mainWindow, SLOT(close()));
 }
 
-TitleBar::~TitleBar()
-{
-}
+TitleBar::~TitleBar() = default;
 
 void TitleBar::setVisible(bool visible)
 {
