@@ -17,7 +17,6 @@ public:
     explicit WindowSettings(QWidget *parent = nullptr);
     ~WindowSettings();
 
-private:
 Q_SIGNALS:
     void updateWindowGeometry(int width, int height, int position);
 
