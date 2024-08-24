@@ -99,13 +99,13 @@ private:
 
     QList<EventRect> m_eventRects;
 
-    QTimer *m_cleanupTimer;
+    QTimer *m_cleanupTimer = nullptr;
     QElapsedTimer m_cleanupTimerStarted;
     int m_cleanupTimerCeiling;
 
     QElapsedTimer m_time;
 
-    SessionStack *m_sessionStack;
+    SessionStack *m_sessionStack = nullptr;
 };
 
 #endif

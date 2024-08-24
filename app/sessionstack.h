@@ -142,7 +142,7 @@ private:
     };
     bool queryClose(int sessionId, QueryCloseType type);
 
-    VisualEventOverlay *m_visualEventOverlay;
+    VisualEventOverlay *m_visualEventOverlay = nullptr;
 
     int m_activeSessionId;
 

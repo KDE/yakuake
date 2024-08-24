@@ -185,22 +185,22 @@ private:
     bool m_useTranslucency;
     bool m_isFullscreen;
 
-    KActionCollection *m_actionCollection;
+    KActionCollection *m_actionCollection = nullptr;
     QList<QAction *> m_contextDependentActions;
 
-    Skin *m_skin;
-    TitleBar *m_titleBar;
-    TabBar *m_tabBar;
-    SessionStack *m_sessionStack;
+    Skin *m_skin = nullptr;
+    TitleBar *m_titleBar = nullptr;
+    TabBar *m_tabBar = nullptr;
+    SessionStack *m_sessionStack = nullptr;
 
-    QMenu *m_menu;
-    KHelpMenu *m_helpMenu;
-    QMenu *m_screenMenu;
-    QMenu *m_windowWidthMenu;
-    QMenu *m_windowHeightMenu;
+    QMenu *m_menu = nullptr;
+    KHelpMenu *m_helpMenu = nullptr;
+    QMenu *m_screenMenu = nullptr;
+    QMenu *m_windowWidthMenu = nullptr;
+    QMenu *m_windowHeightMenu = nullptr;
 
-    FirstRunDialog *m_firstRunDialog;
-    KStatusNotifierItem *m_notifierItem;
+    FirstRunDialog *m_firstRunDialog = nullptr;
+    KStatusNotifierItem *m_notifierItem = nullptr;
 
     QTimer m_animationTimer;
     QTimer m_mousePoller;
@@ -215,8 +215,8 @@ private:
 #if HAVE_KWAYLAND
     void initWayland();
     void initWaylandSurface();
-    KWayland::Client::PlasmaShell *m_plasmaShell;
-    KWayland::Client::PlasmaShellSurface *m_plasmaShellSurface;
+    KWayland::Client::PlasmaShell *m_plasmaShell = nullptr;
+    KWayland::Client::PlasmaShellSurface *m_plasmaShellSurface = nullptr;
 #endif
 };
 

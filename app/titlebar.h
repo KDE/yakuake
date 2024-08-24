@@ -44,13 +44,13 @@ protected:
 private:
     void moveButtons();
 
-    MainWindow *m_mainWindow;
-    Skin *m_skin;
+    MainWindow *m_mainWindow = nullptr;
+    Skin *m_skin = nullptr;
     bool m_visible = false;
 
-    QPushButton *m_focusButton;
-    QPushButton *m_menuButton;
-    QPushButton *m_quitButton;
+    QPushButton *m_focusButton = nullptr;
+    QPushButton *m_menuButton = nullptr;
+    QPushButton *m_quitButton = nullptr;
 
     QString m_title;
 };

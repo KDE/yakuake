@@ -138,7 +138,7 @@ private:
     static int m_availableSessionId;
     int m_sessionId;
 
-    Splitter *m_baseSplitter;
+    Splitter *m_baseSplitter = nullptr;
 
     int m_activeTerminalId;
     std::map<int, std::unique_ptr<Terminal>> m_terminals;

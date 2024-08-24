@@ -93,8 +93,8 @@ private:
 
     QString m_selectedSkinId;
 
-    QStandardItemModel *m_skins;
-    SkinListDelegate *m_skinListDelegate;
+    QStandardItemModel *m_skins = nullptr;
+    SkinListDelegate *m_skinListDelegate = nullptr;
 
     QString m_localSkinsDir;
     QString m_knsSkinDir;

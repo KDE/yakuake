@@ -112,19 +112,19 @@ private:
     int dropIndex(const QPoint pos);
     bool isSameTab(const QDropEvent *);
 
-    MainWindow *m_mainWindow;
-    Skin *m_skin;
+    MainWindow *m_mainWindow = nullptr;
+    Skin *m_skin = nullptr;
 
-    QToolButton *m_newTabButton;
-    QPushButton *m_closeTabButton;
+    QToolButton *m_newTabButton = nullptr;
+    QPushButton *m_closeTabButton = nullptr;
 
-    QMenu *m_tabContextMenu;
-    QMenu *m_toggleKeyboardInputMenu;
-    QMenu *m_toggleMonitorActivityMenu;
-    QMenu *m_toggleMonitorSilenceMenu;
-    QMenu *m_sessionMenu;
+    QMenu *m_tabContextMenu = nullptr;
+    QMenu *m_toggleKeyboardInputMenu = nullptr;
+    QMenu *m_toggleMonitorActivityMenu = nullptr;
+    QMenu *m_toggleMonitorSilenceMenu = nullptr;
+    QMenu *m_sessionMenu = nullptr;
 
-    QLineEdit *m_lineEdit;
+    QLineEdit *m_lineEdit = nullptr;
     int m_renamingSessionId;
 
     QList<int> m_tabs;
@@ -138,7 +138,7 @@ private:
     int m_mousePressedIndex;
 
     QPoint m_startPos;
-    QLabel *m_dropIndicator;
+    QLabel *m_dropIndicator = nullptr;
     QRect m_dropRect;
 };
 
