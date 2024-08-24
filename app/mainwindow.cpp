@@ -844,7 +844,7 @@ void MainWindow::configureApp()
     settingsDialog->button(QDialogButtonBox::Help)->hide();
     settingsDialog->button(QDialogButtonBox::Cancel)->setFocus();
 
-    connect(settingsDialog, &QDialog::finished, [=, this]() {
+    connect(settingsDialog, &QDialog::finished, [this]() {
         m_toggleLock = true;
         KWindowSystem::activateWindow(windowHandle());
 
