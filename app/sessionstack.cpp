@@ -718,17 +718,17 @@ bool SessionStack::queryClose(int sessionId, QueryCloseType type)
         return false;
 
     if (!m_sessions.value(sessionId)->closable()) {
-        QString closeQuestionIntro = xi18nc("@info", "<warning>You have locked this session to prevent accidental closing of terminals.</warning>");
+        const QString closeQuestionIntro = xi18nc("@info", "<warning>You have locked this session to prevent accidental closing of terminals.</warning>");
         QString closeQuestion;
 
         if (type == QueryCloseSession)
-            closeQuestion = xi18nc("@info", "Are you sure you want to close this session?");
+            closeQuestion = i18nc("@info", "Are you sure you want to close this session?");
         else if (type == QueryCloseTerminal)
-            closeQuestion = xi18nc("@info", "Are you sure you want to close this terminal?");
+            closeQuestion = i18nc("@info", "Are you sure you want to close this terminal?");
 
         int result = KMessageBox::warningContinueCancel(this,
                                                         closeQuestionIntro + QStringLiteral("<br/><br/>") + closeQuestion,
-                                                        xi18nc("@title:window", "Really Close?"),
+                                                        i18nc("@title:window", "Really Close?"),
                                                         KStandardGuiItem::close(),
                                                         KStandardGuiItem::cancel());
 
