@@ -22,7 +22,7 @@ class Terminal : public QObject
 
 public:
     explicit Terminal(const QString &workingDir, QWidget *parent = nullptr);
-    ~Terminal();
+    ~Terminal() override;
 
     bool eventFilter(QObject *watched, QEvent *event) override;
 

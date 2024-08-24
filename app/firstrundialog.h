@@ -18,9 +18,9 @@ class FirstRunDialog : public QDialog
 
 public:
     explicit FirstRunDialog(MainWindow *mainWindow);
-    ~FirstRunDialog();
+    ~FirstRunDialog() override;
 
-    QKeySequence keySequence()
+    QKeySequence keySequence() const
     {
         return m_keySequence;
     }
@@ -31,8 +31,8 @@ private Q_SLOTS:
 private:
     void initKeyButton();
 
-    Ui_FirstRunDialog *m_ui;
-    MainWindow *m_mainWindow;
+    Ui_FirstRunDialog *m_ui = nullptr;
+    MainWindow *m_mainWindow = nullptr;
 
     QKeySequence m_keySequence;
 };

@@ -17,7 +17,7 @@ class Skin : public QObject
 
 public:
     explicit Skin();
-    ~Skin();
+    ~Skin() override;
 
     bool load(const QString &name, bool kns = false);
 

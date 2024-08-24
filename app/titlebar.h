@@ -22,7 +22,7 @@ class TitleBar : public QWidget
 
 public:
     explicit TitleBar(MainWindow *mainWindow);
-    ~TitleBar();
+    ~TitleBar() override;
 
     void setVisible(bool visible) override;
     void applySkin();

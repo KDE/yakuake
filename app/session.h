@@ -33,9 +33,9 @@ public:
     };
 
     explicit Session(const QString &workingDir, SessionType type = Single, QWidget *parent = nullptr);
-    ~Session();
+    ~Session() override;
 
-    int id()
+    int id() const
     {
         return m_sessionId;
     }
@@ -48,19 +48,19 @@ public:
         return m_baseSplitter;
     }
 
-    int activeTerminalId()
+    int activeTerminalId() const
     {
         return m_activeTerminalId;
     }
     const QString terminalIdList();
-    int terminalCount()
+    int terminalCount() const
     {
         return m_terminals.size();
     }
     bool hasTerminal(int terminalId);
     Terminal *getTerminal(int terminalId);
 
-    bool closable()
+    bool closable() const
     {
         return m_closable;
     }

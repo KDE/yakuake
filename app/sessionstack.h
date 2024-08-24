@@ -26,7 +26,7 @@ class SessionStack : public QStackedWidget
 
 public:
     explicit SessionStack(QWidget *parent = nullptr);
-    ~SessionStack();
+    ~SessionStack() override;
 
     void closeActiveTerminal(int sessionId = -1);
 

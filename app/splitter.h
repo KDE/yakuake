@@ -15,7 +15,7 @@ class Splitter : public QSplitter
 
 public:
     explicit Splitter(Qt::Orientation orientation, QWidget *parent = nullptr);
-    ~Splitter();
+    ~Splitter() override;
 
     void recursiveCleanup();
 };

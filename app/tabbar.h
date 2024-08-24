@@ -32,7 +32,7 @@ public:
         Interactive = 1,
     };
     explicit TabBar(MainWindow *mainWindow);
-    ~TabBar();
+    ~TabBar() override;
 
     void applySkin();
 

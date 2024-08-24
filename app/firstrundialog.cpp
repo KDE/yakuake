@@ -16,9 +16,8 @@
 
 FirstRunDialog::FirstRunDialog(MainWindow *mainWindow)
     : QDialog(mainWindow)
+    , m_mainWindow(mainWindow)
 {
-    m_mainWindow = mainWindow;
-
     setWindowTitle(xi18nc("@title:window", "First Run"));
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);

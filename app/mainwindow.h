@@ -45,27 +45,27 @@ class MainWindow : public KMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    ~MainWindow() override;
 
-    KActionCollection *actionCollection()
+    KActionCollection *actionCollection() const
     {
         return m_actionCollection;
     }
-    SessionStack *sessionStack()
+    SessionStack *sessionStack() const
     {
         return m_sessionStack;
     }
 
-    Skin *skin()
+    Skin *skin() const
     {
         return m_skin;
     }
-    QMenu *menu()
+    QMenu *menu() const
     {
         return m_menu;
     }
 
-    bool useTranslucency()
+    bool useTranslucency() const
     {
         return m_useTranslucency;
     }
