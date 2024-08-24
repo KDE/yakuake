@@ -24,8 +24,8 @@ FirstRunDialog::FirstRunDialog(MainWindow *mainWindow)
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &FirstRunDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &FirstRunDialog::reject);
 
     QWidget *widget = new QWidget(this);
     mainLayout->addWidget(widget);
