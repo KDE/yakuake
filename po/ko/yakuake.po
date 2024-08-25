@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-24 00:40+0000\n"
+"POT-Creation-Date: 2024-08-25 00:42+0000\n"
 "PO-Revision-Date: 2023-07-23 20:21+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1036,7 +1036,7 @@ msgid ""
 "sessions are open."
 msgstr "세션이 여러 개 열려 있을 때 종료를 확인할지 여부입니다."
 
-#: app/firstrundialog.cpp:22
+#: app/firstrundialog.cpp:21
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "First Run"
@@ -1513,7 +1513,7 @@ msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
 msgstr "<shortcut>%1</shortcut> 키를 눌러 열기"
 
-#: app/sessionstack.cpp:257
+#: app/sessionstack.cpp:255
 #, kde-format
 msgid ""
 "The D-Bus method runCommand was just used.  There are security concerns "
@@ -1526,7 +1526,7 @@ msgstr ""
 "에서만 사용할 수 있도록 변경할 수 있습니다.<p>이 경고는 Yakuake 인스턴스에서 "
 "한 번만 표시됩니다.</p>"
 
-#: app/sessionstack.cpp:723
+#: app/sessionstack.cpp:721
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1535,20 +1535,20 @@ msgid ""
 msgstr ""
 "<warning>터미널을 실수로 종료하지 못하도록 세션을 잠갔습니다.</warning>"
 
-#: app/sessionstack.cpp:727
-#, kde-kuit-format
+#: app/sessionstack.cpp:725
+#, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
 msgstr "이 세션을 닫으시겠습니까?"
 
-#: app/sessionstack.cpp:729
-#, kde-kuit-format
+#: app/sessionstack.cpp:727
+#, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
 msgstr "이 터미널을 닫으시겠습니까?"
 
-#: app/sessionstack.cpp:733
-#, kde-kuit-format
+#: app/sessionstack.cpp:731
+#, kde-format
 msgctxt "@title:window"
 msgid "Really Close?"
 msgstr "정말 종료하시겠습니까?"

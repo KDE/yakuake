@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-24 00:40+0000\n"
+"POT-Creation-Date: 2024-08-25 00:42+0000\n"
 "PO-Revision-Date: 2024-05-23 16:03+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1024,7 +1024,7 @@ msgid ""
 "sessions are open."
 msgstr "若開啟多個工作階段，是否在應用程式離開前提示使用者。"
 
-#: app/firstrundialog.cpp:22
+#: app/firstrundialog.cpp:21
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "First Run"
@@ -1500,7 +1500,7 @@ msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
 msgstr "按下 <shortcut>%1</shortcut> 來開啟"
 
-#: app/sessionstack.cpp:257
+#: app/sessionstack.cpp:255
 #, kde-format
 msgid ""
 "The D-Bus method runCommand was just used.  There are security concerns "
@@ -1512,7 +1512,7 @@ msgstr ""
 "如果需要的話，這些方法只能由重新編譯 Yakuake 來變更為內部使用。<p>這個警告將"
 "只會在這個 Yakuake 實體中顯示一次。</p>"
 
-#: app/sessionstack.cpp:723
+#: app/sessionstack.cpp:721
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1520,20 +1520,20 @@ msgid ""
 "terminals.</warning>"
 msgstr "<warning>您已鎖定此工作階段避免意外關閉終端機。</warning>"
 
-#: app/sessionstack.cpp:727
-#, kde-kuit-format
+#: app/sessionstack.cpp:725
+#, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
 msgstr "您確定要關閉此工作階段嗎？"
 
-#: app/sessionstack.cpp:729
-#, kde-kuit-format
+#: app/sessionstack.cpp:727
+#, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
 msgstr "您確定要關閉此終端機嗎？"
 
-#: app/sessionstack.cpp:733
-#, kde-kuit-format
+#: app/sessionstack.cpp:731
+#, kde-format
 msgctxt "@title:window"
 msgid "Really Close?"
 msgstr "確定要關閉？"

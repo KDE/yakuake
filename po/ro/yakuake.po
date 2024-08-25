@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-24 00:40+0000\n"
+"POT-Creation-Date: 2024-08-25 00:42+0000\n"
 "PO-Revision-Date: 2024-02-24 15:58+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -1042,7 +1042,7 @@ msgid ""
 "sessions are open."
 msgstr "Comută afișarea barei de file în fereastra aplicației."
 
-#: app/firstrundialog.cpp:22
+#: app/firstrundialog.cpp:21
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "First Run"
@@ -1533,7 +1533,7 @@ msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
 msgstr "Apăsați <shortcut>%1</shortcut> pentru a deschide"
 
-#: app/sessionstack.cpp:257
+#: app/sessionstack.cpp:255
 #, kde-format
 msgid ""
 "The D-Bus method runCommand was just used.  There are security concerns "
@@ -1547,7 +1547,7 @@ msgstr ""
 "Yakuake. <p>Acest avertisment va fi arătat doar o dată pentru această "
 "instanță Yakuake.</p>"
 
-#: app/sessionstack.cpp:723
+#: app/sessionstack.cpp:721
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1557,20 +1557,20 @@ msgstr ""
 "<warning>Ați blocat această sesiune pentru a preveni închiderea accidentală "
 "a terminalelor.</warning>"
 
-#: app/sessionstack.cpp:727
-#, kde-kuit-format
+#: app/sessionstack.cpp:725
+#, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
 msgstr "Sigur doriți să închideți această sesiune?"
 
-#: app/sessionstack.cpp:729
-#, kde-kuit-format
+#: app/sessionstack.cpp:727
+#, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
 msgstr "Sigur doriți să închideți acest terminal?"
 
-#: app/sessionstack.cpp:733
-#, kde-kuit-format
+#: app/sessionstack.cpp:731
+#, kde-format
 msgctxt "@title:window"
 msgid "Really Close?"
 msgstr "Sigur închideți?"

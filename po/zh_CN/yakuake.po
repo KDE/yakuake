@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-24 00:40+0000\n"
+"POT-Creation-Date: 2024-08-25 00:42+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1023,7 +1023,7 @@ msgid ""
 "sessions are open."
 msgstr "当打开了多个会话时，是否在退出 Yakuake 时请求用户确认。"
 
-#: app/firstrundialog.cpp:22
+#: app/firstrundialog.cpp:21
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "First Run"
@@ -1500,7 +1500,7 @@ msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
 msgstr "按 <shortcut>%1</shortcut> 展开"
 
-#: app/sessionstack.cpp:257
+#: app/sessionstack.cpp:255
 #, kde-format
 msgid ""
 "The D-Bus method runCommand was just used.  There are security concerns "
@@ -1513,7 +1513,7 @@ msgstr ""
 "改为仅限 Yakuake 程序内部调用。<p>这条警告信息只会在本 Yakuake 实例中显示一"
 "次。</p>"
 
-#: app/sessionstack.cpp:723
+#: app/sessionstack.cpp:721
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1521,20 +1521,20 @@ msgid ""
 "terminals.</warning>"
 msgstr "<warning>此会话已被锁定以防止终端意外关闭。</warning>"
 
-#: app/sessionstack.cpp:727
-#, kde-kuit-format
+#: app/sessionstack.cpp:725
+#, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
 msgstr "您确定要关闭此会话吗？"
 
-#: app/sessionstack.cpp:729
-#, kde-kuit-format
+#: app/sessionstack.cpp:727
+#, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
 msgstr "您确定要关闭此终端吗？"
 
-#: app/sessionstack.cpp:733
-#, kde-kuit-format
+#: app/sessionstack.cpp:731
+#, kde-format
 msgctxt "@title:window"
 msgid "Really Close?"
 msgstr "您真的确定要关闭吗？"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-24 00:40+0000\n"
+"POT-Creation-Date: 2024-08-25 00:42+0000\n"
 "PO-Revision-Date: 2012-07-11 11:30+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -1060,7 +1060,7 @@ msgid ""
 "sessions are open."
 msgstr "ថា​តើ​ត្រូវ​ដាក់​ប្រអប់​បញ្ចូល មុន​ពេល​បោះបង់​កម្មវិធី នៅ​ពេល​បើក​ពហុ​សម័យ​ដែរ​ឬ​ទេ ។"
 
-#: app/firstrundialog.cpp:22
+#: app/firstrundialog.cpp:21
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "First Run"
@@ -1547,7 +1547,7 @@ msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
 msgstr ""
 
-#: app/sessionstack.cpp:257
+#: app/sessionstack.cpp:255
 #, kde-format
 msgid ""
 "The D-Bus method runCommand was just used.  There are security concerns "
@@ -1556,7 +1556,7 @@ msgid ""
 "only show once for this Yakuake instance.</p>"
 msgstr ""
 
-#: app/sessionstack.cpp:723
+#: app/sessionstack.cpp:721
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1564,20 +1564,20 @@ msgid ""
 "terminals.</warning>"
 msgstr "<warning>អ្នក​បាន​ចាក់សោ​សម័យ​នេះ ដើម្បី​ការពារ​ការ​បិទ​ស្ថានីយ​​ដោយ​ចៃដន្យ ។</warning>"
 
-#: app/sessionstack.cpp:727
-#, kde-kuit-format
+#: app/sessionstack.cpp:725
+#, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
 msgstr "តើ​អ្នក​ប្រាកដ​ជា​ចង់​បិទ​សម័យ​នេះ​ឬ ?"
 
-#: app/sessionstack.cpp:729
-#, kde-kuit-format
+#: app/sessionstack.cpp:727
+#, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
 msgstr "តើ​អ្នក​ប្រាកដ​ជា​ចង់​បិទ​​ស្ថានីយ​នេះ​ឬ ?"
 
-#: app/sessionstack.cpp:733
-#, kde-kuit-format
+#: app/sessionstack.cpp:731
+#, kde-format
 msgctxt "@title:window"
 msgid "Really Close?"
 msgstr "ពិត​ជា​បិទ​ឬ ?"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-24 00:40+0000\n"
+"POT-Creation-Date: 2024-08-25 00:42+0000\n"
 "PO-Revision-Date: 2023-11-12 16:39+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -1066,7 +1066,7 @@ msgstr ""
 "Ĉu demandi la uzanton antaŭ ol forlasi la aplikaĵon kiam pluraj seancoj "
 "estas malfermitaj."
 
-#: app/firstrundialog.cpp:22
+#: app/firstrundialog.cpp:21
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "First Run"
@@ -1547,7 +1547,7 @@ msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
 msgstr "Premu <shortcut>%1</shortcut> por malfermi"
 
-#: app/sessionstack.cpp:257
+#: app/sessionstack.cpp:255
 #, kde-format
 msgid ""
 "The D-Bus method runCommand was just used.  There are security concerns "
@@ -1560,7 +1560,7 @@ msgstr ""
 "esti ŝanĝitaj al interna uzo nur per rekompilo de Yakuake. <p>Ĉi tiu averto "
 "aperos nur unufoje por ĉi tiu Yakuake-instanco.</p>"
 
-#: app/sessionstack.cpp:723
+#: app/sessionstack.cpp:721
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1570,20 +1570,20 @@ msgstr ""
 "<warning>Vi ŝlosis ĉi tiun seancon por malhelpi hazardan fermon de "
 "terminaloj.</warning>"
 
-#: app/sessionstack.cpp:727
-#, kde-kuit-format
+#: app/sessionstack.cpp:725
+#, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
 msgstr "Ĉu vi certas, ke vi volas fermi ĉi tiun seancon?"
 
-#: app/sessionstack.cpp:729
-#, kde-kuit-format
+#: app/sessionstack.cpp:727
+#, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
 msgstr "Ĉu vi certas, ke vi volas fermi ĉi tiun terminalon?"
 
-#: app/sessionstack.cpp:733
-#, kde-kuit-format
+#: app/sessionstack.cpp:731
+#, kde-format
 msgctxt "@title:window"
 msgid "Really Close?"
 msgstr "Ĉu Vere Fermi?"

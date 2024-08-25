@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-24 00:40+0000\n"
+"POT-Creation-Date: 2024-08-25 00:42+0000\n"
 "PO-Revision-Date: 2024-02-05 22:06+0200\n"
 "Last-Translator: George Stefanakis <george.stefanakis@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-doc@kde.org>\n"
@@ -1099,7 +1099,7 @@ msgstr ""
 "Αν θα γίνεται ερώτηση στον χρήστη πριν την έξοδο της εφαρμογής όταν είναι "
 "ανοιχτές πολλαπλές συνεδρίες."
 
-#: app/firstrundialog.cpp:22
+#: app/firstrundialog.cpp:21
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "First Run"
@@ -1586,7 +1586,7 @@ msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
 msgstr "Πιέστε <shortcut>%1</shortcut> για άνοιγμα"
 
-#: app/sessionstack.cpp:257
+#: app/sessionstack.cpp:255
 #, kde-format
 msgid ""
 "The D-Bus method runCommand was just used.  There are security concerns "
@@ -1600,7 +1600,7 @@ msgstr ""
 "μεταγλώττισης του Yakuake. <p>Αυτή η προειδοποίηση δεν θα εμφανισθεί ξανά "
 "για αυτό το αντίγραφο του Yakuake.</p> "
 
-#: app/sessionstack.cpp:723
+#: app/sessionstack.cpp:721
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1610,20 +1610,20 @@ msgstr ""
 "<warning>Έχετε κλειδώσει αυτή τη συνεδρία για να αποτρέψετε το ακούσιο "
 "κλείσιμο των τερματικών.</warning>"
 
-#: app/sessionstack.cpp:727
-#, kde-kuit-format
+#: app/sessionstack.cpp:725
+#, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
 msgstr "Είστε σίγουροι ότι επιθυμείτε να κλείσετε αυτή την συνεδρία;"
 
-#: app/sessionstack.cpp:729
-#, kde-kuit-format
+#: app/sessionstack.cpp:727
+#, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
 msgstr "Είστε σίγουροι ότι επιθυμείτε να κλείσετε αυτο το τερματικό;"
 
-#: app/sessionstack.cpp:733
-#, kde-kuit-format
+#: app/sessionstack.cpp:731
+#, kde-format
 msgctxt "@title:window"
 msgid "Really Close?"
 msgstr "Έξοδος πραγματικά;"
