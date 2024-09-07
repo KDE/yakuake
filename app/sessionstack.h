@@ -52,6 +52,7 @@ public Q_SLOTS:
     Q_SCRIPTABLE void removeSession(int sessionId);
     Q_SCRIPTABLE void removeTerminal(int terminalId);
 
+    Q_SCRIPTABLE int splitSessionAuto(int sessionId);
     Q_SCRIPTABLE int splitSessionLeftRight(int sessionId);
     Q_SCRIPTABLE int splitSessionTopBottom(int sessionId);
     Q_SCRIPTABLE int splitTerminalLeftRight(int terminalId);

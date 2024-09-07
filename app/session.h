@@ -98,6 +98,7 @@ public Q_SLOTS:
     void focusNextTerminal();
     void focusPreviousTerminal();
 
+    int splitAuto(int terminalId = -1);
     int splitLeftRight(int terminalId = -1);
     int splitTopBottom(int terminalId = -1);
 

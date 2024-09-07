@@ -209,6 +209,10 @@ void Terminal::disableOffendingPartActions()
         if (action)
             action->setEnabled(false);
 
+        action = actionCollection->action(QStringLiteral("split-view-auto"));
+        if (action)
+            action->setEnabled(false);
+
         action = actionCollection->action(QStringLiteral("split-view-top-bottom"));
         if (action)
             action->setEnabled(false);

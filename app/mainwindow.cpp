@@ -415,6 +415,13 @@ void MainWindow::setupActions()
     connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
     m_contextDependentActions << action;
 
+    action = actionCollection()->addAction(QStringLiteral("split-auto"));
+    action->setText(xi18nc("@action", "Split Automatically"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("view-split-auto")));
+    actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_Asterisk));
+    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    m_contextDependentActions << action;
+
     action = actionCollection()->addAction(QStringLiteral("toggle-session-prevent-closing"));
     action->setText(xi18nc("@action", "Prevent Closing"));
     action->setCheckable(true);
@@ -499,6 +506,9 @@ void MainWindow::handleContextDependentAction(QAction *action, int sessionId)
 
     if (action == actionCollection()->action(QStringLiteral("split-top-bottom")))
         m_sessionStack->splitSessionTopBottom(sessionId);
+
+    if (action == actionCollection()->action(QStringLiteral("split-auto")))
+        m_sessionStack->splitSessionAuto(sessionId);
 
     if (action == actionCollection()->action(QStringLiteral("grow-terminal-right")))
         m_sessionStack->tryGrowTerminalRight(m_sessionStack->activeTerminalId());

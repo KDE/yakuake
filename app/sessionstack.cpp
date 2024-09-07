@@ -568,6 +568,17 @@ int SessionStack::splitSessionLeftRight(int sessionId)
     return m_sessions.value(sessionId)->splitLeftRight();
 }
 
+int SessionStack::splitSessionAuto(int sessionId)
+{
+    if (sessionId == -1)
+        return -1;
+
+    if (!m_sessions.contains(sessionId))
+        return -1;
+
+    return m_sessions.value(sessionId)->splitAuto();
+}
+
 int SessionStack::splitSessionTopBottom(int sessionId)
 {
     if (sessionId == -1)

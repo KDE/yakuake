@@ -253,6 +253,26 @@ int Session::splitTopBottom(int terminalId)
         return -1;
 }
 
+int Session::splitAuto(int terminalId)
+{
+    if (terminalId == -1)
+        terminalId = m_activeTerminalId;
+    if (terminalId == -1)
+        return -1;
+    if (!m_terminals.contains(terminalId))
+        return -1;
+
+    Terminal *terminal = m_terminals[terminalId].get();
+
+    if (terminal) {
+        if (terminal->partWidget()->width() > terminal->partWidget()->height())
+            return split(terminal, Qt::Horizontal);
+        else
+            return split(terminal, Qt::Vertical);
+    } else
+        return -1;
+}
+
 int Session::split(Terminal *terminal, Qt::Orientation orientation)
 {
     Splitter *splitter = static_cast<Splitter *>(terminal->splitter());
