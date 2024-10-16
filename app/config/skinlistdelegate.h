@@ -13,7 +13,7 @@ class SkinListDelegate : public QAbstractItemDelegate
 {
 public:
     explicit SkinListDelegate(QObject *parent = nullptr);
-    ~SkinListDelegate();
+    ~SkinListDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;

@@ -15,7 +15,7 @@ class WindowSettings : public QWidget, private Ui::WindowSettings
 
 public:
     explicit WindowSettings(QWidget *parent = nullptr);
-    ~WindowSettings();
+    ~WindowSettings() override;
 
 Q_SIGNALS:
     void updateWindowGeometry(int width, int height, int position);
