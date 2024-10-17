@@ -1,13 +1,11 @@
 # Translation of yakuake to Spanish
-# translation of yakuake.po to Spanish
 #
-# Juan Manuel Garcia Molina <juanma@superiodico.net>, 2006, 2007.
-# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
-# Enrique Matias Sanchez (Quique) <cronopios@gmail.com>, 2008.
-# Israel Garcia Garcia <israelgarcia86@gmail.com>, 2010, 2011.
+# SPDX-FileCopyrightText: 2006, 2007 Juan Manuel Garcia Molina <juanma@superiodico.net>
+# SPDX-FileCopyrightText: 2007, 2008 Enrique Matias Sanchez (Quique) <cronopios@gmail.com>
+# SPDX-FileCopyrightText: 2010, 2011 Israel Garcia Garcia <israelgarcia86@gmail.com>
 # SPDX-FileCopyrightText: 2011, 2012, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 Eloy Cuadra <ecuadra@eloihr.net>
-# Ricardo Varas Santana <ricardoivaras@gmail.com>, 2012, 2013.
-# Sofia Priego <spriego@darksylvania.net>, 2015, 2016, 2017, %Y.
+# SPDX-FileCopyrightText: 2012, 2013 Ricardo Varas Santana <ricardoivaras@gmail.com>
+# SPDX-FileCopyrightText: 2015, 2016, 2017 Sofia Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
