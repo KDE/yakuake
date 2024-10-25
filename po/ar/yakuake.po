@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2017.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022.
+# SPDX-FileCopyrightText: 2021, 2022, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-25 00:42+0000\n"
-"PO-Revision-Date: 2022-01-21 21:28+0400\n"
+"PO-Revision-Date: 2024-10-24 09:44+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
@@ -146,7 +147,7 @@ msgstr ""
 #: app/config/appearancesettings.ui:45
 #, kde-format
 msgid "Hide borders"
-msgstr ""
+msgstr "أخف الحدود"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/appearancesettings.ui:55
@@ -1180,7 +1181,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
-msgstr ""
+msgstr "هل أخرج؟"
 
 #: app/mainwindow.cpp:251
 #, kde-kuit-format
@@ -1264,13 +1265,13 @@ msgstr "أغلق الجلسة"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
-msgstr ""
+msgstr "الجلسة السابقة"
 
 #: app/mainwindow.cpp:330
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
-msgstr ""
+msgstr "الجلسة التالية"
 
 #: app/mainwindow.cpp:336
 #, kde-kuit-format
@@ -1318,13 +1319,13 @@ msgstr "غير اسم الجلسة..."
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
-msgstr ""
+msgstr "الطرفية السابقة"
 
 #: app/mainwindow.cpp:391
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
-msgstr ""
+msgstr "الطرفية التالية"
 
 #: app/mainwindow.cpp:397
 #, kde-kuit-format
@@ -1336,19 +1337,19 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
-msgstr ""
+msgstr "افصل يمين/يسار"
 
 #: app/mainwindow.cpp:411
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
-msgstr ""
+msgstr "افصل فوق/تحت"
 
 #: app/mainwindow.cpp:418
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
-msgstr ""
+msgstr "امنع الغلق"
 
 #: app/mainwindow.cpp:424 app/tabbar.cpp:190
 #, kde-kuit-format
@@ -1372,7 +1373,7 @@ msgstr "مراقبة السكون"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
-msgstr ""
+msgstr "بدّل حالة شريط العنوان"
 
 #: app/mainwindow.cpp:451
 #, kde-kuit-format
@@ -1402,7 +1403,7 @@ msgstr "مساعدة"
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
-msgstr ""
+msgstr "خيارات سريعة"
 
 #: app/mainwindow.cpp:688
 #, kde-kuit-format
@@ -1432,7 +1433,7 @@ msgstr "إعدادات"
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
-msgstr ""
+msgstr "عند موضع الفأرة"
 
 #: app/mainwindow.cpp:723
 #, kde-kuit-format
@@ -1443,7 +1444,7 @@ msgstr "الشاشة %1"
 #: app/mainwindow.cpp:745 app/mainwindow.cpp:767
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1٪"
 
 #: app/mainwindow.cpp:832
 #, kde-kuit-format
@@ -1516,7 +1517,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Really Close?"
-msgstr ""
+msgstr "هل أغلق؟"
 
 #: app/tabbar.cpp:39
 #, kde-kuit-format
@@ -1572,25 +1573,25 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action"
 msgid "For This Session"
-msgstr ""
+msgstr "لهذه الجلسة"
 
 #: app/tabbar.cpp:211
 #, kde-kuit-format
 msgctxt "@action"
 msgid "For Terminal %1"
-msgstr ""
+msgstr "لأجل الطّرفيّة %1"
 
 #: app/tabbar.cpp:239 app/tabbar.cpp:284
 #, kde-kuit-format
 msgctxt "@action"
 msgid "In This Session"
-msgstr ""
+msgstr "في هذه الجلسة"
 
 #: app/tabbar.cpp:256 app/tabbar.cpp:301
 #, kde-kuit-format
 msgctxt "@action"
 msgid "In Terminal %1"
-msgstr ""
+msgstr "في الطّرفيّة %1"
 
 #: app/tabbar.cpp:933
 #, kde-kuit-format
@@ -1602,7 +1603,7 @@ msgstr "الصدَفة"
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell No. %1"
-msgstr ""
+msgstr "الصدفة رقم %1"
 
 #: app/terminal.cpp:163
 #, kde-kuit-format
