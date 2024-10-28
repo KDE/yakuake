@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: extragear-utils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-25 00:42+0000\n"
-"PO-Revision-Date: 2024-09-23 15:20+0300\n"
+"PO-Revision-Date: 2024-10-27 18:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
@@ -933,42 +933,42 @@ msgstr "Uçbirim vurgulama kaplamasının süresi."
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator color"
-msgstr "Klavye girdi bloku belirteci rengi"
+msgstr "Klavye girişi bloku belirteci rengi"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
 #: app/config/yakuake.kcfg:151
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The color of the keyboard input block indicator overlay."
-msgstr "Klavye girdi bloku belirtecinin rengi."
+msgstr "Klavye girişi bloku belirtecinin rengi."
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:155
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator opacity"
-msgstr "Klavye girdi bloku belirtecinin matlığı"
+msgstr "Klavye girişi bloku belirtecinin matlığı"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:156
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the keyboard input block indicator overlay."
-msgstr "Klavye girdi bloku belirtecinin matlığı."
+msgstr "Klavye girişi bloku belirtecinin matlığı."
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
 #: app/config/yakuake.kcfg:162
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator duration"
-msgstr "Klavye girdi bloku belirteci süresi"
+msgstr "Klavye girişi bloku belirteci süresi"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
 #: app/config/yakuake.kcfg:163
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The duration of the keyboard input block indicator overlay."
-msgstr "Klavye girdi bloku belirtecinin süresi."
+msgstr "Klavye girişi bloku belirtecinin süresi."
 
 #. i18n: ectx: label, entry (UseWMAssist), group (Animation)
 #: app/config/yakuake.kcfg:171
@@ -1572,10 +1572,10 @@ msgid ""
 "changed to internal use only by re-compiling Yakuake. <p>This warning will "
 "only show once for this Yakuake instance.</p>"
 msgstr ""
-"D-BUS runCommand yöntemi kullanıldı. Bu yöntemlerin genele açık olmasıyla "
+"D-Bus runCommand yöntemi kullanıldı. Bu yöntemlerin genele açık olmasıyla "
 "ilgili güvenlik endişeleri bulunmaktadır. İstenirse bu yöntemler Yakuake "
-"yeniden derlenerek yalnızca içsel kullanıma değiştirilebilir. <p> Bu uyarı "
-"bu Yakuake örneğinde bir kere gösterilecek.</p>"
+"yeniden derlenerek yalnızca içsel kullanıma değiştirilebilir.<p> Bu uyarı bu "
+"Yakuake örneğinde bir kere gösterilecek.</p>"
 
 #: app/sessionstack.cpp:721
 #, kde-kuit-format
@@ -1676,13 +1676,13 @@ msgstr "%1 Uçbirimi İçin"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "In This Session"
-msgstr "Bu Oturum İçerisinde"
+msgstr "Bu Oturum İçinde"
 
 #: app/tabbar.cpp:256 app/tabbar.cpp:301
 #, kde-kuit-format
 msgctxt "@action"
 msgid "In Terminal %1"
-msgstr "%1 Uçbirimi İçerisinde"
+msgstr "%1 Uçbirimi İçinde"
 
 #: app/tabbar.cpp:933
 #, kde-kuit-format
@@ -1715,7 +1715,7 @@ msgid ""
 "<title>Title Bar</title><para>The title bar displays the session title if "
 "available.</para>"
 msgstr ""
-"<title>Başlık Çubuğu</title><para> Eğer başlık çubuğu var ise oturumun "
+"<title>Başlık Çubuğu</title><para> Eğer başlık çubuğu varsa oturumun "
 "başlığını gösterir.</para>"
 
 #: app/titlebar.cpp:36
