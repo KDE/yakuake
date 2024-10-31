@@ -29,6 +29,7 @@
 #include <KNotifyConfigWidget>
 #include <KShortcutsDialog>
 #include <KStandardAction>
+#include <KStandardActions>
 #include <KStatusNotifierItem>
 #include <KToggleFullScreenAction>
 #include <KWindowEffects>
@@ -674,10 +675,10 @@ void MainWindow::handleToggleTitlebar()
 void MainWindow::setupMenu()
 {
     m_menu->insertSection(nullptr, xi18nc("@title:menu", "Help"));
-    m_menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::WhatsThis)));
-    m_menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::ReportBug)));
-    m_menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::AboutApp)));
-    m_menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::AboutKDE)));
+    m_menu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::WhatsThis)));
+    m_menu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::ReportBug)));
+    m_menu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::AboutApp)));
+    m_menu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::AboutKDE)));
 
     m_menu->insertSection(nullptr, xi18nc("@title:menu", "Quick Options"));
     m_menu->addAction(actionCollection()->action(QStringLiteral("view-full-screen")));
@@ -700,12 +701,12 @@ void MainWindow::setupMenu()
 
     m_menu->insertSection(nullptr, xi18nc("@title:menu", "Settings"));
     m_menu->addAction(actionCollection()->action(QStringLiteral("manage-profiles")));
-    m_menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::KeyBindings)));
-    m_menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::ConfigureNotifications)));
-    m_menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::Preferences)));
+    m_menu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::KeyBindings)));
+    m_menu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::ConfigureNotifications)));
+    m_menu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::Preferences)));
 
     m_menu->addSeparator();
-    m_menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::Quit)));
+    m_menu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::Quit)));
 }
 
 void MainWindow::updateScreenMenu()
