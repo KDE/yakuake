@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-25 00:42+0000\n"
+"POT-Creation-Date: 2024-11-01 00:42+0000\n"
 "PO-Revision-Date: 2023-09-03 12:27+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -364,7 +364,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "Pantalla %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:661
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:662
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1209,13 +1209,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xabier.villar@gmail.com"
 
-#: app/mainwindow.cpp:200
+#: app/mainwindow.cpp:201
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
 msgstr "Seguro que quere saír?"
 
-#: app/mainwindow.cpp:207
+#: app/mainwindow.cpp:208
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1227,7 +1227,7 @@ msgstr ""
 "para previr pechalas accidentalmente.</emphasis> Mataranse se continúa.</"
 "warning>"
 
-#: app/mainwindow.cpp:210
+#: app/mainwindow.cpp:211
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1236,7 +1236,7 @@ msgid ""
 msgstr ""
 "<warning>Ten abertas varias sesións. Estas han matarse se continúa.</warning>"
 
-#: app/mainwindow.cpp:213
+#: app/mainwindow.cpp:214
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1246,294 +1246,294 @@ msgstr ""
 "<warning>Ten abertas unha ou varias sesións que bloqueou para previr "
 "pechalas accidentalmente. Mataranse se continúa.</warning>"
 
-#: app/mainwindow.cpp:219
+#: app/mainwindow.cpp:220
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
 msgstr "Seguro que quere saír?"
 
-#: app/mainwindow.cpp:251
+#: app/mainwindow.cpp:252
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
 msgstr "Abrir/Retraer Yakuake"
 
-#: app/mainwindow.cpp:260
+#: app/mainwindow.cpp:261
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
 msgstr "Manter a xanela aberta se perde o foco"
 
-#: app/mainwindow.cpp:265
+#: app/mainwindow.cpp:266
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
 msgstr "Xestionar os perfís…"
 
-#: app/mainwindow.cpp:270
+#: app/mainwindow.cpp:271
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr "Editar o perfil actual…"
 
-#: app/mainwindow.cpp:276
+#: app/mainwindow.cpp:277
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "Aumentar a anchura da xanela"
 
-#: app/mainwindow.cpp:281
+#: app/mainwindow.cpp:282
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "Diminuír a anchura da xanela"
 
-#: app/mainwindow.cpp:286
+#: app/mainwindow.cpp:287
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "Aumentar o alto da xanela"
 
-#: app/mainwindow.cpp:291
+#: app/mainwindow.cpp:292
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "Diminuír o alto da xanela"
 
-#: app/mainwindow.cpp:296
+#: app/mainwindow.cpp:297
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "Nova sesión"
 
-#: app/mainwindow.cpp:302
+#: app/mainwindow.cpp:303
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr "Dúas terminais, horizontalmente"
 
-#: app/mainwindow.cpp:307
+#: app/mainwindow.cpp:308
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr "Dúas terminais, verticalmente"
 
-#: app/mainwindow.cpp:312
+#: app/mainwindow.cpp:313
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr "Catro terminais, en grade"
 
-#: app/mainwindow.cpp:317
+#: app/mainwindow.cpp:318
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "Pechar a sesión"
 
-#: app/mainwindow.cpp:324
+#: app/mainwindow.cpp:325
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
 msgstr "Anterior sesión"
 
-#: app/mainwindow.cpp:330
+#: app/mainwindow.cpp:331
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
 msgstr "Seguinte sesión"
 
-#: app/mainwindow.cpp:336
+#: app/mainwindow.cpp:337
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
 msgstr "Ir á sesión da esquerda"
 
-#: app/mainwindow.cpp:343
+#: app/mainwindow.cpp:344
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
 msgstr "Ir á sesión da esquerda"
 
-#: app/mainwindow.cpp:350
+#: app/mainwindow.cpp:351
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr "Expandir a terminal cara á dereita"
 
-#: app/mainwindow.cpp:357
+#: app/mainwindow.cpp:358
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr "Expandir a terminal cara á esquerda"
 
-#: app/mainwindow.cpp:364
+#: app/mainwindow.cpp:365
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr "Expandir a terminal cara arriba"
 
-#: app/mainwindow.cpp:371
+#: app/mainwindow.cpp:372
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr "Expandir a terminal cara abaixo"
 
-#: app/mainwindow.cpp:378
+#: app/mainwindow.cpp:379
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
 msgstr "Renomear a sesión…"
 
-#: app/mainwindow.cpp:385
+#: app/mainwindow.cpp:386
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr "Anterior terminal"
 
-#: app/mainwindow.cpp:391
+#: app/mainwindow.cpp:392
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr "Seguinte terminal"
 
-#: app/mainwindow.cpp:397
+#: app/mainwindow.cpp:398
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr "Pechar a terminal activa"
 
-#: app/mainwindow.cpp:404
+#: app/mainwindow.cpp:405
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "Dividir en esquerda e dereita"
 
-#: app/mainwindow.cpp:411
+#: app/mainwindow.cpp:412
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "Dividir en horizontal"
 
-#: app/mainwindow.cpp:418
+#: app/mainwindow.cpp:419
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "Previr o peche"
 
-#: app/mainwindow.cpp:424 app/tabbar.cpp:190
+#: app/mainwindow.cpp:425 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "Desactivar a entrada do teclado"
 
-#: app/mainwindow.cpp:430 app/tabbar.cpp:235
+#: app/mainwindow.cpp:431 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "Monitor de actividade"
 
-#: app/mainwindow.cpp:437 app/tabbar.cpp:280
+#: app/mainwindow.cpp:438 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "Monitor de silencio"
 
-#: app/mainwindow.cpp:444
+#: app/mainwindow.cpp:445
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr "Conmutar a barra do título"
 
-#: app/mainwindow.cpp:451
+#: app/mainwindow.cpp:452
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "Ir á sesión %1"
 
-#: app/mainwindow.cpp:603
+#: app/mainwindow.cpp:604
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "Actividade detectada no terminal monitorizado na sesión «%1»."
 
-#: app/mainwindow.cpp:617
+#: app/mainwindow.cpp:618
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "Silencio detectado no terminal monitorizado na sesión «%1»."
 
-#: app/mainwindow.cpp:676
+#: app/mainwindow.cpp:677
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Axuda"
 
-#: app/mainwindow.cpp:682
+#: app/mainwindow.cpp:683
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Opcións rápidas"
 
-#: app/mainwindow.cpp:688
+#: app/mainwindow.cpp:689
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Pantalla"
 
-#: app/mainwindow.cpp:693
+#: app/mainwindow.cpp:694
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Anchura"
 
-#: app/mainwindow.cpp:698
+#: app/mainwindow.cpp:699
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Alto"
 
-#: app/mainwindow.cpp:701
+#: app/mainwindow.cpp:702
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Configuración"
 
-#: app/mainwindow.cpp:717
+#: app/mainwindow.cpp:718
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "Onde estea o rato"
 
-#: app/mainwindow.cpp:723
+#: app/mainwindow.cpp:724
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Pantalla %1"
 
-#: app/mainwindow.cpp:745 app/mainwindow.cpp:767
+#: app/mainwindow.cpp:746 app/mainwindow.cpp:768
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: app/mainwindow.cpp:832
+#: app/mainwindow.cpp:833
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Xanela"
 
-#: app/mainwindow.cpp:838
+#: app/mainwindow.cpp:839
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Comportamento"
 
-#: app/mainwindow.cpp:841
+#: app/mainwindow.cpp:842
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Aparencia"
 
-#: app/mainwindow.cpp:923
+#: app/mainwindow.cpp:924
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1543,13 +1543,13 @@ msgstr ""
 "<application>Yakuake</application> non puido cargar unha aparencia. "
 "Posibelmente fose mal instalada.<nl/><nl/>A aplicación sairá agora."
 
-#: app/mainwindow.cpp:925
+#: app/mainwindow.cpp:926
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Non é posíbel cargar a Aparencia"
 
-#: app/mainwindow.cpp:1680
+#: app/mainwindow.cpp:1681
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
