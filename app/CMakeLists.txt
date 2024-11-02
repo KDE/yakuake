@@ -66,7 +66,7 @@ target_link_libraries(yakuake
 )
 
 if(HAVE_X11)
-    if (TARGET Qt6::Gui)
+    if(TARGET Qt6::Gui)
         target_link_libraries(yakuake Qt6::GuiPrivate) # qtx11extras_p.h
     endif()
 endif()
