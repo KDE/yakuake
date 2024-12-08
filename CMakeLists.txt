@@ -60,7 +60,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
 option(WITH_X11 "Build with X11 integration" ON)
 if(WITH_X11)
     set(HAVE_X11 TRUE)
-    find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
+    find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED Gui)
 else()
     set(HAVE_X11 FALSE)
 endif()
