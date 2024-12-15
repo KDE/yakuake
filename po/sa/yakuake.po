@@ -22,19 +22,19 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
-msgstr ""
+msgstr "अज्ञात"
 
 #: app/config/appearancesettings.cpp:196
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
-msgstr ""
+msgstr "संस्थापनार्थं त्वचासंग्रहं चिनोतु"
 
 #: app/config/appearancesettings.cpp:242
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
-msgstr ""
+msgstr "त्वचासंग्रहसामग्रीसूचीं कर्तुं असमर्थः।"
 
 #: app/config/appearancesettings.cpp:274
 #, kde-kuit-format
@@ -43,30 +43,32 @@ msgid ""
 "This skin appears to be already installed and you lack the required "
 "permissions to overwrite it."
 msgstr ""
+"इयं त्वचा पूर्वमेव संस्थापिता इव दृश्यते तथा च भवतः तस्य अधिलेखनार्थं आवश्यकानुमत्यानां अभावः "
+"अस्ति ।"
 
 #: app/config/appearancesettings.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
-msgstr ""
+msgstr "एषा त्वचा पूर्वमेव स्थापिता इव दृश्यते । किं भवन्तः तस्य अधिलेखनं कर्तुम् इच्छन्ति ?"
 
 #: app/config/appearancesettings.cpp:280
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
-msgstr ""
+msgstr "त्वचा पूर्वमेव विद्यते"
 
 #: app/config/appearancesettings.cpp:281
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
-msgstr ""
+msgstr "Skin पुनः संस्थापयन्तु"
 
 #: app/config/appearancesettings.cpp:299
 #, kde-kuit-format
 msgctxt "@title:Window"
 msgid "Could Not Delete Skin"
-msgstr ""
+msgstr "त्वचां विलोपयितुं न शक्तवान्"
 
 #: app/config/appearancesettings.cpp:324
 #, kde-kuit-format
@@ -74,31 +76,31 @@ msgctxt "@info"
 msgid ""
 "Unable to locate required files in the skin archive.<nl/><nl/>The archive "
 "appears to be invalid."
-msgstr ""
+msgstr "त्वचासंग्रहे आवश्यकसञ्चिकाः अन्वेष्टुं असमर्थः।<nl/><nl/>संग्रहः अमान्यः इति दृश्यते।"
 
 #: app/config/appearancesettings.cpp:327
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
-msgstr ""
+msgstr "त्वचासंग्रहसञ्चिका उद्घाटयितुं न शक्यते स्म ।"
 
 #: app/config/appearancesettings.cpp:332
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
-msgstr ""
+msgstr "Skin संस्थापयितुं न शक्यते"
 
 #: app/config/appearancesettings.cpp:376
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
-msgstr ""
+msgstr "किं भवान् \"%1\" %2 द्वारा हर्तुं इच्छति?"
 
 #: app/config/appearancesettings.cpp:377
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
-msgstr ""
+msgstr "त्वचां निष्कासयन्तु"
 
 #: app/config/appearancesettings.cpp:471
 #, kde-kuit-format
@@ -108,15 +110,16 @@ msgid ""
 msgid_plural ""
 "The following skins are missing required files. Thus they were removed:<ul>"
 "%2</ul>"
-msgstr[0] ""
+msgstr[0] "निम्नलिखितत्वक् आवश्यकसञ्चिकाः गम्यन्ते । एवं निष्कासितम्- १.<ul> %2</ul>"
 msgstr[1] ""
+"निम्नलिखितस्किन्स् आवश्यकसञ्चिकाः लुप्ताः सन्ति । एवं ते निष्कासिताः- १.<ul> %2</ul>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: app/config/appearancesettings.ui:29 app/config/behaviorsettings.ui:20
 #, kde-format
 msgctxt "@title:group Group box label"
 msgid "General"
-msgstr ""
+msgstr "सामान्य"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
 #: app/config/appearancesettings.ui:35
@@ -128,13 +131,16 @@ msgid ""
 "terminals in a session, as well as over the currently focused terminal when "
 "switching to a session with multiple terminals."
 msgstr ""
+"एतत् विकल्पं सक्षमीकरणेन Yakuake संक्षेपेण नवकेन्द्रितस्य टर्मिनलस्य उपरि वर्णयुक्तं आच्छादनं "
+"प्रदर्शयिष्यति यदा सत्रे बहुटर्मिनलयोः मध्ये फोकस चालयति, तथा च बहुटर्मिनलयुक्तसत्रे स्विच् "
+"करणसमये वर्तमानकेन्द्रितटर्मिनलस्य उपरि"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
 #: app/config/appearancesettings.ui:38
 #, kde-format
 msgctxt "@option:check"
 msgid "Highlight terminals when moving focus between them"
-msgstr ""
+msgstr "तेषां मध्ये फोकस चालयति समये टर्मिनल् हाइलाइट् कुर्वन्तु"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_HideSkinBorders)
 #: app/config/appearancesettings.ui:45
@@ -147,14 +153,14 @@ msgstr "सीमाः गोपयन्तु"
 #, kde-format
 msgctxt "@title:group"
 msgid "Window Background"
-msgstr ""
+msgstr "खिडकी पृष्ठभूमि"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundColorLabel)
 #: app/config/appearancesettings.ui:63
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Background color:"
-msgstr ""
+msgstr "पृष्ठभूमिवर्णः : १."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_Translucency)
 #: app/config/appearancesettings.ui:92
@@ -164,20 +170,22 @@ msgid ""
 "Translucency requires support by the selected skin as well as your desktop "
 "environment. The default skin supports translucency."
 msgstr ""
+"पारदर्शितायाः कृते चयनितत्वक् अपि च भवतः डेस्कटॉप् वातावरणस्य समर्थनस्य आवश्यकता भवति । "
+"पूर्वनिर्धारितत्वक् पारदर्शकतां समर्थयति ।"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Translucency)
 #: app/config/appearancesettings.ui:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Use skin translucency if supported"
-msgstr ""
+msgstr "यदि समर्थितं तर्हि त्वचापारदर्शकस्य उपयोगं कुर्वन्तु"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundColorOpacityLabel)
 #: app/config/appearancesettings.ui:126
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Background color opacity:"
-msgstr ""
+msgstr "पृष्ठभूमि रंग अस्पष्टता : १."
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_BackgroundColorOpacity)
 #: app/config/appearancesettings.ui:136
@@ -189,6 +197,9 @@ msgid ""
 "This allows influencing the opacity and color tint of translucent areas of "
 "the skin."
 msgstr ""
+"पारदर्शनस्य उपयोगं कुर्वन् पृष्ठभूमिस्य उपरि त्वचातत्त्वानां चित्रणात् पूर्वं दत्तस्य अस्पष्टतायाः "
+"उपयोगेन पृष्ठभूमिवर्णः पूरितः भविष्यति । एतेन त्वचायाः अर्धपारदर्शकक्षेत्राणां अस्पष्टतां "
+"वर्णवर्णं च प्रभावितं कर्तुं शक्यते ।"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Width)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Height)
@@ -198,42 +209,42 @@ msgstr ""
 #, no-c-format, kde-format
 msgctxt "@label Spinbox unit suffix"
 msgid "%"
-msgstr ""
+msgstr "% ."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: app/config/appearancesettings.ui:170
 #, kde-format
 msgctxt "@title:group"
 msgid "Skin"
-msgstr ""
+msgstr "चर्म"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, ghnsButton)
 #: app/config/appearancesettings.ui:176
 #, kde-format
 msgctxt "@action:button"
 msgid "Get New Skins..."
-msgstr ""
+msgstr "नवीन त्वचा प्राप्त करें..."
 
 #. i18n: ectx: property (text), widget (QPushButton, removeButton)
 #: app/config/appearancesettings.ui:186
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Skin"
-msgstr ""
+msgstr "त्वचां निष्कासयन्तु"
 
 #. i18n: ectx: property (text), widget (QPushButton, installButton)
 #: app/config/appearancesettings.ui:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Install Skin..."
-msgstr ""
+msgstr "Install Skin..."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FocusFollowsMouse)
 #: app/config/behaviorsettings.ui:26
 #, kde-format
 msgctxt "@option:check"
 msgid "Focus terminals when the mouse pointer is moved over them"
-msgstr ""
+msgstr "यदा मूषकसूचकः तेषां उपरि चालितः भवति तदा टर्मिनल् फोकस कुर्वन्तु"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ToggleToFocus)
 #: app/config/behaviorsettings.ui:42
@@ -246,27 +257,31 @@ msgid ""
 "may cause the window manager to switch to the virtual desktop it currently "
 "resides on."
 msgstr ""
+"यदि एषः विकल्पः सक्षमः अस्ति तर्हि सामान्यतया विण्डो उद्घाटयितुं प्रत्याहरितुं च प्रयुक्तः "
+"शॉर्टकट् तस्मै फोकस दास्यति, न तु तत् बन्दं कर्तुं, यदि पूर्वं फोकस नष्टः अस्ति यावत् विण्डो "
+"सर्वेषु वर्चुअल् डेस्कटॉप् मध्ये दर्शयितुं सेट् न भवति तावत् एतेन विण्डो प्रबन्धकः सम्प्रति यस्मिन् "
+"वर्चुअल् डेस्कटॉप् मध्ये निवसति तस्मिन् स्विच् कर्तुं शक्नोति ।"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToggleToFocus)
 #: app/config/behaviorsettings.ui:45
 #, kde-format
 msgctxt "@option:check"
 msgid "Use Open/Retract action to focus window"
-msgstr ""
+msgstr "विण्डो फोकस कर्तुं Open/Retract action इत्यस्य उपयोगं कुर्वन्तु"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepAbove)
 #: app/config/behaviorsettings.ui:61
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window above other windows"
-msgstr ""
+msgstr "अन्येषां खिडकानाम् उपरि विण्डो स्थापयन्तु"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_OpenAfterStart)
 #: app/config/behaviorsettings.ui:84
 #, kde-format
 msgctxt "@option:check"
 msgid "Open window after program start"
-msgstr ""
+msgstr "कार्यक्रमस्य आरम्भस्य अनन्तरं विण्डो उद्घाटयन्तु"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_PollMouse)
 #: app/config/behaviorsettings.ui:91
@@ -277,13 +292,15 @@ msgid ""
 "pointer is moved to the same edge of the screen that it would open on when "
 "using the shortcut."
 msgstr ""
+"यदि एषः विकल्पः सक्षमः भवति तर्हि यदा मूषकसूचकः पटलस्य तस्मिन् एव धारे स्थापितः भवति "
+"तदा विण्डो स्वयमेव उद्घाट्यते यस्मिन् शॉर्टकट् इत्यस्य उपयोगे उद्घाट्यते स्म ।"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PollMouse)
 #: app/config/behaviorsettings.ui:94
 #, kde-format
 msgctxt "@option:check"
 msgid "Open window when the mouse pointer touches the screen edge"
-msgstr ""
+msgstr "यदा मूषकसूचकः स्क्रीनधारं स्पृशति तदा विण्डो उद्घाटयन्तु"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RememberFullscreen)
 #: app/config/behaviorsettings.ui:101
@@ -302,46 +319,46 @@ msgstr "सिस्टम् ट्रे चिह्नं दर्शयत
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window open when it loses focus"
-msgstr ""
+msgstr "यदा तस्य ध्यानं नष्टं भवति तदा विण्डो उद्घाटितं कुर्वन्तु"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpenAfterLastSessionCloses)
 #: app/config/behaviorsettings.ui:141
 #, kde-format
 msgctxt "@option:check"
 msgid "Keep window open after the last session is closed"
-msgstr ""
+msgstr "अन्तिमसत्रस्य बन्दीकरणानन्तरं विण्डो उद्घाटितं कुर्वन्तु"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/behaviorsettings.ui:151
 #, kde-format
 msgctxt "@title:group"
 msgid "Dialogs"
-msgstr ""
+msgstr "संवादाः"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ConfirmQuit)
 #: app/config/behaviorsettings.ui:157
 #, kde-format
 msgctxt "@option:check"
 msgid "Confirm quit when more than one session is open"
-msgstr ""
+msgstr "एकादशाधिकं सत्रं उद्घाटितं भवति चेत् निर्गमनस्य पुष्टिं कुर्वन्तु"
 
 #: app/config/skinlistdelegate.cpp:124 app/config/skinlistdelegate.cpp:164
 #, kde-kuit-format
 msgctxt "@item:intext"
 msgid "by %1"
-msgstr ""
+msgstr "%1 द्वारा"
 
 #: app/config/windowsettings.cpp:19
 #, kde-kuit-format
 msgctxt "@item:inlistbox"
 msgid "Screen %1"
-msgstr ""
+msgstr "स्क्रीन %1"
 
 #: app/config/windowsettings.cpp:99 app/mainwindow.cpp:662
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
-msgstr ""
+msgstr "शीर्षक पट्टी निगूहता"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_0)
 #: app/config/windowsettings.ui:32
@@ -360,7 +377,7 @@ msgstr "शीर्षकपट्टिकां दर्शयतु"
 #, kde-format
 msgctxt "@title:group"
 msgid "Tab Bar"
-msgstr ""
+msgstr "ट्याब् बार"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_DynamicTabTitles)
 #: app/config/windowsettings.ui:69
@@ -372,62 +389,65 @@ msgid ""
 "tab bar. You can modify the format of the information in the terminal "
 "profile."
 msgstr ""
+"यदि एषः विकल्पः सक्षमः अस्ति तर्हि सक्रियटर्मिनलस्य सामग्रीविषये सूचना या सामान्यतया "
+"शीर्षकपट्टिकायां दर्शिता भवति, सा ट्याब्पट्टिकायां अपि दर्शिता भविष्यति । टर्मिनल् "
+"प्रोफाइल् मध्ये सूचनायाः प्रारूपं परिवर्तयितुं शक्नुवन्ति ।"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_DynamicTabTitles)
 #: app/config/windowsettings.ui:72
 #, kde-format
 msgctxt "@option:check"
 msgid "Show title bar contents in tab labels"
-msgstr ""
+msgstr "ट्याब् लेबल् मध्ये शीर्षकपट्टिकासामग्री दर्शयन्तु"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTabBar)
 #: app/config/windowsettings.ui:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Show the tab bar"
-msgstr ""
+msgstr "ट्याब् बारं दर्शयतु"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/windowsettings.ui:105
 #, kde-format
 msgctxt "@title:group"
 msgid "Size and Animation"
-msgstr ""
+msgstr "आकारः एनिमेशनं च"
 
 #. i18n: ectx: property (text), widget (QLabel, widthLabel)
 #: app/config/windowsettings.ui:111
 #, kde-format
 msgctxt "@label:slider"
 msgid "Width:"
-msgstr ""
+msgstr "विस्तार:"
 
 #. i18n: ectx: property (text), widget (QLabel, heightLabel)
 #: app/config/windowsettings.ui:165
 #, kde-format
 msgctxt "@label:slider"
 msgid "Height:"
-msgstr ""
+msgstr "औनत्यम्‌:"
 
 #. i18n: ectx: property (text), widget (QLabel, durationLabel)
 #: app/config/windowsettings.ui:219
 #, kde-format
 msgctxt "@label:slider"
 msgid "Duration:"
-msgstr ""
+msgstr "अवधि:"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, framesSpinBox)
 #: app/config/windowsettings.ui:251
 #, kde-format
 msgctxt "@label Spinbox unit suffix"
 msgid "ms"
-msgstr ""
+msgstr "ms"
 
 #. i18n: ectx: property (prefix), widget (QSpinBox, framesSpinBox)
 #: app/config/windowsettings.ui:254
 #, kde-format
 msgctxt "@label Spinbox unit prefix"
 msgid "~"
-msgstr ""
+msgstr "~"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_UseWMAssist)
 #: app/config/windowsettings.ui:270
@@ -439,69 +459,72 @@ msgid ""
 "provide the requested service, Yakuake will fall back to an animation "
 "strategy of progressively adjusting the window mask."
 msgstr ""
+"यदि एषः विकल्पः सक्षमः अस्ति तर्हि Yakuake विण्डो प्रबन्धकं विण्डो उद्घाटितं/निवृत्तं "
+"एनिमेशनं कर्तुं वक्ष्यति । यदि विण्डो प्रबन्धकः अनुरोधितं सेवां दातुं असमर्थः भवति तर्हि याकुआके "
+"पुनः विण्डो मास्कस्य क्रमेण समायोजनस्य एनिमेशन रणनीत्यां पतति ।"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseWMAssist)
 #: app/config/windowsettings.ui:273
 #, kde-format
 msgctxt "@option:check"
 msgid "Ask the window manager to perform the animation"
-msgstr ""
+msgstr "विण्डो प्रबन्धकं एनिमेशनं कर्तुं पृच्छन्तु"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: app/config/windowsettings.ui:283
 #, kde-format
 msgctxt "@title:group"
 msgid "Position"
-msgstr ""
+msgstr "स्थितिः"
 
 #. i18n: ectx: property (text), widget (QLabel, leftLabel)
 #: app/config/windowsettings.ui:291
 #, kde-format
 msgctxt "@item:inrange Direction to move the window in"
 msgid "Left"
-msgstr ""
+msgstr "वामः"
 
 #. i18n: ectx: property (text), widget (QLabel, rightLabel)
 #: app/config/windowsettings.ui:323
 #, kde-format
 msgctxt "@item:inrange Direction to move the window in"
 msgid "Right"
-msgstr ""
+msgstr "दक्षिणः"
 
 #. i18n: ectx: property (text), widget (QLabel, screenLabel)
 #: app/config/windowsettings.ui:337
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Open on screen:"
-msgstr ""
+msgstr "पर्दायां उद्घाटयन्तु : १."
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Screen)
 #: app/config/windowsettings.ui:348
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "At mouse location"
-msgstr ""
+msgstr "मूषकस्थाने"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Screen)
 #: app/config/windowsettings.ui:353
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Screen 1"
-msgstr ""
+msgstr "पटलः १"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowOnAllDesktops)
 #: app/config/windowsettings.ui:376
 #, kde-format
 msgctxt "@option:check"
 msgid "Show on all desktops"
-msgstr ""
+msgstr "सर्वेषु डेस्कटॉप् मध्ये दर्शयतु"
 
 #. i18n: ectx: label, entry (Screen), group (Window)
 #: app/config/yakuake.kcfg:9
 #, kde-format
 msgctxt "@label"
 msgid "Screen to use"
-msgstr ""
+msgstr "उपयोक्तुं स्क्रीन"
 
 #. i18n: ectx: whatsthis, entry (Screen), group (Window)
 #: app/config/yakuake.kcfg:10
@@ -510,42 +533,42 @@ msgctxt "@info:whatsthis"
 msgid ""
 "The screen on which the application window will appear. 0 is understood to "
 "be the screen the mouse pointer is on."
-msgstr ""
+msgstr "यस्मिन् पटले अनुप्रयोगविण्डो दृश्यते । 0 इति ज्ञायते यत् मूषकसूचकः यस्मिन् पटलः अस्ति ।"
 
 #. i18n: ectx: label, entry (Width), group (Window)
 #: app/config/yakuake.kcfg:14
 #, kde-format
 msgctxt "@label"
 msgid "Window width"
-msgstr ""
+msgstr "खिडकी विस्तार"
 
 #. i18n: ectx: whatsthis, entry (Width), group (Window)
 #: app/config/yakuake.kcfg:15
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Width of the application window as a percentage of the screen."
-msgstr ""
+msgstr "अनुप्रयोगविण्डो इत्यस्य विस्तारः स्क्रीनस्य प्रतिशतरूपेण ।"
 
 #. i18n: ectx: label, entry (Height), group (Window)
 #: app/config/yakuake.kcfg:21
 #, kde-format
 msgctxt "@label"
 msgid "Window height"
-msgstr ""
+msgstr "खिडकी ऊर्ध्वता"
 
 #. i18n: ectx: whatsthis, entry (Height), group (Window)
 #: app/config/yakuake.kcfg:22
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Height of the application window as a percentage of the screen."
-msgstr ""
+msgstr "अनुप्रयोगविण्डो इत्यस्य ऊर्ध्वता स्क्रीनस्य प्रतिशतरूपेण ।"
 
 #. i18n: ectx: label, entry (Position), group (Window)
 #: app/config/yakuake.kcfg:28
 #, kde-format
 msgctxt "@label"
 msgid "Window position"
-msgstr ""
+msgstr "खिडकी स्थिति"
 
 #. i18n: ectx: whatsthis, entry (Position), group (Window)
 #: app/config/yakuake.kcfg:29
@@ -555,41 +578,42 @@ msgid ""
 "Center point of the application window, as a percentage, measured from the "
 "left-hand edge of the screen."
 msgstr ""
+"अनुप्रयोगविण्डो इत्यस्य केन्द्रबिन्दुः, प्रतिशतरूपेण, स्क्रीनस्य वामहस्तस्य धारात् मापितः ।"
 
 #. i18n: ectx: label, entry (ShowOnAllDesktops), group (Window)
 #: app/config/yakuake.kcfg:35
 #, kde-format
 msgctxt "@label"
 msgid "Show window on all desktops"
-msgstr ""
+msgstr "सर्वेषु डेस्कटॉप् मध्ये विण्डो दर्शयतु"
 
 #. i18n: ectx: whatsthis, entry (ShowOnAllDesktops), group (Window)
 #: app/config/yakuake.kcfg:36
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the window on all desktops."
-msgstr ""
+msgstr "सर्वेषु डेस्कटॉप् मध्ये विण्डो दर्शयितव्यम् वा।"
 
 #. i18n: ectx: label, entry (KeepOpen), group (Window)
 #: app/config/yakuake.kcfg:40
 #, kde-format
 msgctxt "@label"
 msgid "Keep window open"
-msgstr ""
+msgstr "खिडकी उद्घाटिता भवतु"
 
 #. i18n: ectx: whatsthis, entry (KeepOpen), group (Window)
 #: app/config/yakuake.kcfg:41
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to keep the application window open when it loses focus."
-msgstr ""
+msgstr "यदा एप्लिकेशन-विण्डो-इत्येतत् ध्यानं नष्टं भवति तदा उद्घाटितं स्थापयितव्यम् वा इति ।"
 
 #. i18n: ectx: label, entry (KeepOpenAfterLastSessionCloses), group (Window)
 #: app/config/yakuake.kcfg:45
 #, kde-format
 msgctxt "@label"
 msgid "Keep window open after last session closes"
-msgstr ""
+msgstr "अन्तिमसत्रस्य बन्दीकरणानन्तरं विण्डो उद्घाटितं कुर्वन्तु"
 
 #. i18n: ectx: whatsthis, entry (KeepOpenAfterLastSessionCloses), group (Window)
 #: app/config/yakuake.kcfg:46
@@ -597,14 +621,14 @@ msgstr ""
 msgctxt "@info:whatsthis"
 msgid ""
 "Whether to keep the application window open after the last session is closed."
-msgstr ""
+msgstr "अन्तिमसत्रस्य बन्दीकरणानन्तरं अनुप्रयोगविण्डो उद्घाटितं स्थापयितुं वा।"
 
 #. i18n: ectx: label, entry (ToggleToFocus), group (Window)
 #: app/config/yakuake.kcfg:50
 #, kde-format
 msgctxt "@label"
 msgid "Use open/retract shortcut to focus window"
-msgstr ""
+msgstr "फोकस विण्डो इत्यस्य कृते open/retract shortcut इत्यस्य उपयोगं कुर्वन्तु"
 
 #. i18n: ectx: whatsthis, entry (ToggleToFocus), group (Window)
 #: app/config/yakuake.kcfg:51
@@ -614,13 +638,15 @@ msgid ""
 "Whether the open/retract keyboard shortcut can be used to focus the "
 "application window when it is already open."
 msgstr ""
+"किं open/retract कीबोर्डशॉर्टकट् इत्यस्य उपयोगेन अनुप्रयोगविण्डो पूर्वमेव उद्घाटितं भवति चेत् "
+"केन्द्रीकरणं कर्तुं शक्यते वा ।"
 
 #. i18n: ectx: label, entry (KeepAbove), group (Window)
 #: app/config/yakuake.kcfg:55
 #, kde-format
 msgctxt "@label"
 msgid "Keep window on top"
-msgstr ""
+msgstr "विण्डो उपरि स्थापयन्तु"
 
 #. i18n: ectx: whatsthis, entry (KeepAbove), group (Window)
 #: app/config/yakuake.kcfg:56
@@ -628,7 +654,7 @@ msgstr ""
 msgctxt "@info:whatsthis"
 msgid ""
 "Whether to keep the application window above other windows on the screen."
-msgstr ""
+msgstr "पर्दायां अन्येषां विण्डोषु उपरि अनुप्रयोगविण्डो स्थापयितव्यम् वा।"
 
 #. i18n: ectx: label, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:60
@@ -642,56 +668,56 @@ msgstr "शीर्षकपट्टिकां दर्शयतु"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the title bar in the application window."
-msgstr ""
+msgstr "अनुप्रयोगविण्डो मध्ये शीर्षकपट्टिकां दर्शयितव्यम् वा इति ।"
 
 #. i18n: ectx: label, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:65
 #, kde-format
 msgctxt "@label"
 msgid "Show tab bar"
-msgstr ""
+msgstr "ट्याब् बारं दर्शयतु"
 
 #. i18n: ectx: whatsthis, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:66
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the tab bar in the application window."
-msgstr ""
+msgstr "अनुप्रयोगविण्डो मध्ये ट्याब् बारं दर्शयितव्यम् वा इति ।"
 
 #. i18n: ectx: label, entry (DynamicTabTitles), group (Window)
 #: app/config/yakuake.kcfg:70
 #, kde-format
 msgctxt "@label"
 msgid "Dynamic tab titles"
-msgstr ""
+msgstr "गतिशील ट्याब् शीर्षकम्"
 
 #. i18n: ectx: whatsthis, entry (DynamicTabTitles), group (Window)
 #: app/config/yakuake.kcfg:71
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to update tab titles along with the title bar."
-msgstr ""
+msgstr "शीर्षकपट्टिकायाः सह ट्याब् शीर्षकाणि अद्यतनीकर्तुं वा।"
 
 #. i18n: ectx: label, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:75
 #, kde-format
 msgctxt "@label"
 msgid "Show a system tray icon"
-msgstr ""
+msgstr "एकं सिस्टम् ट्रे चिह्नं दर्शयतु"
 
 #. i18n: ectx: whatsthis, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:76
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show a system tray icon."
-msgstr ""
+msgstr "सिस्टम् ट्रे चिह्नं दर्शयितव्यम् वा।"
 
 #. i18n: ectx: label, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:82
 #, kde-format
 msgctxt "@label"
 msgid "Focus follows mouse"
-msgstr ""
+msgstr "फोकस मूषकस्य अनुसरणं करोति"
 
 #. i18n: ectx: whatsthis, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:83
@@ -701,27 +727,29 @@ msgid ""
 "Whether an individual terminal in a session will be given focus when the "
 "mouse pointer is moved above it."
 msgstr ""
+"यदा मूषकसूचकः तस्य उपरि स्थानान्तरितः भवति तदा सत्रे व्यक्तिगतं टर्मिनल् फोकसः दीयते वा "
+"इति ।"
 
 #. i18n: ectx: label, entry (OpenAfterStart), group (Behavior)
 #: app/config/yakuake.kcfg:87
 #, kde-format
 msgctxt "@label"
 msgid "Open after start"
-msgstr ""
+msgstr "आरम्भस्य अनन्तरं उद्घाटयन्तु"
 
 #. i18n: ectx: whatsthis, entry (OpenAfterStart), group (Behavior)
 #: app/config/yakuake.kcfg:88
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether the application window should be opened after program start."
-msgstr ""
+msgstr "कार्यक्रमस्य आरम्भस्य अनन्तरं अनुप्रयोगविण्डो उद्घाटनीयः वा।"
 
 #. i18n: ectx: label, entry (RememberFullscreen), group (Behavior)
 #: app/config/yakuake.kcfg:92
 #, kde-format
 msgctxt "@label"
 msgid "Remember window fullscreen state"
-msgstr ""
+msgstr "विण्डो पूर्णपर्दे स्थितिं स्मर्यताम्"
 
 #. i18n: ectx: whatsthis, entry (RememberFullscreen), group (Behavior)
 #: app/config/yakuake.kcfg:93
@@ -730,84 +758,84 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Whether the window will be shown fullscreen again when it has been "
 "previously."
-msgstr ""
+msgstr "किं पूर्वं विण्डो पुनः पूर्णपर्दे दर्शितं भविष्यति वा।"
 
 #. i18n: ectx: label, entry (Skin), group (Appearance)
 #: app/config/yakuake.kcfg:99
 #, kde-format
 msgctxt "@label"
 msgid "Skin"
-msgstr ""
+msgstr "चर्म"
 
 #. i18n: ectx: whatsthis, entry (Skin), group (Appearance)
 #: app/config/yakuake.kcfg:100
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The skin to be used by the application window."
-msgstr ""
+msgstr "अनुप्रयोगविण्डोद्वारा उपयोक्तुं त्वक् ।"
 
 #. i18n: ectx: label, entry (SkinInstalledWithKns), group (Appearance)
 #: app/config/yakuake.kcfg:104
 #, kde-format
 msgctxt "@label"
 msgid "Skin installed by KNS"
-msgstr ""
+msgstr "केएनएस द्वारा स्थापिता त्वचा"
 
 #. i18n: ectx: whatsthis, entry (SkinInstalledWithKns), group (Appearance)
 #: app/config/yakuake.kcfg:105
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether the currently active skin was installed via KNS."
-msgstr ""
+msgstr "वर्तमान सक्रियत्वक् केएनएस मार्गेण स्थापिता आसीत् वा।"
 
 #. i18n: ectx: label, entry (Translucency), group (Appearance)
 #: app/config/yakuake.kcfg:109
 #, kde-format
 msgctxt "@label"
 msgid "Use translucent background"
-msgstr ""
+msgstr "अर्धपारदर्शी पृष्ठभूमि का प्रयोग करें"
 
 #. i18n: ectx: whatsthis, entry (Translucency), group (Appearance)
 #: app/config/yakuake.kcfg:110
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to make use of XComposite ARGB translucency."
-msgstr ""
+msgstr "XComposite ARGB पारदर्शितायाः उपयोगः करणीयः वा।"
 
 #. i18n: ectx: label, entry (BackgroundColor), group (Appearance)
 #: app/config/yakuake.kcfg:114
 #, kde-format
 msgctxt "@label"
 msgid "Window background color"
-msgstr ""
+msgstr "खिडकी पृष्ठभूमि रंग"
 
 #. i18n: ectx: whatsthis, entry (BackgroundColor), group (Appearance)
 #: app/config/yakuake.kcfg:115
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Background color painted below skin elements."
-msgstr ""
+msgstr "त्वचातत्त्वानां अधः चित्रितः पृष्ठभूमिवर्णः।"
 
 #. i18n: ectx: label, entry (BackgroundColorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:119
 #, kde-format
 msgctxt "@label"
 msgid "Background color opacity"
-msgstr ""
+msgstr "पृष्ठभूमि रंग अस्पष्टता"
 
 #. i18n: ectx: whatsthis, entry (BackgroundColorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:120
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the background color fill when using translucency."
-msgstr ""
+msgstr "पारदर्शितायाः उपयोगं कुर्वन् पृष्ठभूमिवर्णपूरणस्य अस्पष्टता ।"
 
 #. i18n: ectx: label, entry (TerminalHighlightOnManualActivation), group (Appearance)
 #: app/config/yakuake.kcfg:126
 #, kde-format
 msgctxt "@label"
 msgid "Highlight newly focused terminals"
-msgstr ""
+msgstr "नवकेन्द्रित टर्मिनल् प्रकाशयन्तु"
 
 #. i18n: ectx: whatsthis, entry (TerminalHighlightOnManualActivation), group (Appearance)
 #: app/config/yakuake.kcfg:127
@@ -819,13 +847,15 @@ msgid ""
 "as over the currently focused terminal when switching to a session with "
 "multiple terminals."
 msgstr ""
+"सत्रे बहु-टर्मिनल्-मध्ये फोकस-स्थापनसमये नवकेन्द्रित-टर्मिनल्-उपरि संक्षेपेण वर्णयुक्तं आच्छादनं "
+"प्रदर्शयितुं वा, तथा च बहु-टर्मिनल्-युक्ते सत्रे परिवर्तने वर्तमान-केन्द्रित-टर्मिनल्-उपरि च"
 
 #. i18n: ectx: label, entry (HideSkinBorders), group (Appearance)
 #: app/config/yakuake.kcfg:131
 #, kde-format
 msgctxt "@label"
 msgid "Hide the borders defined by the skin"
-msgstr ""
+msgstr "त्वक् द्वारा परिभाषिताः सीमाः गोपयन्तु"
 
 #. i18n: ectx: whatsthis, entry (HideSkinBorders), group (Appearance)
 #: app/config/yakuake.kcfg:132
@@ -836,83 +866,86 @@ msgid ""
 "option, when turned on, will overwrite the border settings defined by the "
 "skin and hide all borders."
 msgstr ""
+"स्किन्स् टब्बर् सहितं टर्मिनल् परितः सीमां परिभाषितुं शक्नुवन्ति । एषः विकल्पः, यदा चालू "
+"भवति, तदा, त्वचाद्वारा परिभाषितानि सीमासेटिंग्स् अधिलेखयिष्यति, सर्वाणि सीमानि च "
+"गोपयिष्यति ।"
 
 #. i18n: ectx: label, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:136
 #, kde-format
 msgctxt "@label"
 msgid "Terminal highlight opacity"
-msgstr ""
+msgstr "टर्मिनल हाइलाइट अपारदर्शिता"
 
 #. i18n: ectx: whatsthis, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:137
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the colored overlay used to highlight a terminal."
-msgstr ""
+msgstr "टर्मिनल् प्रकाशयितुं प्रयुक्तस्य वर्णयुक्तस्य आच्छादनस्य अस्पष्टता ।"
 
 #. i18n: ectx: label, entry (TerminalHighlightDuration), group (Appearance)
 #: app/config/yakuake.kcfg:143
 #, kde-format
 msgctxt "@label"
 msgid "Terminal highlight duration"
-msgstr ""
+msgstr "टर्मिनल हाइलाइट अवधि"
 
 #. i18n: ectx: whatsthis, entry (TerminalHighlightDuration), group (Appearance)
 #: app/config/yakuake.kcfg:144
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The duration of the terminal highlight overlay."
-msgstr ""
+msgstr "टर्मिनल् हाइलाइट् ओवरले इत्यस्य अवधिः ।"
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
 #: app/config/yakuake.kcfg:150
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator color"
-msgstr ""
+msgstr "कीबोर्ड इनपुट ब्लॉक सूचक रंग"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
 #: app/config/yakuake.kcfg:151
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The color of the keyboard input block indicator overlay."
-msgstr ""
+msgstr "कीबोर्ड् इनपुट् ब्लॉक् इन्डिकेटर् ओवरले इत्यस्य वर्णः ।"
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:155
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator opacity"
-msgstr ""
+msgstr "कीबोर्ड इनपुट ब्लॉक सूचक अस्पष्टता"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:156
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the keyboard input block indicator overlay."
-msgstr ""
+msgstr "कीबोर्ड इनपुट ब्लॉक सूचक आच्छादनस्य अस्पष्टता ।"
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
 #: app/config/yakuake.kcfg:162
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator duration"
-msgstr ""
+msgstr "कीबोर्ड इनपुट ब्लॉक सूचक अवधि"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
 #: app/config/yakuake.kcfg:163
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The duration of the keyboard input block indicator overlay."
-msgstr ""
+msgstr "कीबोर्ड इनपुट ब्लॉक सूचक आच्छादनस्य अवधिः ।"
 
 #. i18n: ectx: label, entry (UseWMAssist), group (Animation)
 #: app/config/yakuake.kcfg:171
 #, kde-format
 msgctxt "@label"
 msgid "Attempt to use the window manager to animate the window"
-msgstr ""
+msgstr "विण्डो एनिमेट् कर्तुं विण्डो प्रबन्धकस्य उपयोगं कर्तुं प्रयतध्वम्"
 
 #. i18n: ectx: whatsthis, entry (UseWMAssist), group (Animation)
 #: app/config/yakuake.kcfg:172
@@ -924,13 +957,16 @@ msgid ""
 "adjusting the window mask if the window manager is unable to provide the "
 "requested service."
 msgstr ""
+"विण्डो प्रबन्धकं विण्डो उद्घाटयितुं/निवृत्तं एनिमेशनं कर्तुं प्रयत्नः करणीयः वा। यदि विण्डो "
+"प्रबन्धकः अनुरोधितं सेवां दातुं असमर्थः भवति तर्हि याकुआके विण्डो मास्कस्य क्रमेण समायोजनस्य "
+"एनिमेशन रणनीत्यां पुनः पतति ।"
 
 #. i18n: ectx: label, entry (Frames), group (Animation)
 #: app/config/yakuake.kcfg:176
 #, kde-format
 msgctxt "@label"
 msgid "Animation frames"
-msgstr ""
+msgstr "एनिमेशन फ्रेम्स"
 
 #. i18n: ectx: whatsthis, entry (Frames), group (Animation)
 #: app/config/yakuake.kcfg:177
@@ -939,14 +975,14 @@ msgctxt "@info:whatsthis"
 msgid ""
 "The number of frames of the open/retract animation. One frame is taken to be "
 "10 miliseconds."
-msgstr ""
+msgstr "मुक्त/निवृत्त एनिमेशनस्य फ्रेम्स संख्या । एकं फ्रेमं १० मिलीसेकेण्ड् इति गृह्यते ।"
 
 #. i18n: ectx: label, entry (PollMouse), group (AutoOpen)
 #: app/config/yakuake.kcfg:185
 #, kde-format
 msgctxt "@label"
 msgid "Auto-open window"
-msgstr ""
+msgstr "स्वयमेव विण्डो उद्घाटयन्तु"
 
 #. i18n: ectx: whatsthis, entry (PollMouse), group (AutoOpen)
 #: app/config/yakuake.kcfg:186
@@ -955,14 +991,14 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Whether to automatically open the application window when the mouse pointer "
 "is found at the edge of the screen."
-msgstr ""
+msgstr "यदा पटलस्य धारायाम् मूषकसूचकः प्राप्यते तदा स्वयमेव अनुप्रयोगविण्डो उद्घाटयितुं वा।"
 
 #. i18n: ectx: label, entry (PollInterval), group (AutoOpen)
 #: app/config/yakuake.kcfg:190
 #, kde-format
 msgctxt "@label"
 msgid "Mouse pointer poll interval"
-msgstr ""
+msgstr "मूषकसूचकमतदानान्तरम्"
 
 #. i18n: ectx: whatsthis, entry (PollInterval), group (AutoOpen)
 #: app/config/yakuake.kcfg:191
@@ -972,27 +1008,29 @@ msgid ""
 "The interval during which the mouse pointer position will be checked to "
 "determine whether or not it is at the same edge of the screen as the window."
 msgstr ""
+"यस्मिन् अन्तरालस्य समये मूषकस्य सूचकस्य स्थानं विण्डो इत्यस्य समाने धारे अस्ति वा न वा इति "
+"निर्धारयितुं परीक्षितं भविष्यति ।"
 
 #. i18n: ectx: label, entry (FirstRun), group (Dialogs)
 #: app/config/yakuake.kcfg:197
 #, kde-format
 msgctxt "@label"
 msgid "Application first run"
-msgstr ""
+msgstr "अनुप्रयोगः प्रथमं चालयति"
 
 #. i18n: ectx: whatsthis, entry (FirstRun), group (Dialogs)
 #: app/config/yakuake.kcfg:198
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether this is the first time the application is run."
-msgstr ""
+msgstr "किं प्रथमवारं अनुप्रयोगः चालितः अस्ति वा।"
 
 #. i18n: ectx: label, entry (ConfirmQuit), group (Dialogs)
 #: app/config/yakuake.kcfg:202
 #, kde-format
 msgctxt "@label"
 msgid "Confirm quit with multiple sessions"
-msgstr ""
+msgstr "बहुसत्रैः सह निर्गमनस्य पुष्टिं कुर्वन्तु"
 
 #. i18n: ectx: whatsthis, entry (ConfirmQuit), group (Dialogs)
 #: app/config/yakuake.kcfg:203
@@ -1002,19 +1040,20 @@ msgid ""
 "Whether to prompt the user before quitting the application when multiple "
 "sessions are open."
 msgstr ""
+"यदा बहुसत्रं उद्घाटितं भवति तदा अनुप्रयोगात् निर्गन्तुं पूर्वं उपयोक्तारं प्रार्थयितव्यं वा।"
 
 #: app/firstrundialog.cpp:21
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "First Run"
-msgstr ""
+msgstr "प्रथमं धावनम्"
 
 #. i18n: ectx: property (text), widget (KTitleWidget, titleWidget)
 #: app/firstrundialog.ui:46
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to Yakuake"
-msgstr ""
+msgstr "याकुआके इत्यत्र स्वागतम्"
 
 #. i18n: ectx: property (text), widget (QLabel, introLabel)
 #: app/firstrundialog.ui:53
@@ -1024,121 +1063,123 @@ msgid ""
 "Before starting to use the application, you might want to change the "
 "keyboard shortcut used to open and retract the Yakuake window:"
 msgstr ""
+"अनुप्रयोगस्य उपयोगं आरभ्यतुं पूर्वं, भवान् Yakuake विण्डो उद्घाटयितुं प्रत्याहरितुं च प्रयुक्तं "
+"कीबोर्डशॉर्टकट् परिवर्तयितुम् इच्छति:"
 
 #. i18n: ectx: property (text), widget (QLabel, outroLabel)
 #: app/firstrundialog.ui:130
 #, kde-format
 msgctxt "@info"
 msgid "You can change the shortcut later at any time via the menu."
-msgstr ""
+msgstr "भवन्तः पश्चात् कदापि मेनूद्वारा शॉर्टकट् परिवर्तयितुं शक्नुवन्ति ।"
 
 #: app/main.cpp:25
 #, kde-kuit-format
 msgctxt "@title"
 msgid "<application>Yakuake</application>"
-msgstr ""
+msgstr "<application>यकुआके</application> इति"
 
 #: app/main.cpp:27
 #, kde-kuit-format
 msgctxt "@title"
 msgid "A drop-down terminal emulator based on KDE Konsole technology."
-msgstr ""
+msgstr "KDE Konsole प्रौद्योगिक्याः आधारेण एकः ड्रॉप्-डाउन टर्मिनल् एमुलेटरः ।"
 
 #: app/main.cpp:29
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "(c) 2008-2018 The Yakuake Team"
-msgstr ""
+msgstr "(ग) २००८-२०१८ द याकुआके दल"
 
 #: app/main.cpp:36
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Eike Hein"
-msgstr ""
+msgstr "ऐके हेन"
 
 #: app/main.cpp:36
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Maintainer, Lead Developer"
-msgstr ""
+msgstr "अनुरक्षणकर्ता, प्रमुख विकासक"
 
 #: app/main.cpp:37
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Francois Chazal"
-msgstr ""
+msgstr "फ्रांकोइस चाजल"
 
 #: app/main.cpp:37
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Project Founder, Legacy skin (Inactive)"
-msgstr ""
+msgstr "परियोजना संस्थापक, Legacy skin (Inactive)"
 
 #: app/main.cpp:38
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Daniel 'suslik' D."
-msgstr ""
+msgstr "डैनियल 'कुहूकुहू' कृतवान् D."
 
 #: app/main.cpp:38
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Plastik skin"
-msgstr ""
+msgstr "प्लास्टिकस्य त्वचाः"
 
 #: app/main.cpp:39
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Juan Carlos Torres"
-msgstr ""
+msgstr "जुआन् कार्लोस् टोरेस्"
 
 #: app/main.cpp:40
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Tab bar drag and drop support, Prevent Closing toggle"
-msgstr ""
+msgstr "ट्याब् बार ड्रैग् एण्ड् ड्रॉप् समर्थनम्, Prevent Closing toggle"
 
 #: app/main.cpp:42
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Gustavo Ribeiro Croscato"
-msgstr ""
+msgstr "गुस्तावो रिबेरो क्रोस्काटो"
 
 #: app/main.cpp:43
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Icon on tabs with Prevent Closing enabled"
-msgstr ""
+msgstr "Prevent Closing सक्षमं कृत्वा ट्याब्स् इत्यत्र चिह्नम्"
 
 #: app/main.cpp:45
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Danilo Cesar Lemes de Paula"
-msgstr ""
+msgstr "दानिलो सीजर लेमेस् डी पौला"
 
 #: app/main.cpp:46
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Actions to grow terminals"
-msgstr ""
+msgstr "टर्मिनल् वर्धयितुं क्रियाः"
 
 #: app/main.cpp:49
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #: app/main.cpp:49
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: app/mainwindow.cpp:201
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
-msgstr ""
+msgstr "किं त्वं निश्चयेन त्यक्तुम् इच्छसि ?"
 
 #: app/mainwindow.cpp:208
 #, kde-kuit-format
@@ -1148,6 +1189,9 @@ msgid ""
 "locked to prevent closing them accidentally.</emphasis> These will be killed "
 "if you continue.</warning>"
 msgstr ""
+"<warning>बहुविधाः मुक्तसत्राः सन्ति, <emphasis>येषु केचन भवन्तः आकस्मिकरूपेण निमीलितुं "
+"निवारयितुं ताडितवन्तः।</emphasis> यदि भवन्तः निरन्तरं कुर्वन्ति तर्हि एते मारिताः "
+"भविष्यन्ति।</warning>"
 
 #: app/mainwindow.cpp:211
 #, kde-kuit-format
@@ -1156,6 +1200,8 @@ msgid ""
 "<warning>There are multiple open sessions. These will be killed if you "
 "continue.</warning>"
 msgstr ""
+"<warning>अनेकानि मुक्तसत्राणि सन्ति । एते हता भविष्यन्ति यदि भवन्तः निरन्तरं कुर्वन्ति।</"
+"warning>"
 
 #: app/mainwindow.cpp:214
 #, kde-kuit-format
@@ -1164,270 +1210,272 @@ msgid ""
 "<warning>There are one or more open sessions that you have locked to prevent "
 "closing them accidentally. These will be killed if you continue.</warning>"
 msgstr ""
+"<warning>एकं वा अधिकं वा मुक्तसत्रं भवता ताडितम् अस्ति यत् तान् आकस्मिकरूपेण पिधातुं न "
+"शक्नोति । एते हता भविष्यन्ति यदि भवन्तः निरन्तरं कुर्वन्ति।</warning>"
 
 #: app/mainwindow.cpp:220
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
-msgstr ""
+msgstr "वास्तवमेव त्यजतु ?"
 
 #: app/mainwindow.cpp:252
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
-msgstr ""
+msgstr "याकुआके खोलें/निवृत्त करें"
 
 #: app/mainwindow.cpp:261
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
-msgstr ""
+msgstr "यदा तस्य ध्यानं नष्टं भवति तदा विण्डो उद्घाटितं कुर्वन्तु"
 
 #: app/mainwindow.cpp:266
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
-msgstr ""
+msgstr "प्रोफाइल प्रबन्धयन्तु..."
 
 #: app/mainwindow.cpp:271
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
-msgstr ""
+msgstr "वर्तमान प्रोफाइल सम्पादयतु..."
 
 #: app/mainwindow.cpp:277
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
-msgstr ""
+msgstr "विण्डो विड्थ वर्धयतु"
 
 #: app/mainwindow.cpp:282
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
-msgstr ""
+msgstr "विण्डो विड्थ न्यूनीकरोतु"
 
 #: app/mainwindow.cpp:287
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
-msgstr ""
+msgstr "खिडकी ऊर्ध्वता वर्धयन्तु"
 
 #: app/mainwindow.cpp:292
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
-msgstr ""
+msgstr "खिडक्याः ऊर्ध्वता न्यूनीकरोतु"
 
 #: app/mainwindow.cpp:297
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
-msgstr ""
+msgstr "नव सत्र"
 
 #: app/mainwindow.cpp:303
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
-msgstr ""
+msgstr "द्वौ टर्मिनलौ, क्षैतिजरूपेण"
 
 #: app/mainwindow.cpp:308
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
-msgstr ""
+msgstr "द्वौ टर्मिनलौ, लम्बवत्"
 
 #: app/mainwindow.cpp:313
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
-msgstr ""
+msgstr "चत्वारि टर्मिनलानि, जालम्"
 
 #: app/mainwindow.cpp:318
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
-msgstr ""
+msgstr "सत्रं बन्दं कुर्वन्तु"
 
 #: app/mainwindow.cpp:325
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
-msgstr ""
+msgstr "पूर्वसत्रम्"
 
 #: app/mainwindow.cpp:331
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
-msgstr ""
+msgstr "अग्रिमः सत्रः"
 
 #: app/mainwindow.cpp:337
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
-msgstr ""
+msgstr "सत्रं वामभागे चालयन्तु"
 
 #: app/mainwindow.cpp:344
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
-msgstr ""
+msgstr "सत्रं दक्षिणतः चालयन्तु"
 
 #: app/mainwindow.cpp:351
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
-msgstr ""
+msgstr "दक्षिणतः टर्मिनल् वर्धयतु"
 
 #: app/mainwindow.cpp:358
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
-msgstr ""
+msgstr "वामभागे टर्मिनल् वर्धयतु"
 
 #: app/mainwindow.cpp:365
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
-msgstr ""
+msgstr "टर्मिनल् तः शीर्षं यावत् वर्धयतु"
 
 #: app/mainwindow.cpp:372
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
-msgstr ""
+msgstr "टर्मिनल् तः अधः यावत् वर्धयतु"
 
 #: app/mainwindow.cpp:379
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
-msgstr ""
+msgstr "सत्रस्य नाम परिवर्तनं कुर्वन्तु..."
 
 #: app/mainwindow.cpp:386
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
-msgstr ""
+msgstr "पूर्व टर्मिनल्"
 
 #: app/mainwindow.cpp:392
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
-msgstr ""
+msgstr "अग्रिमः टर्मिनल्"
 
 #: app/mainwindow.cpp:398
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
-msgstr ""
+msgstr "सक्रिय टर्मिनल् बन्दं कुर्वन्तु"
 
 #: app/mainwindow.cpp:405
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
-msgstr ""
+msgstr "वाम/दक्षिण विभक्त"
 
 #: app/mainwindow.cpp:412
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
-msgstr ""
+msgstr "विभक्तं उपरि/तलम्"
 
 #: app/mainwindow.cpp:419
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
-msgstr ""
+msgstr "समापनं निवारयन्तु"
 
 #: app/mainwindow.cpp:425 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
-msgstr ""
+msgstr "कीबोर्ड इनपुट् अक्षम करें"
 
 #: app/mainwindow.cpp:431 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
-msgstr ""
+msgstr "क्रियाकलापस्य निरीक्षणं कुर्वन्तु"
 
 #: app/mainwindow.cpp:438 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
-msgstr ""
+msgstr "मौनस्य निरीक्षणं कुर्वन्तु"
 
 #: app/mainwindow.cpp:445
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
-msgstr ""
+msgstr "शीर्षकपट्टिकां टॉगलं कुर्वन्तु"
 
 #: app/mainwindow.cpp:452
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
-msgstr ""
+msgstr "सत्र %1 प्रति स्विच् कुर्वन्तु"
 
 #: app/mainwindow.cpp:604
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
-msgstr ""
+msgstr "\"%1\" सत्रे निरीक्षितटर्मिनले क्रियाकलापः ज्ञातः ।"
 
 #: app/mainwindow.cpp:618
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
-msgstr ""
+msgstr "\"%1\" सत्रे निरीक्षितटर्मिनले मौनम् ज्ञातम् ।"
 
 #: app/mainwindow.cpp:677
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
-msgstr ""
+msgstr "साहाय्यम्‌"
 
 #: app/mainwindow.cpp:683
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
-msgstr ""
+msgstr "त्वरितविकल्पाः"
 
 #: app/mainwindow.cpp:689
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
-msgstr ""
+msgstr "पट"
 
 #: app/mainwindow.cpp:694
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
-msgstr ""
+msgstr "विस्तार"
 
 #: app/mainwindow.cpp:699
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
-msgstr ""
+msgstr "औनत्यम्‌"
 
 #: app/mainwindow.cpp:702
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
-msgstr ""
+msgstr "सेटिंग्स्"
 
 #: app/mainwindow.cpp:718
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
-msgstr ""
+msgstr "मूषकस्थाने"
 
 #: app/mainwindow.cpp:724
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
-msgstr ""
+msgstr "स्क्रीन %1"
 
 #: app/mainwindow.cpp:746 app/mainwindow.cpp:768
 #, kde-format
@@ -1438,19 +1486,19 @@ msgstr "%1%"
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
-msgstr ""
+msgstr "कोष्ठ"
 
 #: app/mainwindow.cpp:839
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
-msgstr ""
+msgstr "व्यवहार"
 
 #: app/mainwindow.cpp:842
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
-msgstr ""
+msgstr "स्वरूपम्‌"
 
 #: app/mainwindow.cpp:924
 #, kde-kuit-format
@@ -1459,18 +1507,20 @@ msgid ""
 "<application>Yakuake</application> was unable to load a skin. It is likely "
 "that it was installed incorrectly.<nl/><nl/>The application will now quit."
 msgstr ""
+"<application>याकुआके</application> एकं त्वचां लोड् कर्तुं असमर्थम् आसीत् । सम्भवति यत् एतत् "
+"अशुद्धरूपेण संस्थापितम् आसीत्।<nl/><nl/>अनुप्रयोगः इदानीं त्यक्ष्यति।"
 
 #: app/mainwindow.cpp:926
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
-msgstr ""
+msgstr "त्वचां लोडं कर्तुं न शक्नोति"
 
 #: app/mainwindow.cpp:1681
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
-msgstr ""
+msgstr "उद्घाटयितुं <shortcut>%1</shortcut> नुदन्तु"
 
 #: app/sessionstack.cpp:255
 #, kde-format
@@ -1492,24 +1542,25 @@ msgid ""
 "<warning>You have locked this session to prevent accidental closing of "
 "terminals.</warning>"
 msgstr ""
+"<warning>भवता एतत् सत्रं ताडितम् अस्ति यत् टर्मिनल्-आकस्मिक-निमीलनं न भवेत् ।</warning>"
 
 #: app/sessionstack.cpp:725
 #, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
-msgstr ""
+msgstr "किं भवान् निश्चयेन एतत् सत्रं पिधातुम् इच्छति?"
 
 #: app/sessionstack.cpp:727
 #, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
-msgstr ""
+msgstr "किं भवान् निश्चयेन एतत् टर्मिनल् पिधातुम् इच्छति?"
 
 #: app/sessionstack.cpp:731
 #, kde-format
 msgctxt "@title:window"
 msgid "Really Close?"
-msgstr ""
+msgstr "वास्तवम् निकटम्?"
 
 #: app/tabbar.cpp:39
 #, kde-kuit-format
@@ -1518,84 +1569,86 @@ msgid ""
 "<title>Tab Bar</title><para>The tab bar allows you to switch between "
 "sessions. You can double-click a tab to edit its label.</para>"
 msgstr ""
+"<title>ट्याब् बार</title><para> ट्याब् बार इत्यनेन सत्रयोः मध्ये स्विच् कर्तुं शक्यते । भवान् "
+"एकं ट्याब् द्विवारं क्लिक् कृत्वा तस्य लेबल् सम्पादयितुं शक्नोति ।</para>"
 
 #: app/tabbar.cpp:58
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Disable Keyboard Input"
-msgstr ""
+msgstr "कीबोर्ड इनपुट् अक्षम करें"
 
 #: app/tabbar.cpp:59
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Monitor for Activity"
-msgstr ""
+msgstr "क्रियाकलापस्य निरीक्षणं कुर्वन्तु"
 
 #: app/tabbar.cpp:60
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Monitor for Silence"
-msgstr ""
+msgstr "मौनस्य निरीक्षणं कुर्वन्तु"
 
 #: app/tabbar.cpp:69
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "New Session"
-msgstr ""
+msgstr "नव सत्र"
 
 #: app/tabbar.cpp:70
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Adds a new session. Press and hold to select session type from menu."
-msgstr ""
+msgstr "नूतनं सत्रं योजयति । मेनूतः सत्रप्रकारं चिन्वितुं नुदन्तु धारयन्तु च ।"
 
 #: app/tabbar.cpp:75
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Close Session"
-msgstr ""
+msgstr "सत्रं बन्दं कुर्वन्तु"
 
 #: app/tabbar.cpp:76
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Closes the active session."
-msgstr ""
+msgstr "सक्रियसत्रं पिधायति ।"
 
 #: app/tabbar.cpp:194
 #, kde-kuit-format
 msgctxt "@action"
 msgid "For This Session"
-msgstr ""
+msgstr "अस्य सत्रस्य कृते"
 
 #: app/tabbar.cpp:211
 #, kde-kuit-format
 msgctxt "@action"
 msgid "For Terminal %1"
-msgstr ""
+msgstr "टर्मिनल् %1 कृते"
 
 #: app/tabbar.cpp:239 app/tabbar.cpp:284
 #, kde-kuit-format
 msgctxt "@action"
 msgid "In This Session"
-msgstr ""
+msgstr "अस्मिन् सत्रे"
 
 #: app/tabbar.cpp:256 app/tabbar.cpp:301
 #, kde-kuit-format
 msgctxt "@action"
 msgid "In Terminal %1"
-msgstr ""
+msgstr "टर्मिनल् %1 इत्यत्र"
 
 #: app/tabbar.cpp:933
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell"
-msgstr ""
+msgstr "कोष्ठ"
 
 #: app/tabbar.cpp:935
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell No. %1"
-msgstr ""
+msgstr "शंखसंख्या %1"
 
 #: app/terminal.cpp:163
 #, kde-kuit-format
@@ -1605,6 +1658,9 @@ msgid ""
 "<application>Konsole</application> component.<nl/> A <application>Konsole</"
 "application> installation is required to use Yakuake."
 msgstr ""
+"<application>Yakuake</application> <application>Konsole</application> घटकं "
+"लोड् कर्तुं असमर्थम् आसीत् ।<nl/> Yakuake इत्यस्य उपयोगाय <application>Konsole</"
+"application> संस्थापनम् आवश्यकम् अस्ति ।"
 
 #: app/titlebar.cpp:23
 #, kde-kuit-format
@@ -1613,39 +1669,42 @@ msgid ""
 "<title>Title Bar</title><para>The title bar displays the session title if "
 "available.</para>"
 msgstr ""
+"<title>शीर्षक बार</title><para> शीर्षकपट्टिका यदि उपलब्धं भवति तर्हि सत्रस्य शीर्षकं "
+"प्रदर्शयति ।</para>"
 
 #: app/titlebar.cpp:36
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Keep window open when it loses focus"
-msgstr ""
+msgstr "यदा तस्य ध्यानं नष्टं भवति तदा विण्डो उद्घाटितं कुर्वन्तु"
 
 #: app/titlebar.cpp:37
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "If this is checked, the window will stay open when it loses focus."
 msgstr ""
+"यदि एतत् परीक्षितं भवति तर्हि विण्डो यदा फोकस नष्टं करोति तदा उद्घाटितं तिष्ठति ।"
 
 #: app/titlebar.cpp:44
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Open Menu"
-msgstr ""
+msgstr "मेनू उद्घाटयन्तु"
 
 #: app/titlebar.cpp:45
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Opens the main menu."
-msgstr ""
+msgstr "मुख्यमेनू उद्घाटयति ।"
 
 #: app/titlebar.cpp:50
 #, kde-kuit-format
 msgctxt "@info:tooltip Quits the application"
 msgid "Quit"
-msgstr ""
+msgstr "परिजहातु"
 
 #: app/titlebar.cpp:51
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Quits the application."
-msgstr ""
+msgstr "अनुप्रयोगं त्यजति।"
