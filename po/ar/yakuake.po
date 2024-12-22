@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-01 00:42+0000\n"
-"PO-Revision-Date: 2024-10-24 09:44+0400\n"
+"PO-Revision-Date: 2024-12-19 07:25+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -489,7 +489,7 @@ msgstr "افتح على الشّاشة:"
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "At mouse location"
-msgstr ""
+msgstr "عند موضع الفأرة"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Screen)
 #: app/config/windowsettings.ui:353
