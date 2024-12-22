@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:42+0000\n"
+"POT-Creation-Date: 2024-12-22 00:43+0000\n"
 "PO-Revision-Date: 2022-12-21 12:33+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -364,7 +364,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "Schermo  %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:662
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:672
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1422,123 +1422,129 @@ msgstr "Scinde Alto/ a Basso"
 #: app/mainwindow.cpp:419
 #, kde-kuit-format
 msgctxt "@action"
+msgid "Split Automatically"
+msgstr ""
+
+#: app/mainwindow.cpp:426
+#, kde-kuit-format
+msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "Preveni clauder"
 
-#: app/mainwindow.cpp:425 app/tabbar.cpp:190
+#: app/mainwindow.cpp:432 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "Dishabilita entrata de claviero"
 
-#: app/mainwindow.cpp:431 app/tabbar.cpp:235
+#: app/mainwindow.cpp:438 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "Monitor pro Activitate"
 
-#: app/mainwindow.cpp:438 app/tabbar.cpp:280
+#: app/mainwindow.cpp:445 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "Monitor pro Silentio"
 
-#: app/mainwindow.cpp:445
+#: app/mainwindow.cpp:452
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr "Commuta barra de titulo"
 
-#: app/mainwindow.cpp:452
+#: app/mainwindow.cpp:459
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "Passa a session %1"
 
-#: app/mainwindow.cpp:604
+#: app/mainwindow.cpp:614
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "Activitate relevate in session de terminal  monitorate \"%1\"."
 
-#: app/mainwindow.cpp:618
+#: app/mainwindow.cpp:628
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "Silentio relevate in terminal monitorate in session \"%1\"."
 
-#: app/mainwindow.cpp:677
+#: app/mainwindow.cpp:687
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Adjuta"
 
-#: app/mainwindow.cpp:683
+#: app/mainwindow.cpp:693
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Optiones rapide"
 
-#: app/mainwindow.cpp:689
+#: app/mainwindow.cpp:699
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Schermo"
 
-#: app/mainwindow.cpp:694
+#: app/mainwindow.cpp:704
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Largessa"
 
-#: app/mainwindow.cpp:699
+#: app/mainwindow.cpp:709
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Altessa"
 
-#: app/mainwindow.cpp:702
+#: app/mainwindow.cpp:712
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Preferentias"
 
-#: app/mainwindow.cpp:718
+#: app/mainwindow.cpp:728
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "A location de mus"
 
-#: app/mainwindow.cpp:724
+#: app/mainwindow.cpp:734
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Schermo  %1"
 
-#: app/mainwindow.cpp:746 app/mainwindow.cpp:768
+#: app/mainwindow.cpp:756 app/mainwindow.cpp:778
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: app/mainwindow.cpp:833
+#: app/mainwindow.cpp:843
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Fenestra"
 
-#: app/mainwindow.cpp:839
+#: app/mainwindow.cpp:849
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Comportamento"
 
-#: app/mainwindow.cpp:842
+#: app/mainwindow.cpp:852
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Apparentia"
 
-#: app/mainwindow.cpp:924
+#: app/mainwindow.cpp:934
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1549,13 +1555,13 @@ msgstr ""
 "probabilemente que il esseva installate incorrectemente.<nl/><nl/>Le "
 "application nunc quitara."
 
-#: app/mainwindow.cpp:926
+#: app/mainwindow.cpp:936
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Non pote cargar skin (apparentia)"
 
-#: app/mainwindow.cpp:1681
+#: app/mainwindow.cpp:1691
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
@@ -1575,7 +1581,7 @@ msgstr ""
 "Yakuake.<p>Iste aviso essara monstrate solmente un vice per iste instantia "
 "de Yakuke.</p>"
 
-#: app/sessionstack.cpp:721
+#: app/sessionstack.cpp:732
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1585,19 +1591,19 @@ msgstr ""
 "<warning>Tu ha blocate iste session per prevenir clausura accidental de "
 "terminales.</warning>"
 
-#: app/sessionstack.cpp:725
+#: app/sessionstack.cpp:736
 #, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
 msgstr "Tu es secur que tu vole clauder iste session?"
 
-#: app/sessionstack.cpp:727
+#: app/sessionstack.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
 msgstr "Tu es secur que tu vole clauder iste terminal?"
 
-#: app/sessionstack.cpp:731
+#: app/sessionstack.cpp:742
 #, kde-format
 msgctxt "@title:window"
 msgid "Really Close?"

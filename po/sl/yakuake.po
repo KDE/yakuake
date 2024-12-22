@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:42+0000\n"
+"POT-Creation-Date: 2024-12-22 00:43+0000\n"
 "PO-Revision-Date: 2023-04-16 08:32+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -370,7 +370,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "Zaslon %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:662
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:672
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1417,123 +1417,129 @@ msgstr "Razdeli na vrhu/dnu"
 #: app/mainwindow.cpp:419
 #, kde-kuit-format
 msgctxt "@action"
+msgid "Split Automatically"
+msgstr ""
+
+#: app/mainwindow.cpp:426
+#, kde-kuit-format
+msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "Prepreči zapiranje"
 
-#: app/mainwindow.cpp:425 app/tabbar.cpp:190
+#: app/mainwindow.cpp:432 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "Onemogoči vnos tipkovnice"
 
-#: app/mainwindow.cpp:431 app/tabbar.cpp:235
+#: app/mainwindow.cpp:438 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "Spremljanje dejavnosti"
 
-#: app/mainwindow.cpp:438 app/tabbar.cpp:280
+#: app/mainwindow.cpp:445 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "Spremljanje tišine"
 
-#: app/mainwindow.cpp:445
+#: app/mainwindow.cpp:452
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr "Preklopi naslovno vrstico"
 
-#: app/mainwindow.cpp:452
+#: app/mainwindow.cpp:459
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "Preklopi na sejo %1"
 
-#: app/mainwindow.cpp:604
+#: app/mainwindow.cpp:614
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "Zaznana dejavnost v nadzorovanem terminalu seje »%1«."
 
-#: app/mainwindow.cpp:618
+#: app/mainwindow.cpp:628
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "Zaznana tišina na nadzorovanem terminalu seje »%1«."
 
-#: app/mainwindow.cpp:677
+#: app/mainwindow.cpp:687
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Pomoč"
 
-#: app/mainwindow.cpp:683
+#: app/mainwindow.cpp:693
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Hitre možnosti"
 
-#: app/mainwindow.cpp:689
+#: app/mainwindow.cpp:699
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Zaslon"
 
-#: app/mainwindow.cpp:694
+#: app/mainwindow.cpp:704
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Širina"
 
-#: app/mainwindow.cpp:699
+#: app/mainwindow.cpp:709
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Višina"
 
-#: app/mainwindow.cpp:702
+#: app/mainwindow.cpp:712
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: app/mainwindow.cpp:718
+#: app/mainwindow.cpp:728
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "Na položaju miškinega kazalca"
 
-#: app/mainwindow.cpp:724
+#: app/mainwindow.cpp:734
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Zaslon %1"
 
-#: app/mainwindow.cpp:746 app/mainwindow.cpp:768
+#: app/mainwindow.cpp:756 app/mainwindow.cpp:778
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: app/mainwindow.cpp:833
+#: app/mainwindow.cpp:843
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Okno"
 
-#: app/mainwindow.cpp:839
+#: app/mainwindow.cpp:849
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Vedenje"
 
-#: app/mainwindow.cpp:842
+#: app/mainwindow.cpp:852
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Videz"
 
-#: app/mainwindow.cpp:924
+#: app/mainwindow.cpp:934
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1543,13 +1549,13 @@ msgstr ""
 "<application>Yakuake</application> ne more naložiti preobleke. Najverjetneje "
 "je bila nepravilno nameščena. <nl/> <nl/> Program se bo zdaj ustavil."
 
-#: app/mainwindow.cpp:926
+#: app/mainwindow.cpp:936
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Nalaganje preobleke ni mogoče"
 
-#: app/mainwindow.cpp:1681
+#: app/mainwindow.cpp:1691
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
@@ -1568,7 +1574,7 @@ msgstr ""
 "metode prestavite v notranjo uporabo samo s ponovnim prevajanjem Yakuake. "
 "<p>To opozorilo bo prikazano samo enkrat za ta primerek programa Yakuake.</p>"
 
-#: app/sessionstack.cpp:721
+#: app/sessionstack.cpp:732
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1578,19 +1584,19 @@ msgstr ""
 "<warning>To sejo ste zaklenili, da preprečite nenamerno zapiranje terminalov."
 "</warning>"
 
-#: app/sessionstack.cpp:725
+#: app/sessionstack.cpp:736
 #, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
 msgstr "Ali ste prepričani, da želite zapreti to sejo?"
 
-#: app/sessionstack.cpp:727
+#: app/sessionstack.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
 msgstr "Ali ste prepričani, da želite zapreti ta terminal?"
 
-#: app/sessionstack.cpp:731
+#: app/sessionstack.cpp:742
 #, kde-format
 msgctxt "@title:window"
 msgid "Really Close?"

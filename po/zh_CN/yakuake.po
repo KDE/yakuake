@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:42+0000\n"
+"POT-Creation-Date: 2024-12-22 00:43+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -346,7 +346,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "屏幕 %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:662
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:672
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1362,123 +1362,129 @@ msgstr "垂直拆分"
 #: app/mainwindow.cpp:419
 #, kde-kuit-format
 msgctxt "@action"
+msgid "Split Automatically"
+msgstr ""
+
+#: app/mainwindow.cpp:426
+#, kde-kuit-format
+msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "防止关闭"
 
-#: app/mainwindow.cpp:425 app/tabbar.cpp:190
+#: app/mainwindow.cpp:432 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "禁用键盘输入"
 
-#: app/mainwindow.cpp:431 app/tabbar.cpp:235
+#: app/mainwindow.cpp:438 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "监视活动"
 
-#: app/mainwindow.cpp:438 app/tabbar.cpp:280
+#: app/mainwindow.cpp:445 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "监视空闲"
 
-#: app/mainwindow.cpp:445
+#: app/mainwindow.cpp:452
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr "显示/隐藏标题栏"
 
-#: app/mainwindow.cpp:452
+#: app/mainwindow.cpp:459
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "切换到会话 %1"
 
-#: app/mainwindow.cpp:604
+#: app/mainwindow.cpp:614
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "在监视的终端的会话“%1”中检测到活动。"
 
-#: app/mainwindow.cpp:618
+#: app/mainwindow.cpp:628
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "在监视的终端的会话“%1”中检测到空闲。"
 
-#: app/mainwindow.cpp:677
+#: app/mainwindow.cpp:687
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "帮助"
 
-#: app/mainwindow.cpp:683
+#: app/mainwindow.cpp:693
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "快速选项"
 
-#: app/mainwindow.cpp:689
+#: app/mainwindow.cpp:699
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "屏幕"
 
-#: app/mainwindow.cpp:694
+#: app/mainwindow.cpp:704
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "宽度"
 
-#: app/mainwindow.cpp:699
+#: app/mainwindow.cpp:709
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "高度"
 
-#: app/mainwindow.cpp:702
+#: app/mainwindow.cpp:712
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "设置"
 
-#: app/mainwindow.cpp:718
+#: app/mainwindow.cpp:728
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "鼠标所在的屏幕"
 
-#: app/mainwindow.cpp:724
+#: app/mainwindow.cpp:734
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "屏幕 %1"
 
-#: app/mainwindow.cpp:746 app/mainwindow.cpp:768
+#: app/mainwindow.cpp:756 app/mainwindow.cpp:778
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: app/mainwindow.cpp:833
+#: app/mainwindow.cpp:843
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "窗口"
 
-#: app/mainwindow.cpp:839
+#: app/mainwindow.cpp:849
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "行为"
 
-#: app/mainwindow.cpp:842
+#: app/mainwindow.cpp:852
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "外观"
 
-#: app/mainwindow.cpp:924
+#: app/mainwindow.cpp:934
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1488,13 +1494,13 @@ msgstr ""
 "<application>Yakuake</application> 无法加载皮肤。该皮肤可能安装错误。<nl/"
 "><nl/>程序现在将退出。"
 
-#: app/mainwindow.cpp:926
+#: app/mainwindow.cpp:936
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "无法加载皮肤"
 
-#: app/mainwindow.cpp:1681
+#: app/mainwindow.cpp:1691
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
@@ -1513,7 +1519,7 @@ msgstr ""
 "改为仅限 Yakuake 程序内部调用。<p>这条警告信息只会在本 Yakuake 实例中显示一"
 "次。</p>"
 
-#: app/sessionstack.cpp:721
+#: app/sessionstack.cpp:732
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1521,19 +1527,19 @@ msgid ""
 "terminals.</warning>"
 msgstr "<warning>此会话已被锁定以防止终端意外关闭。</warning>"
 
-#: app/sessionstack.cpp:725
+#: app/sessionstack.cpp:736
 #, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
 msgstr "您确定要关闭此会话吗？"
 
-#: app/sessionstack.cpp:727
+#: app/sessionstack.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
 msgstr "您确定要关闭此终端吗？"
 
-#: app/sessionstack.cpp:731
+#: app/sessionstack.cpp:742
 #, kde-format
 msgctxt "@title:window"
 msgid "Really Close?"

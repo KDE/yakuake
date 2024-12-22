@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:42+0000\n"
+"POT-Creation-Date: 2024-12-22 00:43+0000\n"
 "PO-Revision-Date: 2023-12-30 11:49+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -362,7 +362,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "%1. képernyő"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:662
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:672
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1404,123 +1404,129 @@ msgstr "Elválasztás vízszintesen"
 #: app/mainwindow.cpp:419
 #, kde-kuit-format
 msgctxt "@action"
+msgid "Split Automatically"
+msgstr ""
+
+#: app/mainwindow.cpp:426
+#, kde-kuit-format
+msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "Bezárás megakadályozása"
 
-#: app/mainwindow.cpp:425 app/tabbar.cpp:190
+#: app/mainwindow.cpp:432 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "Billentyűleütések letiltása"
 
-#: app/mainwindow.cpp:431 app/tabbar.cpp:235
+#: app/mainwindow.cpp:438 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "Aktivitásjelző"
 
-#: app/mainwindow.cpp:438 app/tabbar.cpp:280
+#: app/mainwindow.cpp:445 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "Üresjáratjelző"
 
-#: app/mainwindow.cpp:445
+#: app/mainwindow.cpp:452
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr "Címsor be/ki"
 
-#: app/mainwindow.cpp:452
+#: app/mainwindow.cpp:459
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "Váltás a(z) %1. munkamenetre"
 
-#: app/mainwindow.cpp:604
+#: app/mainwindow.cpp:614
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "Aktivitás érzékelve a figyelt terminál „%1” munkamenetében."
 
-#: app/mainwindow.cpp:618
+#: app/mainwindow.cpp:628
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "Csend érzékelve a figyelt terminál „%1” munkamenetében."
 
-#: app/mainwindow.cpp:677
+#: app/mainwindow.cpp:687
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Súgó"
 
-#: app/mainwindow.cpp:683
+#: app/mainwindow.cpp:693
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Gyorsbeállítások"
 
-#: app/mainwindow.cpp:689
+#: app/mainwindow.cpp:699
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Képernyő"
 
-#: app/mainwindow.cpp:694
+#: app/mainwindow.cpp:704
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Szélesség"
 
-#: app/mainwindow.cpp:699
+#: app/mainwindow.cpp:709
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Magasság"
 
-#: app/mainwindow.cpp:702
+#: app/mainwindow.cpp:712
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Beállítások"
 
-#: app/mainwindow.cpp:718
+#: app/mainwindow.cpp:728
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "Kurzorpozíciónál"
 
-#: app/mainwindow.cpp:724
+#: app/mainwindow.cpp:734
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "%1. képernyő"
 
-#: app/mainwindow.cpp:746 app/mainwindow.cpp:768
+#: app/mainwindow.cpp:756 app/mainwindow.cpp:778
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: app/mainwindow.cpp:833
+#: app/mainwindow.cpp:843
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Ablak"
 
-#: app/mainwindow.cpp:839
+#: app/mainwindow.cpp:849
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Működés"
 
-#: app/mainwindow.cpp:842
+#: app/mainwindow.cpp:852
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Megjelenés"
 
-#: app/mainwindow.cpp:924
+#: app/mainwindow.cpp:934
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1530,13 +1536,13 @@ msgstr ""
 "A <application>Yakuake</application> nem tudott betölteni egy témát, mintha "
 "nem lett volna megfelelően telepítve.<nl/><nl/>Az alkalmazás most kilép."
 
-#: app/mainwindow.cpp:926
+#: app/mainwindow.cpp:936
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Nem sikerült betölteni a témát"
 
-#: app/mainwindow.cpp:1681
+#: app/mainwindow.cpp:1691
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
@@ -1556,7 +1562,7 @@ msgstr ""
 "újrafordításával. <p>Ez a figyelmeztetés egyszerűjelenik meg ebben a Yakuake "
 "példányban.</p>"
 
-#: app/sessionstack.cpp:721
+#: app/sessionstack.cpp:732
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1566,19 +1572,19 @@ msgstr ""
 "<warning>Zárolta ezt a munkamenetet a terminálok véletlen bezárásának "
 "megakadályozásához.</warning>"
 
-#: app/sessionstack.cpp:725
+#: app/sessionstack.cpp:736
 #, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
 msgstr "Biztosan be szeretné zárni ezt a munkamenetet?"
 
-#: app/sessionstack.cpp:727
+#: app/sessionstack.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
 msgstr "Biztosan be szeretné zárni ezt a terminált?"
 
-#: app/sessionstack.cpp:731
+#: app/sessionstack.cpp:742
 #, kde-format
 msgctxt "@title:window"
 msgid "Really Close?"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:42+0000\n"
+"POT-Creation-Date: 2024-12-22 00:43+0000\n"
 "PO-Revision-Date: 2023-03-12 17:20+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -363,7 +363,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "Bildschirm %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:662
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:672
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1419,49 +1419,56 @@ msgid "Split Top/Bottom"
 msgstr "Aufteilen (oben/unten)"
 
 #: app/mainwindow.cpp:419
+#, fuzzy, kde-kuit-format
+#| msgid "Split Terminal Vertically"
+msgctxt "@action"
+msgid "Split Automatically"
+msgstr "Terminal senkrecht teilen"
+
+#: app/mainwindow.cpp:426
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "Schließen verhindern"
 
-#: app/mainwindow.cpp:425 app/tabbar.cpp:190
+#: app/mainwindow.cpp:432 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "Tastatureingaben deaktivieren"
 
-#: app/mainwindow.cpp:431 app/tabbar.cpp:235
+#: app/mainwindow.cpp:438 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "Auf Aktivität überwachen"
 
-#: app/mainwindow.cpp:438 app/tabbar.cpp:280
+#: app/mainwindow.cpp:445 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "Auf Inaktivität überwachen"
 
-#: app/mainwindow.cpp:445
+#: app/mainwindow.cpp:452
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr "Titelleiste umschalten"
 
-#: app/mainwindow.cpp:452
+#: app/mainwindow.cpp:459
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "Zu Sitzung %1 wechseln"
 
-#: app/mainwindow.cpp:604
+#: app/mainwindow.cpp:614
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr ""
 "In einem überwachten Terminal Aktivität in der Sitzung „%1“ festgestellt."
 
-#: app/mainwindow.cpp:618
+#: app/mainwindow.cpp:628
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
@@ -1469,78 +1476,78 @@ msgstr ""
 "In einem überwachten Terminal keine Aktivität in der Sitzung „%1“ "
 "festgestellt."
 
-#: app/mainwindow.cpp:677
+#: app/mainwindow.cpp:687
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Hilfe"
 
-#: app/mainwindow.cpp:683
+#: app/mainwindow.cpp:693
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Schnelleinstellungen"
 
-#: app/mainwindow.cpp:689
+#: app/mainwindow.cpp:699
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Bildschirm"
 
-#: app/mainwindow.cpp:694
+#: app/mainwindow.cpp:704
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Breite"
 
-#: app/mainwindow.cpp:699
+#: app/mainwindow.cpp:709
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Höhe"
 
-#: app/mainwindow.cpp:702
+#: app/mainwindow.cpp:712
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: app/mainwindow.cpp:718
+#: app/mainwindow.cpp:728
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "An Zeigerposition"
 
-#: app/mainwindow.cpp:724
+#: app/mainwindow.cpp:734
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Bildschirm %1"
 
-#: app/mainwindow.cpp:746 app/mainwindow.cpp:768
+#: app/mainwindow.cpp:756 app/mainwindow.cpp:778
 #, kde-format
 msgid "%1%"
 msgstr "%1 %"
 
-#: app/mainwindow.cpp:833
+#: app/mainwindow.cpp:843
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Fenster"
 
-#: app/mainwindow.cpp:839
+#: app/mainwindow.cpp:849
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Verhalten"
 
-#: app/mainwindow.cpp:842
+#: app/mainwindow.cpp:852
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Erscheinungsbild"
 
-#: app/mainwindow.cpp:924
+#: app/mainwindow.cpp:934
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1550,13 +1557,13 @@ msgstr ""
 "Das Design kann nicht geladen werden. Es ist möglicherweise fehlerhaft "
 "installiert.<nl/><nl/>Die Anwendung wird nun beendet."
 
-#: app/mainwindow.cpp:926
+#: app/mainwindow.cpp:936
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Design kann nicht geladen werden"
 
-#: app/mainwindow.cpp:1681
+#: app/mainwindow.cpp:1691
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
@@ -1576,7 +1583,7 @@ msgstr ""
 "kompiliert wird. <p>Diese Warnung wird nur einmal in dieser Yakuake-Sitzung "
 "angezeigt.</p>"
 
-#: app/sessionstack.cpp:721
+#: app/sessionstack.cpp:732
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1586,19 +1593,19 @@ msgstr ""
 "<warning>Sie haben diese Sitzung gesperrt, um ungewolltes Schließen von "
 "Terminals zu verhindern.</warning>"
 
-#: app/sessionstack.cpp:725
+#: app/sessionstack.cpp:736
 #, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
 msgstr "Sind Sie sicher, dass Sie diese Sitzung schließen möchten?"
 
-#: app/sessionstack.cpp:727
+#: app/sessionstack.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this terminal?"
 msgstr "Sind Sie sicher, dass Sie diees Terminal schließen möchten?"
 
-#: app/sessionstack.cpp:731
+#: app/sessionstack.cpp:742
 #, kde-format
 msgctxt "@title:window"
 msgid "Really Close?"
@@ -1859,9 +1866,6 @@ msgstr "Beendet die Anwendung."
 
 #~ msgid "Split Terminal Horizontally"
 #~ msgstr "Terminal waagerecht teilen"
-
-#~ msgid "Split Terminal Vertically"
-#~ msgstr "Terminal senkrecht teilen"
 
 #~ msgid "C&lose Session"
 #~ msgstr "Sitzung schl&ießen"
