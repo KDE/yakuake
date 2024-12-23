@@ -1,23 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the yakuake package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-22 00:43+0000\n"
-"PO-Revision-Date: 2023-10-05 11:10+0300\n"
-"Last-Translator: \n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2024-12-22 06:48+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
@@ -1378,7 +1377,7 @@ msgstr "פיצול למעלה/למטה"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Automatically"
-msgstr ""
+msgstr "פיצול אוטומטי"
 
 #: app/mainwindow.cpp:426
 #, kde-kuit-format

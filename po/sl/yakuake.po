@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-22 00:43+0000\n"
-"PO-Revision-Date: 2023-04-16 08:32+0200\n"
+"PO-Revision-Date: 2024-12-22 06:31+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.5\n"
 "Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 
 #: app/config/appearancesettings.cpp:151
@@ -1418,7 +1418,7 @@ msgstr "Razdeli na vrhu/dnu"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Automatically"
-msgstr ""
+msgstr "Razdeli samodejno"
 
 #: app/mainwindow.cpp:426
 #, kde-kuit-format
