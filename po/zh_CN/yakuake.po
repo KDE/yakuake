@@ -1363,7 +1363,7 @@ msgstr "垂直拆分"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Automatically"
-msgstr ""
+msgstr "自动拆分"
 
 #: app/mainwindow.cpp:426
 #, kde-kuit-format
