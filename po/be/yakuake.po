@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-22 00:43+0000\n"
-"PO-Revision-Date: 2024-06-07 19:10\n"
+"PO-Revision-Date: 2025-01-10 10:25\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -18,8 +18,8 @@ msgstr ""
 "X-Crowdin-Project: fc57ad16a28d02dea100ceb1c60de14e\n"
 "X-Crowdin-Project-ID: 136\n"
 "X-Crowdin-Language: be\n"
-"X-Crowdin-File: /[antikruk.KDE] main/KDE6/be/messages/yakuake/yakuake.po\n"
-"X-Crowdin-File-ID: 10966\n"
+"X-Crowdin-File: /main/KDE6/be/messages/yakuake/yakuake.po\n"
+"X-Crowdin-File-ID: 20151\n"
 
 #: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
@@ -1420,7 +1420,7 @@ msgstr "Падзяліць па гарызанталі"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Automatically"
-msgstr ""
+msgstr "Падзяліць аўтаматычна"
 
 #: app/mainwindow.cpp:426
 #, kde-kuit-format
