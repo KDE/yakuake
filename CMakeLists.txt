@@ -30,7 +30,7 @@ include(ECMDeprecationSettings)
 include(ECMGenerateDBusServiceFile)
 
 ecm_set_disabled_deprecation_versions(QT 6.8.0
-    KF 6.7
+    KF 6.10
     )
 
 ### Security concerns about sendText and runCommand dbus methods being public
