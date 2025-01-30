@@ -37,7 +37,9 @@ ecm_set_disabled_deprecation_versions(QT 6.8.0
 option(REMOVE_SENDTEXT_RUNCOMMAND_DBUS_METHODS "yakuake: remove runCommand dbus methods" OFF)
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets Svg)
-
+if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
+   find_package(Qt6GuiPrivate ${QT_MIN_VERSION} REQUIRED NO_MODULE)
+endif()
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     Archive
     Config
