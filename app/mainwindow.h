@@ -12,6 +12,9 @@
 
 #include <KMainWindow>
 
+#include <kscreen/config.h>
+#include <kscreen/getconfigoperation.h>
+
 #include <QTimer>
 
 class FirstRunDialog;
@@ -147,6 +150,8 @@ private Q_SLOTS:
     void firstRunDialogFinished();
     void firstRunDialogOk();
 
+    void storeKScreenConfig(KScreen::ConfigOperation *op);
+
 private:
     void setupActions();
 
@@ -211,6 +216,8 @@ private:
 
     bool m_isX11;
     bool m_isWayland;
+
+    KScreen::ConfigPtr m_kscreenConfig = nullptr;
 
 #if HAVE_KWAYLAND
     void initWayland();

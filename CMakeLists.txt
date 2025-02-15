@@ -54,6 +54,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     Notifications
     NotifyConfig
     Parts
+    Screen
     WidgetsAddons
     WindowSystem
     StatusNotifierItem

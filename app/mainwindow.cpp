@@ -18,6 +18,11 @@
 #include "titlebar.h"
 #include "ui_behaviorsettings.h"
 
+#include <kscreen/config.h>
+#include <kscreen/configmonitor.h>
+#include <kscreen/getconfigoperation.h>
+#include <kscreen/types.h>
+
 #include <KAboutData>
 #include <KActionCollection>
 #include <KConfigDialog>
@@ -60,6 +65,10 @@
 #include <KWayland/Client/registry.h>
 #include <KWayland/Client/surface.h>
 #endif
+
+#define SCREEN_CURSOR_ID 0
+#define SCREEN_PRIMARY_ID 1
+#define FIXED_SCREEN_COUNT 2
 
 MainWindow::MainWindow(QWidget *parent)
     : KMainWindow(parent, Qt::CustomizeWindowHint | Qt::FramelessWindowHint | Qt::Tool)
@@ -126,6 +135,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(qApp, &QGuiApplication::screenAdded, this, &MainWindow::updateScreenMenu);
     connect(qApp, &QGuiApplication::screenRemoved, this, &MainWindow::updateScreenMenu);
 
+    KScreen::GetConfigOperation *op = new KScreen::GetConfigOperation();
+    connect(op, &KScreen::GetConfigOperation::finished, this, &MainWindow::storeKScreenConfig);
+
     applySettings();
 
     m_sessionStack->addSession();
@@ -147,6 +159,12 @@ MainWindow::~MainWindow()
     Settings::self()->save();
 
     delete m_skin;
+}
+
+void MainWindow::storeKScreenConfig(KScreen::ConfigOperation *op)
+{
+    m_kscreenConfig = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
+    KScreen::ConfigMonitor::instance()->addConfig(m_kscreenConfig);
 }
 
 #if HAVE_KWAYLAND
@@ -727,14 +745,20 @@ void MainWindow::updateScreenMenu()
 
     action = m_screenMenu->addAction(xi18nc("@item:inmenu", "At mouse location"));
     action->setCheckable(true);
-    action->setData(0);
-    action->setChecked(Settings::screen() == 0);
+    action->setData(SCREEN_CURSOR_ID);
+    action->setChecked(Settings::screen() == SCREEN_CURSOR_ID);
 
-    for (int i = 1; i <= QGuiApplication::screens().count(); i++) {
-        action = m_screenMenu->addAction(xi18nc("@item:inmenu", "Screen %1", i));
+    action = m_screenMenu->addAction(xi18nc("@item:inmenu", "Primary screen"));
+    action->setCheckable(true);
+    action->setData(SCREEN_PRIMARY_ID);
+    action->setChecked(Settings::screen() == SCREEN_PRIMARY_ID);
+
+    for (int i = 0; i < QGuiApplication::screens().count(); i++) {
+        int id = i + FIXED_SCREEN_COUNT;
+        action = m_screenMenu->addAction(xi18nc("@item:inmenu", "Screen %1", i + 1));
         action->setCheckable(true);
-        action->setData(i);
-        action->setChecked(i == Settings::screen());
+        action->setData(id);
+        action->setChecked(id == Settings::screen());
     }
 
     action = m_screenMenu->menuAction();
@@ -1129,7 +1153,7 @@ void MainWindow::moveEvent(QMoveEvent *event)
     const int currentScreenNumber = std::distance(screens.begin(), it);
 
     if (Settings::screen() && currentScreenNumber != -1 && currentScreenNumber != getScreen()) {
-        Settings::setScreen(currentScreenNumber + 1);
+        Settings::setScreen(currentScreenNumber + FIXED_SCREEN_COUNT);
 
         updateScreenMenu();
 
@@ -1530,7 +1554,7 @@ void MainWindow::setFullScreen(bool state)
 
 int MainWindow::getScreen()
 {
-    if (Settings::screen() <= 0 || Settings::screen() > QGuiApplication::screens().length()) {
+    if (Settings::screen() <= SCREEN_CURSOR_ID || Settings::screen() > QGuiApplication::screens().length() + FIXED_SCREEN_COUNT - 1) {
         auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.KWin"),
                                                       QStringLiteral("/KWin"),
                                                       QStringLiteral("org.kde.KWin"),
@@ -1544,14 +1568,31 @@ int MainWindow::getScreen()
                     return i;
             }
         }
+
         // Right after unplugging an external monitor and the Yakuake window was on
         // that monitor, QGuiApplication::screenAt() can return nullptr so we fallback on
         // the first monitor.
         QScreen *screen = QGuiApplication::screenAt(QCursor::pos());
         return screen ? QGuiApplication::screens().indexOf(screen) : 0;
-    } else {
-        return Settings::screen() - 1;
+    } else if (Settings::screen() == SCREEN_PRIMARY_ID) {
+        if (!m_kscreenConfig)
+            return 0;
+
+        // Find output with priority 1
+        for (const QSharedPointer<KScreen::Output> &output : m_kscreenConfig.data()->outputs()) {
+            if (!output->isConnected() || !output->isEnabled() || output->priority() != 1)
+                continue;
+
+            // Match output to screen
+            const auto screens = QGuiApplication::screens();
+            for (int i = 0; i < screens.size(); ++i) {
+                if (screens[i]->name() == output->name())
+                    return i;
+            }
+        }
     }
+
+    return Settings::screen() - FIXED_SCREEN_COUNT;
 }
 
 QRect MainWindow::getScreenGeometry()

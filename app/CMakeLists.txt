@@ -60,6 +60,7 @@ target_link_libraries(yakuake
     KF6::Notifications
     KF6::NotifyConfig
     KF6::Parts
+    KF6::Screen
     KF6::WidgetsAddons
     KF6::WindowSystem
     KF6::StatusNotifierItem

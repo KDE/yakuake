@@ -350,6 +350,11 @@
           </item>
           <item>
            <property name="text">
+            <string comment="@item:inlistbox">Primary screen</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
             <string comment="@item:inlistbox">Screen 1</string>
            </property>
           </item>
