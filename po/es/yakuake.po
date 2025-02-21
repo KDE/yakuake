@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2006, 2007 Juan Manuel Garcia Molina <juanma@superiodico.net>
 # SPDX-FileCopyrightText: 2007, 2008 Enrique Matias Sanchez (Quique) <cronopios@gmail.com>
 # SPDX-FileCopyrightText: 2010, 2011 Israel Garcia Garcia <israelgarcia86@gmail.com>
-# SPDX-FileCopyrightText: 2011, 2012, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2011, 2012, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 # SPDX-FileCopyrightText: 2012, 2013 Ricardo Varas Santana <ricardoivaras@gmail.com>
 # SPDX-FileCopyrightText: 2015, 2016, 2017 Sofia Priego <spriego@darksylvania.net>
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-01 00:42+0000\n"
-"PO-Revision-Date: 2023-10-02 22:28+0200\n"
+"PO-Revision-Date: 2025-02-21 00:11+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
@@ -234,7 +234,7 @@ msgstr "Piel"
 #, kde-format
 msgctxt "@action:button"
 msgid "Get New Skins..."
-msgstr "Obtener pieles nuevas..."
+msgstr "Obtener pieles nuevas…"
 
 #. i18n: ectx: property (text), widget (QPushButton, removeButton)
 #: app/config/appearancesettings.ui:186
@@ -248,7 +248,7 @@ msgstr "Eliminar piel"
 #, kde-format
 msgctxt "@action:button"
 msgid "Install Skin..."
-msgstr "Instalar una piel..."
+msgstr "Instalar una piel…"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FocusFollowsMouse)
 #: app/config/behaviorsettings.ui:26
@@ -1291,13 +1291,13 @@ msgstr "Mantener la ventana abierta cuando pierda el foco"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
-msgstr "Gestionar los perfiles..."
+msgstr "Gestionar los perfiles…"
 
 #: app/mainwindow.cpp:271
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
-msgstr "Editar el perfil actual..."
+msgstr "Editar el perfil actual…"
 
 #: app/mainwindow.cpp:277
 #, kde-kuit-format
@@ -1405,7 +1405,7 @@ msgstr "Aumentar terminal hacia abajo"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
-msgstr "Cambiar el nombre de la sesión..."
+msgstr "Cambiar el nombre de la sesión…"
 
 #: app/mainwindow.cpp:386
 #, kde-kuit-format
@@ -1538,7 +1538,7 @@ msgstr "Pantalla %1"
 #: app/mainwindow.cpp:746 app/mainwindow.cpp:768
 #, kde-format
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: app/mainwindow.cpp:833
 #, kde-kuit-format
