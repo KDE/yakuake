@@ -35,6 +35,7 @@
   <name xml:lang="ka">Yakuake</name>
   <name xml:lang="ko">Yakuake</name>
   <name xml:lang="lt">Yakuake</name>
+  <name xml:lang="lv">Yakuake</name>
   <name xml:lang="nl">Yakuake</name>
   <name xml:lang="nn">Yakuake</name>
   <name xml:lang="pa">ਯਾਕੁਕੇ</name>
@@ -84,6 +85,7 @@
   <summary xml:lang="ka">ჩამოსაშლელი ტერმინალი</summary>
   <summary xml:lang="ko">위에서 내려오는 터미널</summary>
   <summary xml:lang="lt">Išskleidžiamasis terminalas</summary>
+  <summary xml:lang="lv">Izkrītošs terminālis</summary>
   <summary xml:lang="nl">Uitvouwbare terminalemulator</summary>
   <summary xml:lang="nn">Nedtrekksterminal</summary>
   <summary xml:lang="pa">ਲਟਕਦਾ ਟਰਮੀਨਲ</summary>
@@ -135,6 +137,7 @@
     <p xml:lang="ka">Yakuake არის ჩამოსაშლელი ტერმინალის ემულატორი, რომელიც დაფუძნებულია KDE Konsole ტექნოლოგიაზე.</p>
     <p xml:lang="ko">Yakuake는 KDE Konsole을 기반으로 한 드롭다운 터미널 에뮬레이터입니다.</p>
     <p xml:lang="lt">Yakuake yra nusileidžiantis terminalo emuliatorius paremtas KDE Konsole technologija.</p>
+    <p xml:lang="lv">„Yakuake“ ir Izkrītošs termināļa emulators, kam pamatā ir KDE „Konsole“ tehnoloģija.</p>
     <p xml:lang="nl">Yakuake is een uitvouwbare terminalemulator, gebaseerd op de technologie van KDE Konsole.</p>
     <p xml:lang="nn">Rullegardinbasert terminalemulator basert på KDE Konsole-teknologien.</p>
     <p xml:lang="pa">ਯਾਕੁਕੇ ਕੇਡੀਈ ਕਨਸੋਲ ਤਕਨਾਲੋਜੀ ਅਧਾਰਿਤ ਲਟਕਦਾ ਟਰਮੀਨਲ ਏਮੂਲੇਟਰ ਹੈ।</p>
@@ -184,6 +187,7 @@
     <p xml:lang="ka">თვისებები:</p>
     <p xml:lang="ko">기능:</p>
     <p xml:lang="lt">Ypatybės:</p>
+    <p xml:lang="lv">Iespējas:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="nn">Funksjonar:</p>
     <p xml:lang="pa">ਫੀਚਰ:</p>
@@ -232,6 +236,7 @@
       <li xml:lang="ka">რბილად ჩამოიშლება თქვენი ეკრანის ზემო ნაწილიდან</li>
       <li xml:lang="ko">화면 위에서 부드럽게 펼쳐져 내려오기</li>
       <li xml:lang="lt">Sklandžiai nusileidžia žemyn nuo jūsų ekrano viršaus</li>
+      <li xml:lang="lv">Eleganti nolaižas no ekrāna augšas</li>
       <li xml:lang="nl">Rolt langzaam naar beneden vanaf de bovenkant van uw scherm</li>
       <li xml:lang="nn">Rullar jamt ned frå toppen av skjermen</li>
       <li xml:lang="pl">Płynnie rozwija się z góry ekranu</li>
@@ -278,6 +283,7 @@
       <li xml:lang="ka">ჩანართებიანი ინტერფეისი</li>
       <li xml:lang="ko">탭 인터페이스</li>
       <li xml:lang="lt">Kortelės sąsajoje</li>
+      <li xml:lang="lv">Saskarne ar cilnēm</li>
       <li xml:lang="nl">Interface met tabbladen</li>
       <li xml:lang="nn">Brukargrensesnitt med faner</li>
       <li xml:lang="pa">ਟੈਬਾਂ ਵਾਲਾ ਇੰਟਰਫੇਸ</li>
@@ -325,6 +331,7 @@
       <li xml:lang="ka">ზომებისა და ანიმაციის სიჩქარის მორგება</li>
       <li xml:lang="ko">크기와 애니메이션 속도 설정</li>
       <li xml:lang="lt">Konfigūruojami dydi ir animacijos greitis</li>
+      <li xml:lang="lv">Konfigurējams izmērs un animāciju ātrums</li>
       <li xml:lang="nl">Instelbare afmetingen en animatiesnelheid</li>
       <li xml:lang="nn">Tilpassbar storleik og animasjonsfart</li>
       <li xml:lang="pl">Ustawialny rozmiar i szybkość animacji</li>
@@ -371,6 +378,7 @@
       <li xml:lang="ka">შეცვლადი გარეგნობა</li>
       <li xml:lang="ko">스킨</li>
       <li xml:lang="lt">Keičiama išvaizda</li>
+      <li xml:lang="lv">Maināms izskats</li>
       <li xml:lang="nl">Te voorzien van een skin</li>
       <li xml:lang="nn">Støtte for fleire grafiske tema</li>
       <li xml:lang="pl">Możliwość używania skórek</li>
@@ -417,6 +425,7 @@
       <li xml:lang="ka">დახვეწილი D-Bus ინტერფეისი</li>
       <li xml:lang="ko">D-Bus 인터페이스</li>
       <li xml:lang="lt">Įmantri D-Bus sąsaja</li>
+      <li xml:lang="lv">Inteliģenta „D-Bus“ saskarne</li>
       <li xml:lang="nl">Intelligent D-Bus-interface</li>
       <li xml:lang="nn">Avansert D-Bus-grensesnitt</li>
       <li xml:lang="pl">Zaawansowany interfejs D-Bus</li>
