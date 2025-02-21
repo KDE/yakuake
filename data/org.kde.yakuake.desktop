@@ -96,6 +96,7 @@ GenericName[ka]=ჩამოსაშლელი ტერმინალი
 GenericName[km]=ស្ថានីយ​ទម្លាក់​ចុះ
 GenericName[ko]=위에서 내려오는 터미널
 GenericName[lt]=Išskleidžiamasis terminalas
+GenericName[lv]=Izkrītošs terminālis
 GenericName[mr]=खाली येणारा टर्मिनल
 GenericName[nb]=Nedtrekksterminal
 GenericName[nds]=Utklapp-Konsool
@@ -161,7 +162,7 @@ Comment[ka]=Yakuake არის ჩამოსაშლელი ტერმ�
 Comment[km]=កម្មវិធី​ត្រាប់​ស្ថានីយ​ធ្លាក់​ចុះ​ដែល​មាន​មូលដ្ឋាន​លើ​បច្ចេក​វិទ្យា​កុងសូល​របស់ KDE ។
 Comment[ko]=KDE Konsole을 기반으로 한 드롭 다운 방식 터미널 에뮬레이터.
 Comment[lt]=Nusileidžiantis terminalo emuliatorius paremtas KDE Konsole technologija.
-Comment[lv]=Izkrītošs termināļa emulators, kurš bāzēts uz KDE Konsole tehnoloģijas.
+Comment[lv]=Izkrītošs termināļa emulators, kam pamatā ir KDE „Konsole“ tehnoloģija.
 Comment[ml]=കെഡി‌ഈയുടെ കണ്‍സോള്‍ സാങ്കേതികത്വം അടിസ്ഥാനമാക്കിയ ഇറങ്ങിവരുന്ന ടെര്‍മിനല്‍ എമുലേറ്റര്‍
 Comment[mr]=केडीई कंसोल तंत्रज्ञानावर आधारित खाली येणारा टर्मिनल एम्युलेटर.
 Comment[nb]=En terminalemulator basert på KDEs Konsole-teknologi.
