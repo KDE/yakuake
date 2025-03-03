@@ -4,22 +4,22 @@
 # mvillarino <mvillarino@users.sourceforge.net>, 2008, 2009.
 # Xabier Villar <xabier.villar@gmail.com>, 2011, 2012, 2013.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2016, 2017.
-# SPDX-FileCopyrightText: 2024 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2024, 2025 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-01 00:42+0000\n"
-"PO-Revision-Date: 2024-12-08 20:38+0100\n"
-"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"PO-Revision-Date: 2025-03-02 09:33+0100\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
@@ -387,7 +387,7 @@ msgstr "Amosar a barra do título."
 #, kde-format
 msgctxt "@title:group"
 msgid "Tab Bar"
-msgstr "Barra de lapelas"
+msgstr "Barra de separadores"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_DynamicTabTitles)
 #: app/config/windowsettings.ui:69
@@ -399,9 +399,10 @@ msgid ""
 "tab bar. You can modify the format of the information in the terminal "
 "profile."
 msgstr ""
-"Se escolle esta opción, a información sobre o contido da terminal activa que "
-"normalmente é amosada na barra de título tamén ha amosarse na barra de "
-"lapelas. Pode modificar o formato desta información no perfil da terminal."
+"Se escolle esta opción, a información sobre o contido do terminal activa que "
+"normalmente amósase na barra de título tamén ha amosarse na barra de "
+"separadores. Pode modificar o formato desta información no perfil do "
+"terminal."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_DynamicTabTitles)
 #: app/config/windowsettings.ui:72
@@ -415,7 +416,7 @@ msgstr "Amosar os contidos da barra do título nos separadores das sesións."
 #, kde-format
 msgctxt "@option:check"
 msgid "Show the tab bar"
-msgstr "Amosar a barra de lapelas."
+msgstr "Amosar a barra de separadores."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/windowsettings.ui:105
@@ -693,14 +694,14 @@ msgstr "Indica se amosar a barra do título na xanela da aplicación."
 #, kde-format
 msgctxt "@label"
 msgid "Show tab bar"
-msgstr "Amosar a barra de lapelas"
+msgstr "Amosar a barra de separadores"
 
 #. i18n: ectx: whatsthis, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:66
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the tab bar in the application window."
-msgstr "Indica se amosar a barra de lapelas na xanela da aplicación."
+msgstr "Indica se amosar a barra de separadores na xanela da aplicación."
 
 #. i18n: ectx: label, entry (DynamicTabTitles), group (Window)
 #: app/config/yakuake.kcfg:70
@@ -890,7 +891,7 @@ msgid ""
 "skin and hide all borders."
 msgstr ""
 "As aparencias poden definir bordos arredor do terminal, incluída a barra de "
-"lapelas. Esta opción, ao activala, ignorará a configuración de bordos da "
+"separadores. Esta opción, ao activala, ignorará a configuración de bordos da "
 "aparencia e agochará todos os bordos."
 
 #. i18n: ectx: label, entry (TerminalHighlightOpacity), group (Appearance)
@@ -1170,8 +1171,8 @@ msgstr "Juan Carlos Torres"
 msgctxt "@info:credit"
 msgid "Tab bar drag and drop support, Prevent Closing toggle"
 msgstr ""
-"Compatibilidade de arrastrar e soltar da barra de lapelas, opción de previr "
-"o peche"
+"Funcionalidade de arrastrar e soltar da barra de separadores, opción de "
+"evitar o peche."
 
 #: app/main.cpp:42
 #, kde-kuit-format
@@ -1605,9 +1606,9 @@ msgid ""
 "<title>Tab Bar</title><para>The tab bar allows you to switch between "
 "sessions. You can double-click a tab to edit its label.</para>"
 msgstr ""
-"<title>Barra de lapelas</title><para>A barra de lapelas permítelle saltar "
-"entre sesións. Pode facer duplo clic nunha lapela para editar a súa etiqueta."
-"</para>"
+"<title>Barra de separadores</title><para>A barra de separadores permítelle "
+"saltar entre sesións. Pode facer duplo clic nun separador para editar a súa "
+"etiqueta.</para>"
 
 #: app/tabbar.cpp:58
 #, kde-kuit-format
