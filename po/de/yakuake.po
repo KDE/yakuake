@@ -1203,13 +1203,13 @@ msgstr "Aktionen zum Verändern der Terminal-Größe"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Frederik Schwarzer"
+msgstr "Deutsches KDE-Übersetzungsteam"
 
 #: app/main.cpp:49
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "schwarzer@kde.org"
+msgstr "kde-i18n-de@kde.org"
 
 #: app/mainwindow.cpp:201
 #, kde-kuit-format
