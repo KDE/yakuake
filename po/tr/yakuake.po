@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 # Can Coşkuner <fethicanc@gmail.com>, 2007.
 # H. İbrahim Güngör <ibrahim@pardus.org.tr>, 2011.
 # İsmail Dönmez <ismail@pardus.org.tr>, 2006.
@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: extragear-utils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-01 00:42+0000\n"
-"PO-Revision-Date: 2024-10-27 18:22+0300\n"
+"PO-Revision-Date: 2025-03-07 23:27+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
@@ -1139,7 +1139,7 @@ msgstr "Eike Hein"
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Maintainer, Lead Developer"
-msgstr "Projeyi Yürüten, Lider Geliştirici"
+msgstr "Bakımcı, ana geliştirici"
 
 #: app/main.cpp:37
 #, kde-kuit-format
@@ -1151,7 +1151,7 @@ msgstr "Francois Chazal"
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Project Founder, Legacy skin (Inactive)"
-msgstr "Proje Kurucusu, Öntanımlı tema (etkin değil)"
+msgstr "Proje kurucusu, öntanımlı tema (etkin değil)"
 
 #: app/main.cpp:38
 #, kde-kuit-format
@@ -1187,7 +1187,7 @@ msgstr "Gustavo Ribeiro Croscato"
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Icon on tabs with Prevent Closing enabled"
-msgstr "Kapatmayı Engelle özelliği etkin sekmelerde simge"
+msgstr "Kapatmayı engelle özelliği etkin sekmelerde simge"
 
 #: app/main.cpp:45
 #, kde-kuit-format
