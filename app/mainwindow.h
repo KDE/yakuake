@@ -14,6 +14,8 @@
 
 #include <QTimer>
 
+#include "outputorderwatcher.h"
+
 class FirstRunDialog;
 class SessionStack;
 class Skin;
@@ -174,6 +176,7 @@ private:
     int getScreen();
     QRect getScreenGeometry();
     QRect getDesktopGeometry();
+    QScreen *findScreenByName(const QString &screenName);
 
     // get a better value from plasmashell through dbus in wayland case
     QRect m_availableScreenRect;
@@ -218,6 +221,8 @@ private:
     KWayland::Client::PlasmaShell *m_plasmaShell = nullptr;
     KWayland::Client::PlasmaShellSurface *m_plasmaShellSurface = nullptr;
 #endif
+
+    OutputOrderWatcher *m_outputOrderWatcher = nullptr;
 };
 
 #endif

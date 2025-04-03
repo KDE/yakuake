@@ -61,6 +61,8 @@
 #include <KWayland/Client/surface.h>
 #endif
 
+#include "outputorderwatcher.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : KMainWindow(parent, Qt::CustomizeWindowHint | Qt::FramelessWindowHint | Qt::Tool)
 {
@@ -96,6 +98,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     m_toggleLock = false;
 
+    m_outputOrderWatcher = OutputOrderWatcher::instance(this);
+
     setupActions();
     setupMenu();
 
@@ -123,8 +127,8 @@ MainWindow::MainWindow(QWidget *parent)
     if (KWindowSystem::isPlatformX11()) {
         connect(KX11Extras::self(), &KX11Extras::workAreaChanged, this, &MainWindow::applyWindowGeometry);
     }
-    connect(qApp, &QGuiApplication::screenAdded, this, &MainWindow::updateScreenMenu);
-    connect(qApp, &QGuiApplication::screenRemoved, this, &MainWindow::updateScreenMenu);
+
+    connect(m_outputOrderWatcher, &OutputOrderWatcher::outputOrderChanged, this, &MainWindow::updateScreenMenu);
 
     applySettings();
 
@@ -730,7 +734,7 @@ void MainWindow::updateScreenMenu()
     action->setData(0);
     action->setChecked(Settings::screen() == 0);
 
-    for (int i = 1; i <= QGuiApplication::screens().count(); i++) {
+    for (int i = 1; i <= m_outputOrderWatcher->outputOrder().count(); i++) {
         action = m_screenMenu->addAction(xi18nc("@item:inmenu", "Screen %1", i));
         action->setCheckable(true);
         action->setData(i);
@@ -738,7 +742,21 @@ void MainWindow::updateScreenMenu()
     }
 
     action = m_screenMenu->menuAction();
-    action->setVisible(QGuiApplication::screens().count() > 1);
+    action->setVisible(m_outputOrderWatcher->outputOrder().count() > 1);
+}
+
+QScreen *MainWindow::findScreenByName(const QString &screenName)
+{
+    const auto screens = QGuiApplication::screens();
+    auto it = std::find_if(screens.begin(), screens.end(), [screenName](QScreen *s) {
+        return s->name() == screenName;
+    });
+
+    if (it == screens.end()) {
+        return nullptr;
+    }
+
+    return *it;
 }
 
 void MainWindow::updateWindowSizeMenus()
@@ -1123,10 +1141,13 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
 void MainWindow::moveEvent(QMoveEvent *event)
 {
-    const QList<QScreen *> screens = qApp->screens();
     const QScreen *widgetScreen = QGuiApplication::screenAt(pos());
-    auto it = std::find(screens.begin(), screens.end(), widgetScreen);
-    const int currentScreenNumber = std::distance(screens.begin(), it);
+
+    if (!widgetScreen) {
+        return;
+    }
+
+    const int currentScreenNumber = m_outputOrderWatcher->outputOrder().indexOf(widgetScreen->name());
 
     if (Settings::screen() && currentScreenNumber != -1 && currentScreenNumber != getScreen()) {
         Settings::setScreen(currentScreenNumber + 1);
@@ -1193,7 +1214,8 @@ void MainWindow::toggleWindowState()
                                                       QStringLiteral("/StrutManager"),
                                                       QStringLiteral("org.kde.PlasmaShell.StrutManager"),
                                                       QStringLiteral("availableScreenRect"));
-        message.setArguments({QGuiApplication::screens().at(getScreen())->name()});
+        const QString screenName = m_outputOrderWatcher->outputOrder().at(getScreen());
+        message.setArguments({screenName});
         QDBusPendingCall call = QDBusConnection::sessionBus().asyncCall(message);
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
 
@@ -1530,7 +1552,7 @@ void MainWindow::setFullScreen(bool state)
 
 int MainWindow::getScreen()
 {
-    if (Settings::screen() <= 0 || Settings::screen() > QGuiApplication::screens().length()) {
+    if (Settings::screen() <= 0 || Settings::screen() > m_outputOrderWatcher->outputOrder().length()) {
         auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.KWin"),
                                                       QStringLiteral("/KWin"),
                                                       QStringLiteral("org.kde.KWin"),
@@ -1538,9 +1560,9 @@ int MainWindow::getScreen()
         QDBusReply<QString> reply = QDBusConnection::sessionBus().call(message);
 
         if (reply.isValid()) {
-            const auto screens = QGuiApplication::screens();
+            const auto screens = m_outputOrderWatcher->outputOrder();
             for (int i = 0; i < screens.size(); ++i) {
-                if (screens[i]->name() == reply.value())
+                if (screens[i] == reply.value())
                     return i;
             }
         }
@@ -1548,7 +1570,7 @@ int MainWindow::getScreen()
         // that monitor, QGuiApplication::screenAt() can return nullptr so we fallback on
         // the first monitor.
         QScreen *screen = QGuiApplication::screenAt(QCursor::pos());
-        return screen ? QGuiApplication::screens().indexOf(screen) : 0;
+        return screen ? m_outputOrderWatcher->outputOrder().indexOf(screen->name()) : 0;
     } else {
         return Settings::screen() - 1;
     }
@@ -1556,7 +1578,13 @@ int MainWindow::getScreen()
 
 QRect MainWindow::getScreenGeometry()
 {
-    QScreen *screen = QGuiApplication::screens().at(getScreen());
+    const QString screenName = m_outputOrderWatcher->outputOrder().at(getScreen());
+    QScreen *screen = findScreenByName(screenName);
+
+    if (!screen) {
+        return {};
+    }
+
     QRect screenGeometry = screen->geometry();
     screenGeometry.moveTo(screenGeometry.topLeft() / screen->devicePixelRatio());
     return screenGeometry;
@@ -1577,7 +1605,7 @@ QRect MainWindow::getDesktopGeometry()
         return m_availableScreenRect.isValid() ? m_availableScreenRect : screenGeometry;
     }
 
-    if (QGuiApplication::screens().count() > 1) {
+    if (m_outputOrderWatcher->outputOrder().count() > 1) {
         const QList<WId> allWindows = KX11Extras::windows();
         QList<WId> offScreenWindows;
 
