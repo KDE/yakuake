@@ -30,6 +30,7 @@ target_sources(yakuake PRIVATE
     titlebar.h
     visualeventoverlay.cpp
     visualeventoverlay.h
+    outputorderwatcher.cpp
 )
 
 ki18n_wrap_ui(yakuake
@@ -37,6 +38,15 @@ ki18n_wrap_ui(yakuake
     config/windowsettings.ui
     config/behaviorsettings.ui
     config/appearancesettings.ui
+)
+
+if (Qt6_VERSION VERSION_GREATER_EQUAL "6.8.0")
+    set(private_code_option  "PRIVATE_CODE")
+endif()
+qt6_generate_wayland_protocol_client_sources(yakuake
+    ${private_code_option}
+    FILES
+        ${PLASMA_WAYLAND_PROTOCOLS_DIR}/kde-output-order-v1.xml
 )
 
 kconfig_add_kcfg_files(yakuake config/settings.kcfgc)
@@ -63,6 +73,9 @@ target_link_libraries(yakuake
     KF6::WidgetsAddons
     KF6::WindowSystem
     KF6::StatusNotifierItem
+    Wayland::Client
+    Qt::WaylandClient
+    XCB::RANDR
 )
 
 if(HAVE_X11)
