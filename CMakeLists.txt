@@ -36,7 +36,7 @@ ecm_set_disabled_deprecation_versions(QT 6.10.0
 ### Security concerns about sendText and runCommand dbus methods being public
 option(REMOVE_SENDTEXT_RUNCOMMAND_DBUS_METHODS "yakuake: remove runCommand dbus methods" OFF)
 
-find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets Svg)
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets Svg WaylandClient)
 if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
    find_package(Qt6GuiPrivate ${QT_MIN_VERSION} REQUIRED NO_MODULE)
 endif()
@@ -59,6 +59,10 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     StatusNotifierItem
     ColorScheme
 )
+
+find_package(PlasmaWaylandProtocols)
+
+find_package(XCB REQUIRED COMPONENTS RANDR)
 
 option(WITH_X11 "Build with X11 integration" ON)
 if(WITH_X11)
