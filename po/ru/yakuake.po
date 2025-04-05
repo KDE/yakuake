@@ -5,20 +5,20 @@
 # Artem Sereda <overmind88@gmail.com>, 2009.
 # Alexander Potashev <aspotashev@gmail.com>, 2010, 2011, 2012, 2014, 2019.
 # Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021.
-# Olesya Gerasimenko <translation-team@basealt.ru>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2025 Olesya Gerasimenko <translation-team@basealt.ru>
 msgid ""
 msgstr ""
 "Project-Id-Version: yakuake-2.9.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-22 00:43+0000\n"
-"PO-Revision-Date: 2023-04-21 17:03+0300\n"
+"PO-Revision-Date: 2025-04-04 16:59+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Poedit-Language: Russian\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -1433,7 +1433,7 @@ msgstr "Разделить окно по горизонтали"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Automatically"
-msgstr ""
+msgstr "Разделить автоматически"
 
 #: app/mainwindow.cpp:426
 #, kde-kuit-format
