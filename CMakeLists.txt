@@ -57,6 +57,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     WidgetsAddons
     WindowSystem
     StatusNotifierItem
+    ColorScheme
 )
 
 option(WITH_X11 "Build with X11 integration" ON)

@@ -21,6 +21,7 @@ Dependencies:
     'frameworks/kwidgetsaddons': '@latest-kf6'
     'frameworks/kwindowsystem': '@latest-kf6'
     'frameworks/kstatusnotifieritem': '@latest-kf6'
+    'frameworks/kcolorscheme': '@latest-kf6'
     'plasma/kwayland': '@latest-kf6'
 
 Options:

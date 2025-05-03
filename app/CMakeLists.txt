@@ -63,6 +63,7 @@ target_link_libraries(yakuake
     KF6::WidgetsAddons
     KF6::WindowSystem
     KF6::StatusNotifierItem
+    KF6::ColorScheme
 )
 
 if(HAVE_X11)
