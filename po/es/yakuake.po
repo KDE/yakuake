@@ -1,4 +1,6 @@
-# Translation of yakuake to Spanish
+# Spanish translations for yakuake.po package.
+# Copyright (C) 2006-2025 This file is copyright:
+# This file is distributed under the same license as the yakuake package.
 #
 # SPDX-FileCopyrightText: 2006, 2007 Juan Manuel Garcia Molina <juanma@superiodico.net>
 # SPDX-FileCopyrightText: 2007, 2008 Enrique Matias Sanchez (Quique) <cronopios@gmail.com>
@@ -11,7 +13,7 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-22 00:43+0000\n"
-"PO-Revision-Date: 2025-02-21 00:11+0100\n"
+"PO-Revision-Date: 2025-06-04 20:26+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1779,68 +1781,3 @@ msgstr "Salir"
 msgctxt "@info:whatsthis"
 msgid "Quits the application."
 msgstr "Sale de la aplicación"
-
-#~ msgctxt "@label"
-#~ msgid "Blur"
-#~ msgstr "Desenfoque"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid "The KWin compositor's blur effects."
-#~ msgstr "Los efectos de desenfoque del compositor KWin."
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Application successfully started.<nl/>Press <shortcut>%1</shortcut> to "
-#~ "use it ..."
-#~ msgstr ""
-#~ "La aplicación se ha iniciado correctamente.<nl/>Pulse <shortcut>%1</"
-#~ "shortcut> para usarla..."
-
-#~ msgctxt "@title:window"
-#~ msgid "Failed to Download Skin"
-#~ msgstr "Falló la descaga de la piel"
-
-#~ msgctxt "@info"
-#~ msgid "The installer was given a directory, not a file."
-#~ msgstr "Al instalador se le dio un directorio, no un archivo."
-
-#~ msgctxt "@info"
-#~ msgid "Could not remove skin \"%1\"."
-#~ msgstr "No se puede eliminar piel «%1»."
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Screen <numid>%1</numid>"
-#~ msgstr "Pantalla <numid>%1</numid>"
-
-#~ msgctxt "@info:shell"
-#~ msgid "Yakuake is already running, toggling window ..."
-#~ msgstr "Yakuake ya está en ejecución, cambiando a la ventana..."
-
-#~ msgctxt "@item:inmenu"
-#~ msgid "Screen <numid>%1</numid>"
-#~ msgstr "Pantalla <numid>%1</numid>"
-
-#~ msgctxt "@label"
-#~ msgid "Show startup notification"
-#~ msgstr "Mostrar la notificación de arranque"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid "Whether to show a notification popup at application startup."
-#~ msgstr ""
-#~ "Si se debe mostrar un aviso emergente en el inicio de la aplicación."
-
-#~ msgctxt "@option:check"
-#~ msgid "Show startup notification popup"
-#~ msgstr "Mostrar la ventana emergente de notificación del arranque"
-
-#~ msgctxt "@title:window"
-#~ msgid "<application>Yakuake</application> Notification"
-#~ msgstr "Notificación de <application>Yakuake</application>"
-
-#~ msgctxt "@label:slider"
-#~ msgid "Speed:"
-#~ msgstr "Velocidad:"
-
-#~ msgctxt "@info:shell"
-#~ msgid "Cannot connect to X server."
-#~ msgstr "No se puede conectar con el servidor X."
