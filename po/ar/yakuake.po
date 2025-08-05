@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-22 00:43+0000\n"
-"PO-Revision-Date: 2025-01-05 20:39+0400\n"
+"PO-Revision-Date: 2025-08-04 18:40+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -175,8 +175,8 @@ msgid ""
 "Translucency requires support by the selected skin as well as your desktop "
 "environment. The default skin supports translucency."
 msgstr ""
-"تتطلّب الشّفافيّة دعم السّمة المحدّدة وكذلك بيئة سطح المكتب. السّمة الافتراضيّة "
-"تدعم الشّفافيّة."
+"تتطلّب الشّفافيّة دعم السّمة المحدّدة وكذلك بيئة سطح المكتب. السّمة المبدئيّة تدعم "
+"الشّفافيّة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Translucency)
 #: app/config/appearancesettings.ui:95
@@ -294,7 +294,7 @@ msgid ""
 "pointer is moved to the same edge of the screen that it would open on when "
 "using the shortcut."
 msgstr ""
-"إذا مكّن هذا الخيار، ستفتح النافذة تلقائيًا عند تحريك مؤشر الفأرة إلى نفس حافة "
+"إذا مكّن هذا الخيار، ستفتح النافذة آليًّا عند تحريك مؤشر الفأرة إلى نفس حافة "
 "الشاشة التي ستفتح عليها عند استخدام الاختصار."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PollMouse)
@@ -981,7 +981,7 @@ msgstr "عدد إطارات الرسوم المتحركة المفتوحة/ال�
 #, kde-format
 msgctxt "@label"
 msgid "Auto-open window"
-msgstr "نافذة تفتح تلقائيًا"
+msgstr "نافذة تفتح آليًّا"
 
 #. i18n: ectx: whatsthis, entry (PollMouse), group (AutoOpen)
 #: app/config/yakuake.kcfg:186
@@ -991,7 +991,7 @@ msgid ""
 "Whether to automatically open the application window when the mouse pointer "
 "is found at the edge of the screen."
 msgstr ""
-"ما إذا كان سيفتح نافذة التطبيق تلقائيًا عند وجود مؤشر الفأرة على حافة الشاشة."
+"ما إذا كان سيفتح نافذة التطبيق آليًّا عند وجود مؤشر الفأرة على حافة الشاشة."
 
 #. i18n: ectx: label, entry (PollInterval), group (AutoOpen)
 #: app/config/yakuake.kcfg:190
@@ -1382,7 +1382,7 @@ msgstr "افصل فوق/تحت"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Automatically"
-msgstr "افصل آليًا"
+msgstr "افصل آليًّا"
 
 #: app/mainwindow.cpp:426
 #, kde-kuit-format
