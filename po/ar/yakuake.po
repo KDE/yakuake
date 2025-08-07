@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-22 00:43+0000\n"
-"PO-Revision-Date: 2025-08-04 18:40+0400\n"
+"PO-Revision-Date: 2025-08-06 13:52+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -137,8 +137,8 @@ msgid ""
 msgstr ""
 "سيؤدي تمكين هذا الخيار إلى جعل ياكواكي يعرض لفترة وجيزة تراكبًا ملونًا فوق "
 "الوحدة الطرفية التي رُكز عليها حديثًا عند نقل التركيز بين أطراف متعددة في "
-"الجلسة، وكذلك فوق الوحدة التي يتم التركيز عليها حاليًا عند التبديل إلى جلسة "
-"ذات أطراف متعددة."
+"الجلسة، وكذلك فوق الوحدة المركز عليها حاليًا عند التبديل إلى جلسة ذات أطراف "
+"متعددة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
 #: app/config/appearancesettings.ui:38
@@ -202,8 +202,8 @@ msgid ""
 "This allows influencing the opacity and color tint of translucent areas of "
 "the skin."
 msgstr ""
-"عند استخدام الشفافية، سيتم ملء لون الخلفية باستخدام العتامة المحددة قبل طلاء "
-"عناصر الجلد أعلى الخلفية. "
+"عند استخدام الشفافية، سيملأ لون الخلفية باستخدام العتمة المحددة قبل طلاء "
+"عناصر الجلد أعلى الخلفية."
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Width)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Height)
@@ -391,7 +391,7 @@ msgid ""
 "tab bar. You can modify the format of the information in the terminal "
 "profile."
 msgstr ""
-"إذا مُكن هذا الخيار، فسيتم أيضًا عرض المعلومات المتعلقة بمحتويات الجهاز الطرفي "
+"إذا مُكن هذا الخيار، فستعرض أيضًا المعلومات المتعلقة بمحتويات الجهاز الطرفي "
 "النشط التي تظهر عادةً في شريط العنوان على شريط علامات التبويب."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_DynamicTabTitles)
@@ -579,8 +579,7 @@ msgid ""
 "Center point of the application window, as a percentage, measured from the "
 "left-hand edge of the screen."
 msgstr ""
-"النقطة المركزية لنافذة التطبيق، كنسبة مئوية، يتم قياسها من الحافة اليسرى "
-"للشاشة."
+"النقطة المركزية لنافذة التطبيق، كنسبة مئوية، تقاس من الحافة اليسرى للشاشة."
 
 #. i18n: ectx: label, entry (ShowOnAllDesktops), group (Window)
 #: app/config/yakuake.kcfg:35
@@ -830,7 +829,7 @@ msgstr "شفافيّة لون الخلفيّة"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the background color fill when using translucency."
-msgstr "عتامة لون الخلفية عند استخدام الشفافية."
+msgstr "عتمة لون الخلفية عند استخدام الشفافية."
 
 #. i18n: ectx: label, entry (TerminalHighlightOnManualActivation), group (Appearance)
 #: app/config/yakuake.kcfg:126
@@ -850,8 +849,8 @@ msgid ""
 "multiple terminals."
 msgstr ""
 "ما إذا كان سيعرض لفترة وجيزة تراكبًا ملونًا فوق الوحدة الطرفية التي رُكز عليها "
-"حديثًا عند نقل التركيز بين أطراف متعددة في الجلسة، وكذلك فوق الوحدة التي يتم "
-"التركيز عليها حاليًا عند التبديل إلى جلسة ذات أطراف متعددة."
+"حديثًا عند نقل التركيز بين أطراف متعددة في الجلسة، وكذلك فوق الوحدة المركز "
+"عليها حاليًا عند التبديل إلى جلسة ذات أطراف متعددة."
 
 #. i18n: ectx: label, entry (HideSkinBorders), group (Appearance)
 #: app/config/yakuake.kcfg:131
@@ -875,14 +874,14 @@ msgstr "الأسطح يمكنها تحديد الحدود حول المحطة ب
 #, kde-format
 msgctxt "@label"
 msgid "Terminal highlight opacity"
-msgstr "عتامة تمييز الطرفية"
+msgstr "عتمة تمييز الطرفية"
 
 #. i18n: ectx: whatsthis, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:137
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the colored overlay used to highlight a terminal."
-msgstr "عتامة التراكب الملون المستخدم لتسليط الضوء على المحطة."
+msgstr "عتمة التراكب الملون المستخدم لتسليط الضوء على المحطة."
 
 #. i18n: ectx: label, entry (TerminalHighlightDuration), group (Appearance)
 #: app/config/yakuake.kcfg:143
@@ -917,14 +916,14 @@ msgstr "لون تراكب مؤشر كتلة إدخال لوحة المفاتيح
 #, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator opacity"
-msgstr "عتامة مؤشر كتلة إدخال لوحة المفاتيح"
+msgstr "عتمة مؤشر كتلة إدخال لوحة المفاتيح"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:156
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the keyboard input block indicator overlay."
-msgstr "عتامة تراكب مؤشر كتلة إدخال لوحة المفاتيح."
+msgstr "عتمة تراكب مؤشر كتلة إدخال لوحة المفاتيح."
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
 #: app/config/yakuake.kcfg:162
@@ -1023,7 +1022,7 @@ msgstr "تشغيل التطبيق لأول مرة"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether this is the first time the application is run."
-msgstr "ما إذا كانت هذه هي المرة الأولى التي يتم فيها تشغيل التطبيق."
+msgstr "ما إذا كانت هذه هي المرة الأولى يعمل فيها التطبيق."
 
 #. i18n: ectx: label, entry (ConfirmQuit), group (Dialogs)
 #: app/config/yakuake.kcfg:202
@@ -1189,8 +1188,8 @@ msgid ""
 "locked to prevent closing them accidentally.</emphasis> These will be killed "
 "if you continue.</warning>"
 msgstr ""
-"<warning>هناك عدة جلسات مفتوحة، <emphasis>قمت بتأمين بعضها لمنع إغلاقها عن "
-"طريق الخطأ.</emphasis> سيتم قتلها إذا تابعت.</warning>"
+"<warning>هناك عدة جلسات مفتوحة، <emphasis>أمنت بعضها لمنع إغلاقها عن طريق "
+"الخطأ.</emphasis> ستقتل إذا تابعت.</warning>"
 
 #: app/mainwindow.cpp:211
 #, kde-kuit-format
@@ -1511,7 +1510,7 @@ msgid ""
 "that it was installed incorrectly.<nl/><nl/>The application will now quit."
 msgstr ""
 "لم يتمكن <application>ياكواكي</application> من تحميل أحد السمات. من المحتمل "
-"أنه تم تثبيته بشكل غير صحيح.<nl/><nl/>سيتم إغلاق التطبيق الآن."
+"أنه مثبت بشكل غير صحيح.<nl/><nl/>سيغلق التطبيق الآن."
 
 #: app/mainwindow.cpp:936
 #, kde-kuit-format
@@ -1533,10 +1532,10 @@ msgid ""
 "changed to internal use only by re-compiling Yakuake. <p>This warning will "
 "only show once for this Yakuake instance.</p>"
 msgstr ""
-"تم استخدام طريقة D-Bus runCommand للتو. هناك مخاوف أمنية بشأن السماح لهذه "
-"الطرق بأن تكون عامة. إذا رغبت في ذلك، يمكن تغيير هذه الطرق إلى الاستخدام "
-"الداخلي فقط عن طريق إعادة تجميع ياكواكي.<p>سيتم عرض هذا التحذير مرة واحدة "
-"فقط لهذه النسخة من ياكواكي.</p>"
+"استخدمت طريقة D-Bus runCommand للتو. هناك مخاوف أمنية بشأن السماح لهذه الطرق "
+"بأن تكون عامة. إذا رغبت في ذلك، يمكن تغيير هذه الطرق إلى الاستخدام الداخلي "
+"فقط عن طريق إعادة تجميع ياكواكي.<p>سيعرض هذا التحذير مرة واحدة فقط لهذه "
+"النسخة من ياكواكي.</p>"
 
 #: app/sessionstack.cpp:732
 #, kde-kuit-format
