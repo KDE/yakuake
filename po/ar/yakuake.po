@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-22 00:43+0000\n"
-"PO-Revision-Date: 2025-08-06 13:52+0400\n"
+"PO-Revision-Date: 2025-08-13 18:30+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -43,7 +43,7 @@ msgctxt "@info"
 msgid ""
 "This skin appears to be already installed and you lack the required "
 "permissions to overwrite it."
-msgstr "تبدو السّمة مثبّتة بالفعل ولا تملك التّصاريح اللازمة للكتابة عليها."
+msgstr "تبدو السّمة مثبّتة بالفعل ولا تملك الأذونات اللازمة للكتابة عليها."
 
 #: app/config/appearancesettings.cpp:279
 #, kde-kuit-format
@@ -391,15 +391,16 @@ msgid ""
 "tab bar. You can modify the format of the information in the terminal "
 "profile."
 msgstr ""
-"إذا مُكن هذا الخيار، فستعرض أيضًا المعلومات المتعلقة بمحتويات الجهاز الطرفي "
-"النشط التي تظهر عادةً في شريط العنوان على شريط علامات التبويب."
+"إذا مُكن هذا الخيار، فستُعرض أيضًا المعلومات المتعلقة بمحتويات الجهاز الطرفي "
+"النشط التي تظهر عادةً في شريط العنوان على شريط اللسان. يمكنك تعديل تنسيق "
+"الملعومات في تشكيلة الطرفية."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_DynamicTabTitles)
 #: app/config/windowsettings.ui:72
 #, kde-format
 msgctxt "@option:check"
 msgid "Show title bar contents in tab labels"
-msgstr "أظهر محتويات شريط العنوان في تسميات علامات التبويب"
+msgstr "أظهر محتويات شريط العنوان في تسميات الألسنة"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTabBar)
 #: app/config/windowsettings.ui:95
@@ -683,7 +684,7 @@ msgstr "أظهر شريط الألسنة"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the tab bar in the application window."
-msgstr "ما إذا كان سيظهر شريط علامات التبويب في نافذة التطبيق."
+msgstr "إذا كان سيظهر شريط ألسنة في نافذة التطبيق أم لا."
 
 #. i18n: ectx: label, entry (DynamicTabTitles), group (Window)
 #: app/config/yakuake.kcfg:70
@@ -867,7 +868,9 @@ msgid ""
 "Skins can define borders around the terminal including the tabbar. This "
 "option, when turned on, will overwrite the border settings defined by the "
 "skin and hide all borders."
-msgstr "الأسطح يمكنها تحديد الحدود حول المحطة بما في ذلك شريط التبويب."
+msgstr ""
+"الأسطح يمكنها تحديد الحدود حول المحطة بما في ذلك شريط الألسنة. عندما يشغل "
+"هذا الخيار سيعيد كتابة إعدادات الحدود المعرفة في السطح ويخفي جميع الحدود."
 
 #. i18n: ectx: label, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:136
@@ -1136,7 +1139,7 @@ msgstr "خوان كارلوس توريس"
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Tab bar drag and drop support, Prevent Closing toggle"
-msgstr "دعم سحب وإفلات شريط التبويب، وتبديل منع الإغلاق"
+msgstr "دعم سحب وإفلات شريط الألسنة، وتبديل منع الإغلاق"
 
 #: app/main.cpp:42
 #, kde-kuit-format
@@ -1148,7 +1151,7 @@ msgstr "جوستافو ريبيرو كروسكاتو"
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Icon on tabs with Prevent Closing enabled"
-msgstr "أيقونة على علامات التبويب مع تمكين منع الإغلاق"
+msgstr "أيقونة على الألسنة مع تمكين منع الإغلاق"
 
 #: app/main.cpp:45
 #, kde-kuit-format
@@ -1572,8 +1575,8 @@ msgid ""
 "<title>Tab Bar</title><para>The tab bar allows you to switch between "
 "sessions. You can double-click a tab to edit its label.</para>"
 msgstr ""
-"<title>شريط الألسنة</title> <para>يتيح لك شريط علامات التبويب التبديل بين "
-"الجلسات. يمكنك النقر نقرًا مزدوجًا فوق علامة تبويب لتحرير تسميتها.</para>"
+"<title>شريط الألسنة</title> <para>يتيح لك شريط الألسنة التبديل بين الجلسات. "
+"يمكنك النقر نقرًا مزدوجًا فوق  اللسان لتحرير تسميته.</para>"
 
 #: app/tabbar.cpp:58
 #, kde-kuit-format
