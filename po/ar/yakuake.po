@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-22 00:43+0000\n"
-"PO-Revision-Date: 2025-08-13 18:30+0400\n"
+"PO-Revision-Date: 2025-08-14 11:54+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -43,19 +43,19 @@ msgctxt "@info"
 msgid ""
 "This skin appears to be already installed and you lack the required "
 "permissions to overwrite it."
-msgstr "تبدو السّمة مثبّتة بالفعل ولا تملك الأذونات اللازمة للكتابة عليها."
+msgstr "تبدو السّمة مثبّتة فعلًا ولا تملك الأذونات اللازمة للكتابة عليها."
 
 #: app/config/appearancesettings.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
-msgstr "تبدو السّمة مثبّتة بالفعل. أتريد الكتابة عليها؟"
+msgstr "تبدو السّمة مثبّتة فعلًا. أتريد الكتابة عليها؟"
 
 #: app/config/appearancesettings.cpp:280
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Skin Already Exists"
-msgstr "السّمة موجودة بالفعل"
+msgstr "السّمة موجودة فعلًا"
 
 #: app/config/appearancesettings.cpp:281
 #, kde-kuit-format
@@ -641,7 +641,7 @@ msgid ""
 "application window when it is already open."
 msgstr ""
 "ما إذا كان يمكن استخدام اختصار لوحة المفاتيح المفتوحة/السحبية لتركيز نافذة "
-"التطبيق عندما تكون مفتوحة بالفعل."
+"التطبيق عندما تكون مفتوحة فعلًا."
 
 #. i18n: ectx: label, entry (KeepAbove), group (Window)
 #: app/config/yakuake.kcfg:55
@@ -1209,8 +1209,8 @@ msgid ""
 "<warning>There are one or more open sessions that you have locked to prevent "
 "closing them accidentally. These will be killed if you continue.</warning>"
 msgstr ""
-"<warning>هناك جلسة واحدة أو أكثر مفتوحة قمت بتأمينها لمنع إغلاقها عن طريق "
-"الخطأ. </warning>"
+"<warning>هناك جلسة واحدة أو أكثر مفتوحة أمنتها لمنع إغلاقها عن طريق الخطأ. "
+"ستقتل هذه إذا استمررت.</warning>"
 
 #: app/mainwindow.cpp:220
 #, kde-kuit-format
