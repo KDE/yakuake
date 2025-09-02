@@ -31,7 +31,7 @@ msgstr "Desconegut"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
-msgstr "Seleccioneu l'arxiu d'aparença que s'ha d'instal·lar"
+msgstr "Trieu l'arxiu d'aparença que s'ha d'instal·lar"
 
 #: app/config/appearancesettings.cpp:242
 #, kde-kuit-format
