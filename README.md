@@ -7,7 +7,7 @@ version accepted by the membership of KDE e.V.
 The current maintainer of Yakuake is Eike Hein <hein@kde.org>.
 
 
-The Yakuake website is located at https://kde.org/applications/system/org.kde.yakuake
+The Yakuake website is located at https://apps.kde.org/yakuake
 
 Report bugs and wishes at https://bugs.kde.org/
 
