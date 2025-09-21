@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
                          KAboutLicense::GPL,
                          xi18nc("@info:credit", "(c) 2008-2018 The Yakuake Team"),
                          QString(),
-                         QStringLiteral("https://apps.kde.org/yakuake/"));
+                         QStringLiteral("https://apps.kde.org/yakuake"));
 
     aboutData.setOrganizationDomain(QByteArray("kde.org"));
     aboutData.setProductName(QByteArray("yakuake"));
