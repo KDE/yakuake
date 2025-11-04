@@ -339,7 +339,7 @@ msgstr "Se souvenir et restaurer l'état plein écran"
 #: app/config/behaviorsettings.ui:108
 #, kde-format
 msgid "Show system tray icon"
-msgstr "Afficher une icône dans la boîte à miniatures"
+msgstr "Afficher une icône dans la boite à miniatures"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpen)
 #: app/config/behaviorsettings.ui:118
@@ -567,7 +567,7 @@ msgid ""
 "The screen on which the application window will appear. 0 is understood to "
 "be the screen the mouse pointer is on."
 msgstr ""
-"L'écran sur lequel la fenêtre de l'application apparaîtra. 0 représente "
+"L'écran sur lequel la fenêtre de l'application apparaitra. 0 représente "
 "l'écran sur lequel se situe le pointeur de la souris."
 
 #. i18n: ectx: label, entry (Width), group (Window)
@@ -741,14 +741,14 @@ msgstr "Synchronise le titre des onglets avec celui de la barre de titre."
 #, kde-format
 msgctxt "@label"
 msgid "Show a system tray icon"
-msgstr "Afficher une icône dans la boîte à miniatures"
+msgstr "Afficher une icône dans la boite à miniatures"
 
 #. i18n: ectx: whatsthis, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:76
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show a system tray icon."
-msgstr "Afficher ou non une icône dans la boîte à miniatures."
+msgstr "Afficher ou non une icône dans la boite à miniatures."
 
 #. i18n: ectx: label, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:82
