@@ -31,6 +31,7 @@
   <name xml:lang="hu">Yakuake</name>
   <name xml:lang="ia">Yakuake</name>
   <name xml:lang="id">Yakuake</name>
+  <name xml:lang="is">Yakuake</name>
   <name xml:lang="it">Yakuake</name>
   <name xml:lang="ka">Yakuake</name>
   <name xml:lang="ko">Yakuake</name>
@@ -80,6 +81,7 @@
   <summary xml:lang="hu">Legördülő terminál</summary>
   <summary xml:lang="ia">Terminal disrolante</summary>
   <summary xml:lang="id">Terminal Bentangturun</summary>
+  <summary xml:lang="is">Felliskjáhermir</summary>
   <summary xml:lang="it">Terminale a discesa</summary>
   <summary xml:lang="ka">ჩამოსაშლელი ტერმინალი</summary>
   <summary xml:lang="ko">위에서 내려오는 터미널</summary>
@@ -131,6 +133,7 @@
     <p xml:lang="hu">A Yakuake egy legördülő terminál, amely a KDE Konsole-ra épül.</p>
     <p xml:lang="ia">Yakuake es un emulator de terminal disrolante basate sur technologia de KDE Konsole.</p>
     <p xml:lang="id">Yakuake adalah emulator terminal bentangturun berdasarkan pada teknologi Konsole KDE</p>
+    <p xml:lang="is">Yakuake er felliskjáhermir byggður á grunni KDE Konsole.</p>
     <p xml:lang="it">Yakuake è un emulatore di terminale a discesa basato sulla tecnologia di Konsole di KDE</p>
     <p xml:lang="ka">Yakuake არის ჩამოსაშლელი ტერმინალის ემულატორი, რომელიც დაფუძნებულია KDE Konsole ტექნოლოგიაზე.</p>
     <p xml:lang="ko">Yakuake는 KDE Konsole을 기반으로 한 드롭다운 터미널 에뮬레이터입니다.</p>
@@ -180,6 +183,7 @@
     <p xml:lang="hu">Szolgáltatások:</p>
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
+    <p xml:lang="is">Eiginleikar:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="ka">თვისებები:</p>
     <p xml:lang="ko">기능:</p>
@@ -228,6 +232,7 @@
       <li xml:lang="hu">Könnyed legördülés a képernyő tetejéről</li>
       <li xml:lang="ia">Disrola lisiemente ab le culmine de tu schermo</li>
       <li xml:lang="id">Membentang turun secara lembut dari atas layarmu</li>
+      <li xml:lang="is">Rúllast mjúklega niður frá efri brún skjásins</li>
       <li xml:lang="it">Si srotola dolcemente dalla parte alta del tuo schermo</li>
       <li xml:lang="ka">რბილად ჩამოიშლება თქვენი ეკრანის ზემო ნაწილიდან</li>
       <li xml:lang="ko">화면 위에서 부드럽게 펼쳐져 내려오기</li>
@@ -274,6 +279,7 @@
       <li xml:lang="hu">Többlapos felület</li>
       <li xml:lang="ia">Interfacie a schedas (tab)</li>
       <li xml:lang="id">Antarmuka bertab</li>
+      <li xml:lang="is">Viðmót með flipum</li>
       <li xml:lang="it">Interfaccia a schede</li>
       <li xml:lang="ka">ჩანართებიანი ინტერფეისი</li>
       <li xml:lang="ko">탭 인터페이스</li>
@@ -321,6 +327,7 @@
       <li xml:lang="hu">Testre szabható méretek és animációs sebesség</li>
       <li xml:lang="ia">Dimensiones e velocitate de animation configurabile</li>
       <li xml:lang="id">Kecepatan animasi dan dimensi yang dapat dikonfigurasi</li>
+      <li xml:lang="is">Stillanlegar stærðir og hraði myndhreyfinga</li>
       <li xml:lang="it">Dimensioni e velocità dell'animazione configurabili</li>
       <li xml:lang="ka">ზომებისა და ანიმაციის სიჩქარის მორგება</li>
       <li xml:lang="ko">크기와 애니메이션 속도 설정</li>
@@ -367,6 +374,7 @@
       <li xml:lang="hu">Témázható</li>
       <li xml:lang="ia">Skinnable (i.e. con multe version de apparentia)</li>
       <li xml:lang="id">Dapat di-skin</li>
+      <li xml:lang="is">Hægt að skipta um skinn</li>
       <li xml:lang="it">Aspetto personalizzabile</li>
       <li xml:lang="ka">შეცვლადი გარეგნობა</li>
       <li xml:lang="ko">스킨</li>
@@ -413,6 +421,7 @@
       <li xml:lang="hu">Kifinomult D-Bus interfész</li>
       <li xml:lang="ia">Interfacie mundan de D-Bus</li>
       <li xml:lang="id">Antarmuka D-Bus yang njlimet</li>
+      <li xml:lang="is">Þróað D-Bus viðmót</li>
       <li xml:lang="it">Interfaccia D-Bus sofisticata</li>
       <li xml:lang="ka">დახვეწილი D-Bus ინტერფეისი</li>
       <li xml:lang="ko">D-Bus 인터페이스</li>
