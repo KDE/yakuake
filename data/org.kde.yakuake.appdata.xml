@@ -217,6 +217,7 @@
       <li xml:lang="bg">Плавно се разгъва от горния край на екрана</li>
       <li xml:lang="ca">S'estén suaument des de la part superior de la pantalla</li>
       <li xml:lang="ca-valencia">S'estén suaument des de la part superior de la pantalla</li>
+      <li xml:lang="cs">Plynule roluje dolů z horní části obrazovky</li>
       <li xml:lang="da">Ruller blødt ned fra toppen af skærmen</li>
       <li xml:lang="de">Rollt geschmeidig von der oberen Kante des Bildschirms herab</li>
       <li xml:lang="el">Ομαλή καθοδική κύλιση από την κορυφή της οθόνης σας</li>
@@ -264,6 +265,7 @@
       <li xml:lang="bg">Наличност на раздели</li>
       <li xml:lang="ca">Interfície amb pestanyes</li>
       <li xml:lang="ca-valencia">Interfície amb pestanyes</li>
+      <li xml:lang="cs">Rozhraní s kartami</li>
       <li xml:lang="da">Grænseflade med faneblade</li>
       <li xml:lang="de">Bedienungsoberfläche mit Unterfenstern</li>
       <li xml:lang="el">Περιβάλλον χρήσης με καρτέλες</li>
@@ -312,6 +314,7 @@
       <li xml:lang="bg">Възможност за анимация и настройки на размера</li>
       <li xml:lang="ca">Les dimensions i la velocitat de l'animació es poden configurar</li>
       <li xml:lang="ca-valencia">Les dimensions i la velocitat de l'animació es poden configurar</li>
+      <li xml:lang="cs">Nastavitelné rozměry a rychlost animace</li>
       <li xml:lang="da">Dimensioner og animationshastighed kan indstilles</li>
       <li xml:lang="de">Benutzerdefinierte Abmessungen und Animationsgeschwindigkeit</li>
       <li xml:lang="el">Διαμορφώσιμες διαστάσεις και ταχύτητα με εφέ κίνησης</li>
@@ -359,6 +362,7 @@
       <li xml:lang="bg">Смяна на облика с помощта на обложки</li>
       <li xml:lang="ca">Es pot canviar l'aparença</li>
       <li xml:lang="ca-valencia">Es pot canviar l'aparença</li>
+      <li xml:lang="cs">Upravitelný motiv vzhledu</li>
       <li xml:lang="da">Kan bruge skins</li>
       <li xml:lang="de">Anpassung der Oberfläche über Skin/Design</li>
       <li xml:lang="el">Διαμορφώσιμα θέματα</li>
@@ -406,6 +410,7 @@
       <li xml:lang="bg">Софистичен интерфейс към D-Bus</li>
       <li xml:lang="ca">Interfície de D-Bus sofisticada</li>
       <li xml:lang="ca-valencia">Interfície de D-Bus sofisticada</li>
+      <li xml:lang="cs">Sofistikované rozhraní D-Bus</li>
       <li xml:lang="da">Sofistikeret D-Bus-grænseflade</li>
       <li xml:lang="de">Hoch entwickelte D-Bus-Schnittstelle</li>
       <li xml:lang="el">Εκλεπτυσμένη D-Bus διεπαφή</li>
