@@ -236,7 +236,7 @@ msgstr "安装皮肤..."
 #, kde-format
 msgctxt "@option:check"
 msgid "Focus terminals when the mouse pointer is moved over them"
-msgstr "鼠标光标所在的终端自动取得焦点"
+msgstr "鼠标指针所在的终端自动取得焦点"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ToggleToFocus)
 #: app/config/behaviorsettings.ui:42
@@ -284,7 +284,7 @@ msgid ""
 "pointer is moved to the same edge of the screen that it would open on when "
 "using the shortcut."
 msgstr ""
-"启用此选项后，当鼠标光标移动到 Yakuake 窗口折叠的屏幕边缘时将自动展开窗口 (按"
+"启用此选项后，当鼠标指针移动到 Yakuake 窗口折叠的屏幕边缘时将自动展开窗口 (按"
 "下展开/折叠快捷键时窗口所在的屏幕边缘)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PollMouse)
@@ -292,7 +292,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Open window when the mouse pointer touches the screen edge"
-msgstr "鼠标光标触碰屏幕边缘时展开窗口"
+msgstr "鼠标指针触碰屏幕边缘时展开窗口"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RememberFullscreen)
 #: app/config/behaviorsettings.ui:101
@@ -524,7 +524,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "The screen on which the application window will appear. 0 is understood to "
 "be the screen the mouse pointer is on."
-msgstr "Yakuake 窗口所在的屏幕。0 代表鼠标光标所在的屏幕。"
+msgstr "Yakuake 窗口所在的屏幕。0 代表鼠标指针所在的屏幕。"
 
 #. i18n: ectx: label, entry (Width), group (Window)
 #: app/config/yakuake.kcfg:14
@@ -714,7 +714,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Whether an individual terminal in a session will be given focus when the "
 "mouse pointer is moved above it."
-msgstr "当鼠标光标移动到某个终端之上时是否为该终端取得焦点。"
+msgstr "当鼠标指针移动到某个终端之上时是否为该终端取得焦点。"
 
 #. i18n: ectx: label, entry (OpenAfterStart), group (Behavior)
 #: app/config/yakuake.kcfg:87
@@ -982,7 +982,7 @@ msgstr "是否在鼠标指针移动到屏幕边缘时自动打开 Yakuake 窗口
 #, kde-format
 msgctxt "@label"
 msgid "Mouse pointer poll interval"
-msgstr "鼠标光标检测间隔"
+msgstr "鼠标指针检测间隔"
 
 #. i18n: ectx: whatsthis, entry (PollInterval), group (AutoOpen)
 #: app/config/yakuake.kcfg:191
@@ -991,7 +991,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "The interval during which the mouse pointer position will be checked to "
 "determine whether or not it is at the same edge of the screen as the window."
-msgstr "检测鼠标光标是否与 Yakuake 窗口位于同一屏幕边缘的时间间隔。"
+msgstr "检测鼠标指针是否与 Yakuake 窗口位于同一屏幕边缘的时间间隔。"
 
 #. i18n: ectx: label, entry (FirstRun), group (Dialogs)
 #: app/config/yakuake.kcfg:197
