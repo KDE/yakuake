@@ -1578,6 +1578,10 @@ int MainWindow::getScreen()
 
 QRect MainWindow::getScreenGeometry()
 {
+    if (getScreen() == -1 || m_outputOrderWatcher->outputOrder().size() <= getScreen()) {
+        return {};
+    }
+
     const QString screenName = m_outputOrderWatcher->outputOrder().at(getScreen());
     QScreen *screen = findScreenByName(screenName);
 
