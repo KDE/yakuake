@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:48+0000\n"
+"POT-Creation-Date: 2026-02-10 00:48+0000\n"
 "PO-Revision-Date: 2022-11-22 21:41+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -1477,7 +1477,7 @@ msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "தோற்றத்திட்டத்தை ஏற்ற முடியவில்லை"
 
-#: app/mainwindow.cpp:1719
+#: app/mainwindow.cpp:1723
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"

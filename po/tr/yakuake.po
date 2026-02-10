@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extragear-utils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:48+0000\n"
+"POT-Creation-Date: 2026-02-10 00:48+0000\n"
 "PO-Revision-Date: 2025-09-04 14:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1564,7 +1564,7 @@ msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Tema Yüklenemiyor"
 
-#: app/mainwindow.cpp:1719
+#: app/mainwindow.cpp:1723
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"

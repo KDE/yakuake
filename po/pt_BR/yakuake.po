@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:48+0000\n"
+"POT-Creation-Date: 2026-02-10 00:48+0000\n"
 "PO-Revision-Date: 2025-09-14 08:44-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1560,7 +1560,7 @@ msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Não é possível carregar a aparência"
 
-#: app/mainwindow.cpp:1719
+#: app/mainwindow.cpp:1723
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"

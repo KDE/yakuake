@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:48+0000\n"
+"POT-Creation-Date: 2026-02-10 00:48+0000\n"
 "PO-Revision-Date: 2019-12-03 10:44+0000\n"
 "Last-Translator: Razee Marikar <razeetg@gmail.com>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc."
@@ -1472,7 +1472,7 @@ msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr ""
 
-#: app/mainwindow.cpp:1719
+#: app/mainwindow.cpp:1723
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
