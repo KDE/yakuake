@@ -10,6 +10,7 @@
 
 #include <QMouseEvent>
 #include <QWidget>
+#include <qevent.h>
 
 class MainWindow;
 class Skin;
@@ -28,6 +29,7 @@ public:
     void applySkin();
     void updateMask();
     void updateMenu();
+    void updateCursor();
 
     QString title() const;
 
@@ -40,6 +42,7 @@ protected:
     void resizeEvent(QResizeEvent *) override;
     void paintEvent(QPaintEvent *) override;
     void mouseMoveEvent(QMouseEvent *) override;
+    void enterEvent(QEnterEvent *event) override;
 
 private:
     void moveButtons();

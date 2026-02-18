@@ -144,6 +144,12 @@ void TitleBar::mouseMoveEvent(QMouseEvent *event)
         // Dynamic cast needed to use getDesktopGeometry()
         MainWindow *window = dynamic_cast<MainWindow *>(parent());
 
+        // Ignore height adjustments in fullscreen mode
+        if (m_mainWindow->m_isFullscreen) {
+            event->ignore();
+            return;
+        }
+
         int maxHeight = window->getDesktopGeometry().height();
         int newHeight = event->globalPosition().y() / (maxHeight / 100);
 
@@ -182,9 +188,24 @@ void TitleBar::updateMenu()
     m_menuButton->setMenu(m_mainWindow->menu());
 }
 
+void TitleBar::updateCursor()
+{
+    if (m_mainWindow->m_isFullscreen) {
+        unsetCursor();
+    } else {
+        setCursor(Qt::SizeVerCursor);
+    }
+}
+
 void TitleBar::setFocusButtonState(bool checked)
 {
     m_focusButton->setChecked(checked);
+}
+
+void TitleBar::enterEvent(QEnterEvent *event)
+{
+    updateCursor();
+    QWidget::enterEvent(event);
 }
 
 QString TitleBar::title() const
