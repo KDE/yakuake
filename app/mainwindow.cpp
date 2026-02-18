@@ -236,10 +236,9 @@ void MainWindow::setupActions()
     m_actionCollection = new KActionCollection(this);
 
     KToggleFullScreenAction *fullScreenAction = new KToggleFullScreenAction(this);
-    fullScreenAction->setWindow(this);
     actionCollection()->setDefaultShortcut(fullScreenAction, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_F11));
     m_actionCollection->addAction(QStringLiteral("view-full-screen"), fullScreenAction);
-    connect(fullScreenAction, SIGNAL(toggled(bool)), this, SLOT(setFullScreen(bool)));
+    connect(fullScreenAction, SIGNAL(toggled(bool)), this, SLOT(applyWindowGeometry()));
 
     QAction *action = KStandardAction::quit(this, SLOT(close()), actionCollection());
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Q));
@@ -988,13 +987,20 @@ void MainWindow::applyWindowGeometry()
     int width, height;
 
     QAction *action = actionCollection()->action(QStringLiteral("view-full-screen"));
+    m_isFullscreen = action->isChecked();
 
-    if (action->isChecked()) {
+    if (m_isFullscreen) {
         width = 100;
         height = 100;
+        if (!windowState().testFlag(Qt::WindowMaximized)) {
+            setWindowState(windowState() | Qt::WindowMaximized);
+        }
     } else {
         width = Settings::width();
         height = Settings::height();
+        if (windowState().testFlag(Qt::WindowMaximized)) {
+            setWindowState(windowState() & ~Qt::WindowMaximized);
+        }
     }
 
     setWindowGeometry(width, height, Settings::position());
@@ -1189,14 +1195,11 @@ void MainWindow::wmActiveWindowChanged()
 
 void MainWindow::changeEvent(QEvent *event)
 {
-    if (event->type() == QEvent::WindowStateChange && !m_isFullscreen) {
-        if (windowState().testFlag(Qt::WindowMaximized)) {
-            // Don't alter settings to new size so unmaximizing restores previous geometry.
-            setWindowGeometry(100, 100, Settings::position());
-            setWindowState(Qt::WindowMaximized);
-        } else {
-            setWindowGeometry(Settings::width(), Settings::height(), Settings::position());
-        }
+    if (event->type() == QEvent::WindowStateChange) {
+        QTimer::singleShot(0, this, [this]() {
+            if (!m_animationTimer.isActive())
+                applyWindowGeometry();
+        });
     }
 
     KMainWindow::changeEvent(event);
@@ -1460,8 +1463,6 @@ void MainWindow::sharedPreOpenWindow()
 
     if (Settings::pollMouse())
         toggleMousePoll(false);
-    if (Settings::rememberFullscreen())
-        setFullScreen(m_isFullscreen);
 }
 
 void MainWindow::sharedAfterOpenWindow()
@@ -1488,6 +1489,11 @@ void MainWindow::sharedPreHideWindow()
 
 void MainWindow::sharedAfterHideWindow()
 {
+    if (!Settings::rememberFullscreen()) {
+        m_actionCollection->action(QStringLiteral("view-full-screen"))->setChecked(false);
+        m_isFullscreen = false;
+    }
+
     if (Settings::pollMouse())
         toggleMousePoll(true);
 
@@ -1535,19 +1541,6 @@ void MainWindow::setKeepOpen(bool keepOpen)
 
     actionCollection()->action(QStringLiteral("keep-open"))->setChecked(keepOpen);
     m_titleBar->setFocusButtonState(keepOpen);
-}
-
-void MainWindow::setFullScreen(bool state)
-{
-    if (isVisible())
-        m_isFullscreen = state;
-    if (state) {
-        setWindowState(windowState() | Qt::WindowFullScreen);
-        setWindowGeometry(100, 100, Settings::position());
-    } else {
-        setWindowState(windowState() & ~Qt::WindowFullScreen);
-        setWindowGeometry(Settings::width(), Settings::height(), Settings::position());
-    }
 }
 
 int MainWindow::getScreen()

@@ -132,8 +132,6 @@ private Q_SLOTS:
 
     void setKeepOpen(bool keepOpen);
 
-    void setFullScreen(bool state);
-
     void handleSwitchToAction();
 
     void handleToggleTitlebar();
