@@ -24,12 +24,10 @@ msgid "Unknown"
 msgstr "Anaithnid"
 
 #: app/config/appearancesettings.cpp:196
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Unable to list the skin archive contents."
+#, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
-msgstr "Ní féidir inneachar na cartlainne craicinn a thaispeáint."
+msgstr ""
 
 #: app/config/appearancesettings.cpp:242
 #, kde-kuit-format
@@ -117,9 +115,6 @@ msgid_plural ""
 "%2</ul>"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: app/config/appearancesettings.ui:29 app/config/behaviorsettings.ui:20
@@ -333,11 +328,10 @@ msgstr "Fág an fhuinneog ar oscailt nuair a chailleann sé an fócas"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpenAfterLastSessionCloses)
 #: app/config/behaviorsettings.ui:141
-#, fuzzy, kde-format
-#| msgid "Keep window open after the last session is closed"
+#, kde-format
 msgctxt "@option:check"
 msgid "Keep window open after the last session is closed"
-msgstr "Fág an fhuinneog ar oscailt nuair a dhúntar an seisiún deiridh"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/behaviorsettings.ui:151
@@ -360,12 +354,10 @@ msgid "by %1"
 msgstr "le %1"
 
 #: app/config/windowsettings.cpp:19
-#, fuzzy, kde-kuit-format
-#| msgctxt "@item:inlistbox"
-#| msgid "Screen 1"
+#, kde-kuit-format
 msgctxt "@item:inlistbox"
 msgid "Screen %1"
-msgstr "Scáileán 1"
+msgstr ""
 
 #: app/config/windowsettings.cpp:99 app/mainwindow.cpp:672
 #, kde-kuit-format
@@ -375,19 +367,15 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_0)
 #: app/config/windowsettings.ui:32
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Tab Bar"
+#, kde-format
 msgid "Title Bar"
-msgstr "Barra na gCluaisíní"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTitleBar)
 #: app/config/windowsettings.ui:38
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Show tab bar"
+#, kde-format
 msgid "Show title bar"
-msgstr "Taispeáin barra na gcluaisíní"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: app/config/windowsettings.ui:54
@@ -637,15 +625,11 @@ msgstr "Fág an fhuinneog ar oscailt nuair a dhúntar an seisiún deiridh"
 
 #. i18n: ectx: whatsthis, entry (KeepOpenAfterLastSessionCloses), group (Window)
 #: app/config/yakuake.kcfg:46
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Whether to keep the application window open when it loses focus."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Whether to keep the application window open after the last session is closed."
 msgstr ""
-"Leis an rogha seo, coinneofar fuinneog an fheidhmchláir oscailte nuair a "
-"chailleann sé an fócas."
 
 #. i18n: ectx: label, entry (ToggleToFocus), group (Window)
 #: app/config/yakuake.kcfg:50
@@ -684,23 +668,17 @@ msgstr ""
 
 #. i18n: ectx: label, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:60
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Show tab bar"
+#, kde-format
 msgctxt "@label"
 msgid "Show title bar"
-msgstr "Taispeáin barra na gcluaisíní"
+msgstr ""
 
 #. i18n: ectx: whatsthis, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:61
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Whether to show the tab bar in the application window."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the title bar in the application window."
 msgstr ""
-"Leis an rogha seo, taispeánfar barra na gcluaisíní i bhfuinneog an "
-"fheidhmchláir."
 
 #. i18n: ectx: label, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:65
@@ -743,14 +721,10 @@ msgstr ""
 
 #. i18n: ectx: whatsthis, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:76
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Whether to show the tab bar in the application window."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show a system tray icon."
 msgstr ""
-"Leis an rogha seo, taispeánfar barra na gcluaisíní i bhfuinneog an "
-"fheidhmchláir."
 
 #. i18n: ectx: label, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:82
@@ -1125,12 +1099,10 @@ msgid "A drop-down terminal emulator based on KDE Konsole technology."
 msgstr "Aithriseoir teirminéil anuas, bunaithe ar theicneolaíocht Konsole KDE."
 
 #: app/main.cpp:29
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2008-2012 The Yakuake Team"
+#, kde-kuit-format
 msgctxt "@info:credit"
 msgid "(c) 2008-2018 The Yakuake Team"
-msgstr "© 2008-2012 Foireann Yakuake"
+msgstr ""
 
 #: app/main.cpp:36
 #, kde-kuit-format
@@ -1151,12 +1123,10 @@ msgid "Francois Chazal"
 msgstr "Francois Chazal"
 
 #: app/main.cpp:37
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:credit"
-#| msgid "Project Founder, Default skin (Inactive)"
+#, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Project Founder, Legacy skin (Inactive)"
-msgstr "Seanfhondúir, Craiceann réamhshocraithe (Neamhghníomhach)"
+msgstr ""
 
 #: app/main.cpp:38
 #, kde-kuit-format
@@ -1463,12 +1433,10 @@ msgid "Toggle Titlebar"
 msgstr ""
 
 #: app/mainwindow.cpp:459
-#, fuzzy, kde-kuit-format
-#| msgctxt "@action"
-#| msgid "Switch to Session <numid>%1</numid>"
+#, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
-msgstr "Athraigh go Seisiún <numid>%1</numid>"
+msgstr ""
 
 #: app/mainwindow.cpp:614
 #, kde-kuit-format
@@ -1525,12 +1493,10 @@ msgid "At mouse location"
 msgstr "Ag ionad na luiche"
 
 #: app/mainwindow.cpp:734
-#, fuzzy, kde-kuit-format
-#| msgctxt "@item:inlistbox"
-#| msgid "Screen 1"
+#, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
-msgstr "Scáileán 1"
+msgstr ""
 
 #: app/mainwindow.cpp:756 app/mainwindow.cpp:778
 #, kde-format
@@ -1701,12 +1667,10 @@ msgid "Shell"
 msgstr "Blaosc"
 
 #: app/tabbar.cpp:935
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:tab"
-#| msgid "Shell No. <numid>%1</numid>"
+#, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell No. %1"
-msgstr "Blaosc <numid>%1</numid>"
+msgstr ""
 
 #: app/terminal.cpp:163
 #, kde-kuit-format
@@ -1767,59 +1731,3 @@ msgstr "Scoir"
 msgctxt "@info:whatsthis"
 msgid "Quits the application."
 msgstr "Scoir ón fheidhmchlár."
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Application successfully started.<nl/>Press <shortcut>%1</shortcut> to "
-#~ "use it ..."
-#~ msgstr ""
-#~ "Thosaigh an feidhmchlár gan fadhb.<nl/>Brúigh <shortcut>%1</shortcut> "
-#~ "chun é a úsáid..."
-
-#~ msgctxt "@title:window"
-#~ msgid "Failed to Download Skin"
-#~ msgstr "Níorbh fhéidir an Craiceann a íosluchtú"
-
-#~ msgctxt "@info"
-#~ msgid "The installer was given a directory, not a file."
-#~ msgstr "Tugadh comhadlann don suiteálaí, in ionad comhaid."
-
-#~ msgctxt "@info"
-#~ msgid "Could not remove skin \"%1\"."
-#~ msgstr "Níorbh fhéidir craiceann \"%1\" a bhaint."
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Screen <numid>%1</numid>"
-#~ msgstr "Scáileán <numid>%1</numid>"
-
-#~ msgctxt "@item:inmenu"
-#~ msgid "Screen <numid>%1</numid>"
-#~ msgstr "Scáileán <numid>%1</numid>"
-
-#~ msgctxt "@label"
-#~ msgid "Show startup notification"
-#~ msgstr "Taispeáin fógairt tosaithe"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid "Whether to show a notification popup at application startup."
-#~ msgstr ""
-#~ "Leis an rogha seo, taispeánfar preabfhuinneog fhógartha ag am tosú an "
-#~ "fheidhmchláir."
-
-#~ msgctxt "@option:check"
-#~ msgid "Show startup notification popup"
-#~ msgstr "Taispeáin fógairt tosaithe i bpreabfhuinneog"
-
-#~ msgctxt "@title:window"
-#~ msgid "<application>Yakuake</application> Notification"
-#~ msgstr "Fógairt <application>Yakuake</application>"
-
-#~ msgctxt "@label:slider"
-#~ msgid "Speed:"
-#~ msgstr "Luas:"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid "Background color used if XComposite ARGB translucency is disabled."
-#~ msgstr ""
-#~ "Dath an chúlra le húsáid má tá tréshoilseacht ARGB XComposite "
-#~ "díchumasaithe."
