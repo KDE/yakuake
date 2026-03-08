@@ -684,7 +684,7 @@ msgstr "动态更新标签页标题"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to update tab titles along with the title bar."
-msgstr "是否与标题栏同步更新标签页的标题文字。"
+msgstr "是否与标题栏同步更新标签页的标题文本。"
 
 #. i18n: ectx: label, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:75
@@ -1553,7 +1553,7 @@ msgid ""
 "sessions. You can double-click a tab to edit its label.</para>"
 msgstr ""
 "<title>标签页栏</title><para>您可以通过标签页栏在多个会话之间切换。您可以双击"
-"标签页来编辑它的文字标签。</para>"
+"标签页来编辑它的文本标签。</para>"
 
 #: app/tabbar.cpp:58
 #, kde-kuit-format
