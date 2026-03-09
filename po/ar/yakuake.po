@@ -1630,7 +1630,7 @@ msgstr "لهذه الجلسة"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "For Terminal %1"
-msgstr "لأجل الطّرفيّة %1"
+msgstr "لأجل الطرفية %1"
 
 #: app/tabbar.cpp:239 app/tabbar.cpp:284
 #, kde-kuit-format
@@ -1642,7 +1642,7 @@ msgstr "في هذه الجلسة"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "In Terminal %1"
-msgstr "في الطّرفيّة %1"
+msgstr "في الطرفية %1"
 
 #: app/tabbar.cpp:933
 #, kde-kuit-format
