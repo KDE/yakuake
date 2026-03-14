@@ -134,6 +134,7 @@ QStringList OutputOrderWatcher::outputOrder() const
     return m_outputOrder;
 }
 
+#if HAVE_X11
 X11OutputOrderWatcher::X11OutputOrderWatcher(QObject *parent)
     : OutputOrderWatcher(parent)
     , m_x11Interface(qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
@@ -318,6 +319,7 @@ void X11OutputOrderWatcher::roundtrip() const
         free(error);
     }
 }
+#endif
 
 WaylandOutputOrderWatcher::WaylandOutputOrderWatcher(QObject *parent)
     : OutputOrderWatcher(parent)

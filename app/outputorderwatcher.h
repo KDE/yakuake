@@ -10,10 +10,7 @@
 #include <QGuiApplication>
 #include <QObject>
 
-// #include "kworkspace_export.h"
-// #include <config-outputorder.h>
-
-#define HAVE_X11 1
+#include <config-yakuake.h>
 
 #if HAVE_X11
 #include <xcb/xcb.h>
