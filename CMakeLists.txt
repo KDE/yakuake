@@ -60,7 +60,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     ColorScheme
 )
 
-find_package(PlasmaWaylandProtocols)
+find_package(PlasmaWaylandProtocols REQUIRED)
 
 find_package(XCB REQUIRED COMPONENTS RANDR)
 
