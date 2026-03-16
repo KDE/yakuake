@@ -62,12 +62,11 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
 
 find_package(PlasmaWaylandProtocols REQUIRED)
 
-find_package(XCB REQUIRED COMPONENTS RANDR)
-
 option(WITH_X11 "Build with X11 integration" ON)
 if(WITH_X11)
     set(HAVE_X11 TRUE)
     find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED Gui)
+    find_package(XCB REQUIRED COMPONENTS RANDR)
 else()
     set(HAVE_X11 FALSE)
 endif()
