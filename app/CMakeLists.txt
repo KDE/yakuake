@@ -76,12 +76,11 @@ target_link_libraries(yakuake
     KF6::ColorScheme
     Wayland::Client
     Qt::WaylandClient
-    XCB::RANDR
 )
 
 if(HAVE_X11)
     if(TARGET Qt6::Gui)
-        target_link_libraries(yakuake Qt6::GuiPrivate) # qtx11extras_p.h
+        target_link_libraries(yakuake Qt6::GuiPrivate XCB::RANDR) # qtx11extras_p.h
     endif()
 endif()
 
