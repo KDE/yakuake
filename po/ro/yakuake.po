@@ -3,14 +3,14 @@
 # Copyright (C) 2008 This_file_is_part_of_KDE
 # This file is distributed under the same license as the yakuake package.
 # Laurenţiu Buzdugan <lbuz@rolix.org>, 2008, 2009.
-# SPDX-FileCopyrightText: 2008, 2009, 2010, 2013, 2014, 2020, 2022, 2024, 2025 Sergiu Bivol <sergiu@cip.md>
+# SPDX-FileCopyrightText: 2008, 2009, 2010, 2013, 2014, 2020, 2022, 2024, 2025, 2026 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-10 00:48+0000\n"
-"PO-Revision-Date: 2025-12-12 10:33+0000\n"
+"PO-Revision-Date: 2026-03-18 21:50+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
@@ -37,7 +37,7 @@ msgstr "Alege arhiva cu fațete de instalat"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
-msgstr ""
+msgstr "Nu s-a putut enumera conținutul arhivei cu fațetă."
 
 #: app/config/appearancesettings.cpp:274
 #, kde-kuit-format
@@ -80,12 +80,14 @@ msgid ""
 "Unable to locate required files in the skin archive.<nl/><nl/>The archive "
 "appears to be invalid."
 msgstr ""
+"Fișierele cerute nu au putut fi găsite în arhiva cu fațetă.<nl/><nl/>Arhiva "
+"pare a fi eronată."
 
 #: app/config/appearancesettings.cpp:327
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
-msgstr ""
+msgstr "Fișierul arhivei cu fațetă nu a putut fi deschis."
 
 #: app/config/appearancesettings.cpp:332
 #, kde-kuit-format
@@ -114,8 +116,14 @@ msgid_plural ""
 "The following skins are missing required files. Thus they were removed:<ul>"
 "%2</ul>"
 msgstr[0] ""
+"Următoarea fațetă nu are fișierele cerute, de aceea a fost eliminată:<ul>%2</"
+"ul>"
 msgstr[1] ""
+"Următoarele fațete nu au fișierele cerute, de aceea au fost eliminate:<ul>"
+"%2</ul>"
 msgstr[2] ""
+"Următoarele fațete nu au fișierele cerute, de aceea au fost eliminate:<ul>"
+"%2</ul>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: app/config/appearancesettings.ui:29 app/config/behaviorsettings.ui:20
@@ -134,6 +142,10 @@ msgid ""
 "terminals in a session, as well as over the currently focused terminal when "
 "switching to a session with multiple terminals."
 msgstr ""
+"Activarea acestei opțiuni va face ca Yakuake să afișeze scurt o suprapunere "
+"colorată deasupra terminalului nou-focalizat la mutarea focalizării între "
+"multiple terminale dintr-o sesiune, precum și peste terminalul focalizat "
+"acum la schimbarea către o sesiune cu terminale multiple."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
 #: app/config/appearancesettings.ui:38
@@ -170,6 +182,8 @@ msgid ""
 "Translucency requires support by the selected skin as well as your desktop "
 "environment. The default skin supports translucency."
 msgstr ""
+"Transluciditatea necesită susținere din partea fațetei alese și a mediului "
+"de birou. Fațeta implicită susține transluciditatea."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Translucency)
 #: app/config/appearancesettings.ui:95
@@ -195,6 +209,10 @@ msgid ""
 "This allows influencing the opacity and color tint of translucent areas of "
 "the skin."
 msgstr ""
+"La folosirea translucidității, culoarea de fundal se va umple folosind "
+"opacitatea aleasă înainte ca elementele fațetei să fie pictate peste fundal. "
+"Aceasta permite influențarea opacității și nuanței pentru zonele translucide "
+"ale fațetei."
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Width)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Height)
@@ -252,6 +270,11 @@ msgid ""
 "may cause the window manager to switch to the virtual desktop it currently "
 "resides on."
 msgstr ""
+"Dacă opțiunea e activă, scurtătura folosită în mod normal pentru a deschide "
+"și retrage fereastra îi va da focalizarea în loc de a o închide atunci când "
+"aceasta a pierdut anterior focalizarea. Dacă fereastra nu e configurată să "
+"se afișeze pe toate birourile virtuale, aceasta va provoca gestionarul de "
+"ferestre să treacă la biroul virtual pe care se află fereastra."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToggleToFocus)
 #: app/config/behaviorsettings.ui:45
@@ -283,6 +306,9 @@ msgid ""
 "pointer is moved to the same edge of the screen that it would open on when "
 "using the shortcut."
 msgstr ""
+"Dacă această opțiune e activă, fereastra se va deschide automat când "
+"indicatorul șoricelului e mutat la aceeași muchie a ecranului la care "
+"aceasta s-ar deschide folosind scurtătura."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PollMouse)
 #: app/config/behaviorsettings.ui:94
@@ -449,6 +475,10 @@ msgid ""
 "provide the requested service, Yakuake will fall back to an animation "
 "strategy of progressively adjusting the window mask."
 msgstr ""
+"Dacă această opțiune e activă, Yakuake va cere gestionarului de ferestre să "
+"efectueze animarea deschiderii/retragerii ferestrei. Dacă gestionarul de "
+"ferestre nu poate oferi serviciul cerut, Yakuake va recurge la o strategie "
+"de animare ce implică ajustarea progresivă a măștii ferestrei."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseWMAssist)
 #: app/config/windowsettings.ui:273
@@ -780,10 +810,10 @@ msgstr "Fațetă instalată de KNS"
 
 #. i18n: ectx: whatsthis, entry (SkinInstalledWithKns), group (Appearance)
 #: app/config/yakuake.kcfg:105
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether the currently active skin was installed via KNS."
-msgstr "Whether the currently active skin was installed via KNS."
+msgstr "Dacă fațeta activă acum a fost instalată prin KNS."
 
 #. i18n: ectx: label, entry (Translucency), group (Appearance)
 #: app/config/yakuake.kcfg:109
@@ -846,6 +876,10 @@ msgid ""
 "as over the currently focused terminal when switching to a session with "
 "multiple terminals."
 msgstr ""
+"Dacă să se afișeze scurt o suprapunere colorată deasupra terminalului nou-"
+"focalizat la mutarea focalizării între multiple terminale dintr-o sesiune, "
+"precum și peste terminalul focalizat acum la schimbarea către o sesiune cu "
+"terminale multiple."
 
 #. i18n: ectx: label, entry (HideSkinBorders), group (Appearance)
 #: app/config/yakuake.kcfg:131
@@ -863,6 +897,9 @@ msgid ""
 "option, when turned on, will overwrite the border settings defined by the "
 "skin and hide all borders."
 msgstr ""
+"Fațetele pot defini contururi în jurul terminalului, inclusiv bara de file. "
+"Această opțiune, când e activă, va suprascrie configurările de contur "
+"definite de către fațetă și va ascunde toate contururile."
 
 #. i18n: ectx: label, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:136
@@ -955,6 +992,10 @@ msgid ""
 "adjusting the window mask if the window manager is unable to provide the "
 "requested service."
 msgstr ""
+"Dacă să se încerce delegarea animației de deschidere/retragere a ferestrei "
+"către gestionarul de ferestre. Yakuake va recurge la o strategie de animare "
+"ce implică ajustarea progresivă a măștii ferestrei dacă gestionarul de "
+"ferestre nu poate furniza serviciul cerut."
 
 #. i18n: ectx: label, entry (Frames), group (Animation)
 #: app/config/yakuake.kcfg:176
@@ -965,21 +1006,21 @@ msgstr "Cadre de animație"
 
 #. i18n: ectx: whatsthis, entry (Frames), group (Animation)
 #: app/config/yakuake.kcfg:177
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "The number of frames of the open/retract animation."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "The number of frames of the open/retract animation. One frame is taken to be "
 "10 miliseconds."
-msgstr "Numărul de cadre ale animațiilor de deschidere/retragere."
+msgstr ""
+"Numărul de cadre ale animațiilor de deschidere/retragere. Un cadru se "
+"consideră a fi 10 milisecunde."
 
 #. i18n: ectx: label, entry (PollMouse), group (AutoOpen)
 #: app/config/yakuake.kcfg:185
 #, kde-format
 msgctxt "@label"
 msgid "Auto-open window"
-msgstr "Deschidere automată a ferestrei"
+msgstr "Deschide fereastra automat"
 
 #. i18n: ectx: whatsthis, entry (PollMouse), group (AutoOpen)
 #: app/config/yakuake.kcfg:186
@@ -989,8 +1030,8 @@ msgid ""
 "Whether to automatically open the application window when the mouse pointer "
 "is found at the edge of the screen."
 msgstr ""
-"Comută deschiderea automată a ferestrei când indicatorul șoricelului se află "
-"la marginea ecranului."
+"Dacă fereastra aplicației se deschide automat când indicatorul șoricelului "
+"se află la muchia ecranului."
 
 #. i18n: ectx: label, entry (PollInterval), group (AutoOpen)
 #: app/config/yakuake.kcfg:190
@@ -1033,14 +1074,14 @@ msgstr "Confirmă ieșirea cu sesiuni multiple"
 
 #. i18n: ectx: whatsthis, entry (ConfirmQuit), group (Dialogs)
 #: app/config/yakuake.kcfg:203
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Whether to show the tab bar in the application window."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Whether to prompt the user before quitting the application when multiple "
 "sessions are open."
-msgstr "Comută afișarea barei de file în fereastra aplicației."
+msgstr ""
+"Dacă să fie întrebat utilizatorul înainte de a termina aplicația când sunt "
+"deschise multiple sesiuni."
 
 #: app/firstrundialog.cpp:21
 #, kde-kuit-format
@@ -1063,13 +1104,15 @@ msgid ""
 "Before starting to use the application, you might want to change the "
 "keyboard shortcut used to open and retract the Yakuake window:"
 msgstr ""
+"Înainte de a începe folosirea aplicației, s-ar putea să doriți schimbarea "
+"scurtăturii de tastatură ce deschide și retrage fereastra Yakuake:"
 
 #. i18n: ectx: property (text), widget (QLabel, outroLabel)
 #: app/firstrundialog.ui:130
 #, kde-format
 msgctxt "@info"
 msgid "You can change the shortcut later at any time via the menu."
-msgstr ""
+msgstr "Puteți schimba scurtătura mai târziu folosind meniul."
 
 #: app/main.cpp:25
 #, kde-kuit-format
@@ -1136,6 +1179,8 @@ msgstr "Juan Carlos Torres"
 msgctxt "@info:credit"
 msgid "Tab bar drag and drop support, Prevent Closing toggle"
 msgstr ""
+"Susținerea tragerii și lăsării pentru bara de file, comutatorul „Previne "
+"închiderea”"
 
 #: app/main.cpp:42
 #, kde-kuit-format
