@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-10 00:48+0000\n"
-"PO-Revision-Date: 2015-01-27 23:15+0200\n"
+"PO-Revision-Date: 2026-03-28 22:10+0200\n"
 "Last-Translator: Liudas Ališauskas <liudas@akmc.lt>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -19,27 +19,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Poedit 3.8\n"
 
 #: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
 msgctxt "@item:inlistbox Unknown skin author"
 msgid "Unknown"
-msgstr "Nežinoma"
+msgstr "Nežinomas"
 
 #: app/config/appearancesettings.cpp:196
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Unable to list the skin archive contents."
+#, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
-msgstr "Nepavyksta išrikiuoti apipavidalinimo archyvo komponentų."
+msgstr "Pasirinkite, kurį apipavidalinimo archyvą įdiegti"
 
 #: app/config/appearancesettings.cpp:242
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to list the skin archive contents."
-msgstr "Nepavyksta išrikiuoti apipavidalinimo archyvo komponentų."
+msgstr "Nepavyko išvardyti apipavidalinimo archyvo turinio."
 
 #: app/config/appearancesettings.cpp:274
 #, kde-kuit-format
@@ -48,14 +46,15 @@ msgid ""
 "This skin appears to be already installed and you lack the required "
 "permissions to overwrite it."
 msgstr ""
-"Atrodo, kad šis apipavidalinimas jau yra įdiegtas, bet Jums trūksta "
-"reikalingų leidimų, kad perrašyti jį."
+"Atrodo, kad šis apipavidalinimas jau yra įdiegtas ir jums trūksta reikalingų "
+"leidimų jį perrašyti."
 
 #: app/config/appearancesettings.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid "This skin appears to be already installed. Do you want to overwrite it?"
-msgstr "Atrodo, kad šis apipavidalinimas jau yra įdiegtas. Ar perrašyti jį?"
+msgstr ""
+"Atrodo, kad šis apipavidalinimas jau yra įdiegtas. Ar norite jį perrašyti?"
 
 #: app/config/appearancesettings.cpp:280
 #, kde-kuit-format
@@ -67,7 +66,7 @@ msgstr "Apipavidalinimas jau yra"
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Reinstall Skin"
-msgstr "Įdiegti iš naujo apipavidalinimą"
+msgstr "Įdiegti apipavidalinimą iš naujo"
 
 #: app/config/appearancesettings.cpp:299
 #, kde-kuit-format
@@ -82,37 +81,35 @@ msgid ""
 "Unable to locate required files in the skin archive.<nl/><nl/>The archive "
 "appears to be invalid."
 msgstr ""
-"Nepavyko rasti reikalingų failų apipavidalinimo archyve.<nl/><nl/>Atrodo, "
-"kad archyvas netinkamas."
+"Nepavyko apipavidalinimo archyve nustatyti reikalingų failų vietos.<nl/><nl/"
+">Atrodo, kad archyvas netinkamas."
 
 #: app/config/appearancesettings.cpp:327
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The skin archive file could not be opened."
-msgstr "Nepavyko atidaryti apipavidalinimo archyvo failo."
+msgstr "Nepavyko atverti apipavidalinimo archyvo failo."
 
 #: app/config/appearancesettings.cpp:332
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Install Skin"
-msgstr "Negalima įdiegti apipavidalinimo"
+msgstr "Nepavyksta įdiegti apipavidalinimo"
 
 #: app/config/appearancesettings.cpp:376
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to remove \"%1\" by %2?"
-msgstr ""
+msgstr "Ar norite pašalinti „%1“, kurį sukūrė %2?"
 
 #: app/config/appearancesettings.cpp:377
-#, fuzzy, kde-kuit-format
-#| msgctxt "@action:button"
-#| msgid "Remove Skin"
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Remove Skin"
-msgstr "Pašalinti temą"
+msgstr "Šalinti apipavidalinimą"
 
 #: app/config/appearancesettings.cpp:471
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The following skin is missing required files. Thus it was removed:<ul>%2</ul>"
@@ -149,10 +146,14 @@ msgid ""
 "terminals in a session, as well as over the currently focused terminal when "
 "switching to a session with multiple terminals."
 msgstr ""
+"Įjungus šią parinktį, Yakuake, perkeliant fokusavimą tarp kelių seanso "
+"terminalo, virš naujai sufokusuoto terminalo trumpai rodys spalvotą "
+"perdangą, o taip pat virš esamu metu sufokusuoto terminalo, kai perjungiama "
+"į kelių terminalų seansą."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
 #: app/config/appearancesettings.ui:38
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:check"
 msgid "Highlight terminals when moving focus between them"
 msgstr "Paryškinti terminalus kai keičiamas fokusas tarp jų"
@@ -161,7 +162,7 @@ msgstr "Paryškinti terminalus kai keičiamas fokusas tarp jų"
 #: app/config/appearancesettings.ui:45
 #, kde-format
 msgid "Hide borders"
-msgstr ""
+msgstr "Slėpti rėmelius"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/appearancesettings.ui:55
@@ -175,11 +176,11 @@ msgstr "Lango fonas"
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Background color:"
-msgstr "Fono spalva"
+msgstr "Fono spalva:"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_Translucency)
 #: app/config/appearancesettings.ui:92
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Translucency requires support by the selected skin as well as your desktop "
@@ -190,7 +191,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Translucency)
 #: app/config/appearancesettings.ui:95
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:check"
 msgid "Use skin translucency if supported"
 msgstr "Naudoti apipavidalinimo permatomumą jei palaikoma"
@@ -200,7 +201,7 @@ msgstr "Naudoti apipavidalinimo permatomumą jei palaikoma"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Background color opacity:"
-msgstr "Fono spalvos permatomumas:"
+msgstr "Fono spalvos nepermatomumas:"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_BackgroundColorOpacity)
 #: app/config/appearancesettings.ui:136
@@ -212,6 +213,10 @@ msgid ""
 "This allows influencing the opacity and color tint of translucent areas of "
 "the skin."
 msgstr ""
+"Kai naudojamas dalinis permatomumas, fono spalva bus užpildyta naudojant "
+"nurodytą nepermatomumą prieš apipavidalinimo elementus nupiešiant ant fono "
+"viršaus. Tai leidžia daryti įtaką apipavidalinimo dalinai permatomų sričių "
+"nepermatomumui ir spalvos atspalviui."
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Width)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Height)
@@ -228,32 +233,32 @@ msgstr "%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Skin"
-msgstr "Sąsajos apipavidalinimas"
+msgstr "Apipavidalinimas"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, ghnsButton)
 #: app/config/appearancesettings.ui:176
 #, kde-format
 msgctxt "@action:button"
 msgid "Get New Skins..."
-msgstr "Gaukite naujų apipavidalinimų..."
+msgstr "Gauti naujų apipavidalinimų..."
 
 #. i18n: ectx: property (text), widget (QPushButton, removeButton)
 #: app/config/appearancesettings.ui:186
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Skin"
-msgstr "Pašalinti temą"
+msgstr "Šalinti apipavidalinimą"
 
 #. i18n: ectx: property (text), widget (QPushButton, installButton)
 #: app/config/appearancesettings.ui:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Install Skin..."
-msgstr "Įdiegti temą..."
+msgstr "Įdiegti apipavidalinimą..."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FocusFollowsMouse)
 #: app/config/behaviorsettings.ui:26
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:check"
 msgid "Focus terminals when the mouse pointer is moved over them"
 msgstr "Fokusuoti terminalus kai pelės žymeklis yra užvedamas ant jų"
@@ -272,21 +277,21 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToggleToFocus)
 #: app/config/behaviorsettings.ui:45
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:check"
 msgid "Use Open/Retract action to focus window"
 msgstr "Naudoti Atverti/Aktyvuoti veiksmą kad sufokusuoti langą"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepAbove)
 #: app/config/behaviorsettings.ui:61
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:check"
 msgid "Keep window above other windows"
 msgstr "Laikyti langą virš kitų langų"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_OpenAfterStart)
 #: app/config/behaviorsettings.ui:84
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:check"
 msgid "Open window after program start"
 msgstr "Atverti langą paleidus programą"
@@ -303,7 +308,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PollMouse)
 #: app/config/behaviorsettings.ui:94
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:check"
 msgid "Open window when the mouse pointer touches the screen edge"
 msgstr "Atverti langą kai pelės žymeklis paliečia ekrano kraštą"
@@ -318,11 +323,11 @@ msgstr ""
 #: app/config/behaviorsettings.ui:108
 #, kde-format
 msgid "Show system tray icon"
-msgstr ""
+msgstr "Rodyti sistemos dėklo piktogramą"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpen)
 #: app/config/behaviorsettings.ui:118
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:check"
 msgid "Keep window open when it loses focus"
 msgstr "Laikyti langą atvertą kai prarandamas fokusas"
@@ -344,7 +349,7 @@ msgstr "Dialogai"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ConfirmQuit)
 #: app/config/behaviorsettings.ui:157
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:check"
 msgid "Confirm quit when more than one session is open"
 msgstr "Patvirtinti išjungimą, jei atverta daugiau nei viena sesija"
@@ -353,7 +358,7 @@ msgstr "Patvirtinti išjungimą, jei atverta daugiau nei viena sesija"
 #, kde-kuit-format
 msgctxt "@item:intext"
 msgid "by %1"
-msgstr "po %1"
+msgstr "sukūrė %1"
 
 #: app/config/windowsettings.cpp:19
 #, kde-kuit-format
@@ -365,21 +370,17 @@ msgstr "Ekranas %1"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
-msgstr ""
+msgstr "Slepiama antraštės juosta"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_0)
 #: app/config/windowsettings.ui:32
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Tab Bar"
+#, kde-format
 msgid "Title Bar"
-msgstr "Kortelių juosta"
+msgstr "Antraštės juosta"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTitleBar)
 #: app/config/windowsettings.ui:38
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Show tab bar"
+#, kde-format
 msgid "Show title bar"
 msgstr "Rodyti kortelių juostą"
 
@@ -406,14 +407,14 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Show title bar contents in tab labels"
-msgstr "Rodyti pavadinimo juostą kortelių pavadinimuose"
+msgstr "Rodyti antraštės juostos turinį kortelių etiketėse"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTabBar)
 #: app/config/windowsettings.ui:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Show the tab bar"
-msgstr "Rodyti kortelių juosta"
+msgstr "Rodyti kortelių juostą"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/windowsettings.ui:105
@@ -473,7 +474,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Ask the window manager to perform the animation"
-msgstr "Prašyti langų tvarkyklę vykdyti animaciją"
+msgstr "Prašyti langų tvarkytuvės, kad atliktų animaciją"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: app/config/windowsettings.ui:283
@@ -505,7 +506,7 @@ msgstr "Atverti ekrane:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Screen)
 #: app/config/windowsettings.ui:348
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@item:inlistbox"
 msgid "At mouse location"
 msgstr "Pelės vietoje"
@@ -526,7 +527,7 @@ msgstr "Rodyti visuose darbalaukiuose"
 
 #. i18n: ectx: label, entry (Screen), group (Window)
 #: app/config/yakuake.kcfg:9
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Screen to use"
 msgstr "Naudojamas ekranas"
@@ -552,7 +553,7 @@ msgstr "Lango plotis"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Width of the application window as a percentage of the screen."
-msgstr "Programos lango plotis ekrano procentais."
+msgstr "Programos lango plotis kaip ekrano procentinė dalis."
 
 #. i18n: ectx: label, entry (Height), group (Window)
 #: app/config/yakuake.kcfg:21
@@ -566,7 +567,7 @@ msgstr "Lango aukštis"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Height of the application window as a percentage of the screen."
-msgstr "Programos lango aukštis ekrano procentais."
+msgstr "Programos lango aukštis kaip ekrano procentinė dalis."
 
 #. i18n: ectx: label, entry (Position), group (Window)
 #: app/config/yakuake.kcfg:28
@@ -583,8 +584,8 @@ msgid ""
 "Center point of the application window, as a percentage, measured from the "
 "left-hand edge of the screen."
 msgstr ""
-"Centrinis programos lango taškas procentais, apskaičiuotas nuo kairiojo "
-"ekrano krašto."
+"Centrinis programos lango taškas, kaip procentinė dalis, matuojamas nuo "
+"kairiojo ekrano krašto."
 
 #. i18n: ectx: label, entry (ShowOnAllDesktops), group (Window)
 #: app/config/yakuake.kcfg:35
@@ -612,14 +613,14 @@ msgstr "Laikyti langą atvertą"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to keep the application window open when it loses focus."
-msgstr "Ar laikyti programos langą atvertą kai prarandamas fokusas."
+msgstr "Ar palikti programos langą atvertą, kai jis praranda fokusavimą."
 
 #. i18n: ectx: label, entry (KeepOpenAfterLastSessionCloses), group (Window)
 #: app/config/yakuake.kcfg:45
 #, kde-format
 msgctxt "@label"
 msgid "Keep window open after last session closes"
-msgstr "Laikyti langą atvertą kai paskutinė sesija užsidaro"
+msgstr "Palikti langą atvertą po to, kai užsiveria paskutinis seansas"
 
 #. i18n: ectx: whatsthis, entry (KeepOpenAfterLastSessionCloses), group (Window)
 #: app/config/yakuake.kcfg:46
@@ -627,18 +628,19 @@ msgstr "Laikyti langą atvertą kai paskutinė sesija užsidaro"
 msgctxt "@info:whatsthis"
 msgid ""
 "Whether to keep the application window open after the last session is closed."
-msgstr "Ar laikyti programos langą atvertą kai paskutinė sesija yra uždaroma."
+msgstr ""
+"Ar palikti programos langą atvertą po to, kai užveriamas paskutinis seansas."
 
 #. i18n: ectx: label, entry (ToggleToFocus), group (Window)
 #: app/config/yakuake.kcfg:50
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Use open/retract shortcut to focus window"
 msgstr "Naudoti Atverti/Aktyvuoti trumpinį, kad sufokusuoti langą"
 
 #. i18n: ectx: whatsthis, entry (ToggleToFocus), group (Window)
 #: app/config/yakuake.kcfg:51
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Whether the open/retract keyboard shortcut can be used to focus the "
@@ -649,14 +651,14 @@ msgstr ""
 
 #. i18n: ectx: label, entry (KeepAbove), group (Window)
 #: app/config/yakuake.kcfg:55
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Keep window on top"
 msgstr "Laikyti langą viršuje"
 
 #. i18n: ectx: whatsthis, entry (KeepAbove), group (Window)
 #: app/config/yakuake.kcfg:56
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Whether to keep the application window above other windows on the screen."
@@ -693,7 +695,7 @@ msgstr "Rodyti kortelių juostą"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the tab bar in the application window."
-msgstr "Ar rodyti kortelių juostą programos pagrindiniame lange."
+msgstr "Ar rodyti programos lange kortelių juostą."
 
 #. i18n: ectx: label, entry (DynamicTabTitles), group (Window)
 #: app/config/yakuake.kcfg:70
@@ -714,27 +716,25 @@ msgstr "Ar atnaujinti kortelių pavadinimus kartu su antraštės juosta."
 #, kde-format
 msgctxt "@label"
 msgid "Show a system tray icon"
-msgstr ""
+msgstr "Rodyti sistemos dėklo piktogramą"
 
 #. i18n: ectx: whatsthis, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:76
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Whether to show the tab bar in the application window."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show a system tray icon."
-msgstr "Ar rodyti kortelių juostą programos pagrindiniame lange."
+msgstr "Ar rodyti sistemos dėklo piktogramą."
 
 #. i18n: ectx: label, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:82
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Focus follows mouse"
 msgstr "Fokusas seka pelę"
 
 #. i18n: ectx: whatsthis, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:83
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Whether an individual terminal in a session will be given focus when the "
@@ -745,14 +745,14 @@ msgstr ""
 
 #. i18n: ectx: label, entry (OpenAfterStart), group (Behavior)
 #: app/config/yakuake.kcfg:87
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Open after start"
 msgstr "Atverti paleidus programą"
 
 #. i18n: ectx: whatsthis, entry (OpenAfterStart), group (Behavior)
 #: app/config/yakuake.kcfg:88
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether the application window should be opened after program start."
 msgstr "Ar programos langas turėtų būti atidarytas paleidus programą."
@@ -762,7 +762,7 @@ msgstr "Ar programos langas turėtų būti atidarytas paleidus programą."
 #, kde-format
 msgctxt "@label"
 msgid "Remember window fullscreen state"
-msgstr ""
+msgstr "Prisiminti lango viso ekrano būseną"
 
 #. i18n: ectx: whatsthis, entry (RememberFullscreen), group (Behavior)
 #: app/config/yakuake.kcfg:93
@@ -772,20 +772,22 @@ msgid ""
 "Whether the window will be shown fullscreen again when it has been "
 "previously."
 msgstr ""
+"Ar langas bus ir vėl rodomas viso ekrano veiksenoje tuo atveju, jei buvo "
+"taip rodomas anksčiau."
 
 #. i18n: ectx: label, entry (Skin), group (Appearance)
 #: app/config/yakuake.kcfg:99
 #, kde-format
 msgctxt "@label"
 msgid "Skin"
-msgstr "Sąsajos apipavidalinimas"
+msgstr "Apipavidalinimas"
 
 #. i18n: ectx: whatsthis, entry (Skin), group (Appearance)
 #: app/config/yakuake.kcfg:100
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The skin to be used by the application window."
-msgstr "Programos lango naudotinas apipavidalinimas."
+msgstr "Apipavidalinimas, kurį naudos programos langas."
 
 #. i18n: ectx: label, entry (SkinInstalledWithKns), group (Appearance)
 #: app/config/yakuake.kcfg:104
@@ -799,21 +801,21 @@ msgstr "Apipavidalinimas, kurį įdiegė KNS"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether the currently active skin was installed via KNS."
-msgstr "Ar dabar aktyvus apipavidalinimas buvo įdiegtas per KNS."
+msgstr "Ar šiuo metu aktyvus apipavidalinimas buvo įdiegtas per KNS."
 
 #. i18n: ectx: label, entry (Translucency), group (Appearance)
 #: app/config/yakuake.kcfg:109
 #, kde-format
 msgctxt "@label"
 msgid "Use translucent background"
-msgstr "Naudoti permatomą foną"
+msgstr "Naudoti pusiau permatomą foną"
 
 #. i18n: ectx: whatsthis, entry (Translucency), group (Appearance)
 #: app/config/yakuake.kcfg:110
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to make use of XComposite ARGB translucency."
-msgstr "Ar naudoti XComposite ARGB permatomumą."
+msgstr "Ar naudoti XComposite ARGB dalinį permatomumą."
 
 #. i18n: ectx: label, entry (BackgroundColor), group (Appearance)
 #: app/config/yakuake.kcfg:114
@@ -827,7 +829,7 @@ msgstr "Lango fono spalva"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Background color painted below skin elements."
-msgstr "Fono spalva naudojama žemiau apipavidalinimo elementų."
+msgstr "Fono spalva naudojama po apipavidalinimo elementais."
 
 #. i18n: ectx: label, entry (BackgroundColorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:119
@@ -841,7 +843,8 @@ msgstr "Fono spalvos nepermatomumas"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the background color fill when using translucency."
-msgstr "Fono spalvos užpildymo skaidrumas naudojant permatomumą."
+msgstr ""
+"Fono spalvos užpildymo nepermatomumas, kai naudojamas dalinis permatomumas."
 
 #. i18n: ectx: label, entry (TerminalHighlightOnManualActivation), group (Appearance)
 #: app/config/yakuake.kcfg:126
@@ -866,7 +869,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Hide the borders defined by the skin"
-msgstr ""
+msgstr "Slėpti apipavidalinimo apibrėžtus rėmelius"
 
 #. i18n: ectx: whatsthis, entry (HideSkinBorders), group (Appearance)
 #: app/config/yakuake.kcfg:132
@@ -883,14 +886,14 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Terminal highlight opacity"
-msgstr "Terminalo paryškinimo permatomumas"
+msgstr "Terminalo paryškinimo nepermatomumas"
 
 #. i18n: ectx: whatsthis, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:137
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the colored overlay used to highlight a terminal."
-msgstr "Spalvotos perdangos permatomumas naudotas paryškinti terminalą."
+msgstr "Spalvotos perdangos nepermatomumas naudojamas terminalo paryškinimui."
 
 #. i18n: ectx: label, entry (TerminalHighlightDuration), group (Appearance)
 #: app/config/yakuake.kcfg:143
@@ -908,49 +911,49 @@ msgstr "Terminalo paryškinimo perdangos trukmė."
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
 #: app/config/yakuake.kcfg:150
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator color"
 msgstr "Klaviatūros įvesties bloko indikatoriaus spalva"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
 #: app/config/yakuake.kcfg:151
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid "The color of the keyboard input block indicator overlay."
 msgstr "Klaviatūros įvesties bloko indikatoriaus perdangos spalva."
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:155
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator opacity"
 msgstr "Klaviatūros įvesties bloko indikatoriaus nepermatomumas"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:156
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid "The opacity of the keyboard input block indicator overlay."
 msgstr "Klaviatūros įvesties bloko indikatoriaus perdangos nepermatomumas."
 
 #. i18n: ectx: label, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
 #: app/config/yakuake.kcfg:162
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Keyboard input block indicator duration"
 msgstr "Klaviatūros įvesties bloko indikatoriaus trukmė"
 
 #. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
 #: app/config/yakuake.kcfg:163
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid "The duration of the keyboard input block indicator overlay."
 msgstr "Klaviatūros įvesties bloko indikatoriaus perdangos trukmė."
 
 #. i18n: ectx: label, entry (UseWMAssist), group (Animation)
 #: app/config/yakuake.kcfg:171
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Attempt to use the window manager to animate the window"
 msgstr "Mėginti naudoti langų tvarkyklę lango animacijai"
@@ -968,14 +971,14 @@ msgstr ""
 
 #. i18n: ectx: label, entry (Frames), group (Animation)
 #: app/config/yakuake.kcfg:176
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Animation frames"
 msgstr "Animacijos kadras"
 
 #. i18n: ectx: whatsthis, entry (Frames), group (Animation)
 #: app/config/yakuake.kcfg:177
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "The number of frames of the open/retract animation. One frame is taken to be "
@@ -986,14 +989,14 @@ msgstr ""
 
 #. i18n: ectx: label, entry (PollMouse), group (AutoOpen)
 #: app/config/yakuake.kcfg:185
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Auto-open window"
 msgstr "Automatiškai atverti langą"
 
 #. i18n: ectx: whatsthis, entry (PollMouse), group (AutoOpen)
 #: app/config/yakuake.kcfg:186
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Whether to automatically open the application window when the mouse pointer "
@@ -1020,28 +1023,28 @@ msgstr ""
 
 #. i18n: ectx: label, entry (FirstRun), group (Dialogs)
 #: app/config/yakuake.kcfg:197
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Application first run"
 msgstr "Primas programos paleidimas"
 
 #. i18n: ectx: whatsthis, entry (FirstRun), group (Dialogs)
 #: app/config/yakuake.kcfg:198
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether this is the first time the application is run."
 msgstr "Ar tai yra pirmas kartas, kai programa yra paleidžiama."
 
 #. i18n: ectx: label, entry (ConfirmQuit), group (Dialogs)
 #: app/config/yakuake.kcfg:202
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label"
 msgid "Confirm quit with multiple sessions"
 msgstr "Patvirtinti išjungimą su daugeliu sesijų"
 
 #. i18n: ectx: whatsthis, entry (ConfirmQuit), group (Dialogs)
 #: app/config/yakuake.kcfg:203
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Whether to prompt the user before quitting the application when multiple "
@@ -1053,7 +1056,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "First Run"
-msgstr "Pirmas paleidimas"
+msgstr "Pirmasis paleidimas"
 
 #. i18n: ectx: property (text), widget (KTitleWidget, titleWidget)
 #: app/firstrundialog.ui:46
@@ -1064,14 +1067,14 @@ msgstr "Jus sveikina Yakuake"
 
 #. i18n: ectx: property (text), widget (QLabel, introLabel)
 #: app/firstrundialog.ui:53
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info"
 msgid ""
 "Before starting to use the application, you might want to change the "
 "keyboard shortcut used to open and retract the Yakuake window:"
 msgstr ""
-"Prieš naudojant programą, Jūs galite norėti pasikeisti klaviatūros trumpinį "
-"naudojamą atidaryti ir aktyvuoti Yakuake langą:"
+"Prieš pradedant naudoti programą, galbūt, norėtumėte pakeisti spartųjį "
+"klavišą, naudojamą Yakuake lango atvėrimui ir aktyvavimui:"
 
 #. i18n: ectx: property (text), widget (QLabel, outroLabel)
 #: app/firstrundialog.ui:130
@@ -1079,6 +1082,7 @@ msgstr ""
 msgctxt "@info"
 msgid "You can change the shortcut later at any time via the menu."
 msgstr ""
+"Vėliau, naudodami meniu bet kuriuo metu galėsite pakeisti spartųjį klavišą."
 
 #: app/main.cpp:25
 #, kde-kuit-format
@@ -1091,15 +1095,13 @@ msgstr "<application>Yakuake</application>"
 msgctxt "@title"
 msgid "A drop-down terminal emulator based on KDE Konsole technology."
 msgstr ""
-"Nusileidžiantis terminalo emuliatorius paremtas KDE Konsole technologija."
+"Išskleidžiamasis terminalo emuliatorius pagrįstas KDE Konsole technologija."
 
 #: app/main.cpp:29
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2008-2014 The Yakuake Team"
+#, kde-kuit-format
 msgctxt "@info:credit"
 msgid "(c) 2008-2018 The Yakuake Team"
-msgstr "(c) 2008-2014 The Yakuake Team"
+msgstr "(c) 2008–2018 Yakuake komanda"
 
 #: app/main.cpp:36
 #, kde-kuit-format
@@ -1111,7 +1113,7 @@ msgstr "Eike Hein"
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Maintainer, Lead Developer"
-msgstr "Prižiūrėtojas, pagrindinis programuotojas"
+msgstr "Prižiūrėtojas, pagrindinis plėtotojas"
 
 #: app/main.cpp:37
 #, kde-kuit-format
@@ -1146,7 +1148,7 @@ msgid "Juan Carlos Torres"
 msgstr "Juan Carlos Torres"
 
 #: app/main.cpp:40
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Tab bar drag and drop support, Prevent Closing toggle"
 msgstr "Kortelių juostos vilkimo palaikymas, Neleisti užverti perjungimo"
@@ -1170,7 +1172,7 @@ msgid "Danilo Cesar Lemes de Paula"
 msgstr "Danilo Cesar Lemes de Paula"
 
 #: app/main.cpp:46
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Actions to grow terminals"
 msgstr "Terminalų didinimo veiksmai"
@@ -1179,13 +1181,13 @@ msgstr "Terminalų didinimo veiksmai"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Andrius Štikonas, Liudas Ališauskas"
+msgstr "Andrius Štikonas, Liudas Ališauskas, Moo"
 
 #: app/main.cpp:49
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "andrius@stikonas.eu, liudas@akmc.lt"
+msgstr "andrius@stikonas.eu, liudas@akmc.lt, <>"
 
 #: app/mainwindow.cpp:205
 #, kde-kuit-format
@@ -1225,13 +1227,13 @@ msgid "Really Quit?"
 msgstr "Tikrai išjungti?"
 
 #: app/mainwindow.cpp:256
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
 msgstr "Atverti/Sutraukti Yakuake"
 
 #: app/mainwindow.cpp:265
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
 msgstr "Laikyti langą atvertą kai prarandamas fokusas"
@@ -1246,7 +1248,7 @@ msgstr "Tvarkyti profilius..."
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
-msgstr "Keisti dabartinį profilį..."
+msgstr "Taisyti dabartinį profilį..."
 
 #: app/mainwindow.cpp:281
 #, kde-kuit-format
@@ -1276,7 +1278,7 @@ msgstr "Sumažinti lango aukštį"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
-msgstr "Nauja sesija"
+msgstr "Naujas seansas"
 
 #: app/mainwindow.cpp:307
 #, kde-kuit-format
@@ -1300,52 +1302,52 @@ msgstr "Keturi terminalai, tinklelis"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
-msgstr "Užverti sesiją"
+msgstr "Užverti seansą"
 
 #: app/mainwindow.cpp:329
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
-msgstr "Ankstesnė sesija"
+msgstr "Ankstesnis seansas"
 
 #: app/mainwindow.cpp:335
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
-msgstr "Kita sesija"
+msgstr "Kitas seansas"
 
 #: app/mainwindow.cpp:341
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
-msgstr "Perkelti sesiją į kairę"
+msgstr "Perkelti seansą kairėn"
 
 #: app/mainwindow.cpp:348
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
-msgstr "Perkelti sesiją į dešinę"
+msgstr "Perkelti seansą dešinėn"
 
 #: app/mainwindow.cpp:355
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr "Didinti terminalą į dešinę"
 
 #: app/mainwindow.cpp:362
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr "Didinti terminalą į kairę"
 
 #: app/mainwindow.cpp:369
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr "Didinti terminalą į viršų"
 
 #: app/mainwindow.cpp:376
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr "Didinti terminalą į apačią"
@@ -1354,7 +1356,7 @@ msgstr "Didinti terminalą į apačią"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
-msgstr "Pervadinti sesiją"
+msgstr "Pervadinti seansą..."
 
 #: app/mainwindow.cpp:390
 #, kde-kuit-format
@@ -1375,13 +1377,13 @@ msgid "Close Active Terminal"
 msgstr "Užverti aktyvų terminalą"
 
 #: app/mainwindow.cpp:409
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "Skaidyti į kairę ir dešinę"
 
 #: app/mainwindow.cpp:416
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "Skaidyti į viršų ir apačią"
@@ -1390,28 +1392,28 @@ msgstr "Skaidyti į viršų ir apačią"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Automatically"
-msgstr ""
+msgstr "Padalyti automatiškai"
 
 #: app/mainwindow.cpp:430
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "Neleisti užverti"
 
 #: app/mainwindow.cpp:436 app/tabbar.cpp:190
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "Uždrausti įvedimą klaviatūra"
 
 #: app/mainwindow.cpp:442 app/tabbar.cpp:235
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "Stebėti aktyvumą"
 
 #: app/mainwindow.cpp:449 app/tabbar.cpp:280
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "Stebėti neaktyvumą"
@@ -1420,22 +1422,22 @@ msgstr "Stebėti neaktyvumą"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
-msgstr ""
+msgstr "Perjungti antraštės juostą"
 
 #: app/mainwindow.cpp:463
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
-msgstr "Perjungti į sesiją %1"
+msgstr "Perjungti į seansą %1"
 
 #: app/mainwindow.cpp:618
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "Stebimoje terminale, sesijoje pastebėta veikla „%1“."
 
 #: app/mainwindow.cpp:632
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "Stebimoje terminale, sesijoje pastebėta tyla „%1“."
@@ -1444,13 +1446,13 @@ msgstr "Stebimoje terminale, sesijoje pastebėta tyla „%1“."
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
-msgstr ""
+msgstr "Pagalba"
 
 #: app/mainwindow.cpp:697
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
-msgstr ""
+msgstr "Greitos parinktys"
 
 #: app/mainwindow.cpp:703
 #, kde-kuit-format
@@ -1474,10 +1476,10 @@ msgstr "Aukštis"
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
-msgstr ""
+msgstr "Nuostatos"
 
 #: app/mainwindow.cpp:732
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "Pelės vietoje"
@@ -1491,7 +1493,7 @@ msgstr "Ekranas %1"
 #: app/mainwindow.cpp:774 app/mainwindow.cpp:796
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: app/mainwindow.cpp:861
 #, kde-kuit-format
@@ -1529,7 +1531,7 @@ msgstr "Nepavyksta įkelti apipavidalinimo"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
-msgstr ""
+msgstr "Paspauskite <shortcut>%1</shortcut> norėdami atverti"
 
 #: app/sessionstack.cpp:255
 #, kde-format
@@ -1552,7 +1554,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "Are you sure you want to close this session?"
-msgstr "Ar tikrai norite užverti šią sesiją?"
+msgstr "Ar tikrai norite užverti šį seansą?"
 
 #: app/sessionstack.cpp:738
 #, kde-format
@@ -1575,19 +1577,19 @@ msgid ""
 msgstr ""
 
 #: app/tabbar.cpp:58
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Disable Keyboard Input"
 msgstr "Išjungti įvedimą klaviatūra"
 
 #: app/tabbar.cpp:59
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Monitor for Activity"
 msgstr "Stebėti aktyvumą"
 
 #: app/tabbar.cpp:60
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Monitor for Silence"
 msgstr "Stebėti neaktyvumą"
@@ -1596,10 +1598,10 @@ msgstr "Stebėti neaktyvumą"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "New Session"
-msgstr "Nauja sesija"
+msgstr "Naujas seansas"
 
 #: app/tabbar.cpp:70
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Adds a new session. Press and hold to select session type from menu."
 msgstr ""
@@ -1610,34 +1612,34 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Close Session"
-msgstr "Užverti sesiją"
+msgstr "Užverti seansą"
 
 #: app/tabbar.cpp:76
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Closes the active session."
-msgstr "Užveria aktyvią sesiją"
+msgstr "Užveria aktyvų seansą."
 
 #: app/tabbar.cpp:194
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "For This Session"
 msgstr "Šiai sesijai"
 
 #: app/tabbar.cpp:211
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "For Terminal %1"
 msgstr "Terminalui %1"
 
 #: app/tabbar.cpp:239 app/tabbar.cpp:284
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "In This Session"
 msgstr "Šioje sesijoje"
 
 #: app/tabbar.cpp:256 app/tabbar.cpp:301
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@action"
 msgid "In Terminal %1"
 msgstr "Terminale %1"
@@ -1646,13 +1648,13 @@ msgstr "Terminale %1"
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell"
-msgstr "Apvalkas"
+msgstr "Apvalkalas"
 
 #: app/tabbar.cpp:935
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Shell No. %1"
-msgstr "Apvalkas Nr. %1"
+msgstr "Apvalkalas Nr. %1"
 
 #: app/terminal.cpp:163
 #, kde-kuit-format
@@ -1675,13 +1677,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Keep window open when it loses focus"
-msgstr "Laikyti langą atvertą kai prarandamas fokusas"
+msgstr "Palikti langą atvertą, kai prarandamas fokusavimas"
 
 #: app/titlebar.cpp:37
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "If this is checked, the window will stay open when it loses focus."
-msgstr "Jei pasirinkta, langas liks atvertas kai jis praranda fokusą."
+msgstr "Jei pažymėta, langas liks atvertas net tada, kai praranda fokusavimą."
 
 #: app/titlebar.cpp:44
 #, kde-kuit-format
