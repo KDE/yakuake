@@ -214,7 +214,10 @@ void MainWindow::setupActions()
     action = actionCollection()->addAction(QStringLiteral("manage-profiles"));
     action->setText(xi18nc("@action", "Manage Profiles..."));
     action->setIcon(QIcon::fromTheme(QStringLiteral("configure")));
-    connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(manageProfiles()));
+    connect(action, &QAction::triggered, m_sessionStack, [this] {
+        hide();
+        m_sessionStack->manageProfiles();
+    });
 
     action = actionCollection()->addAction(QStringLiteral("edit-profile"));
     action->setText(xi18nc("@action", "Edit Current Profile..."));

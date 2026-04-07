@@ -245,7 +245,7 @@ void Terminal::runCommand(const QString &command)
 
 void Terminal::manageProfiles()
 {
-    QMetaObject::invokeMethod(m_part, "showManageProfilesDialog", Qt::QueuedConnection, Q_ARG(QWidget *, QApplication::activeWindow()));
+    QMetaObject::invokeMethod(m_part, "showManageProfilesDialog", Qt::QueuedConnection, Q_ARG(QWidget *, nullptr));
 }
 
 void Terminal::editProfile()
