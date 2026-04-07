@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2017, 2019, 2020, 2021, 2022, 2024 giovanni <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2017, 2019, 2020, 2021, 2022, 2024, 2026 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-10 00:48+0000\n"
-"PO-Revision-Date: 2024-12-23 17:22+0100\n"
+"PO-Revision-Date: 2026-04-06 19:14+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -400,7 +400,7 @@ msgid ""
 "profile."
 msgstr ""
 "Si iste option es habilitate,le information re le contentos del terminal "
-"active que es monstrate normalmente in le barra de titulo anque essara "
+"active que es monstrate normalmente in le barra de titulo anque essera "
 "monstrate sur le barra de scheda. Tu pote modificar le formato del "
 "information in le profilo de terminal."
 
@@ -1237,7 +1237,7 @@ msgid ""
 "<warning>There are multiple open sessions. These will be killed if you "
 "continue.</warning>"
 msgstr ""
-"<warning>Il ha multiple sessiones aperite. Istes essara terminate si tu "
+"<warning>Il ha multiple sessiones aperite. Istes essera terminate si tu "
 "continua.</warning>"
 
 #: app/mainwindow.cpp:218
@@ -1248,7 +1248,7 @@ msgid ""
 "closing them accidentally. These will be killed if you continue.</warning>"
 msgstr ""
 "<warning>Il ha un o plus sessiones aperite que tu ha blocate per prevenir "
-"clauder los accidentalmente.  Istes essara terminate si tu continua.</"
+"clauder los accidentalmente.  Istes essera terminate si tu continua.</"
 "warning>"
 
 #: app/mainwindow.cpp:224
@@ -1578,7 +1578,7 @@ msgstr ""
 "Le methodo de D-Bus runCommand esseva a pena usate. Il ha anxietates de "
 "securitate re pemitter que iste methodos es public. Si desirate, iste "
 "methodos pote esser modificate per uso interne solmente per recompilar "
-"Yakuake.<p>Iste aviso essara monstrate solmente un vice per iste instantia "
+"Yakuake.<p>Iste aviso essera monstrate solmente un vice per iste instantia "
 "de Yakuke.</p>"
 
 #: app/sessionstack.cpp:732
