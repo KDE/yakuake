@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:48+0000\n"
+"POT-Creation-Date: 2026-04-08 00:50+0000\n"
 "PO-Revision-Date: 2024-12-24 19:21+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -352,7 +352,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "화면 %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:676
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:675
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1210,294 +1210,294 @@ msgctxt "@title:window"
 msgid "Really Quit?"
 msgstr "정말 종료하시겠습니까?"
 
-#: app/mainwindow.cpp:256
+#: app/mainwindow.cpp:255
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
 msgstr "Yakuake 펴기/접기"
 
-#: app/mainwindow.cpp:265
+#: app/mainwindow.cpp:264
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
 msgstr "포커스를 잃어도 창 열어 두기"
 
-#: app/mainwindow.cpp:270
+#: app/mainwindow.cpp:269
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
 msgstr "프로필 관리..."
 
-#: app/mainwindow.cpp:275
+#: app/mainwindow.cpp:274
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr "현재 프로필 편집..."
 
-#: app/mainwindow.cpp:281
+#: app/mainwindow.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "창 너비 증가"
 
-#: app/mainwindow.cpp:286
+#: app/mainwindow.cpp:285
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "창 너비 감소"
 
-#: app/mainwindow.cpp:291
+#: app/mainwindow.cpp:290
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "창 높이 증가"
 
-#: app/mainwindow.cpp:296
+#: app/mainwindow.cpp:295
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "창 높이 감소"
 
-#: app/mainwindow.cpp:301
+#: app/mainwindow.cpp:300
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "새 세션"
 
-#: app/mainwindow.cpp:307
+#: app/mainwindow.cpp:306
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr "터미널 두 개, 수평"
 
-#: app/mainwindow.cpp:312
+#: app/mainwindow.cpp:311
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr "터미널 두 개, 수직"
 
-#: app/mainwindow.cpp:317
+#: app/mainwindow.cpp:316
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr "터미널 네 개, 격자"
 
-#: app/mainwindow.cpp:322
+#: app/mainwindow.cpp:321
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "세션 닫기"
 
-#: app/mainwindow.cpp:329
+#: app/mainwindow.cpp:328
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
 msgstr "이전 세션"
 
-#: app/mainwindow.cpp:335
+#: app/mainwindow.cpp:334
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
 msgstr "다음 세션"
 
-#: app/mainwindow.cpp:341
+#: app/mainwindow.cpp:340
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
 msgstr "세션 왼쪽으로 이동"
 
-#: app/mainwindow.cpp:348
+#: app/mainwindow.cpp:347
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
 msgstr "세션 오른쪽으로 이동"
 
-#: app/mainwindow.cpp:355
+#: app/mainwindow.cpp:354
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr "터미널을 오른쪽으로 키우기"
 
-#: app/mainwindow.cpp:362
+#: app/mainwindow.cpp:361
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr "터미널을 왼쪽으로 키우기"
 
-#: app/mainwindow.cpp:369
+#: app/mainwindow.cpp:368
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr "터미널을 위로 키우기"
 
-#: app/mainwindow.cpp:376
+#: app/mainwindow.cpp:375
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr "터미널을 아래로 키우기"
 
-#: app/mainwindow.cpp:383
+#: app/mainwindow.cpp:382
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
 msgstr "세션 이름 바꾸기..."
 
-#: app/mainwindow.cpp:390
+#: app/mainwindow.cpp:389
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr "이전 터미널"
 
-#: app/mainwindow.cpp:396
+#: app/mainwindow.cpp:395
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr "다음 터미널"
 
-#: app/mainwindow.cpp:402
+#: app/mainwindow.cpp:401
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr "활성화된 터미널 닫기"
 
-#: app/mainwindow.cpp:409
+#: app/mainwindow.cpp:408
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "왼쪽/오른쪽 나누기"
 
-#: app/mainwindow.cpp:416
+#: app/mainwindow.cpp:415
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "위/아래 나누기"
 
-#: app/mainwindow.cpp:423
+#: app/mainwindow.cpp:422
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Automatically"
 msgstr "자동으로 나누기"
 
-#: app/mainwindow.cpp:430
+#: app/mainwindow.cpp:429
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "종료 막기"
 
-#: app/mainwindow.cpp:436 app/tabbar.cpp:190
+#: app/mainwindow.cpp:435 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "키보드 입력 끄기"
 
-#: app/mainwindow.cpp:442 app/tabbar.cpp:235
+#: app/mainwindow.cpp:441 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "활동 사항 감시"
 
-#: app/mainwindow.cpp:449 app/tabbar.cpp:280
+#: app/mainwindow.cpp:448 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "침묵 감시"
 
-#: app/mainwindow.cpp:456
+#: app/mainwindow.cpp:455
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr "제목 표시줄 전환"
 
-#: app/mainwindow.cpp:463
+#: app/mainwindow.cpp:462
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "세션 %1(으)로 전환"
 
-#: app/mainwindow.cpp:618
+#: app/mainwindow.cpp:617
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "세션 \"%1\"에서 주시하는 터미널에 활동이 감지되었습니다."
 
-#: app/mainwindow.cpp:632
+#: app/mainwindow.cpp:631
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "세션 \"%1\"에서 주시하는 터미널에 침묵이 감지되었습니다."
 
-#: app/mainwindow.cpp:691
+#: app/mainwindow.cpp:690
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "도움말"
 
-#: app/mainwindow.cpp:697
+#: app/mainwindow.cpp:696
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "빠른 옵션"
 
-#: app/mainwindow.cpp:703
+#: app/mainwindow.cpp:702
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "화면"
 
-#: app/mainwindow.cpp:708
+#: app/mainwindow.cpp:707
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "너비"
 
-#: app/mainwindow.cpp:713
+#: app/mainwindow.cpp:712
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "높이"
 
-#: app/mainwindow.cpp:716
+#: app/mainwindow.cpp:715
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "설정"
 
-#: app/mainwindow.cpp:732
+#: app/mainwindow.cpp:731
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "마우스 위치에"
 
-#: app/mainwindow.cpp:738
+#: app/mainwindow.cpp:737
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "화면 %1"
 
-#: app/mainwindow.cpp:774 app/mainwindow.cpp:796
+#: app/mainwindow.cpp:773 app/mainwindow.cpp:795
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: app/mainwindow.cpp:861
+#: app/mainwindow.cpp:860
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "창"
 
-#: app/mainwindow.cpp:867
+#: app/mainwindow.cpp:866
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "행동"
 
-#: app/mainwindow.cpp:870
+#: app/mainwindow.cpp:869
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "모양"
 
-#: app/mainwindow.cpp:952
+#: app/mainwindow.cpp:951
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1507,13 +1507,13 @@ msgstr ""
 "<application>Yakuake</application>에서 스킨을 불러올 수 없었습니다. 잘못 설치"
 "되었을 수 있습니다.<nl/><nl/>앱을 종료합니다."
 
-#: app/mainwindow.cpp:954
+#: app/mainwindow.cpp:953
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "스킨을 불러올 수 없음"
 
-#: app/mainwindow.cpp:1723
+#: app/mainwindow.cpp:1716
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
