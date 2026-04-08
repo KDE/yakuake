@@ -103,26 +103,26 @@ MainWindow::MainWindow(QWidget *parent)
     setupActions();
     setupMenu();
 
-    connect(m_tabBar, SIGNAL(newTabRequested()), m_sessionStack, SLOT(addSession()));
-    connect(m_tabBar, SIGNAL(lastTabClosed()), m_tabBar, SIGNAL(newTabRequested()));
-    connect(m_tabBar, SIGNAL(lastTabClosed()), this, SLOT(handleLastTabClosed()));
-    connect(m_tabBar, SIGNAL(tabSelected(int)), m_sessionStack, SLOT(raiseSession(int)));
-    connect(m_tabBar, SIGNAL(tabClosed(int)), m_sessionStack, SLOT(removeSession(int)));
+    connect(m_tabBar, &TabBar::newTabRequested, m_sessionStack, &SessionStack::addSession);
+    connect(m_tabBar, &TabBar::lastTabClosed, m_tabBar, &TabBar::newTabRequested);
+    connect(m_tabBar, &TabBar::lastTabClosed, this, &MainWindow::handleLastTabClosed);
+    connect(m_tabBar, &TabBar::tabSelected, m_sessionStack, &SessionStack::raiseSession);
+    connect(m_tabBar, &TabBar::tabClosed, m_sessionStack, &SessionStack::removeSession);
     connect(m_tabBar, &TabBar::tabTitleEdited, m_sessionStack, [&](int, QString) {
         m_sessionStack->raiseSession(m_sessionStack->activeSessionId());
     });
-    connect(m_tabBar, SIGNAL(requestTerminalHighlight(int)), m_sessionStack, SLOT(handleTerminalHighlightRequest(int)));
-    connect(m_tabBar, SIGNAL(requestRemoveTerminalHighlight()), m_sessionStack, SIGNAL(removeTerminalHighlight()));
-    connect(m_tabBar, SIGNAL(tabContextMenuClosed()), m_sessionStack, SIGNAL(removeTerminalHighlight()));
+    connect(m_tabBar, &TabBar::requestTerminalHighlight, m_sessionStack, &SessionStack::handleTerminalHighlightRequest);
+    connect(m_tabBar, &TabBar::requestRemoveTerminalHighlight, m_sessionStack, &SessionStack::removeTerminalHighlight);
+    connect(m_tabBar, &TabBar::tabContextMenuClosed, m_sessionStack, &SessionStack::removeTerminalHighlight);
 
-    connect(m_sessionStack, SIGNAL(sessionAdded(int, QString)), m_tabBar, SLOT(addTab(int, QString)));
-    connect(m_sessionStack, SIGNAL(sessionRaised(int)), m_tabBar, SLOT(selectTab(int)));
-    connect(m_sessionStack, SIGNAL(sessionRemoved(int)), m_tabBar, SLOT(removeTab(int)));
-    connect(m_sessionStack, SIGNAL(activeTitleChanged(QString)), m_titleBar, SLOT(setTitle(QString)));
-    connect(m_sessionStack, SIGNAL(activeTitleChanged(QString)), this, SLOT(setWindowTitle(QString)));
+    connect(m_sessionStack, &SessionStack::sessionAdded, m_tabBar, &TabBar::addTab);
+    connect(m_sessionStack, &SessionStack::sessionRaised, m_tabBar, &TabBar::selectTab);
+    connect(m_sessionStack, &SessionStack::sessionRemoved, m_tabBar, &TabBar::removeTab);
+    connect(m_sessionStack, &SessionStack::activeTitleChanged, m_titleBar, &TitleBar::setTitle);
+    connect(m_sessionStack, &SessionStack::activeTitleChanged, this, &MainWindow::setWindowTitle);
     connect(m_sessionStack, &SessionStack::wantsBlurChanged, this, &MainWindow::applyWindowProperties);
 
-    connect(&m_mousePoller, SIGNAL(timeout()), this, SLOT(pollMouse()));
+    connect(&m_mousePoller, &QTimer::timeout, this, &MainWindow::pollMouse);
 
     if (KWindowSystem::isPlatformX11()) {
         connect(KX11Extras::self(), &KX11Extras::workAreaChanged, this, &MainWindow::applyWindowGeometry);
@@ -238,230 +238,264 @@ void MainWindow::setupActions()
     KToggleFullScreenAction *fullScreenAction = new KToggleFullScreenAction(this);
     actionCollection()->setDefaultShortcut(fullScreenAction, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_F11));
     m_actionCollection->addAction(QStringLiteral("view-full-screen"), fullScreenAction);
-    connect(fullScreenAction, SIGNAL(toggled(bool)), this, SLOT(applyWindowGeometry()));
+    connect(fullScreenAction, &KToggleFullScreenAction::toggled, this, &MainWindow::applyWindowGeometry);
 
-    QAction *action = KStandardAction::quit(this, SLOT(close()), actionCollection());
+    QAction *action = KStandardAction::quit(this, &MainWindow::close, actionCollection());
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Q));
-    action = KStandardAction::aboutApp(m_helpMenu, SLOT(aboutApplication()), actionCollection());
-    action = KStandardAction::reportBug(m_helpMenu, SLOT(reportBug()), actionCollection());
-    action = KStandardAction::aboutKDE(m_helpMenu, SLOT(aboutKDE()), actionCollection());
-    action = KStandardAction::keyBindings(this, SLOT(configureKeys()), actionCollection());
-    action = KStandardAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection());
-    action = KStandardAction::preferences(this, SLOT(configureApp()), actionCollection());
+    action = KStandardAction::aboutApp(m_helpMenu, &KHelpMenu::aboutApplication, actionCollection());
+    action = KStandardAction::reportBug(m_helpMenu, &KHelpMenu::reportBug, actionCollection());
+    action = KStandardAction::aboutKDE(m_helpMenu, &KHelpMenu::aboutKDE, actionCollection());
+    action = KStandardAction::keyBindings(this, &MainWindow::configureKeys, actionCollection());
+    action = KStandardAction::configureNotifications(this, &MainWindow::configureNotifications, actionCollection());
+    action = KStandardAction::preferences(this, &MainWindow::configureApp, actionCollection());
 
-    action = KStandardAction::whatsThis(this, SLOT(whatsThis()), actionCollection());
+    action = KStandardAction::whatsThis(this, &MainWindow::whatsThis, actionCollection());
 
     action = actionCollection()->addAction(QStringLiteral("toggle-window-state"));
     action->setText(xi18nc("@action", "Open/Retract Yakuake"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("yakuake")));
     KGlobalAccel::self()->setGlobalShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_F12));
-    connect(action, SIGNAL(triggered()), this, SLOT(toggleWindowState()));
-    connect(action, SIGNAL(changed()), this, SLOT(updateTrayTooltip()));
-    connect(KGlobalAccel::self(), SIGNAL(globalShortcutChanged(QAction *, const QKeySequence &)), this, SLOT(updateTrayTooltip()));
+    connect(action, &QAction::triggered, this, &MainWindow::toggleWindowState);
+    connect(action, &QAction::changed, this, &MainWindow::updateTrayTooltip);
+    connect(KGlobalAccel::self(), &KGlobalAccel::globalShortcutChanged, this, &MainWindow::updateTrayTooltip);
     updateTrayTooltip();
 
     action = actionCollection()->addAction(QStringLiteral("keep-open"));
     action->setText(xi18nc("@action", "Keep window open when it loses focus"));
     action->setCheckable(true);
-    connect(action, SIGNAL(toggled(bool)), this, SLOT(setKeepOpen(bool)));
+    connect(action, &QAction::toggled, this, &MainWindow::setKeepOpen);
 
     action = actionCollection()->addAction(QStringLiteral("manage-profiles"));
     action->setText(xi18nc("@action", "Manage Profiles..."));
     action->setIcon(QIcon::fromTheme(QStringLiteral("configure")));
-    connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(manageProfiles()));
+    connect(action, &QAction::triggered, m_sessionStack, &SessionStack::manageProfiles);
 
     action = actionCollection()->addAction(QStringLiteral("edit-profile"));
     action->setText(xi18nc("@action", "Edit Current Profile..."));
     action->setIcon(QIcon::fromTheme(QStringLiteral("document-properties")));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("increase-window-width"));
     action->setText(xi18nc("@action", "Increase Window Width"));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::ALT | Qt::SHIFT | Qt::Key_Right));
-    connect(action, SIGNAL(triggered()), this, SLOT(increaseWindowWidth()));
+    connect(action, &QAction::triggered, this, &MainWindow::increaseWindowWidth);
 
     action = actionCollection()->addAction(QStringLiteral("decrease-window-width"));
     action->setText(xi18nc("@action", "Decrease Window Width"));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::ALT | Qt::SHIFT | Qt::Key_Left));
-    connect(action, SIGNAL(triggered()), this, SLOT(decreaseWindowWidth()));
+    connect(action, &QAction::triggered, this, &MainWindow::decreaseWindowWidth);
 
     action = actionCollection()->addAction(QStringLiteral("increase-window-height"));
     action->setText(xi18nc("@action", "Increase Window Height"));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::ALT | Qt::SHIFT | Qt::Key_Down));
-    connect(action, SIGNAL(triggered()), this, SLOT(increaseWindowHeight()));
+    connect(action, &QAction::triggered, this, &MainWindow::increaseWindowHeight);
 
     action = actionCollection()->addAction(QStringLiteral("decrease-window-height"));
     action->setText(xi18nc("@action", "Decrease Window Height"));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::ALT | Qt::SHIFT | Qt::Key_Up));
-    connect(action, SIGNAL(triggered()), this, SLOT(decreaseWindowHeight()));
+    connect(action, &QAction::triggered, this, &MainWindow::decreaseWindowHeight);
 
     action = actionCollection()->addAction(QStringLiteral("new-session"));
     action->setText(xi18nc("@action", "New Session"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("tab-new")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_T));
-    connect(action, SIGNAL(triggered()), m_sessionStack, SLOT(addSession()));
+    connect(action, &QAction::triggered, m_sessionStack, &SessionStack::addSession);
 
     action = actionCollection()->addAction(QStringLiteral("new-session-two-horizontal"));
     action->setText(xi18nc("@action", "Two Terminals, Horizontally"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("tab-new")));
-    connect(action, SIGNAL(triggered()), m_sessionStack, SLOT(addSessionTwoHorizontal()));
+    connect(action, &QAction::triggered, m_sessionStack, &SessionStack::addSessionTwoHorizontal);
 
     action = actionCollection()->addAction(QStringLiteral("new-session-two-vertical"));
     action->setText(xi18nc("@action", "Two Terminals, Vertically"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("tab-new")));
-    connect(action, SIGNAL(triggered()), m_sessionStack, SLOT(addSessionTwoVertical()));
+    connect(action, &QAction::triggered, m_sessionStack, &SessionStack::addSessionTwoVertical);
 
     action = actionCollection()->addAction(QStringLiteral("new-session-quad"));
     action->setText(xi18nc("@action", "Four Terminals, Grid"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("tab-new")));
-    connect(action, SIGNAL(triggered()), m_sessionStack, SLOT(addSessionQuad()));
+    connect(action, &QAction::triggered, m_sessionStack, &SessionStack::addSessionQuad);
 
     action = actionCollection()->addAction(QStringLiteral("close-session"));
     action->setText(xi18nc("@action", "Close Session"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("tab-close")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_W));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("previous-session"));
     action->setText(xi18nc("@action", "Previous Session"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("go-previous")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::SHIFT | Qt::Key_Left));
-    connect(action, SIGNAL(triggered()), m_tabBar, SLOT(selectPreviousTab()));
+    connect(action, &QAction::triggered, m_tabBar, &TabBar::selectPreviousTab);
 
     action = actionCollection()->addAction(QStringLiteral("next-session"));
     action->setText(xi18nc("@action", "Next Session"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("go-next")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::SHIFT | Qt::Key_Right));
-    connect(action, SIGNAL(triggered()), m_tabBar, SLOT(selectNextTab()));
+    connect(action, &QAction::triggered, m_tabBar, &TabBar::selectNextTab);
 
     action = actionCollection()->addAction(QStringLiteral("move-session-left"));
     action->setText(xi18nc("@action", "Move Session Left"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-left")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Left));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("move-session-right"));
     action->setText(xi18nc("@action", "Move Session Right"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-right")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Right));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("grow-terminal-right"));
     action->setText(xi18nc("@action", "Grow Terminal to the Right"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-right")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_Right));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("grow-terminal-left"));
     action->setText(xi18nc("@action", "Grow Terminal to the Left"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-left")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_Left));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("grow-terminal-top"));
     action->setText(xi18nc("@action", "Grow Terminal to the Top"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-up")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_Up));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("grow-terminal-bottom"));
     action->setText(xi18nc("@action", "Grow Terminal to the Bottom"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-down")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_Down));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("rename-session"));
     action->setText(xi18nc("@action", "Rename Session..."));
     action->setIcon(QIcon::fromTheme(QStringLiteral("edit-rename")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_S));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("previous-terminal"));
     action->setText(xi18nc("@action", "Previous Terminal"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("go-previous")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Tab));
-    connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(previousTerminal()));
+    connect(action, &QAction::triggered, m_sessionStack, &SessionStack::previousTerminal);
 
     action = actionCollection()->addAction(QStringLiteral("next-terminal"));
     action->setText(xi18nc("@action", "Next Terminal"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("go-next")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_Tab));
-    connect(action, SIGNAL(triggered()), m_sessionStack, SIGNAL(nextTerminal()));
+    connect(action, &QAction::triggered, m_sessionStack, &SessionStack::nextTerminal);
 
     action = actionCollection()->addAction(QStringLiteral("close-active-terminal"));
     action->setText(xi18nc("@action", "Close Active Terminal"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("view-close")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_R));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("split-left-right"));
     action->setText(xi18nc("@action", "Split Left/Right"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("view-split-left-right")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_ParenLeft));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("split-top-bottom"));
     action->setText(xi18nc("@action", "Split Top/Bottom"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("view-split-top-bottom")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_ParenRight));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("split-auto"));
     action->setText(xi18nc("@action", "Split Automatically"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("view-split-auto")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_Asterisk));
-    connect(action, SIGNAL(triggered()), this, SLOT(handleContextDependentAction()));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("toggle-session-prevent-closing"));
     action->setText(xi18nc("@action", "Prevent Closing"));
     action->setCheckable(true);
-    connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("toggle-session-keyboard-input"));
     action->setText(xi18nc("@action", "Disable Keyboard Input"));
     action->setCheckable(true);
-    connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("toggle-session-monitor-activity"));
     action->setText(xi18nc("@action", "Monitor for Activity"));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_A));
     action->setCheckable(true);
-    connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("toggle-session-monitor-silence"));
     action->setText(xi18nc("@action", "Monitor for Silence"));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_I));
     action->setCheckable(true);
-    connect(action, SIGNAL(triggered(bool)), this, SLOT(handleContextDependentToggleAction(bool)));
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
     m_contextDependentActions << action;
 
     action = actionCollection()->addAction(QStringLiteral("toggle-titlebar"));
     action->setText(xi18nc("@action", "Toggle Titlebar"));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_M));
     action->setCheckable(true);
-    connect(action, SIGNAL(triggered()), this, SLOT(handleToggleTitlebar()));
+    connect(action, &QAction::triggered, this, &MainWindow::handleToggleTitlebar);
 
     for (uint i = 1; i <= 10; ++i) {
         action = actionCollection()->addAction(QStringLiteral("switch-to-session-%1").arg(i));
         action->setText(xi18nc("@action", "Switch to Session %1", i));
         action->setData(i - 1);
-        connect(action, SIGNAL(triggered()), this, SLOT(handleSwitchToAction()));
+        connect(action, &QAction::triggered, this, &MainWindow::handleSwitchToAction);
 
         if (i < 10) {
             // add default shortcut bindings for the first 9 sessions
@@ -698,17 +732,17 @@ void MainWindow::setupMenu()
     m_menu->addAction(actionCollection()->action(QStringLiteral("keep-open")));
 
     m_screenMenu = new QMenu(this);
-    connect(m_screenMenu, SIGNAL(triggered(QAction *)), this, SLOT(setScreen(QAction *)));
+    connect(m_screenMenu, &QMenu::triggered, this, qOverload<QAction *>(&MainWindow::setScreen));
     m_screenMenu->setTitle(xi18nc("@title:menu", "Screen"));
     m_menu->addMenu(m_screenMenu);
 
     m_windowWidthMenu = new QMenu(this);
-    connect(m_windowWidthMenu, SIGNAL(triggered(QAction *)), this, SLOT(setWindowWidth(QAction *)));
+    connect(m_windowWidthMenu, &QMenu::triggered, this, qOverload<QAction *>(&MainWindow::setWindowWidth));
     m_windowWidthMenu->setTitle(xi18nc("@title:menu", "Width"));
     m_menu->addMenu(m_windowWidthMenu);
 
     m_windowHeightMenu = new QMenu(this);
-    connect(m_windowHeightMenu, SIGNAL(triggered(QAction *)), this, SLOT(setWindowHeight(QAction *)));
+    connect(m_windowHeightMenu, &QMenu::triggered, this, qOverload<QAction *>(&MainWindow::setWindowHeight));
     m_windowHeightMenu->setTitle(xi18nc("@title:menu", "Height"));
     m_menu->addMenu(m_windowHeightMenu);
 
@@ -858,7 +892,7 @@ void MainWindow::configureApp()
 
     WindowSettings *windowSettings = new WindowSettings(settingsDialog);
     settingsDialog->addPage(windowSettings, xi18nc("@title Preferences page name", "Window"), QStringLiteral("preferences-system-windows-move"));
-    connect(windowSettings, SIGNAL(updateWindowGeometry(int, int, int)), this, SLOT(setWindowGeometry(int, int, int)));
+    connect(windowSettings, &WindowSettings::updateWindowGeometry, this, &MainWindow::setWindowGeometry);
 
     QWidget *behaviorSettings = new QWidget(settingsDialog);
     Ui::BehaviorSettings behaviorSettingsUi;
@@ -1398,12 +1432,12 @@ void MainWindow::xshapeToggleWindowState(bool visible)
 
         m_animationFrame = Settings::frames();
 
-        connect(&m_animationTimer, SIGNAL(timeout()), this, SLOT(xshapeRetractWindow()));
+        connect(&m_animationTimer, &QTimer::timeout, this, &MainWindow::xshapeRetractWindow);
         m_animationTimer.start();
     } else {
         m_animationFrame = 0;
 
-        connect(&m_animationTimer, SIGNAL(timeout()), this, SLOT(xshapeOpenWindow()));
+        connect(&m_animationTimer, &QTimer::timeout, this, &MainWindow::xshapeOpenWindow);
         m_animationTimer.start();
     }
 }
