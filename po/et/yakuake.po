@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-08 00:50+0000\n"
+"POT-Creation-Date: 2026-04-09 00:48+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -358,7 +358,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "Ekraanil %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:675
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:709
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1259,270 +1259,270 @@ msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr "Muuda aktiivset profiili..."
 
-#: app/mainwindow.cpp:280
+#: app/mainwindow.cpp:282
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "Suurenda akna laiust"
 
-#: app/mainwindow.cpp:285
+#: app/mainwindow.cpp:287
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "Vähenda akna laiust"
 
-#: app/mainwindow.cpp:290
+#: app/mainwindow.cpp:292
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "Suurenda akna kõrgust"
 
-#: app/mainwindow.cpp:295
+#: app/mainwindow.cpp:297
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "Vähenda akna kõrgust"
 
-#: app/mainwindow.cpp:300
+#: app/mainwindow.cpp:302
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "Uus seanss"
 
-#: app/mainwindow.cpp:306
+#: app/mainwindow.cpp:308
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr "Kaks terminali, rõhtsalt"
 
-#: app/mainwindow.cpp:311
+#: app/mainwindow.cpp:313
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr "Kaks terminali, püstiselt"
 
-#: app/mainwindow.cpp:316
+#: app/mainwindow.cpp:318
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr "Neli terminali, ruudustikuna"
 
-#: app/mainwindow.cpp:321
+#: app/mainwindow.cpp:323
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "Sulge seanss"
 
-#: app/mainwindow.cpp:328
+#: app/mainwindow.cpp:332
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
 msgstr "Eelmine seanss"
 
-#: app/mainwindow.cpp:334
+#: app/mainwindow.cpp:338
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
 msgstr "Järgmine seanss"
 
-#: app/mainwindow.cpp:340
+#: app/mainwindow.cpp:344
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
 msgstr "Liiguta seanss vasakule"
 
-#: app/mainwindow.cpp:347
+#: app/mainwindow.cpp:353
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
 msgstr "Liiguta seanss paremale"
 
-#: app/mainwindow.cpp:354
+#: app/mainwindow.cpp:362
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr "Kasvata terminali paremale"
 
-#: app/mainwindow.cpp:361
+#: app/mainwindow.cpp:371
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr "Kasvata terminali vasakule"
 
-#: app/mainwindow.cpp:368
+#: app/mainwindow.cpp:380
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr "Kasvata terminali üles"
 
-#: app/mainwindow.cpp:375
+#: app/mainwindow.cpp:389
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr "Kasvata terminali alla"
 
-#: app/mainwindow.cpp:382
+#: app/mainwindow.cpp:398
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
 msgstr "Nimeta seanss ümber..."
 
-#: app/mainwindow.cpp:389
+#: app/mainwindow.cpp:407
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr "Eelmine terminal"
 
-#: app/mainwindow.cpp:395
+#: app/mainwindow.cpp:413
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr "Järgmine terminal"
 
-#: app/mainwindow.cpp:401
+#: app/mainwindow.cpp:419
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr "Sulge aktiivne terminal"
 
-#: app/mainwindow.cpp:408
+#: app/mainwindow.cpp:428
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "Poolita vasakult paremale"
 
-#: app/mainwindow.cpp:415
+#: app/mainwindow.cpp:437
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "Poolita ülalt alla"
 
-#: app/mainwindow.cpp:422
+#: app/mainwindow.cpp:446
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Automatically"
 msgstr ""
 
-#: app/mainwindow.cpp:429
+#: app/mainwindow.cpp:455
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "Sulgemise vältimine"
 
-#: app/mainwindow.cpp:435 app/tabbar.cpp:190
+#: app/mainwindow.cpp:463 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "Keela klahvisisestus"
 
-#: app/mainwindow.cpp:441 app/tabbar.cpp:235
+#: app/mainwindow.cpp:471 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "Jälgi aktiivsust"
 
-#: app/mainwindow.cpp:448 app/tabbar.cpp:280
+#: app/mainwindow.cpp:480 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "Jälgi vaikust"
 
-#: app/mainwindow.cpp:455
+#: app/mainwindow.cpp:489
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr ""
 
-#: app/mainwindow.cpp:462
+#: app/mainwindow.cpp:496
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "Lülitu seansile %1"
 
-#: app/mainwindow.cpp:617
+#: app/mainwindow.cpp:651
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "Seansi \"%1\" jälgitavas terminalis tuvastati aktiivsus."
 
-#: app/mainwindow.cpp:631
+#: app/mainwindow.cpp:665
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "Seansi \"%1\" jälgitavas terminalis tuvastati vaikus."
 
-#: app/mainwindow.cpp:690
+#: app/mainwindow.cpp:724
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Abi"
 
-#: app/mainwindow.cpp:696
+#: app/mainwindow.cpp:730
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Kiirvalikud"
 
-#: app/mainwindow.cpp:702
+#: app/mainwindow.cpp:736
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Ekraan 1"
 
-#: app/mainwindow.cpp:707
+#: app/mainwindow.cpp:741
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Laius"
 
-#: app/mainwindow.cpp:712
+#: app/mainwindow.cpp:746
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Kõrgus"
 
-#: app/mainwindow.cpp:715
+#: app/mainwindow.cpp:749
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Seadistused"
 
-#: app/mainwindow.cpp:731
+#: app/mainwindow.cpp:765
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "Hiire asukohas"
 
-#: app/mainwindow.cpp:737
+#: app/mainwindow.cpp:771
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Ekraanil %1"
 
-#: app/mainwindow.cpp:773 app/mainwindow.cpp:795
+#: app/mainwindow.cpp:807 app/mainwindow.cpp:829
 #, kde-format
 msgid "%1%"
 msgstr ""
 
-#: app/mainwindow.cpp:860
+#: app/mainwindow.cpp:894
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Aken"
 
-#: app/mainwindow.cpp:866
+#: app/mainwindow.cpp:900
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Käitumine"
 
-#: app/mainwindow.cpp:869
+#: app/mainwindow.cpp:903
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Välimus"
 
-#: app/mainwindow.cpp:951
+#: app/mainwindow.cpp:985
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1532,13 +1532,13 @@ msgstr ""
 "<application>Yakuake</application> ei suutnud nahka laadida. Tõenäoliselt on "
 "see vääralt paigaldatud.<nl/><nl/>Rakendus lõpetab nüüd töö."
 
-#: app/mainwindow.cpp:953
+#: app/mainwindow.cpp:987
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Naha laadiamine nurjus"
 
-#: app/mainwindow.cpp:1716
+#: app/mainwindow.cpp:1750
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"

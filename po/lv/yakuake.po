@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-08 00:50+0000\n"
+"POT-Creation-Date: 2026-04-09 00:48+0000\n"
 "PO-Revision-Date: 2025-02-19 16:52+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -360,7 +360,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "Ekrāns %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:675
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:709
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1263,270 +1263,270 @@ msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr "Rediģēt pašreizējo profilu..."
 
-#: app/mainwindow.cpp:280
+#: app/mainwindow.cpp:282
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "Palielināt loga platumu"
 
-#: app/mainwindow.cpp:285
+#: app/mainwindow.cpp:287
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "Samazināt loga platumu"
 
-#: app/mainwindow.cpp:290
+#: app/mainwindow.cpp:292
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "Palielināt loga augstumu"
 
-#: app/mainwindow.cpp:295
+#: app/mainwindow.cpp:297
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "Samazināt loga augstumu"
 
-#: app/mainwindow.cpp:300
+#: app/mainwindow.cpp:302
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "Jauna sesija"
 
-#: app/mainwindow.cpp:306
+#: app/mainwindow.cpp:308
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr "Divi horizontāli termināļi"
 
-#: app/mainwindow.cpp:311
+#: app/mainwindow.cpp:313
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr "Divi vertikāli termināļi"
 
-#: app/mainwindow.cpp:316
+#: app/mainwindow.cpp:318
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr "Četri termināļi režģī"
 
-#: app/mainwindow.cpp:321
+#: app/mainwindow.cpp:323
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "Aizvērt sesiju"
 
-#: app/mainwindow.cpp:328
+#: app/mainwindow.cpp:332
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
 msgstr "Iepriekšējā sesija"
 
-#: app/mainwindow.cpp:334
+#: app/mainwindow.cpp:338
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
 msgstr "Nākamā sesija"
 
-#: app/mainwindow.cpp:340
+#: app/mainwindow.cpp:344
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
 msgstr "Pārvietot sesiju pa kreisi"
 
-#: app/mainwindow.cpp:347
+#: app/mainwindow.cpp:353
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
 msgstr "Pārvietot sesiju pa labi"
 
-#: app/mainwindow.cpp:354
+#: app/mainwindow.cpp:362
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr "Audzēt termināli pa labi"
 
-#: app/mainwindow.cpp:361
+#: app/mainwindow.cpp:371
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr "Audzēt termināli pa kreisi"
 
-#: app/mainwindow.cpp:368
+#: app/mainwindow.cpp:380
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr "Audzēt termināli augšup"
 
-#: app/mainwindow.cpp:375
+#: app/mainwindow.cpp:389
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr "Audzēt termināli lejup"
 
-#: app/mainwindow.cpp:382
+#: app/mainwindow.cpp:398
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
 msgstr "Pārdēvēt sesiju..."
 
-#: app/mainwindow.cpp:389
+#: app/mainwindow.cpp:407
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr "Iepriekšējais terminālis"
 
-#: app/mainwindow.cpp:395
+#: app/mainwindow.cpp:413
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr "Nākamais terminālis"
 
-#: app/mainwindow.cpp:401
+#: app/mainwindow.cpp:419
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr "Aizvērt aktīvo termināli"
 
-#: app/mainwindow.cpp:408
+#: app/mainwindow.cpp:428
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "Sadalīt pa kreisi/pa labi"
 
-#: app/mainwindow.cpp:415
+#: app/mainwindow.cpp:437
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "Sadalīt augšējā/apakšējā"
 
-#: app/mainwindow.cpp:422
+#: app/mainwindow.cpp:446
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Automatically"
 msgstr "Sadalīt automātiski"
 
-#: app/mainwindow.cpp:429
+#: app/mainwindow.cpp:455
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "Novērst aizvēršanu"
 
-#: app/mainwindow.cpp:435 app/tabbar.cpp:190
+#: app/mainwindow.cpp:463 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "Izslēgt tastatūras ievadi"
 
-#: app/mainwindow.cpp:441 app/tabbar.cpp:235
+#: app/mainwindow.cpp:471 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "Pārraudzīt aktivitāti"
 
-#: app/mainwindow.cpp:448 app/tabbar.cpp:280
+#: app/mainwindow.cpp:480 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "Pārraudzīt klusumu"
 
-#: app/mainwindow.cpp:455
+#: app/mainwindow.cpp:489
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr "Pārslēgt virsrakstjoslu"
 
-#: app/mainwindow.cpp:462
+#: app/mainwindow.cpp:496
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "Pārslēgties uz sesiju „%1“"
 
-#: app/mainwindow.cpp:617
+#: app/mainwindow.cpp:651
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "Pārraudzītajā terminālī sesijā „%1“ ir konstatēta aktivitāte."
 
-#: app/mainwindow.cpp:631
+#: app/mainwindow.cpp:665
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "Pārraudzītajā terminālī sesijā „%1“ ir konstatēts klusums."
 
-#: app/mainwindow.cpp:690
+#: app/mainwindow.cpp:724
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Palīdzība"
 
-#: app/mainwindow.cpp:696
+#: app/mainwindow.cpp:730
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Ātrās opcijas"
 
-#: app/mainwindow.cpp:702
+#: app/mainwindow.cpp:736
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Ekrāns"
 
-#: app/mainwindow.cpp:707
+#: app/mainwindow.cpp:741
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Platums"
 
-#: app/mainwindow.cpp:712
+#: app/mainwindow.cpp:746
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Augstums"
 
-#: app/mainwindow.cpp:715
+#: app/mainwindow.cpp:749
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Iestatījumi"
 
-#: app/mainwindow.cpp:731
+#: app/mainwindow.cpp:765
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "Peles atrašanās vietā"
 
-#: app/mainwindow.cpp:737
+#: app/mainwindow.cpp:771
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Ekrāns %1"
 
-#: app/mainwindow.cpp:773 app/mainwindow.cpp:795
+#: app/mainwindow.cpp:807 app/mainwindow.cpp:829
 #, kde-format
 msgid "%1%"
 msgstr "%1 %"
 
-#: app/mainwindow.cpp:860
+#: app/mainwindow.cpp:894
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Logs"
 
-#: app/mainwindow.cpp:866
+#: app/mainwindow.cpp:900
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Uzvedība"
 
-#: app/mainwindow.cpp:869
+#: app/mainwindow.cpp:903
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Izskats"
 
-#: app/mainwindow.cpp:951
+#: app/mainwindow.cpp:985
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1536,13 +1536,13 @@ msgstr ""
 "„<application>Yakuake</application>“ nespēja ielādēt apdari. Iespējams, tā "
 "ir nepareizi instalēta.<nl/><nl/>Programma aizvērsies."
 
-#: app/mainwindow.cpp:953
+#: app/mainwindow.cpp:987
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Nevar ielādēt apdari"
 
-#: app/mainwindow.cpp:1716
+#: app/mainwindow.cpp:1750
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
