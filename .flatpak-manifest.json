@@ -1,0 +1,75 @@
+{
+    "id": "org.kde.yakuake",
+    "branch": "master",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "6.11-beta",
+    "sdk": "org.kde.Sdk",
+    "command": "yakuake",
+    "tags": ["nightly"],
+    "desktop-file-name-suffix": " (Nightly)",
+    "rename-icon": "yakuake",
+    "finish-args": [
+        "--device=dri",
+        "--share=ipc",
+        "--share=network",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--talk-name=org.freedesktop.Flatpak",
+        "--talk-name=org.kde.kglobalaccel",
+        "--talk-name=org.kde.KWin",
+        "--talk-name=org.kde.plasmashell",
+        "--talk-name=org.kde.StatusNotifierWatcher"
+    ],
+    "cleanup": [
+        "/share/doc",
+        "/share/qlogging-categories6"
+    ],
+    "modules": [
+        {
+            "name": "konsole",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DINSTALL_ICONS=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.kde.org/stable/release-service/26.04.0/src/konsole-26.04.0.tar.xz",
+                    "sha256": "a413aea8c336b2f452f2daeb9685de6c4a17ba8bb2c1a8a54c3c449693f922eb",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 8763,
+                        "stable-only": true,
+                        "url-template": "https://download.kde.org/stable/release-service/$version/src/konsole-$version.tar.xz"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "kwayland",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DBUILD_TESTING=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/plasma/kwayland.git",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^v([\\d]+\\.[\\d]+\\.(?:[0-8]?[0-9]))$"
+                    },
+                    "tag": "v6.6.4",
+                    "commit": "e6faf9e5a0911fd4a042dc2ecbcbcf6bca9bcfc0"
+                }
+            ]
+        },
+        {
+            "name": "yakuake",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                { "type": "dir", "path": "." }
+            ]
+        }
+    ]
+}
