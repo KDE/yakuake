@@ -27,7 +27,6 @@ class KHelpMenu;
 class KActionCollection;
 class KStatusNotifierItem;
 
-#if HAVE_KWAYLAND
 namespace KWayland
 {
 namespace Client
@@ -36,7 +35,6 @@ class PlasmaShell;
 class PlasmaShellSurface;
 }
 }
-#endif
 
 class MainWindow : public KMainWindow
 {
@@ -213,12 +211,10 @@ private:
     bool m_isX11;
     bool m_isWayland;
 
-#if HAVE_KWAYLAND
     void initWayland();
     void initWaylandSurface();
     KWayland::Client::PlasmaShell *m_plasmaShell = nullptr;
     KWayland::Client::PlasmaShellSurface *m_plasmaShellSurface = nullptr;
-#endif
 
     OutputOrderWatcher *m_outputOrderWatcher = nullptr;
 };

@@ -54,12 +54,10 @@
 #include <fixx11h.h>
 #endif
 
-#if HAVE_KWAYLAND
 #include <KWayland/Client/connection_thread.h>
 #include <KWayland/Client/plasmashell.h>
 #include <KWayland/Client/registry.h>
 #include <KWayland/Client/surface.h>
-#endif
 
 #include "outputorderwatcher.h"
 
@@ -90,11 +88,9 @@ MainWindow::MainWindow(QWidget *parent)
     m_isX11 = false;
 #endif
     m_isWayland = KWindowSystem::isPlatformWayland();
-#if HAVE_KWAYLAND
     m_plasmaShell = nullptr;
     m_plasmaShellSurface = nullptr;
     initWayland();
-#endif
 
     m_toggleLock = false;
 
@@ -153,7 +149,6 @@ MainWindow::~MainWindow()
     delete m_skin;
 }
 
-#if HAVE_KWAYLAND
 void MainWindow::initWayland()
 {
     if (!m_isWayland) {
@@ -194,8 +189,6 @@ void MainWindow::initWaylandSurface()
         m_plasmaShellSurface->setSkipSwitcher(true);
     }
 }
-
-#endif
 
 bool MainWindow::queryClose()
 {
@@ -1005,12 +998,10 @@ void MainWindow::applyWindowProperties()
         KX11Extras::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
     }
 
-#if HAVE_KWAYLAND
     if (m_isWayland && m_plasmaShellSurface) {
         m_plasmaShellSurface->setSkipTaskbar(true);
         m_plasmaShellSurface->setSkipSwitcher(true);
     }
-#endif
 
     winId(); // make sure windowHandle() is created
     KWindowEffects::enableBlurBehind(windowHandle(), m_sessionStack->wantsBlur());
@@ -1049,9 +1040,7 @@ void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition)
     int targetWidth = workArea.width() * newWidth / 100;
 
     setGeometry(workArea.x() + workArea.width() * newPosition * (100 - newWidth) / 10000, workArea.y(), targetWidth, maxHeight);
-#if HAVE_KWAYLAND
     initWaylandSurface();
-#endif
 
     maxHeight -= m_titleBar->height();
     m_titleBar->setGeometry(0, maxHeight, targetWidth, m_titleBar->height());
@@ -1509,9 +1498,7 @@ void MainWindow::sharedAfterOpenWindow()
 
     applyWindowProperties();
 
-#if HAVE_KWAYLAND
     initWaylandSurface();
-#endif
 
     Q_EMIT windowOpened();
 }
@@ -1531,10 +1518,8 @@ void MainWindow::sharedAfterHideWindow()
     if (Settings::pollMouse())
         toggleMousePoll(true);
 
-#if HAVE_KWAYLAND
     delete m_plasmaShellSurface;
     m_plasmaShellSurface = nullptr;
-#endif
 
     Q_EMIT windowClosed();
 }

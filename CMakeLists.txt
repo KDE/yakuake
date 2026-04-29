@@ -71,8 +71,7 @@ else()
     set(HAVE_X11 FALSE)
 endif()
 
-find_package(KWayland CONFIG)
-set(HAVE_KWAYLAND ${KWayland_FOUND})
+find_package(KWayland CONFIG REQUIRED)
 
 add_subdirectory(app)
 add_subdirectory(data)
