@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-09 00:48+0000\n"
+"POT-Creation-Date: 2026-04-30 00:48+0000\n"
 "PO-Revision-Date: 2017-07-16 22:55+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -366,7 +366,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "екран %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:709
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:702
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1211,14 +1211,14 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "slsimic@gmail.com,pejakm@gmail.com"
 
-#: app/mainwindow.cpp:205
+#: app/mainwindow.cpp:198
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
 msgstr "Желите ли заиста да напустите програм?"
 
 # Некако ми „укинуте“ љепше звучи од „убијене“.
-#: app/mainwindow.cpp:212
+#: app/mainwindow.cpp:205
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1230,7 +1230,7 @@ msgstr ""
 "бисте спријечили њихово случајно затварање.</emphasis> Биће укинуте ако "
 "наставите.</warning>"
 
-#: app/mainwindow.cpp:215
+#: app/mainwindow.cpp:208
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1239,7 +1239,7 @@ msgid ""
 msgstr ""
 "<warning>Отворено је више сесија. Биће укинуте ако наставите.</warning>"
 
-#: app/mainwindow.cpp:218
+#: app/mainwindow.cpp:211
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1249,300 +1249,300 @@ msgstr ""
 "<warning>Отворена је једна сесија или више њих које сте закључали да бисте "
 "спријечили њихово случајно затварање. Биће укинуте ако наставите.</warning>"
 
-#: app/mainwindow.cpp:224
+#: app/mainwindow.cpp:217
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
 msgstr "Стварно напуштате?"
 
-#: app/mainwindow.cpp:255
+#: app/mainwindow.cpp:248
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
 msgstr "Отвори/увуци Јакуаке"
 
-#: app/mainwindow.cpp:264
+#: app/mainwindow.cpp:257
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
 msgstr "Држи прозор отвореним кад изгуби фокус"
 
-#: app/mainwindow.cpp:269
+#: app/mainwindow.cpp:262
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
 msgstr "Управљај профилима..."
 
-#: app/mainwindow.cpp:274
+#: app/mainwindow.cpp:267
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr "Уреди текући профил..."
 
-#: app/mainwindow.cpp:282
+#: app/mainwindow.cpp:275
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "Повећај ширину прозора"
 
-#: app/mainwindow.cpp:287
+#: app/mainwindow.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "Смањи ширину прозора"
 
-#: app/mainwindow.cpp:292
+#: app/mainwindow.cpp:285
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "Повећај висину прозора"
 
-#: app/mainwindow.cpp:297
+#: app/mainwindow.cpp:290
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "Смањи висину прозора"
 
-#: app/mainwindow.cpp:302
+#: app/mainwindow.cpp:295
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "Нова сесија"
 
-#: app/mainwindow.cpp:308
+#: app/mainwindow.cpp:301
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr "Два терминала, водоравно"
 
-#: app/mainwindow.cpp:313
+#: app/mainwindow.cpp:306
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr "Два терминала, усправно"
 
-#: app/mainwindow.cpp:318
+#: app/mainwindow.cpp:311
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr "Четири терминала, мрежа"
 
-#: app/mainwindow.cpp:323
+#: app/mainwindow.cpp:316
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "Затвори сесију"
 
-#: app/mainwindow.cpp:332
+#: app/mainwindow.cpp:325
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
 msgstr "Претходна сесија"
 
-#: app/mainwindow.cpp:338
+#: app/mainwindow.cpp:331
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
 msgstr "Сљедећа сесија"
 
-#: app/mainwindow.cpp:344
+#: app/mainwindow.cpp:337
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
 msgstr "Помјери сесију улијево"
 
-#: app/mainwindow.cpp:353
+#: app/mainwindow.cpp:346
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
 msgstr "Помјери сесију удесно"
 
-#: app/mainwindow.cpp:362
+#: app/mainwindow.cpp:355
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr "Прошири терминал удесно"
 
-#: app/mainwindow.cpp:371
+#: app/mainwindow.cpp:364
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr "Прошири терминал улијево"
 
-#: app/mainwindow.cpp:380
+#: app/mainwindow.cpp:373
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr "Прошири терминал на врх"
 
-#: app/mainwindow.cpp:389
+#: app/mainwindow.cpp:382
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr "Прошири терминал на дно"
 
-#: app/mainwindow.cpp:398
+#: app/mainwindow.cpp:391
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
 msgstr "Преименуј сесију..."
 
-#: app/mainwindow.cpp:407
+#: app/mainwindow.cpp:400
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr "Претходни терминал"
 
-#: app/mainwindow.cpp:413
+#: app/mainwindow.cpp:406
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr "Сљедећи терминал"
 
-#: app/mainwindow.cpp:419
+#: app/mainwindow.cpp:412
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr "Затвори активни терминал"
 
-#: app/mainwindow.cpp:428
+#: app/mainwindow.cpp:421
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "Подијели лијево/десно"
 
-#: app/mainwindow.cpp:437
+#: app/mainwindow.cpp:430
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "Подијели горе/доље"
 
-#: app/mainwindow.cpp:446
+#: app/mainwindow.cpp:439
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Automatically"
 msgstr ""
 
-#: app/mainwindow.cpp:455
+#: app/mainwindow.cpp:448
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "Спријечи затварање"
 
-#: app/mainwindow.cpp:463 app/tabbar.cpp:190
+#: app/mainwindow.cpp:456 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "Онемогући унос са тастатуре"
 
-#: app/mainwindow.cpp:471 app/tabbar.cpp:235
+#: app/mainwindow.cpp:464 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "Надгледај активност"
 
-#: app/mainwindow.cpp:480 app/tabbar.cpp:280
+#: app/mainwindow.cpp:473 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "Надгледај тишину"
 
-#: app/mainwindow.cpp:489
+#: app/mainwindow.cpp:482
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr ""
 
-#: app/mainwindow.cpp:496
+#: app/mainwindow.cpp:489
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "Пребаци на сесију %1"
 
-#: app/mainwindow.cpp:651
+#: app/mainwindow.cpp:644
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "Откривена је активност у надгледаном терминалу у сесији „%1“."
 
-#: app/mainwindow.cpp:665
+#: app/mainwindow.cpp:658
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "Откривена је тишина у надгледаном терминалу у сесији „%1“."
 
-#: app/mainwindow.cpp:724
+#: app/mainwindow.cpp:717
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Помоћ"
 
-#: app/mainwindow.cpp:730
+#: app/mainwindow.cpp:723
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Брзе опције"
 
-#: app/mainwindow.cpp:736
+#: app/mainwindow.cpp:729
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Екран"
 
-#: app/mainwindow.cpp:741
+#: app/mainwindow.cpp:734
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Ширина"
 
-#: app/mainwindow.cpp:746
+#: app/mainwindow.cpp:739
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Висина"
 
-#: app/mainwindow.cpp:749
+#: app/mainwindow.cpp:742
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Подешавање"
 
-#: app/mainwindow.cpp:765
+#: app/mainwindow.cpp:758
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "на положају миша"
 
-#: app/mainwindow.cpp:771
+#: app/mainwindow.cpp:764
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "екран %1"
 
-#: app/mainwindow.cpp:807 app/mainwindow.cpp:829
+#: app/mainwindow.cpp:800 app/mainwindow.cpp:822
 #, kde-format
 msgid "%1%"
 msgstr ""
 
-#: app/mainwindow.cpp:894
+#: app/mainwindow.cpp:887
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Прозор"
 
-#: app/mainwindow.cpp:900
+#: app/mainwindow.cpp:893
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Понашање"
 
-#: app/mainwindow.cpp:903
+#: app/mainwindow.cpp:896
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Изглед"
 
-#: app/mainwindow.cpp:985
+#: app/mainwindow.cpp:978
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1552,13 +1552,13 @@ msgstr ""
 "<application>Јакуаке</application> није успео да учита маску. Вјероватно "
 "није исправно инсталиран.<nl/><nl/>Програм ће сада бити напуштен."
 
-#: app/mainwindow.cpp:987
+#: app/mainwindow.cpp:980
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Не могу да учитам маску"
 
-#: app/mainwindow.cpp:1750
+#: app/mainwindow.cpp:1735
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
