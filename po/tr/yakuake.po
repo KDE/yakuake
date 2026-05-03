@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
 # Can Coşkuner <fethicanc@gmail.com>, 2007.
 # H. İbrahim Güngör <ibrahim@pardus.org.tr>, 2011.
 # İsmail Dönmez <ismail@pardus.org.tr>, 2006.
@@ -17,15 +17,15 @@ msgstr ""
 "Project-Id-Version: extragear-utils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-30 00:48+0000\n"
-"PO-Revision-Date: 2025-09-04 14:48+0300\n"
-"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
+"PO-Revision-Date: 2026-05-02 19:56+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
@@ -1206,7 +1206,7 @@ msgstr "Uçbirimleri genişletmek için eylemler"
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
-"Serdar Soytetir, Muhammet Kara, H. İbrahim Güngör, Ayhan YALÇINSOY, Emir SARI"
+"Serdar SOYTETİR, Muhammet KARA, H. İbrahim GÜNGÖR, Ayhan YALÇINSOY, Emir SARI"
 
 #: app/main.cpp:49
 #, kde-format
