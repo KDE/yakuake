@@ -266,8 +266,8 @@ void MainWindow::setupActions()
     action = actionCollection()->addAction(QStringLiteral("edit-profile"));
     action->setText(xi18nc("@action", "Edit Current Profile..."));
     action->setIcon(QIcon::fromTheme(QStringLiteral("document-properties")));
-    connect(action, &QAction::triggered, this, [this](bool checked) {
-        handleContextDependentToggleAction(checked);
+    connect(action, &QAction::triggered, this, [this]() {
+        handleContextDependentAction();
     });
     m_contextDependentActions << action;
 
@@ -316,8 +316,8 @@ void MainWindow::setupActions()
     action->setText(xi18nc("@action", "Close Session"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("tab-close")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_W));
-    connect(action, &QAction::triggered, this, [this](bool checked) {
-        handleContextDependentToggleAction(checked);
+    connect(action, &QAction::triggered, this, [this]() {
+        handleContextDependentAction();
     });
     m_contextDependentActions << action;
 
@@ -337,8 +337,8 @@ void MainWindow::setupActions()
     action->setText(xi18nc("@action", "Move Session Left"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-left")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Left));
-    connect(action, &QAction::triggered, this, [this](bool checked) {
-        handleContextDependentToggleAction(checked);
+    connect(action, &QAction::triggered, this, [this]() {
+        handleContextDependentAction();
     });
     m_contextDependentActions << action;
 
@@ -346,8 +346,8 @@ void MainWindow::setupActions()
     action->setText(xi18nc("@action", "Move Session Right"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-right")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Right));
-    connect(action, &QAction::triggered, this, [this](bool checked) {
-        handleContextDependentToggleAction(checked);
+    connect(action, &QAction::triggered, this, [this]() {
+        handleContextDependentAction();
     });
     m_contextDependentActions << action;
 
@@ -355,8 +355,8 @@ void MainWindow::setupActions()
     action->setText(xi18nc("@action", "Grow Terminal to the Right"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-right")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_Right));
-    connect(action, &QAction::triggered, this, [this](bool checked) {
-        handleContextDependentToggleAction(checked);
+    connect(action, &QAction::triggered, this, [this]() {
+        handleContextDependentAction();
     });
     m_contextDependentActions << action;
 
@@ -364,8 +364,8 @@ void MainWindow::setupActions()
     action->setText(xi18nc("@action", "Grow Terminal to the Left"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-left")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_Left));
-    connect(action, &QAction::triggered, this, [this](bool checked) {
-        handleContextDependentToggleAction(checked);
+    connect(action, &QAction::triggered, this, [this]() {
+        handleContextDependentAction();
     });
     m_contextDependentActions << action;
 
@@ -373,8 +373,8 @@ void MainWindow::setupActions()
     action->setText(xi18nc("@action", "Grow Terminal to the Top"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-up")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_Up));
-    connect(action, &QAction::triggered, this, [this](bool checked) {
-        handleContextDependentToggleAction(checked);
+    connect(action, &QAction::triggered, this, [this]() {
+        handleContextDependentAction();
     });
     m_contextDependentActions << action;
 
@@ -382,8 +382,8 @@ void MainWindow::setupActions()
     action->setText(xi18nc("@action", "Grow Terminal to the Bottom"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("arrow-down")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_Down));
-    connect(action, &QAction::triggered, this, [this](bool checked) {
-        handleContextDependentToggleAction(checked);
+    connect(action, &QAction::triggered, this, [this]() {
+        handleContextDependentAction();
     });
     m_contextDependentActions << action;
 
@@ -391,8 +391,8 @@ void MainWindow::setupActions()
     action->setText(xi18nc("@action", "Rename Session..."));
     action->setIcon(QIcon::fromTheme(QStringLiteral("edit-rename")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_S));
-    connect(action, &QAction::triggered, this, [this](bool checked) {
-        handleContextDependentToggleAction(checked);
+    connect(action, &QAction::triggered, this, [this]() {
+        handleContextDependentAction();
     });
     m_contextDependentActions << action;
 
@@ -412,8 +412,8 @@ void MainWindow::setupActions()
     action->setText(xi18nc("@action", "Close Active Terminal"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("view-close")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_R));
-    connect(action, &QAction::triggered, this, [this](bool checked) {
-        handleContextDependentToggleAction(checked);
+    connect(action, &QAction::triggered, this, [this]() {
+        handleContextDependentAction();
     });
     m_contextDependentActions << action;
 
@@ -421,8 +421,8 @@ void MainWindow::setupActions()
     action->setText(xi18nc("@action", "Split Left/Right"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("view-split-left-right")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_ParenLeft));
-    connect(action, &QAction::triggered, this, [this](bool checked) {
-        handleContextDependentToggleAction(checked);
+    connect(action, &QAction::triggered, this, [this]() {
+        handleContextDependentAction();
     });
     m_contextDependentActions << action;
 
@@ -430,8 +430,8 @@ void MainWindow::setupActions()
     action->setText(xi18nc("@action", "Split Top/Bottom"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("view-split-top-bottom")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_ParenRight));
-    connect(action, &QAction::triggered, this, [this](bool checked) {
-        handleContextDependentToggleAction(checked);
+    connect(action, &QAction::triggered, this, [this]() {
+        handleContextDependentAction();
     });
     m_contextDependentActions << action;
 
@@ -439,8 +439,8 @@ void MainWindow::setupActions()
     action->setText(xi18nc("@action", "Split Automatically"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("view-split-auto")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_Asterisk));
-    connect(action, &QAction::triggered, this, [this](bool checked) {
-        handleContextDependentToggleAction(checked);
+    connect(action, &QAction::triggered, this, [this]() {
+        handleContextDependentAction();
     });
     m_contextDependentActions << action;
 
