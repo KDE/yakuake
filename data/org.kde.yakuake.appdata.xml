@@ -54,6 +54,7 @@
   <name xml:lang="sr-ijekavianlatin">Yakuake</name>
   <name xml:lang="sv">Yakuake</name>
   <name xml:lang="tr">Yakuake</name>
+  <name xml:lang="ug">Yakuake تارتما تېرمىنال</name>
   <name xml:lang="uk">Yakuake</name>
   <name xml:lang="zh-CN">Yakuake 下拉式终端</name>
   <name xml:lang="zh-TW">Yakuake</name>
@@ -104,6 +105,7 @@
   <summary xml:lang="sr-ijekavianlatin">Padajući terminal</summary>
   <summary xml:lang="sv">Rullgardinsterminal</summary>
   <summary xml:lang="tr">Yukarıdan Aşağı Açılır Uçbirim</summary>
+  <summary xml:lang="ug">تارتما تېرمىنال</summary>
   <summary xml:lang="uk">Спадний термінал</summary>
   <summary xml:lang="zh-CN">下拉式终端</summary>
   <summary xml:lang="zh-TW">下拉式終端機</summary>
@@ -206,6 +208,7 @@
     <p xml:lang="sr-ijekavianlatin">Mogućnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="tr">Özellikler:</p>
+    <p xml:lang="ug">ئىقتىدار:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="zh-CN">程序功能：</p>
     <p xml:lang="zh-TW">功能：</p>
