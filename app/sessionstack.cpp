@@ -110,8 +110,12 @@ void SessionStack::raiseSession(int sessionId)
 
     setCurrentWidget(session->widget());
 
-    if (session->widget()->focusWidget())
-        session->widget()->focusWidget()->setFocus();
+    Terminal *terminal = session->getTerminal(session->activeTerminalId());
+    if (terminal) {
+        QWidget *terminalWidget = terminal->terminalWidget();
+        if (terminalWidget)
+            terminalWidget->setFocus();
+    }
 
     if (session->hasTerminalsWithKeyboardInputDisabled())
         m_visualEventOverlay->show();
