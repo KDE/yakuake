@@ -18,7 +18,7 @@ public:
     ~WindowSettings() override;
 
 Q_SIGNALS:
-    void updateWindowGeometry(int width, int height, int position);
+    void updateWindowGeometry(int width, int height, int position, bool excludeTaskbar);
 
 private Q_SLOTS:
     void updateWidthSlider(int width);
@@ -31,6 +31,7 @@ private Q_SLOTS:
     void updateFramesSpinBox(int height);
 
     void updatePosition(int position);
+    void updateExcludeTaskbar(int state);
 
     void interceptHideTitleBar(int state);
 };

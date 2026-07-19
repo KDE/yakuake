@@ -31,6 +31,8 @@ WindowSettings::WindowSettings(QWidget *parent)
     connect(kcfg_Height, SIGNAL(valueChanged(int)), this, SLOT(updateHeightSlider(int)));
     connect(heightSlider, SIGNAL(valueChanged(int)), this, SLOT(updateHeightSpinBox(int)));
 
+    connect(kcfg_ExcludeTaskbar, SIGNAL(stateChanged(int)), this, SLOT(updateExcludeTaskbar(int)));
+
     connect(kcfg_Frames, SIGNAL(valueChanged(int)), this, SLOT(updateFramesSpinBox(int)));
     connect(framesSpinBox, SIGNAL(valueChanged(int)), this, SLOT(updateFramesSlider(int)));
 
@@ -47,7 +49,7 @@ void WindowSettings::updateWidthSlider(int width)
 {
     widthSlider->setValue(width / 10);
 
-    Q_EMIT updateWindowGeometry(width, kcfg_Height->value(), kcfg_Position->value());
+    Q_EMIT updateWindowGeometry(width, kcfg_Height->value(), kcfg_Position->value(), kcfg_ExcludeTaskbar->isChecked());
 }
 
 void WindowSettings::updateWidthSpinBox(int width)
@@ -59,7 +61,7 @@ void WindowSettings::updateHeightSlider(int height)
 {
     heightSlider->setValue(height / 10);
 
-    Q_EMIT updateWindowGeometry(kcfg_Width->value(), height, kcfg_Position->value());
+    Q_EMIT updateWindowGeometry(kcfg_Width->value(), height, kcfg_Position->value(), kcfg_ExcludeTaskbar->isChecked());
 }
 
 void WindowSettings::updateHeightSpinBox(int height)
@@ -79,7 +81,12 @@ void WindowSettings::updateFramesSpinBox(int speed)
 
 void WindowSettings::updatePosition(int position)
 {
-    Q_EMIT updateWindowGeometry(kcfg_Width->value(), kcfg_Height->value(), position);
+    Q_EMIT updateWindowGeometry(kcfg_Width->value(), kcfg_Height->value(), position, kcfg_ExcludeTaskbar->isChecked());
+}
+
+void WindowSettings::updateExcludeTaskbar(int)
+{
+    Q_EMIT updateWindowGeometry(kcfg_Width->value(), kcfg_Height->value(), kcfg_Position->value(), kcfg_ExcludeTaskbar->isChecked());
 }
 
 void WindowSettings::interceptHideTitleBar(int state)

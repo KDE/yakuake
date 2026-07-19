@@ -885,7 +885,9 @@ void MainWindow::configureApp()
 
     WindowSettings *windowSettings = new WindowSettings(settingsDialog);
     settingsDialog->addPage(windowSettings, xi18nc("@title Preferences page name", "Window"), QStringLiteral("preferences-system-windows-move"));
-    connect(windowSettings, &WindowSettings::updateWindowGeometry, this, &MainWindow::setWindowGeometry);
+    connect(windowSettings, &WindowSettings::updateWindowGeometry, this, [this](int width, int height, int position, bool excludeTaskbar) {
+        setWindowGeometry(width, height, position, excludeTaskbar);
+    });
 
     QWidget *behaviorSettings = new QWidget(settingsDialog);
     Ui::BehaviorSettings behaviorSettingsUi;
@@ -1033,7 +1035,12 @@ void MainWindow::applyWindowGeometry()
 
 void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition)
 {
-    QRect workArea = getDesktopGeometry();
+    setWindowGeometry(newWidth, newHeight, newPosition, Settings::excludeTaskbar());
+}
+
+void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition, bool excludeTaskbar)
+{
+    QRect workArea = getDesktopGeometry(excludeTaskbar);
 
     int maxHeight = workArea.height() * newHeight / 100;
 
@@ -1608,11 +1615,19 @@ QRect MainWindow::getScreenGeometry()
 
 QRect MainWindow::getDesktopGeometry()
 {
+    return getDesktopGeometry(Settings::excludeTaskbar());
+}
+
+QRect MainWindow::getDesktopGeometry(bool excludeTaskbar)
+{
     QRect screenGeometry = getScreenGeometry();
 
     QAction *action = actionCollection()->action(QStringLiteral("view-full-screen"));
 
     if (action->isChecked())
+        return screenGeometry;
+
+    if (!excludeTaskbar)
         return screenGeometry;
 
     if (m_isWayland) {

@@ -104,6 +104,7 @@ private Q_SLOTS:
 
     void applyWindowGeometry();
     void setWindowGeometry(int width, int height, int position);
+    void setWindowGeometry(int width, int height, int position, bool excludeTaskbar);
 
     void updateScreenMenu();
     void setScreen(QAction *action);
@@ -172,6 +173,7 @@ private:
     int getScreen();
     QRect getScreenGeometry();
     QRect getDesktopGeometry();
+    QRect getDesktopGeometry(bool excludeTaskbar);
     QScreen *findScreenByName(const QString &screenName);
 
     // get a better value from plasmashell through dbus in wayland case

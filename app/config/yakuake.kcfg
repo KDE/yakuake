@@ -24,6 +24,11 @@
       <min>10</min>
       <max>100</max>
     </entry>
+    <entry name="ExcludeTaskbar" type="Bool">
+      <label context="@label">Exclude taskbar</label>
+      <whatsthis context="@info:whatsthis">Whether the application window should avoid the desktop panel and other reserved screen areas when calculating its size.</whatsthis>
+      <default>true</default>
+    </entry>
     <entry name="Position" type="Int">
       <label context="@label">Window position</label>
       <whatsthis context="@info:whatsthis">Center point of the application window, as a percentage, measured from the left-hand edge of the screen.</whatsthis>
