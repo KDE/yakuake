@@ -30,6 +30,7 @@ WindowSettings::WindowSettings(QWidget *parent)
 
     connect(kcfg_Height, SIGNAL(valueChanged(int)), this, SLOT(updateHeightSlider(int)));
     connect(heightSlider, SIGNAL(valueChanged(int)), this, SLOT(updateHeightSpinBox(int)));
+    connect(kcfg_HeightOffset, SIGNAL(valueChanged(int)), this, SLOT(updateHeightOffset(int)));
 
     connect(kcfg_ExcludeTaskbar, SIGNAL(stateChanged(int)), this, SLOT(updateExcludeTaskbar(int)));
 
@@ -47,26 +48,26 @@ WindowSettings::~WindowSettings()
 
 void WindowSettings::updateWidthSlider(int width)
 {
-    widthSlider->setValue(width / 10);
+    widthSlider->setValue(width);
 
-    Q_EMIT updateWindowGeometry(width, kcfg_Height->value(), kcfg_Position->value(), kcfg_ExcludeTaskbar->isChecked());
+    Q_EMIT updateWindowGeometry(width, kcfg_Height->value(), kcfg_Position->value(), kcfg_ExcludeTaskbar->isChecked(), kcfg_HeightOffset->value());
 }
 
 void WindowSettings::updateWidthSpinBox(int width)
 {
-    kcfg_Width->setValue(width * 10);
+    kcfg_Width->setValue(width);
 }
 
 void WindowSettings::updateHeightSlider(int height)
 {
-    heightSlider->setValue(height / 10);
+    heightSlider->setValue(height);
 
-    Q_EMIT updateWindowGeometry(kcfg_Width->value(), height, kcfg_Position->value(), kcfg_ExcludeTaskbar->isChecked());
+    Q_EMIT updateWindowGeometry(kcfg_Width->value(), height, kcfg_Position->value(), kcfg_ExcludeTaskbar->isChecked(), kcfg_HeightOffset->value());
 }
 
 void WindowSettings::updateHeightSpinBox(int height)
 {
-    kcfg_Height->setValue(height * 10);
+    kcfg_Height->setValue(height);
 }
 
 void WindowSettings::updateFramesSlider(int speed)
@@ -81,12 +82,17 @@ void WindowSettings::updateFramesSpinBox(int speed)
 
 void WindowSettings::updatePosition(int position)
 {
-    Q_EMIT updateWindowGeometry(kcfg_Width->value(), kcfg_Height->value(), position, kcfg_ExcludeTaskbar->isChecked());
+    Q_EMIT updateWindowGeometry(kcfg_Width->value(), kcfg_Height->value(), position, kcfg_ExcludeTaskbar->isChecked(), kcfg_HeightOffset->value());
 }
 
 void WindowSettings::updateExcludeTaskbar(int)
 {
-    Q_EMIT updateWindowGeometry(kcfg_Width->value(), kcfg_Height->value(), kcfg_Position->value(), kcfg_ExcludeTaskbar->isChecked());
+    Q_EMIT updateWindowGeometry(kcfg_Width->value(), kcfg_Height->value(), kcfg_Position->value(), kcfg_ExcludeTaskbar->isChecked(), kcfg_HeightOffset->value());
+}
+
+void WindowSettings::updateHeightOffset(int offset)
+{
+    Q_EMIT updateWindowGeometry(kcfg_Width->value(), kcfg_Height->value(), kcfg_Position->value(), kcfg_ExcludeTaskbar->isChecked(), offset);
 }
 
 void WindowSettings::interceptHideTitleBar(int state)

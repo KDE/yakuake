@@ -796,7 +796,7 @@ void MainWindow::updateWindowWidthMenu()
     QAction *action = nullptr;
 
     if (m_windowWidthMenu->isEmpty()) {
-        for (int i = 10; i <= 100; i += 10) {
+        for (int i = 10; i <= 100; ++i) {
             action = m_windowWidthMenu->addAction(i18n("%1%", i));
             action->setCheckable(true);
             action->setData(i);
@@ -818,7 +818,7 @@ void MainWindow::updateWindowHeightMenu()
     QAction *action = nullptr;
 
     if (m_windowHeightMenu->isEmpty()) {
-        for (int i = 10; i <= 100; i += 10) {
+        for (int i = 10; i <= 100; ++i) {
             action = m_windowHeightMenu->addAction(i18n("%1%", i));
             action->setCheckable(true);
             action->setData(i);
@@ -885,8 +885,8 @@ void MainWindow::configureApp()
 
     WindowSettings *windowSettings = new WindowSettings(settingsDialog);
     settingsDialog->addPage(windowSettings, xi18nc("@title Preferences page name", "Window"), QStringLiteral("preferences-system-windows-move"));
-    connect(windowSettings, &WindowSettings::updateWindowGeometry, this, [this](int width, int height, int position, bool excludeTaskbar) {
-        setWindowGeometry(width, height, position, excludeTaskbar);
+    connect(windowSettings, &WindowSettings::updateWindowGeometry, this, [this](int width, int height, int position, bool excludeTaskbar, int heightOffset) {
+        setWindowGeometry(width, height, position, excludeTaskbar, heightOffset);
     });
 
     QWidget *behaviorSettings = new QWidget(settingsDialog);
@@ -1035,14 +1035,24 @@ void MainWindow::applyWindowGeometry()
 
 void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition)
 {
-    setWindowGeometry(newWidth, newHeight, newPosition, Settings::excludeTaskbar());
+    setWindowGeometry(newWidth, newHeight, newPosition, Settings::excludeTaskbar(), Settings::heightOffset());
 }
 
 void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition, bool excludeTaskbar)
 {
-    QRect workArea = getDesktopGeometry(excludeTaskbar);
+    setWindowGeometry(newWidth, newHeight, newPosition, excludeTaskbar, Settings::heightOffset());
+}
 
-    int maxHeight = workArea.height() * newHeight / 100;
+void MainWindow::setWindowGeometry(int newWidth, int newHeight, int newPosition, bool excludeTaskbar, int heightOffset)
+{
+    QRect workArea = getDesktopGeometry(excludeTaskbar);
+    QRect screenGeometry = getScreenGeometry();
+
+    int maxHeight = workArea.height() * newHeight / 100 + heightOffset;
+    if (screenGeometry.isValid()) {
+        const int availableHeight = screenGeometry.height() - (workArea.y() - screenGeometry.y());
+        maxHeight = qBound(1, maxHeight, availableHeight);
+    }
 
     int targetWidth = workArea.width() * newWidth / 100;
 
@@ -1117,26 +1127,26 @@ void MainWindow::setWindowHeight(QAction *action)
 
 void MainWindow::increaseWindowWidth()
 {
-    if (Settings::width() <= 90)
-        setWindowWidth(Settings::width() + 10);
+    if (Settings::width() < 100)
+        setWindowWidth(Settings::width() + 1);
 }
 
 void MainWindow::decreaseWindowWidth()
 {
-    if (Settings::width() >= 20)
-        setWindowWidth(Settings::width() - 10);
+    if (Settings::width() > 10)
+        setWindowWidth(Settings::width() - 1);
 }
 
 void MainWindow::increaseWindowHeight()
 {
-    if (Settings::height() <= 90)
-        setWindowHeight(Settings::height() + 10);
+    if (Settings::height() < 100)
+        setWindowHeight(Settings::height() + 1);
 }
 
 void MainWindow::decreaseWindowHeight()
 {
-    if (Settings::height() >= 20)
-        setWindowHeight(Settings::height() - 10);
+    if (Settings::height() > 10)
+        setWindowHeight(Settings::height() - 1);
 }
 
 void MainWindow::updateMask()

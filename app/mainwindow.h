@@ -105,6 +105,7 @@ private Q_SLOTS:
     void applyWindowGeometry();
     void setWindowGeometry(int width, int height, int position);
     void setWindowGeometry(int width, int height, int position, bool excludeTaskbar);
+    void setWindowGeometry(int width, int height, int position, bool excludeTaskbar, int heightOffset);
 
     void updateScreenMenu();
     void setScreen(QAction *action);
