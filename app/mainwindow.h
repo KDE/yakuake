@@ -154,7 +154,7 @@ private:
     void updateWindowHeightMenu();
     void updateWindowWidthMenu();
 
-#if HAVE_X11
+#if WITH_X11
     void kwinAssistToggleWindowState(bool visible);
     void kwinAssistPropCleanup();
     bool m_kwinAssistPropSet;

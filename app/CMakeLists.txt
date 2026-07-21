@@ -78,10 +78,8 @@ target_link_libraries(yakuake
     Qt::WaylandClient
 )
 
-if(HAVE_X11)
-    if(TARGET Qt6::Gui)
-        target_link_libraries(yakuake Qt6::GuiPrivate XCB::RANDR XCB::UTIL) # qtx11extras_p.h
-    endif()
+if(WITH_X11)
+    target_link_libraries(yakuake Qt6::GuiPrivate XCB::RANDR XCB::UTIL) # qtx11extras_p.h
 endif()
 
 if(KWayland_FOUND)

@@ -18,11 +18,11 @@
 #include <QtWaylandClient/QWaylandClientExtension>
 #include <QtWaylandClient/QtWaylandClientVersion>
 
-#if HAVE_X11
+#if WITH_X11
 #include <X11/Xlib.h>
 #include <xcb/randr.h>
 #include <xcb/xcb_event.h>
-#endif // HAVE_X11
+#endif // WITH_X11
 
 template<typename T>
 using ScopedPointer = QScopedPointer<T, QScopedPointerPodDeleter>;
@@ -88,7 +88,7 @@ void OutputOrderWatcher::useFallback(bool fallback, const char *reason)
 
 OutputOrderWatcher *OutputOrderWatcher::instance(QObject *parent)
 {
-#if HAVE_X11
+#if WITH_X11
     if (KWindowSystem::isPlatformX11()) {
         return new X11OutputOrderWatcher(parent);
     } else
@@ -134,7 +134,7 @@ QStringList OutputOrderWatcher::outputOrder() const
     return m_outputOrder;
 }
 
-#if HAVE_X11
+#if WITH_X11
 X11OutputOrderWatcher::X11OutputOrderWatcher(QObject *parent)
     : OutputOrderWatcher(parent)
     , m_x11Interface(qGuiApp->nativeInterface<QNativeInterface::QX11Application>())

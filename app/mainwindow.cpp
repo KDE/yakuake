@@ -35,7 +35,6 @@
 #include <KWindowEffects>
 #include <KWindowInfo>
 #include <KWindowSystem>
-#include <KX11Extras>
 
 #include <QApplication>
 #include <QDBusConnection>
@@ -47,7 +46,9 @@
 #include <QWhatsThis>
 #include <QWindow>
 
-#if HAVE_X11
+#if WITH_X11
+#include <KX11Extras>
+
 #include <private/qtx11extras_p.h>
 
 #include <X11/Xlib.h>
@@ -81,7 +82,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_firstRunDialog = nullptr;
     m_isFullscreen = false;
 
-#if HAVE_X11
+#if WITH_X11
     m_kwinAssistPropSet = false;
     m_isX11 = KWindowSystem::isPlatformX11();
 #else
@@ -120,9 +121,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(&m_mousePoller, &QTimer::timeout, this, &MainWindow::pollMouse);
 
+#if WITH_X11
     if (KWindowSystem::isPlatformX11()) {
         connect(KX11Extras::self(), &KX11Extras::workAreaChanged, this, &MainWindow::applyWindowGeometry);
     }
+#endif
 
     connect(m_outputOrderWatcher, &OutputOrderWatcher::outputOrderChanged, this, &MainWindow::updateScreenMenu);
 
@@ -902,10 +905,11 @@ void MainWindow::configureApp()
     connect(settingsDialog, &QDialog::finished, [this]() {
         m_toggleLock = true;
         KWindowSystem::activateWindow(windowHandle());
-
+#if WITH_X11
         if (KWindowSystem::isPlatformX11()) {
             KX11Extras::forceActiveWindow(winId());
         }
+#endif
     });
 
     settingsDialog->show();
@@ -988,6 +992,7 @@ void MainWindow::applySkin()
 
 void MainWindow::applyWindowProperties()
 {
+#if WITH_X11
     if (m_isX11) {
         if (Settings::keepOpen() && !Settings::keepAbove()) {
             KX11Extras::clearState(winId(), NET::KeepAbove);
@@ -997,7 +1002,7 @@ void MainWindow::applyWindowProperties()
         }
         KX11Extras::setOnAllDesktops(winId(), Settings::showOnAllDesktops());
     }
-
+#endif
     if (m_isWayland && m_plasmaShellSurface) {
         m_plasmaShellSurface->setSkipTaskbar(true);
         m_plasmaShellSurface->setSkipSwitcher(true);
@@ -1274,10 +1279,10 @@ void MainWindow::_toggleWindowState()
             // desktop the window resides on.
 
             KWindowSystem::activateWindow(windowHandle());
+#if WITH_X11
             if (KWindowSystem::isPlatformX11()) {
                 KX11Extras::forceActiveWindow(winId());
             }
-
             return;
         } else if (!Settings::showOnAllDesktops() && KWindowInfo(winId(), NET::WMDesktop).desktop() != KX11Extras::currentDesktop()) {
             // The open/retract action isn't set to focus the window, but
@@ -1297,12 +1302,12 @@ void MainWindow::_toggleWindowState()
             if (KWindowSystem::isPlatformX11()) {
                 KX11Extras::forceActiveWindow(winId());
             }
-
+#endif
             return;
         }
     }
 
-#if HAVE_X11
+#if WITH_X11
     if (!Settings::useWMAssist() && m_kwinAssistPropSet)
         kwinAssistPropCleanup();
 
@@ -1342,7 +1347,7 @@ void MainWindow::slideWindow()
     }
 }
 
-#if HAVE_X11
+#if WITH_X11
 void MainWindow::kwinAssistToggleWindowState(bool visible)
 {
     bool gotEffect = false;
@@ -1490,10 +1495,11 @@ void MainWindow::sharedPreOpenWindow()
 
 void MainWindow::sharedAfterOpenWindow()
 {
+#if WITH_X11
     if (!Settings::firstRun() && KWindowSystem::isPlatformX11()) {
         KX11Extras::forceActiveWindow(winId());
     }
-
+#endif
     connect(qGuiApp, &QGuiApplication::focusWindowChanged, this, &MainWindow::wmActiveWindowChanged);
 
     applyWindowProperties();
@@ -1620,7 +1626,7 @@ QRect MainWindow::getDesktopGeometry()
         // but plasmashell provides this through dbus
         return m_availableScreenRect.isValid() ? m_availableScreenRect : screenGeometry;
     }
-
+#if WITH_X11
     if (m_outputOrderWatcher->outputOrder().count() > 1) {
         const QList<WId> allWindows = KX11Extras::windows();
         QList<WId> offScreenWindows;
@@ -1672,7 +1678,6 @@ QRect MainWindow::getDesktopGeometry()
         return KX11Extras::workArea(offScreenWindows).intersected(screenGeometry);
     }
 
-#if HAVE_X11
     return KX11Extras::workArea();
 #else
     return QRect();
@@ -1702,10 +1707,11 @@ void MainWindow::firstRunDialogFinished()
     Settings::self()->save();
 
     m_firstRunDialog->deleteLater();
-
+#if WITH_X11
     if (KWindowSystem::isPlatformX11()) {
         KX11Extras::forceActiveWindow(winId());
     }
+#endif
 }
 
 void MainWindow::firstRunDialogOk()
@@ -1719,7 +1725,11 @@ void MainWindow::firstRunDialogOk()
 
 void MainWindow::updateUseTranslucency()
 {
+#if WITH_X11
     m_useTranslucency = (Settings::translucency() && (m_isX11 ? KX11Extras::compositingActive() : true));
+#else
+    m_useTranslucency = Settings::translucency();
+#endif
 }
 
 void MainWindow::updateTrayTooltip()

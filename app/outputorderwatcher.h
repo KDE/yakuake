@@ -12,7 +12,7 @@
 
 #include <config-yakuake.h>
 
-#if HAVE_X11
+#if WITH_X11
 #include <xcb/xcb.h>
 #endif
 
@@ -78,7 +78,7 @@ protected:
 private:
 };
 
-#if HAVE_X11
+#if WITH_X11
 class X11OutputOrderWatcher : public OutputOrderWatcher, public QAbstractNativeEventFilter
 {
     Q_OBJECT
