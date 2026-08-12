@@ -262,7 +262,7 @@ msgid ""
 "resides on."
 msgstr ""
 "إذا مكن هذا الخيار، فإن الاختصار المستخدم عادةً لفتح النافذة وسحبها سيمنحها "
-"التركيز، بدلاً من إغلاقها، إذا كانت قد فقدت التركيز مسبقًا."
+"التركيز، بدلًا من إغلاقها، إذا كانت قد فقدت التركيز مسبقًا."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToggleToFocus)
 #: app/config/behaviorsettings.ui:45
