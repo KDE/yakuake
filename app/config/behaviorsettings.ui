@@ -146,6 +146,25 @@
     </widget>
    </item>
    <item>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
+      <string comment="@title:group">Sessions</string>
+     </property>
+     <layout class="QVBoxLayout">
+      <item>
+       <widget class="QCheckBox" name="kcfg_RememberSessions">
+        <property name="whatsThis">
+         <string comment="@info:whatsthis">If this option is enabled, the open sessions, their split layout, working directories and profiles are saved when the application quits and restored when it is started again.</string>
+        </property>
+        <property name="text">
+         <string comment="@option:check">Remember and restore sessions</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="title">
       <string comment="@title:group">Dialogs</string>
@@ -184,6 +203,7 @@
   <tabstop>kcfg_ToggleToFocus</tabstop>
   <tabstop>kcfg_KeepOpenAfterLastSessionCloses</tabstop>
   <tabstop>kcfg_FocusFollowsMouse</tabstop>
+  <tabstop>kcfg_RememberSessions</tabstop>
   <tabstop>kcfg_ConfirmQuit</tabstop>
  </tabstops>
  <resources/>

@@ -36,6 +36,8 @@ public:
 
     void applySkin();
 
+    bool isTabTitleInteractive(int sessionId) const;
+
 public Q_SLOTS:
     void addTab(int sessionId, const QString &title);
     void removeTab(int sessionId = -1);

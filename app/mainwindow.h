@@ -150,6 +150,10 @@ private:
 
     void setupMenu();
 
+    bool restoreSessions();
+    void saveSessions();
+    void queueSaveSessions();
+
     void updateWindowSizeMenus();
     void updateWindowHeightMenu();
     void updateWindowWidthMenu();
@@ -203,10 +207,14 @@ private:
 
     QTimer m_animationTimer;
     QTimer m_mousePoller;
+    QTimer m_saveSessionsTimer;
     int m_animationFrame;
     int m_animationStepSize;
 
     bool m_toggleLock;
+    // Never reset; queryClose() sets it only when the quit is actually going through.
+    bool m_shuttingDown = false;
+    QString m_lastSavedSessions;
 
     bool m_isX11;
     bool m_isWayland;

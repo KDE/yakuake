@@ -93,6 +93,11 @@
       <whatsthis context="@info:whatsthis">Whether the window will be shown fullscreen again when it has been previously.</whatsthis>
     <default>false</default>
     </entry>
+    <entry name="RememberSessions" type="Bool">
+      <label context="@label">Remember and restore sessions</label>
+      <whatsthis context="@info:whatsthis">Whether the open sessions, their split layout, working directories and profiles will be restored when the application is started again.</whatsthis>
+    <default>false</default>
+    </entry>
   </group>
   <group name="Appearance">
     <entry name="Skin" type="String">

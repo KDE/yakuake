@@ -21,12 +21,14 @@
 #include <KAboutData>
 #include <KActionCollection>
 #include <KConfigDialog>
+#include <KConfigGroup>
 #include <KGlobalAccel>
 #include <KHelpMenu>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KNotification>
 #include <KNotifyConfigWidget>
+#include <KSharedConfig>
 #include <KShortcutsDialog>
 #include <KStandardAction>
 #include <KStandardActions>
@@ -41,6 +43,9 @@
 #include <QDBusConnection>
 #include <QDBusPendingReply>
 #include <QDBusReply>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QMenu>
 #include <QPainter>
 #include <QScreen>
@@ -117,6 +122,19 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_sessionStack, &SessionStack::activeTitleChanged, m_titleBar, &TitleBar::setTitle);
     connect(m_sessionStack, &SessionStack::activeTitleChanged, this, &MainWindow::setWindowTitle);
     connect(m_sessionStack, &SessionStack::wantsBlurChanged, this, &MainWindow::applyWindowProperties);
+    connect(m_sessionStack, &SessionStack::sessionRestored, this, [this](int sessionId, const QString &tabTitle) {
+        if (!tabTitle.isEmpty())
+            m_tabBar->setTabTitle(sessionId, tabTitle);
+    });
+
+    m_saveSessionsTimer.setSingleShot(true);
+    m_saveSessionsTimer.setInterval(2000);
+    connect(&m_saveSessionsTimer, &QTimer::timeout, this, &MainWindow::saveSessions);
+
+    connect(m_sessionStack, &SessionStack::sessionAdded, this, &MainWindow::queueSaveSessions);
+    connect(m_sessionStack, &SessionStack::sessionRemoved, this, &MainWindow::queueSaveSessions);
+    connect(m_sessionStack, &SessionStack::sessionContentChanged, this, &MainWindow::queueSaveSessions);
+    connect(m_tabBar, &TabBar::tabTitleEdited, this, &MainWindow::queueSaveSessions);
 
     connect(&m_mousePoller, &QTimer::timeout, this, &MainWindow::pollMouse);
 
@@ -128,7 +146,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     applySettings();
 
-    m_sessionStack->addSession();
+    if (!restoreSessions())
+        m_sessionStack->addSession();
 
     if (Settings::firstRun()) {
         QMetaObject::invokeMethod(this, "toggleWindowState", Qt::QueuedConnection);
@@ -144,6 +163,11 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    // Covers the quit paths that bypass queryClose(). Has to run first, the
+    // sessions are torn down right after.
+    saveSessions();
+    m_shuttingDown = true;
+
     Settings::self()->save();
 
     delete m_skin;
@@ -218,8 +242,14 @@ bool MainWindow::queryClose()
                                                         KStandardGuiItem::quit(),
                                                         KStandardGuiItem::cancel());
 
-        return result != KMessageBox::Cancel;
+        if (result == KMessageBox::Cancel)
+            return false;
     }
+
+    // Final snapshot while the session stack is still intact; block further
+    // saves, teardown would overwrite the snapshot with an empty one.
+    saveSessions();
+    m_shuttingDown = true;
 
     return true;
 }
@@ -444,6 +474,14 @@ void MainWindow::setupActions()
     });
     m_contextDependentActions << action;
 
+    action = actionCollection()->addAction(QStringLiteral("toggle-remember-session"));
+    action->setText(xi18nc("@action", "Remember This Session"));
+    action->setCheckable(true);
+    connect(action, &QAction::triggered, this, [this](bool checked) {
+        handleContextDependentToggleAction(checked);
+    });
+    m_contextDependentActions << action;
+
     action = actionCollection()->addAction(QStringLiteral("toggle-session-prevent-closing"));
     action->setText(xi18nc("@action", "Prevent Closing"));
     action->setCheckable(true);
@@ -579,6 +617,12 @@ void MainWindow::handleContextDependentToggleAction(bool checked, QAction *actio
 
     if (action == actionCollection()->action(QStringLiteral("toggle-session-monitor-silence")))
         m_sessionStack->setSessionMonitorSilenceEnabled(sessionId, checked);
+
+    if (action == actionCollection()->action(QStringLiteral("toggle-remember-session"))) {
+        m_sessionStack->setSessionRemembered(sessionId, checked);
+
+        queueSaveSessions();
+    }
 }
 
 void MainWindow::setContextDependentActionsQuiet(bool quiet)
@@ -676,6 +720,122 @@ void MainWindow::handleSwitchToAction()
 
     if (action && !action->data().isNull())
         m_sessionStack->raiseSession(m_tabBar->sessionAtTab(action->data().toInt()));
+}
+
+void MainWindow::queueSaveSessions()
+{
+    if (m_shuttingDown)
+        return;
+    if (!Settings::rememberSessions())
+        return;
+
+    // Throttle rather than debounce: a terminal churning out title changes
+    // must not be able to postpone the save forever.
+    if (!m_saveSessionsTimer.isActive())
+        m_saveSessionsTimer.start();
+}
+
+// Writes the open sessions to the state config as compact JSON:
+//
+// { "Version": 1,
+//   "ActiveTab": <index into Sessions>,
+//   "Sessions": [                          // in tab order
+//     { "TabTitle": "...", "TitleInteractive": <user renamed the tab>,
+//       "ActiveTerminal": <index in layout order>,
+//       "Layout": { "Orientation": <Qt::Orientation>, "Sizes": [...],
+//                   "Children": [{ "Terminal": { "Profile", "CurrentWorkDir" } },
+//                                { "Splitter": <nested Layout> }] } } ] }
+void MainWindow::saveSessions()
+{
+    if (m_shuttingDown)
+        return;
+    if (!Settings::rememberSessions())
+        return;
+
+    m_saveSessionsTimer.stop();
+
+    QList<int> orderedSessionIds;
+
+    for (int index = 0;; ++index) {
+        const int sessionId = m_tabBar->sessionAtTab(index);
+
+        if (sessionId == -1)
+            break;
+
+        orderedSessionIds.append(sessionId);
+    }
+
+    QList<int> savedSessionIds;
+    const QJsonObject stack = m_sessionStack->saveSessionStack(orderedSessionIds, savedSessionIds);
+
+    KConfigGroup group(KSharedConfig::openStateConfig(), QStringLiteral("Sessions"));
+
+    QJsonArray sessions = stack.value(QStringLiteral("Sessions")).toArray();
+
+    if (sessions.isEmpty()) {
+        m_lastSavedSessions.clear();
+
+        group.deleteEntry(QStringLiteral("State"));
+        group.sync();
+
+        return;
+    }
+
+    for (int index = 0; index < savedSessionIds.count(); ++index) {
+        const int sessionId = savedSessionIds.at(index);
+
+        // Only a title the user set explicitly is worth storing. Automated
+        // titles follow the shell, so restoring one would freeze it, and
+        // saving one would rewrite the snapshot on every title change.
+        if (!m_tabBar->isTabTitleInteractive(sessionId))
+            continue;
+
+        QJsonObject session = sessions.at(index).toObject();
+        session.insert(QStringLiteral("TabTitle"), m_tabBar->tabTitle(sessionId));
+
+        sessions.replace(index, session);
+    }
+
+    QJsonObject data;
+    data.insert(QStringLiteral("Version"), 1);
+    data.insert(QStringLiteral("ActiveTab"), stack.value(QStringLiteral("ActiveTab")).toInt(0));
+    data.insert(QStringLiteral("Sessions"), sessions);
+
+    const QString state = QString::fromUtf8(QJsonDocument(data).toJson(QJsonDocument::Compact));
+
+    if (state == m_lastSavedSessions)
+        return;
+
+    m_lastSavedSessions = state;
+
+    group.writeEntry(QStringLiteral("State"), state);
+    group.sync();
+}
+
+bool MainWindow::restoreSessions()
+{
+    if (!Settings::rememberSessions())
+        return false;
+
+    KConfigGroup group(KSharedConfig::openStateConfig(), QStringLiteral("Sessions"));
+    const QString data = group.readEntry(QStringLiteral("State"), QString());
+
+    if (data.isEmpty())
+        return false;
+
+    const QJsonDocument document = QJsonDocument::fromJson(data.toUtf8());
+
+    if (!document.isObject())
+        return false;
+
+    const QJsonObject sessions = document.object();
+
+    if (sessions.value(QStringLiteral("Version")).toInt() != 1)
+        return false;
+
+    m_sessionStack->restoreSessionStack(sessions);
+
+    return m_sessionStack->count() > 0;
 }
 
 void MainWindow::handleToggleTitlebar()
@@ -919,6 +1079,16 @@ void MainWindow::applySettings()
         m_sessionStack->emitTitles();
     } else {
         disconnect(m_sessionStack, SIGNAL(titleChanged(int, QString)), m_tabBar, SLOT(setTabTitleAutomated(int, QString)));
+    }
+
+    // A snapshot left behind by an earlier run must not come back to life when
+    // the option is enabled again.
+    if (!Settings::rememberSessions()) {
+        m_lastSavedSessions.clear();
+
+        KConfigGroup group(KSharedConfig::openStateConfig(), QStringLiteral("Sessions"));
+        group.deleteEntry(QStringLiteral("State"));
+        group.sync();
     }
 
     m_animationTimer.setInterval(Settings::frames() ? 10 : 0);
