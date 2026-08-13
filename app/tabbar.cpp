@@ -112,6 +112,7 @@ void TabBar::readyTabContextMenu()
         m_tabContextMenu->addSeparator();
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("edit-profile")));
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("rename-session")));
+        m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("toggle-remember-session")));
         m_tabContextMenu->addAction(m_mainWindow->actionCollection()->action(QStringLiteral("toggle-session-prevent-closing")));
         m_tabContextMenu->addMenu(m_toggleKeyboardInputMenu);
         m_tabContextMenu->addMenu(m_toggleMonitorActivityMenu);
@@ -170,6 +171,10 @@ void TabBar::updateToggleActions(int sessionId)
 
     toggleAction = actionCollection->action(QStringLiteral("toggle-session-monitor-silence"));
     toggleAction->setChecked(!sessionStack->hasTerminalsWithMonitorSilenceDisabled(sessionId));
+
+    toggleAction = actionCollection->action(QStringLiteral("toggle-remember-session"));
+    toggleAction->setChecked(sessionStack->isSessionRemembered(sessionId));
+    toggleAction->setVisible(Settings::rememberSessions());
 }
 
 void TabBar::updateToggleKeyboardInputMenu(int sessionId)
@@ -882,6 +887,11 @@ void TabBar::setTabTitle(int sessionId, const QString &newTitle, InteractiveType
 
     Q_EMIT tabTitleEdited(sessionId, newTitle);
     update();
+}
+
+bool TabBar::isTabTitleInteractive(int sessionId) const
+{
+    return m_tabTitlesSetInteractive.value(sessionId, false);
 }
 
 void TabBar::setTabTitleAutomated(int sessionId, const QString &newTitle)

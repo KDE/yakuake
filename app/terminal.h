@@ -9,6 +9,7 @@
 
 #include <KParts/Part>
 
+#include <QJsonObject>
 #include <QPointer>
 
 class QKeyEvent;
@@ -21,7 +22,12 @@ class Terminal : public QObject
     Q_OBJECT
 
 public:
-    explicit Terminal(const QString &workingDir, QWidget *parent = nullptr);
+    enum WorkingDirPolicy {
+        FollowProfile,
+        ForceWorkingDir,
+    };
+
+    explicit Terminal(const QString &workingDir, QWidget *parent = nullptr, WorkingDirPolicy workingDirPolicy = FollowProfile);
     ~Terminal() override;
 
     bool eventFilter(QObject *watched, QEvent *event) override;
@@ -89,6 +95,9 @@ public:
     {
         return m_wantsBlur;
     }
+
+    QJsonObject saveSession() const;
+    void restoreSession(const QJsonObject &data);
 
 Q_SIGNALS:
     void titleChanged(int terminalId, const QString &title);

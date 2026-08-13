@@ -9,10 +9,11 @@
 #define SESSION_H
 
 #include "splitter.h"
+#include "terminal.h"
 
+#include <QJsonObject>
 #include <QObject>
-
-class Terminal;
+#include <QPointer>
 
 class Session : public QObject
 {
@@ -24,6 +25,7 @@ public:
         TwoHorizontal,
         TwoVertical,
         Quad,
+        Empty,
     };
     enum GrowthDirection {
         Up,
@@ -68,6 +70,20 @@ public:
     {
         m_closable = closable;
     }
+
+    bool rememberSession() const
+    {
+        return m_rememberSession;
+    }
+    void setRememberSession(bool remember)
+    {
+        m_rememberSession = remember;
+    }
+
+    QJsonObject saveSession() const;
+    void restoreSession(const QJsonObject &data);
+
+    void reapplyRestoredSplitterSizes();
 
     bool keyboardInputEnabled();
     void setKeyboardInputEnabled(bool enabled);
@@ -130,10 +146,19 @@ private Q_SLOTS:
     void prepareShutdown();
 
 private:
+    struct RestoredSplitterSizes {
+        QPointer<QSplitter> splitter;
+        QList<int> sizes;
+    };
+
     void setupSession(SessionType type);
 
-    Terminal *addTerminal(QSplitter *parent, QString workingDir = QString());
+    Terminal *addTerminal(QSplitter *parent, QString workingDir = QString(), Terminal::WorkingDirPolicy workingDirPolicy = Terminal::FollowProfile);
     int split(Terminal *terminal, Qt::Orientation orientation);
+
+    QJsonObject saveSplitter(const QSplitter *splitter, QList<int> &terminalOrder) const;
+    void restoreSplitter(QSplitter *splitter, const QJsonObject &layout, QList<Terminal *> &terminalOrder);
+    void applyRestoredSplitterSizes();
 
     QString m_workingDir;
     static int m_availableSessionId;
@@ -147,6 +172,12 @@ private:
     QString m_title;
 
     bool m_closable;
+
+    // Opt-out flag. The RememberSessions option is only checked at save time,
+    // so sessions opened before it was enabled are saved as well.
+    bool m_rememberSession = true;
+
+    QList<RestoredSplitterSizes> m_restoredSplitterSizes;
 };
 
 #endif

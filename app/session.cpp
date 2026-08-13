@@ -8,6 +8,8 @@
 #include "session.h"
 #include "terminal.h"
 
+#include <QJsonArray>
+
 #include <algorithm>
 
 int Session::m_availableSessionId = 0;
@@ -126,6 +128,9 @@ void Session::setupSession(SessionType type)
         break;
     }
 
+    case Empty:
+        break;
+
     default: {
         addTerminal(m_baseSplitter);
 
@@ -134,14 +139,14 @@ void Session::setupSession(SessionType type)
     }
 }
 
-Terminal *Session::addTerminal(QSplitter *parent, QString workingDir)
+Terminal *Session::addTerminal(QSplitter *parent, QString workingDir, Terminal::WorkingDirPolicy workingDirPolicy)
 {
     if (workingDir.isEmpty()) {
         // fallback to session's default working dir
         workingDir = m_workingDir;
     }
 
-    std::unique_ptr<Terminal> terminal = std::make_unique<Terminal>(workingDir, parent);
+    std::unique_ptr<Terminal> terminal = std::make_unique<Terminal>(workingDir, parent, workingDirPolicy);
     connect(terminal.get(), SIGNAL(activated(int)), this, SLOT(setActiveTerminal(int)));
     connect(terminal.get(), SIGNAL(manuallyActivated(Terminal *)), this, SIGNAL(terminalManuallyActivated(Terminal *)));
     connect(terminal.get(), SIGNAL(titleChanged(int, QString)), this, SLOT(setTitle(int, QString)));
@@ -624,6 +629,154 @@ bool Session::wantsBlur() const
         auto &[id, terminal] = it;
         return terminal->wantsBlur();
     });
+}
+
+// Serializes the session as a nested layout tree; the schema is documented at
+// MainWindow::saveSessions(). Terminals are identified by their position in
+// the tree, the numeric ids of the previous run mean nothing after a restart.
+QJsonObject Session::saveSession() const
+{
+    QJsonObject session;
+
+    if (!m_baseSplitter)
+        return session;
+
+    QList<int> terminalOrder;
+    const QJsonObject layout = saveSplitter(m_baseSplitter, terminalOrder);
+
+    session.insert(QStringLiteral("ActiveTerminal"), terminalOrder.indexOf(m_activeTerminalId));
+    session.insert(QStringLiteral("Layout"), layout);
+
+    return session;
+}
+
+QJsonObject Session::saveSplitter(const QSplitter *splitter, QList<int> &terminalOrder) const
+{
+    QJsonObject layout;
+    layout.insert(QStringLiteral("Orientation"), static_cast<int>(splitter->orientation()));
+
+    QJsonArray sizes;
+    const QList<int> splitterSizes = splitter->sizes();
+    for (int size : splitterSizes)
+        sizes.append(size);
+    layout.insert(QStringLiteral("Sizes"), sizes);
+
+    QJsonArray children;
+
+    for (int index = 0; index < splitter->count(); ++index) {
+        QWidget *child = splitter->widget(index);
+
+        if (Splitter *childSplitter = qobject_cast<Splitter *>(child)) {
+            children.append(QJsonObject{{QStringLiteral("Splitter"), saveSplitter(childSplitter, terminalOrder)}});
+
+            continue;
+        }
+
+        for (const auto &[id, terminal] : m_terminals) {
+            if (terminal->partWidget() == child) {
+                terminalOrder.append(id);
+                children.append(QJsonObject{{QStringLiteral("Terminal"), terminal->saveSession()}});
+
+                break;
+            }
+        }
+    }
+
+    layout.insert(QStringLiteral("Children"), children);
+
+    return layout;
+}
+
+void Session::restoreSession(const QJsonObject &data)
+{
+    if (!m_baseSplitter)
+        return;
+
+    QList<Terminal *> terminalOrder;
+
+    const QJsonObject layout = data.value(QStringLiteral("Layout")).toObject();
+    if (!layout.isEmpty())
+        restoreSplitter(m_baseSplitter, layout, terminalOrder);
+
+    if (terminalOrder.isEmpty()) {
+        // A session without terminals is a dead tab. The fallback terminal has
+        // to be added before the cleanup: that deletes an empty splitter, and
+        // deleting the base splitter takes the session with it.
+        Terminal *terminal = addTerminal(m_baseSplitter);
+        setActiveTerminal(terminal->id());
+
+        m_baseSplitter->recursiveCleanup();
+        m_restoredSplitterSizes.clear();
+
+        return;
+    }
+
+    applyRestoredSplitterSizes();
+
+    const int activeTerminal = data.value(QStringLiteral("ActiveTerminal")).toInt(0);
+    Terminal *terminal = terminalOrder.value(qBound(0, activeTerminal, terminalOrder.count() - 1));
+
+    if (terminal) {
+        setActiveTerminal(terminal->id());
+
+        QWidget *terminalWidget = terminal->terminalWidget();
+        if (terminalWidget)
+            terminalWidget->setFocus();
+    }
+}
+
+void Session::restoreSplitter(QSplitter *splitter, const QJsonObject &layout, QList<Terminal *> &terminalOrder)
+{
+    splitter->setOrientation(static_cast<Qt::Orientation>(layout.value(QStringLiteral("Orientation")).toInt(Qt::Horizontal)));
+
+    const QJsonArray children = layout.value(QStringLiteral("Children")).toArray();
+
+    for (const QJsonValue &child : children) {
+        const QJsonObject childObject = child.toObject();
+
+        if (childObject.contains(QStringLiteral("Splitter"))) {
+            Splitter *childSplitter = new Splitter(Qt::Horizontal, splitter);
+            connect(childSplitter, &QObject::destroyed, this, QOverload<>::of(&Session::cleanup));
+
+            restoreSplitter(childSplitter, childObject.value(QStringLiteral("Splitter")).toObject(), terminalOrder);
+
+            childSplitter->show();
+        } else if (childObject.contains(QStringLiteral("Terminal"))) {
+            const QJsonObject terminalData = childObject.value(QStringLiteral("Terminal")).toObject();
+
+            Terminal *terminal = addTerminal(splitter, terminalData.value(QStringLiteral("CurrentWorkDir")).toString(), Terminal::ForceWorkingDir);
+            terminal->restoreSession(terminalData);
+
+            QWidget *partWidget = terminal->partWidget();
+            if (partWidget)
+                partWidget->show();
+
+            terminalOrder.append(terminal);
+        }
+    }
+
+    QList<int> sizes;
+    const QJsonArray sizesArray = layout.value(QStringLiteral("Sizes")).toArray();
+    for (const QJsonValue &size : sizesArray)
+        sizes.append(size.toInt());
+
+    m_restoredSplitterSizes.prepend({splitter, sizes});
+}
+
+void Session::applyRestoredSplitterSizes()
+{
+    for (const auto &[splitter, sizes] : std::as_const(m_restoredSplitterSizes)) {
+        // A stale size list would collapse the trailing widgets to zero width.
+        if (splitter && splitter->count() == sizes.count())
+            splitter->setSizes(sizes);
+    }
+}
+
+void Session::reapplyRestoredSplitterSizes()
+{
+    applyRestoredSplitterSizes();
+
+    m_restoredSplitterSizes.clear();
 }
 
 #include "moc_session.cpp"

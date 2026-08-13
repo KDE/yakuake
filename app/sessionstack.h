@@ -13,6 +13,7 @@
 #include <config-yakuake.h>
 
 #include <QHash>
+#include <QJsonObject>
 #include <QStackedWidget>
 
 class Session;
@@ -37,6 +38,9 @@ public:
     bool requiresVisualEventOverlay();
 
     QList<KActionCollection *> getPartActionCollections();
+
+    QJsonObject saveSessionStack(const QList<int> &orderedSessionIds, QList<int> &savedSessionIds) const;
+    void restoreSessionStack(const QJsonObject &data);
 
     bool wantsBlur() const;
 
@@ -86,6 +90,9 @@ public Q_SLOTS:
     Q_SCRIPTABLE void setSessionClosable(int sessionId, bool closable);
     Q_SCRIPTABLE bool hasUnclosableSessions() const;
 
+    Q_SCRIPTABLE bool isSessionRemembered(int sessionId);
+    Q_SCRIPTABLE void setSessionRemembered(int sessionId, bool remember);
+
     Q_SCRIPTABLE bool isSessionKeyboardInputEnabled(int sessionId);
     Q_SCRIPTABLE void setSessionKeyboardInputEnabled(int sessionId, bool enabled);
     Q_SCRIPTABLE bool isTerminalKeyboardInputEnabled(int terminalId);
@@ -113,6 +120,8 @@ Q_SIGNALS:
     void sessionAdded(int sessionId, const QString &title);
     void sessionRaised(int sessionId);
     void sessionRemoved(int sessionId);
+    void sessionRestored(int sessionId, const QString &tabTitle);
+    void sessionContentChanged(int sessionId);
 
     void activeTitleChanged(const QString &title);
     void titleChanged(int sessionId, const QString &title);
@@ -146,6 +155,8 @@ private:
     VisualEventOverlay *m_visualEventOverlay = nullptr;
 
     int m_activeSessionId;
+
+    bool m_restoredSizesPending = false;
 
     QHash<int, Session *> m_sessions;
 };

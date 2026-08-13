@@ -25,7 +25,7 @@
 
 int Terminal::m_availableTerminalId = 0;
 
-Terminal::Terminal(const QString &workingDir, QWidget *parent)
+Terminal::Terminal(const QString &workingDir, QWidget *parent, WorkingDirPolicy workingDirPolicy)
     : QObject(nullptr)
 {
     m_terminalId = m_availableTerminalId;
@@ -80,7 +80,7 @@ Terminal::Terminal(const QString &workingDir, QWidget *parent)
         return;
     }
 
-    bool startInWorkingDir = m_terminalInterface->profileProperty(QStringLiteral("StartInCurrentSessionDir")).toBool();
+    bool startInWorkingDir = workingDirPolicy == ForceWorkingDir || m_terminalInterface->profileProperty(QStringLiteral("StartInCurrentSessionDir")).toBool();
     if (startInWorkingDir && !workingDir.isEmpty()) {
         m_terminalInterface->showShellInDir(workingDir);
     }
@@ -315,6 +315,24 @@ KActionCollection *Terminal::actionCollection()
     }
 
     return nullptr;
+}
+
+QJsonObject Terminal::saveSession() const
+{
+    if (!m_terminalInterface)
+        return QJsonObject();
+
+    return QJsonObject{{QStringLiteral("Profile"), m_terminalInterface->currentProfileName()}, {QStringLiteral("CurrentWorkDir"), currentWorkingDirectory()}};
+}
+
+void Terminal::restoreSession(const QJsonObject &data)
+{
+    if (!m_terminalInterface)
+        return;
+
+    const QString profile = data.value(QStringLiteral("Profile")).toString();
+    if (!profile.isEmpty() && m_terminalInterface->availableProfiles().contains(profile))
+        m_terminalInterface->setCurrentProfile(profile);
 }
 
 #include "moc_terminal.cpp"

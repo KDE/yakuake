@@ -15,6 +15,7 @@
 #include <KNotification>
 
 #include <QDBusConnection>
+#include <QJsonArray>
 
 #include <algorithm>
 
@@ -85,6 +86,57 @@ int SessionStack::addSessionQuad()
     return addSessionImpl(Session::Quad);
 }
 
+QJsonObject SessionStack::saveSessionStack(const QList<int> &orderedSessionIds, QList<int> &savedSessionIds) const
+{
+    QJsonObject data;
+    QJsonArray sessions;
+
+    savedSessionIds.clear();
+
+    for (int sessionId : orderedSessionIds) {
+        Session *session = m_sessions.value(sessionId);
+
+        if (!session || !session->rememberSession())
+            continue;
+
+        sessions.append(session->saveSession());
+        savedSessionIds.append(sessionId);
+    }
+
+    data.insert(QStringLiteral("ActiveTab"), savedSessionIds.indexOf(m_activeSessionId));
+    data.insert(QStringLiteral("Sessions"), sessions);
+
+    return data;
+}
+
+void SessionStack::restoreSessionStack(const QJsonObject &data)
+{
+    const QJsonArray sessions = data.value(QStringLiteral("Sessions")).toArray();
+
+    if (sessions.isEmpty())
+        return;
+
+    QList<int> restoredSessionIds;
+
+    for (const QJsonValue &value : sessions) {
+        const QJsonObject sessionData = value.toObject();
+
+        const int sessionId = addSessionImpl(Session::Empty);
+
+        m_sessions.value(sessionId)->restoreSession(sessionData);
+        restoredSessionIds.append(sessionId);
+
+        Q_EMIT sessionRestored(sessionId, sessionData.value(QStringLiteral("TabTitle")).toString());
+    }
+
+    // Sizes applied before the window has its final geometry can be scaled
+    // away; showEvent() applies them a second time.
+    m_restoredSizesPending = true;
+
+    const int activeTab = data.value(QStringLiteral("ActiveTab")).toInt(0);
+    raiseSession(restoredSessionIds.at(qBound(0, activeTab, restoredSessionIds.count() - 1)));
+}
+
 void SessionStack::raiseSession(int sessionId)
 {
     if (sessionId == -1 || !m_sessions.contains(sessionId))
@@ -150,11 +202,17 @@ void SessionStack::removeTerminal(int terminalId)
         if (!m_sessions.contains(m_activeSessionId))
             return;
 
-        if (m_sessions.value(m_activeSessionId)->closable())
+        if (m_sessions.value(m_activeSessionId)->closable()) {
             m_sessions.value(m_activeSessionId)->closeTerminal();
+
+            Q_EMIT sessionContentChanged(m_activeSessionId);
+        }
     } else {
-        if (m_sessions.value(sessionId)->closable())
+        if (m_sessions.value(sessionId)->closable()) {
             m_sessions.value(sessionId)->closeTerminal(terminalId);
+
+            Q_EMIT sessionContentChanged(sessionId);
+        }
     }
 }
 
@@ -167,8 +225,11 @@ void SessionStack::closeActiveTerminal(int sessionId)
     if (!m_sessions.contains(sessionId))
         return;
 
-    if (queryClose(sessionId, QueryCloseTerminal))
+    if (queryClose(sessionId, QueryCloseTerminal)) {
         m_sessions.value(sessionId)->closeTerminal();
+
+        Q_EMIT sessionContentChanged(sessionId);
+    }
 }
 
 void SessionStack::cleanup(int sessionId)
@@ -320,6 +381,30 @@ bool SessionStack::hasUnclosableSessions() const
     }
 
     return false;
+}
+
+bool SessionStack::isSessionRemembered(int sessionId)
+{
+    if (sessionId == -1)
+        sessionId = m_activeSessionId;
+    if (sessionId == -1)
+        return false;
+    if (!m_sessions.contains(sessionId))
+        return false;
+
+    return m_sessions.value(sessionId)->rememberSession();
+}
+
+void SessionStack::setSessionRemembered(int sessionId, bool remember)
+{
+    if (sessionId == -1)
+        sessionId = m_activeSessionId;
+    if (sessionId == -1)
+        return;
+    if (!m_sessions.contains(sessionId))
+        return;
+
+    m_sessions.value(sessionId)->setRememberSession(remember);
 }
 
 bool SessionStack::isSessionKeyboardInputEnabled(int sessionId)
@@ -565,7 +650,12 @@ int SessionStack::splitSessionLeftRight(int sessionId)
     if (!m_sessions.contains(sessionId))
         return -1;
 
-    return m_sessions.value(sessionId)->splitLeftRight();
+    const int terminalId = m_sessions.value(sessionId)->splitLeftRight();
+
+    if (terminalId != -1)
+        Q_EMIT sessionContentChanged(sessionId);
+
+    return terminalId;
 }
 
 int SessionStack::splitSessionAuto(int sessionId)
@@ -576,7 +666,12 @@ int SessionStack::splitSessionAuto(int sessionId)
     if (!m_sessions.contains(sessionId))
         return -1;
 
-    return m_sessions.value(sessionId)->splitAuto();
+    const int terminalId = m_sessions.value(sessionId)->splitAuto();
+
+    if (terminalId != -1)
+        Q_EMIT sessionContentChanged(sessionId);
+
+    return terminalId;
 }
 
 int SessionStack::splitSessionTopBottom(int sessionId)
@@ -586,7 +681,12 @@ int SessionStack::splitSessionTopBottom(int sessionId)
     if (!m_sessions.contains(sessionId))
         return -1;
 
-    return m_sessions.value(sessionId)->splitTopBottom();
+    const int terminalId = m_sessions.value(sessionId)->splitTopBottom();
+
+    if (terminalId != -1)
+        Q_EMIT sessionContentChanged(sessionId);
+
+    return terminalId;
 }
 
 int SessionStack::splitTerminalLeftRight(int terminalId)
@@ -596,7 +696,12 @@ int SessionStack::splitTerminalLeftRight(int terminalId)
     if (sessionId == -1)
         return -1;
 
-    return m_sessions.value(sessionId)->splitLeftRight(terminalId);
+    const int newTerminalId = m_sessions.value(sessionId)->splitLeftRight(terminalId);
+
+    if (newTerminalId != -1)
+        Q_EMIT sessionContentChanged(sessionId);
+
+    return newTerminalId;
 }
 
 int SessionStack::splitTerminalTopBottom(int terminalId)
@@ -606,7 +711,12 @@ int SessionStack::splitTerminalTopBottom(int terminalId)
     if (sessionId == -1)
         return -1;
 
-    return m_sessions.value(sessionId)->splitTopBottom(terminalId);
+    const int newTerminalId = m_sessions.value(sessionId)->splitTopBottom(terminalId);
+
+    if (newTerminalId != -1)
+        Q_EMIT sessionContentChanged(sessionId);
+
+    return newTerminalId;
 }
 
 int SessionStack::tryGrowTerminalRight(int terminalId, uint pixels)
@@ -697,6 +807,14 @@ void SessionStack::handleTerminalHighlightRequest(int terminalId)
 void SessionStack::showEvent(QShowEvent *event)
 {
     Q_UNUSED(event)
+
+    if (m_restoredSizesPending) {
+        m_restoredSizesPending = false;
+
+        const auto sessions = m_sessions.values();
+        for (Session *session : sessions)
+            session->reapplyRestoredSplitterSizes();
+    }
 
     if (m_activeSessionId == -1)
         return;
