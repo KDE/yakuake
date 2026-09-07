@@ -1,8 +1,8 @@
 # Translation of yakuake.po to Catalan
-# Copyright (C) 2008-2024 This_file_is_part_of_KDE
+# Copyright (C) 2008-2026 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2 or later.
 #
-# SPDX-FileCopyrightText: 2008-2012, 2014-2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2008-2012, 2014-2024, 2026 Josep M. Ferrer <txemaq@gmail.com>
 # SPDX-FileCopyrightText: 2010-2011 Joan Maspons <joanmaspons@gmail.com>
 # SPDX-FileCopyrightText: 2014-2015, 2019-2020, 2022 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-30 00:48+0000\n"
-"PO-Revision-Date: 2024-12-22 10:17+0100\n"
+"PO-Revision-Date: 2026-09-06 16:38+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
@@ -442,7 +442,7 @@ msgstr "Amplada:"
 #, kde-format
 msgctxt "@label:slider"
 msgid "Height:"
-msgstr "Alçada:"
+msgstr "Altura:"
 
 #. i18n: ectx: property (text), widget (QLabel, durationLabel)
 #: app/config/windowsettings.ui:219
@@ -573,14 +573,14 @@ msgstr "Amplada de la finestra de l'aplicació en tant per cent de la pantalla."
 #, kde-format
 msgctxt "@label"
 msgid "Window height"
-msgstr "Alçada de la finestra"
+msgstr "Altura de la finestra"
 
 #. i18n: ectx: whatsthis, entry (Height), group (Window)
 #: app/config/yakuake.kcfg:22
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Height of the application window as a percentage of the screen."
-msgstr "Alçada de la finestra de l'aplicació en tant per cent de la pantalla."
+msgstr "Altura de la finestra de l'aplicació en tant per cent de la pantalla."
 
 #. i18n: ectx: label, entry (Position), group (Window)
 #: app/config/yakuake.kcfg:28
@@ -1304,13 +1304,13 @@ msgstr "Redueix l'amplada de la finestra"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
-msgstr "Augmenta l'alçada de la finestra"
+msgstr "Augmenta l'altura de la finestra"
 
 #: app/mainwindow.cpp:290
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
-msgstr "Redueix l'alçada de la finestra"
+msgstr "Redueix l'altura de la finestra"
 
 #: app/mainwindow.cpp:295
 #, kde-kuit-format
@@ -1508,7 +1508,7 @@ msgstr "Amplada"
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
-msgstr "Alçada"
+msgstr "Altura"
 
 #: app/mainwindow.cpp:742
 #, kde-kuit-format
