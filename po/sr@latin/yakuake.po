@@ -2,13 +2,14 @@
 # Slobodan Simic <slsimic@gmail.com>, 2009.
 # Mladen Pejakovic <pejakm@gmail.com>, 2011.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2011, 2012, 2014, 2015, 2016, 2017.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-30 00:48+0000\n"
-"PO-Revision-Date: 2017-07-16 22:55+0200\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-04 23:13+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
@@ -156,7 +157,7 @@ msgstr "Istakni terminale pri pomeranju fokusa između njih"
 #: app/config/appearancesettings.ui:45
 #, kde-format
 msgid "Hide borders"
-msgstr ""
+msgstr "Sakrij ivice"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: app/config/appearancesettings.ui:55
@@ -318,13 +319,13 @@ msgstr "Otvori prozor kad pokazivač miša dodirne ivicu ekrana"
 #: app/config/behaviorsettings.ui:101
 #, kde-format
 msgid "Remember and restore window fullscreen state"
-msgstr ""
+msgstr "Zapamti i povrati stanje prozora preko celog ekrana"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowSystrayIcon)
 #: app/config/behaviorsettings.ui:108
 #, kde-format
 msgid "Show system tray icon"
-msgstr ""
+msgstr "Prikaži ikonicu u sistemskoj kaseti"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpen)
 #: app/config/behaviorsettings.ui:118
@@ -370,23 +371,19 @@ msgstr "ekran %1"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
-msgstr ""
+msgstr "Skrivanje naslovne trake"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_0)
 #: app/config/windowsettings.ui:32
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Tab Bar"
+#, kde-format
 msgid "Title Bar"
-msgstr "Traka jezičaka"
+msgstr "Naslovna traka"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTitleBar)
 #: app/config/windowsettings.ui:38
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Show tab bar"
+#, kde-format
 msgid "Show title bar"
-msgstr "Prikaži traku jezičaka"
+msgstr "Prikaži naslovnu traku"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: app/config/windowsettings.ui:54
@@ -679,21 +676,17 @@ msgstr "Da li da prozor programa ostane iznad ostalih programa na ekranu."
 
 #. i18n: ectx: label, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:60
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Show tab bar"
+#, kde-format
 msgctxt "@label"
 msgid "Show title bar"
-msgstr "Prikaži traku jezičaka"
+msgstr "Prikaži naslovnu traku"
 
 #. i18n: ectx: whatsthis, entry (ShowTitleBar), group (Window)
 #: app/config/yakuake.kcfg:61
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Whether to show the tab bar in the application window."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show the title bar in the application window."
-msgstr "Da li da traka jezičaka bude prikazana u prozoru programa."
+msgstr "Da li da naslovna traka bude prikazana u prozoru programa."
 
 #. i18n: ectx: label, entry (ShowTabBar), group (Window)
 #: app/config/yakuake.kcfg:65
@@ -728,16 +721,14 @@ msgstr "Da li da se naslovi jezičaka ažuriraju ujedno sa trakom naslova."
 #, kde-format
 msgctxt "@label"
 msgid "Show a system tray icon"
-msgstr ""
+msgstr "Prikaži ikonicu u sistemskoj kaseti"
 
 #. i18n: ectx: whatsthis, entry (ShowSystrayIcon), group (Window)
 #: app/config/yakuake.kcfg:76
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Whether to show the tab bar in the application window."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Whether to show a system tray icon."
-msgstr "Da li da traka jezičaka bude prikazana u prozoru programa."
+msgstr "Da li da bude prikazana ikonica u sistemskoj kaseti."
 
 #. i18n: ectx: label, entry (FocusFollowsMouse), group (Behavior)
 #: app/config/yakuake.kcfg:82
@@ -776,7 +767,7 @@ msgstr "Da li da prozor programa bude otvoren nakon pokretanja."
 #, kde-format
 msgctxt "@label"
 msgid "Remember window fullscreen state"
-msgstr ""
+msgstr "Zapamti stanje prozora preko celog ekrana"
 
 #. i18n: ectx: whatsthis, entry (RememberFullscreen), group (Behavior)
 #: app/config/yakuake.kcfg:93
@@ -786,6 +777,8 @@ msgid ""
 "Whether the window will be shown fullscreen again when it has been "
 "previously."
 msgstr ""
+"Da li će prozor ponovo biti prikazan preko celog ekrana ako je ranije bio "
+"tako prikazan."
 
 #. i18n: ectx: label, entry (Skin), group (Appearance)
 #: app/config/yakuake.kcfg:99
@@ -884,7 +877,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Hide the borders defined by the skin"
-msgstr ""
+msgstr "Sakrij ivice koje zadaje maska"
 
 #. i18n: ectx: whatsthis, entry (HideSkinBorders), group (Appearance)
 #: app/config/yakuake.kcfg:132
@@ -895,6 +888,9 @@ msgid ""
 "option, when turned on, will overwrite the border settings defined by the "
 "skin and hide all borders."
 msgstr ""
+"Maske mogu da zadaju ivice oko terminala, uključujući i traku jezičaka. Ako "
+"je uključena, ova opcija prebrisuje postavke ivica koje zadaje maska i "
+"skriva sve ivice."
 
 #. i18n: ectx: label, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:136
@@ -1118,12 +1114,10 @@ msgid "A drop-down terminal emulator based on KDE Konsole technology."
 msgstr "Padajući emulator terminala zasnovan na tehnologiji KDE‑ove Konsole."
 
 #: app/main.cpp:29
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2008-2017 The Yakuake Team"
+#, kde-kuit-format
 msgctxt "@info:credit"
 msgid "(c) 2008-2018 The Yakuake Team"
-msgstr "© 2008–2017, tim Yakuakea"
+msgstr "© 2008–2018, tim Yakuakea"
 
 #: app/main.cpp:36
 #, kde-kuit-format
@@ -1202,13 +1196,13 @@ msgstr "Radnje za proširenje terminala"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Slobodan Simić,Mladen Pejaković"
+msgstr "Slobodan Simić,Mladen Pejaković,Nemanja Hiršl"
 
 #: app/main.cpp:49
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "slsimic@gmail.com,pejakm@gmail.com"
+msgstr "slsimic@gmail.com,pejakm@gmail.com,nemhirsl@gmail.com"
 
 #: app/mainwindow.cpp:198
 #, kde-kuit-format
@@ -1420,7 +1414,7 @@ msgstr "Podeli gore/dole"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Automatically"
-msgstr ""
+msgstr "Podeli automatski"
 
 #: app/mainwindow.cpp:448
 #, kde-kuit-format
@@ -1450,7 +1444,7 @@ msgstr "Nadgledaj tišinu"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
-msgstr ""
+msgstr "Uključi/isključi naslovnu traku"
 
 #: app/mainwindow.cpp:489
 #, kde-kuit-format
@@ -1521,7 +1515,7 @@ msgstr "ekran %1"
 #: app/mainwindow.cpp:800 app/mainwindow.cpp:822
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: app/mainwindow.cpp:887
 #, kde-kuit-format
@@ -1561,7 +1555,7 @@ msgstr "Ne mogu da učitam masku"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
-msgstr ""
+msgstr "Pritisnite <shortcut>%1</shortcut> da biste otvorili"
 
 #: app/sessionstack.cpp:255
 #, kde-format
@@ -1750,11 +1744,3 @@ msgstr "Napusti"
 msgctxt "@info:whatsthis"
 msgid "Quits the application."
 msgstr "Napušta program."
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Application successfully started.<nl/>Press <shortcut>%1</shortcut> to "
-#~ "use it ..."
-#~ msgstr ""
-#~ "Program je uspešno pokrenut.<nl/>Pritisnite <shortcut>%1</shortcut> da "
-#~ "biste ga koristili..."
