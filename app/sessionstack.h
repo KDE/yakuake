@@ -113,6 +113,7 @@ Q_SIGNALS:
     void sessionAdded(int sessionId, const QString &title);
     void sessionRaised(int sessionId);
     void sessionRemoved(int sessionId);
+    void sessionClosableChanged(int sessionId);
 
     void activeTitleChanged(const QString &title);
     void titleChanged(int sessionId, const QString &title);

@@ -306,6 +306,7 @@ void SessionStack::setSessionClosable(int sessionId, bool closable)
         return;
 
     m_sessions.value(sessionId)->setClosable(closable);
+    Q_EMIT sessionClosableChanged(sessionId);
 }
 
 bool SessionStack::hasUnclosableSessions() const

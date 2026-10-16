@@ -10,6 +10,7 @@
 
 #include <QHash>
 #include <QList>
+#include <QStyle>
 #include <QWidget>
 
 class MainWindow;
@@ -20,7 +21,9 @@ class QMenu;
 class QPushButton;
 class QToolButton;
 class QLabel;
-
+class QVariantAnimation;
+class QWidgetAction;
+class QTimer;
 class TabBar : public QWidget
 {
     Q_OBJECT
@@ -35,6 +38,7 @@ public:
     ~TabBar() override;
 
     void applySkin();
+    void refreshTabLayout();
 
 public Q_SLOTS:
     void addTab(int sessionId, const QString &title);
@@ -54,6 +58,7 @@ public Q_SLOTS:
     void setTabTitleAutomated(int sessionId, const QString &newTitle);
 
     Q_SCRIPTABLE int sessionAtTab(int index);
+    void showAllTabsMenu();
 
 Q_SIGNALS:
     void newTabRequested();
@@ -81,6 +86,7 @@ protected:
     void mouseDoubleClickEvent(QMouseEvent *) override;
     void contextMenuEvent(QContextMenuEvent *) override;
     void leaveEvent(QEvent *) override;
+    bool event(QEvent *event) override;
 
 private Q_SLOTS:
     void readySessionMenu();
@@ -90,6 +96,14 @@ private Q_SLOTS:
     void closeTabButtonClicked();
 
     void interactiveRenameDone();
+
+    void scrollTabsLeft();
+    void scrollTabsRight();
+    void readyAllTabsMenu();
+    void allTabsMenuTriggered(QAction *action);
+    void filterAllTabsMenu(const QString &text);
+    void onScrollAnimationValueChanged(const QVariant &value);
+    void onDragAutoScroll();
 
 private:
     QString standardTabTitle();
@@ -104,7 +118,30 @@ private:
     void updateToggleMonitorSilenceMenu(int sessionId = -1);
     void updateToggleMonitorActivityMenu(int sessionId = -1);
 
-    int drawTab(int x, int y, int index, QPainter &painter);
+    QFont tabFont(int index) const;
+    int tabLeftChromeWidth(int index) const;
+    int tabRightChromeWidth(int index) const;
+    int tabLockWidth(int index) const;
+    int naturalTabWidth(int index) const;
+    int minimumTabWidth(int index, int viewportWidth) const;
+    int overflowControlsWidth() const;
+    int tabsStartX() const;
+    int tabsAreaRight() const;
+    int totalTabsWidth() const;
+    int maxScrollOffset() const;
+    int contentLeft(int index) const;
+    QRect tabRect(int index) const;
+    void recalculateTabLayout(bool revealActiveTab = true);
+    void resetScrollOffset();
+    void ensureActiveTabVisible(bool animate = true);
+    void updateOverflowControls();
+    void positionOverflowControls();
+    void setScrollOffset(int offset, bool animate);
+    void panScrollBy(int delta);
+    void paintEdgeFades(QPainter &painter, const QRect &clipRect);
+    QIcon overlayIcon(const QString &themeName, QStyle::StandardPixmap fallback) const;
+
+    int drawTab(int x, int y, int index, int tabWidth, QPainter &painter);
     void moveNewTabButton();
 
     void startDrag(int index);
@@ -114,15 +151,22 @@ private:
 
     MainWindow *m_mainWindow = nullptr;
     Skin *m_skin = nullptr;
+    QColor m_edgeFadeColor;
 
     QToolButton *m_newTabButton = nullptr;
     QPushButton *m_closeTabButton = nullptr;
+    QToolButton *m_scrollLeftButton = nullptr;
+    QToolButton *m_scrollRightButton = nullptr;
+    QToolButton *m_allTabsButton = nullptr;
 
     QMenu *m_tabContextMenu = nullptr;
     QMenu *m_toggleKeyboardInputMenu = nullptr;
     QMenu *m_toggleMonitorActivityMenu = nullptr;
     QMenu *m_toggleMonitorSilenceMenu = nullptr;
     QMenu *m_sessionMenu = nullptr;
+    QMenu *m_allTabsMenu = nullptr;
+    QLineEdit *m_allTabsFilter = nullptr;
+    QWidgetAction *m_allTabsFilterAction = nullptr;
 
     QLineEdit *m_lineEdit = nullptr;
     int m_renamingSessionId;
@@ -130,9 +174,16 @@ private:
     QList<int> m_tabs;
     QHash<int, QString> m_tabTitles;
     QHash<int, bool> m_tabTitlesSetInteractive;
-    QList<int> m_tabWidths;
+    QList<int> m_tabWidths; // individual fitted widths, content space
 
     int m_selectedSessionId;
+    int m_scrollOffset = 0;
+    bool m_overflowing = false;
+
+    QVariantAnimation *m_scrollAnimation = nullptr;
+    int m_wheelAccumulator = 0;
+    QTimer *m_dragAutoScrollTimer = nullptr;
+    int m_dragAutoScrollDirection = 0;
 
     bool m_mousePressed;
     int m_mousePressedIndex;

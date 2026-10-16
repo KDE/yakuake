@@ -114,6 +114,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_sessionStack, &SessionStack::sessionAdded, m_tabBar, &TabBar::addTab);
     connect(m_sessionStack, &SessionStack::sessionRaised, m_tabBar, &TabBar::selectTab);
     connect(m_sessionStack, &SessionStack::sessionRemoved, m_tabBar, &TabBar::removeTab);
+    connect(m_sessionStack, &SessionStack::sessionClosableChanged, m_tabBar, &TabBar::refreshTabLayout);
     connect(m_sessionStack, &SessionStack::activeTitleChanged, m_titleBar, &TitleBar::setTitle);
     connect(m_sessionStack, &SessionStack::activeTitleChanged, this, &MainWindow::setWindowTitle);
     connect(m_sessionStack, &SessionStack::wantsBlurChanged, this, &MainWindow::applyWindowProperties);
@@ -332,6 +333,12 @@ void MainWindow::setupActions()
     action->setIcon(QIcon::fromTheme(QStringLiteral("go-next")));
     actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::SHIFT | Qt::Key_Right));
     connect(action, &QAction::triggered, m_tabBar, &TabBar::selectNextTab);
+
+    action = actionCollection()->addAction(QStringLiteral("show-all-tabs"));
+    action->setText(xi18nc("@action", "Show All Tabs"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("view-list-symbolic"), QIcon::fromTheme(QStringLiteral("view-list-details"))));
+    actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Space));
+    connect(action, &QAction::triggered, m_tabBar, &TabBar::showAllTabsMenu);
 
     action = actionCollection()->addAction(QStringLiteral("move-session-left"));
     action->setText(xi18nc("@action", "Move Session Left"));
@@ -565,10 +572,6 @@ void MainWindow::handleContextDependentToggleAction(bool checked, QAction *actio
 
     if (action == actionCollection()->action(QStringLiteral("toggle-session-prevent-closing"))) {
         m_sessionStack->setSessionClosable(sessionId, !checked);
-
-        // Repaint the tab bar when the Prevent Closing action is toggled
-        // so the lock icon is added to or removed from the tab label.
-        m_tabBar->repaint();
     }
 
     if (action == actionCollection()->action(QStringLiteral("toggle-session-keyboard-input")))
