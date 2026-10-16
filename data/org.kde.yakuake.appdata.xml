@@ -53,6 +53,7 @@
   <name xml:lang="sr-ijekavian">Јакуаке</name>
   <name xml:lang="sr-ijekavianlatin">Yakuake</name>
   <name xml:lang="sv">Yakuake</name>
+  <name xml:lang="ta">யக்குவேக்</name>
   <name xml:lang="tr">Yakuake</name>
   <name xml:lang="ug">Yakuake تارتما تېرمىنال</name>
   <name xml:lang="uk">Yakuake</name>
@@ -259,7 +260,7 @@
       <li xml:lang="sv">Rullar ner mjukt från skärmens överkant</li>
       <li xml:lang="tr">Ekranınızın üst bölümünden düzgünce aşağı iner</li>
       <li xml:lang="uk">Плавно розгортається з верхньої частини вашого екрана.</li>
-      <li xml:lang="zh-CN">平滑地从屏幕顶端下拉显示</li>
+      <li xml:lang="zh-CN">从屏幕顶端平滑下拉显示</li>
       <li xml:lang="zh-TW">平滑地從螢幕頂端拉下來</li>
       <li>Tabbed interface</li>
       <li xml:lang="ar">واجهة ألسنة</li>
@@ -427,7 +428,7 @@
       <li xml:lang="gl">Sofisticada interface de D-Bus</li>
       <li xml:lang="he">ממשק D-Bus מתוחכם</li>
       <li xml:lang="hu">Kifinomult D-Bus interfész</li>
-      <li xml:lang="ia">Interfacie mundan de D-Bus</li>
+      <li xml:lang="ia">Interfacie sophisticate de D-Bus</li>
       <li xml:lang="id">Antarmuka D-Bus yang njlimet</li>
       <li xml:lang="is">Þróað D-Bus viðmót</li>
       <li xml:lang="it">Interfaccia D-Bus sofisticata</li>
@@ -471,6 +472,9 @@
   </provides>
   <launchable type="desktop-id">org.kde.yakuake.desktop</launchable>
   <releases>
+    <release version="26.08.2" date="2026-10-08"/>
+    <release version="26.08.1" date="2026-09-10"/>
+    <release version="26.08.0" date="2026-08-20"/>
     <release version="26.04.3" date="2026-07-02"/>
     <release version="26.04.2" date="2026-06-04"/>
     <release version="26.04.1" date="2026-05-07"/>

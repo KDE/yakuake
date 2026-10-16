@@ -91,3 +91,5 @@ endif()
 install(TARGETS yakuake ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES yakuake.knsrc DESTINATION ${KDE_INSTALL_KNSRCDIR})
+
+install(FILES config/yakuake.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
