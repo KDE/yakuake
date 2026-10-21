@@ -820,7 +820,23 @@ void MainWindow::loadSession()
     if (filePath.isEmpty())
         return;
 
+    bool replace = true;
+
     if (m_sessionStack->count() > 0) {
+        const auto mode = KMessageBox::questionTwoActionsCancel(this,
+                                                                xi18nc("@info", "Do you want to add the loaded session to the open sessions, or replace them?"),
+                                                                xi18nc("@title:window", "Load Session"),
+                                                                KGuiItem(xi18nc("@action:button", "Add")),
+                                                                KGuiItem(xi18nc("@action:button", "Replace")),
+                                                                KStandardGuiItem::cancel());
+
+        if (mode == KMessageBox::ButtonCode::Cancel)
+            return;
+
+        replace = (mode == KMessageBox::ButtonCode::SecondaryAction);
+    }
+
+    if (replace && m_sessionStack->count() > 0) {
         const int result =
             KMessageBox::warningContinueCancel(this,
                                                i18ncp("@info",
@@ -892,7 +908,7 @@ void MainWindow::loadSession()
         }
     }
 
-    if (!loadSessionFromFile(filePath, &errorMessage, commandModes))
+    if (!loadSessionFromFile(filePath, &errorMessage, commandModes, replace))
         KMessageBox::error(this, errorMessage);
 }
 
@@ -952,7 +968,7 @@ bool MainWindow::saveSessionToFile(const QString &filePath, QString *errorMessag
     return SessionStore::write(filePath, root, errorMessage);
 }
 
-bool MainWindow::loadSessionFromFile(const QString &filePath, QString *errorMessage, const QList<SessionStore::CommandMode> &commandModes)
+bool MainWindow::loadSessionFromFile(const QString &filePath, QString *errorMessage, const QList<SessionStore::CommandMode> &commandModes, bool replace)
 {
     const QJsonObject root = SessionStore::read(filePath, errorMessage);
 
@@ -969,12 +985,14 @@ bool MainWindow::loadSessionFromFile(const QString &filePath, QString *errorMess
 
     m_sessionRestoreInProgress = true;
 
-    m_sessionStack->removeAllSessions();
+    if (replace) {
+        m_sessionStack->removeAllSessions();
 
-    // Flush the deferred deletions so the tab bar is empty before the saved
-    // tabs get added again.
-    QCoreApplication::processEvents();
-    QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
+        // Flush the deferred deletions so the tab bar is empty before the saved
+        // tabs get added again.
+        QCoreApplication::processEvents();
+        QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
+    }
 
     int restoredActiveSessionId = -1;
     qsizetype tabCommandOffset = 0;
