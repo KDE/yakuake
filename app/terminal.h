@@ -81,6 +81,10 @@ public:
 
     QString currentWorkingDirectory() const;
 
+    // Command line of the program running in the foreground of this terminal,
+    // or an empty list when it is only the shell (or cannot be determined).
+    QStringList foregroundCommand() const;
+
     void deletePart();
 
     KActionCollection *actionCollection();

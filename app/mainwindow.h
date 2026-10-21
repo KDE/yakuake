@@ -77,6 +77,7 @@ public Q_SLOTS:
 
     // Scriptable session management: no dialogs, no confirmation.
     Q_SCRIPTABLE bool saveCurrentSession(const QString &name);
+    // Saved programs are never started from here, as there is no way to ask.
     Q_SCRIPTABLE bool loadSavedSession(const QString &name);
 
     void handleContextDependentAction(QAction *action = nullptr, int sessionId = -1);
@@ -158,7 +159,7 @@ private:
     void setupMenu();
 
     bool saveSessionToFile(const QString &filePath, QString *errorMessage);
-    bool loadSessionFromFile(const QString &filePath, QString *errorMessage);
+    bool loadSessionFromFile(const QString &filePath, QString *errorMessage, bool runCommands = false);
 
     void updateWindowSizeMenus();
     void updateWindowHeightMenu();

@@ -6,6 +6,7 @@
 */
 
 #include "session.h"
+#include "sessionstore.h"
 #include "terminal.h"
 
 #include <QJsonArray>
@@ -727,6 +728,10 @@ QJsonObject Session::serializeWidget(QWidget *widget) const
         const QString workingDirectory = terminal->currentWorkingDirectory();
         if (!workingDirectory.isEmpty())
             node[QStringLiteral("cwd")] = workingDirectory;
+
+        const QStringList command = terminal->foregroundCommand();
+        if (!command.isEmpty())
+            node[QStringLiteral("command")] = QJsonArray::fromStringList(command);
     }
 
     return node;
@@ -745,17 +750,21 @@ Terminal *Session::terminalForWidget(QWidget *widget) const
     return nullptr;
 }
 
-bool Session::restoreLayout(const QJsonObject &layout)
+bool Session::restoreLayout(const QJsonObject &layout, bool runCommands)
 {
     if (!m_baseSplitter)
         return false;
+
+    m_runRestoredCommands = runCommands;
 
     const QString type = layout.value(QStringLiteral("type")).toString();
 
     // A single terminal needs no layout: the session was already created with
     // the saved working directory, which only the constructor can set.
-    if (type == QLatin1String("terminal"))
+    if (type == QLatin1String("terminal")) {
+        runRestoredCommand(getTerminal(m_activeTerminalId), layout);
         return true;
+    }
 
     if (type != QLatin1String("split") || m_baseSplitter->count() != 1)
         return false;
@@ -829,13 +838,27 @@ QWidget *Session::restoreTerminalNode(const QJsonObject &node, QSplitter *parent
             parent->addWidget(widget);
 
         terminal->setSplitter(parent);
+        runRestoredCommand(terminal, node);
 
         return widget;
     }
 
     Terminal *terminal = addTerminal(parent, node.value(QStringLiteral("cwd")).toString());
+    runRestoredCommand(terminal, node);
 
     return terminal ? terminal->partWidget() : nullptr;
+}
+
+void Session::runRestoredCommand(Terminal *terminal, const QJsonObject &node)
+{
+    if (!m_runRestoredCommands || !terminal)
+        return;
+
+    const QStringList command = SessionStore::command(node);
+
+    // The input is buffered by the pty until the shell is ready to read it.
+    if (!command.isEmpty())
+        terminal->runCommand(SessionStore::commandToString(command));
 }
 
 #include "moc_session.cpp"

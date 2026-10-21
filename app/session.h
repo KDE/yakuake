@@ -97,7 +97,9 @@ public:
     // orientations, relative sizes and the working directory of every
     // terminal) so it can be stored and restored later.
     QJsonObject serializeLayout() const;
-    bool restoreLayout(const QJsonObject &layout);
+    // With runCommands set, the programs stored in the layout are started
+    // again in their terminals; the caller is responsible for asking the user.
+    bool restoreLayout(const QJsonObject &layout, bool runCommands = false);
 
 public Q_SLOTS:
     void closeTerminal(int terminalId = -1);
@@ -146,6 +148,7 @@ private:
     bool restoreSplitterNode(const QJsonObject &node, Splitter *splitter);
     QWidget *restoreTerminalNode(const QJsonObject &node, QSplitter *parent);
     Terminal *terminalForWidget(QWidget *widget) const;
+    void runRestoredCommand(Terminal *terminal, const QJsonObject &node);
 
     QString m_workingDir;
     static int m_availableSessionId;
@@ -164,6 +167,7 @@ private:
     // restoring a layout so its working directory (passed to the constructor,
     // which is the only place it can be set) is not lost.
     Terminal *m_pendingRestoreTerminal = nullptr;
+    bool m_runRestoredCommands = false;
 };
 
 #endif

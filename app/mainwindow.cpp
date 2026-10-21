@@ -829,9 +829,35 @@ void MainWindow::loadSession()
             return;
     }
 
+    // Programs are only started again after the user has seen what they are.
+    bool runCommands = false;
     QString errorMessage;
+    const QJsonObject root = SessionStore::read(filePath, &errorMessage);
 
-    if (!loadSessionFromFile(filePath, &errorMessage))
+    if (root.isEmpty()) {
+        KMessageBox::error(this, errorMessage);
+        return;
+    }
+
+    QStringList commandLines;
+
+    for (const QJsonValue &tab : root.value(QStringLiteral("tabs")).toArray()) {
+        for (const QStringList &command : SessionStore::commands(tab.toObject().value(QStringLiteral("layout")).toObject()))
+            commandLines << SessionStore::commandToString(command);
+    }
+
+    if (!commandLines.isEmpty()) {
+        const auto answer = KMessageBox::questionTwoActionsList(this,
+                                                                xi18nc("@info", "This session contains programs that were running when it was saved. Do you want to start them again?"),
+                                                                commandLines,
+                                                                xi18nc("@title:window", "Restore Running Programs"),
+                                                                KGuiItem(xi18nc("@action:button", "Run Programs")),
+                                                                KGuiItem(xi18nc("@action:button", "Do Not Run")));
+
+        runCommands = (answer == KMessageBox::ButtonCode::PrimaryAction);
+    }
+
+    if (!loadSessionFromFile(filePath, &errorMessage, runCommands))
         KMessageBox::error(this, errorMessage);
 }
 
@@ -891,7 +917,7 @@ bool MainWindow::saveSessionToFile(const QString &filePath, QString *errorMessag
     return SessionStore::write(filePath, root, errorMessage);
 }
 
-bool MainWindow::loadSessionFromFile(const QString &filePath, QString *errorMessage)
+bool MainWindow::loadSessionFromFile(const QString &filePath, QString *errorMessage, bool runCommands)
 {
     const QJsonObject root = SessionStore::read(filePath, errorMessage);
 
@@ -925,7 +951,7 @@ bool MainWindow::loadSessionFromFile(const QString &filePath, QString *errorMess
 
         Session *session = m_sessionStack->session(sessionId);
         if (session)
-            session->restoreLayout(layout);
+            session->restoreLayout(layout, runCommands);
 
         const QString title = tab.value(QStringLiteral("title")).toString();
         if (!title.isEmpty()) {

@@ -17,6 +17,7 @@
 
 #include <QAction>
 #include <QApplication>
+#include <QFile>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QWidget>
@@ -296,6 +297,32 @@ void Terminal::activityDetected()
 void Terminal::silenceDetected()
 {
     Q_EMIT silenceDetected(this);
+}
+
+QStringList Terminal::foregroundCommand() const
+{
+    if (!m_terminalInterface)
+        return {};
+
+    const int foregroundPid = m_terminalInterface->foregroundProcessId();
+
+    if (foregroundPid <= 0 || foregroundPid == m_terminalInterface->terminalProcessId())
+        return {};
+
+    // Arguments are separated by NUL bytes. Only available on Linux.
+    QFile file(QStringLiteral("/proc/%1/cmdline").arg(foregroundPid));
+
+    if (!file.open(QIODevice::ReadOnly))
+        return {};
+
+    QStringList command;
+
+    for (const QByteArray &argument : file.readAll().split('\0')) {
+        if (!argument.isEmpty())
+            command << QString::fromLocal8Bit(argument);
+    }
+
+    return command;
 }
 
 QString Terminal::currentWorkingDirectory() const

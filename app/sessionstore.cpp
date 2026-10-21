@@ -16,6 +16,7 @@
 #include <QStandardPaths>
 
 #include <KLocalizedString>
+#include <KShell>
 
 QString SessionStore::sessionsDir()
 {
@@ -127,4 +128,43 @@ QString SessionStore::firstWorkingDirectory(const QJsonObject &layout)
     }
 
     return {};
+}
+
+QStringList SessionStore::command(const QJsonObject &terminalNode)
+{
+    QStringList command;
+
+    const QJsonArray arguments = terminalNode.value(QStringLiteral("command")).toArray();
+
+    for (const QJsonValue &argument : arguments) {
+        if (argument.isString())
+            command << argument.toString();
+    }
+
+    return command;
+}
+
+QList<QStringList> SessionStore::commands(const QJsonObject &layout)
+{
+    QList<QStringList> result;
+
+    if (layout.value(QStringLiteral("type")).toString() == QLatin1String("terminal")) {
+        const QStringList terminalCommand = command(layout);
+        if (!terminalCommand.isEmpty())
+            result << terminalCommand;
+
+        return result;
+    }
+
+    const QJsonArray children = layout.value(QStringLiteral("children")).toArray();
+
+    for (const QJsonValue &child : children)
+        result << commands(child.toObject());
+
+    return result;
+}
+
+QString SessionStore::commandToString(const QStringList &command)
+{
+    return KShell::joinArgs(command);
 }
