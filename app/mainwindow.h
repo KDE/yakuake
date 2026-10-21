@@ -159,7 +159,7 @@ private:
 
     void setupMenu();
 
-    bool saveSessionToFile(const QString &filePath, QString *errorMessage);
+    bool saveSessionToFile(const QString &filePath, QString *errorMessage, const QList<int> &sessionIds = {});
     bool loadSessionFromFile(const QString &filePath, QString *errorMessage, const QList<SessionStore::CommandMode> &commandModes = {}, bool replace = true);
 
     void updateWindowSizeMenus();

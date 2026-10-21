@@ -792,7 +792,13 @@ void MainWindow::saveSession()
         return;
     }
 
-    QFileDialog dialog(this, xi18nc("@title:window", "Save Session"), SessionStore::sessionsDir());
+    // Tabs marked with Ctrl+click are saved on their own.
+    const QList<int> markedTabs = m_tabBar->markedTabs();
+
+    QFileDialog dialog(this,
+                       markedTabs.isEmpty() ? xi18nc("@title:window", "Save Session")
+                                            : i18ncp("@title:window", "Save Session (%1 selected tab)", "Save Session (%1 selected tabs)", markedTabs.count()),
+                       SessionStore::sessionsDir());
     dialog.setAcceptMode(QFileDialog::AcceptSave);
     dialog.setFileMode(QFileDialog::AnyFile);
     dialog.setNameFilters({i18nc("@item:inlistbox", "Session files (*.json)"), i18nc("@item:inlistbox", "All files (*)")});
@@ -806,7 +812,7 @@ void MainWindow::saveSession()
 
     QString errorMessage;
 
-    if (!saveSessionToFile(dialog.selectedFiles().constFirst(), &errorMessage))
+    if (!saveSessionToFile(dialog.selectedFiles().constFirst(), &errorMessage, markedTabs))
         KMessageBox::error(this, errorMessage);
 }
 
@@ -936,11 +942,14 @@ bool MainWindow::loadSavedSession(const QString &name)
     return true;
 }
 
-bool MainWindow::saveSessionToFile(const QString &filePath, QString *errorMessage)
+bool MainWindow::saveSessionToFile(const QString &filePath, QString *errorMessage, const QList<int> &sessionIds)
 {
     QJsonArray tabs;
 
     for (int sessionId : m_tabBar->tabOrder()) {
+        if (!sessionIds.isEmpty() && !sessionIds.contains(sessionId))
+            continue;
+
         Session *session = m_sessionStack->session(sessionId);
         if (!session)
             continue;

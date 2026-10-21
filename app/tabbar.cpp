@@ -381,6 +381,27 @@ void TabBar::moveNewTabButton()
     m_newTabButton->move(newTabButtonX, m_skin->tabBarNewTabButtonPosition().y());
 }
 
+QList<int> TabBar::markedTabs() const
+{
+    QList<int> marked;
+
+    for (int sessionId : m_tabs) {
+        if (m_markedTabs.contains(sessionId))
+            marked << sessionId;
+    }
+
+    return marked;
+}
+
+void TabBar::clearMarkedTabs()
+{
+    if (m_markedTabs.isEmpty())
+        return;
+
+    m_markedTabs.clear();
+    update();
+}
+
 void TabBar::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
@@ -437,6 +458,8 @@ int TabBar::drawTab(int x, int y, int index, QPainter &painter)
     bool selected;
     QFont font = QFontDatabase::systemFont(QFontDatabase::GeneralFont);
     int textWidth = 0;
+
+    const int tabStartX = x;
 
     sessionId = m_tabs.at(index);
     selected = (sessionId == m_selectedSessionId);
@@ -506,6 +529,12 @@ int TabBar::drawTab(int x, int y, int index, QPainter &painter)
         x += m_skin->tabBarSeparatorImage().width();
     }
 
+    if (m_markedTabs.contains(sessionId)) {
+        QColor highlight = palette().color(QPalette::Highlight);
+        highlight.setAlpha(110);
+        painter.fillRect(tabStartX, y, x - tabStartX, height() - y, highlight);
+    }
+
     return x;
 }
 
@@ -548,7 +577,22 @@ void TabBar::mousePressEvent(QMouseEvent *event)
     if (index == -1)
         return;
 
+    if (event->button() == Qt::LeftButton && (event->modifiers() & Qt::ControlModifier)) {
+        const int sessionId = m_tabs.at(index);
+
+        // Like in a browser the open tab becomes part of the selection.
+        if (m_markedTabs.isEmpty())
+            m_markedTabs.insert(m_selectedSessionId);
+
+        if (!m_markedTabs.remove(sessionId))
+            m_markedTabs.insert(sessionId);
+
+        update();
+        return;
+    }
+
     if (event->button() == Qt::LeftButton || event->button() == Qt::MiddleButton) {
+        clearMarkedTabs();
         m_startPos = event->pos();
         if (index != m_tabs.indexOf(m_selectedSessionId) || event->button() == Qt::MiddleButton) {
             m_mousePressed = true;
@@ -735,6 +779,7 @@ void TabBar::removeTab(int sessionId)
 
     m_tabs.removeAt(index);
     m_tabTitles.remove(sessionId);
+    m_markedTabs.remove(sessionId);
 
     if (m_tabs.isEmpty())
         Q_EMIT lastTabClosed();

@@ -12,6 +12,8 @@
 #include <QList>
 #include <QWidget>
 
+#include <QSet>
+
 class MainWindow;
 class Skin;
 
@@ -41,6 +43,10 @@ public:
     {
         return m_tabs;
     }
+
+    // Tabs marked with Ctrl+click, in visual order.
+    QList<int> markedTabs() const;
+    void clearMarkedTabs();
 
     // True when the title was set by the user and must not be overwritten by
     // automated titles from the terminal.
@@ -144,6 +150,7 @@ private:
     QHash<int, QString> m_tabTitles;
     QHash<int, bool> m_tabTitlesSetInteractive;
     QList<int> m_tabWidths;
+    QSet<int> m_markedTabs;
 
     int m_selectedSessionId;
 
