@@ -50,6 +50,13 @@
 #include <QJsonObject>
 #include <QMenu>
 #include <QPainter>
+#include <QComboBox>
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QFontDatabase>
+#include <QFormLayout>
+#include <QLabel>
+#include <QVBoxLayout>
 #include <QScreen>
 #include <QWhatsThis>
 #include <QWindow>
@@ -830,7 +837,7 @@ void MainWindow::loadSession()
     }
 
     // Programs are only started again after the user has seen what they are.
-    bool runCommands = false;
+    QList<SessionStore::CommandMode> commandModes;
     QString errorMessage;
     const QJsonObject root = SessionStore::read(filePath, &errorMessage);
 
@@ -847,17 +854,45 @@ void MainWindow::loadSession()
     }
 
     if (!commandLines.isEmpty()) {
-        const auto answer = KMessageBox::questionTwoActionsList(this,
-                                                                xi18nc("@info", "This session contains programs that were running when it was saved. Do you want to start them again?"),
-                                                                commandLines,
-                                                                xi18nc("@title:window", "Restore Running Programs"),
-                                                                KGuiItem(xi18nc("@action:button", "Run Programs")),
-                                                                KGuiItem(xi18nc("@action:button", "Do Not Run")));
+        QDialog dialog(this);
+        dialog.setWindowTitle(xi18nc("@title:window", "Restore Running Programs"));
 
-        runCommands = (answer == KMessageBox::ButtonCode::PrimaryAction);
+        auto *layout = new QVBoxLayout(&dialog);
+        layout->addWidget(new QLabel(xi18nc("@info", "This session contains programs that were running when it was saved. Choose what to do with each of them."), &dialog));
+
+        auto *form = new QFormLayout;
+        QList<QComboBox *> combos;
+
+        for (const QString &commandLine : std::as_const(commandLines)) {
+            auto *combo = new QComboBox(&dialog);
+            combo->addItem(xi18nc("@item:inlistbox", "Run"), static_cast<int>(SessionStore::CommandMode::Run));
+            combo->addItem(xi18nc("@item:inlistbox", "Only place in command line"), static_cast<int>(SessionStore::CommandMode::Type));
+            combo->addItem(xi18nc("@item:inlistbox", "Do not restore"), static_cast<int>(SessionStore::CommandMode::DoNothing));
+            // Nothing starts unless the user presses Enter or picks Run.
+            combo->setCurrentIndex(1);
+
+            auto *label = new QLabel(commandLine, &dialog);
+            label->setFont(QFontDatabase::systemFont(QFontDatabase::FixedFont));
+            label->setTextInteractionFlags(Qt::TextSelectableByMouse);
+
+            form->addRow(label, combo);
+            combos << combo;
+        }
+
+        layout->addLayout(form);
+
+        auto *buttons = new QDialogButtonBox(QDialogButtonBox::Ok, &dialog);
+        connect(buttons, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+        layout->addWidget(buttons);
+
+        // Closing the dialog restores none of the programs.
+        if (dialog.exec() == QDialog::Accepted) {
+            for (const QComboBox *combo : std::as_const(combos))
+                commandModes << static_cast<SessionStore::CommandMode>(combo->currentData().toInt());
+        }
     }
 
-    if (!loadSessionFromFile(filePath, &errorMessage, runCommands))
+    if (!loadSessionFromFile(filePath, &errorMessage, commandModes))
         KMessageBox::error(this, errorMessage);
 }
 
@@ -917,7 +952,7 @@ bool MainWindow::saveSessionToFile(const QString &filePath, QString *errorMessag
     return SessionStore::write(filePath, root, errorMessage);
 }
 
-bool MainWindow::loadSessionFromFile(const QString &filePath, QString *errorMessage, bool runCommands)
+bool MainWindow::loadSessionFromFile(const QString &filePath, QString *errorMessage, const QList<SessionStore::CommandMode> &commandModes)
 {
     const QJsonObject root = SessionStore::read(filePath, errorMessage);
 
@@ -942,16 +977,21 @@ bool MainWindow::loadSessionFromFile(const QString &filePath, QString *errorMess
     QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
 
     int restoredActiveSessionId = -1;
+    qsizetype tabCommandOffset = 0;
 
     for (const QJsonValue &value : tabs) {
         const QJsonObject tab = value.toObject();
         const QJsonObject layout = tab.value(QStringLiteral("layout")).toObject();
 
+        const qsizetype commandCount = SessionStore::commands(layout).size();
+        const qsizetype commandOffset = tabCommandOffset;
+        tabCommandOffset += commandCount;
+
         const int sessionId = m_sessionStack->addSessionImpl(Session::Single, SessionStore::firstWorkingDirectory(layout));
 
         Session *session = m_sessionStack->session(sessionId);
         if (session)
-            session->restoreLayout(layout, runCommands);
+            session->restoreLayout(layout, commandModes.mid(commandOffset, commandCount));
 
         const QString title = tab.value(QStringLiteral("title")).toString();
         if (!title.isEmpty()) {

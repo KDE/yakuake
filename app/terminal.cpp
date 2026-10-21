@@ -244,6 +244,11 @@ void Terminal::runCommand(const QString &command)
     m_terminalInterface->sendInput(command + QStringLiteral("\n"));
 }
 
+void Terminal::typeCommand(const QString &command)
+{
+    m_terminalInterface->sendInput(command);
+}
+
 void Terminal::manageProfiles()
 {
     QMetaObject::invokeMethod(m_part, "showManageProfilesDialog", Qt::QueuedConnection, Q_ARG(QWidget *, QApplication::activeWindow()));

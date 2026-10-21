@@ -35,6 +35,13 @@ public:
     static QString firstWorkingDirectory(const QJsonObject &layout);
 
     // Programs that were running in the terminals of a serialized layout,
+    // What to do with the programs stored in a session when it is loaded.
+    enum class CommandMode {
+        DoNothing, // leave the terminals empty
+        Type, // put the command on the command line, the user presses Enter
+        Run, // start the programs right away
+    };
+
     // one command line per terminal.
     static QList<QStringList> commands(const QJsonObject &layout);
 

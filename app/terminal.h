@@ -54,6 +54,8 @@ public:
     }
 
     void runCommand(const QString &command);
+    // Places the text on the command line without executing it.
+    void typeCommand(const QString &command);
 
     void manageProfiles();
     void editProfile();

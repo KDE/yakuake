@@ -15,6 +15,7 @@
 #include <QTimer>
 
 #include "outputorderwatcher.h"
+#include "sessionstore.h"
 
 class FirstRunDialog;
 class SessionStack;
@@ -159,7 +160,7 @@ private:
     void setupMenu();
 
     bool saveSessionToFile(const QString &filePath, QString *errorMessage);
-    bool loadSessionFromFile(const QString &filePath, QString *errorMessage, bool runCommands = false);
+    bool loadSessionFromFile(const QString &filePath, QString *errorMessage, const QList<SessionStore::CommandMode> &commandModes = {});
 
     void updateWindowSizeMenus();
     void updateWindowHeightMenu();

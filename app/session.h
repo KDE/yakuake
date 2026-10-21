@@ -8,6 +8,7 @@
 #ifndef SESSION_H
 #define SESSION_H
 
+#include "sessionstore.h"
 #include "splitter.h"
 
 #include <QJsonObject>
@@ -97,9 +98,11 @@ public:
     // orientations, relative sizes and the working directory of every
     // terminal) so it can be stored and restored later.
     QJsonObject serializeLayout() const;
-    // With runCommands set, the programs stored in the layout are started
-    // again in their terminals; the caller is responsible for asking the user.
-    bool restoreLayout(const QJsonObject &layout, bool runCommands = false);
+    // The programs stored in the layout are started again or only typed in
+    // their terminals; commandModes holds one entry per stored program, in
+    // the order of SessionStore::commands(). The caller is responsible for
+    // asking the user.
+    bool restoreLayout(const QJsonObject &layout, const QList<SessionStore::CommandMode> &commandModes = {});
 
 public Q_SLOTS:
     void closeTerminal(int terminalId = -1);
@@ -167,7 +170,7 @@ private:
     // restoring a layout so its working directory (passed to the constructor,
     // which is the only place it can be set) is not lost.
     Terminal *m_pendingRestoreTerminal = nullptr;
-    bool m_runRestoredCommands = false;
+    QList<SessionStore::CommandMode> m_restoredCommandModes;
 };
 
 #endif

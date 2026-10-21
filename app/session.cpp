@@ -750,12 +750,12 @@ Terminal *Session::terminalForWidget(QWidget *widget) const
     return nullptr;
 }
 
-bool Session::restoreLayout(const QJsonObject &layout, bool runCommands)
+bool Session::restoreLayout(const QJsonObject &layout, const QList<SessionStore::CommandMode> &commandModes)
 {
     if (!m_baseSplitter)
         return false;
 
-    m_runRestoredCommands = runCommands;
+    m_restoredCommandModes = commandModes;
 
     const QString type = layout.value(QStringLiteral("type")).toString();
 
@@ -851,14 +851,21 @@ QWidget *Session::restoreTerminalNode(const QJsonObject &node, QSplitter *parent
 
 void Session::runRestoredCommand(Terminal *terminal, const QJsonObject &node)
 {
-    if (!m_runRestoredCommands || !terminal)
-        return;
-
     const QStringList command = SessionStore::command(node);
 
+    if (command.isEmpty())
+        return;
+
+    const SessionStore::CommandMode mode = m_restoredCommandModes.isEmpty() ? SessionStore::CommandMode::DoNothing : m_restoredCommandModes.takeFirst();
+
+    if (mode == SessionStore::CommandMode::DoNothing || !terminal)
+        return;
+
     // The input is buffered by the pty until the shell is ready to read it.
-    if (!command.isEmpty())
+    if (mode == SessionStore::CommandMode::Run)
         terminal->runCommand(SessionStore::commandToString(command));
+    else
+        terminal->typeCommand(SessionStore::commandToString(command));
 }
 
 #include "moc_session.cpp"
