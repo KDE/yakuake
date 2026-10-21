@@ -10,6 +10,7 @@
 
 #include "splitter.h"
 
+#include <QJsonObject>
 #include <QObject>
 
 class Terminal;
@@ -92,6 +93,12 @@ public:
 
     bool wantsBlur() const;
 
+    // Serializes the terminal layout of this session (splitter tree, their
+    // orientations, relative sizes and the working directory of every
+    // terminal) so it can be stored and restored later.
+    QJsonObject serializeLayout() const;
+    bool restoreLayout(const QJsonObject &layout);
+
 public Q_SLOTS:
     void closeTerminal(int terminalId = -1);
 
@@ -135,6 +142,11 @@ private:
     Terminal *addTerminal(QSplitter *parent, QString workingDir = QString());
     int split(Terminal *terminal, Qt::Orientation orientation);
 
+    QJsonObject serializeWidget(QWidget *widget) const;
+    bool restoreSplitterNode(const QJsonObject &node, Splitter *splitter);
+    QWidget *restoreTerminalNode(const QJsonObject &node, QSplitter *parent);
+    Terminal *terminalForWidget(QWidget *widget) const;
+
     QString m_workingDir;
     static int m_availableSessionId;
     int m_sessionId;
@@ -147,6 +159,11 @@ private:
     QString m_title;
 
     bool m_closable;
+
+    // Terminal the session was created with; re-used as the first leaf while
+    // restoring a layout so its working directory (passed to the constructor,
+    // which is the only place it can be set) is not lost.
+    Terminal *m_pendingRestoreTerminal = nullptr;
 };
 
 #endif

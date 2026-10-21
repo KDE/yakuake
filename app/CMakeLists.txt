@@ -18,6 +18,8 @@ target_sources(yakuake PRIVATE
     session.h
     sessionstack.cpp
     sessionstack.h
+    sessionstore.cpp
+    sessionstore.h
     skin.cpp
     skin.h
     splitter.cpp

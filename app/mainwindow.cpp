@@ -11,6 +11,7 @@
 #include "config/windowsettings.h"
 #include "firstrundialog.h"
 #include "sessionstack.h"
+#include "sessionstore.h"
 #include "settings.h"
 #include "skin.h"
 #include "tabbar.h"
@@ -41,6 +42,12 @@
 #include <QDBusConnection>
 #include <QDBusPendingReply>
 #include <QDBusReply>
+#include <QDebug>
+#include <QDir>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QJsonArray>
+#include <QJsonObject>
 #include <QMenu>
 #include <QPainter>
 #include <QScreen>
@@ -100,7 +107,12 @@ MainWindow::MainWindow(QWidget *parent)
     setupMenu();
 
     connect(m_tabBar, &TabBar::newTabRequested, m_sessionStack, &SessionStack::addSession);
-    connect(m_tabBar, &TabBar::lastTabClosed, m_tabBar, &TabBar::newTabRequested);
+    connect(m_tabBar, &TabBar::lastTabClosed, this, [this]() {
+        // Stay quiet while a saved session replaces the tabs, otherwise an
+        // empty replacement tab shows up in the middle of the restore.
+        if (!m_sessionRestoreInProgress)
+            m_sessionStack->addSession();
+    });
     connect(m_tabBar, &TabBar::lastTabClosed, this, &MainWindow::handleLastTabClosed);
     connect(m_tabBar, &TabBar::tabSelected, m_sessionStack, &SessionStack::raiseSession);
     connect(m_tabBar, &TabBar::tabClosed, m_sessionStack, &SessionStack::removeSession);
@@ -320,6 +332,16 @@ void MainWindow::setupActions()
         handleContextDependentAction();
     });
     m_contextDependentActions << action;
+
+    action = actionCollection()->addAction(QStringLiteral("save-session"));
+    action->setText(xi18nc("@action", "Save Session..."));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("document-save")));
+    connect(action, &QAction::triggered, this, &MainWindow::saveSession);
+
+    action = actionCollection()->addAction(QStringLiteral("load-session"));
+    action->setText(xi18nc("@action", "Load Session..."));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
+    connect(action, &QAction::triggered, this, &MainWindow::loadSession);
 
     action = actionCollection()->addAction(QStringLiteral("previous-session"));
     action->setText(xi18nc("@action", "Previous Session"));
@@ -666,6 +688,9 @@ void MainWindow::handleTerminalSilence(Terminal *terminal)
 
 void MainWindow::handleLastTabClosed()
 {
+    if (m_sessionRestoreInProgress)
+        return;
+
     if (isVisible() && !Settings::keepOpenAfterLastSessionCloses())
         toggleWindowState();
 }
@@ -714,6 +739,10 @@ void MainWindow::handleToggleTitlebar()
 
 void MainWindow::setupMenu()
 {
+    m_menu->insertSection(nullptr, xi18nc("@title:menu", "Sessions"));
+    m_menu->addAction(actionCollection()->action(QStringLiteral("save-session")));
+    m_menu->addAction(actionCollection()->action(QStringLiteral("load-session")));
+
     m_menu->insertSection(nullptr, xi18nc("@title:menu", "Help"));
     m_menu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::WhatsThis)));
     m_menu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::ReportBug)));
@@ -747,6 +776,175 @@ void MainWindow::setupMenu()
 
     m_menu->addSeparator();
     m_menu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::Quit)));
+}
+
+void MainWindow::saveSession()
+{
+    if (m_tabBar->tabOrder().isEmpty()) {
+        KMessageBox::information(this, xi18nc("@info", "There are no open sessions to save."));
+        return;
+    }
+
+    QFileDialog dialog(this, xi18nc("@title:window", "Save Session"), SessionStore::sessionsDir());
+    dialog.setAcceptMode(QFileDialog::AcceptSave);
+    dialog.setFileMode(QFileDialog::AnyFile);
+    dialog.setNameFilters({i18nc("@item:inlistbox", "Session files (*.json)"), i18nc("@item:inlistbox", "All files (*)")});
+    // Also makes the dialog ask before overwriting "name.json" when only "name" was typed.
+    dialog.setDefaultSuffix(QStringLiteral("json"));
+
+    QDir().mkpath(SessionStore::sessionsDir());
+
+    if (dialog.exec() != QDialog::Accepted || dialog.selectedFiles().isEmpty())
+        return;
+
+    QString errorMessage;
+
+    if (!saveSessionToFile(dialog.selectedFiles().constFirst(), &errorMessage))
+        KMessageBox::error(this, errorMessage);
+}
+
+void MainWindow::loadSession()
+{
+    const QString filePath = QFileDialog::getOpenFileName(this,
+                                                          xi18nc("@title:window", "Load Session"),
+                                                          SessionStore::sessionsDir(),
+                                                          i18nc("@item:inlistbox", "Session files (*.json)") + QStringLiteral(";;")
+                                                              + i18nc("@item:inlistbox", "All files (*)"));
+    if (filePath.isEmpty())
+        return;
+
+    if (m_sessionStack->count() > 0) {
+        const int result =
+            KMessageBox::warningContinueCancel(this,
+                                               i18ncp("@info",
+                                                      "Loading the session '%2' will close the session that is currently open.",
+                                                      "Loading the session '%2' will close all %1 sessions that are currently open.",
+                                                      m_sessionStack->count(),
+                                                      QFileInfo(filePath).completeBaseName()),
+                                               xi18nc("@title:window", "Load Session"),
+                                               KStandardGuiItem::cont(),
+                                               KStandardGuiItem::cancel());
+
+        if (result != KMessageBox::ButtonCode::Continue)
+            return;
+    }
+
+    QString errorMessage;
+
+    if (!loadSessionFromFile(filePath, &errorMessage))
+        KMessageBox::error(this, errorMessage);
+}
+
+bool MainWindow::saveCurrentSession(const QString &name)
+{
+    QString errorMessage;
+
+    if (!saveSessionToFile(SessionStore::sessionPath(name), &errorMessage)) {
+        qWarning() << "Could not save session" << name << ":" << errorMessage;
+        return false;
+    }
+
+    return true;
+}
+
+bool MainWindow::loadSavedSession(const QString &name)
+{
+    QString errorMessage;
+
+    if (!loadSessionFromFile(SessionStore::sessionPath(name), &errorMessage)) {
+        qWarning() << "Could not load session" << name << ":" << errorMessage;
+        return false;
+    }
+
+    return true;
+}
+
+bool MainWindow::saveSessionToFile(const QString &filePath, QString *errorMessage)
+{
+    QJsonArray tabs;
+
+    for (int sessionId : m_tabBar->tabOrder()) {
+        Session *session = m_sessionStack->session(sessionId);
+        if (!session)
+            continue;
+
+        QJsonObject tab;
+        tab[QStringLiteral("title")] = m_tabBar->tabTitle(sessionId);
+        tab[QStringLiteral("titleManual")] = m_tabBar->isTabTitleManuallySet(sessionId);
+        tab[QStringLiteral("closable")] = m_sessionStack->isSessionClosable(sessionId);
+        tab[QStringLiteral("active")] = (sessionId == m_sessionStack->activeSessionId());
+        tab[QStringLiteral("layout")] = session->serializeLayout();
+
+        tabs.append(tab);
+    }
+
+    if (tabs.isEmpty()) {
+        if (errorMessage)
+            *errorMessage = xi18nc("@info", "There are no open sessions to save.");
+        return false;
+    }
+
+    QJsonObject root;
+    root[QStringLiteral("version")] = 1;
+    root[QStringLiteral("tabs")] = tabs;
+
+    return SessionStore::write(filePath, root, errorMessage);
+}
+
+bool MainWindow::loadSessionFromFile(const QString &filePath, QString *errorMessage)
+{
+    const QJsonObject root = SessionStore::read(filePath, errorMessage);
+
+    if (root.isEmpty())
+        return false;
+
+    const QJsonArray tabs = root.value(QStringLiteral("tabs")).toArray();
+
+    if (tabs.isEmpty()) {
+        if (errorMessage)
+            *errorMessage = xi18nc("@info", "The session file %1 does not contain any tabs.", filePath);
+        return false;
+    }
+
+    m_sessionRestoreInProgress = true;
+
+    m_sessionStack->removeAllSessions();
+
+    // Flush the deferred deletions so the tab bar is empty before the saved
+    // tabs get added again.
+    QCoreApplication::processEvents();
+    QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
+
+    int restoredActiveSessionId = -1;
+
+    for (const QJsonValue &value : tabs) {
+        const QJsonObject tab = value.toObject();
+        const QJsonObject layout = tab.value(QStringLiteral("layout")).toObject();
+
+        const int sessionId = m_sessionStack->addSessionImpl(Session::Single, SessionStore::firstWorkingDirectory(layout));
+
+        Session *session = m_sessionStack->session(sessionId);
+        if (session)
+            session->restoreLayout(layout);
+
+        const QString title = tab.value(QStringLiteral("title")).toString();
+        if (!title.isEmpty()) {
+            const auto interactive = tab.value(QStringLiteral("titleManual")).toBool() ? TabBar::Interactive : TabBar::NonInteractive;
+            m_tabBar->setTabTitle(sessionId, title, interactive);
+        }
+
+        m_sessionStack->setSessionClosable(sessionId, tab.value(QStringLiteral("closable")).toBool(true));
+
+        if (tab.value(QStringLiteral("active")).toBool())
+            restoredActiveSessionId = sessionId;
+    }
+
+    m_sessionRestoreInProgress = false;
+
+    if (restoredActiveSessionId != -1)
+        m_sessionStack->raiseSession(restoredActiveSessionId);
+
+    return true;
 }
 
 void MainWindow::updateScreenMenu()

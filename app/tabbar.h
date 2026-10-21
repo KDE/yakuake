@@ -36,6 +36,19 @@ public:
 
     void applySkin();
 
+    // Session ids of all tabs, in visual order.
+    QList<int> tabOrder() const
+    {
+        return m_tabs;
+    }
+
+    // True when the title was set by the user and must not be overwritten by
+    // automated titles from the terminal.
+    bool isTabTitleManuallySet(int sessionId) const
+    {
+        return m_tabTitlesSetInteractive.value(sessionId, false);
+    }
+
 public Q_SLOTS:
     void addTab(int sessionId, const QString &title);
     void removeTab(int sessionId = -1);

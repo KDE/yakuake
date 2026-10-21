@@ -33,13 +33,17 @@ SessionStack::SessionStack(QWidget *parent)
 
 SessionStack::~SessionStack() = default;
 
-int SessionStack::addSessionImpl(Session::SessionType type)
+int SessionStack::addSessionImpl(Session::SessionType type, const QString &workingDir)
 {
-    Session *currentSession = m_sessions.value(activeSessionId());
-    Terminal *currentTerminal = currentSession ? currentSession->getTerminal(currentSession->activeTerminalId()) : nullptr;
-    QString workingDir = currentTerminal ? currentTerminal->currentWorkingDirectory() : QString();
+    QString dir = workingDir;
 
-    Session *session = new Session(workingDir, type, this);
+    if (dir.isEmpty()) {
+        Session *currentSession = m_sessions.value(activeSessionId());
+        Terminal *currentTerminal = currentSession ? currentSession->getTerminal(currentSession->activeTerminalId()) : nullptr;
+        dir = currentTerminal ? currentTerminal->currentWorkingDirectory() : QString();
+    }
+
+    Session *session = new Session(dir, type, this);
     // clang-format off
     connect(session, SIGNAL(titleChanged(int,QString)), this, SIGNAL(titleChanged(int,QString)));
     connect(session, SIGNAL(terminalManuallyActivated(Terminal*)), this, SLOT(handleManualTerminalActivation(Terminal*)));
@@ -138,6 +142,19 @@ void SessionStack::removeSession(int sessionId)
 
     if (queryClose(sessionId, QueryCloseSession))
         m_sessions.value(sessionId)->deleteLater();
+}
+
+void SessionStack::removeAllSessions()
+{
+    // Deliberately skips queryClose(): restoring a saved session replaces the
+    // current state and the user confirmed that upfront.
+    const QList<int> sessionIds = m_sessions.keys();
+
+    for (int sessionId : sessionIds) {
+        Session *session = m_sessions.value(sessionId);
+        if (session)
+            session->deleteLater();
+    }
 }
 
 void SessionStack::removeTerminal(int terminalId)

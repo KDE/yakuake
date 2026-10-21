@@ -75,6 +75,10 @@ public:
 public Q_SLOTS:
     Q_SCRIPTABLE void toggleWindowState();
 
+    // Scriptable session management: no dialogs, no confirmation.
+    Q_SCRIPTABLE bool saveCurrentSession(const QString &name);
+    Q_SCRIPTABLE bool loadSavedSession(const QString &name);
+
     void handleContextDependentAction(QAction *action = nullptr, int sessionId = -1);
     void handleContextDependentToggleAction(bool checked, QAction *action = nullptr, int sessionId = -1);
     void handleToggleTerminalKeyboardInput(bool checked);
@@ -145,10 +149,16 @@ private Q_SLOTS:
     void firstRunDialogFinished();
     void firstRunDialogOk();
 
+    void saveSession();
+    void loadSession();
+
 private:
     void setupActions();
 
     void setupMenu();
+
+    bool saveSessionToFile(const QString &filePath, QString *errorMessage);
+    bool loadSessionFromFile(const QString &filePath, QString *errorMessage);
 
     void updateWindowSizeMenus();
     void updateWindowHeightMenu();
@@ -191,6 +201,11 @@ private:
     TitleBar *m_titleBar = nullptr;
     TabBar *m_tabBar = nullptr;
     SessionStack *m_sessionStack = nullptr;
+
+    // Set while a saved session replaces the current tabs, to keep the
+    // "last tab closed" handling from spawning a replacement tab or hiding
+    // the window in the middle of the restore.
+    bool m_sessionRestoreInProgress = false;
 
     QMenu *m_menu = nullptr;
     KHelpMenu *m_helpMenu = nullptr;

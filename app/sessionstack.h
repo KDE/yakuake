@@ -40,8 +40,17 @@ public:
 
     bool wantsBlur() const;
 
+    Session *session(int sessionId) const
+    {
+        return m_sessions.value(sessionId);
+    }
+
+    // Closes every session without asking; used when a saved session replaces
+    // the current state, which the user confirmed upfront.
+    void removeAllSessions();
+
 public Q_SLOTS:
-    int addSessionImpl(Session::SessionType type = Session::Single);
+    int addSessionImpl(Session::SessionType type = Session::Single, const QString &workingDir = QString());
     Q_SCRIPTABLE int addSession();
     Q_SCRIPTABLE int addSessionTwoHorizontal();
     Q_SCRIPTABLE int addSessionTwoVertical();

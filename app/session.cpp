@@ -8,9 +8,69 @@
 #include "session.h"
 #include "terminal.h"
 
+#include <QJsonArray>
+#include <QJsonValue>
+
 #include <algorithm>
 
 int Session::m_availableSessionId = 0;
+
+namespace
+{
+// Scales the sizes of a splitter down to proportions (summing up to 10000),
+// so they survive a change of screen or window geometry on restore.
+QJsonArray normalizedSizes(QSplitter *splitter)
+{
+    QJsonArray sizes;
+
+    const QList<int> currentSizes = splitter->sizes();
+
+    int total = 0;
+    for (int size : currentSizes)
+        total += size;
+
+    if (total <= 0)
+        return sizes;
+
+    int assigned = 0;
+
+    for (int i = 0; i < currentSizes.count(); i++) {
+        // The last entry takes the rounding error so the sum stays exact.
+        const int size = (i == currentSizes.count() - 1) ? qMax(10000 - assigned, 0) : qRound(10000.0 * currentSizes.at(i) / total);
+
+        sizes.append(size);
+        assigned += size;
+    }
+
+    return sizes;
+}
+
+void applySizes(QSplitter *splitter, const QJsonArray &sizes)
+{
+    if (sizes.size() != splitter->count())
+        return;
+
+    QList<int> newSizes;
+    newSizes.reserve(sizes.size());
+
+    int total = 0;
+
+    for (const QJsonValue &value : sizes) {
+        const int size = value.toInt();
+
+        if (size < 0)
+            return;
+
+        newSizes.append(size);
+        total += size;
+    }
+
+    if (total <= 0)
+        return;
+
+    splitter->setSizes(newSizes);
+}
+}
 
 Session::Session(const QString &workingDir, SessionType type, QWidget *parent)
     : QObject(parent)
@@ -624,6 +684,158 @@ bool Session::wantsBlur() const
         auto &[id, terminal] = it;
         return terminal->wantsBlur();
     });
+}
+
+QJsonObject Session::serializeLayout() const
+{
+    return serializeWidget(m_baseSplitter);
+}
+
+QJsonObject Session::serializeWidget(QWidget *widget) const
+{
+    if (!widget)
+        return {};
+
+    if (Splitter *splitter = qobject_cast<Splitter *>(widget)) {
+        if (splitter->count() == 0)
+            return {};
+
+        // A splitter with a single child does not affect the layout visually.
+        if (splitter->count() == 1)
+            return serializeWidget(splitter->widget(0));
+
+        QJsonObject node;
+        node[QStringLiteral("type")] = QStringLiteral("split");
+        node[QStringLiteral("orientation")] = (splitter->orientation() == Qt::Vertical) ? QStringLiteral("v") : QStringLiteral("h");
+        node[QStringLiteral("sizes")] = normalizedSizes(splitter);
+
+        QJsonArray children;
+        for (int i = 0; i < splitter->count(); i++) {
+            const QJsonObject child = serializeWidget(splitter->widget(i));
+            if (!child.isEmpty())
+                children.append(child);
+        }
+        node[QStringLiteral("children")] = children;
+
+        return node;
+    }
+
+    QJsonObject node;
+    node[QStringLiteral("type")] = QStringLiteral("terminal");
+
+    if (Terminal *terminal = terminalForWidget(widget)) {
+        const QString workingDirectory = terminal->currentWorkingDirectory();
+        if (!workingDirectory.isEmpty())
+            node[QStringLiteral("cwd")] = workingDirectory;
+    }
+
+    return node;
+}
+
+Terminal *Session::terminalForWidget(QWidget *widget) const
+{
+    if (!widget)
+        return nullptr;
+
+    for (const auto &[id, terminal] : m_terminals) {
+        if (terminal && terminal->partWidget() == widget)
+            return terminal.get();
+    }
+
+    return nullptr;
+}
+
+bool Session::restoreLayout(const QJsonObject &layout)
+{
+    if (!m_baseSplitter)
+        return false;
+
+    const QString type = layout.value(QStringLiteral("type")).toString();
+
+    // A single terminal needs no layout: the session was already created with
+    // the saved working directory, which only the constructor can set.
+    if (type == QLatin1String("terminal"))
+        return true;
+
+    if (type != QLatin1String("split") || m_baseSplitter->count() != 1)
+        return false;
+
+    // The terminal the session was created with is re-inserted at its saved
+    // position while walking the tree, so its working directory stays intact
+    // instead of spawning a duplicate terminal. QSplitter has no removeWidget,
+    // but addWidget() moves a widget that is already owned by a splitter, so
+    // no explicit detach is needed.
+    m_pendingRestoreTerminal = getTerminal(m_activeTerminalId);
+
+    if (!m_pendingRestoreTerminal || m_pendingRestoreTerminal->partWidget() != m_baseSplitter->widget(0))
+        m_pendingRestoreTerminal = nullptr;
+
+    const bool restored = restoreSplitterNode(layout, m_baseSplitter);
+
+    if (m_pendingRestoreTerminal) {
+        // The layout never consumed it; it is still a child of the base
+        // splitter, just keep the bookkeeping consistent.
+        m_pendingRestoreTerminal->setSplitter(m_baseSplitter);
+        m_pendingRestoreTerminal = nullptr;
+    }
+
+    return restored;
+}
+
+bool Session::restoreSplitterNode(const QJsonObject &node, Splitter *splitter)
+{
+    const QJsonArray children = node.value(QStringLiteral("children")).toArray();
+
+    if (children.isEmpty())
+        return false;
+
+    splitter->setOrientation((node.value(QStringLiteral("orientation")).toString() == QLatin1String("v")) ? Qt::Vertical : Qt::Horizontal);
+
+    for (const QJsonValue &child : children) {
+        const QJsonObject childNode = child.toObject();
+        const QString type = childNode.value(QStringLiteral("type")).toString();
+
+        if (type == QLatin1String("split")) {
+            const Qt::Orientation orientation = (childNode.value(QStringLiteral("orientation")).toString() == QLatin1String("v")) ? Qt::Vertical : Qt::Horizontal;
+
+            // As in split(), the constructor alone appends the new splitter at
+            // the end of the parent, which keeps the children in saved order.
+            auto *childSplitter = new Splitter(orientation, splitter);
+            connect(childSplitter, SIGNAL(destroyed()), this, SLOT(cleanup()));
+
+            restoreSplitterNode(childNode, childSplitter);
+            childSplitter->show();
+        } else if (type == QLatin1String("terminal")) {
+            if (QWidget *widget = restoreTerminalNode(childNode, splitter))
+                widget->show();
+        } else {
+            return false;
+        }
+    }
+
+    applySizes(splitter, node.value(QStringLiteral("sizes")).toArray());
+
+    return true;
+}
+
+QWidget *Session::restoreTerminalNode(const QJsonObject &node, QSplitter *parent)
+{
+    if (m_pendingRestoreTerminal) {
+        Terminal *terminal = m_pendingRestoreTerminal;
+        m_pendingRestoreTerminal = nullptr;
+
+        QWidget *widget = terminal->partWidget();
+        if (widget)
+            parent->addWidget(widget);
+
+        terminal->setSplitter(parent);
+
+        return widget;
+    }
+
+    Terminal *terminal = addTerminal(parent, node.value(QStringLiteral("cwd")).toString());
+
+    return terminal ? terminal->partWidget() : nullptr;
 }
 
 #include "moc_session.cpp"

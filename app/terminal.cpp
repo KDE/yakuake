@@ -300,6 +300,10 @@ void Terminal::silenceDetected()
 
 QString Terminal::currentWorkingDirectory() const
 {
+    // The part may have failed to load, in which case there is no interface.
+    if (!m_terminalInterface)
+        return QString();
+
     return m_terminalInterface->currentWorkingDirectory();
 }
 
