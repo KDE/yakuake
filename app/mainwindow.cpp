@@ -1273,6 +1273,24 @@ void MainWindow::_toggleWindowState()
             // will also cause the window manager to switch to the virtual
             // desktop the window resides on.
 
+            if (m_isWayland) {
+                // On Wayland, activating an existing window requires an XDG
+                // activation token, which we don't get when invoked through a
+                // global shortcut, so the compositor would ignore the request.
+                // Remap the window instead: newly mapped windows get focus.
+                sharedPreHideWindow();
+                hide();
+                delete m_plasmaShellSurface;
+                m_plasmaShellSurface = nullptr;
+
+                show();
+                connect(qGuiApp, &QGuiApplication::focusWindowChanged, this, &MainWindow::wmActiveWindowChanged);
+                applyWindowProperties();
+                initWaylandSurface();
+
+                return;
+            }
+
             KWindowSystem::activateWindow(windowHandle());
             if (KWindowSystem::isPlatformX11()) {
                 KX11Extras::forceActiveWindow(winId());
