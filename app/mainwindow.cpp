@@ -248,7 +248,10 @@ void MainWindow::setupActions()
     action->setText(xi18nc("@action", "Open/Retract Yakuake"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("yakuake")));
     KGlobalAccel::self()->setGlobalShortcut(action, QList<QKeySequence>() << QKeySequence(Qt::Key_F12));
-    connect(action, &QAction::triggered, this, &MainWindow::toggleWindowState);
+    connect(action, &QAction::triggered, this, [this, action]() {
+        m_activationToken = action->property("org.kde.kglobalaccel.activationToken").toString();
+        toggleWindowState();
+    });
     connect(action, &QAction::changed, this, &MainWindow::updateTrayTooltip);
     connect(KGlobalAccel::self(), &KGlobalAccel::globalShortcutChanged, this, &MainWindow::updateTrayTooltip);
     updateTrayTooltip();
@@ -1262,6 +1265,18 @@ void MainWindow::_toggleWindowState()
 {
     bool visible = isVisible();
 
+    // On Wayland, activating an existing window requires an XDG activation
+    // token. It comes either from the global shortcut, or from KDBusService
+    // when Yakuake is activated by e.g. launching it again. Consume it here so
+    // that a stale token is never used for a later toggle.
+    QString activationToken = std::exchange(m_activationToken, QString());
+    if (m_isWayland) {
+        if (activationToken.isEmpty()) {
+            activationToken = qEnvironmentVariable("XDG_ACTIVATION_TOKEN");
+        }
+        qunsetenv("XDG_ACTIVATION_TOKEN");
+    }
+
     if (visible && !isActiveWindow() && Settings::keepOpen()) {
         // Window is open but doesn't have focus; it's set to stay open
         // regardless of focus loss.
@@ -1273,24 +1288,9 @@ void MainWindow::_toggleWindowState()
             // will also cause the window manager to switch to the virtual
             // desktop the window resides on.
 
-            if (m_isWayland) {
-                // On Wayland, activating an existing window requires an XDG
-                // activation token, which we don't get when invoked through a
-                // global shortcut, so the compositor would ignore the request.
-                // Remap the window instead: newly mapped windows get focus.
-                sharedPreHideWindow();
-                hide();
-                delete m_plasmaShellSurface;
-                m_plasmaShellSurface = nullptr;
-
-                show();
-                connect(qGuiApp, &QGuiApplication::focusWindowChanged, this, &MainWindow::wmActiveWindowChanged);
-                applyWindowProperties();
-                initWaylandSurface();
-
-                return;
+            if (!activationToken.isEmpty()) {
+                KWindowSystem::setCurrentXdgActivationToken(activationToken);
             }
-
             KWindowSystem::activateWindow(windowHandle());
             if (KWindowSystem::isPlatformX11()) {
                 KX11Extras::forceActiveWindow(winId());

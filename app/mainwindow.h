@@ -211,6 +211,8 @@ private:
     bool m_isX11;
     bool m_isWayland;
 
+    QString m_activationToken;
+
     void initWayland();
     void initWaylandSurface();
     KWayland::Client::PlasmaShell *m_plasmaShell = nullptr;
