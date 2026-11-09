@@ -31,7 +31,7 @@ msgstr "Ukjend"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the skin archive to install"
-msgstr "Vel temaarkivet du vil installera"
+msgstr "Vel temaarkivet som du vil installera"
 
 #: app/config/appearancesettings.cpp:242
 #, kde-kuit-format
