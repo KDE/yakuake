@@ -44,6 +44,7 @@
 #include <QMenu>
 #include <QPainter>
 #include <QScreen>
+#include <QVarLengthArray>
 #include <QWhatsThis>
 #include <QWindow>
 
