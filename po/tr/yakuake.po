@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2026 Emir SARI <emir_sari@icloud.com>
 # Can Coşkuner <fethicanc@gmail.com>, 2007.
 # H. İbrahim Güngör <ibrahim@pardus.org.tr>, 2011.
 # İsmail Dönmez <ismail@pardus.org.tr>, 2006.
@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: extragear-utils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 03:02+0000\n"
-"PO-Revision-Date: 2026-05-02 19:56+0300\n"
+"PO-Revision-Date: 2026-11-23 18:16+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: app/config/appearancesettings.cpp:151
 #, kde-kuit-format
@@ -185,7 +185,7 @@ msgid ""
 "environment. The default skin supports translucency."
 msgstr ""
 "Yarısaydamlık, masaüstü ortamınızın desteğini gerektirdiği kadar, seçilen "
-"temanın da desteklemesini gerektirir. Öntanımlı tema, yarısaydamlığı "
+"temanın da desteklemesini gerektirir. Varsayılan tema, yarısaydamlığı "
 "destekler."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Translucency)
@@ -1151,7 +1151,7 @@ msgstr "Francois Chazal"
 #, kde-kuit-format
 msgctxt "@info:credit"
 msgid "Project Founder, Legacy skin (Inactive)"
-msgstr "Proje kurucusu, öntanımlı tema (etkin değil)"
+msgstr "Proje kurucusu, varsayılan tema (etkin değil)"
 
 #: app/main.cpp:38
 #, kde-kuit-format
