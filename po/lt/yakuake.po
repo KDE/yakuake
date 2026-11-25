@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 03:02+0000\n"
+"POT-Creation-Date: 2026-11-25 01:30+0000\n"
 "PO-Revision-Date: 2026-04-09 21:36+0300\n"
 "Last-Translator: Liudas Ališauskas <liudas@akmc.lt>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -374,7 +374,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "Ekranas %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:702
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:703
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1210,13 +1210,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "andrius@stikonas.eu, liudas@akmc.lt, <>"
 
-#: app/mainwindow.cpp:198
+#: app/mainwindow.cpp:199
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
 msgstr "Ar tikrai norite išjungti?"
 
-#: app/mainwindow.cpp:205
+#: app/mainwindow.cpp:206
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1228,7 +1228,7 @@ msgstr ""
 "užrakinę, kad neleistumėte netyčia jų užverti.</emphasis> Jei tęsite, jų "
 "darbas bus nutrauktas.</warning>"
 
-#: app/mainwindow.cpp:208
+#: app/mainwindow.cpp:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1238,7 +1238,7 @@ msgstr ""
 "<warning>Yra atverti keli seansai. Jei tęsite, jų darbas bus nutrauktas.</"
 "warning>"
 
-#: app/mainwindow.cpp:211
+#: app/mainwindow.cpp:212
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1248,300 +1248,300 @@ msgstr ""
 "<warning>Yra vienas ar daugiau seansų, kuriuos užrakinote, kad neleistumėte "
 "netyčia jų užverti. Jei tęsite, jų darbas bus nutrauktas.</warning>"
 
-#: app/mainwindow.cpp:217
+#: app/mainwindow.cpp:218
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
 msgstr "Tikrai išjungti?"
 
-#: app/mainwindow.cpp:248
+#: app/mainwindow.cpp:249
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
 msgstr "Atverti/Užverti Yakuake"
 
-#: app/mainwindow.cpp:257
+#: app/mainwindow.cpp:258
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
 msgstr "Palikti langą atvertą, kai prarandamas fokusavimas"
 
-#: app/mainwindow.cpp:262
+#: app/mainwindow.cpp:263
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
 msgstr "Tvarkyti profilius..."
 
-#: app/mainwindow.cpp:267
+#: app/mainwindow.cpp:268
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr "Taisyti dabartinį profilį..."
 
-#: app/mainwindow.cpp:275
+#: app/mainwindow.cpp:276
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "Padidinti lango plotį"
 
-#: app/mainwindow.cpp:280
+#: app/mainwindow.cpp:281
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "Sumažinti lango plotį"
 
-#: app/mainwindow.cpp:285
+#: app/mainwindow.cpp:286
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "Padidinti lango aukštį"
 
-#: app/mainwindow.cpp:290
+#: app/mainwindow.cpp:291
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "Sumažinti lango aukštį"
 
-#: app/mainwindow.cpp:295
+#: app/mainwindow.cpp:296
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "Naujas seansas"
 
-#: app/mainwindow.cpp:301
+#: app/mainwindow.cpp:302
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr "Du terminalai, horizontaliai"
 
-#: app/mainwindow.cpp:306
+#: app/mainwindow.cpp:307
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr "Du terminalai, vertikaliai"
 
-#: app/mainwindow.cpp:311
+#: app/mainwindow.cpp:312
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr "Keturi terminalai, tinklelis"
 
-#: app/mainwindow.cpp:316
+#: app/mainwindow.cpp:317
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "Užverti seansą"
 
-#: app/mainwindow.cpp:325
+#: app/mainwindow.cpp:326
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
 msgstr "Ankstesnis seansas"
 
-#: app/mainwindow.cpp:331
+#: app/mainwindow.cpp:332
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
 msgstr "Kitas seansas"
 
-#: app/mainwindow.cpp:337
+#: app/mainwindow.cpp:338
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
 msgstr "Perkelti seansą kairėn"
 
-#: app/mainwindow.cpp:346
+#: app/mainwindow.cpp:347
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
 msgstr "Perkelti seansą dešinėn"
 
-#: app/mainwindow.cpp:355
+#: app/mainwindow.cpp:356
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr "Didinti terminalą į dešinę"
 
-#: app/mainwindow.cpp:364
+#: app/mainwindow.cpp:365
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr "Didinti terminalą į kairę"
 
-#: app/mainwindow.cpp:373
+#: app/mainwindow.cpp:374
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr "Didinti terminalą į viršų"
 
-#: app/mainwindow.cpp:382
+#: app/mainwindow.cpp:383
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr "Didinti terminalą į apačią"
 
-#: app/mainwindow.cpp:391
+#: app/mainwindow.cpp:392
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
 msgstr "Pervadinti seansą..."
 
-#: app/mainwindow.cpp:400
+#: app/mainwindow.cpp:401
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr "Ankstesnis terminalas"
 
-#: app/mainwindow.cpp:406
+#: app/mainwindow.cpp:407
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr "Kitas terminalas"
 
-#: app/mainwindow.cpp:412
+#: app/mainwindow.cpp:413
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr "Užverti aktyvų terminalą"
 
-#: app/mainwindow.cpp:421
+#: app/mainwindow.cpp:422
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "Padalyti į kairę ir dešinę"
 
-#: app/mainwindow.cpp:430
+#: app/mainwindow.cpp:431
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "Padalyti į viršų ir apačią"
 
-#: app/mainwindow.cpp:439
+#: app/mainwindow.cpp:440
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Automatically"
 msgstr "Padalyti automatiškai"
 
-#: app/mainwindow.cpp:448
+#: app/mainwindow.cpp:449
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "Neleisti užverti"
 
-#: app/mainwindow.cpp:456 app/tabbar.cpp:190
+#: app/mainwindow.cpp:457 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "Išjungti įvedimą klaviatūra"
 
-#: app/mainwindow.cpp:464 app/tabbar.cpp:235
+#: app/mainwindow.cpp:465 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "Stebėti, ar yra veikla"
 
-#: app/mainwindow.cpp:473 app/tabbar.cpp:280
+#: app/mainwindow.cpp:474 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "Stebėti, ar yra pasyvumas"
 
-#: app/mainwindow.cpp:482
+#: app/mainwindow.cpp:483
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr "Perjungti antraštės juostą"
 
-#: app/mainwindow.cpp:489
+#: app/mainwindow.cpp:490
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "Perjungti į seansą %1"
 
-#: app/mainwindow.cpp:644
+#: app/mainwindow.cpp:645
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "Stebimame terminale, seanse „%1“, pastebėta veikla."
 
-#: app/mainwindow.cpp:658
+#: app/mainwindow.cpp:659
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "Stebimame terminale, seanse „%1“, pastebėtas pasyvumas."
 
-#: app/mainwindow.cpp:717
+#: app/mainwindow.cpp:718
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Pagalba"
 
-#: app/mainwindow.cpp:723
+#: app/mainwindow.cpp:724
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Greitos parinktys"
 
-#: app/mainwindow.cpp:729
+#: app/mainwindow.cpp:730
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Ekranas"
 
-#: app/mainwindow.cpp:734
+#: app/mainwindow.cpp:735
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Plotis"
 
-#: app/mainwindow.cpp:739
+#: app/mainwindow.cpp:740
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Aukštis"
 
-#: app/mainwindow.cpp:742
+#: app/mainwindow.cpp:743
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Nuostatos"
 
-#: app/mainwindow.cpp:758
+#: app/mainwindow.cpp:759
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "Pelės vietoje"
 
-#: app/mainwindow.cpp:764
+#: app/mainwindow.cpp:765
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Ekranas %1"
 
-#: app/mainwindow.cpp:800 app/mainwindow.cpp:822
+#: app/mainwindow.cpp:801 app/mainwindow.cpp:823
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: app/mainwindow.cpp:887
+#: app/mainwindow.cpp:888
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Langas"
 
-#: app/mainwindow.cpp:893
+#: app/mainwindow.cpp:894
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Elgsena"
 
-#: app/mainwindow.cpp:896
+#: app/mainwindow.cpp:897
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Išvaizda"
 
-#: app/mainwindow.cpp:978
+#: app/mainwindow.cpp:979
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1551,13 +1551,13 @@ msgstr ""
 "<application>Yakuake</application> nepavyko įkelti apipavidalinimo. "
 "Tikėtina, kad buvo neteisingai įdiegtas.<nl/><nl/>Dabar programa išsijungs."
 
-#: app/mainwindow.cpp:980
+#: app/mainwindow.cpp:981
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Nepavyksta įkelti apipavidalinimo"
 
-#: app/mainwindow.cpp:1735
+#: app/mainwindow.cpp:1736
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"

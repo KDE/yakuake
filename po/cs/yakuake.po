@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 03:02+0000\n"
+"POT-Creation-Date: 2026-11-25 01:30+0000\n"
 "PO-Revision-Date: 2026-05-21 23:44+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -365,7 +365,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "Obrazovka %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:702
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:703
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1198,13 +1198,13 @@ msgstr ""
 "vit@pelcak.org,david@kolibac.cz,tomas.chvatal@gmail.com,libor.filipek@gmail."
 "com"
 
-#: app/mainwindow.cpp:198
+#: app/mainwindow.cpp:199
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
 msgstr "Opravdu si přejete skončit?"
 
-#: app/mainwindow.cpp:205
+#: app/mainwindow.cpp:206
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1216,7 +1216,7 @@ msgstr ""
 "pro zabránění jejich náhodnému zavření.</emphasis> Tato budou ukončena, "
 "pokud budete pokračovat.</warning>"
 
-#: app/mainwindow.cpp:208
+#: app/mainwindow.cpp:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1226,7 +1226,7 @@ msgstr ""
 "<warning>Máte otevřeno více sezení. Tato budou ukončena, pokud budete "
 "pokračovat.</warning>"
 
-#: app/mainwindow.cpp:211
+#: app/mainwindow.cpp:212
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1237,300 +1237,300 @@ msgstr ""
 "zabránění jejich náhodnému zavření. Tato budou ukončena, pokud budete "
 "pokračovat.</warning>"
 
-#: app/mainwindow.cpp:217
+#: app/mainwindow.cpp:218
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
 msgstr "Opravdu ukončit?"
 
-#: app/mainwindow.cpp:248
+#: app/mainwindow.cpp:249
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
 msgstr "Vysunout/zasunout Yakuake"
 
-#: app/mainwindow.cpp:257
+#: app/mainwindow.cpp:258
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
 msgstr "Ponechat okno otevřené i po přepnutí do jiného okna"
 
-#: app/mainwindow.cpp:262
+#: app/mainwindow.cpp:263
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
 msgstr "Spravovat profily..."
 
-#: app/mainwindow.cpp:267
+#: app/mainwindow.cpp:268
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr "Upravit současný profil..."
 
-#: app/mainwindow.cpp:275
+#: app/mainwindow.cpp:276
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "Zvětšit šířku okna"
 
-#: app/mainwindow.cpp:280
+#: app/mainwindow.cpp:281
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "Zmenšit šířku okna"
 
-#: app/mainwindow.cpp:285
+#: app/mainwindow.cpp:286
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "Zvýšit výšku okna"
 
-#: app/mainwindow.cpp:290
+#: app/mainwindow.cpp:291
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "Snížit výšku okna"
 
-#: app/mainwindow.cpp:295
+#: app/mainwindow.cpp:296
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "Nové sezení"
 
-#: app/mainwindow.cpp:301
+#: app/mainwindow.cpp:302
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr "Dva terminály vodorovně"
 
-#: app/mainwindow.cpp:306
+#: app/mainwindow.cpp:307
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr "Dva terminály svisle"
 
-#: app/mainwindow.cpp:311
+#: app/mainwindow.cpp:312
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr "Čtyři terminály v mřížce"
 
-#: app/mainwindow.cpp:316
+#: app/mainwindow.cpp:317
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "Ukončit sezení"
 
-#: app/mainwindow.cpp:325
+#: app/mainwindow.cpp:326
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
 msgstr "Předchozí sezení"
 
-#: app/mainwindow.cpp:331
+#: app/mainwindow.cpp:332
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
 msgstr "Následující sezení"
 
-#: app/mainwindow.cpp:337
+#: app/mainwindow.cpp:338
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
 msgstr "Posunout sezení doleva"
 
-#: app/mainwindow.cpp:346
+#: app/mainwindow.cpp:347
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
 msgstr "Posunout sezení doprava"
 
-#: app/mainwindow.cpp:355
+#: app/mainwindow.cpp:356
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr "Zvětšit terminál doprava"
 
-#: app/mainwindow.cpp:364
+#: app/mainwindow.cpp:365
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr "Zvětšit terminál doleva"
 
-#: app/mainwindow.cpp:373
+#: app/mainwindow.cpp:374
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr "Zvětšit terminál nahoru"
 
-#: app/mainwindow.cpp:382
+#: app/mainwindow.cpp:383
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr "Zvětšit terminál dolů"
 
-#: app/mainwindow.cpp:391
+#: app/mainwindow.cpp:392
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
 msgstr "Přejmenovat sezení..."
 
-#: app/mainwindow.cpp:400
+#: app/mainwindow.cpp:401
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr "Předchozí terminál"
 
-#: app/mainwindow.cpp:406
+#: app/mainwindow.cpp:407
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr "Následující terminál"
 
-#: app/mainwindow.cpp:412
+#: app/mainwindow.cpp:413
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr "Zavřít aktivní terminál"
 
-#: app/mainwindow.cpp:421
+#: app/mainwindow.cpp:422
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "Rozdělit levý/pravý"
 
-#: app/mainwindow.cpp:430
+#: app/mainwindow.cpp:431
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "Rozdělit horní/dolní"
 
-#: app/mainwindow.cpp:439
+#: app/mainwindow.cpp:440
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Automatically"
 msgstr "Automaticky rozdělit"
 
-#: app/mainwindow.cpp:448
+#: app/mainwindow.cpp:449
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "Zabránit zavření"
 
-#: app/mainwindow.cpp:456 app/tabbar.cpp:190
+#: app/mainwindow.cpp:457 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "Zakázat vstup z klávesnice"
 
-#: app/mainwindow.cpp:464 app/tabbar.cpp:235
+#: app/mainwindow.cpp:465 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "Detekovat aktivitu"
 
-#: app/mainwindow.cpp:473 app/tabbar.cpp:280
+#: app/mainwindow.cpp:474 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "Detekovat nečinnost"
 
-#: app/mainwindow.cpp:482
+#: app/mainwindow.cpp:483
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr "Přepnout titulkový pruh"
 
-#: app/mainwindow.cpp:489
+#: app/mainwindow.cpp:490
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "Přepnout do sezení %1"
 
-#: app/mainwindow.cpp:644
+#: app/mainwindow.cpp:645
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "Zjištěna aktivita na sledovaném terminálu v sezení \"%1\"."
 
-#: app/mainwindow.cpp:658
+#: app/mainwindow.cpp:659
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "Zjištěna nečinnost na sledovaném terminálu v sezení \"%1\"."
 
-#: app/mainwindow.cpp:717
+#: app/mainwindow.cpp:718
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Nápověda"
 
-#: app/mainwindow.cpp:723
+#: app/mainwindow.cpp:724
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Rychlé volby"
 
-#: app/mainwindow.cpp:729
+#: app/mainwindow.cpp:730
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Plocha"
 
-#: app/mainwindow.cpp:734
+#: app/mainwindow.cpp:735
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Šířka"
 
-#: app/mainwindow.cpp:739
+#: app/mainwindow.cpp:740
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Výška"
 
-#: app/mainwindow.cpp:742
+#: app/mainwindow.cpp:743
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Nastavení"
 
-#: app/mainwindow.cpp:758
+#: app/mainwindow.cpp:759
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "V místě ukazatele myši"
 
-#: app/mainwindow.cpp:764
+#: app/mainwindow.cpp:765
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Obrazovka %1"
 
-#: app/mainwindow.cpp:800 app/mainwindow.cpp:822
+#: app/mainwindow.cpp:801 app/mainwindow.cpp:823
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: app/mainwindow.cpp:887
+#: app/mainwindow.cpp:888
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Okno"
 
-#: app/mainwindow.cpp:893
+#: app/mainwindow.cpp:894
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Chování"
 
-#: app/mainwindow.cpp:896
+#: app/mainwindow.cpp:897
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Vzhled"
 
-#: app/mainwindow.cpp:978
+#: app/mainwindow.cpp:979
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1540,13 +1540,13 @@ msgstr ""
 "Aplikace <application>Yakuake</application> nebyla schopna načíst vzhled. "
 "Nejspíš nebyl korektně nainstalován.<nl/><nl/>Aplikace bude nyní ukončena."
 
-#: app/mainwindow.cpp:980
+#: app/mainwindow.cpp:981
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Nelze načíst vzhled"
 
-#: app/mainwindow.cpp:1735
+#: app/mainwindow.cpp:1736
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"

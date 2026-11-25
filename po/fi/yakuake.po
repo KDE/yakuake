@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 03:02+0000\n"
+"POT-Creation-Date: 2026-11-25 01:30+0000\n"
 "PO-Revision-Date: 2025-01-31 22:32+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -365,7 +365,7 @@ msgctxt "@item:inlistbox"
 msgid "Screen %1"
 msgstr "Näytölle %1"
 
-#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:702
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:703
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Hiding Title Bar"
@@ -1195,13 +1195,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "translator@legisign.org"
 
-#: app/mainwindow.cpp:198
+#: app/mainwindow.cpp:199
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Are you sure you want to quit?"
 msgstr "Haluatko varmasti lopettaa?"
 
-#: app/mainwindow.cpp:205
+#: app/mainwindow.cpp:206
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1213,7 +1213,7 @@ msgstr ""
 "jottei niitä suljettaisi vahingossa</emphasis>. Nämä suljetaan väkisin, jos "
 "jatkat.</warning>"
 
-#: app/mainwindow.cpp:208
+#: app/mainwindow.cpp:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1223,7 +1223,7 @@ msgstr ""
 "<warning>Useampia istuntoja on auki. Nämä suljetaan väkisin, jos jatkat.</"
 "warning>"
 
-#: app/mainwindow.cpp:211
+#: app/mainwindow.cpp:212
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1233,301 +1233,301 @@ msgstr ""
 "<warning>Yksi tai useampia istuntoja on lukittu, jottei niitä suljettaisi "
 "vahingossa. Nämä suljetaan väkisin, jos jatkat.</warning>"
 
-#: app/mainwindow.cpp:217
+#: app/mainwindow.cpp:218
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Really Quit?"
 msgstr "Lopetetaanko varmasti?"
 
-#: app/mainwindow.cpp:248
+#: app/mainwindow.cpp:249
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Open/Retract Yakuake"
 msgstr "Avaa tai sulje Yakuake-ikkuna"
 
-#: app/mainwindow.cpp:257
+#: app/mainwindow.cpp:258
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Keep window open when it loses focus"
 msgstr "Pidä ikkuna auki sen menettäessä kohdistuksen"
 
-#: app/mainwindow.cpp:262
+#: app/mainwindow.cpp:263
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Manage Profiles..."
 msgstr "Hallitse profiileja…"
 
-#: app/mainwindow.cpp:267
+#: app/mainwindow.cpp:268
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Edit Current Profile..."
 msgstr "Muokkaa nykyistä profiilia…"
 
-#: app/mainwindow.cpp:275
+#: app/mainwindow.cpp:276
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Width"
 msgstr "Kasvata ikkunan leveyttä"
 
-#: app/mainwindow.cpp:280
+#: app/mainwindow.cpp:281
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Width"
 msgstr "Vähennä ikkunan leveyttä"
 
-#: app/mainwindow.cpp:285
+#: app/mainwindow.cpp:286
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Increase Window Height"
 msgstr "Kasvata ikkunan korkeutta"
 
-#: app/mainwindow.cpp:290
+#: app/mainwindow.cpp:291
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Decrease Window Height"
 msgstr "Vähennä ikkunan korkeutta"
 
-#: app/mainwindow.cpp:295
+#: app/mainwindow.cpp:296
 #, kde-kuit-format
 msgctxt "@action"
 msgid "New Session"
 msgstr "Uusi istunto"
 
-#: app/mainwindow.cpp:301
+#: app/mainwindow.cpp:302
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Horizontally"
 msgstr "Kaksi päätettä vaakasuunnassa"
 
-#: app/mainwindow.cpp:306
+#: app/mainwindow.cpp:307
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Two Terminals, Vertically"
 msgstr "Kaksi päätettä pystysuunnassa"
 
-#: app/mainwindow.cpp:311
+#: app/mainwindow.cpp:312
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Four Terminals, Grid"
 msgstr "Neljä päätettä ruudukkona"
 
-#: app/mainwindow.cpp:316
+#: app/mainwindow.cpp:317
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Session"
 msgstr "Sulje istunto"
 
-#: app/mainwindow.cpp:325
+#: app/mainwindow.cpp:326
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Session"
 msgstr "Edellinen istunto"
 
-#: app/mainwindow.cpp:331
+#: app/mainwindow.cpp:332
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Session"
 msgstr "Seuraava istunto"
 
-#: app/mainwindow.cpp:337
+#: app/mainwindow.cpp:338
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Left"
 msgstr "Siirrä istuntoa vasemmas"
 
-#: app/mainwindow.cpp:346
+#: app/mainwindow.cpp:347
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Move Session Right"
 msgstr "Siirrä istuntoa oikeammas"
 
 # *** TARKISTA: En löydä Yakuakesta ainuttakaan näistä Grow Terminal to the... -toiminnoista!
-#: app/mainwindow.cpp:355
+#: app/mainwindow.cpp:356
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Right"
 msgstr "Suurenna pääte oikealle"
 
-#: app/mainwindow.cpp:364
+#: app/mainwindow.cpp:365
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Left"
 msgstr "Suurenna pääte vasemmalle"
 
-#: app/mainwindow.cpp:373
+#: app/mainwindow.cpp:374
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Top"
 msgstr "Suurenna pääte ylös asti"
 
-#: app/mainwindow.cpp:382
+#: app/mainwindow.cpp:383
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Grow Terminal to the Bottom"
 msgstr "Suurenna pääte alas asti"
 
-#: app/mainwindow.cpp:391
+#: app/mainwindow.cpp:392
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Rename Session..."
 msgstr "Muuta istunnon nimeä…"
 
-#: app/mainwindow.cpp:400
+#: app/mainwindow.cpp:401
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Previous Terminal"
 msgstr "Edellinen pääte"
 
-#: app/mainwindow.cpp:406
+#: app/mainwindow.cpp:407
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Next Terminal"
 msgstr "Seuraava pääte"
 
-#: app/mainwindow.cpp:412
+#: app/mainwindow.cpp:413
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Close Active Terminal"
 msgstr "Sulje aktiivinen pääte"
 
-#: app/mainwindow.cpp:421
+#: app/mainwindow.cpp:422
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Left/Right"
 msgstr "Jaa vasempaan ja oikeaan osaan"
 
-#: app/mainwindow.cpp:430
+#: app/mainwindow.cpp:431
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Top/Bottom"
 msgstr "Jaa ylempään ja alempaan osaan"
 
-#: app/mainwindow.cpp:439
+#: app/mainwindow.cpp:440
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Split Automatically"
 msgstr "Jaa automaattisesti"
 
-#: app/mainwindow.cpp:448
+#: app/mainwindow.cpp:449
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Prevent Closing"
 msgstr "Estä sulkeminen"
 
-#: app/mainwindow.cpp:456 app/tabbar.cpp:190
+#: app/mainwindow.cpp:457 app/tabbar.cpp:190
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Disable Keyboard Input"
 msgstr "Estä näppäinsyöte"
 
-#: app/mainwindow.cpp:464 app/tabbar.cpp:235
+#: app/mainwindow.cpp:465 app/tabbar.cpp:235
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Activity"
 msgstr "Tarkkailu aktiivisuutta"
 
-#: app/mainwindow.cpp:473 app/tabbar.cpp:280
+#: app/mainwindow.cpp:474 app/tabbar.cpp:280
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Monitor for Silence"
 msgstr "Tarkkaile hiljaisuutta"
 
-#: app/mainwindow.cpp:482
+#: app/mainwindow.cpp:483
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Toggle Titlebar"
 msgstr "Näytä tai piilota otsikkopalkki"
 
-#: app/mainwindow.cpp:489
+#: app/mainwindow.cpp:490
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Switch to Session %1"
 msgstr "Vaihda istuntoon %1"
 
-#: app/mainwindow.cpp:644
+#: app/mainwindow.cpp:645
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Activity detected in monitored terminal in session \"%1\"."
 msgstr "Havaittiin tarkkaillun päätteen aktiivisuus istunnossa ”%1”."
 
-#: app/mainwindow.cpp:658
+#: app/mainwindow.cpp:659
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Silence detected in monitored terminal in session \"%1\"."
 msgstr "Havaittiin tarkkaillun päätteen hiljaisuus istunnossa ”%1”."
 
-#: app/mainwindow.cpp:717
+#: app/mainwindow.cpp:718
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Help"
 msgstr "Ohje"
 
-#: app/mainwindow.cpp:723
+#: app/mainwindow.cpp:724
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Quick Options"
 msgstr "Pikavalinnat"
 
-#: app/mainwindow.cpp:729
+#: app/mainwindow.cpp:730
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Screen"
 msgstr "Näyttö"
 
-#: app/mainwindow.cpp:734
+#: app/mainwindow.cpp:735
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Width"
 msgstr "Leveys"
 
-#: app/mainwindow.cpp:739
+#: app/mainwindow.cpp:740
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Height"
 msgstr "Korkeus"
 
-#: app/mainwindow.cpp:742
+#: app/mainwindow.cpp:743
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "Settings"
 msgstr "Asetukset"
 
-#: app/mainwindow.cpp:758
+#: app/mainwindow.cpp:759
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "At mouse location"
 msgstr "Hiirikohdistimen kohdalla"
 
-#: app/mainwindow.cpp:764
+#: app/mainwindow.cpp:765
 #, kde-kuit-format
 msgctxt "@item:inmenu"
 msgid "Screen %1"
 msgstr "Näyttö %1"
 
-#: app/mainwindow.cpp:800 app/mainwindow.cpp:822
+#: app/mainwindow.cpp:801 app/mainwindow.cpp:823
 #, kde-format
 msgid "%1%"
 msgstr "%1 %"
 
-#: app/mainwindow.cpp:887
+#: app/mainwindow.cpp:888
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Window"
 msgstr "Ikkuna"
 
-#: app/mainwindow.cpp:893
+#: app/mainwindow.cpp:894
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Behavior"
 msgstr "Toiminta"
 
-#: app/mainwindow.cpp:896
+#: app/mainwindow.cpp:897
 #, kde-kuit-format
 msgctxt "@title Preferences page name"
 msgid "Appearance"
 msgstr "Ulkoasu"
 
-#: app/mainwindow.cpp:978
+#: app/mainwindow.cpp:979
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1537,13 +1537,13 @@ msgstr ""
 "<application>Yakuake</application> ei onnistunut lataamaan teema. Se on "
 "todennäköisesti asennettu väärin.<nl/><nl/>Sovellus lopetetaan nyt."
 
-#: app/mainwindow.cpp:980
+#: app/mainwindow.cpp:981
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Load Skin"
 msgstr "Teemaa ei voi ladata"
 
-#: app/mainwindow.cpp:1735
+#: app/mainwindow.cpp:1736
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Press <shortcut>%1</shortcut> to open"
