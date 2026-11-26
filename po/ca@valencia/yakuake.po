@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: yakuake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 00:17+0000\n"
-"PO-Revision-Date: 2026-09-06 16:38+0200\n"
+"PO-Revision-Date: 2026-11-25 17:12+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -898,8 +898,8 @@ msgid ""
 "skin and hide all borders."
 msgstr ""
 "Les aparences poden definir vores al voltant del terminal, incloent-hi la "
-"barra de pestanyes. Esta opció, quan està acivada, sobreescriurà la "
-"configuració de la vora definida per l'aparença i ocultarà totes les vores."
+"barra de pestanyes. Esta opció, quan es marca, sobreescriurà la configuració "
+"de la vora definida per l'aparença i ocultarà totes les vores."
 
 #. i18n: ectx: label, entry (TerminalHighlightOpacity), group (Appearance)
 #: app/config/yakuake.kcfg:136
@@ -1530,7 +1530,7 @@ msgstr "Pantalla %1"
 #: app/mainwindow.cpp:800 app/mainwindow.cpp:822
 #, kde-format
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: app/mainwindow.cpp:887
 #, kde-kuit-format
